@@ -1,0 +1,164 @@
+{
+    "name": "laravel/laravel",
+    "type": "project",
+    "description": "The Laravel Framework.",
+    "keywords": [
+        "framework",
+        "laravel"
+    ],
+    "license": "MIT",
+    "repositories": [
+        {
+            "type": "github",
+            "url": "https://github.com/lotfull/nova-dependency-container"
+        },
+        {
+            "type": "composer",
+            "url": "https://mbaldwin@cchampions.com:Mb904658@nova.laravel.com"
+        },
+        {
+            "type": "path",
+            "url": "./nova-components/CommunityStatusTable"
+        },
+        {
+            "type": "path",
+            "url": "./nova-components/RentalMapField"
+        },
+        {
+            "type": "path",
+            "url": "./nova-components/CommunityDashboard"
+        },
+        {
+            "type": "path",
+            "url": "./nova-components/Communitysharelink"
+        },
+        {
+            "type": "path",
+            "url": "./nova-components/CommunityListDashboard"
+        },
+        {
+            "type": "path",
+            "url": "./nova-components/StateCounty"
+        },
+        {
+            "type": "path",
+            "url": "./nova-components/CommunityFilter"
+        },
+        {
+            "type": "path",
+            "url": "./nova-components/CommunitySummary"
+        },
+        {
+            "type": "path",
+            "url": "./nova-components/BulkId"
+        },
+        {
+            "type": "path",
+            "url": "./nova-components/NovaClickableRow"
+        }
+    ],
+    "require": {
+        "php": "^7.2",
+        "ext-json": "^1.6",
+        "ext-pdo": "*",
+        "ajimix/asana-api-php-class": "^6.4",
+        "algolia/algoliasearch-client-php": "^2.3",
+        "bolechen/nova-activitylog": "^0.1.3",
+        "davidpiesse/nova-toggle": "^0.0.6",
+        "dillingham/nova-ajax-select": "^1.0",
+        "dillingham/nova-button": "^1.0",
+        "dkulyk/nova-dependent-filter": "^1.0",
+        "dniccum/phone-number": "^1.0",
+        "doctrine/dbal": "^2.9",
+        "ebess/nova-collapsible-sidebar": "^0.1.2",
+        "eminiarts/nova-tabs": "^1.0",
+        "fideloper/proxy": "^4.0",
+        "gregoriohc/laravel-nova-theme-responsive": "^0.6.1",
+        "guzzlehttp/guzzle": "^6.3",
+        "inspheric/nova-defaultable": "^1.2",
+        "inspheric/nova-email-field": "^1.3",
+        "inspheric/nova-url-field": "^1.1",
+        "jobcerto/nova-grid": "^1.0",
+        "kabbouchi/nova-impersonate": "^1.0",
+        "kabbouchi/nova-logs-tool": "^0.1.1",
+        "laravel/framework": "^6.0",
+        "laravel/helpers": "^1.1",
+        "laravel/horizon": "^3.3.2",
+        "laravel/nova": "^2.1.1",
+        "laravel/passport": "^7.3.3",
+        "laravel/scout": "^7.1.3",
+        "laravel/socialite": "^4.2",
+        "laravel/telescope": "^2.0",
+        "laravel/tinker": "^1.0",
+        "laravel/vapor-cli": "^1.2",
+        "laravel/vapor-core": "^2.0",
+        "league/flysystem-aws-s3-v3": "~1.0",
+        "maatwebsite/laravel-nova-excel": "1.1.6",
+        "mad-web/nova-horizon-link": "^3.0.1",
+        "mad-web/nova-telescope-link": "^2.0",
+        "manmohanjit/nova-belongs-to-dependency": "^1.1",
+        "optimistdigital/nova-multiselect-field": "^1.1",
+        "orlyapps/nova-belongsto-depend": "^2.0",
+        "outhebox/nova-hidden-field": "^1.0",
+        "predis/predis": "^1.1",
+        "prochamps/RentalMapField": "*",
+        "prochamps/bulk-id": "*",
+        "prochamps/community-dashboard": "*",
+        "prochamps/community-filter": "*",
+        "prochamps/community-list-dashboard": "*",
+        "prochamps/community-summary": "*",
+        "prochamps/communitysharelink": "*",
+        "saumini/ellipsis-textarea": "^1.0",
+        "silvanite/novatoolpermissions": "^1.0",
+        "stephenlake/laravel-approval": "^1.1"
+    },
+    "require-dev": {
+        "barryvdh/laravel-ide-helper": "^2.6",
+        "fzaninotto/faker": "^1.4",
+        "mockery/mockery": "^1.0",
+        "nunomaduro/collision": "^3.0",
+        "facade/ignition": "^1.4"
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "platform": {
+            "ext-pcntl": "7.2",
+            "ext-posix": "7.2"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "dont-discover": []
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        },
+        "classmap": [
+            "database/seeds",
+            "database/factories"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "scripts": {
+        "post-autoload-dump": [
+            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+            "@php artisan package:discover --ansi"
+        ],
+        "post-root-package-install": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ],
+        "post-create-project-cmd": [
+            "@php artisan key:generate --ansi"
+        ]
+    }
+}

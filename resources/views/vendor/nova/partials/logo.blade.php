@@ -1,0 +1,1 @@
+<img src="{{asset('logoProchamps_letteringWhite.png')}}" class="py-4" alt="Prochamps">

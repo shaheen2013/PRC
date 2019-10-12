@@ -1,0 +1,48 @@
+{
+    "private": true,
+    "scripts": {
+        "dev": "npm run development",
+        "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+        "watch": "npm run development -- --watch",
+        "watch-poll": "npm run watch -- --watch-poll",
+        "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+        "prod": "npm run production",
+        "build-CommunityStatusTable": "cd nova-components/CommunityStatusTable && npm run dev",
+        "build-CommunityStatusTable-prod": "cd nova-components/CommunityStatusTable && npm run prod",
+        "build-RentalMapField": "cd nova-components/RentalMapField && npm run dev",
+        "build-RentalMapField-prod": "cd nova-components/RentalMapField && npm run prod",
+        "build-community-dashboard": "cd nova-components/CommunityDashboard && npm run dev",
+        "build-community-dashboard-prod": "cd nova-components/CommunityDashboard && npm run prod",
+        "build-communitysharelink": "cd nova-components/Communitysharelink && npm run dev",
+        "build-communitysharelink-prod": "cd nova-components/Communitysharelink && npm run prod",
+        "build-community-list-dashboard": "cd nova-components/CommunityListDashboard && npm run dev",
+        "build-community-list-dashboard-prod": "cd nova-components/CommunityListDashboard && npm run prod",
+        "build-state-county": "cd nova-components/StateCounty && npm run dev",
+        "build-state-county-prod": "cd nova-components/StateCounty && npm run prod",
+        "build-community-filter": "cd nova-components/CommunityFilter && npm run dev",
+        "build-community-filter-prod": "cd nova-components/CommunityFilter && npm run prod",
+        "build-community-summary": "cd nova-components/CommunitySummary && npm run dev",
+        "build-community-summary-prod": "cd nova-components/CommunitySummary && npm run prod",
+        "build-bulk-id": "cd nova-components/BulkId && npm run dev",
+        "build-bulk-id-prod": "cd nova-components/BulkId && npm run prod",
+        "build-nova-clickable-row": "cd nova-components/NovaClickableRow && npm run dev",
+        "build-nova-clickable-row-prod": "cd nova-components/NovaClickableRow && npm run prod"
+    },
+    "devDependencies": {
+        "axios": "^0.18.1",
+        "bootstrap": "^4.3.1",
+        "cross-env": "^5.1",
+        "jquery": "^3.4.1",
+        "laravel-mix": "^4.1.2",
+        "lodash": "^4.17.15",
+        "popper.js": "^1.15.0",
+        "resolve-url-loader": "^2.3.2",
+        "sass": "^1.22.9",
+        "sass-loader": "^7.1.0"
+    },
+    "dependencies": {
+        "sweetalert2": "^8.15.2",
+        "vue": "^2.6.10",
+        "vue-template-compiler": "^2.6.10"
+    }
+}
