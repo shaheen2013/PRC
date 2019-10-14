@@ -16,17 +16,17 @@ class CreateSalesActivitiesTable extends Migration
         Schema::connection('mysql_dev')->create('cm_sales_activities', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('community_id');
-            /*$table->foreign('community_id')
+            $table->foreign('community_id')
                 ->references('COMMUNITYID')->on('osusr_mlv_community')
-                ->onDelete('cascade');*/
+                ->onDelete('cascade');
             $table->integer('sales_cycle_id')->unsigned();
-            /*$table->foreign('sales_cycle_id')
+            $table->foreign('sales_cycle_id')
                 ->references('id')->on('cm_sales_cycles')
-                ->onDelete('cascade');*/
+                ->onDelete('cascade');
             $table->integer('contact_id')->unsigned();
-            /*$table->foreign('contact_id')
+            $table->foreign('contact_id')
                 ->references('id')->on('cm_contacts')
-                ->onDelete('cascade');*/
+                ->onDelete('cascade');
             $table->tinyInteger('deal_type');
             $table->text('subject');
             $table->longText('body');

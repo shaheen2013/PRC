@@ -15,15 +15,15 @@ class CreateCmContactRoleTable extends Migration
     {
         Schema::connection('mysql_dev')->create('cm_contact_role', function (Blueprint $table) {
             $table->integer('contact_id')->unsigned();
-            /*$table->foreign('contact_id')
+            $table->foreign('contact_id')
                 ->references('id')
                 ->on('cm_contacts')
-                ->onDelete('cascade');*/
+                ->onDelete('cascade');
             $table->integer('role_id')->unsigned();
-            /*$table->foreign('role_id')
+            $table->foreign('role_id')
                 ->references('id')
                 ->on('cm_peoples_roles')
-                ->onDelete('cascade');*/
+                ->onDelete('cascade');
         });
     }
 

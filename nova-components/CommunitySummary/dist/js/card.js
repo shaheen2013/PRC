@@ -1546,6 +1546,11 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                 console.log(response.data);
                 _this4.latestActivity = response.data;
             });
+        },
+        getProjects: function getProjects() {
+            Nova.request().get('/api/asana/project/').then(function (response) {
+                console.log(response);
+            });
         }
     },
     created: function created() {
@@ -1565,6 +1570,9 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
         });
         this.getLatestActivity();
         this.getPendingChangeCount();
+    },
+    mounted: function mounted() {
+        this.getProjects();
     }
 });
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(12).Buffer))
@@ -14298,7 +14306,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "flex items-center mb-3" }, [
       _c("h1", { staticClass: "flex-no-shrink text-90 font-normal text-2xl" }, [
-        _vm._v("Tasks/Projects")
+        _vm._v("Tasks/Projects Amieami")
       ])
     ])
   },

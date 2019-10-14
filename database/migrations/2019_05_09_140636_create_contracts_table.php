@@ -16,9 +16,9 @@ class CreateContractsTable extends Migration
         Schema::connection('mysql_dev')->create('cm_contracts', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('community_id');
-//            $table->foreign('community_id')
-//                ->references('COMMUNITYID')->on('osusr_mlv_community')
-//                ->onDelete('cascade');
+            $table->foreign('community_id')
+                ->references('COMMUNITYID')->on('osusr_mlv_community')
+                ->onDelete('cascade');
             $table->text('programs');
             $table->boolean('rental')->default(false);
             $table->boolean('vacant')->default(false);

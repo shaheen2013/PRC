@@ -16,7 +16,7 @@ class CreateRelationshipManagersTable extends Migration
         Schema::connection('mysql_dev')->create('cm_relationship_managers', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('organization_id')->nullable();
-//            $table->foreign('organization_id')->references('id')->on('osusr_rjr_organization')->onDelete('set null');
+            $table->foreign('organization_id')->references('id')->on('osusr_rjr_organization')->onDelete('set null');
             $table->string('email')->nullable();
             $table->string('name')->nullable();
             $table->string('street')->nullable();

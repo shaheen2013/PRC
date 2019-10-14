@@ -14,7 +14,7 @@ class AddFkToQuartilesTable extends Migration
     public function up()
     {
         Schema::connection('mysql_dev')->table('cm_community_quartiles', function (Blueprint $table) {
-//            $table->foreign('community_id')->references('COMMUNITYID')->on('osusr_mlv_community');
+            $table->foreign('community_id')->references('COMMUNITYID')->on('osusr_mlv_community');
         });
     }
 

@@ -15,10 +15,10 @@ class AddCommunityIdToCmInteractionsTable extends Migration
     {
         Schema::connection('mysql_dev')->table('cm_interactions', function (Blueprint $table) {
             $table->integer('community_id')->nullable();
-            /*$table->foreign('community_id')
+            $table->foreign('community_id')
                 ->references('COMMUNITYID')
                 ->on('osusr_mlv_community')
-                ->onDelete('set null');*/
+                ->onDelete('set null');
         });
     }
 

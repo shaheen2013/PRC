@@ -155,7 +155,7 @@
         </loading-card>
         <br><br>
         <div class="flex items-center mb-3">
-            <h1 class="flex-no-shrink text-90 font-normal text-2xl">Tasks/Projects</h1>
+            <h1 class="flex-no-shrink text-90 font-normal text-2xl">Tasks/Projects Amieami</h1>
         </div>
         <div class="relationship-tabs-panel card">
             <div class="tabs-wrap border-b-2 border-40 w-full">
@@ -886,6 +886,11 @@
                 console.log(response.data);
                 this.latestActivity = response.data
             });
+        },
+        getProjects() {
+            Nova.request().get('/api/asana/project/').then(response => {
+                console.log(response);
+            });
         }
     },
     created() {
@@ -903,6 +908,9 @@
         });
         this.getLatestActivity();
         this.getPendingChangeCount();
+    },
+    mounted() {
+        this.getProjects();
     },
 }
 </script>

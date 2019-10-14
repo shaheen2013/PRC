@@ -17,14 +17,14 @@ class CreateContactsTable extends Migration
             $table->increments('id');
             $table->integer('contactmgmt_id')->nullable();
             $table->integer('organization_id')->nullable();
-            /*$table->foreign('organization_id')
+            $table->foreign('organization_id')
                 ->references('ID')
-                ->on('osusr_rjr_organization');*/
+                ->on('osusr_rjr_organization');
             $table->integer('community_id')->nullable();
-//            $table->foreign('community_id')
-//                ->references('COMMUNITYID')
-//                ->on('osusr_mlv_community')
-//                ->onDelete('set null');
+            $table->foreign('community_id')
+                ->references('COMMUNITYID')
+                ->on('osusr_mlv_community')
+                ->onDelete('set null');
             $table->integer('login_id')->nullable();
             $table->string('sharpspring_id')->nullable();
             $table->integer('govtype')->nullable();

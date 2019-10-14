@@ -217,13 +217,18 @@ class CMCommunity extends Resource
                 return number_format(floatval($this->Housing_Units));
             })->sortable()->onlyOnIndex(),
 
-            /*(new Tabs('Tasks/Projects', [
+            (new Tabs('Tasks/Projects', [
                 'Tasks' => [
+                    Text::make(' ', function () {
+                        return 'T';
+                    }),
+                ],
+                'Tasks2' => [
                     Text::make(' ', function () {
                         return ' ';
                     }),
                 ],
-            ]))->withToolbar(),*/
+            ]))->withToolbar(),
 
             (new Tabs('At-Risk Property Analysis', [
                 'Rental' => [

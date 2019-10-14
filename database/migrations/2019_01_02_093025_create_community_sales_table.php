@@ -16,9 +16,9 @@ class CreateCommunitySalesTable extends Migration
         Schema::create('community_sales', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('community_id')->unsigned()->unique();
-//            $table->foreign('community_id')->references('id')->on('communities');
+            $table->foreign('community_id')->references('id')->on('communities');
             $table->integer('sales_status_id')->unsigned()->unique();
-//            $table->foreign('sales_status_id')->references('id')->on('sales_statuses');
+            $table->foreign('sales_status_id')->references('id')->on('sales_statuses');
             $table->dateTime('engaged_date');
             $table->dateTime('onboarding_future_date');
             $table->dateTime('partner_date');

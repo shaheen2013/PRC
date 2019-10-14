@@ -15,9 +15,9 @@ class AddTypeToOrganizationsTable extends Migration
     {
         Schema::table('organizations', function (Blueprint $table) {
             $table->integer('type')->unsigned()->nullable();
-//            $table->foreign('type')->references('id')->on('organization_types');
+            $table->foreign('type')->references('id')->on('organization_types');
             $table->integer('default_jurisdiction')->unsigned()->nullable();
-//            $table->foreign('default_jurisdiction')->references('id')->on('jurisdictions');
+            $table->foreign('default_jurisdiction')->references('id')->on('jurisdictions');
             $table->boolean('confirmed')->default(false);
             $table->boolean('all_communities')->default(false);
             $table->boolean('archived')->default(false);
@@ -27,18 +27,18 @@ class AddTypeToOrganizationsTable extends Migration
             $table->dateTime('role_omt_date')->nullable();
             $table->dateTime('role_ams_date')->nullable();
             $table->integer('role_omt_status')->unsigned()->nullable();
-//            $table->foreign('role_omt_status')->references('id')->on('organization_role_statuses');
+            $table->foreign('role_omt_status')->references('id')->on('organization_role_statuses');
             $table->integer('role_ams_status')->unsigned()->nullable();
-//            $table->foreign('role_ams_status')->references('id')->on('organization_role_statuses');
+            $table->foreign('role_ams_status')->references('id')->on('organization_role_statuses');
             $table->dateTime('role_omt_confirmed_date')->nullable();
             $table->dateTime('role_ams_confirmed_date')->nullable();
             $table->integer('role_omt_approved_by')->unsigned()->nullable();
-//            $table->foreign('role_omt_approved_by')->references('id')->on('contacts');
+            $table->foreign('role_omt_approved_by')->references('id')->on('contacts');
             $table->integer('role_ams_approved_by')->unsigned()->nullable();
-//            $table->foreign('role_ams_approved_by')->references('id')->on('contacts');
+            $table->foreign('role_ams_approved_by')->references('id')->on('contacts');
             $table->boolean('onboarded')->default(false);
             $table->integer('onboarded_by')->unsigned()->nullable();
-//            $table->foreign('onboarded_by')->references('id')->on('contacts');
+            $table->foreign('onboarded_by')->references('id')->on('contacts');
             $table->integer('parent_org')->unsigned()->nullable();
             $table->boolean('locked_contacts')->default(false);
             $table->boolean('keyrg')->default(false);
@@ -49,7 +49,7 @@ class AddTypeToOrganizationsTable extends Migration
             $table->boolean('block_notifications')->default(false);
             $table->dateTime('block_notifications_at')->nullable();
             $table->integer('block_notifications_updated_by')->unsigned()->nullable();
-//            $table->foreign('block_notifications_updated_by')->references('id')->on('contacts');
+            $table->foreign('block_notifications_updated_by')->references('id')->on('contacts');
             $table->boolean('tax_lien_purchaser')->default(false);
             $table->boolean('is_offline_org_rp_initiative_chat')->default(false);
         });
