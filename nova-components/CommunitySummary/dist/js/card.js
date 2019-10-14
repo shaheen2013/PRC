@@ -873,6 +873,51 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -975,6 +1020,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                     }
                 });
             }
+
             if (this.latestActivity !== "" && this.latestActivity !== null) {
                 return changes(JSON.parse(this.latestActivity.properties).attributes, JSON.parse(this.latestActivity.properties).old);
             } else {
@@ -1474,7 +1520,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
         displayLink: function displayLink() {
             __WEBPACK_IMPORTED_MODULE_0_sweetalert2___default.a.fire({
                 title: "Community Share Links",
-                html: '\n                        <div>\n                            <span>' + this.shareLink + '</span>\n                            <br>\n                            <span>' + this.rentalShareLink + '</span>\n                            <br>\n                            <span>' + this.vacantShareLink + '</span>\n                            <br>\n                            <span>' + this.foreclosureShareLink + '</span>\n                        </div>\n                    ',
+                html: '\n                    <div>\n                        <span>' + this.shareLink + '</span>\n                        <br>\n                        <span>' + this.rentalShareLink + '</span>\n                        <br>\n                        <span>' + this.vacantShareLink + '</span>\n                        <br>\n                        <span>' + this.foreclosureShareLink + '</span>\n                    </div>\n                ',
                 width: 800,
                 cancelButtonColor: '#3085d6',
                 cancelButtonText: 'Close'
@@ -1565,6 +1611,11 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
         });
         this.getLatestActivity();
         this.getPendingChangeCount();
+    },
+    mounted: function mounted() {
+        Nova.request().get('/api/asana/project').then(function (response) {
+            console.log(response.data);
+        });
     }
 });
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(12).Buffer))
@@ -13889,7 +13940,7 @@ var render = function() {
                                   : ""
                                 : ""
                             ) +
-                            " Housing Units"
+                            " Housing Units\n                                "
                         )
                       ])
                     ]),
@@ -13963,7 +14014,7 @@ var render = function() {
                                   ? this.community.relationship_managers[0].name
                                   : "No RMs Assigned"
                                 : "No RMs Assigned"
-                            )
+                            ) + "\n                                "
                           )
                         ])
                       ]),
@@ -13980,6 +14031,7 @@ var render = function() {
                           staticClass: "textDetail",
                           domProps: { innerHTML: _vm._s(this.lastUpdated) }
                         }),
+                        _vm._v(" "),
                         _c("br"),
                         _vm._v(" "),
                         _c(
@@ -14006,8 +14058,9 @@ var render = function() {
                               [_vm._v('"')]
                             ),
                             _vm._v(
-                              " Pending Change" +
-                                _vm._s(this.pendingChanges === 1 ? "" : "s")
+                              "\n                                    Pending Change" +
+                                _vm._s(this.pendingChanges === 1 ? "" : "s") +
+                                "\n                                "
                             )
                           ]
                         )
@@ -14314,7 +14367,7 @@ var staticRenderFns = [
             staticClass:
               "py-5 px-8 border-b-2 focus:outline-none tab text-grey-black font-bold border-primary"
           },
-          [_vm._v("Project 1")]
+          [_vm._v("\n                    Project 1\n                ")]
         ),
         _vm._v(" "),
         _c(
@@ -14323,7 +14376,7 @@ var staticRenderFns = [
             staticClass:
               "py-5 px-8 border-b-2 focus:outline-none tab text-grey font-semibold border-40"
           },
-          [_vm._v("Project 2")]
+          [_vm._v("\n                    Project 2\n                ")]
         ),
         _vm._v(" "),
         _c(
@@ -14332,7 +14385,7 @@ var staticRenderFns = [
             staticClass:
               "py-5 px-8 border-b-2 focus:outline-none tab text-grey font-semibold border-40"
           },
-          [_vm._v("Project 3")]
+          [_vm._v("\n                    Project 3\n                ")]
         ),
         _vm._v(" "),
         _c(
@@ -14341,7 +14394,7 @@ var staticRenderFns = [
             staticClass:
               "py-5 px-8 border-b-2 focus:outline-none tab text-grey font-semibold border-40"
           },
-          [_vm._v("Project 4")]
+          [_vm._v("\n                    Project 4\n                ")]
         )
       ])
     ])
