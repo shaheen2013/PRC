@@ -18,18 +18,20 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::group(['prefix' => 'asana',], function () {
+Route::group(['prefix' => 'asana'], function () {
     Route::group(['prefix' => 'project',], function () {
-        Route::get('/', function () { dd('Project list'); });
-        Route::get('/create', function () { dd('Project Create'); });
-        Route::get('/edit', function () { dd('Project Edit'); });
-        Route::get('/remove', function () { dd('Project Remove'); });
-        Route::group(['prefix' => 'task',], function () {
-            Route::get('/', function () { dd('Project Task List'); });
-            Route::get('/create', function () { dd('Project Task Create'); });
-            Route::get('/edit', function () { dd('Project Task Edit'); });
-            Route::get('/remove', function () { dd('Project Task Remove'); });
-        });
+        Route::get('/', 'ProjectController@index');
+        Route::get('/create', 'ProjectController@create');
+        Route::post('/store', 'ProjectController@store');
+        Route::put('/update/{id}', function () { dd('Project Edit'); });
+        Route::delete('/destroy/{id}', function () { dd('Project Remove'); });
+    });
+    Route::group(['prefix' => 'task',], function () {
+        Route::get('/', 'TaskController@index');
+        Route::get('/create', 'TaskController@create');
+        Route::post('/store', 'TaskController@store');
+        Route::put('/update/{id}', function () { dd('Project Edit'); });
+        Route::delete('/destroy/{id}', function () { dd('Project Remove'); });
     });
 });
 

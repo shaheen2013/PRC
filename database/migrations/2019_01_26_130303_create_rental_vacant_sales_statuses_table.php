@@ -16,11 +16,11 @@ class CreateRentalVacantSalesStatusesTable extends Migration
         Schema::connection('mysql_dev')->create('cm_rental_vacant_sales_statuses', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('community_id');
-//            $table->foreign('community_id')->references('COMMUNITYID')->on('osusr_mlv_community');
+            $table->foreign('community_id')->references('COMMUNITYID')->on('osusr_mlv_community');
             $table->integer('vacant_status')->default(1);
-//            $table->foreign('vacant_status')->references('ID')->on('osusr_tvl_salesstatus');
+            $table->foreign('vacant_status')->references('ID')->on('osusr_tvl_salesstatus');
             $table->integer('rental_status')->default(1);
-//            $table->foreign('rental_status')->references('ID')->on('osusr_tvl_salesstatus');
+            $table->foreign('rental_status')->references('ID')->on('osusr_tvl_salesstatus');
             $table->timestamps();
         });
     }

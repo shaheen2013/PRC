@@ -16,13 +16,13 @@ class CreateCommunityMiscConfigurationsTable extends Migration
         Schema::connection('mysql_dev')->create('cm_community_misc_configurations', function (Blueprint $table) {
             $table->integer('community_id');
             $table->primary('community_id');
-//            $table->foreign('community_id')
-//                ->references('COMMUNITYID')->on('osusr_mlv_community')
-//                ->onDelete('cascade');
+            $table->foreign('community_id')
+                ->references('COMMUNITYID')->on('osusr_mlv_community')
+                ->onDelete('cascade');
             $table->unsignedInteger('violation_configuration')->nullable();
-//            $table->foreign('violation_configuration')
-//                ->references('id')->on('cm_violation_configurations')
-//                ->onDelete('set null');
+            $table->foreign('violation_configuration')
+                ->references('id')->on('cm_violation_configurations')
+                ->onDelete('set null');
             $table->boolean('utility_data')->nullable();
             $table->boolean('cm_registrations_rental')->default(false);
             $table->boolean('cm_registrations_vacant')->default(false);

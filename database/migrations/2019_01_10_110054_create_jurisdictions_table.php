@@ -21,7 +21,7 @@ class CreateJurisdictionsTable extends Migration
             $table->boolean('active')->default(false)->nullable();
             $table->boolean('local_agent_service')->default(false)->nullable();
             $table->integer('community_org')->unsigned()->nullable();
-//            $table->foreign('community_org')->references('id')->on('organizations');
+            $table->foreign('community_org')->references('id')->on('organizations');
             $table->dateTime('matched_owner_name_date')->nullable();
             $table->dateTime('clerk_event_date')->nullable();
             $table->dateTime('sale_event_date')->nullable();
@@ -38,7 +38,7 @@ class CreateJurisdictionsTable extends Migration
             $table->boolean('delist_bank_owned')->default(false)->nullable();
             $table->boolean('delist_other')->default(false)->nullable();
             $table->integer('community_id')->unsigned();
-//            $table->foreign('community_id')->references('id')->on('communities');
+            $table->foreign('community_id')->references('id')->on('communities');
             $table->dateTime('active_date')->nullable();
             $table->boolean('active_for_registrations')->nullable();
             $table->dateTime('active_for_registrations_date')->nullable();

@@ -16,15 +16,15 @@ class CreateCommunityRmTable extends Migration
         Schema::connection('mysql_dev')->create('cm_community_rm', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('community_id')->nullable();
-            /*$table->foreign('community_id')
+            $table->foreign('community_id')
                 ->references('COMMUNITYID')
                 ->on('osusr_mlv_community')
-                ->onDelete('cascade');*/
+                ->onDelete('cascade');
             $table->integer('relationship_manager_id')->unsigned();
-            /*$table->foreign('relationship_manager_id')
+            $table->foreign('relationship_manager_id')
                 ->references('id')
                 ->on('cm_relationship_managers')
-                ->onDelete('cascade');*/
+                ->onDelete('cascade');
             $table->integer('legacy_id')->nullable();
             $table->integer('county_id')->nullable();
             $table->boolean('secondary_rm')->default(false);

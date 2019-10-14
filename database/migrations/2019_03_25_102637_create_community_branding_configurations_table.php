@@ -16,9 +16,9 @@ class CreateCommunityBrandingConfigurationsTable extends Migration
         Schema::connection('mysql_dev')->create('cm_community_branding_configurations', function (Blueprint $table) {
             $table->integer('community_id');
             $table->primary('community_id');
-//            $table->foreign('community_id')
-//                ->references('COMMUNITYID')->on('osusr_mlv_community')
-//                ->onDelete('cascade');
+            $table->foreign('community_id')
+                ->references('COMMUNITYID')->on('osusr_mlv_community')
+                ->onDelete('cascade');
             $table->string('redirect_url')->nullable();
             $table->longText('redirect_email')->nullable();
             $table->string('redirect_phone')->nullable();

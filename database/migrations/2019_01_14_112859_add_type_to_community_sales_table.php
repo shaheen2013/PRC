@@ -15,7 +15,7 @@ class AddTypeToCommunitySalesTable extends Migration
     {
         Schema::table('community_sales', function (Blueprint $table) {
             $table->integer('program_type')->unsigned();
-//            $table->foreign('program_type')->references('id')->on('program_types');
+            $table->foreign('program_type')->references('id')->on('program_types');
         });
     }
 

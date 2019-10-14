@@ -18,13 +18,13 @@ class CreateCmStatesConfigurationTable extends Migration
             $table->string('code');
             $table->string('name');
             $table->unsignedInteger('state_foreclosure_process')->nullable();
-//            $table->foreign('state_foreclosure_process', 'foreclosure_process')
-//                ->references('id')->on('cm_state_foreclosure_process_configs')
-//                ->onDelete('set null');
+            $table->foreign('state_foreclosure_process', 'foreclosure_process')
+                ->references('id')->on('cm_state_foreclosure_process_configs')
+                ->onDelete('set null');
             $table->unsignedInteger('state_governance')->nullable();
-//            $table->foreign('state_governance')
-//                ->references('id')->on('cm_state_governance_options')
-//                ->onDelete('set null');
+            $table->foreign('state_governance')
+                ->references('id')->on('cm_state_governance_options')
+                ->onDelete('set null');
             $table->boolean('excluded')->default(false);
             $table->text('excluded_notes')->nullable();
             $table->integer('average_days_to_foreclosure')->nullable();
