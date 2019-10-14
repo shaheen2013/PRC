@@ -72,16 +72,6 @@ class TaskController extends Controller
             'name' => 'required|string|max:255',
             'workspace' => 'required|integer',
             'projects.*' => 'required|integer',
-            'assignee' => 'nullable',
-            'assignee_status' => 'nullable|string|max:255',
-            'custom_fields' => 'nullable|array',
-            'due_on' => 'nullable|date:Y-m-d',
-            'followers' => 'nullable|array',
-            'liked' => 'nullable|boolean',
-            'notes' => 'nullable|string',
-            'html_notes' => 'nullable|string',
-            'start_on' => 'nullable|date:Y-m-d',
-            'tags' => 'nullable|array',
         );
 
         $validator = Validator::make ( $request->all(), $rules);
@@ -95,17 +85,7 @@ class TaskController extends Controller
             $data = [
                 'name' => $request->name,
                 'workspace' => $request->workspace,
-                'projects' => $request->projects,/*
-                'assignee' => $request->assignee,
-                'assignee_status' => $request->assignee_status,
-                'custom_fields' => $request->custom_fields,
-                'due_on' => $request->due_on,
-                'followers' => $request->followers,
-                'liked' => $request->liked,
-                'notes' => $request->notes,
-                'html_notes' => $request->html_notes,
-                'start_on' => $request->start_on,
-                'tags' => $request->tags,*/
+                'projects' => $request->projects,
             ];
 
             $task = json_decode($this->asana->createTask($data));

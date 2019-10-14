@@ -174,70 +174,151 @@
             </section>
         </loading-card>
         <br><br>
-        <div class="flex items-center mb-3">
-            <h1 class="flex-no-shrink text-90 font-normal text-2xl">Tasks/Projects Amieami</h1>
-        </div>
-        <div class="relationship-tabs-panel card">
-            <div class="tabs-wrap border-b-2 border-40 w-full">
-                <div class="tabs flex flex-row overflow-x-auto">
-                    <button
-                        class="py-5 px-8 border-b-2 focus:outline-none tab text-grey-black font-bold border-primary">
-                        Project 1
-                    </button>
-                    <button class="py-5 px-8 border-b-2 focus:outline-none tab text-grey font-semibold border-40">
-                        Project 2
-                    </button>
-                    <button class="py-5 px-8 border-b-2 focus:outline-none tab text-grey font-semibold border-40">
-                        Project 3
-                    </button>
-                    <button class="py-5 px-8 border-b-2 focus:outline-none tab text-grey font-semibold border-40">
-                        Project 4
-                    </button>
+        <div class="flex" style="">
+            <!---->
+            <div class="w-full flex items-center">
+                <h1 class="flex-no-shrink text-90 font-normal text-2xl">Tasks/Projects</h1>
+                <!---->
+                <div class="flex-no-shrink ml-auto mb-6">
+                    <a href="javascript:void(0)" data-toggle="modal" data-target="#myModal" @click="Template = 2" class="btn btn-default btn-primary" dusk="create-button">Create Project</a>
                 </div>
             </div>
-            <div class="tab-content tasks">
-                <div class="px-6 py-3">
-                    <div class="flex border-b border-40 remove-bottom-border">
-                        <div class="overflow-hidden overflow-x-auto relative w-full">
-                            <table class="table w-full">
-                                <thead>
-                                <tr>
-                                    <th class="text-left">SL</th>
-                                    <th class="text-left">Task</th>
-                                    <th class="text-right"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr v-for="(t,index) in 10">
-                                    <td v-text="index+1"></td>
-                                    <td v-text="'This is task '+(index+1)"></td>
-                                    <td class="text-right">
-                                        <a class="cursor-pointer text-70 hover:text-primary mr-3" dusk="1-edit-button"
-                                           title="Edit">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                                 viewBox="0 0 20 20" aria-labelledby="edit" role="presentation"
-                                                 class="fill-current">
-                                                <path
-                                                    d="M4.3 10.3l10-10a1 1 0 0 1 1.4 0l4 4a1 1 0 0 1 0 1.4l-10 10a1 1 0 0 1-.7.3H5a1 1 0 0 1-1-1v-4a1 1 0 0 1 .3-.7zM6 14h2.59l9-9L15 2.41l-9 9V14zm10-2a1 1 0 0 1 2 0v6a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4c0-1.1.9-2 2-2h6a1 1 0 1 1 0 2H2v14h14v-6z"></path>
-                                            </svg>
-                                        </a>
-                                        <a title="Delete"
-                                           class="appearance-none cursor-pointer text-70 hover:text-danger mr-3">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                                 viewBox="0 0 20 20" aria-labelledby="delete" role="presentation"
-                                                 class="fill-current">
-                                                <path fill-rule="nonzero"
-                                                      d="M6 4V2a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2h5a1 1 0 0 1 0 2h-1v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6H1a1 1 0 1 1 0-2h5zM4 6v12h12V6H4zm8-2V2H8v2h4zM8 8a1 1 0 0 1 1 1v6a1 1 0 0 1-2 0V9a1 1 0 0 1 1-1zm4 0a1 1 0 0 1 1 1v6a1 1 0 0 1-2 0V9a1 1 0 0 1 1-1z"></path>
-                                            </svg>
-                                        </a>
-                                    </td>
-                                </tr>
-                                </tbody>
-                            </table>
+        </div>
+        <div class="relationship-tabs-panel card">
+            <div class="w-full" v-if="Template === 1">
+                <div v-if="projects.length > 0">
+                    <div class="tabs-wrap border-b-2 border-40 w-full">
+                        <div class="tabs flex flex-row overflow-x-auto">
+                            <button v-if="projects.length > 0" v-for="project in projects" class="py-5 px-8 border-b-2 focus:outline-none tab text-grey-black font-bold border-primary">
+                                {{ project.data.name }}
+                            </button>
+                        </div>
+                    </div>
+                    <div class="tab-content tasks">
+                        <div v-if="projects.length > 0" v-for="project in projects" class="px-6 py-3">
+                            <div class="flex border-b border-40 remove-bottom-border">
+                                <div class="overflow-hidden overflow-x-auto relative w-full">
+                                    <table class="table w-full">
+                                        <thead>
+                                        <tr>
+                                            <th class="text-left">SL</th>
+                                            <th class="text-left">Task</th>
+                                            <th class="text-right"></th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr v-for="(t,index) in project.tasks.data">
+                                            <td v-text="index+1"></td>
+                                            <td>{{ t.name }}</td>
+                                            <td class="text-right">
+                                                <a class="cursor-pointer text-70 hover:text-primary mr-3" dusk="1-edit-button"
+                                                   title="Edit">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                                         viewBox="0 0 20 20" aria-labelledby="edit" role="presentation"
+                                                         class="fill-current">
+                                                        <path
+                                                            d="M4.3 10.3l10-10a1 1 0 0 1 1.4 0l4 4a1 1 0 0 1 0 1.4l-10 10a1 1 0 0 1-.7.3H5a1 1 0 0 1-1-1v-4a1 1 0 0 1 .3-.7zM6 14h2.59l9-9L15 2.41l-9 9V14zm10-2a1 1 0 0 1 2 0v6a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4c0-1.1.9-2 2-2h6a1 1 0 1 1 0 2H2v14h14v-6z"></path>
+                                                    </svg>
+                                                </a>
+                                                <a title="Delete"
+                                                   class="appearance-none cursor-pointer text-70 hover:text-danger mr-3">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                                         viewBox="0 0 20 20" aria-labelledby="delete" role="presentation"
+                                                         class="fill-current">
+                                                        <path fill-rule="nonzero"
+                                                              d="M6 4V2a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2h5a1 1 0 0 1 0 2h-1v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6H1a1 1 0 1 1 0-2h5zM4 6v12h12V6H4zm8-2V2H8v2h4zM8 8a1 1 0 0 1 1 1v6a1 1 0 0 1-2 0V9a1 1 0 0 1 1-1zm4 0a1 1 0 0 1 1 1v6a1 1 0 0 1-2 0V9a1 1 0 0 1 1-1z"></path>
+                                                    </svg>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div v-if="projects.length === 0" class="card">
+                    <h2>No projects yet</h2>
+                </div>
+            </div>
+            <div class="w-full" v-if="Template === 2">
+                <div class="tabs-wrap border-b-2 border-40 w-full">
+                    <div class="tabs flex flex-row overflow-x-auto">
+                        <button class="py-5 px-8 border-b-2 focus:outline-none tab text-grey-black font-bold border-primary">
+                            Create Project
+                        </button>
+                    </div>
+                </div>
+                <div class="tab-content tasks">
+
+                    <div class="px-6 py-3">
+                        <div class="flex border-b border-40 remove-bottom-border">
+                            <div class="overflow-hidden overflow-x-auto relative w-full">
+
+                                <div class="relative">
+                                    <form autocomplete="off" @submit.prevent="createProject">
+                                        <div class="mb-8">
+                                            <div class="card">
+                                                <div class="remove-bottom-border">
+                                                    <div class="flex border-b border-40">
+                                                        <div class="flex border-b border-40 w-full">
+                                                            <div class="w-1/5 py-6 px-8">
+                                                                <label for="name" class="inline-block text-80 pt-2 leading-tight">Project Name</label>
+                                                            </div>
+                                                            <div class="py-6 px-8 w-1/2">
+                                                                <input id="name" v-model="project.name" dusk="name" type="text" placeholder="Project Name" class="w-full form-control form-input form-input-bordered"> <!---->
+                                                                <div class="help-text help-text mt-2" v-if="errors.name"><div class="text-danger">{{ errors.name[0] }}</div></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="remove-bottom-border">
+                                                    <div class="flex border-b border-40">
+                                                        <div class="flex border-b border-40 w-full">
+                                                            <div class="w-1/5 py-6 px-8">
+                                                                <label for="workspace" class="inline-block text-80 pt-2 leading-tight">Project Workspace/Organization</label>
+                                                            </div>
+                                                            <div class="py-6 px-8 w-1/2">
+                                                                <select @change="getTeams" v-model="project.workspace" dusk="attachable-select" data-testid="workspace-select" id="workspace" name="workspace" class="form-control form-select mb-3 w-full">
+                                                                    <option value="" disabled="disabled" selected="selected">Choose Project Workspace/Organization</option>
+                                                                    <option v-if="workspaces.length > 0" v-for="workspace in workspaces" :value="workspace.gid">{{ workspace.name }}</option>
+                                                                </select>
+                                                                <div class="help-text help-text mt-2" v-if="errors.workspace"><div class="text-danger">{{ errors.workspace[0] }}</div></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="remove-bottom-border">
+                                                    <div class="flex border-b border-40">
+                                                        <div class="flex border-b border-40 w-full">
+                                                            <div class="w-1/5 py-6 px-8">
+                                                                <label for="team" class="inline-block text-80 pt-2 leading-tight">Team</label>
+                                                            </div>
+                                                            <div class="py-6 px-8 w-1/2">
+                                                                <select dusk="attachable-select" v-model="project.team" data-testid="team-select" id="team" name="team" class="form-control form-select mb-3 w-full">
+                                                                    <option value="" disabled="disabled" selected="selected">Choose Team</option>
+                                                                    <option v-if="teams.length > 0" v-for="team in teams" :value="team.gid">{{ team.name }}</option>
+                                                                </select>
+                                                                <div class="help-text help-text mt-2" v-if="errors.team"><div class="text-danger">{{ errors.team[0] }}</div></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <a tabindex="0" class="btn btn-link dim cursor-pointer text-80 ml-auto mr-6" @click="Template = 1">Cancel</a>
+                                            <button type="submit" class="btn btn-default btn-primary inline-flex items-center relative" dusk="create-button"><span class="">Create Project</span></button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 </template>
@@ -284,7 +365,19 @@
                 estForeclosures: 0,
                 loaded: false,
                 latestActivity: null,
-                pendingChanges: 0
+                pendingChanges: 0,
+                projects: [],
+                Template: 1,
+                workspaces: [],
+                teams: [],
+                errors: [],
+                success: null,
+                project: {
+                    name: null,
+                    workspace: null,
+                    team: null,
+                    osusr_mlv_community_id: this.resourceId,
+                },
             }
         },
         computed: {
@@ -929,7 +1022,32 @@
                     console.log(response.data);
                     this.latestActivity = response.data
                 });
-            }
+            },
+            getProjects() {
+                Nova.request().get('/api/asana/project?osusr_mlv_community_id=' + this.resourceId).then(response => {
+                    this.projects = response.data.data;
+                });
+            },
+            getWorkspaces() {
+                Nova.request().get('/api/asana/project/create').then(response => {
+                    this.workspaces = response.data.data.data;
+                });
+            },
+            getTeams() {
+                //let workspace = document.getElementById('workspace');
+                this.teams = this.workspaces.find(workspace => {return workspace.gid == "1144115702042051"}).teams.data;
+                console.log(this.teams);
+            },
+            createProject() {
+                Nova.request().post('/api/asana/project/store', this.project).then(response => {
+                    if (response.data.status === 200) {
+                        this.Template = 1;
+                        this.getProjects();
+                    } else {
+                        this.errors = response.data.errors;
+                    }
+                });
+            },
         },
         created() {
             Nova.request().post('/nova-vendor/community-summary/community', {
@@ -948,9 +1066,8 @@
             this.getPendingChangeCount();
         },
         mounted() {
-            Nova.request().get('/api/asana/project').then(response => {
-                console.log(response.data);
-            });
+            this.getProjects();
+            this.getWorkspaces();
         }
     }
 </script>

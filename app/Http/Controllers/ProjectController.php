@@ -37,8 +37,8 @@ class ProjectController extends Controller
             $projects = [];
 
             foreach ($dbProjects as &$project) {
-                $pj = json_decode($this->asana->getProject($project->project_id));
-                data_set($pj->data, 'tasks', $this->asana->getProjectTasks($pj->data->gid));
+                $pj = json_decode($this->asana->getProject($project->project_id), 1);
+                $pj['tasks'] = json_decode($this->asana->getProjectTasks($pj['data']['gid']), 1);
                 $projects[] = $pj;
             }
 
@@ -57,10 +57,12 @@ class ProjectController extends Controller
     {
         // Get required resource
         try {
-            $workspaces = json_decode($this->asana->getWorkspaces());
+            $workspaces = json_decode($this->asana->getWorkspaces(), 1);
 
             foreach ($workspaces as &$workspace) {
-                data_set($workspace, 'teams', $this->asana->getMyTeams($workspace[0]->gid));
+                if(isset($workspace[0])){
+                    $workspace[0]['teams'] = json_decode($this->asana->getMyTeams($workspace[0]['gid']));
+                }
             }
 
             return response()->json(['status' => 200, 'data' => $workspaces], 200);
@@ -80,16 +82,9 @@ class ProjectController extends Controller
         // Validate form data
         $rules = array(
             'name' => 'required|string|max:255',
-            'workspace' => 'required|integer',
-            'team' => 'required|integer',
+            'workspace' => 'required|string',
+            'team' => 'required|string',
             'osusr_mlv_community_id' => 'required|integer',
-            'due_on' => 'nullable|date:Y-m-d',
-            'start_on' => 'nullable|date:Y-m-d',
-            'archived' => 'nullable|boolean',
-            'public' => 'nullable|boolean',
-            'color' => 'nullable|string|max:255',
-            'notes' => 'nullable|string',
-            'layout' => 'nullable|string|max:255',
         );
 
         $validator = Validator::make ( $request->all(), $rules);
@@ -103,14 +98,7 @@ class ProjectController extends Controller
             $data = [
                 'name' => $request->name,
                 'workspace' => $request->workspace,
-                'team' => $request->team,/*
-                'due_on' => isset($request->due_on) ? $request->due_on : null,
-                'start_on' => isset($request->due_on) ? $request->due_on : null,
-                'archived' => isset($request->due_on) ? $request->due_on : null,
-                'public' => isset($request->due_on) ? $request->due_on : null,
-                'color' => isset($request->due_on) ? $request->due_on : null,
-                'notes' => isset($request->due_on) ? $request->due_on : null,
-                'layout' => isset($request->due_on) ? $request->due_on : null,*/
+                'team' => $request->team,
             ];
 
             $project = json_decode($this->asana->createProject($data));
