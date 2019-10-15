@@ -30,8 +30,9 @@ Route::group(['prefix' => 'asana'], function () {
         Route::get('/', 'TaskController@index');
         Route::get('/create', 'TaskController@create');
         Route::post('/store', 'TaskController@store');
-        Route::put('/update/{id}', function () { dd('Project Edit'); });
-        Route::delete('/destroy/{id}', function () { dd('Project Remove'); });
+        Route::get('/{id}/edit', 'TaskController@edit');
+        Route::put('/update/{id}', 'TaskController@update');
+        Route::delete('/destroy/{id}', 'TaskController@destroy');
     });
 });
 

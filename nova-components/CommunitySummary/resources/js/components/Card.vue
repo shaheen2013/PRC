@@ -180,22 +180,25 @@
                 <h1 class="flex-no-shrink text-90 font-normal text-2xl">Tasks/Projects</h1>
                 <!---->
                 <div class="flex-no-shrink ml-auto mb-6">
-                    <a href="javascript:void(0)" data-toggle="modal" data-target="#myModal" @click="Template = 2" class="btn btn-default btn-primary" dusk="create-button">Create Project</a>
+                    <a href="javascript:void(0)" @click="Template = 2" class="btn btn-default btn-primary" dusk="create-button">Create Project</a>
                 </div>
             </div>
         </div>
-        <div class="relationship-tabs-panel card">
+        <div class="w-full flex items-center" id="loader">
+            <div class="lds-facebook"><div></div><div></div><div></div></div>
+        </div>
+        <div v-if="!isLoading" class="relationship-tabs-panel card">
             <div class="w-full" v-if="Template === 1">
                 <div v-if="projects.length > 0">
                     <div class="tabs-wrap border-b-2 border-40 w-full">
                         <div class="tabs flex flex-row overflow-x-auto">
-                            <button v-if="projects.length > 0" v-for="project in projects" class="py-5 px-8 border-b-2 focus:outline-none tab text-grey-black font-bold border-primary">
+                            <button v-if="projects.length > 0" v-for="project in projects" @click="toogleProject(project.data.id)" :class="{'py-5 px-8 border-b-2 focus:outline-none tab': true, 'text-grey-black font-bold border-primary': project.data.id == selectedProject ? true : false, 'text-grey font-semibold border-40': project.data.id != selectedProject ? true : false}">
                                 {{ project.data.name }}
                             </button>
                         </div>
                     </div>
-                    <div class="tab-content tasks">
-                        <div v-if="projects.length > 0" v-for="project in projects" class="px-6 py-3">
+                    <div v-if="projectDetails" class="tab-content" :class="projectDetails.data.name">
+                        <div class="px-6 py-3">
                             <div class="flex border-b border-40 remove-bottom-border">
                                 <div class="overflow-hidden overflow-x-auto relative w-full">
                                     <table class="table w-full">
@@ -203,15 +206,19 @@
                                         <tr>
                                             <th class="text-left">SL</th>
                                             <th class="text-left">Task</th>
-                                            <th class="text-right"></th>
+                                            <th class="text-right">
+                                                <div class="flex-no-shrink ml-auto mb-6">
+                                                    <a href="javascript:void(0)" @click="createTask" class="btn btn-default btn-primary" dusk="create-button">Create Task</a>
+                                                </div>
+                                            </th>
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <tr v-for="(t,index) in project.tasks.data">
+                                        <tr v-for="(t,index) in projectDetails.tasks.data">
                                             <td v-text="index+1"></td>
                                             <td>{{ t.name }}</td>
                                             <td class="text-right">
-                                                <a class="cursor-pointer text-70 hover:text-primary mr-3" dusk="1-edit-button"
+                                                <a @click="editTask(t.gid)" class="cursor-pointer text-70 hover:text-primary mr-3" dusk="1-edit-button"
                                                    title="Edit">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                                                          viewBox="0 0 20 20" aria-labelledby="edit" role="presentation"
@@ -220,7 +227,7 @@
                                                             d="M4.3 10.3l10-10a1 1 0 0 1 1.4 0l4 4a1 1 0 0 1 0 1.4l-10 10a1 1 0 0 1-.7.3H5a1 1 0 0 1-1-1v-4a1 1 0 0 1 .3-.7zM6 14h2.59l9-9L15 2.41l-9 9V14zm10-2a1 1 0 0 1 2 0v6a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4c0-1.1.9-2 2-2h6a1 1 0 1 1 0 2H2v14h14v-6z"></path>
                                                     </svg>
                                                 </a>
-                                                <a title="Delete"
+                                                <a title="Delete" @click="deleteTask(t.gid)"
                                                    class="appearance-none cursor-pointer text-70 hover:text-danger mr-3">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                                                          viewBox="0 0 20 20" aria-labelledby="delete" role="presentation"
@@ -318,6 +325,83 @@
                     </div>
                 </div>
             </div>
+            <div class="w-full" v-if="Template === 3">
+                <div class="tabs-wrap border-b-2 border-40 w-full">
+                    <div class="tabs flex flex-row overflow-x-auto">
+                        <button class="py-5 px-8 border-b-2 focus:outline-none tab text-grey-black font-bold border-primary">
+                            <div v-if="isEditTask">Update Task</div><div v-if="!isEditTask">Create Task</div>
+                        </button>
+                    </div>
+                </div>
+                <div class="tab-content tasks">
+
+                    <div class="px-6 py-3">
+                        <div class="flex border-b border-40 remove-bottom-border">
+                            <div class="overflow-hidden overflow-x-auto relative w-full">
+
+                                <div class="relative">
+                                    <form autocomplete="off" @submit.prevent="storeTask">
+                                        <div class="mb-8">
+                                            <div class="card">
+                                                <div class="remove-bottom-border">
+                                                    <div class="flex border-b border-40">
+                                                        <div class="flex border-b border-40 w-full">
+                                                            <div class="w-1/5 py-6 px-8">
+                                                                <label for="name" class="inline-block text-80 pt-2 leading-tight">Task Name</label>
+                                                            </div>
+                                                            <div class="py-6 px-8 w-1/2">
+                                                                <input id="name" v-model="task.name" dusk="name" type="text" placeholder="Task Name" class="w-full form-control form-input form-input-bordered"> <!---->
+                                                                <div class="help-text help-text mt-2" v-if="errors.name"><div class="text-danger">{{ errors.name[0] }}</div></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="remove-bottom-border">
+                                                    <div class="flex border-b border-40">
+                                                        <div class="flex border-b border-40 w-full">
+                                                            <div class="w-1/5 py-6 px-8">
+                                                                <label for="workspace" class="inline-block text-80 pt-2 leading-tight">Task Workspace/Organization</label>
+                                                            </div>
+                                                            <div class="py-6 px-8 w-1/2">
+                                                                <select @change="getWorkspaceProjects" v-model="task.workspace" dusk="attachable-select" data-testid="workspace-select" id="task-workspace" name="workspace" class="form-control form-select mb-3 w-full">
+                                                                    <option value="" disabled="disabled">Choose Task Workspace/Organization</option>
+                                                                    <option v-if="workspaces.length > 0" v-for="workspace in workspaces" :value="workspace.gid">{{ workspace.name }}</option>
+                                                                </select>
+                                                                <div class="help-text help-text mt-2" v-if="errors.workspace"><div class="text-danger">{{ errors.workspace[0] }}</div></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="remove-bottom-border" v-if="!isEditTask">
+                                                    <div class="flex border-b border-40">
+                                                        <div class="flex border-b border-40 w-full">
+                                                            <div class="w-1/5 py-6 px-8">
+                                                                <label for="team" class="inline-block text-80 pt-2 leading-tight">Project</label>
+                                                            </div>
+                                                            <div class="py-6 px-8 w-1/2">
+                                                                <select dusk="attachable-select" v-model="task.projects" data-testid="team-select" id="projects" name="projects" class="form-control form-select mb-3 w-full">
+                                                                    <option value="" disabled="disabled">Choose Project</option>
+                                                                    <option v-if="workspaceProjects.length > 0" v-for="project in workspaceProjects" :value="project.gid">{{ project.name }}</option>
+                                                                </select>
+                                                                <div class="help-text help-text mt-2" v-if="errors.projects"><div class="text-danger">{{ errors.projects[0] }}</div></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <a tabindex="0" class="btn btn-link dim cursor-pointer text-80 ml-auto mr-6" @click="Template = 1">Cancel</a>
+                                            <button v-if="!isEditTask" type="submit" class="btn btn-default btn-primary inline-flex items-center relative" dusk="create-button"><span class="">Create Task</span></button>
+                                            <button v-if="isEditTask" type="submit" class="btn btn-default btn-primary inline-flex items-center relative" dusk="create-button"><span class="">Update Task</span></button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
         </div>
     </div>
@@ -370,13 +454,24 @@
                 Template: 1,
                 workspaces: [],
                 teams: [],
+                workspaceProjects: [],
                 errors: [],
                 success: null,
+                selectedProject: null,
+                projectDetails: null,
+                isEditTask: false,
+                isLoading: true,
                 project: {
                     name: null,
                     workspace: null,
                     team: null,
                     osusr_mlv_community_id: this.resourceId,
+                },
+                task: {
+                    id: null,
+                    name: '',
+                    workspace: '',
+                    projects: '',
                 },
             }
         },
@@ -1024,22 +1119,29 @@
                 });
             },
             getProjects() {
+                document.getElementById('loader').style.display = 'block';
                 Nova.request().get('/api/asana/project?osusr_mlv_community_id=' + this.resourceId).then(response => {
+                    this.isLoading = false;
+                    document.getElementById('loader').style.display = 'none';
                     this.projects = response.data.data;
+                    this.selectedProject = this.projects[0].data.gid;
+                    this.projectDetails = this.projects[0];
                 });
             },
             getWorkspaces() {
+                document.getElementById('loader').style.display = 'block';
                 Nova.request().get('/api/asana/project/create').then(response => {
+                    document.getElementById('loader').style.display = 'none';
                     this.workspaces = response.data.data.data;
                 });
             },
             getTeams() {
-                //let workspace = document.getElementById('workspace');
-                this.teams = this.workspaces.find(workspace => {return workspace.gid == "1144115702042051"}).teams.data;
-                console.log(this.teams);
+                this.teams = this.workspaces.find(workspace => {return workspace.gid == document.getElementById('workspace').value}).teams.data;
             },
             createProject() {
+                document.getElementById('loader').style.display = 'block';
                 Nova.request().post('/api/asana/project/store', this.project).then(response => {
+                    document.getElementById('loader').style.display = 'none';
                     if (response.data.status === 200) {
                         this.Template = 1;
                         this.getProjects();
@@ -1048,6 +1150,89 @@
                     }
                 });
             },
+            createTask() {
+                this.Template = 3;
+                this.isEditTask = false;
+                document.getElementById('loader').style.display = 'block';
+                Nova.request().get('/api/asana/task/create').then(response => {
+                    document.getElementById('loader').style.display = 'none';
+                    this.workspaces = response.data.data.data;
+                });
+            },
+            getWorkspaceProjects() {
+                if (!this.isEditTask) {
+                    this.workspaceProjects = this.workspaces.find(workspace => {return workspace.gid == document.getElementById('task-workspace').value}).projects.data;
+                }
+            },
+            storeTask() {
+                if (this.isEditTask) {
+                    this.updateTask();
+                } else {
+                    document.getElementById('loader').style.display = 'block';
+                    Nova.request().post('/api/asana/task/store', this.task).then(response => {
+                        document.getElementById('loader').style.display = 'none';
+                        if (response.data.status === 200) {
+                            this.Template = 1;
+                            this.getProjects();
+                        } else {
+                            this.errors = response.data.errors;
+                        }
+                    });
+                }
+            },
+            editTask(id) {
+                this.Template = 3;
+                this.isEditTask = true;
+                document.getElementById('loader').style.display = 'block';
+                Nova.request().get('/api/asana/task/' + id + '/edit').then(response => {
+                    document.getElementById('loader').style.display = 'none';
+                    this.task.id = id;
+                    this.task.name = response.data.data.name;
+                    this.task.workspace = response.data.data.workspace.gid;
+                    let x = document.getElementById("task-workspace");
+                });
+            },
+            updateTask() {
+                this.task._method = "PUT";
+                document.getElementById('loader').style.display = 'block';
+                Nova.request().post('/api/asana/task/update/' + this.task.id, this.task).then(response => {
+                    document.getElementById('loader').style.display = 'none';
+                    if (response.data.status === 200) {
+                        this.task = {};
+                        this.Template = 1;
+                        this.getProjects();
+                    } else {
+                        this.errors = response.data.errors;
+                    }
+                });
+            },
+            deleteTask(id) {
+                document.getElementById('loader').style.display = 'block';
+                let THIS = this;
+                Swal.fire({
+                    type: 'error',
+                    title: 'Delete Task',
+                    text: 'Are you sure want to delete this data?',
+                    showCancelButton: true,
+                    focusConfirm: true
+                }).then(res => {
+                    document.getElementById('loader').style.display = 'none';
+                    if(res.value !== undefined){
+                        Nova.request().post('/api/asana/task/destroy/' + id, {_method: 'DELETE'}).then(response => {
+                            if (response.data.status === 200) {
+                                THIS.Template = 1;
+                                THIS.getProjects();
+                            } else {
+                                THIS.errors = response.data.errors;
+                            }
+                        });
+                    }
+                });
+            },
+            toogleProject(id) {
+                this.selectedProject = id;
+                this.projectDetails = this.projects.find(project => {return project.data.gid == id});
+            }
         },
         created() {
             Nova.request().post('/nova-vendor/community-summary/community', {
@@ -1103,5 +1288,46 @@
 
     .pointer {
         cursor: pointer;
+    }
+
+    #loader {
+        display: none;
+    }
+
+    .lds-facebook {
+        display: inline-block;
+        position: relative;
+        width: 64px;
+        height: 64px;
+    }
+    .lds-facebook div {
+        display: inline-block;
+        position: absolute;
+        left: 6px;
+        width: 13px;
+        background: #fff;
+        animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+    }
+    .lds-facebook div:nth-child(1) {
+        left: 6px;
+        animation-delay: -0.24s;
+    }
+    .lds-facebook div:nth-child(2) {
+        left: 26px;
+        animation-delay: -0.12s;
+    }
+    .lds-facebook div:nth-child(3) {
+        left: 45px;
+        animation-delay: 0;
+    }
+    @keyframes lds-facebook {
+        0% {
+            top: 6px;
+            height: 51px;
+        }
+        50%, 100% {
+            top: 19px;
+            height: 26px;
+        }
     }
 </style>

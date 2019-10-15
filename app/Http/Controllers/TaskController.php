@@ -47,10 +47,12 @@ class TaskController extends Controller
     {
         // Get required resource
         try {
-            $workspaces = json_decode($this->asana->getWorkspaces());
+            $workspaces = json_decode($this->asana->getWorkspaces(), 1);
 
             foreach ($workspaces as &$workspace) {
-                data_set($workspace, 'projects', $this->asana->getProjectsInWorkspace($workspace[0]->gid));
+                if(isset($workspace[0])){
+                    $workspace[0]['projects'] = json_decode($this->asana->getProjectsInWorkspace($workspace[0]['gid']));
+                }
             }
 
             return response()->json(['status' => 200, 'data' => $workspaces], 200);
@@ -70,8 +72,8 @@ class TaskController extends Controller
         // Validate form data
         $rules = array(
             'name' => 'required|string|max:255',
-            'workspace' => 'required|integer',
-            'projects.*' => 'required|integer',
+            'workspace' => 'required|string',
+            'projects.*' => 'required|string',
         );
 
         $validator = Validator::make ( $request->all(), $rules);
@@ -115,7 +117,14 @@ class TaskController extends Controller
      */
     public function edit($id)
     {
-        //
+        // Get the resource
+        try {
+            $task = json_decode($this->asana->getTask($id), 1);
+
+            return response()->json(['status' => 200, 'data' => $task['data']], 200);
+        } catch (\Exception $e) {
+            return response()->json(['status' => 500, 'msg' => $e->getMessage()], 200);
+        }
     }
 
     /**
@@ -127,7 +136,31 @@ class TaskController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // Validate form data
+        $rules = array(
+            'name' => 'required|string|max:255',
+            'workspace' => 'required|string',
+        );
+
+        $validator = Validator::make ( $request->all(), $rules);
+
+        if ($validator->fails()){
+            return response()->json(array('errors'=> $validator->getMessageBag()->toarray()));
+        }
+
+        // Update a task.
+        try {
+            $data = [
+                'name' => $request->name,
+                'workspace' => $request->workspace,
+            ];
+
+            $task = json_decode($this->asana->updateTask($id, $data));
+
+            return response()->json(['status' => 200, 'data' => $task], 200);
+        } catch (\Exception $e) {
+            return response()->json(['status' => 500, 'msg' => $e->getMessage()], 200);
+        }
     }
 
     /**
@@ -138,6 +171,13 @@ class TaskController extends Controller
      */
     public function destroy($id)
     {
-        //
+        // Delete specified task
+        try {
+            $this->asana->deleteTask($id);
+
+            return response()->json(['status' => 200, 'data' => ''], 200);
+        } catch (\Exception $e) {
+            return response()->json(['status' => 500, 'msg' => $e->getMessage()], 200);
+        }
     }
 }
