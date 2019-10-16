@@ -23,8 +23,9 @@ Route::group(['prefix' => 'asana'], function () {
         Route::get('/', 'ProjectController@index');
         Route::get('/create', 'ProjectController@create');
         Route::post('/store', 'ProjectController@store');
-        Route::put('/update/{id}', function () { dd('Project Edit'); });
-        Route::delete('/destroy/{id}', function () { dd('Project Remove'); });
+        Route::get('/{id}/edit', 'ProjectController@edit');
+        Route::put('/update/{id}', 'ProjectController@update');
+        Route::delete('/destroy/{id}', 'ProjectController@destroy');
     });
     Route::group(['prefix' => 'task',], function () {
         Route::get('/', 'TaskController@index');

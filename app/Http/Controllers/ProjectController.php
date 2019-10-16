@@ -133,7 +133,14 @@ class ProjectController extends Controller
      */
     public function edit($id)
     {
-        //
+        // Get the resource
+        try {
+            $project = json_decode($this->asana->getProject($id), 1);
+
+            return response()->json(['status' => 200, 'data' => $project['data']], 200);
+        } catch (\Exception $e) {
+            return response()->json(['status' => 500, 'msg' => $e->getMessage()], 200);
+        }
     }
 
     /**
@@ -145,7 +152,31 @@ class ProjectController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // Validate form data
+        $rules = array(
+            'name' => 'required|string|max:255',
+            'workspace' => 'required|string',
+        );
+
+        $validator = Validator::make ( $request->all(), $rules);
+
+        if ($validator->fails()){
+            return response()->json(array('errors'=> $validator->getMessageBag()->toarray()));
+        }
+
+        // Create a new project
+        try {
+            $data = [
+                'name' => $request->name,
+                'workspace' => $request->workspace,
+            ];
+
+            $project = json_decode($this->asana->updateProject($id, $data));
+
+            return response()->json(['status' => 200, 'data' => $project], 200);
+        } catch (\Exception $e) {
+            return response()->json(['status' => 500, 'msg' => $e->getMessage()], 200);
+        }
     }
 
     /**
@@ -156,6 +187,12 @@ class ProjectController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try {
+            $this->asana->deleteProject($id);
+            Project::destroy(Project::where('project_id', $id)->value('id'));
+            return response()->json(['status' => 200, 'data' => ''], 200);
+        } catch (\Exception $e) {
+            return response()->json(['status' => 500, 'msg' => $e->getMessage()], 200);
+        }
     }
 }

@@ -192,8 +192,26 @@
                 <div v-if="projects.length > 0">
                     <div class="tabs-wrap border-b-2 border-40 w-full">
                         <div class="tabs flex flex-row overflow-x-auto">
-                            <button v-if="projects.length > 0" v-for="project in projects" @click="toogleProject(project.data.id)" :class="{'py-5 px-8 border-b-2 focus:outline-none tab': true, 'text-grey-black font-bold border-primary': project.data.id == selectedProject ? true : false, 'text-grey font-semibold border-40': project.data.id != selectedProject ? true : false}">
-                                {{ project.data.name }}
+                            <button v-if="projects.length > 0" v-for="project in projects" @click="toogleProject(project)" :class="{'py-5 px-8 border-b-2 focus:outline-none tab': true, 'text-grey-black font-bold border-primary': project.data.gid == projectDetails.data.gid ? true : false, 'text-grey font-semibold border-40': project.data.gid != projectDetails.data.gid ? true : false}">
+                                {{ project.data.name }} &nbsp;&nbsp;&nbsp;
+
+                                <a @click="editProject(project.data.gid)" class="cursor-pointer text-70 hover:text-primary mr-1" title="Edit">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15"
+                                         viewBox="0 0 20 20" aria-labelledby="edit" role="presentation"
+                                         class="fill-current">
+                                        <path
+                                            d="M4.3 10.3l10-10a1 1 0 0 1 1.4 0l4 4a1 1 0 0 1 0 1.4l-10 10a1 1 0 0 1-.7.3H5a1 1 0 0 1-1-1v-4a1 1 0 0 1 .3-.7zM6 14h2.59l9-9L15 2.41l-9 9V14zm10-2a1 1 0 0 1 2 0v6a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4c0-1.1.9-2 2-2h6a1 1 0 1 1 0 2H2v14h14v-6z"></path>
+                                    </svg>
+                                </a>
+                                <a title="Delete" @click="deleteProject(project.data.gid)" class="cursor-pointer text-70 hover:text-danger mr-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15"
+                                         viewBox="0 0 20 20" aria-labelledby="delete" role="presentation"
+                                         class="fill-current">
+                                        <path fill-rule="nonzero"
+                                              d="M6 4V2a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2h5a1 1 0 0 1 0 2h-1v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6H1a1 1 0 1 1 0-2h5zM4 6v12h12V6H4zm8-2V2H8v2h4zM8 8a1 1 0 0 1 1 1v6a1 1 0 0 1-2 0V9a1 1 0 0 1 1-1zm4 0a1 1 0 0 1 1 1v6a1 1 0 0 1-2 0V9a1 1 0 0 1 1-1z"></path>
+                                    </svg>
+                                </a>
+
                             </button>
                         </div>
                     </div>
@@ -253,7 +271,7 @@
                 <div class="tabs-wrap border-b-2 border-40 w-full">
                     <div class="tabs flex flex-row overflow-x-auto">
                         <button class="py-5 px-8 border-b-2 focus:outline-none tab text-grey-black font-bold border-primary">
-                            Create Project
+                            <div v-if="isEditProject">Update Project</div><div v-if="!isEditProject">Create Project</div>
                         </button>
                     </div>
                 </div>
@@ -296,7 +314,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="remove-bottom-border">
+                                                <div class="remove-bottom-border" v-if="!isEditProject">
                                                     <div class="flex border-b border-40">
                                                         <div class="flex border-b border-40 w-full">
                                                             <div class="w-1/5 py-6 px-8">
@@ -316,7 +334,8 @@
                                         </div>
                                         <div class="flex items-center">
                                             <a tabindex="0" class="btn btn-link dim cursor-pointer text-80 ml-auto mr-6" @click="Template = 1">Cancel</a>
-                                            <button type="submit" class="btn btn-default btn-primary inline-flex items-center relative" dusk="create-button"><span class="">Create Project</span></button>
+                                            <button v-if="!isEditProject" type="submit" class="btn btn-default btn-primary inline-flex items-center relative" dusk="create-button"><span class="">Create Project</span></button>
+                                            <button v-if="isEditProject" type="submit" class="btn btn-default btn-primary inline-flex items-center relative" dusk="create-button"><span class="">Update Project</span></button>
                                         </div>
                                     </form>
                                 </div>
@@ -457,11 +476,12 @@
                 workspaceProjects: [],
                 errors: [],
                 success: null,
-                selectedProject: null,
+                isEditProject: false,
                 projectDetails: null,
                 isEditTask: false,
                 isLoading: true,
                 project: {
+                    id: null,
                     name: null,
                     workspace: null,
                     team: null,
@@ -1124,7 +1144,6 @@
                     this.isLoading = false;
                     document.getElementById('loader').style.display = 'none';
                     this.projects = response.data.data;
-                    this.selectedProject = this.projects[0].data.gid;
                     this.projectDetails = this.projects[0];
                 });
             },
@@ -1139,14 +1158,65 @@
                 this.teams = this.workspaces.find(workspace => {return workspace.gid == document.getElementById('workspace').value}).teams.data;
             },
             createProject() {
+                if (this.isEditProject) {
+                    this.updateProject();
+                } else {
+                    document.getElementById('loader').style.display = 'block';
+                    Nova.request().post('/api/asana/project/store', this.project).then(response => {
+                        document.getElementById('loader').style.display = 'none';
+                        if (response.data.status === 200) {
+                            this.Template = 1;
+                            this.getProjects();
+                        } else {
+                            this.errors = response.data.errors;
+                        }
+                    });
+                }
+            },
+            editProject(id) {
+                this.Template = 2;
+                this.isEditProject = true;
                 document.getElementById('loader').style.display = 'block';
-                Nova.request().post('/api/asana/project/store', this.project).then(response => {
+                Nova.request().get('/api/asana/project/' + id + '/edit').then(response => {
+                    document.getElementById('loader').style.display = 'none';
+                    this.project.id = id;
+                    this.project.name = response.data.data.name;
+                    this.project.workspace = response.data.data.workspace.gid;
+                });
+            },
+            updateProject() {
+                this.project._method = "PUT";
+                document.getElementById('loader').style.display = 'block';
+                Nova.request().post('/api/asana/project/update/' + this.project.id, this.project).then(response => {
                     document.getElementById('loader').style.display = 'none';
                     if (response.data.status === 200) {
                         this.Template = 1;
                         this.getProjects();
                     } else {
                         this.errors = response.data.errors;
+                    }
+                });
+            },
+            deleteProject(id) {
+                document.getElementById('loader').style.display = 'block';
+                let THIS = this;
+                Swal.fire({
+                    type: 'error',
+                    title: 'Delete Project',
+                    text: 'Are you sure want to delete this data?',
+                    showCancelButton: true,
+                    focusConfirm: true
+                }).then(res => {
+                    document.getElementById('loader').style.display = 'none';
+                    if(res.value !== undefined){
+                        Nova.request().post('/api/asana/project/destroy/' + id, {_method: 'DELETE'}).then(response => {
+                            if (response.data.status === 200) {
+                                THIS.Template = 1;
+                                THIS.getProjects();
+                            } else {
+                                THIS.errors = response.data.errors;
+                            }
+                        });
                     }
                 });
             },
@@ -1189,7 +1259,6 @@
                     this.task.id = id;
                     this.task.name = response.data.data.name;
                     this.task.workspace = response.data.data.workspace.gid;
-                    let x = document.getElementById("task-workspace");
                 });
             },
             updateTask() {
@@ -1229,10 +1298,9 @@
                     }
                 });
             },
-            toogleProject(id) {
-                this.selectedProject = id;
-                this.projectDetails = this.projects.find(project => {return project.data.gid == id});
-            }
+            toogleProject(project) {
+                this.projectDetails = project;
+            },
         },
         created() {
             Nova.request().post('/nova-vendor/community-summary/community', {
