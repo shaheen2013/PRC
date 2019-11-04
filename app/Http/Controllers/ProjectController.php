@@ -32,15 +32,40 @@ class ProjectController extends Controller
         // Get all Asana projects
         try {
             // Get all projects by community_id
-            $dbProjects = Project::where('osusr_mlv_community_id', $request->osusr_mlv_community_id)->get();
+            $dbProjects = Project::where('osusr_mlv_community_id', $request->osusr_mlv_community_id)->first();
 
             $projects = [];
+            $tasks = [];
 
-            foreach ($dbProjects as &$project) {
-                $pj = json_decode($this->asana->getProject($project->project_id), 1);
-                $pj['tasks'] = json_decode($this->asana->getProjectTasks($pj['data']['gid']), 1);
-                $projects[] = $pj;
+            $pj = json_decode($this->asana->getProject($dbProjects->project_id), 1);
+            $data = json_decode($this->asana->getProjectTasks($dbProjects->project_id), 1);
+
+            foreach ($data['data'] as $task) {
+                $tasks[] = json_decode($this->asana->getTask($task['gid']), 1);
             }
+
+            $pj['tasks'] = $tasks;
+            $pj['users'] = json_decode($this->asana->getWorkspaceUsers($pj['data']['workspace']['gid']));
+
+            $ch = curl_init();
+
+            curl_setopt($ch, CURLOPT_URL, 'https://app.asana.com/api/1.0/projects/' . $dbProjects->project_id . '/sections');
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
+
+
+            $headers = array();
+            $headers[] = 'Accept: application/json';
+            $headers[] = 'Authorization: Bearer ' . env('ASANA_PAT');
+            curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+            $pj['sections'] = json_decode(curl_exec($ch));
+            if (curl_errno($ch)) {
+                echo 'Error:' . curl_error($ch);
+            }
+            curl_close($ch);
+
+            $projects[] = $pj;
 
             return response()->json(['status' => 200, 'data' => $projects], 200);
         } catch (\Exception $e) {

@@ -274,7 +274,7 @@ exports = module.exports = __webpack_require__(1)(false);
 exports.i(__webpack_require__(7), "");
 
 // module
-exports.push([module.i, "\n.expired[data-v-b9bc2c0a] {\n    color: red;\n}\n.checkOkr[data-v-b9bc2c0a] {\n    position: absolute;\n    top: -8px;\n    right: -20px;\n    background-position: -58px -16px;\n    width: 38px;\n    height: 38px;\n}\n.checkOkv[data-v-b9bc2c0a] {\n    position: absolute;\n    top: -8px;\n    right: -20px;\n    background-position: -58px -16px;\n    width: 38px;\n    height: 38px;\n}\n.blank-image[data-v-b9bc2c0a] {\n    padding-right: 90px;\n}\n.pointer[data-v-b9bc2c0a] {\n    cursor: pointer;\n}\n#loader[data-v-b9bc2c0a] {\n    display: none;\n}\n.lds-facebook[data-v-b9bc2c0a] {\n    display: inline-block;\n    position: relative;\n    width: 64px;\n    height: 64px;\n}\n.lds-facebook div[data-v-b9bc2c0a] {\n    display: inline-block;\n    position: absolute;\n    left: 6px;\n    width: 13px;\n    background: #fff;\n    -webkit-animation: lds-facebook-data-v-b9bc2c0a 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;\n            animation: lds-facebook-data-v-b9bc2c0a 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;\n}\n.lds-facebook div[data-v-b9bc2c0a]:nth-child(1) {\n    left: 6px;\n    -webkit-animation-delay: -0.24s;\n            animation-delay: -0.24s;\n}\n.lds-facebook div[data-v-b9bc2c0a]:nth-child(2) {\n    left: 26px;\n    -webkit-animation-delay: -0.12s;\n            animation-delay: -0.12s;\n}\n.lds-facebook div[data-v-b9bc2c0a]:nth-child(3) {\n    left: 45px;\n    -webkit-animation-delay: 0;\n            animation-delay: 0;\n}\n@-webkit-keyframes lds-facebook-data-v-b9bc2c0a {\n0% {\n        top: 6px;\n        height: 51px;\n}\n50%, 100% {\n        top: 19px;\n        height: 26px;\n}\n}\n@keyframes lds-facebook-data-v-b9bc2c0a {\n0% {\n        top: 6px;\n        height: 51px;\n}\n50%, 100% {\n        top: 19px;\n        height: 26px;\n}\n}\n", ""]);
+exports.push([module.i, "\n.expired[data-v-b9bc2c0a] {\n    color: red;\n}\n.checkOkr[data-v-b9bc2c0a] {\n    position: absolute;\n    top: -8px;\n    right: -20px;\n    background-position: -58px -16px;\n    width: 38px;\n    height: 38px;\n}\n.checkOkv[data-v-b9bc2c0a] {\n    position: absolute;\n    top: -8px;\n    right: -20px;\n    background-position: -58px -16px;\n    width: 38px;\n    height: 38px;\n}\n.blank-image[data-v-b9bc2c0a] {\n    padding-right: 90px;\n}\n.pointer[data-v-b9bc2c0a] {\n    cursor: pointer;\n}\n#loader[data-v-b9bc2c0a] {\n    display: none;\n}\n.lds-facebook[data-v-b9bc2c0a] {\n    display: inline-block;\n    position: relative;\n    width: 64px;\n    height: 64px;\n}\n.lds-facebook div[data-v-b9bc2c0a] {\n    display: inline-block;\n    position: absolute;\n    left: 6px;\n    width: 13px;\n    background: #fff;\n    -webkit-animation: lds-facebook-data-v-b9bc2c0a 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;\n            animation: lds-facebook-data-v-b9bc2c0a 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;\n}\n.lds-facebook div[data-v-b9bc2c0a]:nth-child(1) {\n    left: 6px;\n    -webkit-animation-delay: -0.24s;\n            animation-delay: -0.24s;\n}\n.lds-facebook div[data-v-b9bc2c0a]:nth-child(2) {\n    left: 26px;\n    -webkit-animation-delay: -0.12s;\n            animation-delay: -0.12s;\n}\n.lds-facebook div[data-v-b9bc2c0a]:nth-child(3) {\n    left: 45px;\n    -webkit-animation-delay: 0;\n            animation-delay: 0;\n}\n.ph[data-v-b9bc2c0a]{\n    padding: 20px 10px;\n}\n@-webkit-keyframes lds-facebook-data-v-b9bc2c0a {\n0% {\n        top: 6px;\n        height: 51px;\n}\n50%, 100% {\n        top: 19px;\n        height: 26px;\n}\n}\n@keyframes lds-facebook-data-v-b9bc2c0a {\n0% {\n        top: 6px;\n        height: 51px;\n}\n50%, 100% {\n        top: 19px;\n        height: 26px;\n}\n}\n", ""]);
 
 // exports
 
@@ -1102,6 +1102,43 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -1146,6 +1183,8 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             Template: 1,
             workspaces: [],
             teams: [],
+            users: [],
+            sections: [],
             workspaceProjects: [],
             errors: [],
             success: null,
@@ -1164,7 +1203,11 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                 id: null,
                 name: '',
                 workspace: '',
-                projects: ''
+                assignee: '',
+                due_on: '',
+                notes: '',
+                section: '',
+                project: []
             }
         };
     },
@@ -1810,6 +1853,10 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                 document.getElementById('loader').style.display = 'none';
                 _this5.projects = response.data.data;
                 _this5.projectDetails = _this5.projects[0];
+                _this5.sections = _this5.projects[0].sections.data;
+                _this5.users = _this5.projects[0].users.data;
+                _this5.task.project = _this5.projectDetails.data.gid;
+                _this5.task.workspace = _this5.projectDetails.data.workspace.gid;
             });
         },
         getWorkspaces: function getWorkspaces() {
@@ -1896,25 +1943,26 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             });
         },
         createTask: function createTask() {
-            var _this10 = this;
-
             this.Template = 3;
             this.isEditTask = false;
-            document.getElementById('loader').style.display = 'block';
-            Nova.request().get('/api/asana/task/create').then(function (response) {
+            /*document.getElementById('loader').style.display = 'block';
+            Nova.request().get('/api/asana/task/create').then(response => {
                 document.getElementById('loader').style.display = 'none';
-                _this10.workspaces = response.data.data.data;
-            });
+                this.workspaces = response.data.data.data;
+            });*/
         },
         getWorkspaceProjects: function getWorkspaceProjects() {
             if (!this.isEditTask) {
                 this.workspaceProjects = this.workspaces.find(function (workspace) {
                     return workspace.gid == document.getElementById('task-workspace').value;
                 }).projects.data;
+                this.users = this.workspaces.find(function (workspace) {
+                    return workspace.gid == document.getElementById('task-workspace').value;
+                }).users.data;
             }
         },
         storeTask: function storeTask() {
-            var _this11 = this;
+            var _this10 = this;
 
             if (this.isEditTask) {
                 this.updateTask();
@@ -1923,40 +1971,40 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                 Nova.request().post('/api/asana/task/store', this.task).then(function (response) {
                     document.getElementById('loader').style.display = 'none';
                     if (response.data.status === 200) {
-                        _this11.Template = 1;
-                        _this11.getProjects();
+                        _this10.Template = 1;
+                        _this10.getProjects();
                     } else {
-                        _this11.errors = response.data.errors;
+                        _this10.errors = response.data.errors;
                     }
                 });
             }
         },
         editTask: function editTask(id) {
-            var _this12 = this;
+            var _this11 = this;
 
             this.Template = 3;
             this.isEditTask = true;
             document.getElementById('loader').style.display = 'block';
             Nova.request().get('/api/asana/task/' + id + '/edit').then(function (response) {
                 document.getElementById('loader').style.display = 'none';
-                _this12.task.id = id;
-                _this12.task.name = response.data.data.name;
-                _this12.task.workspace = response.data.data.workspace.gid;
+                _this11.task.id = id;
+                _this11.task.name = response.data.data.name;
+                _this11.task.workspace = response.data.data.workspace.gid;
             });
         },
         updateTask: function updateTask() {
-            var _this13 = this;
+            var _this12 = this;
 
             this.task._method = "PUT";
             document.getElementById('loader').style.display = 'block';
             Nova.request().post('/api/asana/task/update/' + this.task.id, this.task).then(function (response) {
                 document.getElementById('loader').style.display = 'none';
                 if (response.data.status === 200) {
-                    _this13.task = {};
-                    _this13.Template = 1;
-                    _this13.getProjects();
+                    _this12.task = {};
+                    _this12.Template = 1;
+                    _this12.getProjects();
                 } else {
-                    _this13.errors = response.data.errors;
+                    _this12.errors = response.data.errors;
                 }
             });
         },
@@ -1982,25 +2030,22 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                     });
                 }
             });
-        },
-        toogleProject: function toogleProject(project) {
-            this.projectDetails = project;
         }
     },
     created: function created() {
-        var _this14 = this;
+        var _this13 = this;
 
         Nova.request().post('/nova-vendor/community-summary/community', {
             communityId: this.resourceId
         }).then(function (response) {
             console.log(response.data);
-            _this14.community = response.data[0];
-            _this14.loaded = true;
+            _this13.community = response.data[0];
+            _this13.loaded = true;
         });
         Nova.request().post('/nova-vendor/community-summary/foreclosures', {
             communityId: this.resourceId
         }).then(function (response) {
-            _this14.estForeclosures = response.data;
+            _this13.estForeclosures = response.data;
         });
         this.getLatestActivity();
         this.getPendingChangeCount();
@@ -14621,19 +14666,24 @@ var render = function() {
           ),
           _vm._v(" "),
           _c("div", { staticClass: "flex-no-shrink ml-auto mb-6" }, [
-            _c(
-              "a",
-              {
-                staticClass: "btn btn-default btn-primary",
-                attrs: { href: "javascript:void(0)", dusk: "create-button" },
-                on: {
-                  click: function($event) {
-                    _vm.Template = 2
-                  }
-                }
-              },
-              [_vm._v("Create Project")]
-            )
+            _vm.projects.length < 1
+              ? _c(
+                  "a",
+                  {
+                    staticClass: "btn btn-default btn-primary",
+                    attrs: {
+                      href: "javascript:void(0)",
+                      dusk: "create-button"
+                    },
+                    on: {
+                      click: function($event) {
+                        ;(_vm.Template = 2), (_vm.isEditProject = false)
+                      }
+                    }
+                  },
+                  [_vm._v("Create Project")]
+                )
+              : _vm._e()
           ])
         ])
       ]),
@@ -14644,7 +14694,7 @@ var render = function() {
         ? _c("div", { staticClass: "relationship-tabs-panel card" }, [
             _vm.Template === 1
               ? _c("div", { staticClass: "w-full" }, [
-                  _vm.projects.length > 0
+                  _vm.projectDetails
                     ? _c("div", [
                         _c(
                           "div",
@@ -14658,123 +14708,104 @@ var render = function() {
                                 staticClass:
                                   "tabs flex flex-row overflow-x-auto"
                               },
-                              _vm._l(_vm.projects, function(project) {
-                                return _vm.projects.length > 0
-                                  ? _c(
-                                      "button",
+                              [
+                                _c(
+                                  "button",
+                                  {
+                                    staticClass:
+                                      "py-5 px-8 border-b-2 focus:outline-none tab text-grey-black font-bold border-primary"
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n                            " +
+                                        _vm._s(_vm.projectDetails.data.name) +
+                                        "    \n\n                            "
+                                    ),
+                                    _c(
+                                      "a",
                                       {
-                                        class: {
-                                          "py-5 px-8 border-b-2 focus:outline-none tab": true,
-                                          "text-grey-black font-bold border-primary":
-                                            project.data.gid ==
-                                            _vm.projectDetails.data.gid
-                                              ? true
-                                              : false,
-                                          "text-grey font-semibold border-40":
-                                            project.data.gid !=
-                                            _vm.projectDetails.data.gid
-                                              ? true
-                                              : false
-                                        },
+                                        staticClass:
+                                          "cursor-pointer text-70 hover:text-primary mr-1",
+                                        attrs: { title: "Edit" },
                                         on: {
                                           click: function($event) {
-                                            return _vm.toogleProject(project)
+                                            return _vm.editProject(
+                                              _vm.projectDetails.data.gid
+                                            )
                                           }
                                         }
                                       },
                                       [
-                                        _vm._v(
-                                          "\n                            " +
-                                            _vm._s(project.data.name) +
-                                            "    \n\n                            "
-                                        ),
                                         _c(
-                                          "a",
+                                          "svg",
                                           {
-                                            staticClass:
-                                              "cursor-pointer text-70 hover:text-primary mr-1",
-                                            attrs: { title: "Edit" },
-                                            on: {
-                                              click: function($event) {
-                                                return _vm.editProject(
-                                                  project.data.gid
-                                                )
-                                              }
+                                            staticClass: "fill-current",
+                                            attrs: {
+                                              xmlns:
+                                                "http://www.w3.org/2000/svg",
+                                              width: "15",
+                                              height: "15",
+                                              viewBox: "0 0 20 20",
+                                              "aria-labelledby": "edit",
+                                              role: "presentation"
                                             }
                                           },
                                           [
-                                            _c(
-                                              "svg",
-                                              {
-                                                staticClass: "fill-current",
-                                                attrs: {
-                                                  xmlns:
-                                                    "http://www.w3.org/2000/svg",
-                                                  width: "15",
-                                                  height: "15",
-                                                  viewBox: "0 0 20 20",
-                                                  "aria-labelledby": "edit",
-                                                  role: "presentation"
-                                                }
-                                              },
-                                              [
-                                                _c("path", {
-                                                  attrs: {
-                                                    d:
-                                                      "M4.3 10.3l10-10a1 1 0 0 1 1.4 0l4 4a1 1 0 0 1 0 1.4l-10 10a1 1 0 0 1-.7.3H5a1 1 0 0 1-1-1v-4a1 1 0 0 1 .3-.7zM6 14h2.59l9-9L15 2.41l-9 9V14zm10-2a1 1 0 0 1 2 0v6a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4c0-1.1.9-2 2-2h6a1 1 0 1 1 0 2H2v14h14v-6z"
-                                                  }
-                                                })
-                                              ]
-                                            )
+                                            _c("path", {
+                                              attrs: {
+                                                d:
+                                                  "M4.3 10.3l10-10a1 1 0 0 1 1.4 0l4 4a1 1 0 0 1 0 1.4l-10 10a1 1 0 0 1-.7.3H5a1 1 0 0 1-1-1v-4a1 1 0 0 1 .3-.7zM6 14h2.59l9-9L15 2.41l-9 9V14zm10-2a1 1 0 0 1 2 0v6a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4c0-1.1.9-2 2-2h6a1 1 0 1 1 0 2H2v14h14v-6z"
+                                              }
+                                            })
                                           ]
-                                        ),
-                                        _vm._v(" "),
+                                        )
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "a",
+                                      {
+                                        staticClass:
+                                          "cursor-pointer text-70 hover:text-danger mr-1",
+                                        attrs: { title: "Delete" },
+                                        on: {
+                                          click: function($event) {
+                                            return _vm.deleteProject(
+                                              _vm.projectDetails.data.gid
+                                            )
+                                          }
+                                        }
+                                      },
+                                      [
                                         _c(
-                                          "a",
+                                          "svg",
                                           {
-                                            staticClass:
-                                              "cursor-pointer text-70 hover:text-danger mr-1",
-                                            attrs: { title: "Delete" },
-                                            on: {
-                                              click: function($event) {
-                                                return _vm.deleteProject(
-                                                  project.data.gid
-                                                )
-                                              }
+                                            staticClass: "fill-current",
+                                            attrs: {
+                                              xmlns:
+                                                "http://www.w3.org/2000/svg",
+                                              width: "15",
+                                              height: "15",
+                                              viewBox: "0 0 20 20",
+                                              "aria-labelledby": "delete",
+                                              role: "presentation"
                                             }
                                           },
                                           [
-                                            _c(
-                                              "svg",
-                                              {
-                                                staticClass: "fill-current",
-                                                attrs: {
-                                                  xmlns:
-                                                    "http://www.w3.org/2000/svg",
-                                                  width: "15",
-                                                  height: "15",
-                                                  viewBox: "0 0 20 20",
-                                                  "aria-labelledby": "delete",
-                                                  role: "presentation"
-                                                }
-                                              },
-                                              [
-                                                _c("path", {
-                                                  attrs: {
-                                                    "fill-rule": "nonzero",
-                                                    d:
-                                                      "M6 4V2a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2h5a1 1 0 0 1 0 2h-1v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6H1a1 1 0 1 1 0-2h5zM4 6v12h12V6H4zm8-2V2H8v2h4zM8 8a1 1 0 0 1 1 1v6a1 1 0 0 1-2 0V9a1 1 0 0 1 1-1zm4 0a1 1 0 0 1 1 1v6a1 1 0 0 1-2 0V9a1 1 0 0 1 1-1z"
-                                                  }
-                                                })
-                                              ]
-                                            )
+                                            _c("path", {
+                                              attrs: {
+                                                "fill-rule": "nonzero",
+                                                d:
+                                                  "M6 4V2a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2h5a1 1 0 0 1 0 2h-1v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6H1a1 1 0 1 1 0-2h5zM4 6v12h12V6H4zm8-2V2H8v2h4zM8 8a1 1 0 0 1 1 1v6a1 1 0 0 1-2 0V9a1 1 0 0 1 1-1zm4 0a1 1 0 0 1 1 1v6a1 1 0 0 1-2 0V9a1 1 0 0 1 1-1z"
+                                              }
+                                            })
                                           ]
                                         )
                                       ]
                                     )
-                                  : _vm._e()
-                              }),
-                              0
+                                  ]
+                                )
+                              ]
                             )
                           ]
                         ),
@@ -14827,6 +14858,38 @@ var render = function() {
                                                   _c(
                                                     "th",
                                                     {
+                                                      staticClass: "text-left"
+                                                    },
+                                                    [_vm._v("Type")]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "th",
+                                                    {
+                                                      staticClass: "text-left"
+                                                    },
+                                                    [_vm._v("Due Date")]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "th",
+                                                    {
+                                                      staticClass: "text-left"
+                                                    },
+                                                    [_vm._v("Description")]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "th",
+                                                    {
+                                                      staticClass: "text-left"
+                                                    },
+                                                    [_vm._v("Complete")]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "th",
+                                                    {
                                                       staticClass: "text-right"
                                                     },
                                                     [
@@ -14869,7 +14932,7 @@ var render = function() {
                                               _c(
                                                 "tbody",
                                                 _vm._l(
-                                                  _vm.projectDetails.tasks.data,
+                                                  _vm.projectDetails.tasks,
                                                   function(t, index) {
                                                     return _c("tr", [
                                                       _c("td", {
@@ -14881,7 +14944,47 @@ var render = function() {
                                                       }),
                                                       _vm._v(" "),
                                                       _c("td", [
-                                                        _vm._v(_vm._s(t.name))
+                                                        _vm._v(
+                                                          _vm._s(t.data.name)
+                                                        )
+                                                      ]),
+                                                      _vm._v(" "),
+                                                      _c("td", [
+                                                        _vm._v(
+                                                          _vm._s(
+                                                            t.data
+                                                              .memberships[0]
+                                                              .section.name
+                                                          )
+                                                        )
+                                                      ]),
+                                                      _vm._v(" "),
+                                                      _c("td", [
+                                                        _vm._v(
+                                                          _vm._s(t.data.due_on)
+                                                        )
+                                                      ]),
+                                                      _vm._v(" "),
+                                                      _c("td", [
+                                                        _vm._v(
+                                                          _vm._s(t.data.notes)
+                                                        )
+                                                      ]),
+                                                      _vm._v(" "),
+                                                      _c("td", [
+                                                        t.data.completed
+                                                          ? _c("input", {
+                                                              attrs: {
+                                                                type:
+                                                                  "checkbox",
+                                                                checked: ""
+                                                              }
+                                                            })
+                                                          : _c("input", {
+                                                              attrs: {
+                                                                type: "checkbox"
+                                                              }
+                                                            })
                                                       ]),
                                                       _vm._v(" "),
                                                       _c(
@@ -14906,7 +15009,7 @@ var render = function() {
                                                                   $event
                                                                 ) {
                                                                   return _vm.editTask(
-                                                                    t.gid
+                                                                    t.data.gid
                                                                   )
                                                                 }
                                                               }
@@ -14956,7 +15059,7 @@ var render = function() {
                                                                   $event
                                                                 ) {
                                                                   return _vm.deleteTask(
-                                                                    t.gid
+                                                                    t.data.gid
                                                                   )
                                                                 }
                                                               }
@@ -15016,7 +15119,9 @@ var render = function() {
                   _vm._v(" "),
                   _vm.projects.length === 0
                     ? _c("div", { staticClass: "card" }, [
-                        _c("h2", [_vm._v("No projects yet")])
+                        _c("h2", { staticClass: "ph" }, [
+                          _vm._v("No projects yet")
+                        ])
                       ])
                     : _vm._e()
                 ])
@@ -15738,7 +15843,6 @@ var render = function() {
                                                           staticClass:
                                                             "w-full form-control form-input form-input-bordered",
                                                           attrs: {
-                                                            id: "name",
                                                             dusk: "name",
                                                             type: "text",
                                                             placeholder:
@@ -15842,9 +15946,9 @@ var render = function() {
                                                                   "v-model",
                                                                 value:
                                                                   _vm.task
-                                                                    .workspace,
+                                                                    .assignee,
                                                                 expression:
-                                                                  "task.workspace"
+                                                                  "task.assignee"
                                                               }
                                                             ],
                                                             staticClass:
@@ -15854,50 +15958,42 @@ var render = function() {
                                                                 "attachable-select",
                                                               "data-testid":
                                                                 "workspace-select",
-                                                              id:
-                                                                "task-workspace",
-                                                              name: "workspace"
+                                                              name: "assignee"
                                                             },
                                                             on: {
-                                                              change: [
-                                                                function(
-                                                                  $event
-                                                                ) {
-                                                                  var $$selectedVal = Array.prototype.filter
-                                                                    .call(
-                                                                      $event
-                                                                        .target
-                                                                        .options,
-                                                                      function(
-                                                                        o
-                                                                      ) {
-                                                                        return o.selected
-                                                                      }
-                                                                    )
-                                                                    .map(
-                                                                      function(
-                                                                        o
-                                                                      ) {
-                                                                        var val =
-                                                                          "_value" in
-                                                                          o
-                                                                            ? o._value
-                                                                            : o.value
-                                                                        return val
-                                                                      }
-                                                                    )
-                                                                  _vm.$set(
-                                                                    _vm.task,
-                                                                    "workspace",
+                                                              change: function(
+                                                                $event
+                                                              ) {
+                                                                var $$selectedVal = Array.prototype.filter
+                                                                  .call(
                                                                     $event
                                                                       .target
-                                                                      .multiple
-                                                                      ? $$selectedVal
-                                                                      : $$selectedVal[0]
+                                                                      .options,
+                                                                    function(
+                                                                      o
+                                                                    ) {
+                                                                      return o.selected
+                                                                    }
                                                                   )
-                                                                },
-                                                                _vm.getWorkspaceProjects
-                                                              ]
+                                                                  .map(function(
+                                                                    o
+                                                                  ) {
+                                                                    var val =
+                                                                      "_value" in
+                                                                      o
+                                                                        ? o._value
+                                                                        : o.value
+                                                                    return val
+                                                                  })
+                                                                _vm.$set(
+                                                                  _vm.task,
+                                                                  "assignee",
+                                                                  $event.target
+                                                                    .multiple
+                                                                    ? $$selectedVal
+                                                                    : $$selectedVal[0]
+                                                                )
+                                                              }
                                                             }
                                                           },
                                                           [
@@ -15912,31 +16008,28 @@ var render = function() {
                                                               },
                                                               [
                                                                 _vm._v(
-                                                                  "Choose Task Workspace/Organization"
+                                                                  "Choose Assigned To"
                                                                 )
                                                               ]
                                                             ),
                                                             _vm._v(" "),
                                                             _vm._l(
-                                                              _vm.workspaces,
-                                                              function(
-                                                                workspace
-                                                              ) {
-                                                                return _vm
-                                                                  .workspaces
+                                                              _vm.users,
+                                                              function(user) {
+                                                                return _vm.users
                                                                   .length > 0
                                                                   ? _c(
                                                                       "option",
                                                                       {
                                                                         domProps: {
                                                                           value:
-                                                                            workspace.gid
+                                                                            user.gid
                                                                         }
                                                                       },
                                                                       [
                                                                         _vm._v(
                                                                           _vm._s(
-                                                                            workspace.name
+                                                                            user.name
                                                                           )
                                                                         )
                                                                       ]
@@ -15948,7 +16041,7 @@ var render = function() {
                                                           2
                                                         ),
                                                         _vm._v(" "),
-                                                        _vm.errors.workspace
+                                                        _vm.errors.assignee
                                                           ? _c(
                                                               "div",
                                                               {
@@ -15967,7 +16060,7 @@ var render = function() {
                                                                       _vm._s(
                                                                         _vm
                                                                           .errors
-                                                                          .workspace[0]
+                                                                          .assignee[0]
                                                                       )
                                                                     )
                                                                   ]
@@ -15984,189 +16077,394 @@ var render = function() {
                                           ]
                                         ),
                                         _vm._v(" "),
-                                        !_vm.isEditTask
-                                          ? _c(
+                                        _c(
+                                          "div",
+                                          {
+                                            staticClass: "remove-bottom-border"
+                                          },
+                                          [
+                                            _c(
                                               "div",
                                               {
                                                 staticClass:
-                                                  "remove-bottom-border"
+                                                  "flex border-b border-40"
                                               },
                                               [
                                                 _c(
                                                   "div",
                                                   {
                                                     staticClass:
-                                                      "flex border-b border-40"
+                                                      "flex border-b border-40 w-full"
                                                   },
                                                   [
+                                                    _vm._m(6),
+                                                    _vm._v(" "),
                                                     _c(
                                                       "div",
                                                       {
                                                         staticClass:
-                                                          "flex border-b border-40 w-full"
+                                                          "py-6 px-8 w-1/2"
                                                       },
                                                       [
-                                                        _vm._m(6),
-                                                        _vm._v(" "),
                                                         _c(
-                                                          "div",
+                                                          "select",
                                                           {
+                                                            directives: [
+                                                              {
+                                                                name: "model",
+                                                                rawName:
+                                                                  "v-model",
+                                                                value:
+                                                                  _vm.task
+                                                                    .section,
+                                                                expression:
+                                                                  "task.section"
+                                                              }
+                                                            ],
                                                             staticClass:
-                                                              "py-6 px-8 w-1/2"
+                                                              "form-control form-select mb-3 w-full",
+                                                            attrs: {
+                                                              dusk:
+                                                                "attachable-select",
+                                                              "data-testid":
+                                                                "workspace-select",
+                                                              name: "assignee"
+                                                            },
+                                                            on: {
+                                                              change: function(
+                                                                $event
+                                                              ) {
+                                                                var $$selectedVal = Array.prototype.filter
+                                                                  .call(
+                                                                    $event
+                                                                      .target
+                                                                      .options,
+                                                                    function(
+                                                                      o
+                                                                    ) {
+                                                                      return o.selected
+                                                                    }
+                                                                  )
+                                                                  .map(function(
+                                                                    o
+                                                                  ) {
+                                                                    var val =
+                                                                      "_value" in
+                                                                      o
+                                                                        ? o._value
+                                                                        : o.value
+                                                                    return val
+                                                                  })
+                                                                _vm.$set(
+                                                                  _vm.task,
+                                                                  "section",
+                                                                  $event.target
+                                                                    .multiple
+                                                                    ? $$selectedVal
+                                                                    : $$selectedVal[0]
+                                                                )
+                                                              }
+                                                            }
                                                           },
                                                           [
                                                             _c(
-                                                              "select",
+                                                              "option",
                                                               {
-                                                                directives: [
-                                                                  {
-                                                                    name:
-                                                                      "model",
-                                                                    rawName:
-                                                                      "v-model",
-                                                                    value:
-                                                                      _vm.task
-                                                                        .projects,
-                                                                    expression:
-                                                                      "task.projects"
-                                                                  }
-                                                                ],
-                                                                staticClass:
-                                                                  "form-control form-select mb-3 w-full",
                                                                 attrs: {
-                                                                  dusk:
-                                                                    "attachable-select",
-                                                                  "data-testid":
-                                                                    "team-select",
-                                                                  id:
-                                                                    "projects",
-                                                                  name:
-                                                                    "projects"
-                                                                },
-                                                                on: {
-                                                                  change: function(
-                                                                    $event
-                                                                  ) {
-                                                                    var $$selectedVal = Array.prototype.filter
-                                                                      .call(
-                                                                        $event
-                                                                          .target
-                                                                          .options,
-                                                                        function(
-                                                                          o
-                                                                        ) {
-                                                                          return o.selected
-                                                                        }
-                                                                      )
-                                                                      .map(
-                                                                        function(
-                                                                          o
-                                                                        ) {
-                                                                          var val =
-                                                                            "_value" in
-                                                                            o
-                                                                              ? o._value
-                                                                              : o.value
-                                                                          return val
-                                                                        }
-                                                                      )
-                                                                    _vm.$set(
-                                                                      _vm.task,
-                                                                      "projects",
-                                                                      $event
-                                                                        .target
-                                                                        .multiple
-                                                                        ? $$selectedVal
-                                                                        : $$selectedVal[0]
-                                                                    )
-                                                                  }
+                                                                  value: "",
+                                                                  disabled:
+                                                                    "disabled"
                                                                 }
                                                               },
                                                               [
-                                                                _c(
-                                                                  "option",
-                                                                  {
-                                                                    attrs: {
-                                                                      value: "",
-                                                                      disabled:
-                                                                        "disabled"
-                                                                    }
-                                                                  },
-                                                                  [
-                                                                    _vm._v(
-                                                                      "Choose Project"
-                                                                    )
-                                                                  ]
-                                                                ),
-                                                                _vm._v(" "),
-                                                                _vm._l(
-                                                                  _vm.workspaceProjects,
-                                                                  function(
-                                                                    project
-                                                                  ) {
-                                                                    return _vm
-                                                                      .workspaceProjects
-                                                                      .length >
-                                                                      0
-                                                                      ? _c(
-                                                                          "option",
-                                                                          {
-                                                                            domProps: {
-                                                                              value:
-                                                                                project.gid
-                                                                            }
-                                                                          },
-                                                                          [
-                                                                            _vm._v(
-                                                                              _vm._s(
-                                                                                project.name
-                                                                              )
-                                                                            )
-                                                                          ]
-                                                                        )
-                                                                      : _vm._e()
-                                                                  }
+                                                                _vm._v(
+                                                                  "Choose Type"
                                                                 )
-                                                              ],
-                                                              2
+                                                              ]
                                                             ),
                                                             _vm._v(" "),
-                                                            _vm.errors.projects
-                                                              ? _c(
-                                                                  "div",
-                                                                  {
-                                                                    staticClass:
-                                                                      "help-text help-text mt-2"
-                                                                  },
-                                                                  [
-                                                                    _c(
-                                                                      "div",
+                                                            _vm._l(
+                                                              _vm.sections,
+                                                              function(
+                                                                section
+                                                              ) {
+                                                                return _vm
+                                                                  .sections
+                                                                  .length > 0
+                                                                  ? _c(
+                                                                      "option",
                                                                       {
-                                                                        staticClass:
-                                                                          "text-danger"
+                                                                        domProps: {
+                                                                          value:
+                                                                            section.gid
+                                                                        }
                                                                       },
                                                                       [
                                                                         _vm._v(
                                                                           _vm._s(
-                                                                            _vm
-                                                                              .errors
-                                                                              .projects[0]
+                                                                            section.name
                                                                           )
                                                                         )
                                                                       ]
                                                                     )
+                                                                  : _vm._e()
+                                                              }
+                                                            )
+                                                          ],
+                                                          2
+                                                        ),
+                                                        _vm._v(" "),
+                                                        _vm.errors.section
+                                                          ? _c(
+                                                              "div",
+                                                              {
+                                                                staticClass:
+                                                                  "help-text help-text mt-2"
+                                                              },
+                                                              [
+                                                                _c(
+                                                                  "div",
+                                                                  {
+                                                                    staticClass:
+                                                                      "text-danger"
+                                                                  },
+                                                                  [
+                                                                    _vm._v(
+                                                                      _vm._s(
+                                                                        _vm
+                                                                          .errors
+                                                                          .section[0]
+                                                                      )
+                                                                    )
                                                                   ]
                                                                 )
-                                                              : _vm._e()
-                                                          ]
-                                                        )
+                                                              ]
+                                                            )
+                                                          : _vm._e()
                                                       ]
                                                     )
                                                   ]
                                                 )
                                               ]
                                             )
-                                          : _vm._e()
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "div",
+                                          {
+                                            staticClass: "remove-bottom-border"
+                                          },
+                                          [
+                                            _c(
+                                              "div",
+                                              {
+                                                staticClass:
+                                                  "flex border-b border-40"
+                                              },
+                                              [
+                                                _c(
+                                                  "div",
+                                                  {
+                                                    staticClass:
+                                                      "flex border-b border-40 w-full"
+                                                  },
+                                                  [
+                                                    _vm._m(7),
+                                                    _vm._v(" "),
+                                                    _c(
+                                                      "div",
+                                                      {
+                                                        staticClass:
+                                                          "py-6 px-8 w-1/2"
+                                                      },
+                                                      [
+                                                        _c("input", {
+                                                          directives: [
+                                                            {
+                                                              name: "model",
+                                                              rawName:
+                                                                "v-model",
+                                                              value:
+                                                                _vm.task.due_on,
+                                                              expression:
+                                                                "task.due_on"
+                                                            }
+                                                          ],
+                                                          staticClass:
+                                                            "w-full form-control form-input form-input-bordered",
+                                                          attrs: {
+                                                            dusk: "due_on",
+                                                            type: "date",
+                                                            placeholder:
+                                                              "Due Date"
+                                                          },
+                                                          domProps: {
+                                                            value:
+                                                              _vm.task.due_on
+                                                          },
+                                                          on: {
+                                                            input: function(
+                                                              $event
+                                                            ) {
+                                                              if (
+                                                                $event.target
+                                                                  .composing
+                                                              ) {
+                                                                return
+                                                              }
+                                                              _vm.$set(
+                                                                _vm.task,
+                                                                "due_on",
+                                                                $event.target
+                                                                  .value
+                                                              )
+                                                            }
+                                                          }
+                                                        }),
+                                                        _vm._v(" "),
+                                                        _vm.errors.due_on
+                                                          ? _c(
+                                                              "div",
+                                                              {
+                                                                staticClass:
+                                                                  "help-text help-text mt-2"
+                                                              },
+                                                              [
+                                                                _c(
+                                                                  "div",
+                                                                  {
+                                                                    staticClass:
+                                                                      "text-danger"
+                                                                  },
+                                                                  [
+                                                                    _vm._v(
+                                                                      _vm._s(
+                                                                        _vm
+                                                                          .errors
+                                                                          .due_on[0]
+                                                                      )
+                                                                    )
+                                                                  ]
+                                                                )
+                                                              ]
+                                                            )
+                                                          : _vm._e()
+                                                      ]
+                                                    )
+                                                  ]
+                                                )
+                                              ]
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "div",
+                                          {
+                                            staticClass: "remove-bottom-border"
+                                          },
+                                          [
+                                            _c(
+                                              "div",
+                                              {
+                                                staticClass:
+                                                  "flex border-b border-40"
+                                              },
+                                              [
+                                                _c(
+                                                  "div",
+                                                  {
+                                                    staticClass:
+                                                      "flex border-b border-40 w-full"
+                                                  },
+                                                  [
+                                                    _vm._m(8),
+                                                    _vm._v(" "),
+                                                    _c(
+                                                      "div",
+                                                      {
+                                                        staticClass:
+                                                          "py-6 px-8 w-1/2"
+                                                      },
+                                                      [
+                                                        _c("textarea", {
+                                                          directives: [
+                                                            {
+                                                              name: "model",
+                                                              rawName:
+                                                                "v-model",
+                                                              value:
+                                                                _vm.task.notes,
+                                                              expression:
+                                                                "task.notes"
+                                                            }
+                                                          ],
+                                                          staticClass:
+                                                            "w-full form-control form-input form-input-bordered py-3 h-auto",
+                                                          attrs: {
+                                                            dusk: "title",
+                                                            rows: "5"
+                                                          },
+                                                          domProps: {
+                                                            value:
+                                                              _vm.task.notes
+                                                          },
+                                                          on: {
+                                                            input: function(
+                                                              $event
+                                                            ) {
+                                                              if (
+                                                                $event.target
+                                                                  .composing
+                                                              ) {
+                                                                return
+                                                              }
+                                                              _vm.$set(
+                                                                _vm.task,
+                                                                "notes",
+                                                                $event.target
+                                                                  .value
+                                                              )
+                                                            }
+                                                          }
+                                                        }),
+                                                        _vm._v(" "),
+                                                        _vm.errors.notes
+                                                          ? _c(
+                                                              "div",
+                                                              {
+                                                                staticClass:
+                                                                  "help-text help-text mt-2"
+                                                              },
+                                                              [
+                                                                _c(
+                                                                  "div",
+                                                                  {
+                                                                    staticClass:
+                                                                      "text-danger"
+                                                                  },
+                                                                  [
+                                                                    _vm._v(
+                                                                      _vm._s(
+                                                                        _vm
+                                                                          .errors
+                                                                          .notes[0]
+                                                                      )
+                                                                    )
+                                                                  ]
+                                                                )
+                                                              ]
+                                                            )
+                                                          : _vm._e()
+                                                      ]
+                                                    )
+                                                  ]
+                                                )
+                                              ]
+                                            )
+                                          ]
+                                        )
                                       ])
                                     ]),
                                     _vm._v(" "),
@@ -16331,9 +16629,9 @@ var staticRenderFns = [
         "label",
         {
           staticClass: "inline-block text-80 pt-2 leading-tight",
-          attrs: { for: "workspace" }
+          attrs: { for: "name" }
         },
-        [_vm._v("Task Workspace/Organization")]
+        [_vm._v("Assigned To")]
       )
     ])
   },
@@ -16346,9 +16644,39 @@ var staticRenderFns = [
         "label",
         {
           staticClass: "inline-block text-80 pt-2 leading-tight",
-          attrs: { for: "team" }
+          attrs: { for: "name" }
         },
-        [_vm._v("Project")]
+        [_vm._v("Type")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "w-1/5 py-6 px-8" }, [
+      _c(
+        "label",
+        {
+          staticClass: "inline-block text-80 pt-2 leading-tight",
+          attrs: { for: "name" }
+        },
+        [_vm._v("Due Date")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "w-1/5 py-6 px-8" }, [
+      _c(
+        "label",
+        {
+          staticClass: "inline-block text-80 pt-2 leading-tight",
+          attrs: { for: "name" }
+        },
+        [_vm._v("Description")]
       )
     ])
   }

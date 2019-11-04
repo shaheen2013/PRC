@@ -180,7 +180,7 @@
                 <h1 class="flex-no-shrink text-90 font-normal text-2xl">Tasks/Projects</h1>
                 <!---->
                 <div class="flex-no-shrink ml-auto mb-6">
-                    <a href="javascript:void(0)" @click="Template = 2" class="btn btn-default btn-primary" dusk="create-button">Create Project</a>
+                    <a href="javascript:void(0)" v-if="projects.length < 1" @click="Template=2, isEditProject=false" class="btn btn-default btn-primary" dusk="create-button">Create Project</a>
                 </div>
             </div>
         </div>
@@ -189,13 +189,13 @@
         </div>
         <div v-if="!isLoading" class="relationship-tabs-panel card">
             <div class="w-full" v-if="Template === 1">
-                <div v-if="projects.length > 0">
+                <div v-if="projectDetails">
                     <div class="tabs-wrap border-b-2 border-40 w-full">
                         <div class="tabs flex flex-row overflow-x-auto">
-                            <button v-if="projects.length > 0" v-for="project in projects" @click="toogleProject(project)" :class="{'py-5 px-8 border-b-2 focus:outline-none tab': true, 'text-grey-black font-bold border-primary': project.data.gid == projectDetails.data.gid ? true : false, 'text-grey font-semibold border-40': project.data.gid != projectDetails.data.gid ? true : false}">
-                                {{ project.data.name }} &nbsp;&nbsp;&nbsp;
+                            <button class="py-5 px-8 border-b-2 focus:outline-none tab text-grey-black font-bold border-primary">
+                                {{ projectDetails.data.name }} &nbsp;&nbsp;&nbsp;
 
-                                <a @click="editProject(project.data.gid)" class="cursor-pointer text-70 hover:text-primary mr-1" title="Edit">
+                                <a @click="editProject(projectDetails.data.gid)" class="cursor-pointer text-70 hover:text-primary mr-1" title="Edit">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15"
                                          viewBox="0 0 20 20" aria-labelledby="edit" role="presentation"
                                          class="fill-current">
@@ -203,7 +203,7 @@
                                             d="M4.3 10.3l10-10a1 1 0 0 1 1.4 0l4 4a1 1 0 0 1 0 1.4l-10 10a1 1 0 0 1-.7.3H5a1 1 0 0 1-1-1v-4a1 1 0 0 1 .3-.7zM6 14h2.59l9-9L15 2.41l-9 9V14zm10-2a1 1 0 0 1 2 0v6a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4c0-1.1.9-2 2-2h6a1 1 0 1 1 0 2H2v14h14v-6z"></path>
                                     </svg>
                                 </a>
-                                <a title="Delete" @click="deleteProject(project.data.gid)" class="cursor-pointer text-70 hover:text-danger mr-1">
+                                <a title="Delete" @click="deleteProject(projectDetails.data.gid)" class="cursor-pointer text-70 hover:text-danger mr-1">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15"
                                          viewBox="0 0 20 20" aria-labelledby="delete" role="presentation"
                                          class="fill-current">
@@ -224,6 +224,10 @@
                                         <tr>
                                             <th class="text-left">SL</th>
                                             <th class="text-left">Task</th>
+                                            <th class="text-left">Type</th>
+                                            <th class="text-left">Due Date</th>
+                                            <th class="text-left">Description</th>
+                                            <th class="text-left">Complete</th>
                                             <th class="text-right">
                                                 <div class="flex-no-shrink ml-auto mb-6">
                                                     <a href="javascript:void(0)" @click="createTask" class="btn btn-default btn-primary" dusk="create-button">Create Task</a>
@@ -232,11 +236,18 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <tr v-for="(t,index) in projectDetails.tasks.data">
+                                        <tr v-for="(t,index) in projectDetails.tasks">
                                             <td v-text="index+1"></td>
-                                            <td>{{ t.name }}</td>
+                                            <td>{{ t.data.name }}</td>
+                                            <td>{{ t.data.memberships[0].section.name }}</td>
+                                            <td>{{ t.data.due_on }}</td>
+                                            <td>{{ t.data.notes }}</td>
+                                            <td>
+                                                <input type="checkbox" v-if="t.data.completed" checked>
+                                                <input type="checkbox" v-else="">
+                                            </td>
                                             <td class="text-right">
-                                                <a @click="editTask(t.gid)" class="cursor-pointer text-70 hover:text-primary mr-3" dusk="1-edit-button"
+                                                <a @click="editTask(t.data.gid)" class="cursor-pointer text-70 hover:text-primary mr-3" dusk="1-edit-button"
                                                    title="Edit">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                                                          viewBox="0 0 20 20" aria-labelledby="edit" role="presentation"
@@ -245,7 +256,7 @@
                                                             d="M4.3 10.3l10-10a1 1 0 0 1 1.4 0l4 4a1 1 0 0 1 0 1.4l-10 10a1 1 0 0 1-.7.3H5a1 1 0 0 1-1-1v-4a1 1 0 0 1 .3-.7zM6 14h2.59l9-9L15 2.41l-9 9V14zm10-2a1 1 0 0 1 2 0v6a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4c0-1.1.9-2 2-2h6a1 1 0 1 1 0 2H2v14h14v-6z"></path>
                                                     </svg>
                                                 </a>
-                                                <a title="Delete" @click="deleteTask(t.gid)"
+                                                <a title="Delete" @click="deleteTask(t.data.gid)"
                                                    class="appearance-none cursor-pointer text-70 hover:text-danger mr-3">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                                                          viewBox="0 0 20 20" aria-labelledby="delete" role="presentation"
@@ -264,7 +275,7 @@
                     </div>
                 </div>
                 <div v-if="projects.length === 0" class="card">
-                    <h2>No projects yet</h2>
+                    <h2 class="ph">No projects yet</h2>
                 </div>
             </div>
             <div class="w-full" v-if="Template === 2">
@@ -369,7 +380,7 @@
                                                                 <label for="name" class="inline-block text-80 pt-2 leading-tight">Task Name</label>
                                                             </div>
                                                             <div class="py-6 px-8 w-1/2">
-                                                                <input id="name" v-model="task.name" dusk="name" type="text" placeholder="Task Name" class="w-full form-control form-input form-input-bordered"> <!---->
+                                                                <input v-model="task.name" dusk="name" type="text" placeholder="Task Name" class="w-full form-control form-input form-input-bordered"> <!---->
                                                                 <div class="help-text help-text mt-2" v-if="errors.name"><div class="text-danger">{{ errors.name[0] }}</div></div>
                                                             </div>
                                                         </div>
@@ -379,30 +390,56 @@
                                                     <div class="flex border-b border-40">
                                                         <div class="flex border-b border-40 w-full">
                                                             <div class="w-1/5 py-6 px-8">
-                                                                <label for="workspace" class="inline-block text-80 pt-2 leading-tight">Task Workspace/Organization</label>
+                                                                <label for="name" class="inline-block text-80 pt-2 leading-tight">Assigned To</label>
                                                             </div>
                                                             <div class="py-6 px-8 w-1/2">
-                                                                <select @change="getWorkspaceProjects" v-model="task.workspace" dusk="attachable-select" data-testid="workspace-select" id="task-workspace" name="workspace" class="form-control form-select mb-3 w-full">
-                                                                    <option value="" disabled="disabled">Choose Task Workspace/Organization</option>
-                                                                    <option v-if="workspaces.length > 0" v-for="workspace in workspaces" :value="workspace.gid">{{ workspace.name }}</option>
+                                                                <select v-model="task.assignee" dusk="attachable-select" data-testid="workspace-select" name="assignee" class="form-control form-select mb-3 w-full">
+                                                                    <option value="" disabled="disabled">Choose Assigned To</option>
+                                                                    <option v-if="users.length > 0" v-for="user in users" :value="user.gid">{{ user.name }}</option>
                                                                 </select>
-                                                                <div class="help-text help-text mt-2" v-if="errors.workspace"><div class="text-danger">{{ errors.workspace[0] }}</div></div>
+                                                                <div class="help-text help-text mt-2" v-if="errors.assignee"><div class="text-danger">{{ errors.assignee[0] }}</div></div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="remove-bottom-border" v-if="!isEditTask">
+                                                <div class="remove-bottom-border">
                                                     <div class="flex border-b border-40">
                                                         <div class="flex border-b border-40 w-full">
                                                             <div class="w-1/5 py-6 px-8">
-                                                                <label for="team" class="inline-block text-80 pt-2 leading-tight">Project</label>
+                                                                <label for="name" class="inline-block text-80 pt-2 leading-tight">Type</label>
                                                             </div>
                                                             <div class="py-6 px-8 w-1/2">
-                                                                <select dusk="attachable-select" v-model="task.projects" data-testid="team-select" id="projects" name="projects" class="form-control form-select mb-3 w-full">
-                                                                    <option value="" disabled="disabled">Choose Project</option>
-                                                                    <option v-if="workspaceProjects.length > 0" v-for="project in workspaceProjects" :value="project.gid">{{ project.name }}</option>
+                                                                <select v-model="task.section" dusk="attachable-select" data-testid="workspace-select" name="assignee" class="form-control form-select mb-3 w-full">
+                                                                    <option value="" disabled="disabled">Choose Type</option>
+                                                                    <option v-if="sections.length > 0" v-for="section in sections" :value="section.gid">{{ section.name }}</option>
                                                                 </select>
-                                                                <div class="help-text help-text mt-2" v-if="errors.projects"><div class="text-danger">{{ errors.projects[0] }}</div></div>
+                                                                <div class="help-text help-text mt-2" v-if="errors.section"><div class="text-danger">{{ errors.section[0] }}</div></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="remove-bottom-border">
+                                                    <div class="flex border-b border-40">
+                                                        <div class="flex border-b border-40 w-full">
+                                                            <div class="w-1/5 py-6 px-8">
+                                                                <label for="name" class="inline-block text-80 pt-2 leading-tight">Due Date</label>
+                                                            </div>
+                                                            <div class="py-6 px-8 w-1/2">
+                                                                <input v-model="task.due_on" dusk="due_on" type="date" placeholder="Due Date" class="w-full form-control form-input form-input-bordered"> <!---->
+                                                                <div class="help-text help-text mt-2" v-if="errors.due_on"><div class="text-danger">{{ errors.due_on[0] }}</div></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="remove-bottom-border">
+                                                    <div class="flex border-b border-40">
+                                                        <div class="flex border-b border-40 w-full">
+                                                            <div class="w-1/5 py-6 px-8">
+                                                                <label for="name" class="inline-block text-80 pt-2 leading-tight">Description</label>
+                                                            </div>
+                                                            <div class="py-6 px-8 w-1/2">
+                                                                <textarea v-model="task.notes" dusk="title" rows="5" class="w-full form-control form-input form-input-bordered py-3 h-auto"></textarea>
+                                                                <div class="help-text help-text mt-2" v-if="errors.notes"><div class="text-danger">{{ errors.notes[0] }}</div></div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -473,6 +510,8 @@
                 Template: 1,
                 workspaces: [],
                 teams: [],
+                users: [],
+                sections: [],
                 workspaceProjects: [],
                 errors: [],
                 success: null,
@@ -491,7 +530,11 @@
                     id: null,
                     name: '',
                     workspace: '',
-                    projects: '',
+                    assignee: '',
+                    due_on: '',
+                    notes: '',
+                    section: '',
+                    project: [],
                 },
             }
         },
@@ -1145,6 +1188,10 @@
                     document.getElementById('loader').style.display = 'none';
                     this.projects = response.data.data;
                     this.projectDetails = this.projects[0];
+                    this.sections = this.projects[0].sections.data;
+                    this.users = this.projects[0].users.data;
+                    this.task.project = this.projectDetails.data.gid;
+                    this.task.workspace = this.projectDetails.data.workspace.gid;
                 });
             },
             getWorkspaces() {
@@ -1223,15 +1270,16 @@
             createTask() {
                 this.Template = 3;
                 this.isEditTask = false;
-                document.getElementById('loader').style.display = 'block';
+                /*document.getElementById('loader').style.display = 'block';
                 Nova.request().get('/api/asana/task/create').then(response => {
                     document.getElementById('loader').style.display = 'none';
                     this.workspaces = response.data.data.data;
-                });
+                });*/
             },
             getWorkspaceProjects() {
                 if (!this.isEditTask) {
                     this.workspaceProjects = this.workspaces.find(workspace => {return workspace.gid == document.getElementById('task-workspace').value}).projects.data;
+                    this.users = this.workspaces.find(workspace => {return workspace.gid == document.getElementById('task-workspace').value}).users.data;
                 }
             },
             storeTask() {
@@ -1298,9 +1346,9 @@
                     }
                 });
             },
-            toogleProject(project) {
+            /*toogleProject(project) {
                 this.projectDetails = project;
-            },
+            },*/
         },
         created() {
             Nova.request().post('/nova-vendor/community-summary/community', {
@@ -1387,6 +1435,9 @@
     .lds-facebook div:nth-child(3) {
         left: 45px;
         animation-delay: 0;
+    }
+    .ph{
+        padding: 20px 10px;
     }
     @keyframes lds-facebook {
         0% {

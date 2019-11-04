@@ -52,6 +52,7 @@ class TaskController extends Controller
             foreach ($workspaces as &$workspace) {
                 if(isset($workspace[0])){
                     $workspace[0]['projects'] = json_decode($this->asana->getProjectsInWorkspace($workspace[0]['gid']));
+                    $workspace[0]['users'] = json_decode($this->asana->getWorkspaceUsers($workspace[0]['gid']));
                 }
             }
 
@@ -71,9 +72,13 @@ class TaskController extends Controller
     {
         // Validate form data
         $rules = array(
-            'name' => 'required|string|max:255',
+            'name' => 'nullable|string|max:255',
+            'assignee' => 'nullable|string|max:255',
+            'due_on' => 'nullable|date',
+            'notes' => 'nullable|string',
+            'section' => 'nullable|string',
             'workspace' => 'required|string',
-            'projects.*' => 'required|string',
+            'project' => 'required|string',
         );
 
         $validator = Validator::make ( $request->all(), $rules);
@@ -87,7 +92,11 @@ class TaskController extends Controller
             $data = [
                 'name' => $request->name,
                 'workspace' => $request->workspace,
-                'projects' => $request->projects,
+                'projects' => [$request->project],
+                'assignee' => $request->assignee,
+                'due_on' => $request->due_on,
+                'notes' => $request->notes,
+                //'resource_subtype' => $request->section,
             ];
 
             $task = json_decode($this->asana->createTask($data));
