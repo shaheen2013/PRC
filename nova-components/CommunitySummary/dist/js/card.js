@@ -1851,12 +1851,16 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             Nova.request().get('/api/asana/project?osusr_mlv_community_id=' + this.resourceId).then(function (response) {
                 _this5.isLoading = false;
                 document.getElementById('loader').style.display = 'none';
-                _this5.projects = response.data.data;
-                _this5.projectDetails = _this5.projects[0];
-                _this5.sections = _this5.projects[0].sections.data;
-                _this5.users = _this5.projects[0].users.data;
-                _this5.task.project = _this5.projectDetails.data.gid;
-                _this5.task.workspace = _this5.projectDetails.data.workspace.gid;
+                if (response.data.data.length > 0) {
+                    _this5.projects = response.data.data;
+                    _this5.projectDetails = _this5.projects[0];
+                    _this5.sections = _this5.projects[0].sections.data;
+                    _this5.users = _this5.projects[0].users.data;
+                    _this5.task.project = _this5.projectDetails.data.gid;
+                    _this5.task.workspace = _this5.projectDetails.data.workspace.gid;
+                } else {
+                    _this5.projectDetails = null;
+                }
             });
         },
         getWorkspaces: function getWorkspaces() {
@@ -1920,7 +1924,6 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             });
         },
         deleteProject: function deleteProject(id) {
-            document.getElementById('loader').style.display = 'block';
             var THIS = this;
             __WEBPACK_IMPORTED_MODULE_0_sweetalert2___default.a.fire({
                 type: 'error',
@@ -1929,9 +1932,10 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                 showCancelButton: true,
                 focusConfirm: true
             }).then(function (res) {
-                document.getElementById('loader').style.display = 'none';
                 if (res.value !== undefined) {
+                    document.getElementById('loader').style.display = 'block';
                     Nova.request().post('/api/asana/project/destroy/' + id, { _method: 'DELETE' }).then(function (response) {
+                        document.getElementById('loader').style.display = 'none';
                         if (response.data.status === 200) {
                             THIS.Template = 1;
                             THIS.getProjects();
@@ -1945,11 +1949,12 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
         createTask: function createTask() {
             this.Template = 3;
             this.isEditTask = false;
-            /*document.getElementById('loader').style.display = 'block';
-            Nova.request().get('/api/asana/task/create').then(response => {
-                document.getElementById('loader').style.display = 'none';
-                this.workspaces = response.data.data.data;
-            });*/
+            this.task.id = null;
+            this.task.name = '';
+            this.task.assignee = '';
+            this.task.due_on = '';
+            this.task.section = '';
+            this.task.notes = '';
         },
         getWorkspaceProjects: function getWorkspaceProjects() {
             if (!this.isEditTask) {
@@ -1988,7 +1993,11 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             Nova.request().get('/api/asana/task/' + id + '/edit').then(function (response) {
                 document.getElementById('loader').style.display = 'none';
                 _this11.task.id = id;
-                _this11.task.name = response.data.data.name;
+                _this11.task.name = response.data.data.name ? response.data.data.name : '';
+                _this11.task.due_on = response.data.data.due_on ? response.data.data.due_on : '';
+                _this11.task.notes = response.data.data.notes ? response.data.data.notes : '';
+                _this11.task.assignee = response.data.data.assignee ? response.data.data.assignee.gid : '';
+                _this11.task.section = response.data.data.memberships[0].section.gid ? response.data.data.memberships[0].section.gid : '';
                 _this11.task.workspace = response.data.data.workspace.gid;
             });
         },
@@ -14666,7 +14675,7 @@ var render = function() {
           ),
           _vm._v(" "),
           _c("div", { staticClass: "flex-no-shrink ml-auto mb-6" }, [
-            _vm.projects.length < 1
+            _vm.projectDetails == null
               ? _c(
                   "a",
                   {
@@ -14977,12 +14986,15 @@ var render = function() {
                                                               attrs: {
                                                                 type:
                                                                   "checkbox",
-                                                                checked: ""
+                                                                checked: "",
+                                                                disabled: ""
                                                               }
                                                             })
                                                           : _c("input", {
                                                               attrs: {
-                                                                type: "checkbox"
+                                                                type:
+                                                                  "checkbox",
+                                                                disabled: ""
                                                               }
                                                             })
                                                       ]),

@@ -180,7 +180,7 @@
                 <h1 class="flex-no-shrink text-90 font-normal text-2xl">Tasks/Projects</h1>
                 <!---->
                 <div class="flex-no-shrink ml-auto mb-6">
-                    <a href="javascript:void(0)" v-if="projects.length < 1" @click="Template=2, isEditProject=false" class="btn btn-default btn-primary" dusk="create-button">Create Project</a>
+                    <a href="javascript:void(0)" v-if="projectDetails == null" @click="Template=2, isEditProject=false" class="btn btn-default btn-primary" dusk="create-button">Create Project</a>
                 </div>
             </div>
         </div>
@@ -243,8 +243,8 @@
                                             <td>{{ t.data.due_on }}</td>
                                             <td>{{ t.data.notes }}</td>
                                             <td>
-                                                <input type="checkbox" v-if="t.data.completed" checked>
-                                                <input type="checkbox" v-else="">
+                                                <input type="checkbox" v-if="t.data.completed" checked disabled>
+                                                <input type="checkbox" v-else="" disabled>
                                             </td>
                                             <td class="text-right">
                                                 <a @click="editTask(t.data.gid)" class="cursor-pointer text-70 hover:text-primary mr-3" dusk="1-edit-button"
@@ -1186,12 +1186,16 @@
                 Nova.request().get('/api/asana/project?osusr_mlv_community_id=' + this.resourceId).then(response => {
                     this.isLoading = false;
                     document.getElementById('loader').style.display = 'none';
-                    this.projects = response.data.data;
-                    this.projectDetails = this.projects[0];
-                    this.sections = this.projects[0].sections.data;
-                    this.users = this.projects[0].users.data;
-                    this.task.project = this.projectDetails.data.gid;
-                    this.task.workspace = this.projectDetails.data.workspace.gid;
+                    if (response.data.data.length > 0) {
+                        this.projects = response.data.data;
+                        this.projectDetails = this.projects[0];
+                        this.sections = this.projects[0].sections.data;
+                        this.users = this.projects[0].users.data;
+                        this.task.project = this.projectDetails.data.gid;
+                        this.task.workspace = this.projectDetails.data.workspace.gid;
+                    } else {
+                        this.projectDetails = null;
+                    }
                 });
             },
             getWorkspaces() {
@@ -1245,7 +1249,6 @@
                 });
             },
             deleteProject(id) {
-                document.getElementById('loader').style.display = 'block';
                 let THIS = this;
                 Swal.fire({
                     type: 'error',
@@ -1254,9 +1257,10 @@
                     showCancelButton: true,
                     focusConfirm: true
                 }).then(res => {
-                    document.getElementById('loader').style.display = 'none';
                     if(res.value !== undefined){
+                        document.getElementById('loader').style.display = 'block';
                         Nova.request().post('/api/asana/project/destroy/' + id, {_method: 'DELETE'}).then(response => {
+                            document.getElementById('loader').style.display = 'none';
                             if (response.data.status === 200) {
                                 THIS.Template = 1;
                                 THIS.getProjects();
@@ -1270,11 +1274,12 @@
             createTask() {
                 this.Template = 3;
                 this.isEditTask = false;
-                /*document.getElementById('loader').style.display = 'block';
-                Nova.request().get('/api/asana/task/create').then(response => {
-                    document.getElementById('loader').style.display = 'none';
-                    this.workspaces = response.data.data.data;
-                });*/
+                this.task.id = null;
+                this.task.name = '';
+                this.task.assignee = '';
+                this.task.due_on = '';
+                this.task.section = '';
+                this.task.notes = '';
             },
             getWorkspaceProjects() {
                 if (!this.isEditTask) {
@@ -1305,7 +1310,11 @@
                 Nova.request().get('/api/asana/task/' + id + '/edit').then(response => {
                     document.getElementById('loader').style.display = 'none';
                     this.task.id = id;
-                    this.task.name = response.data.data.name;
+                    this.task.name = response.data.data.name ? response.data.data.name : '';
+                    this.task.due_on = response.data.data.due_on ? response.data.data.due_on : '';
+                    this.task.notes = response.data.data.notes ? response.data.data.notes : '';
+                    this.task.assignee = response.data.data.assignee ? response.data.data.assignee.gid : '';
+                    this.task.section = response.data.data.memberships[0].section.gid ? response.data.data.memberships[0].section.gid : '';
                     this.task.workspace = response.data.data.workspace.gid;
                 });
             },
@@ -1346,9 +1355,6 @@
                     }
                 });
             },
-            /*toogleProject(project) {
-                this.projectDetails = project;
-            },*/
         },
         created() {
             Nova.request().post('/nova-vendor/community-summary/community', {

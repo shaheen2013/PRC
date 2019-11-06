@@ -96,10 +96,34 @@ class TaskController extends Controller
                 'assignee' => $request->assignee,
                 'due_on' => $request->due_on,
                 'notes' => $request->notes,
-                //'resource_subtype' => $request->section,
             ];
 
-            $task = json_decode($this->asana->createTask($data));
+            $task = json_decode($this->asana->createTask($data), 1);
+
+            $param = [
+                'data' => [
+                    'task' => $task['data']['gid'],
+                ]
+            ];
+
+            $ch = curl_init();
+
+            curl_setopt($ch, CURLOPT_URL, 'https://app.asana.com/api/1.0/sections/' . $request->section . '/addTask');
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+            curl_setopt($ch, CURLOPT_POST, 1);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($param));
+
+            $headers = array();
+            $headers[] = 'Content-Type: application/json';
+            $headers[] = 'Accept: application/json';
+            $headers[] = 'Authorization: Bearer ' . env('ASANA_PAT');
+            curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+            $result = curl_exec($ch);
+            if (curl_errno($ch)) {
+                echo 'Error:' . curl_error($ch);
+            }
+            curl_close($ch);
 
             return response()->json(['status' => 200, 'data' => $task], 200);
         } catch (\Exception $e) {
@@ -147,7 +171,11 @@ class TaskController extends Controller
     {
         // Validate form data
         $rules = array(
-            'name' => 'required|string|max:255',
+            'name' => 'nullable|string|max:255',
+            'assignee' => 'nullable|string|max:255',
+            'due_on' => 'nullable|date',
+            'notes' => 'nullable|string',
+            'section' => 'nullable|string',
             'workspace' => 'required|string',
         );
 
@@ -159,12 +187,42 @@ class TaskController extends Controller
 
         // Update a task.
         try {
-            $data = [
-                'name' => $request->name,
-                'workspace' => $request->workspace,
+            $data = [];
+
+            foreach ($request->all() as $key => $item) {
+                if ($key != '_method' || $key != 'section') {
+                    if (!empty($item)) {
+                        $data[$key] = $item;
+                    }
+                }
+            }
+
+            $task = json_decode($this->asana->updateTask($id, $data), 1);
+
+            $param = [
+                'data' => [
+                    'task' => $task['data']['gid'],
+                ]
             ];
 
-            $task = json_decode($this->asana->updateTask($id, $data));
+            $ch = curl_init();
+
+            curl_setopt($ch, CURLOPT_URL, 'https://app.asana.com/api/1.0/sections/' . $request->section . '/addTask');
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+            curl_setopt($ch, CURLOPT_POST, 1);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($param));
+
+            $headers = array();
+            $headers[] = 'Content-Type: application/json';
+            $headers[] = 'Accept: application/json';
+            $headers[] = 'Authorization: Bearer ' . env('ASANA_PAT');
+            curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+            $result = curl_exec($ch);
+            if (curl_errno($ch)) {
+                echo 'Error:' . curl_error($ch);
+            }
+            curl_close($ch);
 
             return response()->json(['status' => 200, 'data' => $task], 200);
         } catch (\Exception $e) {
