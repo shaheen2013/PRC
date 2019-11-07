@@ -274,7 +274,7 @@ exports = module.exports = __webpack_require__(1)(false);
 exports.i(__webpack_require__(7), "");
 
 // module
-exports.push([module.i, "\n.expired[data-v-b9bc2c0a] {\n    color: red;\n}\n.checkOkr[data-v-b9bc2c0a] {\n    position: absolute;\n    top: -8px;\n    right: -20px;\n    background-position: -58px -16px;\n    width: 38px;\n    height: 38px;\n}\n.checkOkv[data-v-b9bc2c0a] {\n    position: absolute;\n    top: -8px;\n    right: -20px;\n    background-position: -58px -16px;\n    width: 38px;\n    height: 38px;\n}\n.blank-image[data-v-b9bc2c0a] {\n    padding-right: 90px;\n}\n.pointer[data-v-b9bc2c0a] {\n    cursor: pointer;\n}\n#loader[data-v-b9bc2c0a] {\n    display: none;\n}\n.lds-facebook[data-v-b9bc2c0a] {\n    display: inline-block;\n    position: relative;\n    width: 64px;\n    height: 64px;\n}\n.lds-facebook div[data-v-b9bc2c0a] {\n    display: inline-block;\n    position: absolute;\n    left: 6px;\n    width: 13px;\n    background: #fff;\n    -webkit-animation: lds-facebook-data-v-b9bc2c0a 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;\n            animation: lds-facebook-data-v-b9bc2c0a 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;\n}\n.lds-facebook div[data-v-b9bc2c0a]:nth-child(1) {\n    left: 6px;\n    -webkit-animation-delay: -0.24s;\n            animation-delay: -0.24s;\n}\n.lds-facebook div[data-v-b9bc2c0a]:nth-child(2) {\n    left: 26px;\n    -webkit-animation-delay: -0.12s;\n            animation-delay: -0.12s;\n}\n.lds-facebook div[data-v-b9bc2c0a]:nth-child(3) {\n    left: 45px;\n    -webkit-animation-delay: 0;\n            animation-delay: 0;\n}\n.ph[data-v-b9bc2c0a]{\n    padding: 20px 10px;\n}\n@-webkit-keyframes lds-facebook-data-v-b9bc2c0a {\n0% {\n        top: 6px;\n        height: 51px;\n}\n50%, 100% {\n        top: 19px;\n        height: 26px;\n}\n}\n@keyframes lds-facebook-data-v-b9bc2c0a {\n0% {\n        top: 6px;\n        height: 51px;\n}\n50%, 100% {\n        top: 19px;\n        height: 26px;\n}\n}\n", ""]);
+exports.push([module.i, "\n.expired[data-v-b9bc2c0a] {\n    color: red;\n}\n.checkOkr[data-v-b9bc2c0a] {\n    position: absolute;\n    top: -8px;\n    right: -20px;\n    background-position: -58px -16px;\n    width: 38px;\n    height: 38px;\n}\n.checkOkv[data-v-b9bc2c0a] {\n    position: absolute;\n    top: -8px;\n    right: -20px;\n    background-position: -58px -16px;\n    width: 38px;\n    height: 38px;\n}\n.blank-image[data-v-b9bc2c0a] {\n    padding-right: 90px;\n}\n.pointer[data-v-b9bc2c0a] {\n    cursor: pointer;\n}\n#loader[data-v-b9bc2c0a] {\n    display: none;\n}\n.lds-facebook[data-v-b9bc2c0a] {\n    display: inline-block;\n    position: relative;\n    width: 64px;\n    height: 64px;\n}\n.lds-facebook div[data-v-b9bc2c0a] {\n    display: inline-block;\n    position: absolute;\n    left: 6px;\n    width: 13px;\n    background: #fff;\n    -webkit-animation: lds-facebook-data-v-b9bc2c0a 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;\n            animation: lds-facebook-data-v-b9bc2c0a 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;\n}\n.lds-facebook div[data-v-b9bc2c0a]:nth-child(1) {\n    left: 6px;\n    -webkit-animation-delay: -0.24s;\n            animation-delay: -0.24s;\n}\n.lds-facebook div[data-v-b9bc2c0a]:nth-child(2) {\n    left: 26px;\n    -webkit-animation-delay: -0.12s;\n            animation-delay: -0.12s;\n}\n.lds-facebook div[data-v-b9bc2c0a]:nth-child(3) {\n    left: 45px;\n    /*animation-delay: 0;*/\n}\n.ph[data-v-b9bc2c0a]{\n    padding: 20px 10px;\n}\n@-webkit-keyframes lds-facebook-data-v-b9bc2c0a {\n0% {\n        top: 6px;\n        height: 51px;\n}\n50%, 100% {\n        top: 19px;\n        height: 26px;\n}\n}\n@keyframes lds-facebook-data-v-b9bc2c0a {\n0% {\n        top: 6px;\n        height: 51px;\n}\n50%, 100% {\n        top: 19px;\n        height: 26px;\n}\n}\n", ""]);
 
 // exports
 
@@ -1139,6 +1139,64 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -1183,6 +1241,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             Template: 1,
             workspaces: [],
             teams: [],
+            tasks: [],
             users: [],
             sections: [],
             workspaceProjects: [],
@@ -1208,7 +1267,17 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                 notes: '',
                 section: '',
                 project: []
-            }
+            },
+            taskFilter: {
+                name: '',
+                assignee: '',
+                due_on: '',
+                notes: '',
+                section: '',
+                project: '',
+                complete: ''
+            },
+            keywordTyping: null
         };
     },
     computed: {
@@ -1854,6 +1923,8 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                 if (response.data.data.length > 0) {
                     _this5.projects = response.data.data;
                     _this5.projectDetails = _this5.projects[0];
+                    _this5.taskFilter.project = _this5.projectDetails.data.gid;
+                    _this5.tasks = _this5.projectDetails.tasks;
                     _this5.sections = _this5.projects[0].sections.data;
                     _this5.users = _this5.projects[0].users.data;
                     _this5.task.project = _this5.projectDetails.data.gid;
@@ -2039,6 +2110,31 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                     });
                 }
             });
+        },
+        filterTasks: function filterTasks() {
+            var THIS = this;
+            document.getElementById('loader').style.display = 'block';
+            var params = new URLSearchParams(THIS.taskFilter);
+            params = params.toString();
+            Nova.request().get('/api/asana/task/show?' + params).then(function (response) {
+                if (response.data.status === 200) {
+                    THIS.Template = 1;
+                    THIS.tasks = response.data.data;
+                    console.log(THIS.tasks);
+                    document.getElementById('loader').style.display = 'none';
+                } else {
+                    THIS.errors = response.data.errors;
+                }
+            });
+        },
+
+        keyTyping: function keyTyping() {
+            var THIS = this;
+            clearInterval(THIS.keywordTyping);
+            this.keywordTyping = setInterval(function () {
+                clearInterval(THIS.keywordTyping);
+                THIS.filterTasks();
+            }, 1000);
         }
     },
     created: function created() {
@@ -14851,6 +14947,693 @@ var render = function() {
                                                   _c(
                                                     "th",
                                                     {
+                                                      staticClass: "text-left",
+                                                      attrs: { colspan: "2" }
+                                                    },
+                                                    [
+                                                      _c(
+                                                        "div",
+                                                        {
+                                                          staticClass:
+                                                            "remove-bottom-border"
+                                                        },
+                                                        [
+                                                          _c(
+                                                            "div",
+                                                            {
+                                                              staticClass:
+                                                                "flex"
+                                                            },
+                                                            [
+                                                              _c(
+                                                                "div",
+                                                                {
+                                                                  staticClass:
+                                                                    "flex w-full"
+                                                                },
+                                                                [
+                                                                  _vm._m(1),
+                                                                  _vm._v(" "),
+                                                                  _c(
+                                                                    "div",
+                                                                    {
+                                                                      staticClass:
+                                                                        "py-6 px-8"
+                                                                    },
+                                                                    [
+                                                                      _c(
+                                                                        "select",
+                                                                        {
+                                                                          directives: [
+                                                                            {
+                                                                              name:
+                                                                                "model",
+                                                                              rawName:
+                                                                                "v-model",
+                                                                              value:
+                                                                                _vm
+                                                                                  .taskFilter
+                                                                                  .assignee,
+                                                                              expression:
+                                                                                "taskFilter.assignee"
+                                                                            }
+                                                                          ],
+                                                                          staticClass:
+                                                                            "form-control form-select mb-3 w-full",
+                                                                          attrs: {
+                                                                            dusk:
+                                                                              "attachable-select",
+                                                                            "data-testid":
+                                                                              "workspace-select",
+                                                                            name:
+                                                                              "assignee"
+                                                                          },
+                                                                          on: {
+                                                                            change: [
+                                                                              function(
+                                                                                $event
+                                                                              ) {
+                                                                                var $$selectedVal = Array.prototype.filter
+                                                                                  .call(
+                                                                                    $event
+                                                                                      .target
+                                                                                      .options,
+                                                                                    function(
+                                                                                      o
+                                                                                    ) {
+                                                                                      return o.selected
+                                                                                    }
+                                                                                  )
+                                                                                  .map(
+                                                                                    function(
+                                                                                      o
+                                                                                    ) {
+                                                                                      var val =
+                                                                                        "_value" in
+                                                                                        o
+                                                                                          ? o._value
+                                                                                          : o.value
+                                                                                      return val
+                                                                                    }
+                                                                                  )
+                                                                                _vm.$set(
+                                                                                  _vm.taskFilter,
+                                                                                  "assignee",
+                                                                                  $event
+                                                                                    .target
+                                                                                    .multiple
+                                                                                    ? $$selectedVal
+                                                                                    : $$selectedVal[0]
+                                                                                )
+                                                                              },
+                                                                              _vm.filterTasks
+                                                                            ]
+                                                                          }
+                                                                        },
+                                                                        [
+                                                                          _c(
+                                                                            "option",
+                                                                            {
+                                                                              attrs: {
+                                                                                value:
+                                                                                  ""
+                                                                              }
+                                                                            },
+                                                                            [
+                                                                              _vm._v(
+                                                                                "Choose Assigned To"
+                                                                              )
+                                                                            ]
+                                                                          ),
+                                                                          _vm._v(
+                                                                            " "
+                                                                          ),
+                                                                          _vm._l(
+                                                                            _vm.users,
+                                                                            function(
+                                                                              user
+                                                                            ) {
+                                                                              return _vm
+                                                                                .users
+                                                                                .length >
+                                                                                0
+                                                                                ? _c(
+                                                                                    "option",
+                                                                                    {
+                                                                                      domProps: {
+                                                                                        value:
+                                                                                          user.gid
+                                                                                      }
+                                                                                    },
+                                                                                    [
+                                                                                      _vm._v(
+                                                                                        _vm._s(
+                                                                                          user.name
+                                                                                        )
+                                                                                      )
+                                                                                    ]
+                                                                                  )
+                                                                                : _vm._e()
+                                                                            }
+                                                                          )
+                                                                        ],
+                                                                        2
+                                                                      ),
+                                                                      _vm._v(
+                                                                        " "
+                                                                      ),
+                                                                      _vm.errors
+                                                                        .assignee
+                                                                        ? _c(
+                                                                            "div",
+                                                                            {
+                                                                              staticClass:
+                                                                                "help-text help-text mt-2"
+                                                                            },
+                                                                            [
+                                                                              _c(
+                                                                                "div",
+                                                                                {
+                                                                                  staticClass:
+                                                                                    "text-danger"
+                                                                                },
+                                                                                [
+                                                                                  _vm._v(
+                                                                                    _vm._s(
+                                                                                      _vm
+                                                                                        .errors
+                                                                                        .assignee[0]
+                                                                                    )
+                                                                                  )
+                                                                                ]
+                                                                              )
+                                                                            ]
+                                                                          )
+                                                                        : _vm._e()
+                                                                    ]
+                                                                  )
+                                                                ]
+                                                              )
+                                                            ]
+                                                          )
+                                                        ]
+                                                      )
+                                                    ]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "th",
+                                                    {
+                                                      staticClass: "text-left"
+                                                    },
+                                                    [
+                                                      _c(
+                                                        "label",
+                                                        {
+                                                          staticClass:
+                                                            "checkbox-inline"
+                                                        },
+                                                        [
+                                                          _c("input", {
+                                                            directives: [
+                                                              {
+                                                                name: "model",
+                                                                rawName:
+                                                                  "v-model",
+                                                                value:
+                                                                  _vm.taskFilter
+                                                                    .complete,
+                                                                expression:
+                                                                  "taskFilter.complete"
+                                                              }
+                                                            ],
+                                                            attrs: {
+                                                              type: "checkbox"
+                                                            },
+                                                            domProps: {
+                                                              checked: Array.isArray(
+                                                                _vm.taskFilter
+                                                                  .complete
+                                                              )
+                                                                ? _vm._i(
+                                                                    _vm
+                                                                      .taskFilter
+                                                                      .complete,
+                                                                    null
+                                                                  ) > -1
+                                                                : _vm.taskFilter
+                                                                    .complete
+                                                            },
+                                                            on: {
+                                                              change: [
+                                                                function(
+                                                                  $event
+                                                                ) {
+                                                                  var $$a =
+                                                                      _vm
+                                                                        .taskFilter
+                                                                        .complete,
+                                                                    $$el =
+                                                                      $event.target,
+                                                                    $$c = $$el.checked
+                                                                      ? true
+                                                                      : false
+                                                                  if (
+                                                                    Array.isArray(
+                                                                      $$a
+                                                                    )
+                                                                  ) {
+                                                                    var $$v = null,
+                                                                      $$i = _vm._i(
+                                                                        $$a,
+                                                                        $$v
+                                                                      )
+                                                                    if (
+                                                                      $$el.checked
+                                                                    ) {
+                                                                      $$i < 0 &&
+                                                                        _vm.$set(
+                                                                          _vm.taskFilter,
+                                                                          "complete",
+                                                                          $$a.concat(
+                                                                            [
+                                                                              $$v
+                                                                            ]
+                                                                          )
+                                                                        )
+                                                                    } else {
+                                                                      $$i >
+                                                                        -1 &&
+                                                                        _vm.$set(
+                                                                          _vm.taskFilter,
+                                                                          "complete",
+                                                                          $$a
+                                                                            .slice(
+                                                                              0,
+                                                                              $$i
+                                                                            )
+                                                                            .concat(
+                                                                              $$a.slice(
+                                                                                $$i +
+                                                                                  1
+                                                                              )
+                                                                            )
+                                                                        )
+                                                                    }
+                                                                  } else {
+                                                                    _vm.$set(
+                                                                      _vm.taskFilter,
+                                                                      "complete",
+                                                                      $$c
+                                                                    )
+                                                                  }
+                                                                },
+                                                                _vm.filterTasks
+                                                              ]
+                                                            }
+                                                          }),
+                                                          _vm._v(
+                                                            "Complete\n                                            "
+                                                          )
+                                                        ]
+                                                      )
+                                                    ]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "th",
+                                                    {
+                                                      staticClass: "text-left",
+                                                      attrs: { colspan: "2" }
+                                                    },
+                                                    [
+                                                      _c(
+                                                        "div",
+                                                        {
+                                                          staticClass:
+                                                            "remove-bottom-border"
+                                                        },
+                                                        [
+                                                          _c(
+                                                            "div",
+                                                            {
+                                                              staticClass:
+                                                                "flex"
+                                                            },
+                                                            [
+                                                              _c(
+                                                                "div",
+                                                                {
+                                                                  staticClass:
+                                                                    "flex w-full"
+                                                                },
+                                                                [
+                                                                  _vm._m(2),
+                                                                  _vm._v(" "),
+                                                                  _c(
+                                                                    "div",
+                                                                    {
+                                                                      staticClass:
+                                                                        "py-6 px-8"
+                                                                    },
+                                                                    [
+                                                                      _c(
+                                                                        "select",
+                                                                        {
+                                                                          directives: [
+                                                                            {
+                                                                              name:
+                                                                                "model",
+                                                                              rawName:
+                                                                                "v-model",
+                                                                              value:
+                                                                                _vm
+                                                                                  .taskFilter
+                                                                                  .section,
+                                                                              expression:
+                                                                                "taskFilter.section"
+                                                                            }
+                                                                          ],
+                                                                          staticClass:
+                                                                            "form-control form-select mb-3 w-full",
+                                                                          attrs: {
+                                                                            dusk:
+                                                                              "attachable-select",
+                                                                            "data-testid":
+                                                                              "workspace-select",
+                                                                            name:
+                                                                              "assignee"
+                                                                          },
+                                                                          on: {
+                                                                            change: [
+                                                                              function(
+                                                                                $event
+                                                                              ) {
+                                                                                var $$selectedVal = Array.prototype.filter
+                                                                                  .call(
+                                                                                    $event
+                                                                                      .target
+                                                                                      .options,
+                                                                                    function(
+                                                                                      o
+                                                                                    ) {
+                                                                                      return o.selected
+                                                                                    }
+                                                                                  )
+                                                                                  .map(
+                                                                                    function(
+                                                                                      o
+                                                                                    ) {
+                                                                                      var val =
+                                                                                        "_value" in
+                                                                                        o
+                                                                                          ? o._value
+                                                                                          : o.value
+                                                                                      return val
+                                                                                    }
+                                                                                  )
+                                                                                _vm.$set(
+                                                                                  _vm.taskFilter,
+                                                                                  "section",
+                                                                                  $event
+                                                                                    .target
+                                                                                    .multiple
+                                                                                    ? $$selectedVal
+                                                                                    : $$selectedVal[0]
+                                                                                )
+                                                                              },
+                                                                              _vm.filterTasks
+                                                                            ]
+                                                                          }
+                                                                        },
+                                                                        [
+                                                                          _c(
+                                                                            "option",
+                                                                            {
+                                                                              attrs: {
+                                                                                value:
+                                                                                  ""
+                                                                              }
+                                                                            },
+                                                                            [
+                                                                              _vm._v(
+                                                                                "Choose Type"
+                                                                              )
+                                                                            ]
+                                                                          ),
+                                                                          _vm._v(
+                                                                            " "
+                                                                          ),
+                                                                          _vm._l(
+                                                                            _vm.sections,
+                                                                            function(
+                                                                              section
+                                                                            ) {
+                                                                              return _vm
+                                                                                .sections
+                                                                                .length >
+                                                                                0
+                                                                                ? _c(
+                                                                                    "option",
+                                                                                    {
+                                                                                      domProps: {
+                                                                                        value:
+                                                                                          section.gid
+                                                                                      }
+                                                                                    },
+                                                                                    [
+                                                                                      _vm._v(
+                                                                                        _vm._s(
+                                                                                          section.name
+                                                                                        )
+                                                                                      )
+                                                                                    ]
+                                                                                  )
+                                                                                : _vm._e()
+                                                                            }
+                                                                          )
+                                                                        ],
+                                                                        2
+                                                                      )
+                                                                    ]
+                                                                  )
+                                                                ]
+                                                              )
+                                                            ]
+                                                          )
+                                                        ]
+                                                      )
+                                                    ]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "th",
+                                                    {
+                                                      staticClass: "text-left"
+                                                    },
+                                                    [
+                                                      _c(
+                                                        "div",
+                                                        {
+                                                          staticClass:
+                                                            "remove-bottom-border"
+                                                        },
+                                                        [
+                                                          _c(
+                                                            "div",
+                                                            {
+                                                              staticClass:
+                                                                "flex"
+                                                            },
+                                                            [
+                                                              _c(
+                                                                "div",
+                                                                {
+                                                                  staticClass:
+                                                                    "flex w-full"
+                                                                },
+                                                                [
+                                                                  _vm._m(3),
+                                                                  _vm._v(" "),
+                                                                  _c(
+                                                                    "div",
+                                                                    {
+                                                                      staticClass:
+                                                                        "py-6 px-8"
+                                                                    },
+                                                                    [
+                                                                      _c(
+                                                                        "input",
+                                                                        {
+                                                                          directives: [
+                                                                            {
+                                                                              name:
+                                                                                "model",
+                                                                              rawName:
+                                                                                "v-model",
+                                                                              value:
+                                                                                _vm
+                                                                                  .taskFilter
+                                                                                  .due_on,
+                                                                              expression:
+                                                                                "taskFilter.due_on"
+                                                                            }
+                                                                          ],
+                                                                          staticClass:
+                                                                            "w-full form-control form-input form-input-bordered",
+                                                                          attrs: {
+                                                                            dusk:
+                                                                              "due_on",
+                                                                            type:
+                                                                              "date",
+                                                                            placeholder:
+                                                                              "Due Date"
+                                                                          },
+                                                                          domProps: {
+                                                                            value:
+                                                                              _vm
+                                                                                .taskFilter
+                                                                                .due_on
+                                                                          },
+                                                                          on: {
+                                                                            change:
+                                                                              _vm.filterTasks,
+                                                                            input: function(
+                                                                              $event
+                                                                            ) {
+                                                                              if (
+                                                                                $event
+                                                                                  .target
+                                                                                  .composing
+                                                                              ) {
+                                                                                return
+                                                                              }
+                                                                              _vm.$set(
+                                                                                _vm.taskFilter,
+                                                                                "due_on",
+                                                                                $event
+                                                                                  .target
+                                                                                  .value
+                                                                              )
+                                                                            }
+                                                                          }
+                                                                        }
+                                                                      )
+                                                                    ]
+                                                                  )
+                                                                ]
+                                                              )
+                                                            ]
+                                                          )
+                                                        ]
+                                                      )
+                                                    ]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "th",
+                                                    {
+                                                      staticClass: "text-left"
+                                                    },
+                                                    [
+                                                      _c(
+                                                        "div",
+                                                        {
+                                                          staticClass:
+                                                            "relative h-9 flex-no-shrink mb-6"
+                                                        },
+                                                        [
+                                                          _c(
+                                                            "svg",
+                                                            {
+                                                              staticClass:
+                                                                "fill-current absolute search-icon-center ml-3 text-70",
+                                                              attrs: {
+                                                                xmlns:
+                                                                  "http://www.w3.org/2000/svg",
+                                                                width: "20",
+                                                                height: "20",
+                                                                viewBox:
+                                                                  "0 0 20 20",
+                                                                "aria-labelledby":
+                                                                  "search",
+                                                                role:
+                                                                  "presentation"
+                                                              }
+                                                            },
+                                                            [
+                                                              _c("path", {
+                                                                attrs: {
+                                                                  "fill-rule":
+                                                                    "nonzero",
+                                                                  d:
+                                                                    "M14.32 12.906l5.387 5.387a1 1 0 0 1-1.414 1.414l-5.387-5.387a8 8 0 1 1 1.414-1.414zM8 14A6 6 0 1 0 8 2a6 6 0 0 0 0 12z"
+                                                                }
+                                                              })
+                                                            ]
+                                                          ),
+                                                          _vm._v(" "),
+                                                          _c("input", {
+                                                            directives: [
+                                                              {
+                                                                name: "model",
+                                                                rawName:
+                                                                  "v-model",
+                                                                value:
+                                                                  _vm.taskFilter
+                                                                    .name,
+                                                                expression:
+                                                                  "taskFilter.name"
+                                                              }
+                                                            ],
+                                                            staticClass:
+                                                              "appearance-none form-search w-search pl-search shadow",
+                                                            attrs: {
+                                                              "data-testid":
+                                                                "search-input",
+                                                              dusk: "search",
+                                                              placeholder:
+                                                                "Search",
+                                                              type: "search"
+                                                            },
+                                                            domProps: {
+                                                              value:
+                                                                _vm.taskFilter
+                                                                  .name
+                                                            },
+                                                            on: {
+                                                              change:
+                                                                _vm.keyTyping,
+                                                              keyup:
+                                                                _vm.keyTyping,
+                                                              input: function(
+                                                                $event
+                                                              ) {
+                                                                if (
+                                                                  $event.target
+                                                                    .composing
+                                                                ) {
+                                                                  return
+                                                                }
+                                                                _vm.$set(
+                                                                  _vm.taskFilter,
+                                                                  "name",
+                                                                  $event.target
+                                                                    .value
+                                                                )
+                                                              }
+                                                            }
+                                                          })
+                                                        ]
+                                                      )
+                                                    ]
+                                                  )
+                                                ]),
+                                                _vm._v(" "),
+                                                _c("tr", [
+                                                  _c(
+                                                    "th",
+                                                    {
                                                       staticClass: "text-left"
                                                     },
                                                     [_vm._v("SL")]
@@ -14940,180 +15723,187 @@ var render = function() {
                                               _vm._v(" "),
                                               _c(
                                                 "tbody",
-                                                _vm._l(
-                                                  _vm.projectDetails.tasks,
-                                                  function(t, index) {
-                                                    return _c("tr", [
-                                                      _c("td", {
-                                                        domProps: {
-                                                          textContent: _vm._s(
-                                                            index + 1
+                                                _vm._l(_vm.tasks, function(
+                                                  t,
+                                                  index
+                                                ) {
+                                                  return _vm.tasks.length > 0
+                                                    ? _c("tr", [
+                                                        _c("td", {
+                                                          domProps: {
+                                                            textContent: _vm._s(
+                                                              index + 1
+                                                            )
+                                                          }
+                                                        }),
+                                                        _vm._v(" "),
+                                                        _c("td", [
+                                                          _vm._v(
+                                                            _vm._s(t.data.name)
                                                           )
-                                                        }
-                                                      }),
-                                                      _vm._v(" "),
-                                                      _c("td", [
-                                                        _vm._v(
-                                                          _vm._s(t.data.name)
-                                                        )
-                                                      ]),
-                                                      _vm._v(" "),
-                                                      _c("td", [
-                                                        _vm._v(
-                                                          _vm._s(
-                                                            t.data
-                                                              .memberships[0]
-                                                              .section.name
+                                                        ]),
+                                                        _vm._v(" "),
+                                                        _c("td", [
+                                                          _vm._v(
+                                                            _vm._s(
+                                                              t.data
+                                                                .memberships[0]
+                                                                .section.name
+                                                            )
                                                           )
-                                                        )
-                                                      ]),
-                                                      _vm._v(" "),
-                                                      _c("td", [
-                                                        _vm._v(
-                                                          _vm._s(t.data.due_on)
-                                                        )
-                                                      ]),
-                                                      _vm._v(" "),
-                                                      _c("td", [
-                                                        _vm._v(
-                                                          _vm._s(t.data.notes)
-                                                        )
-                                                      ]),
-                                                      _vm._v(" "),
-                                                      _c("td", [
-                                                        t.data.completed
-                                                          ? _c("input", {
-                                                              attrs: {
-                                                                type:
-                                                                  "checkbox",
-                                                                checked: "",
-                                                                disabled: ""
-                                                              }
-                                                            })
-                                                          : _c("input", {
-                                                              attrs: {
-                                                                type:
-                                                                  "checkbox",
-                                                                disabled: ""
-                                                              }
-                                                            })
-                                                      ]),
-                                                      _vm._v(" "),
-                                                      _c(
-                                                        "td",
-                                                        {
-                                                          staticClass:
-                                                            "text-right"
-                                                        },
-                                                        [
-                                                          _c(
-                                                            "a",
-                                                            {
-                                                              staticClass:
-                                                                "cursor-pointer text-70 hover:text-primary mr-3",
-                                                              attrs: {
-                                                                dusk:
-                                                                  "1-edit-button",
-                                                                title: "Edit"
-                                                              },
-                                                              on: {
-                                                                click: function(
-                                                                  $event
-                                                                ) {
-                                                                  return _vm.editTask(
-                                                                    t.data.gid
-                                                                  )
+                                                        ]),
+                                                        _vm._v(" "),
+                                                        _c("td", [
+                                                          _vm._v(
+                                                            _vm._s(
+                                                              t.data.due_on
+                                                            )
+                                                          )
+                                                        ]),
+                                                        _vm._v(" "),
+                                                        _c("td", [
+                                                          _vm._v(
+                                                            _vm._s(t.data.notes)
+                                                          )
+                                                        ]),
+                                                        _vm._v(" "),
+                                                        _c("td", [
+                                                          t.data.completed
+                                                            ? _c("input", {
+                                                                attrs: {
+                                                                  type:
+                                                                    "checkbox",
+                                                                  checked: "",
+                                                                  disabled: ""
                                                                 }
-                                                              }
-                                                            },
-                                                            [
-                                                              _c(
-                                                                "svg",
-                                                                {
-                                                                  staticClass:
-                                                                    "fill-current",
-                                                                  attrs: {
-                                                                    xmlns:
-                                                                      "http://www.w3.org/2000/svg",
-                                                                    width: "20",
-                                                                    height:
-                                                                      "20",
-                                                                    viewBox:
-                                                                      "0 0 20 20",
-                                                                    "aria-labelledby":
-                                                                      "edit",
-                                                                    role:
-                                                                      "presentation"
-                                                                  }
-                                                                },
-                                                                [
-                                                                  _c("path", {
-                                                                    attrs: {
-                                                                      d:
-                                                                        "M4.3 10.3l10-10a1 1 0 0 1 1.4 0l4 4a1 1 0 0 1 0 1.4l-10 10a1 1 0 0 1-.7.3H5a1 1 0 0 1-1-1v-4a1 1 0 0 1 .3-.7zM6 14h2.59l9-9L15 2.41l-9 9V14zm10-2a1 1 0 0 1 2 0v6a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4c0-1.1.9-2 2-2h6a1 1 0 1 1 0 2H2v14h14v-6z"
-                                                                    }
-                                                                  })
-                                                                ]
-                                                              )
-                                                            ]
-                                                          ),
-                                                          _vm._v(" "),
-                                                          _c(
-                                                            "a",
-                                                            {
-                                                              staticClass:
-                                                                "appearance-none cursor-pointer text-70 hover:text-danger mr-3",
-                                                              attrs: {
-                                                                title: "Delete"
-                                                              },
-                                                              on: {
-                                                                click: function(
-                                                                  $event
-                                                                ) {
-                                                                  return _vm.deleteTask(
-                                                                    t.data.gid
-                                                                  )
+                                                              })
+                                                            : _c("input", {
+                                                                attrs: {
+                                                                  type:
+                                                                    "checkbox",
+                                                                  disabled: ""
                                                                 }
-                                                              }
-                                                            },
-                                                            [
-                                                              _c(
-                                                                "svg",
-                                                                {
-                                                                  staticClass:
-                                                                    "fill-current",
-                                                                  attrs: {
-                                                                    xmlns:
-                                                                      "http://www.w3.org/2000/svg",
-                                                                    width: "20",
-                                                                    height:
-                                                                      "20",
-                                                                    viewBox:
-                                                                      "0 0 20 20",
-                                                                    "aria-labelledby":
-                                                                      "delete",
-                                                                    role:
-                                                                      "presentation"
-                                                                  }
+                                                              })
+                                                        ]),
+                                                        _vm._v(" "),
+                                                        _c(
+                                                          "td",
+                                                          {
+                                                            staticClass:
+                                                              "text-right"
+                                                          },
+                                                          [
+                                                            _c(
+                                                              "a",
+                                                              {
+                                                                staticClass:
+                                                                  "cursor-pointer text-70 hover:text-primary mr-3",
+                                                                attrs: {
+                                                                  dusk:
+                                                                    "1-edit-button",
+                                                                  title: "Edit"
                                                                 },
-                                                                [
-                                                                  _c("path", {
+                                                                on: {
+                                                                  click: function(
+                                                                    $event
+                                                                  ) {
+                                                                    return _vm.editTask(
+                                                                      t.data.gid
+                                                                    )
+                                                                  }
+                                                                }
+                                                              },
+                                                              [
+                                                                _c(
+                                                                  "svg",
+                                                                  {
+                                                                    staticClass:
+                                                                      "fill-current",
                                                                     attrs: {
-                                                                      "fill-rule":
-                                                                        "nonzero",
-                                                                      d:
-                                                                        "M6 4V2a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2h5a1 1 0 0 1 0 2h-1v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6H1a1 1 0 1 1 0-2h5zM4 6v12h12V6H4zm8-2V2H8v2h4zM8 8a1 1 0 0 1 1 1v6a1 1 0 0 1-2 0V9a1 1 0 0 1 1-1zm4 0a1 1 0 0 1 1 1v6a1 1 0 0 1-2 0V9a1 1 0 0 1 1-1z"
+                                                                      xmlns:
+                                                                        "http://www.w3.org/2000/svg",
+                                                                      width:
+                                                                        "20",
+                                                                      height:
+                                                                        "20",
+                                                                      viewBox:
+                                                                        "0 0 20 20",
+                                                                      "aria-labelledby":
+                                                                        "edit",
+                                                                      role:
+                                                                        "presentation"
                                                                     }
-                                                                  })
-                                                                ]
-                                                              )
-                                                            ]
-                                                          )
-                                                        ]
-                                                      )
-                                                    ])
-                                                  }
-                                                ),
+                                                                  },
+                                                                  [
+                                                                    _c("path", {
+                                                                      attrs: {
+                                                                        d:
+                                                                          "M4.3 10.3l10-10a1 1 0 0 1 1.4 0l4 4a1 1 0 0 1 0 1.4l-10 10a1 1 0 0 1-.7.3H5a1 1 0 0 1-1-1v-4a1 1 0 0 1 .3-.7zM6 14h2.59l9-9L15 2.41l-9 9V14zm10-2a1 1 0 0 1 2 0v6a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4c0-1.1.9-2 2-2h6a1 1 0 1 1 0 2H2v14h14v-6z"
+                                                                      }
+                                                                    })
+                                                                  ]
+                                                                )
+                                                              ]
+                                                            ),
+                                                            _vm._v(" "),
+                                                            _c(
+                                                              "a",
+                                                              {
+                                                                staticClass:
+                                                                  "appearance-none cursor-pointer text-70 hover:text-danger mr-3",
+                                                                attrs: {
+                                                                  title:
+                                                                    "Delete"
+                                                                },
+                                                                on: {
+                                                                  click: function(
+                                                                    $event
+                                                                  ) {
+                                                                    return _vm.deleteTask(
+                                                                      t.data.gid
+                                                                    )
+                                                                  }
+                                                                }
+                                                              },
+                                                              [
+                                                                _c(
+                                                                  "svg",
+                                                                  {
+                                                                    staticClass:
+                                                                      "fill-current",
+                                                                    attrs: {
+                                                                      xmlns:
+                                                                        "http://www.w3.org/2000/svg",
+                                                                      width:
+                                                                        "20",
+                                                                      height:
+                                                                        "20",
+                                                                      viewBox:
+                                                                        "0 0 20 20",
+                                                                      "aria-labelledby":
+                                                                        "delete",
+                                                                      role:
+                                                                        "presentation"
+                                                                    }
+                                                                  },
+                                                                  [
+                                                                    _c("path", {
+                                                                      attrs: {
+                                                                        "fill-rule":
+                                                                          "nonzero",
+                                                                        d:
+                                                                          "M6 4V2a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2h5a1 1 0 0 1 0 2h-1v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6H1a1 1 0 1 1 0-2h5zM4 6v12h12V6H4zm8-2V2H8v2h4zM8 8a1 1 0 0 1 1 1v6a1 1 0 0 1-2 0V9a1 1 0 0 1 1-1zm4 0a1 1 0 0 1 1 1v6a1 1 0 0 1-2 0V9a1 1 0 0 1 1-1z"
+                                                                      }
+                                                                    })
+                                                                  ]
+                                                                )
+                                                              ]
+                                                            )
+                                                          ]
+                                                        )
+                                                      ])
+                                                    : _vm._e()
+                                                }),
                                                 0
                                               )
                                             ]
@@ -15220,7 +16010,7 @@ var render = function() {
                                                       "flex border-b border-40 w-full"
                                                   },
                                                   [
-                                                    _vm._m(1),
+                                                    _vm._m(4),
                                                     _vm._v(" "),
                                                     _c(
                                                       "div",
@@ -15331,7 +16121,7 @@ var render = function() {
                                                       "flex border-b border-40 w-full"
                                                   },
                                                   [
-                                                    _vm._m(2),
+                                                    _vm._m(5),
                                                     _vm._v(" "),
                                                     _c(
                                                       "div",
@@ -15515,7 +16305,7 @@ var render = function() {
                                                           "flex border-b border-40 w-full"
                                                       },
                                                       [
-                                                        _vm._m(3),
+                                                        _vm._m(6),
                                                         _vm._v(" "),
                                                         _c(
                                                           "div",
@@ -15831,7 +16621,7 @@ var render = function() {
                                                       "flex border-b border-40 w-full"
                                                   },
                                                   [
-                                                    _vm._m(4),
+                                                    _vm._m(7),
                                                     _vm._v(" "),
                                                     _c(
                                                       "div",
@@ -15939,7 +16729,7 @@ var render = function() {
                                                       "flex border-b border-40 w-full"
                                                   },
                                                   [
-                                                    _vm._m(5),
+                                                    _vm._m(8),
                                                     _vm._v(" "),
                                                     _c(
                                                       "div",
@@ -16109,7 +16899,7 @@ var render = function() {
                                                       "flex border-b border-40 w-full"
                                                   },
                                                   [
-                                                    _vm._m(6),
+                                                    _vm._m(9),
                                                     _vm._v(" "),
                                                     _c(
                                                       "div",
@@ -16282,7 +17072,7 @@ var render = function() {
                                                       "flex border-b border-40 w-full"
                                                   },
                                                   [
-                                                    _vm._m(7),
+                                                    _vm._m(10),
                                                     _vm._v(" "),
                                                     _c(
                                                       "div",
@@ -16391,7 +17181,7 @@ var render = function() {
                                                       "flex border-b border-40 w-full"
                                                   },
                                                   [
-                                                    _vm._m(8),
+                                                    _vm._m(11),
                                                     _vm._v(" "),
                                                     _c(
                                                       "div",
@@ -16571,6 +17361,51 @@ var staticRenderFns = [
         ])
       ]
     )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "py-6 px-8" }, [
+      _c(
+        "label",
+        {
+          staticClass: "inline-block text-80 pt-2 leading-tight",
+          attrs: { for: "name" }
+        },
+        [_vm._v("Assigned To")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "w-1/5 py-6 px-8" }, [
+      _c(
+        "label",
+        {
+          staticClass: "inline-block text-80 pt-2 leading-tight",
+          attrs: { for: "name" }
+        },
+        [_vm._v("Type")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "py-6 px-8" }, [
+      _c(
+        "label",
+        {
+          staticClass: "inline-block text-80 pt-2 leading-tight",
+          attrs: { for: "name" }
+        },
+        [_vm._v("Due Date")]
+      )
+    ])
   },
   function() {
     var _vm = this

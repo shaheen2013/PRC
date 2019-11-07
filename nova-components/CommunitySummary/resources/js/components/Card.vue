@@ -222,6 +222,65 @@
                                     <table class="table w-full">
                                         <thead>
                                         <tr>
+                                            <th class="text-left" colspan="2">
+                                                <div class="remove-bottom-border">
+                                                    <div class="flex">
+                                                        <div class="flex w-full">
+                                                            <div class="py-6 px-8">
+                                                                <label for="name" class="inline-block text-80 pt-2 leading-tight">Assigned To</label>
+                                                            </div>
+                                                            <div class="py-6 px-8">
+                                                                <select v-model="taskFilter.assignee" @change="filterTasks" dusk="attachable-select" data-testid="workspace-select" name="assignee" class="form-control form-select mb-3 w-full">
+                                                                    <option value="">Choose Assigned To</option>
+                                                                    <option v-if="users.length > 0" v-for="user in users" :value="user.gid">{{ user.name }}</option>
+                                                                </select>
+                                                                <div class="help-text help-text mt-2" v-if="errors.assignee"><div class="text-danger">{{ errors.assignee[0] }}</div></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </th>
+                                            <th class="text-left">
+                                                <label class="checkbox-inline">
+                                                    <input type="checkbox" v-model="taskFilter.complete" @change="filterTasks">Complete
+                                                </label>
+                                            </th>
+                                            <th class="text-left" colspan="2">
+                                                <div class="remove-bottom-border">
+                                                    <div class="flex">
+                                                        <div class="flex w-full">
+                                                            <div class="w-1/5 py-6 px-8">
+                                                                <label for="name" class="inline-block text-80 pt-2 leading-tight">Type</label>
+                                                            </div>
+                                                            <div class="py-6 px-8">
+                                                                <select v-model="taskFilter.section" @change="filterTasks" dusk="attachable-select" data-testid="workspace-select" name="assignee" class="form-control form-select mb-3 w-full">
+                                                                    <option value="">Choose Type</option>
+                                                                    <option v-if="sections.length > 0" v-for="section in sections" :value="section.gid">{{ section.name }}</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </th>
+                                            <th class="text-left">
+                                                <div class="remove-bottom-border">
+                                                    <div class="flex">
+                                                        <div class="flex w-full">
+                                                            <div class="py-6 px-8">
+                                                                <label for="name" class="inline-block text-80 pt-2 leading-tight">Due Date</label>
+                                                            </div>
+                                                            <div class="py-6 px-8">
+                                                                <input v-model="taskFilter.due_on" @change="filterTasks" dusk="due_on" type="date" placeholder="Due Date" class="w-full form-control form-input form-input-bordered"> <!---->
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </th>
+                                            <th class="text-left">
+                                                <div class="relative h-9 flex-no-shrink mb-6"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" aria-labelledby="search" role="presentation" class="fill-current absolute search-icon-center ml-3 text-70"><path fill-rule="nonzero" d="M14.32 12.906l5.387 5.387a1 1 0 0 1-1.414 1.414l-5.387-5.387a8 8 0 1 1 1.414-1.414zM8 14A6 6 0 1 0 8 2a6 6 0 0 0 0 12z"></path></svg> <input data-testid="search-input" dusk="search" v-model="taskFilter.name" @change="keyTyping" @keyup="keyTyping" placeholder="Search" type="search" class="appearance-none form-search w-search pl-search shadow"></div>
+                                            </th>
+                                        </tr>
+                                        <tr>
                                             <th class="text-left">SL</th>
                                             <th class="text-left">Task</th>
                                             <th class="text-left">Type</th>
@@ -236,7 +295,7 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <tr v-for="(t,index) in projectDetails.tasks">
+                                        <tr v-for="(t,index) in tasks" v-if="tasks.length > 0">
                                             <td v-text="index+1"></td>
                                             <td>{{ t.data.name }}</td>
                                             <td>{{ t.data.memberships[0].section.name }}</td>
@@ -458,7 +517,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 </template>
@@ -510,6 +568,7 @@
                 Template: 1,
                 workspaces: [],
                 teams: [],
+                tasks: [],
                 users: [],
                 sections: [],
                 workspaceProjects: [],
@@ -536,6 +595,16 @@
                     section: '',
                     project: [],
                 },
+                taskFilter: {
+                    name: '',
+                    assignee: '',
+                    due_on: '',
+                    notes: '',
+                    section: '',
+                    project: '',
+                    complete: '',
+                },
+                keywordTyping: null,
             }
         },
         computed: {
@@ -1189,6 +1258,8 @@
                     if (response.data.data.length > 0) {
                         this.projects = response.data.data;
                         this.projectDetails = this.projects[0];
+                        this.taskFilter.project = this.projectDetails.data.gid;
+                        this.tasks = this.projectDetails.tasks;
                         this.sections = this.projects[0].sections.data;
                         this.users = this.projects[0].users.data;
                         this.task.project = this.projectDetails.data.gid;
@@ -1355,6 +1426,30 @@
                     }
                 });
             },
+            filterTasks() {
+                let THIS = this;
+                document.getElementById('loader').style.display = 'block';
+                let params = new URLSearchParams(THIS.taskFilter);
+                params = params.toString();
+                Nova.request().get('/api/asana/task/show?' + params).then(response => {
+                    if (response.data.status === 200) {
+                        THIS.Template = 1;
+                        THIS.tasks = response.data.data;
+                        console.log(THIS.tasks);
+                        document.getElementById('loader').style.display = 'none';
+                    } else {
+                        THIS.errors = response.data.errors;
+                    }
+                });
+            },
+            keyTyping: function(){
+                let THIS = this;
+                clearInterval(THIS.keywordTyping);
+                this.keywordTyping = setInterval(function () {
+                    clearInterval(THIS.keywordTyping);
+                    THIS.filterTasks();
+                }, 1000)
+            },
         },
         created() {
             Nova.request().post('/nova-vendor/community-summary/community', {
@@ -1440,7 +1535,7 @@
     }
     .lds-facebook div:nth-child(3) {
         left: 45px;
-        animation-delay: 0;
+        /*animation-delay: 0;*/
     }
     .ph{
         padding: 20px 10px;

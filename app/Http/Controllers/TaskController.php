@@ -134,12 +134,142 @@ class TaskController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  Request $request
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request)
     {
-        //
+        // Validate form data
+        $rules = array(
+            'name' => 'nullable|string|max:255',
+            'assignee' => 'nullable|string|max:255',
+            'due_on' => 'nullable|date',
+            'notes' => 'nullable|string',
+            'section' => 'nullable|string',
+            'project' => 'required|string',
+            'complete' => 'nullable|string|max:255',
+        );
+
+        $validator = Validator::make ( $request->all(), $rules);
+
+        if ($validator->fails()){
+            return response()->json(array('errors'=> $validator->getMessageBag()->toarray()));
+        }
+
+        try {
+            $tasks = json_decode($this->asana->getProjectTasks($request->project));
+            $response = [];
+
+            foreach ($tasks->data  as $task) {
+                $data = json_decode($this->asana->getTask($task->gid));
+
+                foreach ($request->all() as $index => $value) {
+                    if (!empty($value) && $index != 'project') {
+                        switch ($index) {
+                            case "name":
+                                if ($data->data->name || $data->data->notes) {
+                                    if ($data->data->name) {
+                                        if (strtolower($data->data->name) == strtolower($value)) {
+                                            $matched = true;
+                                        } else {
+                                            if ($data->data->notes) {
+                                                if (strpos($data->data->notes, $value) !== false) {
+                                                    $matched = true;
+                                                } else {
+                                                    $matched = false;
+                                                }
+                                            } else {
+                                                $matched = false;
+                                            }
+                                        }
+                                    } else {
+                                        if (strpos($data->data->notes, $value) !== false) {
+                                            $matched = true;
+                                        } else {
+                                            $matched = false;
+                                        }
+                                    }
+                                } else {
+                                    $matched = false;
+                                }
+                                break;
+                            case "assignee":
+                                if ($data->data->assignee) {
+                                    if ($data->data->assignee->gid == $value) {
+                                        $matched = true;
+                                    } else {
+                                        $matched = false;
+                                    }
+                                } else {
+                                    $matched = false;
+                                }
+                                break;
+                            case "due_on":
+                                if ($data->data->due_on) {
+                                    if ($data->data->due_on == $value) {
+                                        $matched = true;
+                                    } else {
+                                        $matched = false;
+                                    }
+                                } else {
+                                    $matched = false;
+                                }
+                                break;
+                            case "notes":
+                                if ($data->data->notes) {
+                                    if (strpos($data->data->notes, $value) !== false) {
+                                        $matched = true;
+                                    } else {
+                                        $matched = false;
+                                    }
+                                } else {
+                                    $matched = false;
+                                }
+                                break;
+                            case "section":
+                                if (isset($data->data->memberships[0]->section)) {
+                                    if ($data->data->memberships[0]->section->gid == $value) {
+                                        $matched = true;
+                                    } else {
+                                        $matched = false;
+                                    }
+                                } else {
+                                    $matched = false;
+                                }
+                                break;
+                            case "complete":
+                                if ($value == 'true') {
+                                    if ($data->data->completed) {
+                                        $matched = true;
+                                    } else {
+                                        $matched = false;
+                                    }
+                                } else {
+                                    if (!$data->data->completed) {
+                                        $matched = true;
+                                    } else {
+                                        $matched = false;
+                                    }
+                                }
+                                break;
+                            default:
+                        }
+
+                        if (!$matched) {
+                            break;
+                        }
+                    }
+                }
+
+                if ($matched) {
+                    $response[] = $data;
+                }
+            }
+
+            return response()->json(['status' => 200, 'data' => $response], 200);
+        } catch (\Exception $e) {
+            return response()->json(['status' => 500, 'msg' => $e->getMessage()], 200);
+        }
     }
 
     /**
