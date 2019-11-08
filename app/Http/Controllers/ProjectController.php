@@ -139,6 +139,9 @@ class ProjectController extends Controller
             $newProject->project_id = $project->data->gid;
             $newProject->save();
 
+            $this->asana->createSection($project->data->gid, ['name' => 'Sales']);
+            $this->asana->createSection($project->data->gid, ['name' => 'Maintenance']);
+
             return response()->json(['status' => 200, 'data' => $project], 200);
         } catch (\Exception $e) {
             return response()->json(['status' => 500, 'msg' => $e->getMessage()], 200);

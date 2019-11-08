@@ -377,4 +377,25 @@ class TaskController extends Controller
             return response()->json(['status' => 500, 'msg' => $e->getMessage()], 200);
         }
     }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  Int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function details($id)
+    {
+        try {
+            $task[] = json_decode($this->asana->getTask($id));
+
+            $subTasks = json_decode($this->asana->getSubTasks($id));
+
+            $task['subTasks'] = $subTasks;
+
+            return response()->json(['status' => 200, 'data' => $task], 200);
+        } catch (\Exception $e) {
+            return response()->json(['status' => 500, 'msg' => $e->getMessage()], 200);
+        }
+    }
 }

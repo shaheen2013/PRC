@@ -18,6 +18,7 @@
         "sweetalert2": "^8.3.0",
         "v-tooltip": "^2.0.2",
         "vue": "^2.5.0",
+        "vue-flatpickr-component": "^8.1.5",
         "watch": "^1.0.2"
     }
 }

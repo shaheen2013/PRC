@@ -222,7 +222,7 @@
                                     <table class="table w-full">
                                         <thead>
                                         <tr>
-                                            <th class="text-left" colspan="2">
+                                            <th class="text-left">
                                                 <div class="remove-bottom-border">
                                                     <div class="flex">
                                                         <div class="flex w-full">
@@ -270,7 +270,13 @@
                                                                 <label for="name" class="inline-block text-80 pt-2 leading-tight">Due Date</label>
                                                             </div>
                                                             <div class="py-6 px-8">
-                                                                <input v-model="taskFilter.due_on" @change="filterTasks" dusk="due_on" type="date" placeholder="Due Date" class="w-full form-control form-input form-input-bordered"> <!---->
+                                                                <flat-pickr
+                                                                    v-model="taskFilter.due_on"
+                                                                    :config="config"
+                                                                    class="w-full form-control form-input-bordered"
+                                                                    placeholder="Select date"
+                                                                    name="date">
+                                                                </flat-pickr>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -280,6 +286,10 @@
                                                 <div class="relative h-9 flex-no-shrink mb-6"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" aria-labelledby="search" role="presentation" class="fill-current absolute search-icon-center ml-3 text-70"><path fill-rule="nonzero" d="M14.32 12.906l5.387 5.387a1 1 0 0 1-1.414 1.414l-5.387-5.387a8 8 0 1 1 1.414-1.414zM8 14A6 6 0 1 0 8 2a6 6 0 0 0 0 12z"></path></svg> <input data-testid="search-input" dusk="search" v-model="taskFilter.name" @change="keyTyping" @keyup="keyTyping" placeholder="Search" type="search" class="appearance-none form-search w-search pl-search shadow"></div>
                                             </th>
                                         </tr>
+                                        </thead>
+                                    </table>
+                                    <table class="table w-full">
+                                        <thead>
                                         <tr>
                                             <th class="text-left">SL</th>
                                             <th class="text-left">Task</th>
@@ -306,6 +316,7 @@
                                                 <input type="checkbox" v-else="" disabled>
                                             </td>
                                             <td class="text-right">
+                                                <span><a @click="showTask(t.data.gid)" class="cursor-pointer text-70 hover:text-primary mr-3" dusk="13-view-button" title="View"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="18" viewBox="0 0 22 16" aria-labelledby="view" role="presentation" class="fill-current"><path d="M16.56 13.66a8 8 0 0 1-11.32 0L.3 8.7a1 1 0 0 1 0-1.42l4.95-4.95a8 8 0 0 1 11.32 0l4.95 4.95a1 1 0 0 1 0 1.42l-4.95 4.95-.01.01zm-9.9-1.42a6 6 0 0 0 8.48 0L19.38 8l-4.24-4.24a6 6 0 0 0-8.48 0L2.4 8l4.25 4.24h.01zM10.9 12a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm0-2a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"></path></svg></a></span>
                                                 <a @click="editTask(t.data.gid)" class="cursor-pointer text-70 hover:text-primary mr-3" dusk="1-edit-button"
                                                    title="Edit">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
@@ -333,7 +344,7 @@
                         </div>
                     </div>
                 </div>
-                <div v-if="projects.length === 0" class="card">
+                <div v-if="projectDetails == null" class="card">
                     <h2 class="ph">No projects yet</h2>
                 </div>
             </div>
@@ -364,38 +375,6 @@
                                                             <div class="py-6 px-8 w-1/2">
                                                                 <input id="name" v-model="project.name" dusk="name" type="text" placeholder="Project Name" class="w-full form-control form-input form-input-bordered"> <!---->
                                                                 <div class="help-text help-text mt-2" v-if="errors.name"><div class="text-danger">{{ errors.name[0] }}</div></div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="remove-bottom-border">
-                                                    <div class="flex border-b border-40">
-                                                        <div class="flex border-b border-40 w-full">
-                                                            <div class="w-1/5 py-6 px-8">
-                                                                <label for="workspace" class="inline-block text-80 pt-2 leading-tight">Project Workspace/Organization</label>
-                                                            </div>
-                                                            <div class="py-6 px-8 w-1/2">
-                                                                <select @change="getTeams" v-model="project.workspace" dusk="attachable-select" data-testid="workspace-select" id="workspace" name="workspace" class="form-control form-select mb-3 w-full">
-                                                                    <option value="" disabled="disabled" selected="selected">Choose Project Workspace/Organization</option>
-                                                                    <option v-if="workspaces.length > 0" v-for="workspace in workspaces" :value="workspace.gid">{{ workspace.name }}</option>
-                                                                </select>
-                                                                <div class="help-text help-text mt-2" v-if="errors.workspace"><div class="text-danger">{{ errors.workspace[0] }}</div></div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="remove-bottom-border" v-if="!isEditProject">
-                                                    <div class="flex border-b border-40">
-                                                        <div class="flex border-b border-40 w-full">
-                                                            <div class="w-1/5 py-6 px-8">
-                                                                <label for="team" class="inline-block text-80 pt-2 leading-tight">Team</label>
-                                                            </div>
-                                                            <div class="py-6 px-8 w-1/2">
-                                                                <select dusk="attachable-select" v-model="project.team" data-testid="team-select" id="team" name="team" class="form-control form-select mb-3 w-full">
-                                                                    <option value="" disabled="disabled" selected="selected">Choose Team</option>
-                                                                    <option v-if="teams.length > 0" v-for="team in teams" :value="team.gid">{{ team.name }}</option>
-                                                                </select>
-                                                                <div class="help-text help-text mt-2" v-if="errors.team"><div class="text-danger">{{ errors.team[0] }}</div></div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -484,7 +463,13 @@
                                                                 <label for="name" class="inline-block text-80 pt-2 leading-tight">Due Date</label>
                                                             </div>
                                                             <div class="py-6 px-8 w-1/2">
-                                                                <input v-model="task.due_on" dusk="due_on" type="date" placeholder="Due Date" class="w-full form-control form-input form-input-bordered"> <!---->
+                                                                <flat-pickr
+                                                                    v-model="task.due_on"
+                                                                    :config="config"
+                                                                    class="w-full form-control form-input-bordered"
+                                                                    placeholder="Select date"
+                                                                    name="date">
+                                                                </flat-pickr>
                                                                 <div class="help-text help-text mt-2" v-if="errors.due_on"><div class="text-danger">{{ errors.due_on[0] }}</div></div>
                                                             </div>
                                                         </div>
@@ -517,12 +502,57 @@
                     </div>
                 </div>
             </div>
+            <div class="w-full" v-if="Template === 4 && taskDetails">
+                <div class="tabs-wrap border-b-2 border-40 w-full">
+                    <div class="tabs flex flex-row overflow-x-auto">
+                        <button class="py-5 px-8 border-b-2 focus:outline-none tab text-grey-black font-bold border-primary">
+                            {{ taskDetails[0].data.name }}
+                        </button>
+                    </div>
+                </div>
+                <div class="tab-content tasks">
+                    <div class="px-6 py-3">
+                        <div class="flex border-b border-40 remove-bottom-border">
+                            <div class="overflow-hidden overflow-x-auto relative w-full">
+                                <table class="table w-full">
+                                    <caption><h3 class="ph">Subtaks</h3></caption>
+                                    <thead>
+                                    <tr>
+                                        <th class="text-left">SL</th>
+                                        <th class="text-left">Task</th>
+                                        <!--<th class="text-left">Type</th>
+                                        <th class="text-left">Due Date</th>
+                                        <th class="text-left">Description</th>
+                                        <th class="text-left">Complete</th>-->
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr v-if="taskDetails.subTasks.data > 0" v-for="(t,index) in taskDetails.subTasks.data">
+                                        <td v-text="index+1"></td>
+                                        <td>{{ t.name }}</td>
+                                        <!--<td>{{ t.data.memberships[0].section.name }}</td>
+                                        <td>{{ t.data.due_on }}</td>
+                                        <td>{{ t.data.notes }}</td>
+                                        <td>
+                                            <input type="checkbox" v-if="t.data.completed" checked disabled>
+                                            <input type="checkbox" v-else="" disabled>
+                                        </td>-->
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
     import Swal from 'sweetalert2';
+    import flatPickr from 'vue-flatpickr-component';
+    import 'flatpickr/dist/flatpickr.css';
     import {VTooltip, VPopover, VClosePopover} from 'v-tooltip'
 
     export default {
@@ -531,7 +561,8 @@
             'v-popover': VClosePopover,
         },
         components: {
-            'v-popover': VPopover
+            'v-popover': VPopover,
+            flatPickr
         },
         props: [
             'card',
@@ -581,8 +612,8 @@
                 project: {
                     id: null,
                     name: null,
-                    workspace: null,
-                    team: null,
+                    workspace: '25961259746709',
+                    team: '1147285102599070',
                     osusr_mlv_community_id: this.resourceId,
                 },
                 task: {
@@ -605,6 +636,12 @@
                     complete: '',
                 },
                 keywordTyping: null,
+                config: {
+                    altFormat: 'M j, Y',
+                    altInput: true,
+                    dateFormat: 'Y-m-d',
+                },
+                taskDetails: null,
             }
         },
         computed: {
@@ -1251,6 +1288,7 @@
                 });
             },
             getProjects() {
+                this.project.name = null;
                 document.getElementById('loader').style.display = 'block';
                 Nova.request().get('/api/asana/project?osusr_mlv_community_id=' + this.resourceId).then(response => {
                     this.isLoading = false;
@@ -1284,6 +1322,7 @@
                     this.updateProject();
                 } else {
                     document.getElementById('loader').style.display = 'block';
+                    this.project.name = this.community.STATE + '-' + this.community.COUNTY + '-' + this.project.name + '-' + this.community.COMMUNITYID + '-Standard';
                     Nova.request().post('/api/asana/project/store', this.project).then(response => {
                         document.getElementById('loader').style.display = 'none';
                         if (response.data.status === 200) {
@@ -1373,6 +1412,19 @@
                         }
                     });
                 }
+            },
+            showTask(id) {
+                this.Template = 4;
+                this.isEditTask = true;
+                document.getElementById('loader').style.display = 'block';
+                Nova.request().get('/api/asana/task/details/' + id).then(response => {
+                    document.getElementById('loader').style.display = 'none';
+                    if (response.status == 200) {
+                        this.taskDetails = response.data.data;
+                    } else {
+                        this.errors = response.data.msg.errors;
+                    }
+                });
             },
             editTask(id) {
                 this.Template = 3;
