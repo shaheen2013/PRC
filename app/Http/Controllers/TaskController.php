@@ -387,13 +387,53 @@ class TaskController extends Controller
     public function details($id)
     {
         try {
+            $data = [];
             $task[] = json_decode($this->asana->getTask($id));
-
             $subTasks = json_decode($this->asana->getSubTasks($id));
 
-            $task['subTasks'] = $subTasks;
+            foreach ($subTasks->data as $datum) {
+                $data[] = json_decode($this->asana->getTask($datum->gid));
+            }
+
+            $task['subTasks'] = $data;
 
             return response()->json(['status' => 200, 'data' => $task], 200);
+        } catch (\Exception $e) {
+            return response()->json(['status' => 500, 'msg' => $e->getMessage()], 200);
+        }
+    }
+
+    /**
+     * Store a newly created attachment in storage.
+     *
+     * @param $id
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\Response
+     */
+    public function attachment(Request $request, $id)
+    {
+        // Validate form data
+        $rules = array(
+            'file' => 'required|file|max:100000',
+        );
+
+        $validator = Validator::make ( $request->all(), $rules);
+
+        if ($validator->fails()){
+            return response()->json(array('errors'=> $validator->getMessageBag()->toarray()));
+        }
+
+        // Attach an attachment to task.
+        try {
+            $data = [
+                'file' => $request->file('file'),
+                'mimeType' => $request->file('file')->getMimeType(),
+                'finalFilename' => $request->file('file')->getClientOriginalName()
+            ];
+
+            $this->asana->addAttachmentToTask($id, $data);
+
+            return response()->json(['status' => 200, 'data' => []], 200);
         } catch (\Exception $e) {
             return response()->json(['status' => 500, 'msg' => $e->getMessage()], 200);
         }

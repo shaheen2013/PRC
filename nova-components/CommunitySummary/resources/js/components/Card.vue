@@ -195,7 +195,7 @@
                             <button class="py-5 px-8 border-b-2 focus:outline-none tab text-grey-black font-bold border-primary">
                                 {{ projectDetails.data.name }} &nbsp;&nbsp;&nbsp;
 
-                                <a @click="editProject(projectDetails.data.gid)" class="cursor-pointer text-70 hover:text-primary mr-1" title="Edit">
+                                <!--<a @click="editProject(projectDetails.data.gid)" class="cursor-pointer text-70 hover:text-primary mr-1" title="Edit">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15"
                                          viewBox="0 0 20 20" aria-labelledby="edit" role="presentation"
                                          class="fill-current">
@@ -210,7 +210,7 @@
                                         <path fill-rule="nonzero"
                                               d="M6 4V2a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2h5a1 1 0 0 1 0 2h-1v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6H1a1 1 0 1 1 0-2h5zM4 6v12h12V6H4zm8-2V2H8v2h4zM8 8a1 1 0 0 1 1 1v6a1 1 0 0 1-2 0V9a1 1 0 0 1 1-1zm4 0a1 1 0 0 1 1 1v6a1 1 0 0 1-2 0V9a1 1 0 0 1 1-1z"></path>
                                     </svg>
-                                </a>
+                                </a>-->
 
                             </button>
                         </div>
@@ -316,6 +316,8 @@
                                                 <input type="checkbox" v-else="" disabled>
                                             </td>
                                             <td class="text-right">
+                                                <input type="file" id="file" name="file" v-on:change="handleFileUpload(t.data.gid, $event)" style="display: none">
+                                                <a onclick="document.getElementById('file').click()" class="cursor-pointer text-70 hover:text-primary mr-3" dusk="13-view-button" title="Attach file"><i class="fa fa-paperclip"></i></a>
                                                 <span><a @click="showTask(t.data.gid)" class="cursor-pointer text-70 hover:text-primary mr-3" dusk="13-view-button" title="View"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="18" viewBox="0 0 22 16" aria-labelledby="view" role="presentation" class="fill-current"><path d="M16.56 13.66a8 8 0 0 1-11.32 0L.3 8.7a1 1 0 0 1 0-1.42l4.95-4.95a8 8 0 0 1 11.32 0l4.95 4.95a1 1 0 0 1 0 1.42l-4.95 4.95-.01.01zm-9.9-1.42a6 6 0 0 0 8.48 0L19.38 8l-4.24-4.24a6 6 0 0 0-8.48 0L2.4 8l4.25 4.24h.01zM10.9 12a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm0-2a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"></path></svg></a></span>
                                                 <a @click="editTask(t.data.gid)" class="cursor-pointer text-70 hover:text-primary mr-3" dusk="1-edit-button"
                                                    title="Edit">
@@ -514,29 +516,39 @@
                     <div class="px-6 py-3">
                         <div class="flex border-b border-40 remove-bottom-border">
                             <div class="overflow-hidden overflow-x-auto relative w-full">
+                                <div class="flex" style="">
+                                    <!---->
+                                    <div class="w-full flex items-center">
+                                        <h3 class="flex-no-shrink text-90 font-normal text-2xl">Subtaks</h3>
+                                        <!---->
+                                        <div class="flex-no-shrink ml-auto mb-6">
+                                            <a href="javascript:void(0)" @click="Template = 1" class="btn btn-default btn-primary" dusk="create-button">Back</a>
+                                        </div>
+                                    </div>
+                                </div>
                                 <table class="table w-full">
-                                    <caption><h3 class="ph">Subtaks</h3></caption>
                                     <thead>
                                     <tr>
                                         <th class="text-left">SL</th>
                                         <th class="text-left">Task</th>
-                                        <!--<th class="text-left">Type</th>
+                                        <th class="text-left">Type</th>
                                         <th class="text-left">Due Date</th>
                                         <th class="text-left">Description</th>
-                                        <th class="text-left">Complete</th>-->
+                                        <th class="text-left">Complete</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr v-if="taskDetails.subTasks.data > 0" v-for="(t,index) in taskDetails.subTasks.data">
+                                    <tr v-if="taskDetails.subTasks.length > 0" v-for="(t,index) in taskDetails.subTasks">
                                         <td v-text="index+1"></td>
-                                        <td>{{ t.name }}</td>
-                                        <!--<td>{{ t.data.memberships[0].section.name }}</td>
+                                        <td>{{ t.data.name }}</td>
+                                        <td v-if="t.data.memberships.length > 0">{{ t.data.memberships[0].section.name }}</td>
+                                        <td v-else=""></td>
                                         <td>{{ t.data.due_on }}</td>
                                         <td>{{ t.data.notes }}</td>
                                         <td>
                                             <input type="checkbox" v-if="t.data.completed" checked disabled>
                                             <input type="checkbox" v-else="" disabled>
-                                        </td>-->
+                                        </td>
                                     </tr>
                                     </tbody>
                                 </table>
@@ -642,6 +654,7 @@
                     dateFormat: 'Y-m-d',
                 },
                 taskDetails: null,
+                file: ''
             }
         },
         computed: {
@@ -1318,23 +1331,19 @@
                 this.teams = this.workspaces.find(workspace => {return workspace.gid == document.getElementById('workspace').value}).teams.data;
             },
             createProject() {
-                if (this.isEditProject) {
-                    this.updateProject();
-                } else {
-                    document.getElementById('loader').style.display = 'block';
-                    this.project.name = this.community.STATE + '-' + this.community.COUNTY + '-' + this.project.name + '-' + this.community.COMMUNITYID + '-Standard';
-                    Nova.request().post('/api/asana/project/store', this.project).then(response => {
-                        document.getElementById('loader').style.display = 'none';
-                        if (response.data.status === 200) {
-                            this.Template = 1;
-                            this.getProjects();
-                        } else {
-                            this.errors = response.data.errors;
-                        }
-                    });
-                }
+                document.getElementById('loader').style.display = 'block';
+                this.project.name = this.community.STATE + '-' + this.community.COUNTY + '-' + this.project.name + '-' + this.community.COMMUNITYID + '-Standard';
+                Nova.request().post('/api/asana/project/store', this.project).then(response => {
+                    document.getElementById('loader').style.display = 'none';
+                    if (response.data.status === 200) {
+                        this.Template = 1;
+                        this.getProjects();
+                    } else {
+                        this.errors = response.data.errors;
+                    }
+                });
             },
-            editProject(id) {
+            /*editProject(id) {
                 this.Template = 2;
                 this.isEditProject = true;
                 document.getElementById('loader').style.display = 'block';
@@ -1380,7 +1389,7 @@
                         });
                     }
                 });
-            },
+            },*/
             createTask() {
                 this.Template = 3;
                 this.isEditTask = false;
@@ -1502,6 +1511,62 @@
                     THIS.filterTasks();
                 }, 1000)
             },
+            handleFileUpload(id, e){
+                /*
+                Handles a change on the file upload
+               */
+                this.file = e.target.files[0];
+
+                /*
+                Initialize the form data
+                */
+                let formData = new FormData();
+
+                /*
+                    Add the form data we need to submit
+                */
+                formData.append('file', this.file);
+
+                /*
+                  Make the request to the POST /single-file URL
+                */
+                Nova.request().post( '/api/asana/task/attachment/' + id,
+                    formData,
+                    {
+                        headers: {
+                            'Content-Type': 'multipart/form-data'
+                        }
+                    }
+                ).then(function(response){
+                    e.target.value = "";
+
+                    if (response.data.status == 200) {
+                        Swal.fire({
+                            type: 'success',
+                            position: 'top-end',
+                            title: 'Attachment uploaded successfully.',
+                            showConfirmButton: false,
+                            timer: 2000
+                        });
+                    } else {
+                        Swal.fire({
+                            type: 'error',
+                            title: 'FAILURE!!',
+                            text: 'Upload failed.',
+                            showCancelButton: true,
+                            focusConfirm: true
+                        });
+                    }
+                }).catch(function(){
+                    Swal.fire({
+                        type: 'error',
+                        title: 'FAILURE!!',
+                        text: 'Upload failed.',
+                        showCancelButton: true,
+                        focusConfirm: true
+                    });
+                });
+            }
         },
         created() {
             Nova.request().post('/nova-vendor/community-summary/community', {
