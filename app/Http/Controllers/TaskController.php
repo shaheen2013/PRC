@@ -329,30 +329,35 @@ class TaskController extends Controller
 
             $task = json_decode($this->asana->updateTask($id, $data), 1);
 
-            $param = [
-                'data' => [
-                    'task' => $task['data']['gid'],
-                ]
-            ];
+            if (isset($request->section)) {
+                $param = [
+                    'data' => [
+                        'task' => $id,
+                    ]
+                ];
 
-            $ch = curl_init();
+                $ch = curl_init();
 
-            curl_setopt($ch, CURLOPT_URL, 'https://app.asana.com/api/1.0/sections/' . $request->section . '/addTask');
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-            curl_setopt($ch, CURLOPT_POST, 1);
-            curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($param));
+                curl_setopt($ch, CURLOPT_URL, 'https://app.asana.com/api/1.0/sections/' . $request->section . '/addTask');
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+                curl_setopt($ch, CURLOPT_POST, 1);
+                curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($param));
 
-            $headers = array();
-            $headers[] = 'Content-Type: application/json';
-            $headers[] = 'Accept: application/json';
-            $headers[] = 'Authorization: Bearer ' . env('ASANA_PAT');
-            curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+                $headers = array();
+                $headers[] = 'Content-Type: application/json';
+                $headers[] = 'Accept: application/json';
+                $headers[] = 'Authorization: Bearer ' . env('ASANA_PAT');
 
-            $result = curl_exec($ch);
-            if (curl_errno($ch)) {
-                echo 'Error:' . curl_error($ch);
+                curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+                $result = curl_exec($ch);
+
+                if (curl_errno($ch)) {
+                    echo 'Error:' . curl_error($ch);
+                }
+
+                curl_close($ch);
             }
-            curl_close($ch);
 
             return response()->json(['status' => 200, 'data' => $task], 200);
         } catch (\Exception $e) {

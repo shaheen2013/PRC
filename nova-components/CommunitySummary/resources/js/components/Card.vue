@@ -305,15 +305,73 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <tr v-for="(t,index) in tasks" v-if="tasks.length > 0">
+                                        <tr v-for="(t,index) in tasks" v-if="tasks.length > 0 && showMe == 1">
                                             <td v-text="index+1"></td>
-                                            <td>{{ t.data.name }}</td>
-                                            <td>{{ t.data.memberships[0].section.name }}</td>
-                                            <td>{{ t.data.due_on }}</td>
-                                            <td>{{ t.data.notes }}</td>
                                             <td>
-                                                <input type="checkbox" v-if="t.data.completed" checked disabled>
-                                                <input type="checkbox" v-else="" disabled>
+                                                <div @click="editThisQuick(index)" v-if="t.editStatus == undefined || t.editStatus !== 1">{{ t.data.name }}</div>
+                                                <div class="remove-bottom-border" v-if="t.editStatus != undefined && t.editStatus == 1">
+                                                    <div class="flex">
+                                                        <div class="flex w-full">
+                                                            <div class="py-6">
+                                                                <input dusk="name" type="text" placeholder="Task Name" :value="t.data.name"
+                                                                       @blur="editThisQuick(index)"
+                                                                       @change="inlineTaskUpdate(index, 'name', $event)" class="w-full form-control form-input form-input-bordered">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div @click="editThisQuick(index)" v-if="t.editStatus == undefined || t.editStatus !== 1">{{ t.data.memberships[0].section.name }}</div>
+                                                <div class="remove-bottom-border" v-if="t.editStatus != undefined && t.editStatus == 1">
+                                                    <div class="flex">
+                                                        <div class="flex w-full">
+                                                            <div class="py-6">
+                                                                <select dusk="attachable-select" @change="editThisQuick(index);inlineTaskUpdate(index, 'section', $event)" data-testid="workspace-select" name="section" class="form-control form-select mb-3 w-full">
+                                                                    <option value="" disabled="disabled">Choose Type</option>
+                                                                    <option v-for="section in sections" :value="section.gid" v-if="t.data.memberships[0].section.gid == section.gid" selected>{{ section.name }}</option>
+                                                                    <option :value="section.gid" v-else="">{{ section.name }}</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div @click="editThisQuick(index)" v-if="t.editStatus == undefined || t.editStatus !== 1">{{ t.data.due_on }}</div>
+                                                <div class="remove-bottom-border" v-if="t.editStatus != undefined && t.editStatus == 1">
+                                                    <div class="flex">
+                                                        <div class="flex w-full">
+                                                            <div class="py-6">
+                                                                <flat-pickr
+                                                                    :value="t.data.due_on"
+                                                                    :config="config"
+                                                                    @on-blur="editThisQuick(index)"
+                                                                    @on-change="inlineTaskUpdate(index, 'due_on', $event)"
+                                                                    class="w-full form-control form-input-bordered"
+                                                                    placeholder="Select date"
+                                                                    name="due_on">
+                                                                </flat-pickr>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div @click="editThisQuick(index)" v-if="t.editStatus == undefined || t.editStatus !== 1">{{ t.data.notes }}</div>
+                                                <div class="remove-bottom-border" v-if="t.editStatus != undefined && t.editStatus == 1">
+                                                    <div class="flex">
+                                                        <div class="flex w-full">
+                                                            <div class="py-6">
+                                                                <textarea @blur="editThisQuick(index)" @change="inlineTaskUpdate(index, 'notes', $event)" dusk="title" rows="5" class="w-full form-control form-input form-input-bordered py-3 h-auto">{{ t.data.notes }}</textarea>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <input type="checkbox" v-if="t.data.completed" @change="inlineTaskUpdate(index, 'completed', $event)" checked>
+                                                <input type="checkbox" v-else="" @change="inlineTaskUpdate(index, 'completed', $event)">
                                             </td>
                                             <td class="text-right">
                                                 <input type="file" id="file" name="file" v-on:change="handleFileUpload(t.data.gid, $event)" style="display: none">
@@ -602,6 +660,7 @@
         },
         data: function () {
             return {
+                showMe: 1,
                 community: null,
                 estForeclosures: 0,
                 loaded: false,
@@ -654,7 +713,8 @@
                     dateFormat: 'Y-m-d',
                 },
                 taskDetails: null,
-                file: ''
+                file: '',
+                editStatus: 0,
             }
         },
         computed: {
@@ -1189,6 +1249,19 @@
             }
         },
         methods: {
+            editThisQuick(ind){
+                let THIS = this;
+                this.showMe = 0;
+                if(this.tasks[ind].editStatus == undefined || this.tasks[ind].editStatus == 0){
+                    this.tasks[ind].editStatus = 1;
+                } else {
+                    this.tasks[ind].editStatus = 0;
+                }
+
+                setTimeout(function () {
+                    THIS.showMe = 1;
+                }, 500)
+            },
             navigateToChanges() {
                 window.scrollTo(0, document.body.scrollHeight);
                 document.querySelector("#nova > div > div.content > div.px-view.py-view.mx-auto > div > div.relative > div:nth-child(5) > div > div > div.tabs-wrap.border-b-2.border-40.w-full > div > button:nth-child(6)").click()
@@ -1464,6 +1537,48 @@
                     }
                 });
             },
+            inlineTaskUpdate(index, name, e) {
+                let formData = new FormData();
+                formData.append('_method', 'PUT');
+                formData.append('workspace', '25961259746709');
+
+                if (name == 'completed') {
+                    if (e.target.checked) {
+                        formData.append(name, true);
+                    } else {
+                        formData.append(name, false);
+                    }
+                } else if (name == 'due_on') {
+                    this.editThisQuick(index);
+                    formData.append(name, this.convert(e));
+                } else {
+                    formData.append(name, e.target.value);
+                }
+
+                if (name == 'name') {
+                    this.tasks[index].data.name = e.target.value;
+                } else if(name == 'notes') {
+                    this.tasks[index].data.notes = e.target.value;
+                } else if(name == 'due_on') {
+                    this.tasks[index].data.due_on = this.convert(e);
+                } else if (name == 'section') {
+                    this.tasks[index].data.memberships[0].section.gid = e.target.value;
+                    this.tasks[index].data.memberships[0].section.name = e.target.options[e.target.selectedIndex].text;
+                }
+
+                let t = this.tasks[index];
+
+                document.getElementById('loader').style.display = 'block';
+
+                Nova.request().post('/api/asana/task/update/' + t.data.gid, formData).then(response => {
+                    document.getElementById('loader').style.display = 'none';
+                    if (response.data.status === 200) {
+                        this.Template = 1;
+                    } else {
+                        this.errors = response.data.errors;
+                    }
+                });
+            },
             deleteTask(id) {
                 document.getElementById('loader').style.display = 'block';
                 let THIS = this;
@@ -1566,6 +1681,12 @@
                         focusConfirm: true
                     });
                 });
+            },
+            convert(str) {
+                var date = new Date(str),
+                    mnth = ("0" + (date.getMonth() + 1)).slice(-2),
+                    day = ("0" + date.getDate()).slice(-2);
+                return [date.getFullYear(), mnth, day].join("-");
             }
         },
         created() {

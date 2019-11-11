@@ -1241,6 +1241,64 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -1279,6 +1337,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
     },
     data: function data() {
         return {
+            showMe: 1,
             community: null,
             estForeclosures: 0,
             loaded: false,
@@ -1331,7 +1390,8 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                 dateFormat: 'Y-m-d'
             },
             taskDetails: null,
-            file: ''
+            file: '',
+            editStatus: 0
         };
     },
     computed: {
@@ -1861,6 +1921,19 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
         }
     },
     methods: {
+        editThisQuick: function editThisQuick(ind) {
+            var THIS = this;
+            this.showMe = 0;
+            if (this.tasks[ind].editStatus == undefined || this.tasks[ind].editStatus == 0) {
+                this.tasks[ind].editStatus = 1;
+            } else {
+                this.tasks[ind].editStatus = 0;
+            }
+
+            setTimeout(function () {
+                THIS.showMe = 1;
+            }, 500);
+        },
         navigateToChanges: function navigateToChanges() {
             window.scrollTo(0, document.body.scrollHeight);
             document.querySelector("#nova > div > div.content > div.px-view.py-view.mx-auto > div > div.relative > div:nth-child(5) > div > div > div.tabs-wrap.border-b-2.border-40.w-full > div > button:nth-child(6)").click();
@@ -2152,6 +2225,50 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                 }
             });
         },
+        inlineTaskUpdate: function inlineTaskUpdate(index, name, e) {
+            var _this12 = this;
+
+            var formData = new FormData();
+            formData.append('_method', 'PUT');
+            formData.append('workspace', '25961259746709');
+
+            if (name == 'completed') {
+                if (e.target.checked) {
+                    formData.append(name, true);
+                } else {
+                    formData.append(name, false);
+                }
+            } else if (name == 'due_on') {
+                this.editThisQuick(index);
+                formData.append(name, this.convert(e));
+            } else {
+                formData.append(name, e.target.value);
+            }
+
+            if (name == 'name') {
+                this.tasks[index].data.name = e.target.value;
+            } else if (name == 'notes') {
+                this.tasks[index].data.notes = e.target.value;
+            } else if (name == 'due_on') {
+                this.tasks[index].data.due_on = this.convert(e);
+            } else if (name == 'section') {
+                this.tasks[index].data.memberships[0].section.gid = e.target.value;
+                this.tasks[index].data.memberships[0].section.name = e.target.options[e.target.selectedIndex].text;
+            }
+
+            var t = this.tasks[index];
+
+            document.getElementById('loader').style.display = 'block';
+
+            Nova.request().post('/api/asana/task/update/' + t.data.gid, formData).then(function (response) {
+                document.getElementById('loader').style.display = 'none';
+                if (response.data.status === 200) {
+                    _this12.Template = 1;
+                } else {
+                    _this12.errors = response.data.errors;
+                }
+            });
+        },
         deleteTask: function deleteTask(id) {
             document.getElementById('loader').style.display = 'block';
             var THIS = this;
@@ -2252,22 +2369,28 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                     focusConfirm: true
                 });
             });
+        },
+        convert: function convert(str) {
+            var date = new Date(str),
+                mnth = ("0" + (date.getMonth() + 1)).slice(-2),
+                day = ("0" + date.getDate()).slice(-2);
+            return [date.getFullYear(), mnth, day].join("-");
         }
     },
     created: function created() {
-        var _this12 = this;
+        var _this13 = this;
 
         Nova.request().post('/nova-vendor/community-summary/community', {
             communityId: this.resourceId
         }).then(function (response) {
             console.log(response.data);
-            _this12.community = response.data[0];
-            _this12.loaded = true;
+            _this13.community = response.data[0];
+            _this13.loaded = true;
         });
         Nova.request().post('/nova-vendor/community-summary/foreclosures', {
             communityId: this.resourceId
         }).then(function (response) {
-            _this12.estForeclosures = response.data;
+            _this13.estForeclosures = response.data;
         });
         this.getLatestActivity();
         this.getPendingChangeCount();
@@ -18861,7 +18984,8 @@ var render = function() {
                                                   t,
                                                   index
                                                 ) {
-                                                  return _vm.tasks.length > 0
+                                                  return _vm.tasks.length > 0 &&
+                                                    _vm.showMe == 1
                                                     ? _c("tr", [
                                                         _c("td", {
                                                           domProps: {
@@ -18872,33 +18996,502 @@ var render = function() {
                                                         }),
                                                         _vm._v(" "),
                                                         _c("td", [
-                                                          _vm._v(
-                                                            _vm._s(t.data.name)
-                                                          )
+                                                          t.editStatus ==
+                                                            undefined ||
+                                                          t.editStatus !== 1
+                                                            ? _c(
+                                                                "div",
+                                                                {
+                                                                  on: {
+                                                                    click: function(
+                                                                      $event
+                                                                    ) {
+                                                                      return _vm.editThisQuick(
+                                                                        index
+                                                                      )
+                                                                    }
+                                                                  }
+                                                                },
+                                                                [
+                                                                  _vm._v(
+                                                                    _vm._s(
+                                                                      t.data
+                                                                        .name
+                                                                    )
+                                                                  )
+                                                                ]
+                                                              )
+                                                            : _vm._e(),
+                                                          _vm._v(" "),
+                                                          t.editStatus !=
+                                                            undefined &&
+                                                          t.editStatus == 1
+                                                            ? _c(
+                                                                "div",
+                                                                {
+                                                                  staticClass:
+                                                                    "remove-bottom-border"
+                                                                },
+                                                                [
+                                                                  _c(
+                                                                    "div",
+                                                                    {
+                                                                      staticClass:
+                                                                        "flex"
+                                                                    },
+                                                                    [
+                                                                      _c(
+                                                                        "div",
+                                                                        {
+                                                                          staticClass:
+                                                                            "flex w-full"
+                                                                        },
+                                                                        [
+                                                                          _c(
+                                                                            "div",
+                                                                            {
+                                                                              staticClass:
+                                                                                "py-6"
+                                                                            },
+                                                                            [
+                                                                              _c(
+                                                                                "input",
+                                                                                {
+                                                                                  staticClass:
+                                                                                    "w-full form-control form-input form-input-bordered",
+                                                                                  attrs: {
+                                                                                    dusk:
+                                                                                      "name",
+                                                                                    type:
+                                                                                      "text",
+                                                                                    placeholder:
+                                                                                      "Task Name"
+                                                                                  },
+                                                                                  domProps: {
+                                                                                    value:
+                                                                                      t
+                                                                                        .data
+                                                                                        .name
+                                                                                  },
+                                                                                  on: {
+                                                                                    blur: function(
+                                                                                      $event
+                                                                                    ) {
+                                                                                      return _vm.editThisQuick(
+                                                                                        index
+                                                                                      )
+                                                                                    },
+                                                                                    change: function(
+                                                                                      $event
+                                                                                    ) {
+                                                                                      return _vm.inlineTaskUpdate(
+                                                                                        index,
+                                                                                        "name",
+                                                                                        $event
+                                                                                      )
+                                                                                    }
+                                                                                  }
+                                                                                }
+                                                                              )
+                                                                            ]
+                                                                          )
+                                                                        ]
+                                                                      )
+                                                                    ]
+                                                                  )
+                                                                ]
+                                                              )
+                                                            : _vm._e()
                                                         ]),
                                                         _vm._v(" "),
                                                         _c("td", [
-                                                          _vm._v(
-                                                            _vm._s(
-                                                              t.data
-                                                                .memberships[0]
-                                                                .section.name
-                                                            )
-                                                          )
+                                                          t.editStatus ==
+                                                            undefined ||
+                                                          t.editStatus !== 1
+                                                            ? _c(
+                                                                "div",
+                                                                {
+                                                                  on: {
+                                                                    click: function(
+                                                                      $event
+                                                                    ) {
+                                                                      return _vm.editThisQuick(
+                                                                        index
+                                                                      )
+                                                                    }
+                                                                  }
+                                                                },
+                                                                [
+                                                                  _vm._v(
+                                                                    _vm._s(
+                                                                      t.data
+                                                                        .memberships[0]
+                                                                        .section
+                                                                        .name
+                                                                    )
+                                                                  )
+                                                                ]
+                                                              )
+                                                            : _vm._e(),
+                                                          _vm._v(" "),
+                                                          t.editStatus !=
+                                                            undefined &&
+                                                          t.editStatus == 1
+                                                            ? _c(
+                                                                "div",
+                                                                {
+                                                                  staticClass:
+                                                                    "remove-bottom-border"
+                                                                },
+                                                                [
+                                                                  _c(
+                                                                    "div",
+                                                                    {
+                                                                      staticClass:
+                                                                        "flex"
+                                                                    },
+                                                                    [
+                                                                      _c(
+                                                                        "div",
+                                                                        {
+                                                                          staticClass:
+                                                                            "flex w-full"
+                                                                        },
+                                                                        [
+                                                                          _c(
+                                                                            "div",
+                                                                            {
+                                                                              staticClass:
+                                                                                "py-6"
+                                                                            },
+                                                                            [
+                                                                              _c(
+                                                                                "select",
+                                                                                {
+                                                                                  staticClass:
+                                                                                    "form-control form-select mb-3 w-full",
+                                                                                  attrs: {
+                                                                                    dusk:
+                                                                                      "attachable-select",
+                                                                                    "data-testid":
+                                                                                      "workspace-select",
+                                                                                    name:
+                                                                                      "section"
+                                                                                  },
+                                                                                  on: {
+                                                                                    change: function(
+                                                                                      $event
+                                                                                    ) {
+                                                                                      _vm.editThisQuick(
+                                                                                        index
+                                                                                      )
+                                                                                      _vm.inlineTaskUpdate(
+                                                                                        index,
+                                                                                        "section",
+                                                                                        $event
+                                                                                      )
+                                                                                    }
+                                                                                  }
+                                                                                },
+                                                                                [
+                                                                                  _c(
+                                                                                    "option",
+                                                                                    {
+                                                                                      attrs: {
+                                                                                        value:
+                                                                                          "",
+                                                                                        disabled:
+                                                                                          "disabled"
+                                                                                      }
+                                                                                    },
+                                                                                    [
+                                                                                      _vm._v(
+                                                                                        "Choose Type"
+                                                                                      )
+                                                                                    ]
+                                                                                  ),
+                                                                                  _vm._v(
+                                                                                    " "
+                                                                                  ),
+                                                                                  _vm._l(
+                                                                                    _vm.sections,
+                                                                                    function(
+                                                                                      section
+                                                                                    ) {
+                                                                                      return t
+                                                                                        .data
+                                                                                        .memberships[0]
+                                                                                        .section
+                                                                                        .gid ==
+                                                                                        section.gid
+                                                                                        ? _c(
+                                                                                            "option",
+                                                                                            {
+                                                                                              attrs: {
+                                                                                                selected:
+                                                                                                  ""
+                                                                                              },
+                                                                                              domProps: {
+                                                                                                value:
+                                                                                                  section.gid
+                                                                                              }
+                                                                                            },
+                                                                                            [
+                                                                                              _vm._v(
+                                                                                                _vm._s(
+                                                                                                  section.name
+                                                                                                )
+                                                                                              )
+                                                                                            ]
+                                                                                          )
+                                                                                        : _c(
+                                                                                            "option",
+                                                                                            {
+                                                                                              domProps: {
+                                                                                                value:
+                                                                                                  section.gid
+                                                                                              }
+                                                                                            },
+                                                                                            [
+                                                                                              _vm._v(
+                                                                                                _vm._s(
+                                                                                                  section.name
+                                                                                                )
+                                                                                              )
+                                                                                            ]
+                                                                                          )
+                                                                                    }
+                                                                                  )
+                                                                                ],
+                                                                                2
+                                                                              )
+                                                                            ]
+                                                                          )
+                                                                        ]
+                                                                      )
+                                                                    ]
+                                                                  )
+                                                                ]
+                                                              )
+                                                            : _vm._e()
                                                         ]),
                                                         _vm._v(" "),
                                                         _c("td", [
-                                                          _vm._v(
-                                                            _vm._s(
-                                                              t.data.due_on
-                                                            )
-                                                          )
+                                                          t.editStatus ==
+                                                            undefined ||
+                                                          t.editStatus !== 1
+                                                            ? _c(
+                                                                "div",
+                                                                {
+                                                                  on: {
+                                                                    click: function(
+                                                                      $event
+                                                                    ) {
+                                                                      return _vm.editThisQuick(
+                                                                        index
+                                                                      )
+                                                                    }
+                                                                  }
+                                                                },
+                                                                [
+                                                                  _vm._v(
+                                                                    _vm._s(
+                                                                      t.data
+                                                                        .due_on
+                                                                    )
+                                                                  )
+                                                                ]
+                                                              )
+                                                            : _vm._e(),
+                                                          _vm._v(" "),
+                                                          t.editStatus !=
+                                                            undefined &&
+                                                          t.editStatus == 1
+                                                            ? _c(
+                                                                "div",
+                                                                {
+                                                                  staticClass:
+                                                                    "remove-bottom-border"
+                                                                },
+                                                                [
+                                                                  _c(
+                                                                    "div",
+                                                                    {
+                                                                      staticClass:
+                                                                        "flex"
+                                                                    },
+                                                                    [
+                                                                      _c(
+                                                                        "div",
+                                                                        {
+                                                                          staticClass:
+                                                                            "flex w-full"
+                                                                        },
+                                                                        [
+                                                                          _c(
+                                                                            "div",
+                                                                            {
+                                                                              staticClass:
+                                                                                "py-6"
+                                                                            },
+                                                                            [
+                                                                              _c(
+                                                                                "flat-pickr",
+                                                                                {
+                                                                                  staticClass:
+                                                                                    "w-full form-control form-input-bordered",
+                                                                                  attrs: {
+                                                                                    value:
+                                                                                      t
+                                                                                        .data
+                                                                                        .due_on,
+                                                                                    config:
+                                                                                      _vm.config,
+                                                                                    placeholder:
+                                                                                      "Select date",
+                                                                                    name:
+                                                                                      "due_on"
+                                                                                  },
+                                                                                  on: {
+                                                                                    "on-blur": function(
+                                                                                      $event
+                                                                                    ) {
+                                                                                      return _vm.editThisQuick(
+                                                                                        index
+                                                                                      )
+                                                                                    },
+                                                                                    "on-change": function(
+                                                                                      $event
+                                                                                    ) {
+                                                                                      return _vm.inlineTaskUpdate(
+                                                                                        index,
+                                                                                        "due_on",
+                                                                                        $event
+                                                                                      )
+                                                                                    }
+                                                                                  }
+                                                                                }
+                                                                              )
+                                                                            ],
+                                                                            1
+                                                                          )
+                                                                        ]
+                                                                      )
+                                                                    ]
+                                                                  )
+                                                                ]
+                                                              )
+                                                            : _vm._e()
                                                         ]),
                                                         _vm._v(" "),
                                                         _c("td", [
-                                                          _vm._v(
-                                                            _vm._s(t.data.notes)
-                                                          )
+                                                          t.editStatus ==
+                                                            undefined ||
+                                                          t.editStatus !== 1
+                                                            ? _c(
+                                                                "div",
+                                                                {
+                                                                  on: {
+                                                                    click: function(
+                                                                      $event
+                                                                    ) {
+                                                                      return _vm.editThisQuick(
+                                                                        index
+                                                                      )
+                                                                    }
+                                                                  }
+                                                                },
+                                                                [
+                                                                  _vm._v(
+                                                                    _vm._s(
+                                                                      t.data
+                                                                        .notes
+                                                                    )
+                                                                  )
+                                                                ]
+                                                              )
+                                                            : _vm._e(),
+                                                          _vm._v(" "),
+                                                          t.editStatus !=
+                                                            undefined &&
+                                                          t.editStatus == 1
+                                                            ? _c(
+                                                                "div",
+                                                                {
+                                                                  staticClass:
+                                                                    "remove-bottom-border"
+                                                                },
+                                                                [
+                                                                  _c(
+                                                                    "div",
+                                                                    {
+                                                                      staticClass:
+                                                                        "flex"
+                                                                    },
+                                                                    [
+                                                                      _c(
+                                                                        "div",
+                                                                        {
+                                                                          staticClass:
+                                                                            "flex w-full"
+                                                                        },
+                                                                        [
+                                                                          _c(
+                                                                            "div",
+                                                                            {
+                                                                              staticClass:
+                                                                                "py-6"
+                                                                            },
+                                                                            [
+                                                                              _c(
+                                                                                "textarea",
+                                                                                {
+                                                                                  staticClass:
+                                                                                    "w-full form-control form-input form-input-bordered py-3 h-auto",
+                                                                                  attrs: {
+                                                                                    dusk:
+                                                                                      "title",
+                                                                                    rows:
+                                                                                      "5"
+                                                                                  },
+                                                                                  on: {
+                                                                                    blur: function(
+                                                                                      $event
+                                                                                    ) {
+                                                                                      return _vm.editThisQuick(
+                                                                                        index
+                                                                                      )
+                                                                                    },
+                                                                                    change: function(
+                                                                                      $event
+                                                                                    ) {
+                                                                                      return _vm.inlineTaskUpdate(
+                                                                                        index,
+                                                                                        "notes",
+                                                                                        $event
+                                                                                      )
+                                                                                    }
+                                                                                  }
+                                                                                },
+                                                                                [
+                                                                                  _vm._v(
+                                                                                    _vm._s(
+                                                                                      t
+                                                                                        .data
+                                                                                        .notes
+                                                                                    )
+                                                                                  )
+                                                                                ]
+                                                                              )
+                                                                            ]
+                                                                          )
+                                                                        ]
+                                                                      )
+                                                                    ]
+                                                                  )
+                                                                ]
+                                                              )
+                                                            : _vm._e()
                                                         ]),
                                                         _vm._v(" "),
                                                         _c("td", [
@@ -18907,15 +19500,35 @@ var render = function() {
                                                                 attrs: {
                                                                   type:
                                                                     "checkbox",
-                                                                  checked: "",
-                                                                  disabled: ""
+                                                                  checked: ""
+                                                                },
+                                                                on: {
+                                                                  change: function(
+                                                                    $event
+                                                                  ) {
+                                                                    return _vm.inlineTaskUpdate(
+                                                                      index,
+                                                                      "completed",
+                                                                      $event
+                                                                    )
+                                                                  }
                                                                 }
                                                               })
                                                             : _c("input", {
                                                                 attrs: {
                                                                   type:
-                                                                    "checkbox",
-                                                                  disabled: ""
+                                                                    "checkbox"
+                                                                },
+                                                                on: {
+                                                                  change: function(
+                                                                    $event
+                                                                  ) {
+                                                                    return _vm.inlineTaskUpdate(
+                                                                      index,
+                                                                      "completed",
+                                                                      $event
+                                                                    )
+                                                                  }
                                                                 }
                                                               })
                                                         ]),
