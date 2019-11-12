@@ -273,6 +273,7 @@
                                                                 <flat-pickr
                                                                     v-model="taskFilter.due_on"
                                                                     :config="config"
+                                                                    @on-change="filterTasks"
                                                                     class="w-full form-control form-input-bordered"
                                                                     placeholder="Select date"
                                                                     name="date">
@@ -327,7 +328,7 @@
                                                     <div class="flex">
                                                         <div class="flex w-full">
                                                             <div class="py-6">
-                                                                <select dusk="attachable-select" @change="editThisQuick(index);inlineTaskUpdate(index, 'section', $event)" data-testid="workspace-select" name="section" class="form-control form-select mb-3 w-full">
+                                                                <select dusk="attachable-select" @blur="editThisQuick(index)" @change="editThisQuick(index);inlineTaskUpdate(index, 'section', $event)" data-testid="workspace-select" name="section" class="form-control form-select mb-3 w-full">
                                                                     <option value="" disabled="disabled">Choose Type</option>
                                                                     <option v-for="section in sections" :value="section.gid" v-if="t.data.memberships[0].section.gid == section.gid" selected>{{ section.name }}</option>
                                                                     <option :value="section.gid" v-else="">{{ section.name }}</option>
@@ -1580,7 +1581,6 @@
                 });
             },
             deleteTask(id) {
-                document.getElementById('loader').style.display = 'block';
                 let THIS = this;
                 Swal.fire({
                     type: 'error',
@@ -1589,12 +1589,14 @@
                     showCancelButton: true,
                     focusConfirm: true
                 }).then(res => {
-                    document.getElementById('loader').style.display = 'none';
                     if(res.value !== undefined){
+                        document.getElementById('loader').style.display = 'block';
+
                         Nova.request().post('/api/asana/task/destroy/' + id, {_method: 'DELETE'}).then(response => {
                             if (response.data.status === 200) {
                                 THIS.Template = 1;
                                 THIS.getProjects();
+                                document.getElementById('loader').style.display = 'none';
                             } else {
                                 THIS.errors = response.data.errors;
                             }
@@ -1602,8 +1604,9 @@
                     }
                 });
             },
-            filterTasks() {
+            filterTasks(a, b, c) {
                 let THIS = this;
+                this.taskFilter.due_on = b;
                 document.getElementById('loader').style.display = 'block';
                 let params = new URLSearchParams(THIS.taskFilter);
                 params = params.toString();
@@ -1611,7 +1614,6 @@
                     if (response.data.status === 200) {
                         THIS.Template = 1;
                         THIS.tasks = response.data.data;
-                        console.log(THIS.tasks);
                         document.getElementById('loader').style.display = 'none';
                     } else {
                         THIS.errors = response.data.errors;

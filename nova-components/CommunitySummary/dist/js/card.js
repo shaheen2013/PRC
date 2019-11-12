@@ -1299,6 +1299,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 //
 //
 //
+//
 
 
 
@@ -2270,7 +2271,6 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             });
         },
         deleteTask: function deleteTask(id) {
-            document.getElementById('loader').style.display = 'block';
             var THIS = this;
             __WEBPACK_IMPORTED_MODULE_0_sweetalert2___default.a.fire({
                 type: 'error',
@@ -2279,12 +2279,14 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                 showCancelButton: true,
                 focusConfirm: true
             }).then(function (res) {
-                document.getElementById('loader').style.display = 'none';
                 if (res.value !== undefined) {
+                    document.getElementById('loader').style.display = 'block';
+
                     Nova.request().post('/api/asana/task/destroy/' + id, { _method: 'DELETE' }).then(function (response) {
                         if (response.data.status === 200) {
                             THIS.Template = 1;
                             THIS.getProjects();
+                            document.getElementById('loader').style.display = 'none';
                         } else {
                             THIS.errors = response.data.errors;
                         }
@@ -2292,8 +2294,9 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                 }
             });
         },
-        filterTasks: function filterTasks() {
+        filterTasks: function filterTasks(a, b, c) {
             var THIS = this;
+            this.taskFilter.due_on = b;
             document.getElementById('loader').style.display = 'block';
             var params = new URLSearchParams(THIS.taskFilter);
             params = params.toString();
@@ -2301,7 +2304,6 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                 if (response.data.status === 200) {
                     THIS.Template = 1;
                     THIS.tasks = response.data.data;
-                    console.log(THIS.tasks);
                     document.getElementById('loader').style.display = 'none';
                 } else {
                     THIS.errors = response.data.errors;
@@ -18748,6 +18750,10 @@ var render = function() {
                                                                             name:
                                                                               "date"
                                                                           },
+                                                                          on: {
+                                                                            "on-change":
+                                                                              _vm.filterTasks
+                                                                          },
                                                                           model: {
                                                                             value:
                                                                               _vm
@@ -19179,6 +19185,13 @@ var render = function() {
                                                                                       "section"
                                                                                   },
                                                                                   on: {
+                                                                                    blur: function(
+                                                                                      $event
+                                                                                    ) {
+                                                                                      return _vm.editThisQuick(
+                                                                                        index
+                                                                                      )
+                                                                                    },
                                                                                     change: function(
                                                                                       $event
                                                                                     ) {

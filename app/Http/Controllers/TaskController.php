@@ -261,7 +261,11 @@ class TaskController extends Controller
                     }
                 }
 
-                if ($matched) {
+                if (isset($matched)) {
+                    if ($matched) {
+                        $response[] = $data;
+                    }
+                } else {
                     $response[] = $data;
                 }
             }
