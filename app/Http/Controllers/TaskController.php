@@ -447,4 +447,73 @@ class TaskController extends Controller
             return response()->json(['status' => 500, 'msg' => $e->getMessage()], 200);
         }
     }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function subtasks(Request $request, $id)
+    {
+        // Validate form data
+        $rules = array(
+            'name' => 'nullable|string|max:255',
+            'assignee' => 'nullable|string|max:255',
+            'due_on' => 'nullable|date',
+            'notes' => 'nullable|string',
+            'section' => 'nullable|string',
+            'workspace' => 'required|string',
+            'project' => 'required|string',
+        );
+
+        $validator = Validator::make ( $request->all(), $rules);
+
+        if ($validator->fails()){
+            return response()->json(array('errors'=> $validator->getMessageBag()->toarray()));
+        }
+
+        // Creates a task.
+        try {
+            $data = [
+                'name' => $request->name,
+                'workspace' => $request->workspace,
+                'projects' => [$request->project],
+                'assignee' => $request->assignee,
+                'due_on' => $request->due_on,
+                'notes' => $request->notes,
+            ];
+
+            $task = json_decode($this->asana->createSubTask($id, $data), 1);
+
+            $param = [
+                'data' => [
+                    'task' => $task['data']['gid'],
+                ]
+            ];
+
+            $ch = curl_init();
+
+            curl_setopt($ch, CURLOPT_URL, 'https://app.asana.com/api/1.0/sections/' . $request->section . '/addTask');
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+            curl_setopt($ch, CURLOPT_POST, 1);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($param));
+
+            $headers = array();
+            $headers[] = 'Content-Type: application/json';
+            $headers[] = 'Accept: application/json';
+            $headers[] = 'Authorization: Bearer ' . env('ASANA_PAT');
+            curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+            $result = curl_exec($ch);
+            if (curl_errno($ch)) {
+                echo 'Error:' . curl_error($ch);
+            }
+            curl_close($ch);
+
+            return response()->json(['status' => 200, 'data' => $task], 200);
+        } catch (\Exception $e) {
+            return response()->json(['status' => 500, 'msg' => $e->getMessage()], 200);
+        }
+    }
 }

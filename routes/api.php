@@ -32,6 +32,7 @@ Route::group(['prefix' => 'asana'], function () {
         Route::get('/create', 'TaskController@create');
         Route::post('/store', 'TaskController@store');
         Route::post('/attachment/{id}', 'TaskController@attachment');
+        Route::post('/{id}/subtasks', 'TaskController@subtasks');
         Route::get('/show', 'TaskController@show');
         Route::get('/details/{id}', 'TaskController@details');
         Route::get('/{id}/edit', 'TaskController@edit');
