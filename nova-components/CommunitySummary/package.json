@@ -11,7 +11,8 @@
     },
     "devDependencies": {
         "cross-env": "^5.0.0",
-        "laravel-mix": "^1.0"
+        "laravel-mix": "^1.0",
+        "vuetable-2": "^1.7.5"
     },
     "dependencies": {
         "animate.css": "^3.7.0",

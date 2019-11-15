@@ -491,4 +491,33 @@ class TaskController extends Controller
             return response()->json(['status' => 500, 'msg' => $e->getMessage()], 200);
         }
     }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function stories(Request $request, $id)
+    {
+        // Validate form data
+        $rules = array(
+            'taskComment' => 'required|string',
+        );
+
+        $validator = Validator::make ( $request->all(), $rules);
+
+        if ($validator->fails()){
+            return response()->json(array('errors'=> $validator->getMessageBag()->toarray()));
+        }
+
+        // Creates a task.
+        try {
+            $taskComment = json_decode($this->asana->commentOnTask($id, $request->taskComment), 1);
+
+            return response()->json(['status' => 200, 'data' => $taskComment], 200);
+        } catch (\Exception $e) {
+            return response()->json(['status' => 500, 'msg' => $e->getMessage()], 200);
+        }
+    }
 }

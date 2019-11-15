@@ -1405,6 +1405,21 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -1506,7 +1521,8 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             },
             taskDetails: null,
             file: '',
-            editStatus: 0
+            editStatus: 0,
+            taskComment: ''
         };
     },
     computed: {
@@ -2562,22 +2578,132 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
         viewToggle: function viewToggle() {
             document.getElementById('taskDueOnHeader').style.display = 'block';
             document.getElementById('taskDueOn').style.display = 'none';
+
+            document.getElementById('subTaskDueOnHeader').style.display = 'block';
+            document.getElementById('subTaskDueOn').style.display = 'none';
+        },
+        duedate: function duedate(date) {
+            if (date) {
+                // To set two dates to two variables
+                var date1 = new Date();
+                var date2 = new Date(date);
+
+                // To calculate the time difference of two dates
+                var Difference_In_Time = date2.getTime() - date1.getTime();
+
+                // To calculate the no. of days between two dates
+                var Difference_In_Days = Math.floor(Difference_In_Time / (1000 * 3600 * 24));
+
+                if (Math.sign(Difference_In_Days) === 1) {
+                    return 'Due in ' + Difference_In_Days + ' day(s)';
+                } else if (Math.sign(Difference_In_Days) === -1) {
+                    return 'Overdue';
+                } else {
+                    return 'Today';
+                }
+            } else {
+                return 'N/A';
+            }
+        },
+        inlineSubTaskUpdate: function inlineSubTaskUpdate(index, name, e) {
+            var _this15 = this;
+
+            document.getElementById('loader').style.display = 'block';
+
+            var formData = new FormData();
+            formData.append('_method', 'PUT');
+            formData.append('workspace', '25961259746709');
+
+            if (name == 'completed') {
+                if (e.target.checked) {
+                    formData.append(name, true);
+                    this.taskDetails.subTasks[index].data.completed = true;
+                } else {
+                    formData.append(name, false);
+                    this.taskDetails.subTasks[index].data.completed = false;
+                }
+            } else if (name == 'due_on') {
+                formData.append(name, this.convert(e));
+            } else {
+                formData.append(name, e.target.value);
+            }
+
+            if (name == 'name') {
+                this.taskDetails.subTasks[index].data.name = e.target.value;
+            } else if (name == 'notes') {
+                this.taskDetails.subTasks[index].data.notes = e.target.value;
+            } else if (name == 'due_on') {
+                this.taskDetails.subTasks[index].data.due_on = this.convert(e);
+
+                document.getElementById('subTaskDueOnHeader').style.display = 'block';
+                document.getElementById('subTaskDueOn').style.display = 'none';
+            } else if (name == 'section') {
+                this.taskDetails.subTasks[index].data.memberships[0].section.gid = e.target.value;
+                this.taskDetails.subTasks[index].data.memberships[0].section.name = e.target.options[e.target.selectedIndex].text;
+            } else if (name == 'assignee') {
+                document.getElementById('subTaskAssignee').style.display = 'none';
+                document.getElementById('subTaskAssigneeHeader').style.display = 'block';
+
+                this.taskDetails.subTasks[index].data.assignee.gid = e.target.value;
+                this.taskDetails.subTasks[index].data.assignee.name = e.target.options[e.target.selectedIndex].text;
+            }
+
+            var t = this.taskDetails.subTasks[index];
+
+            Nova.request().post('/api/asana/task/update/' + t.data.gid, formData).then(function (response) {
+                document.getElementById('loader').style.display = 'none';
+                if (response.data.status === 200) {
+                    _this15.Template = 1;
+                } else {
+                    _this15.errors = response.data.errors;
+                }
+            });
+        },
+        storeTaskComment: function storeTaskComment(id) {
+            var _this16 = this;
+
+            document.getElementById('loader').style.display = 'block';
+            Nova.request().post('/api/asana/task/' + id + '/stories', { taskComment: this.taskComment }).then(function (response) {
+                document.getElementById('loader').style.display = 'none';
+                if (response.data.status === 200) {
+                    _this16.taskComment = '';
+                    __WEBPACK_IMPORTED_MODULE_0_sweetalert2___default.a.fire({
+                        type: 'success',
+                        position: 'top-end',
+                        title: 'Comment added successfully.',
+                        showConfirmButton: false,
+                        timer: 2000
+                    });
+                } else {
+                    if (response.data.errors) {
+                        _this16.errors = response.data.errors;
+                    }
+
+                    __WEBPACK_IMPORTED_MODULE_0_sweetalert2___default.a.fire({
+                        type: 'error',
+                        title: 'FAILURE!!',
+                        text: 'Addition failed.',
+                        showCancelButton: true,
+                        focusConfirm: true
+                    });
+                }
+            });
         }
     },
     created: function created() {
-        var _this15 = this;
+        var _this17 = this;
 
         Nova.request().post('/nova-vendor/community-summary/community', {
             communityId: this.resourceId
         }).then(function (response) {
             console.log(response.data);
-            _this15.community = response.data[0];
-            _this15.loaded = true;
+            _this17.community = response.data[0];
+            _this17.loaded = true;
         });
         Nova.request().post('/nova-vendor/community-summary/foreclosures', {
             communityId: this.resourceId
         }).then(function (response) {
-            _this15.estForeclosures = response.data;
+            _this17.estForeclosures = response.data;
         });
         this.getLatestActivity();
         this.getPendingChangeCount();
@@ -18305,7 +18431,7 @@ var render = function() {
       _c("br"),
       _c("br"),
       _vm._v(" "),
-      _c("div", { staticClass: "flex" }, [
+      _c("div", { staticClass: "flex mb-4" }, [
         _c("div", { staticClass: "w-full flex items-center" }, [
           _c(
             "h1",
@@ -20702,7 +20828,130 @@ var render = function() {
                                                                                   "td",
                                                                                   [
                                                                                     _c(
+                                                                                      "span",
+                                                                                      [
+                                                                                        t
+                                                                                          .data
+                                                                                          .completed
+                                                                                          ? _c(
+                                                                                              "a",
+                                                                                              {
+                                                                                                staticClass:
+                                                                                                  "cursor-pointer text-70 text-success-dark hover:text-success-light mr-3",
+                                                                                                attrs: {
+                                                                                                  onclick:
+                                                                                                    "document.getElementById('subTaskComplete').click()",
+                                                                                                  title:
+                                                                                                    "Complete"
+                                                                                                }
+                                                                                              },
+                                                                                              [
+                                                                                                _c(
+                                                                                                  "i",
+                                                                                                  {
+                                                                                                    staticClass:
+                                                                                                      "fa fa-check-circle"
+                                                                                                  }
+                                                                                                )
+                                                                                              ]
+                                                                                            )
+                                                                                          : _c(
+                                                                                              "a",
+                                                                                              {
+                                                                                                staticClass:
+                                                                                                  "cursor-pointer text-70 text-primary-dark hover:text-primary-light mr-3",
+                                                                                                attrs: {
+                                                                                                  onclick:
+                                                                                                    "document.getElementById('subTaskComplete').click()",
+                                                                                                  title:
+                                                                                                    "Mark as complete"
+                                                                                                }
+                                                                                              },
+                                                                                              [
+                                                                                                _c(
+                                                                                                  "i",
+                                                                                                  {
+                                                                                                    staticClass:
+                                                                                                      "fa fa-check-circle"
+                                                                                                  }
+                                                                                                )
+                                                                                              ]
+                                                                                            )
+                                                                                      ]
+                                                                                    ),
+                                                                                    _vm._v(
+                                                                                      " "
+                                                                                    ),
+                                                                                    t
+                                                                                      .data
+                                                                                      .completed
+                                                                                      ? _c(
+                                                                                          "input",
+                                                                                          {
+                                                                                            staticStyle: {
+                                                                                              display:
+                                                                                                "none"
+                                                                                            },
+                                                                                            attrs: {
+                                                                                              type:
+                                                                                                "checkbox",
+                                                                                              id:
+                                                                                                "subTaskComplete",
+                                                                                              checked:
+                                                                                                ""
+                                                                                            },
+                                                                                            on: {
+                                                                                              click: function(
+                                                                                                $event
+                                                                                              ) {
+                                                                                                return _vm.inlineSubTaskUpdate(
+                                                                                                  index,
+                                                                                                  "completed",
+                                                                                                  $event
+                                                                                                )
+                                                                                              }
+                                                                                            }
+                                                                                          }
+                                                                                        )
+                                                                                      : _c(
+                                                                                          "input",
+                                                                                          {
+                                                                                            staticStyle: {
+                                                                                              display:
+                                                                                                "none"
+                                                                                            },
+                                                                                            attrs: {
+                                                                                              type:
+                                                                                                "checkbox",
+                                                                                              id:
+                                                                                                "subTaskComplete"
+                                                                                            },
+                                                                                            on: {
+                                                                                              click: function(
+                                                                                                $event
+                                                                                              ) {
+                                                                                                return _vm.inlineSubTaskUpdate(
+                                                                                                  index,
+                                                                                                  "completed",
+                                                                                                  $event
+                                                                                                )
+                                                                                              }
+                                                                                            }
+                                                                                          }
+                                                                                        ),
+                                                                                    _vm._v(
+                                                                                      " "
+                                                                                    ),
+                                                                                    _c(
                                                                                       "div",
+                                                                                      {
+                                                                                        attrs: {
+                                                                                          id:
+                                                                                            "subTaskNotesHeader",
+                                                                                          onclick:
+                                                                                            "this.style.display = 'none';document.getElementById('subTaskNotes').style.display = 'block';document.getElementById('subTaskNotesInput').focus();"
+                                                                                        }
+                                                                                      },
                                                                                       [
                                                                                         _vm._v(
                                                                                           _vm._s(
@@ -20710,6 +20959,89 @@ var render = function() {
                                                                                               .data
                                                                                               .name
                                                                                           )
+                                                                                        )
+                                                                                      ]
+                                                                                    ),
+                                                                                    _vm._v(
+                                                                                      " "
+                                                                                    ),
+                                                                                    _c(
+                                                                                      "div",
+                                                                                      {
+                                                                                        staticClass:
+                                                                                          "remove-bottom-border",
+                                                                                        staticStyle: {
+                                                                                          display:
+                                                                                            "none"
+                                                                                        },
+                                                                                        attrs: {
+                                                                                          id:
+                                                                                            "subTaskNotes"
+                                                                                        }
+                                                                                      },
+                                                                                      [
+                                                                                        _c(
+                                                                                          "div",
+                                                                                          {
+                                                                                            staticClass:
+                                                                                              "flex"
+                                                                                          },
+                                                                                          [
+                                                                                            _c(
+                                                                                              "div",
+                                                                                              {
+                                                                                                staticClass:
+                                                                                                  "flex w-full"
+                                                                                              },
+                                                                                              [
+                                                                                                _c(
+                                                                                                  "div",
+                                                                                                  {
+                                                                                                    staticClass:
+                                                                                                      "py-6"
+                                                                                                  },
+                                                                                                  [
+                                                                                                    _c(
+                                                                                                      "input",
+                                                                                                      {
+                                                                                                        staticClass:
+                                                                                                          "w-full form-control form-input form-input-bordered",
+                                                                                                        attrs: {
+                                                                                                          dusk:
+                                                                                                            "name",
+                                                                                                          id:
+                                                                                                            "subTaskNotesInput",
+                                                                                                          type:
+                                                                                                            "text",
+                                                                                                          placeholder:
+                                                                                                            "Task Name",
+                                                                                                          onblur:
+                                                                                                            "document.getElementById('subTaskNotesHeader').style.display = 'block';document.getElementById('subTaskNotes').style.display = 'none';"
+                                                                                                        },
+                                                                                                        domProps: {
+                                                                                                          value:
+                                                                                                            t
+                                                                                                              .data
+                                                                                                              .name
+                                                                                                        },
+                                                                                                        on: {
+                                                                                                          change: function(
+                                                                                                            $event
+                                                                                                          ) {
+                                                                                                            return _vm.inlineSubTaskUpdate(
+                                                                                                              index,
+                                                                                                              "name",
+                                                                                                              $event
+                                                                                                            )
+                                                                                                          }
+                                                                                                        }
+                                                                                                      }
+                                                                                                    )
+                                                                                                  ]
+                                                                                                )
+                                                                                              ]
+                                                                                            )
+                                                                                          ]
                                                                                         )
                                                                                       ]
                                                                                     )
@@ -20727,6 +21059,14 @@ var render = function() {
                                                                                     null
                                                                                       ? _c(
                                                                                           "div",
+                                                                                          {
+                                                                                            attrs: {
+                                                                                              id:
+                                                                                                "subTaskAssigneeHeader",
+                                                                                              onclick:
+                                                                                                "this.style.display = 'none';document.getElementById('subTaskAssignee').style.display = 'block';document.getElementById('subTaskAssigneeInput').focus();"
+                                                                                            }
+                                                                                          },
                                                                                           [
                                                                                             _vm._v(
                                                                                               _vm._s(
@@ -20740,12 +21080,169 @@ var render = function() {
                                                                                         )
                                                                                       : _c(
                                                                                           "div",
+                                                                                          {
+                                                                                            attrs: {
+                                                                                              onclick:
+                                                                                                "this.style.display = 'none';document.getElementById('subTaskAssignee').style.display = 'block';document.getElementById('subTaskAssigneeInput').focus();"
+                                                                                            }
+                                                                                          },
                                                                                           [
                                                                                             _vm._v(
                                                                                               "None"
                                                                                             )
                                                                                           ]
+                                                                                        ),
+                                                                                    _vm._v(
+                                                                                      " "
+                                                                                    ),
+                                                                                    _c(
+                                                                                      "div",
+                                                                                      {
+                                                                                        staticClass:
+                                                                                          "remove-bottom-border",
+                                                                                        staticStyle: {
+                                                                                          display:
+                                                                                            "none"
+                                                                                        },
+                                                                                        attrs: {
+                                                                                          id:
+                                                                                            "subTaskAssignee"
+                                                                                        }
+                                                                                      },
+                                                                                      [
+                                                                                        _c(
+                                                                                          "div",
+                                                                                          {
+                                                                                            staticClass:
+                                                                                              "flex"
+                                                                                          },
+                                                                                          [
+                                                                                            _c(
+                                                                                              "div",
+                                                                                              {
+                                                                                                staticClass:
+                                                                                                  "flex w-full"
+                                                                                              },
+                                                                                              [
+                                                                                                _c(
+                                                                                                  "div",
+                                                                                                  {
+                                                                                                    staticClass:
+                                                                                                      "py-6"
+                                                                                                  },
+                                                                                                  [
+                                                                                                    _c(
+                                                                                                      "select",
+                                                                                                      {
+                                                                                                        staticClass:
+                                                                                                          "form-control form-select mb-3 w-full",
+                                                                                                        attrs: {
+                                                                                                          onblur:
+                                                                                                            "document.getElementById('subTaskAssignee').style.display = 'none';document.getElementById('subTaskAssigneeHeader').style.display = 'block';",
+                                                                                                          id:
+                                                                                                            "subTaskAssigneeInput",
+                                                                                                          dusk:
+                                                                                                            "attachable-select",
+                                                                                                          "data-testid":
+                                                                                                            "workspace-select",
+                                                                                                          name:
+                                                                                                            "assignee"
+                                                                                                        },
+                                                                                                        on: {
+                                                                                                          change: function(
+                                                                                                            $event
+                                                                                                          ) {
+                                                                                                            return _vm.inlineSubTaskUpdate(
+                                                                                                              index,
+                                                                                                              "assignee",
+                                                                                                              $event
+                                                                                                            )
+                                                                                                          }
+                                                                                                        }
+                                                                                                      },
+                                                                                                      [
+                                                                                                        _c(
+                                                                                                          "option",
+                                                                                                          {
+                                                                                                            attrs: {
+                                                                                                              value:
+                                                                                                                "",
+                                                                                                              disabled:
+                                                                                                                ""
+                                                                                                            }
+                                                                                                          },
+                                                                                                          [
+                                                                                                            _vm._v(
+                                                                                                              "Choose Assigned To"
+                                                                                                            )
+                                                                                                          ]
+                                                                                                        ),
+                                                                                                        _vm._v(
+                                                                                                          " "
+                                                                                                        ),
+                                                                                                        _vm._l(
+                                                                                                          _vm.users,
+                                                                                                          function(
+                                                                                                            user
+                                                                                                          ) {
+                                                                                                            return t
+                                                                                                              .data
+                                                                                                              .assignee !=
+                                                                                                              null &&
+                                                                                                              t
+                                                                                                                .data
+                                                                                                                .assignee
+                                                                                                                .gid ==
+                                                                                                                user.gid
+                                                                                                              ? _c(
+                                                                                                                  "option",
+                                                                                                                  {
+                                                                                                                    attrs: {
+                                                                                                                      selected:
+                                                                                                                        ""
+                                                                                                                    },
+                                                                                                                    domProps: {
+                                                                                                                      value:
+                                                                                                                        user.gid
+                                                                                                                    }
+                                                                                                                  },
+                                                                                                                  [
+                                                                                                                    _vm._v(
+                                                                                                                      _vm._s(
+                                                                                                                        user.name
+                                                                                                                      )
+                                                                                                                    )
+                                                                                                                  ]
+                                                                                                                )
+                                                                                                              : _c(
+                                                                                                                  "option",
+                                                                                                                  {
+                                                                                                                    domProps: {
+                                                                                                                      value:
+                                                                                                                        user.gid
+                                                                                                                    }
+                                                                                                                  },
+                                                                                                                  [
+                                                                                                                    _vm._v(
+                                                                                                                      _vm._s(
+                                                                                                                        user.name
+                                                                                                                      )
+                                                                                                                    )
+                                                                                                                  ]
+                                                                                                                )
+                                                                                                          }
+                                                                                                        )
+                                                                                                      ],
+                                                                                                      2
+                                                                                                    )
+                                                                                                  ]
+                                                                                                )
+                                                                                              ]
+                                                                                            )
+                                                                                          ]
                                                                                         )
+                                                                                      ]
+                                                                                    )
                                                                                   ]
                                                                                 ),
                                                                                 _vm._v(
@@ -20756,6 +21253,19 @@ var render = function() {
                                                                                   [
                                                                                     _c(
                                                                                       "div",
+                                                                                      {
+                                                                                        attrs: {
+                                                                                          title: _vm.duedate(
+                                                                                            t
+                                                                                              .data
+                                                                                              .due_on
+                                                                                          ),
+                                                                                          id:
+                                                                                            "subTaskDueOnHeader",
+                                                                                          onclick:
+                                                                                            "this.style.display = 'none';document.getElementById('subTaskDueOn').style.display = 'block';"
+                                                                                        }
+                                                                                      },
                                                                                       [
                                                                                         _vm._v(
                                                                                           _vm._s(
@@ -20763,6 +21273,86 @@ var render = function() {
                                                                                               .data
                                                                                               .due_on
                                                                                           )
+                                                                                        )
+                                                                                      ]
+                                                                                    ),
+                                                                                    _vm._v(
+                                                                                      " "
+                                                                                    ),
+                                                                                    _c(
+                                                                                      "div",
+                                                                                      {
+                                                                                        staticClass:
+                                                                                          "remove-bottom-border",
+                                                                                        staticStyle: {
+                                                                                          display:
+                                                                                            "none"
+                                                                                        },
+                                                                                        attrs: {
+                                                                                          id:
+                                                                                            "subTaskDueOn"
+                                                                                        }
+                                                                                      },
+                                                                                      [
+                                                                                        _c(
+                                                                                          "div",
+                                                                                          {
+                                                                                            staticClass:
+                                                                                              "flex"
+                                                                                          },
+                                                                                          [
+                                                                                            _c(
+                                                                                              "div",
+                                                                                              {
+                                                                                                staticClass:
+                                                                                                  "flex w-full"
+                                                                                              },
+                                                                                              [
+                                                                                                _c(
+                                                                                                  "div",
+                                                                                                  {
+                                                                                                    staticClass:
+                                                                                                      "py-6"
+                                                                                                  },
+                                                                                                  [
+                                                                                                    _c(
+                                                                                                      "flat-pickr",
+                                                                                                      {
+                                                                                                        staticClass:
+                                                                                                          "w-full form-control form-input-bordered",
+                                                                                                        attrs: {
+                                                                                                          value:
+                                                                                                            t
+                                                                                                              .data
+                                                                                                              .due_on,
+                                                                                                          placeholder:
+                                                                                                            "Select date",
+                                                                                                          autofocus:
+                                                                                                            "true",
+                                                                                                          name:
+                                                                                                            "due_on"
+                                                                                                        },
+                                                                                                        on: {
+                                                                                                          "on-close":
+                                                                                                            _vm.viewToggle,
+                                                                                                          "on-change": function(
+                                                                                                            $event
+                                                                                                          ) {
+                                                                                                            return _vm.inlineSubTaskUpdate(
+                                                                                                              index,
+                                                                                                              "due_on",
+                                                                                                              $event
+                                                                                                            )
+                                                                                                          }
+                                                                                                        }
+                                                                                                      }
+                                                                                                    )
+                                                                                                  ],
+                                                                                                  1
+                                                                                                )
+                                                                                              ]
+                                                                                            )
+                                                                                          ]
                                                                                         )
                                                                                       ]
                                                                                     )
@@ -21288,6 +21878,93 @@ var render = function() {
                                                                       : _vm._e()
                                                                   ],
                                                                   2
+                                                                )
+                                                              ]
+                                                            )
+                                                          ]
+                                                        ),
+                                                        _vm._v(" "),
+                                                        _c(
+                                                          "div",
+                                                          {
+                                                            staticClass: "flex"
+                                                          },
+                                                          [
+                                                            _c(
+                                                              "div",
+                                                              {
+                                                                staticClass:
+                                                                  "w-full flex items-center"
+                                                              },
+                                                              [
+                                                                _c(
+                                                                  "div",
+                                                                  {
+                                                                    staticClass:
+                                                                      "py-6 px-8",
+                                                                    staticStyle: {
+                                                                      width:
+                                                                        "100%"
+                                                                    }
+                                                                  },
+                                                                  [
+                                                                    _c(
+                                                                      "textarea",
+                                                                      {
+                                                                        directives: [
+                                                                          {
+                                                                            name:
+                                                                              "model",
+                                                                            rawName:
+                                                                              "v-model",
+                                                                            value:
+                                                                              _vm.taskComment,
+                                                                            expression:
+                                                                              "taskComment"
+                                                                          }
+                                                                        ],
+                                                                        staticClass:
+                                                                          "w-full form-control form-input form-input-bordered py-3 h-auto",
+                                                                        attrs: {
+                                                                          dusk:
+                                                                            "title",
+                                                                          rows:
+                                                                            "5",
+                                                                          placeholder:
+                                                                            "Ask a question or post an update"
+                                                                        },
+                                                                        domProps: {
+                                                                          value:
+                                                                            _vm.taskComment
+                                                                        },
+                                                                        on: {
+                                                                          change: function(
+                                                                            $event
+                                                                          ) {
+                                                                            return _vm.storeTaskComment(
+                                                                              _vm
+                                                                                .taskDetails[0]
+                                                                                .data
+                                                                                .gid
+                                                                            )
+                                                                          },
+                                                                          input: function(
+                                                                            $event
+                                                                          ) {
+                                                                            if (
+                                                                              $event
+                                                                                .target
+                                                                                .composing
+                                                                            ) {
+                                                                              return
+                                                                            }
+                                                                            _vm.taskComment =
+                                                                              $event.target.value
+                                                                          }
+                                                                        }
+                                                                      }
+                                                                    )
+                                                                  ]
                                                                 )
                                                               ]
                                                             )

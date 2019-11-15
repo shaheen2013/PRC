@@ -174,7 +174,7 @@
             </section>
         </loading-card>
         <br><br>
-        <div class="flex">
+        <div class="flex mb-4">
             <!---->
             <div class="w-full flex items-center">
                 <h1 class="flex-no-shrink text-90 font-normal text-2xl">Tasks/Projects</h1>
@@ -497,28 +497,36 @@
                                                     <div class="flex">
                                                         <table class="table w-full">
                                                             <tbody>
-                                                            <tr v-if="taskDetails.subTasks.length > 0" v-for="(t,index) in taskDetails.subTasks">
+                                                            <tr v-if="taskDetails.subTasks.length > 0" v-for="(t, index) in taskDetails.subTasks">
                                                                 <td v-text="index+1"></td>
                                                                 <td>
-                                                                    <div>{{ t.data.name }}</div>
-                                                                    <!--<div class="remove-bottom-border">
+                                                                    <span>
+                                                                        <a v-if="t.data.completed" onclick="document.getElementById('subTaskComplete').click()" class="cursor-pointer text-70 text-success-dark hover:text-success-light mr-3" title="Complete"><i class="fa fa-check-circle"></i>
+                                                                        </a>
+                                                                        <a v-else="" onclick="document.getElementById('subTaskComplete').click()" class="cursor-pointer text-70 text-primary-dark hover:text-primary-light mr-3" title="Mark as complete"><i class="fa fa-check-circle"></i>
+                                                                        </a>
+                                                                    </span>
+                                                                    <input type="checkbox" id="subTaskComplete" v-if="t.data.completed" @click="inlineSubTaskUpdate(index, 'completed', $event)" checked style="display: none">
+                                                                    <input type="checkbox" id="subTaskComplete" v-else="" @click="inlineSubTaskUpdate(index, 'completed', $event)" style="display: none">
+                                                                    <div id="subTaskNotesHeader" onclick="this.style.display = 'none';document.getElementById('subTaskNotes').style.display = 'block';document.getElementById('subTaskNotesInput').focus();">{{ t.data.name }}</div>
+                                                                    <div class="remove-bottom-border" id="subTaskNotes" style="display: none">
                                                                         <div class="flex">
                                                                             <div class="flex w-full">
                                                                                 <div class="py-6">
-                                                                                    <input dusk="name" type="text" placeholder="Task Name" :value="t.data.name" @blur="editThisQuick(index)" @change="inlineTaskUpdate(index, 'name', $event)" class="w-full form-control form-input form-input-bordered">
+                                                                                    <input dusk="name" id="subTaskNotesInput" type="text" placeholder="Task Name" :value="t.data.name" onblur="document.getElementById('subTaskNotesHeader').style.display = 'block';document.getElementById('subTaskNotes').style.display = 'none';" @change="inlineSubTaskUpdate(index, 'name', $event)" class="w-full form-control form-input form-input-bordered">
                                                                                 </div>
                                                                             </div>
                                                                         </div>
-                                                                    </div>-->
+                                                                    </div>
                                                                 </td>
                                                                 <td>
-                                                                    <div v-if="t.data.assignee != null">{{ t.data.assignee.name }}</div>
-                                                                    <div v-else="">None</div>
-                                                                    <!--<div class="remove-bottom-border">
+                                                                    <div id="subTaskAssigneeHeader" v-if="t.data.assignee != null" onclick="this.style.display = 'none';document.getElementById('subTaskAssignee').style.display = 'block';document.getElementById('subTaskAssigneeInput').focus();">{{ t.data.assignee.name }}</div>
+                                                                    <div v-else="" onclick="this.style.display = 'none';document.getElementById('subTaskAssignee').style.display = 'block';document.getElementById('subTaskAssigneeInput').focus();">None</div>
+                                                                    <div class="remove-bottom-border" style="display: none" id="subTaskAssignee">
                                                                         <div class="flex">
                                                                             <div class="flex w-full">
                                                                                 <div class="py-6">
-                                                                                    <select @change="editThisQuick(index);inlineTaskUpdate(index, 'assignee', $event)" dusk="attachable-select" data-testid="workspace-select" name="assignee" class="form-control form-select mb-3 w-full">
+                                                                                    <select onblur="document.getElementById('subTaskAssignee').style.display = 'none';document.getElementById('subTaskAssigneeHeader').style.display = 'block';" id="subTaskAssigneeInput" @change="inlineSubTaskUpdate(index, 'assignee', $event)" dusk="attachable-select" data-testid="workspace-select" name="assignee" class="form-control form-select mb-3 w-full">
                                                                                         <option value="" disabled>Choose Assigned To</option>
                                                                                         <option v-for="user in users" :value="user.gid" v-if="t.data.assignee != null && t.data.assignee.gid == user.gid" selected>{{ user.name }}</option>
                                                                                         <option :value="user.gid" v-else="">{{ user.name }}</option>
@@ -526,27 +534,27 @@
                                                                                 </div>
                                                                             </div>
                                                                         </div>
-                                                                    </div>-->
+                                                                    </div>
                                                                 </td>
                                                                 <td>
-                                                                    <div>{{ t.data.due_on }}</div>
-                                                                    <!--<div class="remove-bottom-border">
+                                                                    <div :title="duedate(t.data.due_on)" id="subTaskDueOnHeader" onclick="this.style.display = 'none';document.getElementById('subTaskDueOn').style.display = 'block';">{{ t.data.due_on }}</div>
+                                                                    <div class="remove-bottom-border" id="subTaskDueOn" style="display: none">
                                                                         <div class="flex">
                                                                             <div class="flex w-full">
                                                                                 <div class="py-6">
                                                                                     <flat-pickr
                                                                                         :value="t.data.due_on"
-                                                                                        :config="config"
-                                                                                        @on-blur="editThisQuick(index)"
-                                                                                        @on-change="inlineTaskUpdate(index, 'due_on', $event)"
+                                                                                        @on-close="viewToggle"
+                                                                                        @on-change="inlineSubTaskUpdate(index, 'due_on', $event)"
                                                                                         class="w-full form-control form-input-bordered"
                                                                                         placeholder="Select date"
+                                                                                        autofocus="true"
                                                                                         name="due_on">
                                                                                     </flat-pickr>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
-                                                                    </div>-->
+                                                                    </div>
                                                                 </td>
                                                                 <td class="text-right">
                                                                     <span><a class="cursor-pointer text-70 hover:text-primary mr-3" dusk="13-view-button" title="View"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="18" viewBox="0 0 22 16" aria-labelledby="view" role="presentation" class="fill-current"><path d="M16.56 13.66a8 8 0 0 1-11.32 0L.3 8.7a1 1 0 0 1 0-1.42l4.95-4.95a8 8 0 0 1 11.32 0l4.95 4.95a1 1 0 0 1 0 1.42l-4.95 4.95-.01.01zm-9.9-1.42a6 6 0 0 0 8.48 0L19.38 8l-4.24-4.24a6 6 0 0 0-8.48 0L2.4 8l4.25 4.24h.01zM10.9 12a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm0-2a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"></path></svg></a></span>
@@ -598,6 +606,13 @@
                                                             </tr>
                                                             </tbody>
                                                         </table>
+                                                    </div>
+                                                    <div class="flex">
+                                                        <div class="w-full flex items-center">
+                                                            <div class="py-6 px-8" style="width: 100%">
+                                                                <textarea @change="storeTaskComment(taskDetails[0].data.gid)" v-model="taskComment" dusk="title" rows="5" class="w-full form-control form-input form-input-bordered py-3 h-auto" placeholder="Ask a question or post an update"></textarea>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -738,7 +753,7 @@
         },
         components: {
             'v-popover': VPopover,
-            flatPickr
+            flatPickr,
         },
         props: [
             'card',
@@ -830,6 +845,7 @@
                 taskDetails: null,
                 file: '',
                 editStatus: 0,
+                taskComment: ''
             }
         },
         computed: {
@@ -1870,7 +1886,113 @@
             viewToggle() {
                 document.getElementById('taskDueOnHeader').style.display = 'block';
                 document.getElementById('taskDueOn').style.display = 'none';
-            }
+
+                document.getElementById('subTaskDueOnHeader').style.display = 'block';
+                document.getElementById('subTaskDueOn').style.display = 'none';
+            },
+            duedate(date) {
+                if (date) {
+                    // To set two dates to two variables
+                    var date1 = new Date();
+                    var date2 = new Date(date);
+
+                    // To calculate the time difference of two dates
+                    var Difference_In_Time = date2.getTime() - date1.getTime();
+
+                    // To calculate the no. of days between two dates
+                    var Difference_In_Days = Math.floor(Difference_In_Time / (1000 * 3600 * 24));
+
+                    if (Math.sign(Difference_In_Days) === 1) {
+                        return 'Due in ' + Difference_In_Days + ' day(s)';
+                    } else if(Math.sign(Difference_In_Days) === -1) {
+                        return 'Overdue';
+                    }else {
+                        return 'Today';
+                    }
+                } else {
+                    return 'N/A';
+                }
+            },
+            inlineSubTaskUpdate(index, name, e) {
+                document.getElementById('loader').style.display = 'block';
+
+                let formData = new FormData();
+                formData.append('_method', 'PUT');
+                formData.append('workspace', '25961259746709');
+
+                if (name == 'completed') {
+                    if (e.target.checked) {
+                        formData.append(name, true);
+                        this.taskDetails.subTasks[index].data.completed = true;
+                    } else {
+                        formData.append(name, false);
+                        this.taskDetails.subTasks[index].data.completed = false;
+                    }
+                } else if (name == 'due_on') {
+                    formData.append(name, this.convert(e));
+                } else {
+                    formData.append(name, e.target.value);
+                }
+
+                if (name == 'name') {
+                    this.taskDetails.subTasks[index].data.name = e.target.value;
+                } else if(name == 'notes') {
+                    this.taskDetails.subTasks[index].data.notes = e.target.value;
+                } else if(name == 'due_on') {
+                    this.taskDetails.subTasks[index].data.due_on = this.convert(e);
+
+                    document.getElementById('subTaskDueOnHeader').style.display = 'block';
+                    document.getElementById('subTaskDueOn').style.display = 'none';
+                } else if (name == 'section') {
+                    this.taskDetails.subTasks[index].data.memberships[0].section.gid = e.target.value;
+                    this.taskDetails.subTasks[index].data.memberships[0].section.name = e.target.options[e.target.selectedIndex].text;
+                }  else if (name == 'assignee') {
+                    document.getElementById('subTaskAssignee').style.display = 'none';
+                    document.getElementById('subTaskAssigneeHeader').style.display = 'block';
+
+                    this.taskDetails.subTasks[index].data.assignee.gid = e.target.value;
+                    this.taskDetails.subTasks[index].data.assignee.name = e.target.options[e.target.selectedIndex].text;
+                }
+
+                let t = this.taskDetails.subTasks[index];
+
+                Nova.request().post('/api/asana/task/update/' + t.data.gid, formData).then(response => {
+                    document.getElementById('loader').style.display = 'none';
+                    if (response.data.status === 200) {
+                        this.Template = 1;
+                    } else {
+                        this.errors = response.data.errors;
+                    }
+                });
+            },
+            storeTaskComment(id) {
+                document.getElementById('loader').style.display = 'block';
+                Nova.request().post('/api/asana/task/' + id + '/stories', {taskComment: this.taskComment}).then(response => {
+                    document.getElementById('loader').style.display = 'none';
+                    if (response.data.status === 200) {
+                        this.taskComment = '';
+                        Swal.fire({
+                            type: 'success',
+                            position: 'top-end',
+                            title: 'Comment added successfully.',
+                            showConfirmButton: false,
+                            timer: 2000
+                        });
+                    } else {
+                        if (response.data.errors) {
+                            this.errors = response.data.errors;
+                        }
+
+                        Swal.fire({
+                            type: 'error',
+                            title: 'FAILURE!!',
+                            text: 'Addition failed.',
+                            showCancelButton: true,
+                            focusConfirm: true
+                        });
+                    }
+                });
+            },
         },
         created() {
             Nova.request().post('/nova-vendor/community-summary/community', {
