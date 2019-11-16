@@ -399,12 +399,16 @@ class TaskController extends Controller
             $data = [];
             $task[] = json_decode($this->asana->getTask($id));
             $subTasks = json_decode($this->asana->getSubTasks($id));
+            $comments = json_decode($this->asana->getTaskStories($id));
 
             foreach ($subTasks->data as $datum) {
-                $data[] = json_decode($this->asana->getTask($datum->gid));
+                $temp[] = json_decode($this->asana->getTask($datum->gid));
+                $temp['comments'] = json_decode($this->asana->getTaskStories($datum->gid));
+                $data[] = $temp;
             }
 
             $task['subTasks'] = $data;
+            $task['comments'] = $comments;
 
             return response()->json(['status' => 200, 'data' => $task], 200);
         } catch (\Exception $e) {
@@ -513,9 +517,10 @@ class TaskController extends Controller
 
         // Creates a task.
         try {
-            $taskComment = json_decode($this->asana->commentOnTask($id, $request->taskComment), 1);
+            json_decode($this->asana->commentOnTask($id, $request->taskComment), 1);
+            $comments = json_decode($this->asana->getTaskStories($id));
 
-            return response()->json(['status' => 200, 'data' => $taskComment], 200);
+            return response()->json(['status' => 200, 'data' => $comments], 200);
         } catch (\Exception $e) {
             return response()->json(['status' => 500, 'msg' => $e->getMessage()], 200);
         }

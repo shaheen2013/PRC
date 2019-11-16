@@ -34,7 +34,6 @@ class ProjectController extends Controller
             // Get all projects by community_id
             $dbProjects = Project::where('osusr_mlv_community_id', $request->osusr_mlv_community_id)->first();
 
-
             if ($dbProjects) {
                 $projects = [];
                 $tasks = [];
@@ -49,24 +48,49 @@ class ProjectController extends Controller
                 $pj['tasks'] = $tasks;
                 $pj['users'] = json_decode($this->asana->getWorkspaceUsers($pj['data']['workspace']['gid']));
 
-                $ch = curl_init();
+                // Get sections
+                $sections = [];
+                $secctionData = json_decode($this->asana->getProjectSections($dbProjects->project_id));
+                $pj['sections'] = $secctionData;
 
-                curl_setopt($ch, CURLOPT_URL, 'https://app.asana.com/api/1.0/projects/' . $dbProjects->project_id . '/sections');
-                curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-                curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
+                /*foreach ($secctionData->data as $datum) {
+                    $temp = [];
+                    $tempTasks = [];
+                    $temp[] = $datum;
 
-                $headers = array();
-                $headers[] = 'Accept: application/json';
-                $headers[] = 'Authorization: Bearer ' . env('ASANA_PAT');
-                curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+                    $ch = curl_init();
 
-                $pj['sections'] = json_decode(curl_exec($ch));
+                    curl_setopt($ch, CURLOPT_URL, 'https://app.asana.com/api/1.0/sections/'. $datum->gid .'/tasks');
+                    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+                    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
 
-                if (curl_errno($ch)) {
-                    echo 'Error:' . curl_error($ch);
-                }
+                    $headers = array();
+                    $headers[] = 'Accept: application/json';
+                    $headers[] = 'Authorization: Bearer '. env('ASANA_PAT');
 
-                curl_close($ch);
+                    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+                    $result = json_decode(curl_exec($ch), 1);
+
+                    foreach ($result['data'] as $task) {
+                        $tempTask = [];
+                        $subTasks = json_decode($this->asana->getSubTasks($task['gid']));
+                        $comments = json_decode($this->asana->getTaskStories($task['gid']));
+                        $tempTask[] = json_decode($this->asana->getTask($task['gid']), 1);
+                        $tempTask['subTasks'] = count($subTasks->data);
+                        $tempTask['comments'] = count($comments->data);
+                        $tempTasks[] = $tempTask;
+                    }
+
+                    $temp['tasks'] = $tempTasks;
+                    $sections[] = $temp;
+
+                    if (curl_errno($ch)) {
+                        echo 'Error:' . curl_error($ch);
+                    }
+
+                    curl_close($ch);
+                }*/
 
                 $projects[] = $pj;
 

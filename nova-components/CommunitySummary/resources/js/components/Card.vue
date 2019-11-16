@@ -494,33 +494,33 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="flex">
+                                                    <div class="flex border-b border-40">
                                                         <table class="table w-full">
                                                             <tbody>
                                                             <tr v-if="taskDetails.subTasks.length > 0" v-for="(t, index) in taskDetails.subTasks">
                                                                 <td v-text="index+1"></td>
                                                                 <td>
                                                                     <span>
-                                                                        <a v-if="t.data.completed" onclick="document.getElementById('subTaskComplete').click()" class="cursor-pointer text-70 text-success-dark hover:text-success-light mr-3" title="Complete"><i class="fa fa-check-circle"></i>
+                                                                        <a v-if="t[0].data.completed" onclick="document.getElementById('subTaskComplete').click()" class="cursor-pointer text-70 text-success-dark hover:text-success-light mr-3" title="Complete"><i class="fa fa-check-circle"></i>
                                                                         </a>
                                                                         <a v-else="" onclick="document.getElementById('subTaskComplete').click()" class="cursor-pointer text-70 text-primary-dark hover:text-primary-light mr-3" title="Mark as complete"><i class="fa fa-check-circle"></i>
                                                                         </a>
                                                                     </span>
-                                                                    <input type="checkbox" id="subTaskComplete" v-if="t.data.completed" @click="inlineSubTaskUpdate(index, 'completed', $event)" checked style="display: none">
+                                                                    <input type="checkbox" id="subTaskComplete" v-if="t[0].data.completed" @click="inlineSubTaskUpdate(index, 'completed', $event)" checked style="display: none">
                                                                     <input type="checkbox" id="subTaskComplete" v-else="" @click="inlineSubTaskUpdate(index, 'completed', $event)" style="display: none">
-                                                                    <div id="subTaskNotesHeader" onclick="this.style.display = 'none';document.getElementById('subTaskNotes').style.display = 'block';document.getElementById('subTaskNotesInput').focus();">{{ t.data.name }}</div>
+                                                                    <div id="subTaskNotesHeader" onclick="this.style.display = 'none';document.getElementById('subTaskNotes').style.display = 'block';document.getElementById('subTaskNotesInput').focus();">{{ t[0].data.name }}</div>
                                                                     <div class="remove-bottom-border" id="subTaskNotes" style="display: none">
                                                                         <div class="flex">
                                                                             <div class="flex w-full">
                                                                                 <div class="py-6">
-                                                                                    <input dusk="name" id="subTaskNotesInput" type="text" placeholder="Task Name" :value="t.data.name" onblur="document.getElementById('subTaskNotesHeader').style.display = 'block';document.getElementById('subTaskNotes').style.display = 'none';" @change="inlineSubTaskUpdate(index, 'name', $event)" class="w-full form-control form-input form-input-bordered">
+                                                                                    <input dusk="name" id="subTaskNotesInput" type="text" placeholder="Task Name" :value="t[0].data.name" onblur="document.getElementById('subTaskNotesHeader').style.display = 'block';document.getElementById('subTaskNotes').style.display = 'none';" @change="inlineSubTaskUpdate(index, 'name', $event)" class="w-full form-control form-input form-input-bordered">
                                                                                 </div>
                                                                             </div>
                                                                         </div>
                                                                     </div>
                                                                 </td>
                                                                 <td>
-                                                                    <div id="subTaskAssigneeHeader" v-if="t.data.assignee != null" onclick="this.style.display = 'none';document.getElementById('subTaskAssignee').style.display = 'block';document.getElementById('subTaskAssigneeInput').focus();">{{ t.data.assignee.name }}</div>
+                                                                    <div id="subTaskAssigneeHeader" v-if="t[0].data.assignee != null" onclick="this.style.display = 'none';document.getElementById('subTaskAssignee').style.display = 'block';document.getElementById('subTaskAssigneeInput').focus();">{{ t[0].data.assignee.name }}</div>
                                                                     <div v-else="" onclick="this.style.display = 'none';document.getElementById('subTaskAssignee').style.display = 'block';document.getElementById('subTaskAssigneeInput').focus();">None</div>
                                                                     <div class="remove-bottom-border" style="display: none" id="subTaskAssignee">
                                                                         <div class="flex">
@@ -528,7 +528,7 @@
                                                                                 <div class="py-6">
                                                                                     <select onblur="document.getElementById('subTaskAssignee').style.display = 'none';document.getElementById('subTaskAssigneeHeader').style.display = 'block';" id="subTaskAssigneeInput" @change="inlineSubTaskUpdate(index, 'assignee', $event)" dusk="attachable-select" data-testid="workspace-select" name="assignee" class="form-control form-select mb-3 w-full">
                                                                                         <option value="" disabled>Choose Assigned To</option>
-                                                                                        <option v-for="user in users" :value="user.gid" v-if="t.data.assignee != null && t.data.assignee.gid == user.gid" selected>{{ user.name }}</option>
+                                                                                        <option v-for="user in users" :value="user.gid" v-if="t[0].data.assignee != null && t[0].data.assignee.gid == user.gid" selected>{{ user.name }}</option>
                                                                                         <option :value="user.gid" v-else="">{{ user.name }}</option>
                                                                                     </select>
                                                                                 </div>
@@ -537,13 +537,13 @@
                                                                     </div>
                                                                 </td>
                                                                 <td>
-                                                                    <div :title="duedate(t.data.due_on)" id="subTaskDueOnHeader" onclick="this.style.display = 'none';document.getElementById('subTaskDueOn').style.display = 'block';">{{ t.data.due_on }}</div>
+                                                                    <div :title="duedate(t[0].data.due_on)" id="subTaskDueOnHeader" onclick="this.style.display = 'none';document.getElementById('subTaskDueOn').style.display = 'block';">{{ t[0].data.due_on }}</div>
                                                                     <div class="remove-bottom-border" id="subTaskDueOn" style="display: none">
                                                                         <div class="flex">
                                                                             <div class="flex w-full">
                                                                                 <div class="py-6">
                                                                                     <flat-pickr
-                                                                                        :value="t.data.due_on"
+                                                                                        :value="t[0].data.due_on"
                                                                                         @on-close="viewToggle"
                                                                                         @on-change="inlineSubTaskUpdate(index, 'due_on', $event)"
                                                                                         class="w-full form-control form-input-bordered"
@@ -606,6 +606,13 @@
                                                             </tr>
                                                             </tbody>
                                                         </table>
+                                                    </div>
+                                                    <div class="flex" v-if="taskDetails.comments.data.length > 0">
+                                                        <div class="w-full flex items-center">
+                                                            <div class="pt-6 px-8">
+                                                                <p class="py-1" v-for="comment in taskDetails.comments.data"><b>{{ comment.created_by.name }}</b> {{ comment.text }} <vue-moments-ago prefix="" suffix="ago" :date="comment.created_at"></vue-moments-ago></p>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                     <div class="flex">
                                                         <div class="w-full flex items-center">
@@ -745,6 +752,7 @@
     import flatPickr from 'vue-flatpickr-component';
     import 'flatpickr/dist/flatpickr.css';
     import {VTooltip, VPopover, VClosePopover} from 'v-tooltip'
+    import VueMomentsAgo from 'vue-moments-ago'
 
     export default {
         directives: {
@@ -754,6 +762,7 @@
         components: {
             'v-popover': VPopover,
             flatPickr,
+            VueMomentsAgo
         },
         props: [
             'card',
@@ -1525,16 +1534,6 @@
                     }
                 });
             },
-            getWorkspaces() {
-                document.getElementById('loader').style.display = 'block';
-                Nova.request().get('/api/asana/project/create').then(response => {
-                    document.getElementById('loader').style.display = 'none';
-                    this.workspaces = response.data.data.data;
-                });
-            },
-            getTeams() {
-                this.teams = this.workspaces.find(workspace => {return workspace.gid == document.getElementById('workspace').value}).teams.data;
-            },
             createProject() {
                 document.getElementById('loader').style.display = 'block';
                 this.project.name = this.community.STATE + '-' + this.community.COUNTY + '-' + this.community.FRIENDLYNAME + '-' + this.community.COMMUNITYID + '-Standard';
@@ -1548,53 +1547,6 @@
                     }
                 });
             },
-            /*editProject(id) {
-                this.Template = 2;
-                this.isEditProject = true;
-                document.getElementById('loader').style.display = 'block';
-                Nova.request().get('/api/asana/project/' + id + '/edit').then(response => {
-                    document.getElementById('loader').style.display = 'none';
-                    this.project.id = id;
-                    this.project.name = response.data.data.name;
-                    this.project.workspace = response.data.data.workspace.gid;
-                });
-            },
-            updateProject() {
-                this.project._method = "PUT";
-                document.getElementById('loader').style.display = 'block';
-                Nova.request().post('/api/asana/project/update/' + this.project.id, this.project).then(response => {
-                    document.getElementById('loader').style.display = 'none';
-                    if (response.data.status === 200) {
-                        this.Template = 1;
-                        this.getProjects();
-                    } else {
-                        this.errors = response.data.errors;
-                    }
-                });
-            },
-            deleteProject(id) {
-                let THIS = this;
-                Swal.fire({
-                    type: 'error',
-                    title: 'Delete Project',
-                    text: 'Are you sure want to delete this data?',
-                    showCancelButton: true,
-                    focusConfirm: true
-                }).then(res => {
-                    if(res.value !== undefined){
-                        document.getElementById('loader').style.display = 'block';
-                        Nova.request().post('/api/asana/project/destroy/' + id, {_method: 'DELETE'}).then(response => {
-                            document.getElementById('loader').style.display = 'none';
-                            if (response.data.status === 200) {
-                                THIS.Template = 1;
-                                THIS.getProjects();
-                            } else {
-                                THIS.errors = response.data.errors;
-                            }
-                        });
-                    }
-                });
-            },*/
             createTask() {
                 this.Template = 3;
                 this.isEditTask = false;
@@ -1604,12 +1556,6 @@
                 this.task.due_on = '';
                 this.task.section = '';
                 this.task.notes = '';
-            },
-            getWorkspaceProjects() {
-                if (!this.isEditTask) {
-                    this.workspaceProjects = this.workspaces.find(workspace => {return workspace.gid == document.getElementById('task-workspace').value}).projects.data;
-                    this.users = this.workspaces.find(workspace => {return workspace.gid == document.getElementById('task-workspace').value}).users.data;
-                }
             },
             storeTask() {
                 if (this.isEditTask) {
@@ -1971,6 +1917,7 @@
                     document.getElementById('loader').style.display = 'none';
                     if (response.data.status === 200) {
                         this.taskComment = '';
+                        this.taskDetails.comments = response.data.data;
                         Swal.fire({
                             type: 'success',
                             position: 'top-end',
@@ -2012,7 +1959,6 @@
         },
         mounted() {
             this.getProjects();
-            this.getWorkspaces();
         }
     }
 </script>
