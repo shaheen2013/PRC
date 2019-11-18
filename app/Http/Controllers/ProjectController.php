@@ -35,25 +35,18 @@ class ProjectController extends Controller
             $dbProjects = Project::where('osusr_mlv_community_id', $request->osusr_mlv_community_id)->first();
 
             if ($dbProjects) {
-                $projects = [];
-                $tasks = [];
+                $project = [];
 
-                $pj = json_decode($this->asana->getProject($dbProjects->project_id), 1);
-                $data = json_decode($this->asana->getProjectTasks($dbProjects->project_id), 1);
+                $project[] = json_decode($this->asana->getProject($dbProjects->project_id), 1);
 
-                foreach ($data['data'] as $task) {
-                    $tasks[] = json_decode($this->asana->getTask($task['gid']), 1);
-                }
-
-                $pj['tasks'] = $tasks;
-                $pj['users'] = json_decode($this->asana->getWorkspaceUsers($pj['data']['workspace']['gid']));
+                $project['users'] = json_decode($this->asana->getWorkspaceUsers('25961259746709'));
 
                 // Get sections
                 $sections = [];
                 $secctionData = json_decode($this->asana->getProjectSections($dbProjects->project_id));
-                $pj['sections'] = $secctionData;
+                $project['sections'] = $secctionData;
 
-                /*foreach ($secctionData->data as $datum) {
+                foreach ($secctionData->data as $datum) {
                     $temp = [];
                     $tempTasks = [];
                     $temp[] = $datum;
@@ -90,13 +83,13 @@ class ProjectController extends Controller
                     }
 
                     curl_close($ch);
-                }*/
+                }
 
-                $projects[] = $pj;
+                $project['sectionData'] = $sections;
 
-                return response()->json(['status' => 200, 'data' => $projects], 200);
+                return response()->json(['status' => 200, 'data' => $project], 200);
             } else {
-                return response()->json(['status' => 200, 'data' => []], 200);
+                return response()->json(['status' => 200, 'data' => null], 200);
             }
         } catch (\Exception $e) {
             return response()->json(['status' => 500, 'msg' => $e->getMessage()], 200);

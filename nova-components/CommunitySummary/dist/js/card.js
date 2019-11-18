@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 132);
+/******/ 	return __webpack_require__(__webpack_require__.s = 133);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -1919,7 +1919,7 @@
             try {
                 oldLocale = globalLocale._abbr;
                 var aliasedRequire = require;
-                __webpack_require__(165)("./" + name);
+                __webpack_require__(168)("./" + name);
                 getSetGlobalLocale(oldLocale);
             } catch (e) {}
         }
@@ -4670,7 +4670,7 @@
 
 })));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(164)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)(module)))
 
 /***/ }),
 /* 1 */
@@ -4801,7 +4801,7 @@ if (typeof DEBUG !== 'undefined' && DEBUG) {
   ) }
 }
 
-var listToStyles = __webpack_require__(138)
+var listToStyles = __webpack_require__(140)
 
 /*
 type StyleObject = {
@@ -5120,6 +5120,34 @@ module.exports = function normalizeComponent (
 
 /***/ }),
 /* 5 */
+/***/ (function(module, exports) {
+
+module.exports = function(module) {
+	if(!module.webpackPolyfill) {
+		module.deprecate = function() {};
+		module.paths = [];
+		// module.parent = undefined by default
+		if(!module.children) module.children = [];
+		Object.defineProperty(module, "loaded", {
+			enumerable: true,
+			get: function() {
+				return module.l;
+			}
+		});
+		Object.defineProperty(module, "id", {
+			enumerable: true,
+			get: function() {
+				return module.i;
+			}
+		});
+		module.webpackPolyfill = 1;
+	}
+	return module;
+};
+
+
+/***/ }),
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -5196,7 +5224,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -5335,7 +5363,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -5398,7 +5426,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -5461,7 +5489,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -5587,7 +5615,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -5650,7 +5678,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -5758,7 +5786,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -5821,7 +5849,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -5930,7 +5958,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -6066,7 +6094,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -6160,7 +6188,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -6222,7 +6250,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -6345,7 +6373,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -6468,7 +6496,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -6580,7 +6608,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -6735,7 +6763,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -6827,7 +6855,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -7003,7 +7031,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -7070,7 +7098,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -7154,7 +7182,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -7218,7 +7246,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -7298,7 +7326,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -7378,7 +7406,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -7458,7 +7486,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 29 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -7561,7 +7589,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 30 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -7665,7 +7693,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 31 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -7736,7 +7764,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 32 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -7807,7 +7835,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 33 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -7874,7 +7902,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 34 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -7945,7 +7973,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 35 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -8016,7 +8044,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 36 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -8082,7 +8110,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 37 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -8153,7 +8181,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 38 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -8228,7 +8256,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 39 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -8324,7 +8352,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 40 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -8420,7 +8448,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 41 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -8516,7 +8544,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 42 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -8600,7 +8628,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 43 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -8670,7 +8698,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 44 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -8780,7 +8808,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 45 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -8893,7 +8921,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 46 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -8957,7 +8985,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 47 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -9044,7 +9072,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 48 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -9122,7 +9150,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 49 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -9204,7 +9232,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 50 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -9283,7 +9311,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 51 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -9364,7 +9392,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 52 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -9444,7 +9472,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 53 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -9525,7 +9553,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 54 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -9652,7 +9680,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 55 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -9780,7 +9808,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 56 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -9881,7 +9909,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 57 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -10009,7 +10037,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 58 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -10167,7 +10195,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 59 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -10281,7 +10309,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 60 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -10380,7 +10408,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 61 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -10466,7 +10494,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 62 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -10602,7 +10630,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 63 */
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -10675,7 +10703,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 64 */
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -10748,7 +10776,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 65 */
+/* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -10844,7 +10872,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 66 */
+/* 67 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -10930,7 +10958,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 67 */
+/* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -11023,7 +11051,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 68 */
+/* 69 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -11114,7 +11142,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 69 */
+/* 70 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -11228,7 +11256,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 70 */
+/* 71 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -11358,7 +11386,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 71 */
+/* 72 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -11443,7 +11471,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 72 */
+/* 73 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -11566,7 +11594,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 73 */
+/* 74 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -11657,7 +11685,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 74 */
+/* 75 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -11797,7 +11825,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 75 */
+/* 76 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -11871,7 +11899,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 76 */
+/* 77 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -11993,7 +12021,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 77 */
+/* 78 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -12094,7 +12122,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 78 */
+/* 79 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -12210,7 +12238,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 79 */
+/* 80 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -12278,7 +12306,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 80 */
+/* 81 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -12372,7 +12400,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 81 */
+/* 82 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -12457,7 +12485,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 82 */
+/* 83 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -12565,7 +12593,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 83 */
+/* 84 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -12729,7 +12757,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 84 */
+/* 85 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -12815,7 +12843,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 85 */
+/* 86 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -12901,7 +12929,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 86 */
+/* 87 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -12965,7 +12993,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 87 */
+/* 88 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -13062,7 +13090,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 88 */
+/* 89 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -13128,7 +13156,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 89 */
+/* 90 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -13255,7 +13283,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 90 */
+/* 91 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -13346,7 +13374,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 91 */
+/* 92 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -13437,7 +13465,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 92 */
+/* 93 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -13501,7 +13529,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 93 */
+/* 94 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -13629,7 +13657,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 94 */
+/* 95 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -13759,7 +13787,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 95 */
+/* 96 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -13828,7 +13856,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 96 */
+/* 97 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -13893,7 +13921,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 97 */
+/* 98 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -13972,7 +14000,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 98 */
+/* 99 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -14158,7 +14186,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 99 */
+/* 100 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -14260,7 +14288,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 100 */
+/* 101 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -14324,7 +14352,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 101 */
+/* 102 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -14399,7 +14427,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 102 */
+/* 103 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -14559,7 +14587,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 103 */
+/* 104 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -14736,7 +14764,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 104 */
+/* 105 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -14808,7 +14836,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 105 */
+/* 106 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -14923,7 +14951,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 106 */
+/* 107 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -15038,7 +15066,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 107 */
+/* 108 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -15130,7 +15158,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 108 */
+/* 109 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -15203,7 +15231,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 109 */
+/* 110 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -15266,7 +15294,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 110 */
+/* 111 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -15399,7 +15427,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 111 */
+/* 112 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -15492,7 +15520,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 112 */
+/* 113 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -15563,7 +15591,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 113 */
+/* 114 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -15683,7 +15711,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 114 */
+/* 115 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -15754,7 +15782,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 115 */
+/* 116 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -15820,7 +15848,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 116 */
+/* 117 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -15946,7 +15974,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 117 */
+/* 118 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
@@ -16044,7 +16072,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 118 */
+/* 119 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -16139,7 +16167,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 119 */
+/* 120 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -16201,7 +16229,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 120 */
+/* 121 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -16263,7 +16291,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 121 */
+/* 122 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js language configuration
@@ -16386,7 +16414,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 122 */
+/* 123 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -16544,7 +16572,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 123 */
+/* 124 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -16646,7 +16674,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 124 */
+/* 125 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -16708,7 +16736,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 125 */
+/* 126 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -16770,7 +16798,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 126 */
+/* 127 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -16853,7 +16881,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 127 */
+/* 128 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -16925,7 +16953,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 128 */
+/* 129 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -16989,7 +17017,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 129 */
+/* 130 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -17103,7 +17131,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 130 */
+/* 131 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -17210,7 +17238,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 131 */
+/* 132 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -17317,35 +17345,35 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 132 */
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(133);
-module.exports = __webpack_require__(168);
-
-
-/***/ }),
 /* 133 */
 /***/ (function(module, exports, __webpack_require__) {
 
-Nova.booting(function (Vue, router, store) {
-    Vue.component('community-summary', __webpack_require__(134));
-});
+__webpack_require__(134);
+module.exports = __webpack_require__(171);
+
 
 /***/ }),
 /* 134 */
 /***/ (function(module, exports, __webpack_require__) {
 
+Nova.booting(function (Vue, router, store) {
+    Vue.component('community-summary', __webpack_require__(135));
+});
+
+/***/ }),
+/* 135 */
+/***/ (function(module, exports, __webpack_require__) {
+
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(135)
+  __webpack_require__(136)
 }
 var normalizeComponent = __webpack_require__(4)
 /* script */
-var __vue_script__ = __webpack_require__(139)
+var __vue_script__ = __webpack_require__(141)
 /* template */
-var __vue_template__ = __webpack_require__(167)
+var __vue_template__ = __webpack_require__(170)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -17384,13 +17412,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 135 */
+/* 136 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(136);
+var content = __webpack_require__(137);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -17410,12 +17438,13 @@ if(false) {
 }
 
 /***/ }),
-/* 136 */
+/* 137 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(2)(false);
 // imports
-exports.i(__webpack_require__(137), "");
+exports.i(__webpack_require__(138), "");
+exports.i(__webpack_require__(139), "");
 
 // module
 exports.push([module.i, "\n.expired[data-v-b9bc2c0a] {\n    color: red;\n}\n.checkOkr[data-v-b9bc2c0a] {\n    position: absolute;\n    top: -8px;\n    right: -20px;\n    background-position: -58px -16px;\n    width: 38px;\n    height: 38px;\n}\n.checkOkv[data-v-b9bc2c0a] {\n    position: absolute;\n    top: -8px;\n    right: -20px;\n    background-position: -58px -16px;\n    width: 38px;\n    height: 38px;\n}\n.blank-image[data-v-b9bc2c0a] {\n    padding-right: 90px;\n}\n.pointer[data-v-b9bc2c0a] {\n    cursor: pointer;\n}\n#loader[data-v-b9bc2c0a] {\n    display: none;\n}\n.lds-facebook[data-v-b9bc2c0a] {\n    display: inline-block;\n    position: relative;\n    width: 64px;\n    height: 64px;\n}\n.lds-facebook div[data-v-b9bc2c0a] {\n    display: inline-block;\n    position: absolute;\n    left: 6px;\n    width: 13px;\n    background: #fff;\n    -webkit-animation: lds-facebook-data-v-b9bc2c0a 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;\n            animation: lds-facebook-data-v-b9bc2c0a 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;\n}\n.lds-facebook div[data-v-b9bc2c0a]:nth-child(1) {\n    left: 6px;\n    -webkit-animation-delay: -0.24s;\n            animation-delay: -0.24s;\n}\n.lds-facebook div[data-v-b9bc2c0a]:nth-child(2) {\n    left: 26px;\n    -webkit-animation-delay: -0.12s;\n            animation-delay: -0.12s;\n}\n.lds-facebook div[data-v-b9bc2c0a]:nth-child(3) {\n    left: 45px;\n    /*animation-delay: 0;*/\n}\n.ph[data-v-b9bc2c0a]{\n    padding: 20px 10px;\n}\n@-webkit-keyframes lds-facebook-data-v-b9bc2c0a {\n0% {\n        top: 6px;\n        height: 51px;\n}\n50%, 100% {\n        top: 19px;\n        height: 26px;\n}\n}\n@keyframes lds-facebook-data-v-b9bc2c0a {\n0% {\n        top: 6px;\n        height: 51px;\n}\n50%, 100% {\n        top: 19px;\n        height: 26px;\n}\n}\n", ""]);
@@ -17424,7 +17453,7 @@ exports.push([module.i, "\n.expired[data-v-b9bc2c0a] {\n    color: red;\n}\n.che
 
 
 /***/ }),
-/* 137 */
+/* 138 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(2)(false);
@@ -17438,7 +17467,21 @@ exports.push([module.i, ".expired {\n  color: red;\n}\n\n.sprite {\n  background
 
 
 /***/ }),
-/* 138 */
+/* 139 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(2)(false);
+// imports
+
+
+// module
+exports.push([module.i, "*{margin:0;padding:0;box-sizing:border-box;font-family:Roboto,sans-serif;outline:0}._btn{font-size:12px;padding:6px 9px;text-align:center;text-decoration:none;-webkit-box-align:center;align-items:center;border-radius:4px;border-style:solid;border-width:1px;-moz-box-sizing:border-box;box-sizing:border-box;cursor:pointer;display:inline-flex;flex-shrink:0;-webkit-box-pack:center;justify-content:center;line-height:1;min-width:50px;-webkit-transition-duration:.2s;transition-duration:.2s;-webkit-transition-property:background,border,box-shadow,color,fill;transition-property:background,border,box-shadow,color,fill}._btn-default{background:#fff;border-color:#9ca6af;color:#273240;fill:#4b607a;font-weight:700}._btn-default:hover{background-color:#f6f8f9;border-color:#6f7782;border-style:solid;color:#161c24;fill:#161c24}._btn-default-active{background-color:#00bf9c;border:none;color:#fff;fill:#fff}._btn-default-active:hover{border:none;background-color:#00987c;color:#fff;fill:#fff}._btn-borderless{background:#fff;border:none;color:#273240;fill:#4b607a;font-weight:700;padding:9px 9px}._btn-borderless:hover{background-color:#d3dde4;border:none;color:#161c24;fill:#161c24}._btn-active{background-color:#00bf9c;border:none;color:#fff;fill:#fff}._btn-active:hover{background-color:#00987c;color:#fff;fill:#fff}.MiniIcon-custom{height:12px;width:12px;margin-right:5px}.MiniIcon-right{height:12px;width:12px;margin-left:5px;cursor:pointer}.MiniIcon{height:13px;width:13px;cursor:pointer}.MiniIcon:hover{fill:#00987c}.main-wrapper{width:100%;display:inline-block;position:relative;min-height:600px;overflow-x:hidden;overflow-y:auto}.add-task-section-wrapper{align-items:center;background-color:#fff;border-bottom:1px solid #e8ecee;border-top:1px solid #e8ecee;display:flex;-webkit-box-flex:0;flex:0 0 auto;height:70px;padding-left:20px;padding-right:15px;width:100%;vertical-align:middle}.add-task-section-wrapper .section-left{width:50%;float:left}.add-task-section-wrapper .section-right{width:50%;float:left;display:inline-flex;align-items:center;justify-content:flex-end;position:relative}.add-task-section-wrapper .section-right .task-head-box-dropdown{position:absolute;background-color:#f1f1f1;min-width:160px;overflow:auto;box-shadow:0 8px 16px 0 rgba(0,0,0,.2);z-index:1;top:36px;left:8px}.add-task-section-wrapper .section-right .task-head-box-dropdown .each-box{padding:12px 5px;background-color:#fff;text-align:left}.add-task-section-wrapper .section-right .task-head-box-dropdown .each-box:hover{background-color:#ddd}.add-task-section-wrapper .section-right .task-head-box-dropdown .each-box a{color:#273240;text-decoration:none}.add-task-section-wrapper .section-right ._assigned-box{display:inline-block;margin:0 5px;position:relative}.add-task-section-wrapper .section-right ._assigned-box .search-logo{position:absolute;left:7px;top:5px;fill:#4b607a}.add-task-section-wrapper .section-right .logo-box{width:50px;display:table;text-align:center;position:relative}.add-task-section-wrapper .section-right .logo-box .hide-box-icon{width:14px;height:14px;fill:#4b607a;cursor:pointer}.add-task-section-wrapper .section-right .logo-box .hide-box-icon :focus,.add-task-section-wrapper .section-right .logo-box .hide-box-icon:hover{fill:#32c1ff}.task-list-wrapper{width:calc(100% - 0px);display:table;padding:0 20px;transition:.5s}.task-list-wrapper.task-list-half{width:calc(100% - 760px);float:left;transition:.5s}.task-list-wrapper .task-list-header{width:100%;border-bottom:1px solid #e8ecee;display:table;font-size:13px;font-weight:700}.task-list-wrapper .task-list-header .task-name-box{width:70%;border-right:1px solid #e8ecee;padding:10px 5px;float:left;background-color:#fff}.task-list-wrapper .task-list-header .task-name-box:hover{background-color:#f6f8f9}.task-list-wrapper .task-list-header .task-assignee-box{width:15%;border-right:1px solid #e8ecee;padding:10px 5px;float:left;background-color:#fff}.task-list-wrapper .task-list-header .task-assignee-box:hover{background-color:#f6f8f9}.task-list-wrapper .task-list-body{width:100%;border-bottom:1px solid #e8ecee;display:flex;font-size:13px;font-weight:700}.task-list-wrapper .task-list-body .task-name-box{width:70%;border-right:1px solid #e8ecee;padding:5px 5px;float:left;background-color:#fff;position:relative;display:inline-flex;align-items:center}.task-list-wrapper .task-list-body .task-name-box .detail-option{position:absolute;right:0;top:12px;font-size:12px;font-weight:700;display:inline-flex;align-items:center;opacity:0;cursor:pointer}.task-list-wrapper .task-list-body .task-name-box .border-radious-icon{background:#fff;border:1px solid #cbd4db;border-radius:50%;color:#6f7782;fill:#6f7782;width:15px;height:15px;margin-right:5px}.task-list-wrapper .task-list-body .task-name-box .border-radious-icon.task-complete{border:1px solid #00987c!important}.task-list-wrapper .task-list-body .task-name-box .border-radious-icon.task-complete .MiniIcon{fill:#00987c!important}.task-list-wrapper .task-list-body .task-name-box .border-radious-icon .MiniIcon{height:13px;width:13px;cursor:pointer}.task-list-wrapper .task-list-body .task-name-box .border-radious-icon .MiniIcon:hover{fill:#00987c}.task-list-wrapper .task-list-body .task-name-box .border-radious-icon:hover{color:#00987c;border-color:#00987c}.task-list-wrapper .task-list-body .task-name-box:hover{background-color:#f6f8f9}.task-list-wrapper .task-list-body .task-name-box:hover .task-body-custom-input{background-color:#f6f8f9}.task-list-wrapper .task-list-body .task-name-box:hover .detail-option{opacity:1}.task-list-wrapper .task-list-body .task-assignee-box{width:15%;border-right:1px solid #e8ecee;padding:0;float:left;background-color:#fff;position:relative}.task-list-wrapper .task-list-body .task-assignee-box .assigned-person{display:inline-flex;align-items:center;width:100%;position:absolute;left:0;top:0;z-index:1;background:#fff;padding:4px}.task-list-wrapper .task-list-body .task-assignee-box .assigned-person .img-box{width:25px;height:25px;display:inline-block;background-size:cover;background-position:center;background-repeat:no-repeat;margin-right:10px}.task-list-wrapper .task-list-body .task-assignee-box .assignee-box-dropdown{position:absolute;background-color:#fff;min-width:280px;overflow:auto;box-shadow:0 8px 16px 0 rgba(0,0,0,.2);z-index:2;padding:7px 7px 3px 7px}.task-list-wrapper .task-list-body .task-assignee-box .assignee-box-dropdown .each-assignee{width:100%;display:inline-flex;align-items:center;margin:5px 0}.task-list-wrapper .task-list-body .task-assignee-box .assignee-box-dropdown .each-assignee:hover{background-color:#e8ecee}.task-list-wrapper .task-list-body .task-assignee-box .assignee-box-dropdown .each-assignee .profile-img{width:25px;height:25px;background-repeat:no-repeat;background-position:center;background-size:cover;margin-right:10px;padding:0 5px}.task-list-wrapper .task-list-body .task-assignee-box .assignee-box-dropdown .each-assignee .name-text{color:#273240;font-size:12px;font-weight:700}.task-list-wrapper .task-list-body .task-assignee-box .assignee-box-logo{position:absolute;width:28px;height:28px;border:1px dashed #9ca6af;border-radius:50%;top:2px;left:7px;text-align:center;padding-top:3px;visibility:hidden}.task-list-wrapper .task-list-body .task-assignee-box .assignee-box-logo .inside-logo{width:18px;height:18px;fill:#9ca6af}.task-list-wrapper .task-list-body .task-assignee-box .assignee-box-input{border-color:transparent;box-shadow:none;min-width:100px;width:100%;background-color:#fff;border-style:solid;border-width:1px;height:33px;padding:0 5px;cursor:pointer}.task-list-wrapper .task-list-body .task-assignee-box .assignee-box-input:hover{background-color:#f6f8f9}.task-list-wrapper .task-list-body .task-assignee-box .assignee-box-input:focus{border-color:#32c1ff;background-color:#fff}.task-list-wrapper .task-list-body .task-assignee-box .assignee-box-input:focus .inside-logo{display:none}.task-list-wrapper .task-list-body .task-assignee-box:hover{background-color:#f6f8f9}.task-list-wrapper .task-list-body .task-assignee-box:hover .assignee-box-logo{visibility:visible}.task-list-wrapper .task-list-body .task-assignee-box:focus .assignee-box-logo{visibility:hidden}.task-list-wrapper .task-list-body .task-date-box{width:15%;border-right:1px solid #e8ecee;padding:9px 39px;float:left;background-color:#fff;position:relative}.task-list-wrapper .task-list-body .task-date-box .assignee-box-logo{position:absolute;width:28px;height:28px;border:1px dashed #9ca6af;border-radius:50%;top:2px;left:7px;text-align:center;padding-top:3px;visibility:hidden}.task-list-wrapper .task-list-body .task-date-box .assignee-box-logo .inside-logo{width:18px;height:18px;fill:#9ca6af}.task-list-wrapper .task-list-body .task-date-box:hover{background-color:#f6f8f9}.task-list-wrapper .task-list-body .task-date-box:hover .assignee-box-logo{visibility:visible}.task-list-wrapper .task-list-body .task-date-box:focus .assignee-box-logo{visibility:hidden}.task-list-wrapper .task-list-body .box-active{background-color:#edf8ff}.task-list-wrapper .task-list-body .task-body-custom-input{border-color:transparent;border-radius:2px;box-shadow:none;min-width:200px;width:100%;background-color:#fff;border-style:solid;border-width:1px;padding:2px}.task-list-wrapper .task-list-body .task-body-custom-input:hover{background-color:#f6f8f9}.task-list-wrapper .task-list-body .task-body-custom-input:focus{border-color:#9ca6af;background-color:#fff}.task-list-wrapper .section-header{width:100%;font-size:20px;font-weight:700;display:table;padding:15px 0;color:#273240}.task-list-detail-wrapper{width:760px;background-color:#fff;border-left:1px solid #e8ecee;border-top:1px solid #e8ecee;position:absolute;top:0;right:0;display:inline-block;transition:.5s;box-shadow:0 5px 20px 0 rgba(21,27,38,.08);float:left;padding:0;transform-origin:100% 0;transform:scaleX(1);z-index:100;height:600px;overflow-x:hidden;overflow-y:scroll}.task-list-detail-wrapper.hideMe{transform:scaleX(0);transform-origin:100% 0;transition:.5s}.task-list-detail-wrapper .head-text-section{width:100%;padding:10px 20px;display:table}.task-list-detail-wrapper .head-text-section .input-big{border:1px solid transparent;box-shadow:none;font-size:30px;font-weight:700;transition:.2s;width:100%;padding:10px;color:#273240}.task-list-detail-wrapper .head-text-section .input-big:hover{border:1px solid #9ca6af;border-radius:4px;transition:.2s}.task-list-detail-wrapper .head-text-section .radious-square-input{position:relative;display:inline-block}.task-list-detail-wrapper .head-text-section .radious-square-input:hover .input-design{border:1px solid #9ca6af;border-radius:25px}.task-list-detail-wrapper .head-text-section .radious-square-input:hover .logo-border{border:1px solid #9ca6af}.task-list-detail-wrapper .head-text-section .radious-square-input:hover .logo-border .input-icon-1{fill:#7f878e}.task-list-detail-wrapper .head-text-section .radious-square-input .logo-border{position:absolute;width:30px;height:30px;border:1px dashed #9ca6af;border-radius:50%;top:6px;left:7px;text-align:center;padding-top:3px}.task-list-detail-wrapper .head-text-section .radious-square-input .logo-border .input-icon-1{width:18px;height:18px;fill:#9ca6af}.task-list-detail-wrapper .head-text-section .radious-square-input .logo-border .input-icon-2{width:22px;height:21px;fill:#9ca6af;padding-top:2px}.task-list-detail-wrapper .head-text-section .radious-square-input .input-design{font-size:12px;font-weight:900;padding:13px 0 13px 45px;border:1px solid transparent;cursor:pointer;box-shadow:none;width:65%}.task-list-detail-wrapper .head-text-section .radious-square-input .input-design:focus{border:1px solid #9ca6af;border-radius:4px;width:100%}.task-list-detail-wrapper .head-text-section .text-area-logo{width:25px;display:inline-block;float:left;padding-top:3px}.task-list-detail-wrapper .head-text-section .text-area-logo .t-logo{width:18px;height:18px;fill:#4b607a}.task-list-detail-wrapper .head-text-section ._input-logo{width:25px;display:inline-block;float:left;padding:10px 0 0 0}.task-list-detail-wrapper .head-text-section ._input-logo .t-logo{width:18px;height:18px;fill:#4b607a}.task-list-detail-wrapper .head-text-section .custom-text-area{border:1px solid transparent;box-shadow:none;font-size:13px;font-weight:700;transition:.2s;width:96%;padding:5px 10px;display:inline-block;color:#273240;float:left}.task-list-detail-wrapper .head-text-section .custom-text-area:hover{border:1px solid #9ca6af;border-radius:4px;transition:.2s}.task-list-detail-wrapper .head-text-section .custom-input-add-project{border:1px solid transparent;box-shadow:none;font-size:13px;font-weight:700;transition:.2s;width:96%;padding:10px 10px;display:inline-block;color:#273240;cursor:pointer;float:left}.task-list-detail-wrapper .head-text-section .custom-input-add-project::placeholder{color:#32c1ff}.task-list-detail-wrapper .head-text-section .custom-input-add-project:focus{border:1px solid #9ca6af;border-radius:4px;transition:.2s}.task-list-detail-wrapper .head-text-section .custom-input-add-project:focus::placeholder{color:#273240}.task-list-detail-wrapper .head-text-section .profile-img{width:40px;display:inline-block;float:left;margin-right:8px}.task-list-detail-wrapper .head-text-section .profile-img ._img{width:35px;height:35px;border-radius:50%;display:inline-block;background-position:center;background-repeat:no-repeat;background-size:cover}.task-list-detail-wrapper .head-text-section .detail-text-area{width:90%;padding:10px 0;display:inline-block;float:left;font-size:13px;font-weight:700}.task-list-detail-wrapper .head-text-section .detail-text-area .lnk-text{text-decoration:none;color:#273240}.task-list-detail-wrapper .head-text-section .detail-text-area .lnk-text:hover{color:#32c1ff}.task-list-detail-wrapper .head-text-section .detail-text-area .small-text{font-size:11px;color:#c2c2c2}.task-list-detail-wrapper .head-text-section .custom-text-area-chat{border:1px solid #9ca6af;box-shadow:none;font-size:13px;font-weight:700;transition:.2s;width:93%;padding:5px 10px;display:inline-block;color:#273240;float:left;border-radius:4px}.task-list-detail-wrapper .head-text-section .new-task{width:100%;display:flex;border-top:1px solid #e8ecee;border-bottom:1px solid #e8ecee;align-items:center;position:relative}.task-list-detail-wrapper .head-text-section .new-task:focus{border-top:1px solid #32c1ff;border-bottom:1px solid #32c1ff}.task-list-detail-wrapper .head-text-section .new-task:hover{border-top:1px solid #32c1ff;border-bottom:1px solid #32c1ff}.task-list-detail-wrapper .head-text-section .new-task .border-radious-icon{background:#fff;border:1px solid #cbd4db;border-radius:50%;color:#6f7782;fill:#6f7782;width:15px;height:15px;margin-right:5px}.task-list-detail-wrapper .head-text-section .new-task .border-radious-icon.task-complete{border:1px solid #00987c!important}.task-list-detail-wrapper .head-text-section .new-task .border-radious-icon.task-complete .MiniIcon{fill:#00987c!important}.task-list-detail-wrapper .head-text-section .new-task .border-radious-icon .MiniIcon{height:15px;width:14px;cursor:pointer}.task-list-detail-wrapper .head-text-section .new-task .border-radious-icon .MiniIcon:hover{fill:#00987c}.task-list-detail-wrapper .head-text-section .new-task .border-radious-icon:hover{color:#00987c;border-color:#00987c}.task-list-detail-wrapper .head-text-section .new-task .new-task-input{width:90%;border:1px solid transparent;height:35px;box-shadow:none}.task-list-detail-wrapper .head-text-section .new-task .new-task-logo{position:absolute;right:0;display:inline-flex;top:5px}.task-list-detail-wrapper .head-text-section .new-task .new-task-logo .logo-1{width:25px;height:25px;border:1px solid #e8ecee;border-radius:50%;margin-right:14px;position:relative}.task-list-detail-wrapper .head-text-section .new-task .new-task-logo .logo-1 .assignee-box-dropdown{position:absolute;background-color:#fff;min-width:200px;overflow:auto;box-shadow:0 8px 16px 0 rgba(0,0,0,.2);z-index:1;padding:7px 7px 3px 7px;left:-263px;top:29px}.task-list-detail-wrapper .head-text-section .new-task .new-task-logo .logo-1 .assignee-box-dropdown .each-assignee{width:100%;display:inline-flex;align-items:center;margin:5px 0}.task-list-detail-wrapper .head-text-section .new-task .new-task-logo .logo-1 .assignee-box-dropdown .each-assignee:hover{background-color:#e8ecee}.task-list-detail-wrapper .head-text-section .new-task .new-task-logo .logo-1 .assignee-box-dropdown .each-assignee .profile-img{width:25px;height:25px;background-repeat:no-repeat;background-position:center;background-size:cover;margin-right:10px;padding:0 5px}.task-list-detail-wrapper .head-text-section .new-task .new-task-logo .logo-1 .assignee-box-dropdown .each-assignee .name-text{color:#273240;font-size:12px;font-weight:700}.task-list-detail-wrapper .head-text-section .new-task .new-task-logo .logo-1 ._icon{height:19px;width:23px;padding:3px 0 0 0;fill:#7f878e}.task-list-detail-wrapper .head-text-section .new-task .new-task-logo .logo-2{width:25px;height:25px;border:1px solid #e8ecee;border-radius:50%;margin-right:14px}.task-list-detail-wrapper .head-text-section .new-task .new-task-logo .logo-2 ._icon{height:19px;width:23px;padding:3px 0 0 0;fill:#7f878e}.task-list-detail-wrapper .head-text-section .new-task .new-task-logo .logo-3{width:13px;height:25px;padding-top:5px}.task-list-detail-wrapper .head-text-section .new-task .new-task-logo .logo-3 ._icon{width:15px;height:15px;fill:#4b607a}._float-left{float:left}._float-right{float:right}._text-left{text-align:left}._text-right{text-align:right}._font-15{font-size:15px}.border-top-task-list{border-top:1px solid #e8ecee}.border-bottom-task-list{border-bottom:1px solid #e8ecee}.d-flex-inline{display:inline-flex;align-items:center}.bg-light{background-color:#f6f8f9}.no-padding{padding:0!important}.cursor-pointer{cursor:pointer}.border-right-none{border-right:none!important}.drop-down-menu_{display:none;position:absolute;background-color:#fff;min-width:160px;overflow:auto;box-shadow:0 8px 16px 0 rgba(0,0,0,.2);z-index:1}.drop-down-menu_ a{color:#273240;padding:12px 16px;text-decoration:none;display:block}.drop-down-menu_ a:hover{background-color:#ddd}.nv-dropdown-menu{display:none}.nv-dropdown-menu .assigned-person{display:none}.nv-open .nv-dropdown-menu{display:block}.nv-open .assigned-person,.nv-open .assignee-box-logo{display:none!important}.assigned-display{display:inline-flex}.collapse-open .nv-collapsedown{display:table}.nv-collapsedown{display:none;width:100%}.logo-show{display:block}.logo-hide{display:none}._position-relative{position:relative}._custom-select{min-width:150px;font-size:12px;font-weight:900;padding:6px 5px;width:100%;border-radius:4px;border:1px solid #9ca6af!important;cursor:pointer}._custom-select:hover{border-color:#6f7782}._custom-input-search{min-width:150px;font-size:12px;font-weight:900;padding:6px 0 6px 22px;width:100%;border-radius:25px;cursor:pointer;box-shadow:none;border-width:1px;border-style:solid;transition:.4s;border:1px solid #9ca6af!important}._custom-input-search:hover{border-color:#6f7782}._custom-input-search:focus{min-width:200px;transition:.4s}.loader-io{width:100%;display:flex;align-items:center;justify-content:center;height:100%}@keyframes ldio-aebf04cd3u{0%{transform:rotate(0)}50%{transform:rotate(180deg)}100%{transform:rotate(360deg)}}.ldio-aebf04cd3u div{position:absolute;animation:ldio-aebf04cd3u 1s linear infinite;width:160px;height:160px;top:20px;left:20px;border-radius:50%;box-shadow:0 4px 0 0 #0a0a0a;transform-origin:80px 82px}.loadingio-spinner-eclipse-utvtio44ngo{width:200px;height:200px;display:inline-block;overflow:hidden;background:#fff}.ldio-aebf04cd3u{width:100%;height:100%;position:relative;transform:translateZ(0) scale(1);backface-visibility:hidden;transform-origin:0 0}.ldio-aebf04cd3u div{box-sizing:content-box}", ""]);
+
+// exports
+
+
+/***/ }),
+/* 140 */
 /***/ (function(module, exports) {
 
 /**
@@ -17471,19 +17514,21 @@ module.exports = function listToStyles (parentId, list) {
 
 
 /***/ }),
-/* 139 */
+/* 141 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* WEBPACK VAR INJECTION */(function(Buffer) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_sweetalert2__ = __webpack_require__(144);
+/* WEBPACK VAR INJECTION */(function(Buffer) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_sweetalert2__ = __webpack_require__(146);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_sweetalert2___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_sweetalert2__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_flatpickr_component__ = __webpack_require__(145);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_flatpickr_component___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vue_flatpickr_component__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_flatpickr_dist_flatpickr_css__ = __webpack_require__(147);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_flatpickr_dist_flatpickr_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_flatpickr_dist_flatpickr_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_v_tooltip__ = __webpack_require__(151);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vue_moments_ago__ = __webpack_require__(154);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min__ = __webpack_require__(147);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_flatpickr_component__ = __webpack_require__(149);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_flatpickr_component___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_vue_flatpickr_component__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_flatpickr_dist_flatpickr_css__ = __webpack_require__(151);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_flatpickr_dist_flatpickr_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_flatpickr_dist_flatpickr_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_v_tooltip__ = __webpack_require__(155);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_vue_moments_ago__ = __webpack_require__(158);
 function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
 //
@@ -18235,6 +18280,351 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 
 
@@ -18244,18 +18634,18 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     directives: {
-        tooltip: __WEBPACK_IMPORTED_MODULE_3_v_tooltip__["c" /* VTooltip */],
-        'v-popover': __WEBPACK_IMPORTED_MODULE_3_v_tooltip__["a" /* VClosePopover */]
+        tooltip: __WEBPACK_IMPORTED_MODULE_4_v_tooltip__["c" /* VTooltip */],
+        'v-popover': __WEBPACK_IMPORTED_MODULE_4_v_tooltip__["a" /* VClosePopover */]
     },
     components: {
-        'v-popover': __WEBPACK_IMPORTED_MODULE_3_v_tooltip__["b" /* VPopover */],
-        flatPickr: __WEBPACK_IMPORTED_MODULE_1_vue_flatpickr_component___default.a,
-        VueMomentsAgo: __WEBPACK_IMPORTED_MODULE_4_vue_moments_ago__["a" /* default */]
+        'v-popover': __WEBPACK_IMPORTED_MODULE_4_v_tooltip__["b" /* VPopover */],
+        flatPickr: __WEBPACK_IMPORTED_MODULE_2_vue_flatpickr_component___default.a,
+        VueMomentsAgo: __WEBPACK_IMPORTED_MODULE_5_vue_moments_ago__["a" /* default */]
     },
     props: ['card', 'resource', 'resourceId', 'resourceName'],
     watch: {
         resourceId: function resourceId(val) {
-            var _this = this;
+            var _this2 = this;
 
             this.loaded = false;
             this.getPendingChangeCount();
@@ -18263,13 +18653,13 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                 communityId: this.resourceId
             }).then(function (response) {
                 console.log(response.data);
-                _this.community = response.data[0];
-                _this.loaded = true;
+                _this2.community = response.data[0];
+                _this2.loaded = true;
             });
             Nova.request().post('/nova-vendor/community-summary/foreclosures', {
                 communityId: this.resourceId
             }).then(function (response) {
-                _this.estForeclosures = response.data;
+                _this2.estForeclosures = response.data;
             });
         }
     },
@@ -18282,17 +18672,13 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             loaded: false,
             latestActivity: null,
             pendingChanges: 0,
-            projects: [],
             Template: 1,
-            workspaces: [],
-            teams: [],
             tasks: [],
             users: [],
             sections: [],
-            workspaceProjects: [],
+            sectionData: [],
             errors: [],
             success: null,
-            isEditProject: false,
             projectDetails: null,
             isEditTask: false,
             isLoading: true,
@@ -18339,7 +18725,15 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             taskDetails: null,
             file: '',
             editStatus: 0,
-            taskComment: ''
+            taskComment: '',
+            taskDetailsTemplate: 1,
+            isComplete: 0,
+            isMarkComplete: 0,
+            taskName: '',
+            taskDesc: '',
+            taskProject: '',
+            sideBar: 0,
+            isTaskComplete: 0
         };
     },
     computed: {
@@ -18887,20 +19281,20 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             document.querySelector("#nova > div > div.content > div.px-view.py-view.mx-auto > div > div.relative > div:nth-child(5) > div > div > div.tabs-wrap.border-b-2.border-40.w-full > div > button:nth-child(6)").click();
         },
         getPendingChangeCount: function getPendingChangeCount() {
-            var _this2 = this;
+            var _this3 = this;
 
             Nova.request().post('/nova-vendor/community-summary/pendingChanges', {
                 communityId: this.resourceId
             }).then(function (response) {
-                _this2.pendingChanges = response.data;
+                _this3.pendingChanges = response.data;
             });
         },
         closestFromNow: function closestFromNow(times) {
-            var _this3 = this;
+            var _this4 = this;
 
             var m = new Map(times.map(function (x) {
                 var date = new Date(x.expiration_date);
-                if (!_this3.isBeforeNow(date)) date = _this3.generateKey(date);else date = undefined;
+                if (!_this4.isBeforeNow(date)) date = _this4.generateKey(date);else date = undefined;
                 return [date, x];
             }));
             m.delete(undefined);
@@ -18979,50 +19373,56 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             }
         },
         getLatestActivity: function getLatestActivity() {
-            var _this4 = this;
+            var _this5 = this;
 
             Nova.request().post('/nova-vendor/community-summary/latestActivity', {
                 communityId: this.resourceId
             }).then(function (response) {
                 console.log(response.data);
-                _this4.latestActivity = response.data;
+                _this5.latestActivity = response.data;
             });
         },
         getProjects: function getProjects() {
-            var _this5 = this;
+            var _this6 = this;
 
+            var _this = this;
             this.project.name = null;
             document.getElementById('loader').style.display = 'block';
             Nova.request().get('/api/asana/project?osusr_mlv_community_id=' + this.resourceId).then(function (response) {
-                _this5.isLoading = false;
+                _this6.isLoading = false;
                 document.getElementById('loader').style.display = 'none';
-                if (response.data.data.length > 0) {
-                    _this5.projects = response.data.data;
-                    _this5.projectDetails = _this5.projects[0];
-                    _this5.taskFilter.project = _this5.projectDetails.data.gid;
-                    _this5.tasks = _this5.projectDetails.tasks;
-                    _this5.sections = _this5.projects[0].sections.data;
-                    _this5.users = _this5.projects[0].users.data;
-                    _this5.task.project = _this5.projectDetails.data.gid;
-                    _this5.subTask.project = _this5.projectDetails.data.gid;
-                    _this5.task.workspace = _this5.projectDetails.data.workspace.gid;
+
+                if (response.data.data) {
+                    _this6.projectDetails = response.data.data[0];
+                    _this6.taskFilter.project = _this6.projectDetails.data.gid;
+                    _this6.tasks = _this6.projectDetails.tasks;
+                    _this6.sections = response.data.data['sections'].data;
+                    _this6.sectionData = response.data.data['sectionData'];
+                    _this6.users = response.data.data['users'].data;
+                    _this6.task.project = _this6.projectDetails.data.gid;
+                    _this6.subTask.project = _this6.projectDetails.data.gid;
+                    _this6.task.workspace = _this6.projectDetails.data.workspace.gid;
                 } else {
-                    _this5.projectDetails = null;
+                    _this6.projectDetails = null;
                 }
+
+                setTimeout(function () {
+                    _this.uiUpdateMounted();
+                }, 500);
             });
         },
         createProject: function createProject() {
-            var _this6 = this;
+            var _this7 = this;
 
             document.getElementById('loader').style.display = 'block';
             this.project.name = this.community.STATE + '-' + this.community.COUNTY + '-' + this.community.FRIENDLYNAME + '-' + this.community.COMMUNITYID + '-Standard';
             Nova.request().post('/api/asana/project/store', this.project).then(function (response) {
                 document.getElementById('loader').style.display = 'none';
                 if (response.data.status === 200) {
-                    _this6.Template = 1;
-                    _this6.getProjects();
+                    _this7.Template = 1;
+                    _this7.getProjects();
                 } else {
-                    _this6.errors = response.data.errors;
+                    _this7.errors = response.data.errors;
                 }
             });
         },
@@ -19037,7 +19437,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             this.task.notes = '';
         },
         storeTask: function storeTask() {
-            var _this7 = this;
+            var _this8 = this;
 
             if (this.isEditTask) {
                 this.updateTask();
@@ -19046,63 +19446,63 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                 Nova.request().post('/api/asana/task/store', this.task).then(function (response) {
                     document.getElementById('loader').style.display = 'none';
                     if (response.data.status === 200) {
-                        _this7.Template = 1;
-                        _this7.getProjects();
+                        _this8.Template = 1;
+                        _this8.getProjects();
                     } else {
-                        _this7.errors = response.data.errors;
+                        _this8.errors = response.data.errors;
                     }
                 });
             }
         },
         showTask: function showTask(id) {
-            var _this8 = this;
+            var _this9 = this;
 
             document.getElementById('taskDetails').style.display = 'block';
             document.getElementById('loader').style.display = 'block';
             Nova.request().get('/api/asana/task/details/' + id).then(function (response) {
                 document.getElementById('loader').style.display = 'none';
                 if (response.status == 200) {
-                    _this8.taskDetails = response.data.data;
+                    _this9.taskDetails = response.data.data;
                 } else {
-                    _this8.errors = response.data.msg.errors;
+                    _this9.errors = response.data.msg.errors;
                 }
             });
         },
         editTask: function editTask(id) {
-            var _this9 = this;
+            var _this10 = this;
 
             this.Template = 3;
             this.isEditTask = true;
             document.getElementById('loader').style.display = 'block';
             Nova.request().get('/api/asana/task/' + id + '/edit').then(function (response) {
                 document.getElementById('loader').style.display = 'none';
-                _this9.task.id = id;
-                _this9.task.name = response.data.data.name ? response.data.data.name : '';
-                _this9.task.due_on = response.data.data.due_on ? response.data.data.due_on : '';
-                _this9.task.notes = response.data.data.notes ? response.data.data.notes : '';
-                _this9.task.assignee = response.data.data.assignee ? response.data.data.assignee.gid : '';
-                _this9.task.section = response.data.data.memberships[0].section.gid ? response.data.data.memberships[0].section.gid : '';
-                _this9.task.workspace = response.data.data.workspace.gid;
+                _this10.task.id = id;
+                _this10.task.name = response.data.data.name ? response.data.data.name : '';
+                _this10.task.due_on = response.data.data.due_on ? response.data.data.due_on : '';
+                _this10.task.notes = response.data.data.notes ? response.data.data.notes : '';
+                _this10.task.assignee = response.data.data.assignee ? response.data.data.assignee.gid : '';
+                _this10.task.section = response.data.data.memberships[0].section.gid ? response.data.data.memberships[0].section.gid : '';
+                _this10.task.workspace = response.data.data.workspace.gid;
             });
         },
         updateTask: function updateTask() {
-            var _this10 = this;
+            var _this11 = this;
 
             this.task._method = "PUT";
             document.getElementById('loader').style.display = 'block';
             Nova.request().post('/api/asana/task/update/' + this.task.id, this.task).then(function (response) {
                 document.getElementById('loader').style.display = 'none';
                 if (response.data.status === 200) {
-                    _this10.task = {};
-                    _this10.Template = 1;
-                    _this10.getProjects();
+                    _this11.task = {};
+                    _this11.Template = 1;
+                    _this11.getProjects();
                 } else {
-                    _this10.errors = response.data.errors;
+                    _this11.errors = response.data.errors;
                 }
             });
         },
         inlineTaskUpdate: function inlineTaskUpdate(index, name, e) {
-            var _this11 = this;
+            var _this12 = this;
 
             document.getElementById('loader').style.display = 'block';
 
@@ -19142,14 +19542,14 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             Nova.request().post('/api/asana/task/update/' + t.data.gid, formData).then(function (response) {
                 document.getElementById('loader').style.display = 'none';
                 if (response.data.status === 200) {
-                    _this11.Template = 1;
+                    _this12.Template = 1;
                 } else {
-                    _this11.errors = response.data.errors;
+                    _this12.errors = response.data.errors;
                 }
             });
         },
         inlineTaskUpdateNew: function inlineTaskUpdateNew(id, name, e) {
-            var _this12 = this;
+            var _this13 = this;
 
             document.getElementById('loader').style.display = 'block';
 
@@ -19174,26 +19574,26 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             Nova.request().post('/api/asana/task/update/' + id, formData).then(function (response) {
                 document.getElementById('loader').style.display = 'none';
                 if (response.data.status === 200) {
-                    _this12.Template = 1;
+                    _this13.Template = 1;
                     if (name == 'name') {
-                        _this12.taskDetails[0].data.name = e.target.value;
+                        _this13.taskDetails[0].data.name = e.target.value;
                     } else if (name == 'notes') {
-                        _this12.taskDetails[0].data.notes = e.target.value;
+                        _this13.taskDetails[0].data.notes = e.target.value;
                     } else if (name == 'due_on') {
                         document.getElementById('taskDueOnHeader').style.display = 'block';
                         document.getElementById('taskDueOn').style.display = 'none';
-                        _this12.taskDetails[0].data.due_on = _this12.convert(e);
+                        _this13.taskDetails[0].data.due_on = _this13.convert(e);
                     } else if (name == 'section') {
-                        _this12.taskDetails[0].data.memberships[0].section.gid = e.target.value;
-                        _this12.taskDetails[0].data.memberships[0].section.name = e.target.options[e.target.selectedIndex].text;
+                        _this13.taskDetails[0].data.memberships[0].section.gid = e.target.value;
+                        _this13.taskDetails[0].data.memberships[0].section.name = e.target.options[e.target.selectedIndex].text;
                     } else if (name == 'assignee') {
                         document.getElementById('taskAssigneeHeader').style.display = 'block';
                         document.getElementById('taskAssignee').style.display = 'none';
-                        _this12.taskDetails[0].data.assignee.gid = e.target.value;
-                        _this12.taskDetails[0].data.assignee.name = e.target.options[e.target.selectedIndex].text;
+                        _this13.taskDetails[0].data.assignee.gid = e.target.value;
+                        _this13.taskDetails[0].data.assignee.name = e.target.options[e.target.selectedIndex].text;
                     }
                 } else {
-                    _this12.errors = response.data.errors;
+                    _this13.errors = response.data.errors;
                 }
             });
         },
@@ -19307,16 +19707,16 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             return [date.getFullYear(), mnth, day].join("-");
         },
         createSubTask: function createSubTask(id) {
-            var _this13 = this;
+            var _this14 = this;
 
             document.getElementById('loader').style.display = 'block';
             Nova.request().post('/api/asana/task/' + id + '/subtasks', this.subTask).then(function (response) {
                 document.getElementById('loader').style.display = 'none';
                 if (response.data.status === 200) {
-                    _this13.createNewSubTask = false;
-                    _this13.taskDetails.subTasks.push(response.data.data);
+                    _this14.createNewSubTask = false;
+                    _this14.taskDetails.subTasks.push(response.data.data);
                 } else {
-                    _this13.errors = response.data.errors;
+                    _this14.errors = response.data.errors;
                 }
             });
         },
@@ -19351,7 +19751,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             }
         },
         inlineSubTaskUpdate: function inlineSubTaskUpdate(index, name, e) {
-            var _this14 = this;
+            var _this15 = this;
 
             document.getElementById('loader').style.display = 'block';
 
@@ -19398,21 +19798,21 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             Nova.request().post('/api/asana/task/update/' + t.data.gid, formData).then(function (response) {
                 document.getElementById('loader').style.display = 'none';
                 if (response.data.status === 200) {
-                    _this14.Template = 1;
+                    _this15.Template = 1;
                 } else {
-                    _this14.errors = response.data.errors;
+                    _this15.errors = response.data.errors;
                 }
             });
         },
         storeTaskComment: function storeTaskComment(id) {
-            var _this15 = this;
+            var _this16 = this;
 
             document.getElementById('loader').style.display = 'block';
             Nova.request().post('/api/asana/task/' + id + '/stories', { taskComment: this.taskComment }).then(function (response) {
                 document.getElementById('loader').style.display = 'none';
                 if (response.data.status === 200) {
-                    _this15.taskComment = '';
-                    _this15.taskDetails.comments = response.data.data;
+                    _this16.taskComment = '';
+                    _this16.taskDetails.comments = response.data.data;
                     __WEBPACK_IMPORTED_MODULE_0_sweetalert2___default.a.fire({
                         type: 'success',
                         position: 'top-end',
@@ -19422,7 +19822,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                     });
                 } else {
                     if (response.data.errors) {
-                        _this15.errors = response.data.errors;
+                        _this16.errors = response.data.errors;
                     }
 
                     __WEBPACK_IMPORTED_MODULE_0_sweetalert2___default.a.fire({
@@ -19434,22 +19834,51 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                     });
                 }
             });
+        },
+        hideLogo: function hideLogo(id) {
+            __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()("#" + id).addClass("logo-hide");
+        },
+
+        uiUpdateMounted: function uiUpdateMounted() {
+            var _this = this;
+
+            __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.nv-collapse').on('click', function () {
+                __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.collapse-parent').toggleClass('collapse-open');
+            });
+
+            __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.nv-dropdown').on('click', function () {
+                __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.nv-dropdown').removeClass('nv-open');
+                __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()(this).closest('.nv-dropdown').addClass('nv-open');
+            });
+
+            __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()(window).on('mouseup', function (e) {
+                var clicked = __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()(e.target);
+                var clickTarget = clicked.closest('.nv-dropdown');
+                if (clickTarget.length === 0) {
+                    __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.nv-dropdown').removeClass('nv-open');
+                }
+                var sideBar = clicked.closest('#task-detail');
+                if (sideBar.length === 0) {
+                    _this.sideBar = 0;
+                }
+                __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()("#assignee-logo-id").removeClass("logo-hide");
+            });
         }
     },
     created: function created() {
-        var _this16 = this;
+        var _this17 = this;
 
         Nova.request().post('/nova-vendor/community-summary/community', {
             communityId: this.resourceId
         }).then(function (response) {
             console.log(response.data);
-            _this16.community = response.data[0];
-            _this16.loaded = true;
+            _this17.community = response.data[0];
+            _this17.loaded = true;
         });
         Nova.request().post('/nova-vendor/community-summary/foreclosures', {
             communityId: this.resourceId
         }).then(function (response) {
-            _this16.estForeclosures = response.data;
+            _this17.estForeclosures = response.data;
         });
         this.getLatestActivity();
         this.getPendingChangeCount();
@@ -19458,10 +19887,10 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
         this.getProjects();
     }
 });
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(140).Buffer))
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(142).Buffer))
 
 /***/ }),
-/* 140 */
+/* 142 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19475,9 +19904,9 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
 
 
-var base64 = __webpack_require__(141)
-var ieee754 = __webpack_require__(142)
-var isArray = __webpack_require__(143)
+var base64 = __webpack_require__(143)
+var ieee754 = __webpack_require__(144)
+var isArray = __webpack_require__(145)
 
 exports.Buffer = Buffer
 exports.SlowBuffer = SlowBuffer
@@ -21258,7 +21687,7 @@ function isnan (val) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
-/* 141 */
+/* 143 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21417,7 +21846,7 @@ function fromByteArray (uint8) {
 
 
 /***/ }),
-/* 142 */
+/* 144 */
 /***/ (function(module, exports) {
 
 exports.read = function (buffer, offset, isLE, mLen, nBytes) {
@@ -21507,7 +21936,7 @@ exports.write = function (buffer, value, offset, isLE, mLen, nBytes) {
 
 
 /***/ }),
-/* 143 */
+/* 145 */
 /***/ (function(module, exports) {
 
 var toString = {}.toString;
@@ -21518,7 +21947,7 @@ module.exports = Array.isArray || function (arr) {
 
 
 /***/ }),
-/* 144 */
+/* 146 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*!
@@ -24435,13 +24864,2247 @@ if (typeof this !== 'undefined' && this.Sweetalert2){  this.swal = this.sweetAle
 "undefined"!=typeof document&&function(e,t){var n=e.createElement("style");if(e.getElementsByTagName("head")[0].appendChild(n),n.styleSheet)n.styleSheet.disabled||(n.styleSheet.cssText=t);else try{n.innerHTML=t}catch(e){n.innerText=t}}(document,"@charset \"UTF-8\";.swal2-popup.swal2-toast{flex-direction:row;align-items:center;width:auto;padding:.625em;overflow-y:hidden;box-shadow:0 0 .625em #d9d9d9}.swal2-popup.swal2-toast .swal2-header{flex-direction:row}.swal2-popup.swal2-toast .swal2-title{flex-grow:1;justify-content:flex-start;margin:0 .6em;font-size:1em}.swal2-popup.swal2-toast .swal2-footer{margin:.5em 0 0;padding:.5em 0 0;font-size:.8em}.swal2-popup.swal2-toast .swal2-close{position:static;width:.8em;height:.8em;line-height:.8}.swal2-popup.swal2-toast .swal2-content{justify-content:flex-start;font-size:1em}.swal2-popup.swal2-toast .swal2-icon{width:2em;min-width:2em;height:2em;margin:0}.swal2-popup.swal2-toast .swal2-icon::before{display:flex;align-items:center;font-size:2em;font-weight:700}@media all and (-ms-high-contrast:none),(-ms-high-contrast:active){.swal2-popup.swal2-toast .swal2-icon::before{font-size:.25em}}.swal2-popup.swal2-toast .swal2-icon.swal2-success .swal2-success-ring{width:2em;height:2em}.swal2-popup.swal2-toast .swal2-icon.swal2-error [class^=swal2-x-mark-line]{top:.875em;width:1.375em}.swal2-popup.swal2-toast .swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=left]{left:.3125em}.swal2-popup.swal2-toast .swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=right]{right:.3125em}.swal2-popup.swal2-toast .swal2-actions{flex-basis:auto!important;width:auto;height:auto;margin:0 .3125em}.swal2-popup.swal2-toast .swal2-styled{margin:0 .3125em;padding:.3125em .625em;font-size:1em}.swal2-popup.swal2-toast .swal2-styled:focus{box-shadow:0 0 0 .0625em #fff,0 0 0 .125em rgba(50,100,150,.4)}.swal2-popup.swal2-toast .swal2-success{border-color:#a5dc86}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-circular-line]{position:absolute;width:1.6em;height:3em;transform:rotate(45deg);border-radius:50%}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-circular-line][class$=left]{top:-.8em;left:-.5em;transform:rotate(-45deg);transform-origin:2em 2em;border-radius:4em 0 0 4em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-circular-line][class$=right]{top:-.25em;left:.9375em;transform-origin:0 1.5em;border-radius:0 4em 4em 0}.swal2-popup.swal2-toast .swal2-success .swal2-success-ring{width:2em;height:2em}.swal2-popup.swal2-toast .swal2-success .swal2-success-fix{top:0;left:.4375em;width:.4375em;height:2.6875em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-line]{height:.3125em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-line][class$=tip]{top:1.125em;left:.1875em;width:.75em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-line][class$=long]{top:.9375em;right:.1875em;width:1.375em}.swal2-popup.swal2-toast.swal2-show{-webkit-animation:swal2-toast-show .5s;animation:swal2-toast-show .5s}.swal2-popup.swal2-toast.swal2-hide{-webkit-animation:swal2-toast-hide .1s forwards;animation:swal2-toast-hide .1s forwards}.swal2-popup.swal2-toast .swal2-animate-success-icon .swal2-success-line-tip{-webkit-animation:swal2-toast-animate-success-line-tip .75s;animation:swal2-toast-animate-success-line-tip .75s}.swal2-popup.swal2-toast .swal2-animate-success-icon .swal2-success-line-long{-webkit-animation:swal2-toast-animate-success-line-long .75s;animation:swal2-toast-animate-success-line-long .75s}.swal2-container{display:flex;position:fixed;z-index:1060;top:0;right:0;bottom:0;left:0;flex-direction:row;align-items:center;justify-content:center;padding:.625em;overflow-x:hidden;background-color:transparent;-webkit-overflow-scrolling:touch}.swal2-container.swal2-top{align-items:flex-start}.swal2-container.swal2-top-left,.swal2-container.swal2-top-start{align-items:flex-start;justify-content:flex-start}.swal2-container.swal2-top-end,.swal2-container.swal2-top-right{align-items:flex-start;justify-content:flex-end}.swal2-container.swal2-center{align-items:center}.swal2-container.swal2-center-left,.swal2-container.swal2-center-start{align-items:center;justify-content:flex-start}.swal2-container.swal2-center-end,.swal2-container.swal2-center-right{align-items:center;justify-content:flex-end}.swal2-container.swal2-bottom{align-items:flex-end}.swal2-container.swal2-bottom-left,.swal2-container.swal2-bottom-start{align-items:flex-end;justify-content:flex-start}.swal2-container.swal2-bottom-end,.swal2-container.swal2-bottom-right{align-items:flex-end;justify-content:flex-end}.swal2-container.swal2-bottom-end>:first-child,.swal2-container.swal2-bottom-left>:first-child,.swal2-container.swal2-bottom-right>:first-child,.swal2-container.swal2-bottom-start>:first-child,.swal2-container.swal2-bottom>:first-child{margin-top:auto}.swal2-container.swal2-grow-fullscreen>.swal2-modal{display:flex!important;flex:1;align-self:stretch;justify-content:center}.swal2-container.swal2-grow-row>.swal2-modal{display:flex!important;flex:1;align-content:center;justify-content:center}.swal2-container.swal2-grow-column{flex:1;flex-direction:column}.swal2-container.swal2-grow-column.swal2-bottom,.swal2-container.swal2-grow-column.swal2-center,.swal2-container.swal2-grow-column.swal2-top{align-items:center}.swal2-container.swal2-grow-column.swal2-bottom-left,.swal2-container.swal2-grow-column.swal2-bottom-start,.swal2-container.swal2-grow-column.swal2-center-left,.swal2-container.swal2-grow-column.swal2-center-start,.swal2-container.swal2-grow-column.swal2-top-left,.swal2-container.swal2-grow-column.swal2-top-start{align-items:flex-start}.swal2-container.swal2-grow-column.swal2-bottom-end,.swal2-container.swal2-grow-column.swal2-bottom-right,.swal2-container.swal2-grow-column.swal2-center-end,.swal2-container.swal2-grow-column.swal2-center-right,.swal2-container.swal2-grow-column.swal2-top-end,.swal2-container.swal2-grow-column.swal2-top-right{align-items:flex-end}.swal2-container.swal2-grow-column>.swal2-modal{display:flex!important;flex:1;align-content:center;justify-content:center}.swal2-container:not(.swal2-top):not(.swal2-top-start):not(.swal2-top-end):not(.swal2-top-left):not(.swal2-top-right):not(.swal2-center-start):not(.swal2-center-end):not(.swal2-center-left):not(.swal2-center-right):not(.swal2-bottom):not(.swal2-bottom-start):not(.swal2-bottom-end):not(.swal2-bottom-left):not(.swal2-bottom-right):not(.swal2-grow-fullscreen)>.swal2-modal{margin:auto}@media all and (-ms-high-contrast:none),(-ms-high-contrast:active){.swal2-container .swal2-modal{margin:0!important}}.swal2-container.swal2-fade{transition:background-color .1s}.swal2-container.swal2-shown{background-color:rgba(0,0,0,.4)}.swal2-popup{display:none;position:relative;box-sizing:border-box;flex-direction:column;justify-content:center;width:32em;max-width:100%;padding:1.25em;border:none;border-radius:.3125em;background:#fff;font-family:inherit;font-size:1rem}.swal2-popup:focus{outline:0}.swal2-popup.swal2-loading{overflow-y:hidden}.swal2-header{display:flex;flex-direction:column;align-items:center}.swal2-title{position:relative;max-width:100%;margin:0 0 .4em;padding:0;color:#595959;font-size:1.875em;font-weight:600;text-align:center;text-transform:none;word-wrap:break-word}.swal2-actions{display:flex;z-index:1;flex-wrap:wrap;align-items:center;justify-content:center;width:100%;margin:1.25em auto 0}.swal2-actions:not(.swal2-loading) .swal2-styled[disabled]{opacity:.4}.swal2-actions:not(.swal2-loading) .swal2-styled:hover{background-image:linear-gradient(rgba(0,0,0,.1),rgba(0,0,0,.1))}.swal2-actions:not(.swal2-loading) .swal2-styled:active{background-image:linear-gradient(rgba(0,0,0,.2),rgba(0,0,0,.2))}.swal2-actions.swal2-loading .swal2-styled.swal2-confirm{box-sizing:border-box;width:2.5em;height:2.5em;margin:.46875em;padding:0;-webkit-animation:swal2-rotate-loading 1.5s linear 0s infinite normal;animation:swal2-rotate-loading 1.5s linear 0s infinite normal;border:.25em solid transparent;border-radius:100%;border-color:transparent;background-color:transparent!important;color:transparent;cursor:default;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.swal2-actions.swal2-loading .swal2-styled.swal2-cancel{margin-right:30px;margin-left:30px}.swal2-actions.swal2-loading :not(.swal2-styled).swal2-confirm::after{content:\"\";display:inline-block;width:15px;height:15px;margin-left:5px;-webkit-animation:swal2-rotate-loading 1.5s linear 0s infinite normal;animation:swal2-rotate-loading 1.5s linear 0s infinite normal;border:3px solid #999;border-radius:50%;border-right-color:transparent;box-shadow:1px 1px 1px #fff}.swal2-styled{margin:.3125em;padding:.625em 2em;box-shadow:none;font-weight:500}.swal2-styled:not([disabled]){cursor:pointer}.swal2-styled.swal2-confirm{border:0;border-radius:.25em;background:initial;background-color:#3085d6;color:#fff;font-size:1.0625em}.swal2-styled.swal2-cancel{border:0;border-radius:.25em;background:initial;background-color:#aaa;color:#fff;font-size:1.0625em}.swal2-styled:focus{outline:0;box-shadow:0 0 0 2px #fff,0 0 0 4px rgba(50,100,150,.4)}.swal2-styled::-moz-focus-inner{border:0}.swal2-footer{justify-content:center;margin:1.25em 0 0;padding:1em 0 0;border-top:1px solid #eee;color:#545454;font-size:1em}.swal2-image{max-width:100%;margin:1.25em auto}.swal2-close{position:absolute;z-index:2;top:0;right:0;justify-content:center;width:1.2em;height:1.2em;padding:0;overflow:hidden;transition:color .1s ease-out;border:none;border-radius:0;outline:initial;background:0 0;color:#ccc;font-family:serif;font-size:2.5em;line-height:1.2;cursor:pointer}.swal2-close:hover{transform:none;background:0 0;color:#f27474}.swal2-content{z-index:1;justify-content:center;margin:0;padding:0;color:#545454;font-size:1.125em;font-weight:400;line-height:normal;text-align:center;word-wrap:break-word}.swal2-checkbox,.swal2-file,.swal2-input,.swal2-radio,.swal2-select,.swal2-textarea{margin:1em auto}.swal2-file,.swal2-input,.swal2-textarea{box-sizing:border-box;width:100%;transition:border-color .3s,box-shadow .3s;border:1px solid #d9d9d9;border-radius:.1875em;background:inherit;box-shadow:inset 0 1px 1px rgba(0,0,0,.06);color:inherit;font-size:1.125em}.swal2-file.swal2-inputerror,.swal2-input.swal2-inputerror,.swal2-textarea.swal2-inputerror{border-color:#f27474!important;box-shadow:0 0 2px #f27474!important}.swal2-file:focus,.swal2-input:focus,.swal2-textarea:focus{border:1px solid #b4dbed;outline:0;box-shadow:0 0 3px #c4e6f5}.swal2-file::-webkit-input-placeholder,.swal2-input::-webkit-input-placeholder,.swal2-textarea::-webkit-input-placeholder{color:#ccc}.swal2-file::-moz-placeholder,.swal2-input::-moz-placeholder,.swal2-textarea::-moz-placeholder{color:#ccc}.swal2-file:-ms-input-placeholder,.swal2-input:-ms-input-placeholder,.swal2-textarea:-ms-input-placeholder{color:#ccc}.swal2-file::-ms-input-placeholder,.swal2-input::-ms-input-placeholder,.swal2-textarea::-ms-input-placeholder{color:#ccc}.swal2-file::placeholder,.swal2-input::placeholder,.swal2-textarea::placeholder{color:#ccc}.swal2-range{margin:1em auto;background:inherit}.swal2-range input{width:80%}.swal2-range output{width:20%;color:inherit;font-weight:600;text-align:center}.swal2-range input,.swal2-range output{height:2.625em;padding:0;font-size:1.125em;line-height:2.625em}.swal2-input{height:2.625em;padding:0 .75em}.swal2-input[type=number]{max-width:10em}.swal2-file{background:inherit;font-size:1.125em}.swal2-textarea{height:6.75em;padding:.75em}.swal2-select{min-width:50%;max-width:100%;padding:.375em .625em;background:inherit;color:inherit;font-size:1.125em}.swal2-checkbox,.swal2-radio{align-items:center;justify-content:center;background:inherit;color:inherit}.swal2-checkbox label,.swal2-radio label{margin:0 .6em;font-size:1.125em}.swal2-checkbox input,.swal2-radio input{margin:0 .4em}.swal2-validation-message{display:none;align-items:center;justify-content:center;padding:.625em;overflow:hidden;background:#f0f0f0;color:#666;font-size:1em;font-weight:300}.swal2-validation-message::before{content:\"!\";display:inline-block;width:1.5em;min-width:1.5em;height:1.5em;margin:0 .625em;zoom:normal;border-radius:50%;background-color:#f27474;color:#fff;font-weight:600;line-height:1.5em;text-align:center}.swal2-icon{position:relative;box-sizing:content-box;justify-content:center;width:5em;height:5em;margin:1.25em auto 1.875em;zoom:normal;border:.25em solid transparent;border-radius:50%;font-family:inherit;line-height:5em;cursor:default;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.swal2-icon::before{display:flex;align-items:center;height:92%;font-size:3.75em}.swal2-icon.swal2-error{border-color:#f27474}.swal2-icon.swal2-error .swal2-x-mark{position:relative;flex-grow:1}.swal2-icon.swal2-error [class^=swal2-x-mark-line]{display:block;position:absolute;top:2.3125em;width:2.9375em;height:.3125em;border-radius:.125em;background-color:#f27474}.swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=left]{left:1.0625em;transform:rotate(45deg)}.swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=right]{right:1em;transform:rotate(-45deg)}.swal2-icon.swal2-warning{border-color:#facea8;color:#f8bb86}.swal2-icon.swal2-warning::before{content:\"!\"}.swal2-icon.swal2-info{border-color:#9de0f6;color:#3fc3ee}.swal2-icon.swal2-info::before{content:\"i\"}.swal2-icon.swal2-question{border-color:#c9dae1;color:#87adbd}.swal2-icon.swal2-question::before{content:\"?\"}.swal2-icon.swal2-question.swal2-arabic-question-mark::before{content:\"؟\"}.swal2-icon.swal2-success{border-color:#a5dc86}.swal2-icon.swal2-success [class^=swal2-success-circular-line]{position:absolute;width:3.75em;height:7.5em;transform:rotate(45deg);border-radius:50%}.swal2-icon.swal2-success [class^=swal2-success-circular-line][class$=left]{top:-.4375em;left:-2.0635em;transform:rotate(-45deg);transform-origin:3.75em 3.75em;border-radius:7.5em 0 0 7.5em}.swal2-icon.swal2-success [class^=swal2-success-circular-line][class$=right]{top:-.6875em;left:1.875em;transform:rotate(-45deg);transform-origin:0 3.75em;border-radius:0 7.5em 7.5em 0}.swal2-icon.swal2-success .swal2-success-ring{position:absolute;z-index:2;top:-.25em;left:-.25em;box-sizing:content-box;width:100%;height:100%;border:.25em solid rgba(165,220,134,.3);border-radius:50%}.swal2-icon.swal2-success .swal2-success-fix{position:absolute;z-index:1;top:.5em;left:1.625em;width:.4375em;height:5.625em;transform:rotate(-45deg)}.swal2-icon.swal2-success [class^=swal2-success-line]{display:block;position:absolute;z-index:2;height:.3125em;border-radius:.125em;background-color:#a5dc86}.swal2-icon.swal2-success [class^=swal2-success-line][class$=tip]{top:2.875em;left:.875em;width:1.5625em;transform:rotate(45deg)}.swal2-icon.swal2-success [class^=swal2-success-line][class$=long]{top:2.375em;right:.5em;width:2.9375em;transform:rotate(-45deg)}.swal2-progress-steps{align-items:center;margin:0 0 1.25em;padding:0;background:inherit;font-weight:600}.swal2-progress-steps li{display:inline-block;position:relative}.swal2-progress-steps .swal2-progress-step{z-index:20;width:2em;height:2em;border-radius:2em;background:#3085d6;color:#fff;line-height:2em;text-align:center}.swal2-progress-steps .swal2-progress-step.swal2-active-progress-step{background:#3085d6}.swal2-progress-steps .swal2-progress-step.swal2-active-progress-step~.swal2-progress-step{background:#add8e6;color:#fff}.swal2-progress-steps .swal2-progress-step.swal2-active-progress-step~.swal2-progress-step-line{background:#add8e6}.swal2-progress-steps .swal2-progress-step-line{z-index:10;width:2.5em;height:.4em;margin:0 -1px;background:#3085d6}[class^=swal2]{-webkit-tap-highlight-color:transparent}.swal2-show{-webkit-animation:swal2-show .3s;animation:swal2-show .3s}.swal2-show.swal2-noanimation{-webkit-animation:none;animation:none}.swal2-hide{-webkit-animation:swal2-hide .15s forwards;animation:swal2-hide .15s forwards}.swal2-hide.swal2-noanimation{-webkit-animation:none;animation:none}.swal2-rtl .swal2-close{right:auto;left:0}.swal2-animate-success-icon .swal2-success-line-tip{-webkit-animation:swal2-animate-success-line-tip .75s;animation:swal2-animate-success-line-tip .75s}.swal2-animate-success-icon .swal2-success-line-long{-webkit-animation:swal2-animate-success-line-long .75s;animation:swal2-animate-success-line-long .75s}.swal2-animate-success-icon .swal2-success-circular-line-right{-webkit-animation:swal2-rotate-success-circular-line 4.25s ease-in;animation:swal2-rotate-success-circular-line 4.25s ease-in}.swal2-animate-error-icon{-webkit-animation:swal2-animate-error-icon .5s;animation:swal2-animate-error-icon .5s}.swal2-animate-error-icon .swal2-x-mark{-webkit-animation:swal2-animate-error-x-mark .5s;animation:swal2-animate-error-x-mark .5s}@supports (-ms-accelerator:true){.swal2-range input{width:100%!important}.swal2-range output{display:none}}@media all and (-ms-high-contrast:none),(-ms-high-contrast:active){.swal2-range input{width:100%!important}.swal2-range output{display:none}}@-moz-document url-prefix(){.swal2-close:focus{outline:2px solid rgba(50,100,150,.4)}}@-webkit-keyframes swal2-toast-show{0%{transform:translateY(-.625em) rotateZ(2deg)}33%{transform:translateY(0) rotateZ(-2deg)}66%{transform:translateY(.3125em) rotateZ(2deg)}100%{transform:translateY(0) rotateZ(0)}}@keyframes swal2-toast-show{0%{transform:translateY(-.625em) rotateZ(2deg)}33%{transform:translateY(0) rotateZ(-2deg)}66%{transform:translateY(.3125em) rotateZ(2deg)}100%{transform:translateY(0) rotateZ(0)}}@-webkit-keyframes swal2-toast-hide{100%{transform:rotateZ(1deg);opacity:0}}@keyframes swal2-toast-hide{100%{transform:rotateZ(1deg);opacity:0}}@-webkit-keyframes swal2-toast-animate-success-line-tip{0%{top:.5625em;left:.0625em;width:0}54%{top:.125em;left:.125em;width:0}70%{top:.625em;left:-.25em;width:1.625em}84%{top:1.0625em;left:.75em;width:.5em}100%{top:1.125em;left:.1875em;width:.75em}}@keyframes swal2-toast-animate-success-line-tip{0%{top:.5625em;left:.0625em;width:0}54%{top:.125em;left:.125em;width:0}70%{top:.625em;left:-.25em;width:1.625em}84%{top:1.0625em;left:.75em;width:.5em}100%{top:1.125em;left:.1875em;width:.75em}}@-webkit-keyframes swal2-toast-animate-success-line-long{0%{top:1.625em;right:1.375em;width:0}65%{top:1.25em;right:.9375em;width:0}84%{top:.9375em;right:0;width:1.125em}100%{top:.9375em;right:.1875em;width:1.375em}}@keyframes swal2-toast-animate-success-line-long{0%{top:1.625em;right:1.375em;width:0}65%{top:1.25em;right:.9375em;width:0}84%{top:.9375em;right:0;width:1.125em}100%{top:.9375em;right:.1875em;width:1.375em}}@-webkit-keyframes swal2-show{0%{transform:scale(.7)}45%{transform:scale(1.05)}80%{transform:scale(.95)}100%{transform:scale(1)}}@keyframes swal2-show{0%{transform:scale(.7)}45%{transform:scale(1.05)}80%{transform:scale(.95)}100%{transform:scale(1)}}@-webkit-keyframes swal2-hide{0%{transform:scale(1);opacity:1}100%{transform:scale(.5);opacity:0}}@keyframes swal2-hide{0%{transform:scale(1);opacity:1}100%{transform:scale(.5);opacity:0}}@-webkit-keyframes swal2-animate-success-line-tip{0%{top:1.1875em;left:.0625em;width:0}54%{top:1.0625em;left:.125em;width:0}70%{top:2.1875em;left:-.375em;width:3.125em}84%{top:3em;left:1.3125em;width:1.0625em}100%{top:2.8125em;left:.875em;width:1.5625em}}@keyframes swal2-animate-success-line-tip{0%{top:1.1875em;left:.0625em;width:0}54%{top:1.0625em;left:.125em;width:0}70%{top:2.1875em;left:-.375em;width:3.125em}84%{top:3em;left:1.3125em;width:1.0625em}100%{top:2.8125em;left:.875em;width:1.5625em}}@-webkit-keyframes swal2-animate-success-line-long{0%{top:3.375em;right:2.875em;width:0}65%{top:3.375em;right:2.875em;width:0}84%{top:2.1875em;right:0;width:3.4375em}100%{top:2.375em;right:.5em;width:2.9375em}}@keyframes swal2-animate-success-line-long{0%{top:3.375em;right:2.875em;width:0}65%{top:3.375em;right:2.875em;width:0}84%{top:2.1875em;right:0;width:3.4375em}100%{top:2.375em;right:.5em;width:2.9375em}}@-webkit-keyframes swal2-rotate-success-circular-line{0%{transform:rotate(-45deg)}5%{transform:rotate(-45deg)}12%{transform:rotate(-405deg)}100%{transform:rotate(-405deg)}}@keyframes swal2-rotate-success-circular-line{0%{transform:rotate(-45deg)}5%{transform:rotate(-45deg)}12%{transform:rotate(-405deg)}100%{transform:rotate(-405deg)}}@-webkit-keyframes swal2-animate-error-x-mark{0%{margin-top:1.625em;transform:scale(.4);opacity:0}50%{margin-top:1.625em;transform:scale(.4);opacity:0}80%{margin-top:-.375em;transform:scale(1.15)}100%{margin-top:0;transform:scale(1);opacity:1}}@keyframes swal2-animate-error-x-mark{0%{margin-top:1.625em;transform:scale(.4);opacity:0}50%{margin-top:1.625em;transform:scale(.4);opacity:0}80%{margin-top:-.375em;transform:scale(1.15)}100%{margin-top:0;transform:scale(1);opacity:1}}@-webkit-keyframes swal2-animate-error-icon{0%{transform:rotateX(100deg);opacity:0}100%{transform:rotateX(0);opacity:1}}@keyframes swal2-animate-error-icon{0%{transform:rotateX(100deg);opacity:0}100%{transform:rotateX(0);opacity:1}}@-webkit-keyframes swal2-rotate-loading{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}@keyframes swal2-rotate-loading{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown){overflow:hidden}body.swal2-height-auto{height:auto!important}body.swal2-no-backdrop .swal2-shown{top:auto;right:auto;bottom:auto;left:auto;max-width:calc(100% - .625em * 2);background-color:transparent}body.swal2-no-backdrop .swal2-shown>.swal2-modal{box-shadow:0 0 10px rgba(0,0,0,.4)}body.swal2-no-backdrop .swal2-shown.swal2-top{top:0;left:50%;transform:translateX(-50%)}body.swal2-no-backdrop .swal2-shown.swal2-top-left,body.swal2-no-backdrop .swal2-shown.swal2-top-start{top:0;left:0}body.swal2-no-backdrop .swal2-shown.swal2-top-end,body.swal2-no-backdrop .swal2-shown.swal2-top-right{top:0;right:0}body.swal2-no-backdrop .swal2-shown.swal2-center{top:50%;left:50%;transform:translate(-50%,-50%)}body.swal2-no-backdrop .swal2-shown.swal2-center-left,body.swal2-no-backdrop .swal2-shown.swal2-center-start{top:50%;left:0;transform:translateY(-50%)}body.swal2-no-backdrop .swal2-shown.swal2-center-end,body.swal2-no-backdrop .swal2-shown.swal2-center-right{top:50%;right:0;transform:translateY(-50%)}body.swal2-no-backdrop .swal2-shown.swal2-bottom{bottom:0;left:50%;transform:translateX(-50%)}body.swal2-no-backdrop .swal2-shown.swal2-bottom-left,body.swal2-no-backdrop .swal2-shown.swal2-bottom-start{bottom:0;left:0}body.swal2-no-backdrop .swal2-shown.swal2-bottom-end,body.swal2-no-backdrop .swal2-shown.swal2-bottom-right{right:0;bottom:0}@media print{body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown){overflow-y:scroll!important}body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown)>[aria-hidden=true]{display:none}body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown) .swal2-container{position:static!important}}body.swal2-toast-shown .swal2-container{background-color:transparent}body.swal2-toast-shown .swal2-container.swal2-shown{background-color:transparent}body.swal2-toast-shown .swal2-container.swal2-top{top:0;right:auto;bottom:auto;left:50%;transform:translateX(-50%)}body.swal2-toast-shown .swal2-container.swal2-top-end,body.swal2-toast-shown .swal2-container.swal2-top-right{top:0;right:0;bottom:auto;left:auto}body.swal2-toast-shown .swal2-container.swal2-top-left,body.swal2-toast-shown .swal2-container.swal2-top-start{top:0;right:auto;bottom:auto;left:0}body.swal2-toast-shown .swal2-container.swal2-center-left,body.swal2-toast-shown .swal2-container.swal2-center-start{top:50%;right:auto;bottom:auto;left:0;transform:translateY(-50%)}body.swal2-toast-shown .swal2-container.swal2-center{top:50%;right:auto;bottom:auto;left:50%;transform:translate(-50%,-50%)}body.swal2-toast-shown .swal2-container.swal2-center-end,body.swal2-toast-shown .swal2-container.swal2-center-right{top:50%;right:0;bottom:auto;left:auto;transform:translateY(-50%)}body.swal2-toast-shown .swal2-container.swal2-bottom-left,body.swal2-toast-shown .swal2-container.swal2-bottom-start{top:auto;right:auto;bottom:0;left:0}body.swal2-toast-shown .swal2-container.swal2-bottom{top:auto;right:auto;bottom:0;left:50%;transform:translateX(-50%)}body.swal2-toast-shown .swal2-container.swal2-bottom-end,body.swal2-toast-shown .swal2-container.swal2-bottom-right{top:auto;right:0;bottom:0;left:auto}body.swal2-toast-column .swal2-toast{flex-direction:column;align-items:stretch}body.swal2-toast-column .swal2-toast .swal2-actions{flex:1;align-self:stretch;height:2.2em;margin-top:.3125em}body.swal2-toast-column .swal2-toast .swal2-loading{justify-content:center}body.swal2-toast-column .swal2-toast .swal2-input{height:2em;margin:.3125em auto;font-size:1em}body.swal2-toast-column .swal2-toast .swal2-validation-message{font-size:1em}");
 
 /***/ }),
-/* 145 */
+/* 147 */
 /***/ (function(module, exports, __webpack_require__) {
 
-!function(t,e){ true?module.exports=e(__webpack_require__(146)):"function"==typeof define&&define.amd?define("VueFlatpickr",["flatpickr"],e):"object"==typeof exports?exports.VueFlatpickr=e(require("flatpickr")):t.VueFlatpickr=e(t.flatpickr)}("undefined"!=typeof self?self:this,function(t){return function(t){var e={};function n(r){if(e[r])return e[r].exports;var o=e[r]={i:r,l:!1,exports:{}};return t[r].call(o.exports,o,o.exports,n),o.l=!0,o.exports}return n.m=t,n.c=e,n.d=function(t,e,r){n.o(t,e)||Object.defineProperty(t,e,{enumerable:!0,get:r})},n.r=function(t){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(t,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(t,"__esModule",{value:!0})},n.t=function(t,e){if(1&e&&(t=n(t)),8&e)return t;if(4&e&&"object"==typeof t&&t&&t.__esModule)return t;var r=Object.create(null);if(n.r(r),Object.defineProperty(r,"default",{enumerable:!0,value:t}),2&e&&"string"!=typeof t)for(var o in t)n.d(r,o,function(e){return t[e]}.bind(null,o));return r},n.n=function(t){var e=t&&t.__esModule?function(){return t.default}:function(){return t};return n.d(e,"a",e),e},n.o=function(t,e){return Object.prototype.hasOwnProperty.call(t,e)},n.p="",n(n.s=1)}([function(e,n){e.exports=t},function(t,e,n){"use strict";n.r(e);var r=n(0),o=n.n(r),i=["onChange","onClose","onDestroy","onMonthChange","onOpen","onYearChange"];function u(){return(u=Object.assign||function(t){for(var e=1;e<arguments.length;e++){var n=arguments[e];for(var r in n)Object.prototype.hasOwnProperty.call(n,r)&&(t[r]=n[r])}return t}).apply(this,arguments)}var a=function(t){return u({},t)},f=i.concat(["onValueUpdate","onDayCreate","onParseConfig","onReady","onPreCalendarPosition","onKeyDown"]),l=["locale","showMonths"],s={name:"flat-pickr",render:function(t){return t("input",{attrs:{type:"text","data-input":!0},props:{disabled:this.disabled},on:{input:this.onInput}})},props:{value:{default:null,required:!0,validator:function(t){return null===t||t instanceof Date||"string"==typeof t||t instanceof String||t instanceof Array||"number"==typeof t}},config:{type:Object,default:function(){return{wrap:!1,defaultDate:null}}},events:{type:Array,default:function(){return i}},disabled:{type:Boolean,default:!1}},data:function(){return{fp:null}},mounted:function(){var t=this;if(!this.fp){var e=a(this.config);this.events.forEach(function(n){var r,i=o.a.defaultConfig[n]||[];e[n]=(r=e[n]||[],r instanceof Array?r:[r]).concat(i,function(){for(var e=arguments.length,r=new Array(e),o=0;o<e;o++)r[o]=arguments[o];var i;t.$emit.apply(t,[(i=n,i.replace(/([a-z])([A-Z])/g,"$1-$2").toLowerCase())].concat(r))})}),e.defaultDate=this.value||e.defaultDate,this.fp=new o.a(this.getElem(),e),this.fpInput().addEventListener("blur",this.onBlur),this.$watch("disabled",this.watchDisabled,{immediate:!0})}},methods:{getElem:function(){return this.config.wrap?this.$el.parentNode:this.$el},onInput:function(t){var e=this,n=t.target;this.$nextTick(function(){e.$emit("input",n.value)})},fpInput:function(){return this.fp.altInput||this.fp.input},onBlur:function(t){this.$emit("blur",t.target.value)},watchDisabled:function(t){t?this.fpInput().setAttribute("disabled",t):this.fpInput().removeAttribute("disabled")}},watch:{config:{deep:!0,handler:function(t){var e=this,n=a(t);f.forEach(function(t){delete n[t]}),this.fp.set(n),l.forEach(function(t){void 0!==n[t]&&e.fp.set(t,n[t])})}},value:function(t){t!==this.$el.value&&this.fp&&this.fp.setDate(t,!0)}},beforeDestroy:function(){this.fp&&(this.fpInput().removeEventListener("blur",this.onBlur),this.fp.destroy(),this.fp=null)}};n.d(e,"Plugin",function(){return c}),n.d(e,"Component",function(){return s});var c=function(t,e){var n="flat-pickr";"string"==typeof e&&(n=e),t.component(n,s)};s.install=c;e.default=s}]).default});
+/* WEBPACK VAR INJECTION */(function(module) {var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+/*! jQuery v2.2.4 | (c) jQuery Foundation | jquery.org/license */
+!function (a, b) {
+  "object" == ( false ? "undefined" : _typeof(module)) && "object" == _typeof(module.exports) ? module.exports = a.document ? b(a, !0) : function (a) {
+    if (!a.document) throw new Error("jQuery requires a window with a document");return b(a);
+  } : b(a);
+}("undefined" != typeof window ? window : this, function (a, b) {
+  var c = [],
+      d = a.document,
+      e = c.slice,
+      f = c.concat,
+      g = c.push,
+      h = c.indexOf,
+      i = {},
+      j = i.toString,
+      k = i.hasOwnProperty,
+      l = {},
+      m = "2.2.4",
+      n = function n(a, b) {
+    return new n.fn.init(a, b);
+  },
+      o = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g,
+      p = /^-ms-/,
+      q = /-([\da-z])/gi,
+      r = function r(a, b) {
+    return b.toUpperCase();
+  };n.fn = n.prototype = { jquery: m, constructor: n, selector: "", length: 0, toArray: function toArray() {
+      return e.call(this);
+    }, get: function get(a) {
+      return null != a ? 0 > a ? this[a + this.length] : this[a] : e.call(this);
+    }, pushStack: function pushStack(a) {
+      var b = n.merge(this.constructor(), a);return b.prevObject = this, b.context = this.context, b;
+    }, each: function each(a) {
+      return n.each(this, a);
+    }, map: function map(a) {
+      return this.pushStack(n.map(this, function (b, c) {
+        return a.call(b, c, b);
+      }));
+    }, slice: function slice() {
+      return this.pushStack(e.apply(this, arguments));
+    }, first: function first() {
+      return this.eq(0);
+    }, last: function last() {
+      return this.eq(-1);
+    }, eq: function eq(a) {
+      var b = this.length,
+          c = +a + (0 > a ? b : 0);return this.pushStack(c >= 0 && b > c ? [this[c]] : []);
+    }, end: function end() {
+      return this.prevObject || this.constructor();
+    }, push: g, sort: c.sort, splice: c.splice }, n.extend = n.fn.extend = function () {
+    var a,
+        b,
+        c,
+        d,
+        e,
+        f,
+        g = arguments[0] || {},
+        h = 1,
+        i = arguments.length,
+        j = !1;for ("boolean" == typeof g && (j = g, g = arguments[h] || {}, h++), "object" == (typeof g === "undefined" ? "undefined" : _typeof(g)) || n.isFunction(g) || (g = {}), h === i && (g = this, h--); i > h; h++) {
+      if (null != (a = arguments[h])) for (b in a) {
+        c = g[b], d = a[b], g !== d && (j && d && (n.isPlainObject(d) || (e = n.isArray(d))) ? (e ? (e = !1, f = c && n.isArray(c) ? c : []) : f = c && n.isPlainObject(c) ? c : {}, g[b] = n.extend(j, f, d)) : void 0 !== d && (g[b] = d));
+      }
+    }return g;
+  }, n.extend({ expando: "jQuery" + (m + Math.random()).replace(/\D/g, ""), isReady: !0, error: function error(a) {
+      throw new Error(a);
+    }, noop: function noop() {}, isFunction: function isFunction(a) {
+      return "function" === n.type(a);
+    }, isArray: Array.isArray, isWindow: function isWindow(a) {
+      return null != a && a === a.window;
+    }, isNumeric: function isNumeric(a) {
+      var b = a && a.toString();return !n.isArray(a) && b - parseFloat(b) + 1 >= 0;
+    }, isPlainObject: function isPlainObject(a) {
+      var b;if ("object" !== n.type(a) || a.nodeType || n.isWindow(a)) return !1;if (a.constructor && !k.call(a, "constructor") && !k.call(a.constructor.prototype || {}, "isPrototypeOf")) return !1;for (b in a) {}return void 0 === b || k.call(a, b);
+    }, isEmptyObject: function isEmptyObject(a) {
+      var b;for (b in a) {
+        return !1;
+      }return !0;
+    }, type: function type(a) {
+      return null == a ? a + "" : "object" == (typeof a === "undefined" ? "undefined" : _typeof(a)) || "function" == typeof a ? i[j.call(a)] || "object" : typeof a === "undefined" ? "undefined" : _typeof(a);
+    }, globalEval: function globalEval(a) {
+      var b,
+          c = eval;a = n.trim(a), a && (1 === a.indexOf("use strict") ? (b = d.createElement("script"), b.text = a, d.head.appendChild(b).parentNode.removeChild(b)) : c(a));
+    }, camelCase: function camelCase(a) {
+      return a.replace(p, "ms-").replace(q, r);
+    }, nodeName: function nodeName(a, b) {
+      return a.nodeName && a.nodeName.toLowerCase() === b.toLowerCase();
+    }, each: function each(a, b) {
+      var c,
+          d = 0;if (s(a)) {
+        for (c = a.length; c > d; d++) {
+          if (b.call(a[d], d, a[d]) === !1) break;
+        }
+      } else for (d in a) {
+        if (b.call(a[d], d, a[d]) === !1) break;
+      }return a;
+    }, trim: function trim(a) {
+      return null == a ? "" : (a + "").replace(o, "");
+    }, makeArray: function makeArray(a, b) {
+      var c = b || [];return null != a && (s(Object(a)) ? n.merge(c, "string" == typeof a ? [a] : a) : g.call(c, a)), c;
+    }, inArray: function inArray(a, b, c) {
+      return null == b ? -1 : h.call(b, a, c);
+    }, merge: function merge(a, b) {
+      for (var c = +b.length, d = 0, e = a.length; c > d; d++) {
+        a[e++] = b[d];
+      }return a.length = e, a;
+    }, grep: function grep(a, b, c) {
+      for (var d, e = [], f = 0, g = a.length, h = !c; g > f; f++) {
+        d = !b(a[f], f), d !== h && e.push(a[f]);
+      }return e;
+    }, map: function map(a, b, c) {
+      var d,
+          e,
+          g = 0,
+          h = [];if (s(a)) for (d = a.length; d > g; g++) {
+        e = b(a[g], g, c), null != e && h.push(e);
+      } else for (g in a) {
+        e = b(a[g], g, c), null != e && h.push(e);
+      }return f.apply([], h);
+    }, guid: 1, proxy: function proxy(a, b) {
+      var c, d, f;return "string" == typeof b && (c = a[b], b = a, a = c), n.isFunction(a) ? (d = e.call(arguments, 2), f = function f() {
+        return a.apply(b || this, d.concat(e.call(arguments)));
+      }, f.guid = a.guid = a.guid || n.guid++, f) : void 0;
+    }, now: Date.now, support: l }), "function" == typeof Symbol && (n.fn[Symbol.iterator] = c[Symbol.iterator]), n.each("Boolean Number String Function Array Date RegExp Object Error Symbol".split(" "), function (a, b) {
+    i["[object " + b + "]"] = b.toLowerCase();
+  });function s(a) {
+    var b = !!a && "length" in a && a.length,
+        c = n.type(a);return "function" === c || n.isWindow(a) ? !1 : "array" === c || 0 === b || "number" == typeof b && b > 0 && b - 1 in a;
+  }var t = function (a) {
+    var b,
+        c,
+        d,
+        e,
+        f,
+        g,
+        h,
+        i,
+        j,
+        k,
+        l,
+        m,
+        n,
+        o,
+        p,
+        q,
+        r,
+        s,
+        t,
+        u = "sizzle" + 1 * new Date(),
+        v = a.document,
+        w = 0,
+        x = 0,
+        y = ga(),
+        z = ga(),
+        A = ga(),
+        B = function B(a, b) {
+      return a === b && (l = !0), 0;
+    },
+        C = 1 << 31,
+        D = {}.hasOwnProperty,
+        E = [],
+        F = E.pop,
+        G = E.push,
+        H = E.push,
+        I = E.slice,
+        J = function J(a, b) {
+      for (var c = 0, d = a.length; d > c; c++) {
+        if (a[c] === b) return c;
+      }return -1;
+    },
+        K = "checked|selected|async|autofocus|autoplay|controls|defer|disabled|hidden|ismap|loop|multiple|open|readonly|required|scoped",
+        L = "[\\x20\\t\\r\\n\\f]",
+        M = "(?:\\\\.|[\\w-]|[^\\x00-\\xa0])+",
+        N = "\\[" + L + "*(" + M + ")(?:" + L + "*([*^$|!~]?=)" + L + "*(?:'((?:\\\\.|[^\\\\'])*)'|\"((?:\\\\.|[^\\\\\"])*)\"|(" + M + "))|)" + L + "*\\]",
+        O = ":(" + M + ")(?:\\((('((?:\\\\.|[^\\\\'])*)'|\"((?:\\\\.|[^\\\\\"])*)\")|((?:\\\\.|[^\\\\()[\\]]|" + N + ")*)|.*)\\)|)",
+        P = new RegExp(L + "+", "g"),
+        Q = new RegExp("^" + L + "+|((?:^|[^\\\\])(?:\\\\.)*)" + L + "+$", "g"),
+        R = new RegExp("^" + L + "*," + L + "*"),
+        S = new RegExp("^" + L + "*([>+~]|" + L + ")" + L + "*"),
+        T = new RegExp("=" + L + "*([^\\]'\"]*?)" + L + "*\\]", "g"),
+        U = new RegExp(O),
+        V = new RegExp("^" + M + "$"),
+        W = { ID: new RegExp("^#(" + M + ")"), CLASS: new RegExp("^\\.(" + M + ")"), TAG: new RegExp("^(" + M + "|[*])"), ATTR: new RegExp("^" + N), PSEUDO: new RegExp("^" + O), CHILD: new RegExp("^:(only|first|last|nth|nth-last)-(child|of-type)(?:\\(" + L + "*(even|odd|(([+-]|)(\\d*)n|)" + L + "*(?:([+-]|)" + L + "*(\\d+)|))" + L + "*\\)|)", "i"), bool: new RegExp("^(?:" + K + ")$", "i"), needsContext: new RegExp("^" + L + "*[>+~]|:(even|odd|eq|gt|lt|nth|first|last)(?:\\(" + L + "*((?:-\\d)?\\d*)" + L + "*\\)|)(?=[^-]|$)", "i") },
+        X = /^(?:input|select|textarea|button)$/i,
+        Y = /^h\d$/i,
+        Z = /^[^{]+\{\s*\[native \w/,
+        $ = /^(?:#([\w-]+)|(\w+)|\.([\w-]+))$/,
+        _ = /[+~]/,
+        aa = /'|\\/g,
+        ba = new RegExp("\\\\([\\da-f]{1,6}" + L + "?|(" + L + ")|.)", "ig"),
+        ca = function ca(a, b, c) {
+      var d = "0x" + b - 65536;return d !== d || c ? b : 0 > d ? String.fromCharCode(d + 65536) : String.fromCharCode(d >> 10 | 55296, 1023 & d | 56320);
+    },
+        da = function da() {
+      m();
+    };try {
+      H.apply(E = I.call(v.childNodes), v.childNodes), E[v.childNodes.length].nodeType;
+    } catch (ea) {
+      H = { apply: E.length ? function (a, b) {
+          G.apply(a, I.call(b));
+        } : function (a, b) {
+          var c = a.length,
+              d = 0;while (a[c++] = b[d++]) {}a.length = c - 1;
+        } };
+    }function fa(a, b, d, e) {
+      var f,
+          h,
+          j,
+          k,
+          l,
+          o,
+          r,
+          s,
+          w = b && b.ownerDocument,
+          x = b ? b.nodeType : 9;if (d = d || [], "string" != typeof a || !a || 1 !== x && 9 !== x && 11 !== x) return d;if (!e && ((b ? b.ownerDocument || b : v) !== n && m(b), b = b || n, p)) {
+        if (11 !== x && (o = $.exec(a))) if (f = o[1]) {
+          if (9 === x) {
+            if (!(j = b.getElementById(f))) return d;if (j.id === f) return d.push(j), d;
+          } else if (w && (j = w.getElementById(f)) && t(b, j) && j.id === f) return d.push(j), d;
+        } else {
+          if (o[2]) return H.apply(d, b.getElementsByTagName(a)), d;if ((f = o[3]) && c.getElementsByClassName && b.getElementsByClassName) return H.apply(d, b.getElementsByClassName(f)), d;
+        }if (c.qsa && !A[a + " "] && (!q || !q.test(a))) {
+          if (1 !== x) w = b, s = a;else if ("object" !== b.nodeName.toLowerCase()) {
+            (k = b.getAttribute("id")) ? k = k.replace(aa, "\\$&") : b.setAttribute("id", k = u), r = g(a), h = r.length, l = V.test(k) ? "#" + k : "[id='" + k + "']";while (h--) {
+              r[h] = l + " " + qa(r[h]);
+            }s = r.join(","), w = _.test(a) && oa(b.parentNode) || b;
+          }if (s) try {
+            return H.apply(d, w.querySelectorAll(s)), d;
+          } catch (y) {} finally {
+            k === u && b.removeAttribute("id");
+          }
+        }
+      }return i(a.replace(Q, "$1"), b, d, e);
+    }function ga() {
+      var a = [];function b(c, e) {
+        return a.push(c + " ") > d.cacheLength && delete b[a.shift()], b[c + " "] = e;
+      }return b;
+    }function ha(a) {
+      return a[u] = !0, a;
+    }function ia(a) {
+      var b = n.createElement("div");try {
+        return !!a(b);
+      } catch (c) {
+        return !1;
+      } finally {
+        b.parentNode && b.parentNode.removeChild(b), b = null;
+      }
+    }function ja(a, b) {
+      var c = a.split("|"),
+          e = c.length;while (e--) {
+        d.attrHandle[c[e]] = b;
+      }
+    }function ka(a, b) {
+      var c = b && a,
+          d = c && 1 === a.nodeType && 1 === b.nodeType && (~b.sourceIndex || C) - (~a.sourceIndex || C);if (d) return d;if (c) while (c = c.nextSibling) {
+        if (c === b) return -1;
+      }return a ? 1 : -1;
+    }function la(a) {
+      return function (b) {
+        var c = b.nodeName.toLowerCase();return "input" === c && b.type === a;
+      };
+    }function ma(a) {
+      return function (b) {
+        var c = b.nodeName.toLowerCase();return ("input" === c || "button" === c) && b.type === a;
+      };
+    }function na(a) {
+      return ha(function (b) {
+        return b = +b, ha(function (c, d) {
+          var e,
+              f = a([], c.length, b),
+              g = f.length;while (g--) {
+            c[e = f[g]] && (c[e] = !(d[e] = c[e]));
+          }
+        });
+      });
+    }function oa(a) {
+      return a && "undefined" != typeof a.getElementsByTagName && a;
+    }c = fa.support = {}, f = fa.isXML = function (a) {
+      var b = a && (a.ownerDocument || a).documentElement;return b ? "HTML" !== b.nodeName : !1;
+    }, m = fa.setDocument = function (a) {
+      var b,
+          e,
+          g = a ? a.ownerDocument || a : v;return g !== n && 9 === g.nodeType && g.documentElement ? (n = g, o = n.documentElement, p = !f(n), (e = n.defaultView) && e.top !== e && (e.addEventListener ? e.addEventListener("unload", da, !1) : e.attachEvent && e.attachEvent("onunload", da)), c.attributes = ia(function (a) {
+        return a.className = "i", !a.getAttribute("className");
+      }), c.getElementsByTagName = ia(function (a) {
+        return a.appendChild(n.createComment("")), !a.getElementsByTagName("*").length;
+      }), c.getElementsByClassName = Z.test(n.getElementsByClassName), c.getById = ia(function (a) {
+        return o.appendChild(a).id = u, !n.getElementsByName || !n.getElementsByName(u).length;
+      }), c.getById ? (d.find.ID = function (a, b) {
+        if ("undefined" != typeof b.getElementById && p) {
+          var c = b.getElementById(a);return c ? [c] : [];
+        }
+      }, d.filter.ID = function (a) {
+        var b = a.replace(ba, ca);return function (a) {
+          return a.getAttribute("id") === b;
+        };
+      }) : (delete d.find.ID, d.filter.ID = function (a) {
+        var b = a.replace(ba, ca);return function (a) {
+          var c = "undefined" != typeof a.getAttributeNode && a.getAttributeNode("id");return c && c.value === b;
+        };
+      }), d.find.TAG = c.getElementsByTagName ? function (a, b) {
+        return "undefined" != typeof b.getElementsByTagName ? b.getElementsByTagName(a) : c.qsa ? b.querySelectorAll(a) : void 0;
+      } : function (a, b) {
+        var c,
+            d = [],
+            e = 0,
+            f = b.getElementsByTagName(a);if ("*" === a) {
+          while (c = f[e++]) {
+            1 === c.nodeType && d.push(c);
+          }return d;
+        }return f;
+      }, d.find.CLASS = c.getElementsByClassName && function (a, b) {
+        return "undefined" != typeof b.getElementsByClassName && p ? b.getElementsByClassName(a) : void 0;
+      }, r = [], q = [], (c.qsa = Z.test(n.querySelectorAll)) && (ia(function (a) {
+        o.appendChild(a).innerHTML = "<a id='" + u + "'></a><select id='" + u + "-\r\\' msallowcapture=''><option selected=''></option></select>", a.querySelectorAll("[msallowcapture^='']").length && q.push("[*^$]=" + L + "*(?:''|\"\")"), a.querySelectorAll("[selected]").length || q.push("\\[" + L + "*(?:value|" + K + ")"), a.querySelectorAll("[id~=" + u + "-]").length || q.push("~="), a.querySelectorAll(":checked").length || q.push(":checked"), a.querySelectorAll("a#" + u + "+*").length || q.push(".#.+[+~]");
+      }), ia(function (a) {
+        var b = n.createElement("input");b.setAttribute("type", "hidden"), a.appendChild(b).setAttribute("name", "D"), a.querySelectorAll("[name=d]").length && q.push("name" + L + "*[*^$|!~]?="), a.querySelectorAll(":enabled").length || q.push(":enabled", ":disabled"), a.querySelectorAll("*,:x"), q.push(",.*:");
+      })), (c.matchesSelector = Z.test(s = o.matches || o.webkitMatchesSelector || o.mozMatchesSelector || o.oMatchesSelector || o.msMatchesSelector)) && ia(function (a) {
+        c.disconnectedMatch = s.call(a, "div"), s.call(a, "[s!='']:x"), r.push("!=", O);
+      }), q = q.length && new RegExp(q.join("|")), r = r.length && new RegExp(r.join("|")), b = Z.test(o.compareDocumentPosition), t = b || Z.test(o.contains) ? function (a, b) {
+        var c = 9 === a.nodeType ? a.documentElement : a,
+            d = b && b.parentNode;return a === d || !(!d || 1 !== d.nodeType || !(c.contains ? c.contains(d) : a.compareDocumentPosition && 16 & a.compareDocumentPosition(d)));
+      } : function (a, b) {
+        if (b) while (b = b.parentNode) {
+          if (b === a) return !0;
+        }return !1;
+      }, B = b ? function (a, b) {
+        if (a === b) return l = !0, 0;var d = !a.compareDocumentPosition - !b.compareDocumentPosition;return d ? d : (d = (a.ownerDocument || a) === (b.ownerDocument || b) ? a.compareDocumentPosition(b) : 1, 1 & d || !c.sortDetached && b.compareDocumentPosition(a) === d ? a === n || a.ownerDocument === v && t(v, a) ? -1 : b === n || b.ownerDocument === v && t(v, b) ? 1 : k ? J(k, a) - J(k, b) : 0 : 4 & d ? -1 : 1);
+      } : function (a, b) {
+        if (a === b) return l = !0, 0;var c,
+            d = 0,
+            e = a.parentNode,
+            f = b.parentNode,
+            g = [a],
+            h = [b];if (!e || !f) return a === n ? -1 : b === n ? 1 : e ? -1 : f ? 1 : k ? J(k, a) - J(k, b) : 0;if (e === f) return ka(a, b);c = a;while (c = c.parentNode) {
+          g.unshift(c);
+        }c = b;while (c = c.parentNode) {
+          h.unshift(c);
+        }while (g[d] === h[d]) {
+          d++;
+        }return d ? ka(g[d], h[d]) : g[d] === v ? -1 : h[d] === v ? 1 : 0;
+      }, n) : n;
+    }, fa.matches = function (a, b) {
+      return fa(a, null, null, b);
+    }, fa.matchesSelector = function (a, b) {
+      if ((a.ownerDocument || a) !== n && m(a), b = b.replace(T, "='$1']"), c.matchesSelector && p && !A[b + " "] && (!r || !r.test(b)) && (!q || !q.test(b))) try {
+        var d = s.call(a, b);if (d || c.disconnectedMatch || a.document && 11 !== a.document.nodeType) return d;
+      } catch (e) {}return fa(b, n, null, [a]).length > 0;
+    }, fa.contains = function (a, b) {
+      return (a.ownerDocument || a) !== n && m(a), t(a, b);
+    }, fa.attr = function (a, b) {
+      (a.ownerDocument || a) !== n && m(a);var e = d.attrHandle[b.toLowerCase()],
+          f = e && D.call(d.attrHandle, b.toLowerCase()) ? e(a, b, !p) : void 0;return void 0 !== f ? f : c.attributes || !p ? a.getAttribute(b) : (f = a.getAttributeNode(b)) && f.specified ? f.value : null;
+    }, fa.error = function (a) {
+      throw new Error("Syntax error, unrecognized expression: " + a);
+    }, fa.uniqueSort = function (a) {
+      var b,
+          d = [],
+          e = 0,
+          f = 0;if (l = !c.detectDuplicates, k = !c.sortStable && a.slice(0), a.sort(B), l) {
+        while (b = a[f++]) {
+          b === a[f] && (e = d.push(f));
+        }while (e--) {
+          a.splice(d[e], 1);
+        }
+      }return k = null, a;
+    }, e = fa.getText = function (a) {
+      var b,
+          c = "",
+          d = 0,
+          f = a.nodeType;if (f) {
+        if (1 === f || 9 === f || 11 === f) {
+          if ("string" == typeof a.textContent) return a.textContent;for (a = a.firstChild; a; a = a.nextSibling) {
+            c += e(a);
+          }
+        } else if (3 === f || 4 === f) return a.nodeValue;
+      } else while (b = a[d++]) {
+        c += e(b);
+      }return c;
+    }, d = fa.selectors = { cacheLength: 50, createPseudo: ha, match: W, attrHandle: {}, find: {}, relative: { ">": { dir: "parentNode", first: !0 }, " ": { dir: "parentNode" }, "+": { dir: "previousSibling", first: !0 }, "~": { dir: "previousSibling" } }, preFilter: { ATTR: function ATTR(a) {
+          return a[1] = a[1].replace(ba, ca), a[3] = (a[3] || a[4] || a[5] || "").replace(ba, ca), "~=" === a[2] && (a[3] = " " + a[3] + " "), a.slice(0, 4);
+        }, CHILD: function CHILD(a) {
+          return a[1] = a[1].toLowerCase(), "nth" === a[1].slice(0, 3) ? (a[3] || fa.error(a[0]), a[4] = +(a[4] ? a[5] + (a[6] || 1) : 2 * ("even" === a[3] || "odd" === a[3])), a[5] = +(a[7] + a[8] || "odd" === a[3])) : a[3] && fa.error(a[0]), a;
+        }, PSEUDO: function PSEUDO(a) {
+          var b,
+              c = !a[6] && a[2];return W.CHILD.test(a[0]) ? null : (a[3] ? a[2] = a[4] || a[5] || "" : c && U.test(c) && (b = g(c, !0)) && (b = c.indexOf(")", c.length - b) - c.length) && (a[0] = a[0].slice(0, b), a[2] = c.slice(0, b)), a.slice(0, 3));
+        } }, filter: { TAG: function TAG(a) {
+          var b = a.replace(ba, ca).toLowerCase();return "*" === a ? function () {
+            return !0;
+          } : function (a) {
+            return a.nodeName && a.nodeName.toLowerCase() === b;
+          };
+        }, CLASS: function CLASS(a) {
+          var b = y[a + " "];return b || (b = new RegExp("(^|" + L + ")" + a + "(" + L + "|$)")) && y(a, function (a) {
+            return b.test("string" == typeof a.className && a.className || "undefined" != typeof a.getAttribute && a.getAttribute("class") || "");
+          });
+        }, ATTR: function ATTR(a, b, c) {
+          return function (d) {
+            var e = fa.attr(d, a);return null == e ? "!=" === b : b ? (e += "", "=" === b ? e === c : "!=" === b ? e !== c : "^=" === b ? c && 0 === e.indexOf(c) : "*=" === b ? c && e.indexOf(c) > -1 : "$=" === b ? c && e.slice(-c.length) === c : "~=" === b ? (" " + e.replace(P, " ") + " ").indexOf(c) > -1 : "|=" === b ? e === c || e.slice(0, c.length + 1) === c + "-" : !1) : !0;
+          };
+        }, CHILD: function CHILD(a, b, c, d, e) {
+          var f = "nth" !== a.slice(0, 3),
+              g = "last" !== a.slice(-4),
+              h = "of-type" === b;return 1 === d && 0 === e ? function (a) {
+            return !!a.parentNode;
+          } : function (b, c, i) {
+            var j,
+                k,
+                l,
+                m,
+                n,
+                o,
+                p = f !== g ? "nextSibling" : "previousSibling",
+                q = b.parentNode,
+                r = h && b.nodeName.toLowerCase(),
+                s = !i && !h,
+                t = !1;if (q) {
+              if (f) {
+                while (p) {
+                  m = b;while (m = m[p]) {
+                    if (h ? m.nodeName.toLowerCase() === r : 1 === m.nodeType) return !1;
+                  }o = p = "only" === a && !o && "nextSibling";
+                }return !0;
+              }if (o = [g ? q.firstChild : q.lastChild], g && s) {
+                m = q, l = m[u] || (m[u] = {}), k = l[m.uniqueID] || (l[m.uniqueID] = {}), j = k[a] || [], n = j[0] === w && j[1], t = n && j[2], m = n && q.childNodes[n];while (m = ++n && m && m[p] || (t = n = 0) || o.pop()) {
+                  if (1 === m.nodeType && ++t && m === b) {
+                    k[a] = [w, n, t];break;
+                  }
+                }
+              } else if (s && (m = b, l = m[u] || (m[u] = {}), k = l[m.uniqueID] || (l[m.uniqueID] = {}), j = k[a] || [], n = j[0] === w && j[1], t = n), t === !1) while (m = ++n && m && m[p] || (t = n = 0) || o.pop()) {
+                if ((h ? m.nodeName.toLowerCase() === r : 1 === m.nodeType) && ++t && (s && (l = m[u] || (m[u] = {}), k = l[m.uniqueID] || (l[m.uniqueID] = {}), k[a] = [w, t]), m === b)) break;
+              }return t -= e, t === d || t % d === 0 && t / d >= 0;
+            }
+          };
+        }, PSEUDO: function PSEUDO(a, b) {
+          var c,
+              e = d.pseudos[a] || d.setFilters[a.toLowerCase()] || fa.error("unsupported pseudo: " + a);return e[u] ? e(b) : e.length > 1 ? (c = [a, a, "", b], d.setFilters.hasOwnProperty(a.toLowerCase()) ? ha(function (a, c) {
+            var d,
+                f = e(a, b),
+                g = f.length;while (g--) {
+              d = J(a, f[g]), a[d] = !(c[d] = f[g]);
+            }
+          }) : function (a) {
+            return e(a, 0, c);
+          }) : e;
+        } }, pseudos: { not: ha(function (a) {
+          var b = [],
+              c = [],
+              d = h(a.replace(Q, "$1"));return d[u] ? ha(function (a, b, c, e) {
+            var f,
+                g = d(a, null, e, []),
+                h = a.length;while (h--) {
+              (f = g[h]) && (a[h] = !(b[h] = f));
+            }
+          }) : function (a, e, f) {
+            return b[0] = a, d(b, null, f, c), b[0] = null, !c.pop();
+          };
+        }), has: ha(function (a) {
+          return function (b) {
+            return fa(a, b).length > 0;
+          };
+        }), contains: ha(function (a) {
+          return a = a.replace(ba, ca), function (b) {
+            return (b.textContent || b.innerText || e(b)).indexOf(a) > -1;
+          };
+        }), lang: ha(function (a) {
+          return V.test(a || "") || fa.error("unsupported lang: " + a), a = a.replace(ba, ca).toLowerCase(), function (b) {
+            var c;do {
+              if (c = p ? b.lang : b.getAttribute("xml:lang") || b.getAttribute("lang")) return c = c.toLowerCase(), c === a || 0 === c.indexOf(a + "-");
+            } while ((b = b.parentNode) && 1 === b.nodeType);return !1;
+          };
+        }), target: function target(b) {
+          var c = a.location && a.location.hash;return c && c.slice(1) === b.id;
+        }, root: function root(a) {
+          return a === o;
+        }, focus: function focus(a) {
+          return a === n.activeElement && (!n.hasFocus || n.hasFocus()) && !!(a.type || a.href || ~a.tabIndex);
+        }, enabled: function enabled(a) {
+          return a.disabled === !1;
+        }, disabled: function disabled(a) {
+          return a.disabled === !0;
+        }, checked: function checked(a) {
+          var b = a.nodeName.toLowerCase();return "input" === b && !!a.checked || "option" === b && !!a.selected;
+        }, selected: function selected(a) {
+          return a.parentNode && a.parentNode.selectedIndex, a.selected === !0;
+        }, empty: function empty(a) {
+          for (a = a.firstChild; a; a = a.nextSibling) {
+            if (a.nodeType < 6) return !1;
+          }return !0;
+        }, parent: function parent(a) {
+          return !d.pseudos.empty(a);
+        }, header: function header(a) {
+          return Y.test(a.nodeName);
+        }, input: function input(a) {
+          return X.test(a.nodeName);
+        }, button: function button(a) {
+          var b = a.nodeName.toLowerCase();return "input" === b && "button" === a.type || "button" === b;
+        }, text: function text(a) {
+          var b;return "input" === a.nodeName.toLowerCase() && "text" === a.type && (null == (b = a.getAttribute("type")) || "text" === b.toLowerCase());
+        }, first: na(function () {
+          return [0];
+        }), last: na(function (a, b) {
+          return [b - 1];
+        }), eq: na(function (a, b, c) {
+          return [0 > c ? c + b : c];
+        }), even: na(function (a, b) {
+          for (var c = 0; b > c; c += 2) {
+            a.push(c);
+          }return a;
+        }), odd: na(function (a, b) {
+          for (var c = 1; b > c; c += 2) {
+            a.push(c);
+          }return a;
+        }), lt: na(function (a, b, c) {
+          for (var d = 0 > c ? c + b : c; --d >= 0;) {
+            a.push(d);
+          }return a;
+        }), gt: na(function (a, b, c) {
+          for (var d = 0 > c ? c + b : c; ++d < b;) {
+            a.push(d);
+          }return a;
+        }) } }, d.pseudos.nth = d.pseudos.eq;for (b in { radio: !0, checkbox: !0, file: !0, password: !0, image: !0 }) {
+      d.pseudos[b] = la(b);
+    }for (b in { submit: !0, reset: !0 }) {
+      d.pseudos[b] = ma(b);
+    }function pa() {}pa.prototype = d.filters = d.pseudos, d.setFilters = new pa(), g = fa.tokenize = function (a, b) {
+      var c,
+          e,
+          f,
+          g,
+          h,
+          i,
+          j,
+          k = z[a + " "];if (k) return b ? 0 : k.slice(0);h = a, i = [], j = d.preFilter;while (h) {
+        c && !(e = R.exec(h)) || (e && (h = h.slice(e[0].length) || h), i.push(f = [])), c = !1, (e = S.exec(h)) && (c = e.shift(), f.push({ value: c, type: e[0].replace(Q, " ") }), h = h.slice(c.length));for (g in d.filter) {
+          !(e = W[g].exec(h)) || j[g] && !(e = j[g](e)) || (c = e.shift(), f.push({ value: c, type: g, matches: e }), h = h.slice(c.length));
+        }if (!c) break;
+      }return b ? h.length : h ? fa.error(a) : z(a, i).slice(0);
+    };function qa(a) {
+      for (var b = 0, c = a.length, d = ""; c > b; b++) {
+        d += a[b].value;
+      }return d;
+    }function ra(a, b, c) {
+      var d = b.dir,
+          e = c && "parentNode" === d,
+          f = x++;return b.first ? function (b, c, f) {
+        while (b = b[d]) {
+          if (1 === b.nodeType || e) return a(b, c, f);
+        }
+      } : function (b, c, g) {
+        var h,
+            i,
+            j,
+            k = [w, f];if (g) {
+          while (b = b[d]) {
+            if ((1 === b.nodeType || e) && a(b, c, g)) return !0;
+          }
+        } else while (b = b[d]) {
+          if (1 === b.nodeType || e) {
+            if (j = b[u] || (b[u] = {}), i = j[b.uniqueID] || (j[b.uniqueID] = {}), (h = i[d]) && h[0] === w && h[1] === f) return k[2] = h[2];if (i[d] = k, k[2] = a(b, c, g)) return !0;
+          }
+        }
+      };
+    }function sa(a) {
+      return a.length > 1 ? function (b, c, d) {
+        var e = a.length;while (e--) {
+          if (!a[e](b, c, d)) return !1;
+        }return !0;
+      } : a[0];
+    }function ta(a, b, c) {
+      for (var d = 0, e = b.length; e > d; d++) {
+        fa(a, b[d], c);
+      }return c;
+    }function ua(a, b, c, d, e) {
+      for (var f, g = [], h = 0, i = a.length, j = null != b; i > h; h++) {
+        (f = a[h]) && (c && !c(f, d, e) || (g.push(f), j && b.push(h)));
+      }return g;
+    }function va(a, b, c, d, e, f) {
+      return d && !d[u] && (d = va(d)), e && !e[u] && (e = va(e, f)), ha(function (f, g, h, i) {
+        var j,
+            k,
+            l,
+            m = [],
+            n = [],
+            o = g.length,
+            p = f || ta(b || "*", h.nodeType ? [h] : h, []),
+            q = !a || !f && b ? p : ua(p, m, a, h, i),
+            r = c ? e || (f ? a : o || d) ? [] : g : q;if (c && c(q, r, h, i), d) {
+          j = ua(r, n), d(j, [], h, i), k = j.length;while (k--) {
+            (l = j[k]) && (r[n[k]] = !(q[n[k]] = l));
+          }
+        }if (f) {
+          if (e || a) {
+            if (e) {
+              j = [], k = r.length;while (k--) {
+                (l = r[k]) && j.push(q[k] = l);
+              }e(null, r = [], j, i);
+            }k = r.length;while (k--) {
+              (l = r[k]) && (j = e ? J(f, l) : m[k]) > -1 && (f[j] = !(g[j] = l));
+            }
+          }
+        } else r = ua(r === g ? r.splice(o, r.length) : r), e ? e(null, g, r, i) : H.apply(g, r);
+      });
+    }function wa(a) {
+      for (var b, c, e, f = a.length, g = d.relative[a[0].type], h = g || d.relative[" "], i = g ? 1 : 0, k = ra(function (a) {
+        return a === b;
+      }, h, !0), l = ra(function (a) {
+        return J(b, a) > -1;
+      }, h, !0), m = [function (a, c, d) {
+        var e = !g && (d || c !== j) || ((b = c).nodeType ? k(a, c, d) : l(a, c, d));return b = null, e;
+      }]; f > i; i++) {
+        if (c = d.relative[a[i].type]) m = [ra(sa(m), c)];else {
+          if (c = d.filter[a[i].type].apply(null, a[i].matches), c[u]) {
+            for (e = ++i; f > e; e++) {
+              if (d.relative[a[e].type]) break;
+            }return va(i > 1 && sa(m), i > 1 && qa(a.slice(0, i - 1).concat({ value: " " === a[i - 2].type ? "*" : "" })).replace(Q, "$1"), c, e > i && wa(a.slice(i, e)), f > e && wa(a = a.slice(e)), f > e && qa(a));
+          }m.push(c);
+        }
+      }return sa(m);
+    }function xa(a, b) {
+      var c = b.length > 0,
+          e = a.length > 0,
+          f = function f(_f, g, h, i, k) {
+        var l,
+            o,
+            q,
+            r = 0,
+            s = "0",
+            t = _f && [],
+            u = [],
+            v = j,
+            x = _f || e && d.find.TAG("*", k),
+            y = w += null == v ? 1 : Math.random() || .1,
+            z = x.length;for (k && (j = g === n || g || k); s !== z && null != (l = x[s]); s++) {
+          if (e && l) {
+            o = 0, g || l.ownerDocument === n || (m(l), h = !p);while (q = a[o++]) {
+              if (q(l, g || n, h)) {
+                i.push(l);break;
+              }
+            }k && (w = y);
+          }c && ((l = !q && l) && r--, _f && t.push(l));
+        }if (r += s, c && s !== r) {
+          o = 0;while (q = b[o++]) {
+            q(t, u, g, h);
+          }if (_f) {
+            if (r > 0) while (s--) {
+              t[s] || u[s] || (u[s] = F.call(i));
+            }u = ua(u);
+          }H.apply(i, u), k && !_f && u.length > 0 && r + b.length > 1 && fa.uniqueSort(i);
+        }return k && (w = y, j = v), t;
+      };return c ? ha(f) : f;
+    }return h = fa.compile = function (a, b) {
+      var c,
+          d = [],
+          e = [],
+          f = A[a + " "];if (!f) {
+        b || (b = g(a)), c = b.length;while (c--) {
+          f = wa(b[c]), f[u] ? d.push(f) : e.push(f);
+        }f = A(a, xa(e, d)), f.selector = a;
+      }return f;
+    }, i = fa.select = function (a, b, e, f) {
+      var i,
+          j,
+          k,
+          l,
+          m,
+          n = "function" == typeof a && a,
+          o = !f && g(a = n.selector || a);if (e = e || [], 1 === o.length) {
+        if (j = o[0] = o[0].slice(0), j.length > 2 && "ID" === (k = j[0]).type && c.getById && 9 === b.nodeType && p && d.relative[j[1].type]) {
+          if (b = (d.find.ID(k.matches[0].replace(ba, ca), b) || [])[0], !b) return e;n && (b = b.parentNode), a = a.slice(j.shift().value.length);
+        }i = W.needsContext.test(a) ? 0 : j.length;while (i--) {
+          if (k = j[i], d.relative[l = k.type]) break;if ((m = d.find[l]) && (f = m(k.matches[0].replace(ba, ca), _.test(j[0].type) && oa(b.parentNode) || b))) {
+            if (j.splice(i, 1), a = f.length && qa(j), !a) return H.apply(e, f), e;break;
+          }
+        }
+      }return (n || h(a, o))(f, b, !p, e, !b || _.test(a) && oa(b.parentNode) || b), e;
+    }, c.sortStable = u.split("").sort(B).join("") === u, c.detectDuplicates = !!l, m(), c.sortDetached = ia(function (a) {
+      return 1 & a.compareDocumentPosition(n.createElement("div"));
+    }), ia(function (a) {
+      return a.innerHTML = "<a href='#'></a>", "#" === a.firstChild.getAttribute("href");
+    }) || ja("type|href|height|width", function (a, b, c) {
+      return c ? void 0 : a.getAttribute(b, "type" === b.toLowerCase() ? 1 : 2);
+    }), c.attributes && ia(function (a) {
+      return a.innerHTML = "<input/>", a.firstChild.setAttribute("value", ""), "" === a.firstChild.getAttribute("value");
+    }) || ja("value", function (a, b, c) {
+      return c || "input" !== a.nodeName.toLowerCase() ? void 0 : a.defaultValue;
+    }), ia(function (a) {
+      return null == a.getAttribute("disabled");
+    }) || ja(K, function (a, b, c) {
+      var d;return c ? void 0 : a[b] === !0 ? b.toLowerCase() : (d = a.getAttributeNode(b)) && d.specified ? d.value : null;
+    }), fa;
+  }(a);n.find = t, n.expr = t.selectors, n.expr[":"] = n.expr.pseudos, n.uniqueSort = n.unique = t.uniqueSort, n.text = t.getText, n.isXMLDoc = t.isXML, n.contains = t.contains;var u = function u(a, b, c) {
+    var d = [],
+        e = void 0 !== c;while ((a = a[b]) && 9 !== a.nodeType) {
+      if (1 === a.nodeType) {
+        if (e && n(a).is(c)) break;d.push(a);
+      }
+    }return d;
+  },
+      v = function v(a, b) {
+    for (var c = []; a; a = a.nextSibling) {
+      1 === a.nodeType && a !== b && c.push(a);
+    }return c;
+  },
+      w = n.expr.match.needsContext,
+      x = /^<([\w-]+)\s*\/?>(?:<\/\1>|)$/,
+      y = /^.[^:#\[\.,]*$/;function z(a, b, c) {
+    if (n.isFunction(b)) return n.grep(a, function (a, d) {
+      return !!b.call(a, d, a) !== c;
+    });if (b.nodeType) return n.grep(a, function (a) {
+      return a === b !== c;
+    });if ("string" == typeof b) {
+      if (y.test(b)) return n.filter(b, a, c);b = n.filter(b, a);
+    }return n.grep(a, function (a) {
+      return h.call(b, a) > -1 !== c;
+    });
+  }n.filter = function (a, b, c) {
+    var d = b[0];return c && (a = ":not(" + a + ")"), 1 === b.length && 1 === d.nodeType ? n.find.matchesSelector(d, a) ? [d] : [] : n.find.matches(a, n.grep(b, function (a) {
+      return 1 === a.nodeType;
+    }));
+  }, n.fn.extend({ find: function find(a) {
+      var b,
+          c = this.length,
+          d = [],
+          e = this;if ("string" != typeof a) return this.pushStack(n(a).filter(function () {
+        for (b = 0; c > b; b++) {
+          if (n.contains(e[b], this)) return !0;
+        }
+      }));for (b = 0; c > b; b++) {
+        n.find(a, e[b], d);
+      }return d = this.pushStack(c > 1 ? n.unique(d) : d), d.selector = this.selector ? this.selector + " " + a : a, d;
+    }, filter: function filter(a) {
+      return this.pushStack(z(this, a || [], !1));
+    }, not: function not(a) {
+      return this.pushStack(z(this, a || [], !0));
+    }, is: function is(a) {
+      return !!z(this, "string" == typeof a && w.test(a) ? n(a) : a || [], !1).length;
+    } });var A,
+      B = /^(?:\s*(<[\w\W]+>)[^>]*|#([\w-]*))$/,
+      C = n.fn.init = function (a, b, c) {
+    var e, f;if (!a) return this;if (c = c || A, "string" == typeof a) {
+      if (e = "<" === a[0] && ">" === a[a.length - 1] && a.length >= 3 ? [null, a, null] : B.exec(a), !e || !e[1] && b) return !b || b.jquery ? (b || c).find(a) : this.constructor(b).find(a);if (e[1]) {
+        if (b = b instanceof n ? b[0] : b, n.merge(this, n.parseHTML(e[1], b && b.nodeType ? b.ownerDocument || b : d, !0)), x.test(e[1]) && n.isPlainObject(b)) for (e in b) {
+          n.isFunction(this[e]) ? this[e](b[e]) : this.attr(e, b[e]);
+        }return this;
+      }return f = d.getElementById(e[2]), f && f.parentNode && (this.length = 1, this[0] = f), this.context = d, this.selector = a, this;
+    }return a.nodeType ? (this.context = this[0] = a, this.length = 1, this) : n.isFunction(a) ? void 0 !== c.ready ? c.ready(a) : a(n) : (void 0 !== a.selector && (this.selector = a.selector, this.context = a.context), n.makeArray(a, this));
+  };C.prototype = n.fn, A = n(d);var D = /^(?:parents|prev(?:Until|All))/,
+      E = { children: !0, contents: !0, next: !0, prev: !0 };n.fn.extend({ has: function has(a) {
+      var b = n(a, this),
+          c = b.length;return this.filter(function () {
+        for (var a = 0; c > a; a++) {
+          if (n.contains(this, b[a])) return !0;
+        }
+      });
+    }, closest: function closest(a, b) {
+      for (var c, d = 0, e = this.length, f = [], g = w.test(a) || "string" != typeof a ? n(a, b || this.context) : 0; e > d; d++) {
+        for (c = this[d]; c && c !== b; c = c.parentNode) {
+          if (c.nodeType < 11 && (g ? g.index(c) > -1 : 1 === c.nodeType && n.find.matchesSelector(c, a))) {
+            f.push(c);break;
+          }
+        }
+      }return this.pushStack(f.length > 1 ? n.uniqueSort(f) : f);
+    }, index: function index(a) {
+      return a ? "string" == typeof a ? h.call(n(a), this[0]) : h.call(this, a.jquery ? a[0] : a) : this[0] && this[0].parentNode ? this.first().prevAll().length : -1;
+    }, add: function add(a, b) {
+      return this.pushStack(n.uniqueSort(n.merge(this.get(), n(a, b))));
+    }, addBack: function addBack(a) {
+      return this.add(null == a ? this.prevObject : this.prevObject.filter(a));
+    } });function F(a, b) {
+    while ((a = a[b]) && 1 !== a.nodeType) {}return a;
+  }n.each({ parent: function parent(a) {
+      var b = a.parentNode;return b && 11 !== b.nodeType ? b : null;
+    }, parents: function parents(a) {
+      return u(a, "parentNode");
+    }, parentsUntil: function parentsUntil(a, b, c) {
+      return u(a, "parentNode", c);
+    }, next: function next(a) {
+      return F(a, "nextSibling");
+    }, prev: function prev(a) {
+      return F(a, "previousSibling");
+    }, nextAll: function nextAll(a) {
+      return u(a, "nextSibling");
+    }, prevAll: function prevAll(a) {
+      return u(a, "previousSibling");
+    }, nextUntil: function nextUntil(a, b, c) {
+      return u(a, "nextSibling", c);
+    }, prevUntil: function prevUntil(a, b, c) {
+      return u(a, "previousSibling", c);
+    }, siblings: function siblings(a) {
+      return v((a.parentNode || {}).firstChild, a);
+    }, children: function children(a) {
+      return v(a.firstChild);
+    }, contents: function contents(a) {
+      return a.contentDocument || n.merge([], a.childNodes);
+    } }, function (a, b) {
+    n.fn[a] = function (c, d) {
+      var e = n.map(this, b, c);return "Until" !== a.slice(-5) && (d = c), d && "string" == typeof d && (e = n.filter(d, e)), this.length > 1 && (E[a] || n.uniqueSort(e), D.test(a) && e.reverse()), this.pushStack(e);
+    };
+  });var G = /\S+/g;function H(a) {
+    var b = {};return n.each(a.match(G) || [], function (a, c) {
+      b[c] = !0;
+    }), b;
+  }n.Callbacks = function (a) {
+    a = "string" == typeof a ? H(a) : n.extend({}, a);var b,
+        c,
+        d,
+        e,
+        f = [],
+        g = [],
+        h = -1,
+        i = function i() {
+      for (e = a.once, d = b = !0; g.length; h = -1) {
+        c = g.shift();while (++h < f.length) {
+          f[h].apply(c[0], c[1]) === !1 && a.stopOnFalse && (h = f.length, c = !1);
+        }
+      }a.memory || (c = !1), b = !1, e && (f = c ? [] : "");
+    },
+        j = { add: function add() {
+        return f && (c && !b && (h = f.length - 1, g.push(c)), function d(b) {
+          n.each(b, function (b, c) {
+            n.isFunction(c) ? a.unique && j.has(c) || f.push(c) : c && c.length && "string" !== n.type(c) && d(c);
+          });
+        }(arguments), c && !b && i()), this;
+      }, remove: function remove() {
+        return n.each(arguments, function (a, b) {
+          var c;while ((c = n.inArray(b, f, c)) > -1) {
+            f.splice(c, 1), h >= c && h--;
+          }
+        }), this;
+      }, has: function has(a) {
+        return a ? n.inArray(a, f) > -1 : f.length > 0;
+      }, empty: function empty() {
+        return f && (f = []), this;
+      }, disable: function disable() {
+        return e = g = [], f = c = "", this;
+      }, disabled: function disabled() {
+        return !f;
+      }, lock: function lock() {
+        return e = g = [], c || (f = c = ""), this;
+      }, locked: function locked() {
+        return !!e;
+      }, fireWith: function fireWith(a, c) {
+        return e || (c = c || [], c = [a, c.slice ? c.slice() : c], g.push(c), b || i()), this;
+      }, fire: function fire() {
+        return j.fireWith(this, arguments), this;
+      }, fired: function fired() {
+        return !!d;
+      } };return j;
+  }, n.extend({ Deferred: function Deferred(a) {
+      var b = [["resolve", "done", n.Callbacks("once memory"), "resolved"], ["reject", "fail", n.Callbacks("once memory"), "rejected"], ["notify", "progress", n.Callbacks("memory")]],
+          c = "pending",
+          d = { state: function state() {
+          return c;
+        }, always: function always() {
+          return e.done(arguments).fail(arguments), this;
+        }, then: function then() {
+          var a = arguments;return n.Deferred(function (c) {
+            n.each(b, function (b, f) {
+              var g = n.isFunction(a[b]) && a[b];e[f[1]](function () {
+                var a = g && g.apply(this, arguments);a && n.isFunction(a.promise) ? a.promise().progress(c.notify).done(c.resolve).fail(c.reject) : c[f[0] + "With"](this === d ? c.promise() : this, g ? [a] : arguments);
+              });
+            }), a = null;
+          }).promise();
+        }, promise: function promise(a) {
+          return null != a ? n.extend(a, d) : d;
+        } },
+          e = {};return d.pipe = d.then, n.each(b, function (a, f) {
+        var g = f[2],
+            h = f[3];d[f[1]] = g.add, h && g.add(function () {
+          c = h;
+        }, b[1 ^ a][2].disable, b[2][2].lock), e[f[0]] = function () {
+          return e[f[0] + "With"](this === e ? d : this, arguments), this;
+        }, e[f[0] + "With"] = g.fireWith;
+      }), d.promise(e), a && a.call(e, e), e;
+    }, when: function when(a) {
+      var b = 0,
+          c = e.call(arguments),
+          d = c.length,
+          f = 1 !== d || a && n.isFunction(a.promise) ? d : 0,
+          g = 1 === f ? a : n.Deferred(),
+          h = function h(a, b, c) {
+        return function (d) {
+          b[a] = this, c[a] = arguments.length > 1 ? e.call(arguments) : d, c === i ? g.notifyWith(b, c) : --f || g.resolveWith(b, c);
+        };
+      },
+          i,
+          j,
+          k;if (d > 1) for (i = new Array(d), j = new Array(d), k = new Array(d); d > b; b++) {
+        c[b] && n.isFunction(c[b].promise) ? c[b].promise().progress(h(b, j, i)).done(h(b, k, c)).fail(g.reject) : --f;
+      }return f || g.resolveWith(k, c), g.promise();
+    } });var I;n.fn.ready = function (a) {
+    return n.ready.promise().done(a), this;
+  }, n.extend({ isReady: !1, readyWait: 1, holdReady: function holdReady(a) {
+      a ? n.readyWait++ : n.ready(!0);
+    }, ready: function ready(a) {
+      (a === !0 ? --n.readyWait : n.isReady) || (n.isReady = !0, a !== !0 && --n.readyWait > 0 || (I.resolveWith(d, [n]), n.fn.triggerHandler && (n(d).triggerHandler("ready"), n(d).off("ready"))));
+    } });function J() {
+    d.removeEventListener("DOMContentLoaded", J), a.removeEventListener("load", J), n.ready();
+  }n.ready.promise = function (b) {
+    return I || (I = n.Deferred(), "complete" === d.readyState || "loading" !== d.readyState && !d.documentElement.doScroll ? a.setTimeout(n.ready) : (d.addEventListener("DOMContentLoaded", J), a.addEventListener("load", J))), I.promise(b);
+  }, n.ready.promise();var K = function K(a, b, c, d, e, f, g) {
+    var h = 0,
+        i = a.length,
+        j = null == c;if ("object" === n.type(c)) {
+      e = !0;for (h in c) {
+        K(a, b, h, c[h], !0, f, g);
+      }
+    } else if (void 0 !== d && (e = !0, n.isFunction(d) || (g = !0), j && (g ? (b.call(a, d), b = null) : (j = b, b = function b(a, _b, c) {
+      return j.call(n(a), c);
+    })), b)) for (; i > h; h++) {
+      b(a[h], c, g ? d : d.call(a[h], h, b(a[h], c)));
+    }return e ? a : j ? b.call(a) : i ? b(a[0], c) : f;
+  },
+      L = function L(a) {
+    return 1 === a.nodeType || 9 === a.nodeType || !+a.nodeType;
+  };function M() {
+    this.expando = n.expando + M.uid++;
+  }M.uid = 1, M.prototype = { register: function register(a, b) {
+      var c = b || {};return a.nodeType ? a[this.expando] = c : Object.defineProperty(a, this.expando, { value: c, writable: !0, configurable: !0 }), a[this.expando];
+    }, cache: function cache(a) {
+      if (!L(a)) return {};var b = a[this.expando];return b || (b = {}, L(a) && (a.nodeType ? a[this.expando] = b : Object.defineProperty(a, this.expando, { value: b, configurable: !0 }))), b;
+    }, set: function set(a, b, c) {
+      var d,
+          e = this.cache(a);if ("string" == typeof b) e[b] = c;else for (d in b) {
+        e[d] = b[d];
+      }return e;
+    }, get: function get(a, b) {
+      return void 0 === b ? this.cache(a) : a[this.expando] && a[this.expando][b];
+    }, access: function access(a, b, c) {
+      var d;return void 0 === b || b && "string" == typeof b && void 0 === c ? (d = this.get(a, b), void 0 !== d ? d : this.get(a, n.camelCase(b))) : (this.set(a, b, c), void 0 !== c ? c : b);
+    }, remove: function remove(a, b) {
+      var c,
+          d,
+          e,
+          f = a[this.expando];if (void 0 !== f) {
+        if (void 0 === b) this.register(a);else {
+          n.isArray(b) ? d = b.concat(b.map(n.camelCase)) : (e = n.camelCase(b), b in f ? d = [b, e] : (d = e, d = d in f ? [d] : d.match(G) || [])), c = d.length;while (c--) {
+            delete f[d[c]];
+          }
+        }(void 0 === b || n.isEmptyObject(f)) && (a.nodeType ? a[this.expando] = void 0 : delete a[this.expando]);
+      }
+    }, hasData: function hasData(a) {
+      var b = a[this.expando];return void 0 !== b && !n.isEmptyObject(b);
+    } };var N = new M(),
+      O = new M(),
+      P = /^(?:\{[\w\W]*\}|\[[\w\W]*\])$/,
+      Q = /[A-Z]/g;function R(a, b, c) {
+    var d;if (void 0 === c && 1 === a.nodeType) if (d = "data-" + b.replace(Q, "-$&").toLowerCase(), c = a.getAttribute(d), "string" == typeof c) {
+      try {
+        c = "true" === c ? !0 : "false" === c ? !1 : "null" === c ? null : +c + "" === c ? +c : P.test(c) ? n.parseJSON(c) : c;
+      } catch (e) {}O.set(a, b, c);
+    } else c = void 0;return c;
+  }n.extend({ hasData: function hasData(a) {
+      return O.hasData(a) || N.hasData(a);
+    }, data: function data(a, b, c) {
+      return O.access(a, b, c);
+    }, removeData: function removeData(a, b) {
+      O.remove(a, b);
+    }, _data: function _data(a, b, c) {
+      return N.access(a, b, c);
+    }, _removeData: function _removeData(a, b) {
+      N.remove(a, b);
+    } }), n.fn.extend({ data: function data(a, b) {
+      var c,
+          d,
+          e,
+          f = this[0],
+          g = f && f.attributes;if (void 0 === a) {
+        if (this.length && (e = O.get(f), 1 === f.nodeType && !N.get(f, "hasDataAttrs"))) {
+          c = g.length;while (c--) {
+            g[c] && (d = g[c].name, 0 === d.indexOf("data-") && (d = n.camelCase(d.slice(5)), R(f, d, e[d])));
+          }N.set(f, "hasDataAttrs", !0);
+        }return e;
+      }return "object" == (typeof a === "undefined" ? "undefined" : _typeof(a)) ? this.each(function () {
+        O.set(this, a);
+      }) : K(this, function (b) {
+        var c, d;if (f && void 0 === b) {
+          if (c = O.get(f, a) || O.get(f, a.replace(Q, "-$&").toLowerCase()), void 0 !== c) return c;if (d = n.camelCase(a), c = O.get(f, d), void 0 !== c) return c;if (c = R(f, d, void 0), void 0 !== c) return c;
+        } else d = n.camelCase(a), this.each(function () {
+          var c = O.get(this, d);O.set(this, d, b), a.indexOf("-") > -1 && void 0 !== c && O.set(this, a, b);
+        });
+      }, null, b, arguments.length > 1, null, !0);
+    }, removeData: function removeData(a) {
+      return this.each(function () {
+        O.remove(this, a);
+      });
+    } }), n.extend({ queue: function queue(a, b, c) {
+      var d;return a ? (b = (b || "fx") + "queue", d = N.get(a, b), c && (!d || n.isArray(c) ? d = N.access(a, b, n.makeArray(c)) : d.push(c)), d || []) : void 0;
+    }, dequeue: function dequeue(a, b) {
+      b = b || "fx";var c = n.queue(a, b),
+          d = c.length,
+          e = c.shift(),
+          f = n._queueHooks(a, b),
+          g = function g() {
+        n.dequeue(a, b);
+      };"inprogress" === e && (e = c.shift(), d--), e && ("fx" === b && c.unshift("inprogress"), delete f.stop, e.call(a, g, f)), !d && f && f.empty.fire();
+    }, _queueHooks: function _queueHooks(a, b) {
+      var c = b + "queueHooks";return N.get(a, c) || N.access(a, c, { empty: n.Callbacks("once memory").add(function () {
+          N.remove(a, [b + "queue", c]);
+        }) });
+    } }), n.fn.extend({ queue: function queue(a, b) {
+      var c = 2;return "string" != typeof a && (b = a, a = "fx", c--), arguments.length < c ? n.queue(this[0], a) : void 0 === b ? this : this.each(function () {
+        var c = n.queue(this, a, b);n._queueHooks(this, a), "fx" === a && "inprogress" !== c[0] && n.dequeue(this, a);
+      });
+    }, dequeue: function dequeue(a) {
+      return this.each(function () {
+        n.dequeue(this, a);
+      });
+    }, clearQueue: function clearQueue(a) {
+      return this.queue(a || "fx", []);
+    }, promise: function promise(a, b) {
+      var c,
+          d = 1,
+          e = n.Deferred(),
+          f = this,
+          g = this.length,
+          h = function h() {
+        --d || e.resolveWith(f, [f]);
+      };"string" != typeof a && (b = a, a = void 0), a = a || "fx";while (g--) {
+        c = N.get(f[g], a + "queueHooks"), c && c.empty && (d++, c.empty.add(h));
+      }return h(), e.promise(b);
+    } });var S = /[+-]?(?:\d*\.|)\d+(?:[eE][+-]?\d+|)/.source,
+      T = new RegExp("^(?:([+-])=|)(" + S + ")([a-z%]*)$", "i"),
+      U = ["Top", "Right", "Bottom", "Left"],
+      V = function V(a, b) {
+    return a = b || a, "none" === n.css(a, "display") || !n.contains(a.ownerDocument, a);
+  };function W(a, b, c, d) {
+    var e,
+        f = 1,
+        g = 20,
+        h = d ? function () {
+      return d.cur();
+    } : function () {
+      return n.css(a, b, "");
+    },
+        i = h(),
+        j = c && c[3] || (n.cssNumber[b] ? "" : "px"),
+        k = (n.cssNumber[b] || "px" !== j && +i) && T.exec(n.css(a, b));if (k && k[3] !== j) {
+      j = j || k[3], c = c || [], k = +i || 1;do {
+        f = f || ".5", k /= f, n.style(a, b, k + j);
+      } while (f !== (f = h() / i) && 1 !== f && --g);
+    }return c && (k = +k || +i || 0, e = c[1] ? k + (c[1] + 1) * c[2] : +c[2], d && (d.unit = j, d.start = k, d.end = e)), e;
+  }var X = /^(?:checkbox|radio)$/i,
+      Y = /<([\w:-]+)/,
+      Z = /^$|\/(?:java|ecma)script/i,
+      $ = { option: [1, "<select multiple='multiple'>", "</select>"], thead: [1, "<table>", "</table>"], col: [2, "<table><colgroup>", "</colgroup></table>"], tr: [2, "<table><tbody>", "</tbody></table>"], td: [3, "<table><tbody><tr>", "</tr></tbody></table>"], _default: [0, "", ""] };$.optgroup = $.option, $.tbody = $.tfoot = $.colgroup = $.caption = $.thead, $.th = $.td;function _(a, b) {
+    var c = "undefined" != typeof a.getElementsByTagName ? a.getElementsByTagName(b || "*") : "undefined" != typeof a.querySelectorAll ? a.querySelectorAll(b || "*") : [];return void 0 === b || b && n.nodeName(a, b) ? n.merge([a], c) : c;
+  }function aa(a, b) {
+    for (var c = 0, d = a.length; d > c; c++) {
+      N.set(a[c], "globalEval", !b || N.get(b[c], "globalEval"));
+    }
+  }var ba = /<|&#?\w+;/;function ca(a, b, c, d, e) {
+    for (var f, g, h, i, j, k, l = b.createDocumentFragment(), m = [], o = 0, p = a.length; p > o; o++) {
+      if (f = a[o], f || 0 === f) if ("object" === n.type(f)) n.merge(m, f.nodeType ? [f] : f);else if (ba.test(f)) {
+        g = g || l.appendChild(b.createElement("div")), h = (Y.exec(f) || ["", ""])[1].toLowerCase(), i = $[h] || $._default, g.innerHTML = i[1] + n.htmlPrefilter(f) + i[2], k = i[0];while (k--) {
+          g = g.lastChild;
+        }n.merge(m, g.childNodes), g = l.firstChild, g.textContent = "";
+      } else m.push(b.createTextNode(f));
+    }l.textContent = "", o = 0;while (f = m[o++]) {
+      if (d && n.inArray(f, d) > -1) e && e.push(f);else if (j = n.contains(f.ownerDocument, f), g = _(l.appendChild(f), "script"), j && aa(g), c) {
+        k = 0;while (f = g[k++]) {
+          Z.test(f.type || "") && c.push(f);
+        }
+      }
+    }return l;
+  }!function () {
+    var a = d.createDocumentFragment(),
+        b = a.appendChild(d.createElement("div")),
+        c = d.createElement("input");c.setAttribute("type", "radio"), c.setAttribute("checked", "checked"), c.setAttribute("name", "t"), b.appendChild(c), l.checkClone = b.cloneNode(!0).cloneNode(!0).lastChild.checked, b.innerHTML = "<textarea>x</textarea>", l.noCloneChecked = !!b.cloneNode(!0).lastChild.defaultValue;
+  }();var da = /^key/,
+      ea = /^(?:mouse|pointer|contextmenu|drag|drop)|click/,
+      fa = /^([^.]*)(?:\.(.+)|)/;function ga() {
+    return !0;
+  }function ha() {
+    return !1;
+  }function ia() {
+    try {
+      return d.activeElement;
+    } catch (a) {}
+  }function ja(a, b, c, d, e, f) {
+    var g, h;if ("object" == (typeof b === "undefined" ? "undefined" : _typeof(b))) {
+      "string" != typeof c && (d = d || c, c = void 0);for (h in b) {
+        ja(a, h, c, d, b[h], f);
+      }return a;
+    }if (null == d && null == e ? (e = c, d = c = void 0) : null == e && ("string" == typeof c ? (e = d, d = void 0) : (e = d, d = c, c = void 0)), e === !1) e = ha;else if (!e) return a;return 1 === f && (g = e, e = function e(a) {
+      return n().off(a), g.apply(this, arguments);
+    }, e.guid = g.guid || (g.guid = n.guid++)), a.each(function () {
+      n.event.add(this, b, e, d, c);
+    });
+  }n.event = { global: {}, add: function add(a, b, c, d, e) {
+      var f,
+          g,
+          h,
+          i,
+          j,
+          k,
+          l,
+          m,
+          o,
+          p,
+          q,
+          r = N.get(a);if (r) {
+        c.handler && (f = c, c = f.handler, e = f.selector), c.guid || (c.guid = n.guid++), (i = r.events) || (i = r.events = {}), (g = r.handle) || (g = r.handle = function (b) {
+          return "undefined" != typeof n && n.event.triggered !== b.type ? n.event.dispatch.apply(a, arguments) : void 0;
+        }), b = (b || "").match(G) || [""], j = b.length;while (j--) {
+          h = fa.exec(b[j]) || [], o = q = h[1], p = (h[2] || "").split(".").sort(), o && (l = n.event.special[o] || {}, o = (e ? l.delegateType : l.bindType) || o, l = n.event.special[o] || {}, k = n.extend({ type: o, origType: q, data: d, handler: c, guid: c.guid, selector: e, needsContext: e && n.expr.match.needsContext.test(e), namespace: p.join(".") }, f), (m = i[o]) || (m = i[o] = [], m.delegateCount = 0, l.setup && l.setup.call(a, d, p, g) !== !1 || a.addEventListener && a.addEventListener(o, g)), l.add && (l.add.call(a, k), k.handler.guid || (k.handler.guid = c.guid)), e ? m.splice(m.delegateCount++, 0, k) : m.push(k), n.event.global[o] = !0);
+        }
+      }
+    }, remove: function remove(a, b, c, d, e) {
+      var f,
+          g,
+          h,
+          i,
+          j,
+          k,
+          l,
+          m,
+          o,
+          p,
+          q,
+          r = N.hasData(a) && N.get(a);if (r && (i = r.events)) {
+        b = (b || "").match(G) || [""], j = b.length;while (j--) {
+          if (h = fa.exec(b[j]) || [], o = q = h[1], p = (h[2] || "").split(".").sort(), o) {
+            l = n.event.special[o] || {}, o = (d ? l.delegateType : l.bindType) || o, m = i[o] || [], h = h[2] && new RegExp("(^|\\.)" + p.join("\\.(?:.*\\.|)") + "(\\.|$)"), g = f = m.length;while (f--) {
+              k = m[f], !e && q !== k.origType || c && c.guid !== k.guid || h && !h.test(k.namespace) || d && d !== k.selector && ("**" !== d || !k.selector) || (m.splice(f, 1), k.selector && m.delegateCount--, l.remove && l.remove.call(a, k));
+            }g && !m.length && (l.teardown && l.teardown.call(a, p, r.handle) !== !1 || n.removeEvent(a, o, r.handle), delete i[o]);
+          } else for (o in i) {
+            n.event.remove(a, o + b[j], c, d, !0);
+          }
+        }n.isEmptyObject(i) && N.remove(a, "handle events");
+      }
+    }, dispatch: function dispatch(a) {
+      a = n.event.fix(a);var b,
+          c,
+          d,
+          f,
+          g,
+          h = [],
+          i = e.call(arguments),
+          j = (N.get(this, "events") || {})[a.type] || [],
+          k = n.event.special[a.type] || {};if (i[0] = a, a.delegateTarget = this, !k.preDispatch || k.preDispatch.call(this, a) !== !1) {
+        h = n.event.handlers.call(this, a, j), b = 0;while ((f = h[b++]) && !a.isPropagationStopped()) {
+          a.currentTarget = f.elem, c = 0;while ((g = f.handlers[c++]) && !a.isImmediatePropagationStopped()) {
+            a.rnamespace && !a.rnamespace.test(g.namespace) || (a.handleObj = g, a.data = g.data, d = ((n.event.special[g.origType] || {}).handle || g.handler).apply(f.elem, i), void 0 !== d && (a.result = d) === !1 && (a.preventDefault(), a.stopPropagation()));
+          }
+        }return k.postDispatch && k.postDispatch.call(this, a), a.result;
+      }
+    }, handlers: function handlers(a, b) {
+      var c,
+          d,
+          e,
+          f,
+          g = [],
+          h = b.delegateCount,
+          i = a.target;if (h && i.nodeType && ("click" !== a.type || isNaN(a.button) || a.button < 1)) for (; i !== this; i = i.parentNode || this) {
+        if (1 === i.nodeType && (i.disabled !== !0 || "click" !== a.type)) {
+          for (d = [], c = 0; h > c; c++) {
+            f = b[c], e = f.selector + " ", void 0 === d[e] && (d[e] = f.needsContext ? n(e, this).index(i) > -1 : n.find(e, this, null, [i]).length), d[e] && d.push(f);
+          }d.length && g.push({ elem: i, handlers: d });
+        }
+      }return h < b.length && g.push({ elem: this, handlers: b.slice(h) }), g;
+    }, props: "altKey bubbles cancelable ctrlKey currentTarget detail eventPhase metaKey relatedTarget shiftKey target timeStamp view which".split(" "), fixHooks: {}, keyHooks: { props: "char charCode key keyCode".split(" "), filter: function filter(a, b) {
+        return null == a.which && (a.which = null != b.charCode ? b.charCode : b.keyCode), a;
+      } }, mouseHooks: { props: "button buttons clientX clientY offsetX offsetY pageX pageY screenX screenY toElement".split(" "), filter: function filter(a, b) {
+        var c,
+            e,
+            f,
+            g = b.button;return null == a.pageX && null != b.clientX && (c = a.target.ownerDocument || d, e = c.documentElement, f = c.body, a.pageX = b.clientX + (e && e.scrollLeft || f && f.scrollLeft || 0) - (e && e.clientLeft || f && f.clientLeft || 0), a.pageY = b.clientY + (e && e.scrollTop || f && f.scrollTop || 0) - (e && e.clientTop || f && f.clientTop || 0)), a.which || void 0 === g || (a.which = 1 & g ? 1 : 2 & g ? 3 : 4 & g ? 2 : 0), a;
+      } }, fix: function fix(a) {
+      if (a[n.expando]) return a;var b,
+          c,
+          e,
+          f = a.type,
+          g = a,
+          h = this.fixHooks[f];h || (this.fixHooks[f] = h = ea.test(f) ? this.mouseHooks : da.test(f) ? this.keyHooks : {}), e = h.props ? this.props.concat(h.props) : this.props, a = new n.Event(g), b = e.length;while (b--) {
+        c = e[b], a[c] = g[c];
+      }return a.target || (a.target = d), 3 === a.target.nodeType && (a.target = a.target.parentNode), h.filter ? h.filter(a, g) : a;
+    }, special: { load: { noBubble: !0 }, focus: { trigger: function trigger() {
+          return this !== ia() && this.focus ? (this.focus(), !1) : void 0;
+        }, delegateType: "focusin" }, blur: { trigger: function trigger() {
+          return this === ia() && this.blur ? (this.blur(), !1) : void 0;
+        }, delegateType: "focusout" }, click: { trigger: function trigger() {
+          return "checkbox" === this.type && this.click && n.nodeName(this, "input") ? (this.click(), !1) : void 0;
+        }, _default: function _default(a) {
+          return n.nodeName(a.target, "a");
+        } }, beforeunload: { postDispatch: function postDispatch(a) {
+          void 0 !== a.result && a.originalEvent && (a.originalEvent.returnValue = a.result);
+        } } } }, n.removeEvent = function (a, b, c) {
+    a.removeEventListener && a.removeEventListener(b, c);
+  }, n.Event = function (a, b) {
+    return this instanceof n.Event ? (a && a.type ? (this.originalEvent = a, this.type = a.type, this.isDefaultPrevented = a.defaultPrevented || void 0 === a.defaultPrevented && a.returnValue === !1 ? ga : ha) : this.type = a, b && n.extend(this, b), this.timeStamp = a && a.timeStamp || n.now(), void (this[n.expando] = !0)) : new n.Event(a, b);
+  }, n.Event.prototype = { constructor: n.Event, isDefaultPrevented: ha, isPropagationStopped: ha, isImmediatePropagationStopped: ha, isSimulated: !1, preventDefault: function preventDefault() {
+      var a = this.originalEvent;this.isDefaultPrevented = ga, a && !this.isSimulated && a.preventDefault();
+    }, stopPropagation: function stopPropagation() {
+      var a = this.originalEvent;this.isPropagationStopped = ga, a && !this.isSimulated && a.stopPropagation();
+    }, stopImmediatePropagation: function stopImmediatePropagation() {
+      var a = this.originalEvent;this.isImmediatePropagationStopped = ga, a && !this.isSimulated && a.stopImmediatePropagation(), this.stopPropagation();
+    } }, n.each({ mouseenter: "mouseover", mouseleave: "mouseout", pointerenter: "pointerover", pointerleave: "pointerout" }, function (a, b) {
+    n.event.special[a] = { delegateType: b, bindType: b, handle: function handle(a) {
+        var c,
+            d = this,
+            e = a.relatedTarget,
+            f = a.handleObj;return e && (e === d || n.contains(d, e)) || (a.type = f.origType, c = f.handler.apply(this, arguments), a.type = b), c;
+      } };
+  }), n.fn.extend({ on: function on(a, b, c, d) {
+      return ja(this, a, b, c, d);
+    }, one: function one(a, b, c, d) {
+      return ja(this, a, b, c, d, 1);
+    }, off: function off(a, b, c) {
+      var d, e;if (a && a.preventDefault && a.handleObj) return d = a.handleObj, n(a.delegateTarget).off(d.namespace ? d.origType + "." + d.namespace : d.origType, d.selector, d.handler), this;if ("object" == (typeof a === "undefined" ? "undefined" : _typeof(a))) {
+        for (e in a) {
+          this.off(e, b, a[e]);
+        }return this;
+      }return b !== !1 && "function" != typeof b || (c = b, b = void 0), c === !1 && (c = ha), this.each(function () {
+        n.event.remove(this, a, c, b);
+      });
+    } });var ka = /<(?!area|br|col|embed|hr|img|input|link|meta|param)(([\w:-]+)[^>]*)\/>/gi,
+      la = /<script|<style|<link/i,
+      ma = /checked\s*(?:[^=]|=\s*.checked.)/i,
+      na = /^true\/(.*)/,
+      oa = /^\s*<!(?:\[CDATA\[|--)|(?:\]\]|--)>\s*$/g;function pa(a, b) {
+    return n.nodeName(a, "table") && n.nodeName(11 !== b.nodeType ? b : b.firstChild, "tr") ? a.getElementsByTagName("tbody")[0] || a.appendChild(a.ownerDocument.createElement("tbody")) : a;
+  }function qa(a) {
+    return a.type = (null !== a.getAttribute("type")) + "/" + a.type, a;
+  }function ra(a) {
+    var b = na.exec(a.type);return b ? a.type = b[1] : a.removeAttribute("type"), a;
+  }function sa(a, b) {
+    var c, d, e, f, g, h, i, j;if (1 === b.nodeType) {
+      if (N.hasData(a) && (f = N.access(a), g = N.set(b, f), j = f.events)) {
+        delete g.handle, g.events = {};for (e in j) {
+          for (c = 0, d = j[e].length; d > c; c++) {
+            n.event.add(b, e, j[e][c]);
+          }
+        }
+      }O.hasData(a) && (h = O.access(a), i = n.extend({}, h), O.set(b, i));
+    }
+  }function ta(a, b) {
+    var c = b.nodeName.toLowerCase();"input" === c && X.test(a.type) ? b.checked = a.checked : "input" !== c && "textarea" !== c || (b.defaultValue = a.defaultValue);
+  }function ua(a, b, c, d) {
+    b = f.apply([], b);var e,
+        g,
+        h,
+        i,
+        j,
+        k,
+        m = 0,
+        o = a.length,
+        p = o - 1,
+        q = b[0],
+        r = n.isFunction(q);if (r || o > 1 && "string" == typeof q && !l.checkClone && ma.test(q)) return a.each(function (e) {
+      var f = a.eq(e);r && (b[0] = q.call(this, e, f.html())), ua(f, b, c, d);
+    });if (o && (e = ca(b, a[0].ownerDocument, !1, a, d), g = e.firstChild, 1 === e.childNodes.length && (e = g), g || d)) {
+      for (h = n.map(_(e, "script"), qa), i = h.length; o > m; m++) {
+        j = e, m !== p && (j = n.clone(j, !0, !0), i && n.merge(h, _(j, "script"))), c.call(a[m], j, m);
+      }if (i) for (k = h[h.length - 1].ownerDocument, n.map(h, ra), m = 0; i > m; m++) {
+        j = h[m], Z.test(j.type || "") && !N.access(j, "globalEval") && n.contains(k, j) && (j.src ? n._evalUrl && n._evalUrl(j.src) : n.globalEval(j.textContent.replace(oa, "")));
+      }
+    }return a;
+  }function va(a, b, c) {
+    for (var d, e = b ? n.filter(b, a) : a, f = 0; null != (d = e[f]); f++) {
+      c || 1 !== d.nodeType || n.cleanData(_(d)), d.parentNode && (c && n.contains(d.ownerDocument, d) && aa(_(d, "script")), d.parentNode.removeChild(d));
+    }return a;
+  }n.extend({ htmlPrefilter: function htmlPrefilter(a) {
+      return a.replace(ka, "<$1></$2>");
+    }, clone: function clone(a, b, c) {
+      var d,
+          e,
+          f,
+          g,
+          h = a.cloneNode(!0),
+          i = n.contains(a.ownerDocument, a);if (!(l.noCloneChecked || 1 !== a.nodeType && 11 !== a.nodeType || n.isXMLDoc(a))) for (g = _(h), f = _(a), d = 0, e = f.length; e > d; d++) {
+        ta(f[d], g[d]);
+      }if (b) if (c) for (f = f || _(a), g = g || _(h), d = 0, e = f.length; e > d; d++) {
+        sa(f[d], g[d]);
+      } else sa(a, h);return g = _(h, "script"), g.length > 0 && aa(g, !i && _(a, "script")), h;
+    }, cleanData: function cleanData(a) {
+      for (var b, c, d, e = n.event.special, f = 0; void 0 !== (c = a[f]); f++) {
+        if (L(c)) {
+          if (b = c[N.expando]) {
+            if (b.events) for (d in b.events) {
+              e[d] ? n.event.remove(c, d) : n.removeEvent(c, d, b.handle);
+            }c[N.expando] = void 0;
+          }c[O.expando] && (c[O.expando] = void 0);
+        }
+      }
+    } }), n.fn.extend({ domManip: ua, detach: function detach(a) {
+      return va(this, a, !0);
+    }, remove: function remove(a) {
+      return va(this, a);
+    }, text: function text(a) {
+      return K(this, function (a) {
+        return void 0 === a ? n.text(this) : this.empty().each(function () {
+          1 !== this.nodeType && 11 !== this.nodeType && 9 !== this.nodeType || (this.textContent = a);
+        });
+      }, null, a, arguments.length);
+    }, append: function append() {
+      return ua(this, arguments, function (a) {
+        if (1 === this.nodeType || 11 === this.nodeType || 9 === this.nodeType) {
+          var b = pa(this, a);b.appendChild(a);
+        }
+      });
+    }, prepend: function prepend() {
+      return ua(this, arguments, function (a) {
+        if (1 === this.nodeType || 11 === this.nodeType || 9 === this.nodeType) {
+          var b = pa(this, a);b.insertBefore(a, b.firstChild);
+        }
+      });
+    }, before: function before() {
+      return ua(this, arguments, function (a) {
+        this.parentNode && this.parentNode.insertBefore(a, this);
+      });
+    }, after: function after() {
+      return ua(this, arguments, function (a) {
+        this.parentNode && this.parentNode.insertBefore(a, this.nextSibling);
+      });
+    }, empty: function empty() {
+      for (var a, b = 0; null != (a = this[b]); b++) {
+        1 === a.nodeType && (n.cleanData(_(a, !1)), a.textContent = "");
+      }return this;
+    }, clone: function clone(a, b) {
+      return a = null == a ? !1 : a, b = null == b ? a : b, this.map(function () {
+        return n.clone(this, a, b);
+      });
+    }, html: function html(a) {
+      return K(this, function (a) {
+        var b = this[0] || {},
+            c = 0,
+            d = this.length;if (void 0 === a && 1 === b.nodeType) return b.innerHTML;if ("string" == typeof a && !la.test(a) && !$[(Y.exec(a) || ["", ""])[1].toLowerCase()]) {
+          a = n.htmlPrefilter(a);try {
+            for (; d > c; c++) {
+              b = this[c] || {}, 1 === b.nodeType && (n.cleanData(_(b, !1)), b.innerHTML = a);
+            }b = 0;
+          } catch (e) {}
+        }b && this.empty().append(a);
+      }, null, a, arguments.length);
+    }, replaceWith: function replaceWith() {
+      var a = [];return ua(this, arguments, function (b) {
+        var c = this.parentNode;n.inArray(this, a) < 0 && (n.cleanData(_(this)), c && c.replaceChild(b, this));
+      }, a);
+    } }), n.each({ appendTo: "append", prependTo: "prepend", insertBefore: "before", insertAfter: "after", replaceAll: "replaceWith" }, function (a, b) {
+    n.fn[a] = function (a) {
+      for (var c, d = [], e = n(a), f = e.length - 1, h = 0; f >= h; h++) {
+        c = h === f ? this : this.clone(!0), n(e[h])[b](c), g.apply(d, c.get());
+      }return this.pushStack(d);
+    };
+  });var wa,
+      xa = { HTML: "block", BODY: "block" };function ya(a, b) {
+    var c = n(b.createElement(a)).appendTo(b.body),
+        d = n.css(c[0], "display");return c.detach(), d;
+  }function za(a) {
+    var b = d,
+        c = xa[a];return c || (c = ya(a, b), "none" !== c && c || (wa = (wa || n("<iframe frameborder='0' width='0' height='0'/>")).appendTo(b.documentElement), b = wa[0].contentDocument, b.write(), b.close(), c = ya(a, b), wa.detach()), xa[a] = c), c;
+  }var Aa = /^margin/,
+      Ba = new RegExp("^(" + S + ")(?!px)[a-z%]+$", "i"),
+      Ca = function Ca(b) {
+    var c = b.ownerDocument.defaultView;return c && c.opener || (c = a), c.getComputedStyle(b);
+  },
+      Da = function Da(a, b, c, d) {
+    var e,
+        f,
+        g = {};for (f in b) {
+      g[f] = a.style[f], a.style[f] = b[f];
+    }e = c.apply(a, d || []);for (f in b) {
+      a.style[f] = g[f];
+    }return e;
+  },
+      Ea = d.documentElement;!function () {
+    var b,
+        c,
+        e,
+        f,
+        g = d.createElement("div"),
+        h = d.createElement("div");if (h.style) {
+      var _i = function _i() {
+        h.style.cssText = "-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;position:relative;display:block;margin:auto;border:1px;padding:1px;top:1%;width:50%", h.innerHTML = "", Ea.appendChild(g);var d = a.getComputedStyle(h);b = "1%" !== d.top, f = "2px" === d.marginLeft, c = "4px" === d.width, h.style.marginRight = "50%", e = "4px" === d.marginRight, Ea.removeChild(g);
+      };
+
+      h.style.backgroundClip = "content-box", h.cloneNode(!0).style.backgroundClip = "", l.clearCloneStyle = "content-box" === h.style.backgroundClip, g.style.cssText = "border:0;width:8px;height:0;top:0;left:-9999px;padding:0;margin-top:1px;position:absolute", g.appendChild(h);n.extend(l, { pixelPosition: function pixelPosition() {
+          return _i(), b;
+        }, boxSizingReliable: function boxSizingReliable() {
+          return null == c && _i(), c;
+        }, pixelMarginRight: function pixelMarginRight() {
+          return null == c && _i(), e;
+        }, reliableMarginLeft: function reliableMarginLeft() {
+          return null == c && _i(), f;
+        }, reliableMarginRight: function reliableMarginRight() {
+          var b,
+              c = h.appendChild(d.createElement("div"));return c.style.cssText = h.style.cssText = "-webkit-box-sizing:content-box;box-sizing:content-box;display:block;margin:0;border:0;padding:0", c.style.marginRight = c.style.width = "0", h.style.width = "1px", Ea.appendChild(g), b = !parseFloat(a.getComputedStyle(c).marginRight), Ea.removeChild(g), h.removeChild(c), b;
+        } });
+    }
+  }();function Fa(a, b, c) {
+    var d,
+        e,
+        f,
+        g,
+        h = a.style;return c = c || Ca(a), g = c ? c.getPropertyValue(b) || c[b] : void 0, "" !== g && void 0 !== g || n.contains(a.ownerDocument, a) || (g = n.style(a, b)), c && !l.pixelMarginRight() && Ba.test(g) && Aa.test(b) && (d = h.width, e = h.minWidth, f = h.maxWidth, h.minWidth = h.maxWidth = h.width = g, g = c.width, h.width = d, h.minWidth = e, h.maxWidth = f), void 0 !== g ? g + "" : g;
+  }function Ga(a, b) {
+    return { get: function get() {
+        return a() ? void delete this.get : (this.get = b).apply(this, arguments);
+      } };
+  }var Ha = /^(none|table(?!-c[ea]).+)/,
+      Ia = { position: "absolute", visibility: "hidden", display: "block" },
+      Ja = { letterSpacing: "0", fontWeight: "400" },
+      Ka = ["Webkit", "O", "Moz", "ms"],
+      La = d.createElement("div").style;function Ma(a) {
+    if (a in La) return a;var b = a[0].toUpperCase() + a.slice(1),
+        c = Ka.length;while (c--) {
+      if (a = Ka[c] + b, a in La) return a;
+    }
+  }function Na(a, b, c) {
+    var d = T.exec(b);return d ? Math.max(0, d[2] - (c || 0)) + (d[3] || "px") : b;
+  }function Oa(a, b, c, d, e) {
+    for (var f = c === (d ? "border" : "content") ? 4 : "width" === b ? 1 : 0, g = 0; 4 > f; f += 2) {
+      "margin" === c && (g += n.css(a, c + U[f], !0, e)), d ? ("content" === c && (g -= n.css(a, "padding" + U[f], !0, e)), "margin" !== c && (g -= n.css(a, "border" + U[f] + "Width", !0, e))) : (g += n.css(a, "padding" + U[f], !0, e), "padding" !== c && (g += n.css(a, "border" + U[f] + "Width", !0, e)));
+    }return g;
+  }function Pa(a, b, c) {
+    var d = !0,
+        e = "width" === b ? a.offsetWidth : a.offsetHeight,
+        f = Ca(a),
+        g = "border-box" === n.css(a, "boxSizing", !1, f);if (0 >= e || null == e) {
+      if (e = Fa(a, b, f), (0 > e || null == e) && (e = a.style[b]), Ba.test(e)) return e;d = g && (l.boxSizingReliable() || e === a.style[b]), e = parseFloat(e) || 0;
+    }return e + Oa(a, b, c || (g ? "border" : "content"), d, f) + "px";
+  }function Qa(a, b) {
+    for (var c, d, e, f = [], g = 0, h = a.length; h > g; g++) {
+      d = a[g], d.style && (f[g] = N.get(d, "olddisplay"), c = d.style.display, b ? (f[g] || "none" !== c || (d.style.display = ""), "" === d.style.display && V(d) && (f[g] = N.access(d, "olddisplay", za(d.nodeName)))) : (e = V(d), "none" === c && e || N.set(d, "olddisplay", e ? c : n.css(d, "display"))));
+    }for (g = 0; h > g; g++) {
+      d = a[g], d.style && (b && "none" !== d.style.display && "" !== d.style.display || (d.style.display = b ? f[g] || "" : "none"));
+    }return a;
+  }n.extend({ cssHooks: { opacity: { get: function get(a, b) {
+          if (b) {
+            var c = Fa(a, "opacity");return "" === c ? "1" : c;
+          }
+        } } }, cssNumber: { animationIterationCount: !0, columnCount: !0, fillOpacity: !0, flexGrow: !0, flexShrink: !0, fontWeight: !0, lineHeight: !0, opacity: !0, order: !0, orphans: !0, widows: !0, zIndex: !0, zoom: !0 }, cssProps: { "float": "cssFloat" }, style: function style(a, b, c, d) {
+      if (a && 3 !== a.nodeType && 8 !== a.nodeType && a.style) {
+        var e,
+            f,
+            g,
+            h = n.camelCase(b),
+            i = a.style;return b = n.cssProps[h] || (n.cssProps[h] = Ma(h) || h), g = n.cssHooks[b] || n.cssHooks[h], void 0 === c ? g && "get" in g && void 0 !== (e = g.get(a, !1, d)) ? e : i[b] : (f = typeof c === "undefined" ? "undefined" : _typeof(c), "string" === f && (e = T.exec(c)) && e[1] && (c = W(a, b, e), f = "number"), null != c && c === c && ("number" === f && (c += e && e[3] || (n.cssNumber[h] ? "" : "px")), l.clearCloneStyle || "" !== c || 0 !== b.indexOf("background") || (i[b] = "inherit"), g && "set" in g && void 0 === (c = g.set(a, c, d)) || (i[b] = c)), void 0);
+      }
+    }, css: function css(a, b, c, d) {
+      var e,
+          f,
+          g,
+          h = n.camelCase(b);return b = n.cssProps[h] || (n.cssProps[h] = Ma(h) || h), g = n.cssHooks[b] || n.cssHooks[h], g && "get" in g && (e = g.get(a, !0, c)), void 0 === e && (e = Fa(a, b, d)), "normal" === e && b in Ja && (e = Ja[b]), "" === c || c ? (f = parseFloat(e), c === !0 || isFinite(f) ? f || 0 : e) : e;
+    } }), n.each(["height", "width"], function (a, b) {
+    n.cssHooks[b] = { get: function get(a, c, d) {
+        return c ? Ha.test(n.css(a, "display")) && 0 === a.offsetWidth ? Da(a, Ia, function () {
+          return Pa(a, b, d);
+        }) : Pa(a, b, d) : void 0;
+      }, set: function set(a, c, d) {
+        var e,
+            f = d && Ca(a),
+            g = d && Oa(a, b, d, "border-box" === n.css(a, "boxSizing", !1, f), f);return g && (e = T.exec(c)) && "px" !== (e[3] || "px") && (a.style[b] = c, c = n.css(a, b)), Na(a, c, g);
+      } };
+  }), n.cssHooks.marginLeft = Ga(l.reliableMarginLeft, function (a, b) {
+    return b ? (parseFloat(Fa(a, "marginLeft")) || a.getBoundingClientRect().left - Da(a, { marginLeft: 0 }, function () {
+      return a.getBoundingClientRect().left;
+    })) + "px" : void 0;
+  }), n.cssHooks.marginRight = Ga(l.reliableMarginRight, function (a, b) {
+    return b ? Da(a, { display: "inline-block" }, Fa, [a, "marginRight"]) : void 0;
+  }), n.each({ margin: "", padding: "", border: "Width" }, function (a, b) {
+    n.cssHooks[a + b] = { expand: function expand(c) {
+        for (var d = 0, e = {}, f = "string" == typeof c ? c.split(" ") : [c]; 4 > d; d++) {
+          e[a + U[d] + b] = f[d] || f[d - 2] || f[0];
+        }return e;
+      } }, Aa.test(a) || (n.cssHooks[a + b].set = Na);
+  }), n.fn.extend({ css: function css(a, b) {
+      return K(this, function (a, b, c) {
+        var d,
+            e,
+            f = {},
+            g = 0;if (n.isArray(b)) {
+          for (d = Ca(a), e = b.length; e > g; g++) {
+            f[b[g]] = n.css(a, b[g], !1, d);
+          }return f;
+        }return void 0 !== c ? n.style(a, b, c) : n.css(a, b);
+      }, a, b, arguments.length > 1);
+    }, show: function show() {
+      return Qa(this, !0);
+    }, hide: function hide() {
+      return Qa(this);
+    }, toggle: function toggle(a) {
+      return "boolean" == typeof a ? a ? this.show() : this.hide() : this.each(function () {
+        V(this) ? n(this).show() : n(this).hide();
+      });
+    } });function Ra(a, b, c, d, e) {
+    return new Ra.prototype.init(a, b, c, d, e);
+  }n.Tween = Ra, Ra.prototype = { constructor: Ra, init: function init(a, b, c, d, e, f) {
+      this.elem = a, this.prop = c, this.easing = e || n.easing._default, this.options = b, this.start = this.now = this.cur(), this.end = d, this.unit = f || (n.cssNumber[c] ? "" : "px");
+    }, cur: function cur() {
+      var a = Ra.propHooks[this.prop];return a && a.get ? a.get(this) : Ra.propHooks._default.get(this);
+    }, run: function run(a) {
+      var b,
+          c = Ra.propHooks[this.prop];return this.options.duration ? this.pos = b = n.easing[this.easing](a, this.options.duration * a, 0, 1, this.options.duration) : this.pos = b = a, this.now = (this.end - this.start) * b + this.start, this.options.step && this.options.step.call(this.elem, this.now, this), c && c.set ? c.set(this) : Ra.propHooks._default.set(this), this;
+    } }, Ra.prototype.init.prototype = Ra.prototype, Ra.propHooks = { _default: { get: function get(a) {
+        var b;return 1 !== a.elem.nodeType || null != a.elem[a.prop] && null == a.elem.style[a.prop] ? a.elem[a.prop] : (b = n.css(a.elem, a.prop, ""), b && "auto" !== b ? b : 0);
+      }, set: function set(a) {
+        n.fx.step[a.prop] ? n.fx.step[a.prop](a) : 1 !== a.elem.nodeType || null == a.elem.style[n.cssProps[a.prop]] && !n.cssHooks[a.prop] ? a.elem[a.prop] = a.now : n.style(a.elem, a.prop, a.now + a.unit);
+      } } }, Ra.propHooks.scrollTop = Ra.propHooks.scrollLeft = { set: function set(a) {
+      a.elem.nodeType && a.elem.parentNode && (a.elem[a.prop] = a.now);
+    } }, n.easing = { linear: function linear(a) {
+      return a;
+    }, swing: function swing(a) {
+      return .5 - Math.cos(a * Math.PI) / 2;
+    }, _default: "swing" }, n.fx = Ra.prototype.init, n.fx.step = {};var Sa,
+      Ta,
+      Ua = /^(?:toggle|show|hide)$/,
+      Va = /queueHooks$/;function Wa() {
+    return a.setTimeout(function () {
+      Sa = void 0;
+    }), Sa = n.now();
+  }function Xa(a, b) {
+    var c,
+        d = 0,
+        e = { height: a };for (b = b ? 1 : 0; 4 > d; d += 2 - b) {
+      c = U[d], e["margin" + c] = e["padding" + c] = a;
+    }return b && (e.opacity = e.width = a), e;
+  }function Ya(a, b, c) {
+    for (var d, e = (_a.tweeners[b] || []).concat(_a.tweeners["*"]), f = 0, g = e.length; g > f; f++) {
+      if (d = e[f].call(c, b, a)) return d;
+    }
+  }function Za(a, b, c) {
+    var d,
+        e,
+        f,
+        g,
+        h,
+        i,
+        j,
+        k,
+        l = this,
+        m = {},
+        o = a.style,
+        p = a.nodeType && V(a),
+        q = N.get(a, "fxshow");c.queue || (h = n._queueHooks(a, "fx"), null == h.unqueued && (h.unqueued = 0, i = h.empty.fire, h.empty.fire = function () {
+      h.unqueued || i();
+    }), h.unqueued++, l.always(function () {
+      l.always(function () {
+        h.unqueued--, n.queue(a, "fx").length || h.empty.fire();
+      });
+    })), 1 === a.nodeType && ("height" in b || "width" in b) && (c.overflow = [o.overflow, o.overflowX, o.overflowY], j = n.css(a, "display"), k = "none" === j ? N.get(a, "olddisplay") || za(a.nodeName) : j, "inline" === k && "none" === n.css(a, "float") && (o.display = "inline-block")), c.overflow && (o.overflow = "hidden", l.always(function () {
+      o.overflow = c.overflow[0], o.overflowX = c.overflow[1], o.overflowY = c.overflow[2];
+    }));for (d in b) {
+      if (e = b[d], Ua.exec(e)) {
+        if (delete b[d], f = f || "toggle" === e, e === (p ? "hide" : "show")) {
+          if ("show" !== e || !q || void 0 === q[d]) continue;p = !0;
+        }m[d] = q && q[d] || n.style(a, d);
+      } else j = void 0;
+    }if (n.isEmptyObject(m)) "inline" === ("none" === j ? za(a.nodeName) : j) && (o.display = j);else {
+      q ? "hidden" in q && (p = q.hidden) : q = N.access(a, "fxshow", {}), f && (q.hidden = !p), p ? n(a).show() : l.done(function () {
+        n(a).hide();
+      }), l.done(function () {
+        var b;N.remove(a, "fxshow");for (b in m) {
+          n.style(a, b, m[b]);
+        }
+      });for (d in m) {
+        g = Ya(p ? q[d] : 0, d, l), d in q || (q[d] = g.start, p && (g.end = g.start, g.start = "width" === d || "height" === d ? 1 : 0));
+      }
+    }
+  }function $a(a, b) {
+    var c, d, e, f, g;for (c in a) {
+      if (d = n.camelCase(c), e = b[d], f = a[c], n.isArray(f) && (e = f[1], f = a[c] = f[0]), c !== d && (a[d] = f, delete a[c]), g = n.cssHooks[d], g && "expand" in g) {
+        f = g.expand(f), delete a[d];for (c in f) {
+          c in a || (a[c] = f[c], b[c] = e);
+        }
+      } else b[d] = e;
+    }
+  }function _a(a, b, c) {
+    var d,
+        e,
+        f = 0,
+        g = _a.prefilters.length,
+        h = n.Deferred().always(function () {
+      delete i.elem;
+    }),
+        i = function i() {
+      if (e) return !1;for (var b = Sa || Wa(), c = Math.max(0, j.startTime + j.duration - b), d = c / j.duration || 0, f = 1 - d, g = 0, i = j.tweens.length; i > g; g++) {
+        j.tweens[g].run(f);
+      }return h.notifyWith(a, [j, f, c]), 1 > f && i ? c : (h.resolveWith(a, [j]), !1);
+    },
+        j = h.promise({ elem: a, props: n.extend({}, b), opts: n.extend(!0, { specialEasing: {}, easing: n.easing._default }, c), originalProperties: b, originalOptions: c, startTime: Sa || Wa(), duration: c.duration, tweens: [], createTween: function createTween(b, c) {
+        var d = n.Tween(a, j.opts, b, c, j.opts.specialEasing[b] || j.opts.easing);return j.tweens.push(d), d;
+      }, stop: function stop(b) {
+        var c = 0,
+            d = b ? j.tweens.length : 0;if (e) return this;for (e = !0; d > c; c++) {
+          j.tweens[c].run(1);
+        }return b ? (h.notifyWith(a, [j, 1, 0]), h.resolveWith(a, [j, b])) : h.rejectWith(a, [j, b]), this;
+      } }),
+        k = j.props;for ($a(k, j.opts.specialEasing); g > f; f++) {
+      if (d = _a.prefilters[f].call(j, a, k, j.opts)) return n.isFunction(d.stop) && (n._queueHooks(j.elem, j.opts.queue).stop = n.proxy(d.stop, d)), d;
+    }return n.map(k, Ya, j), n.isFunction(j.opts.start) && j.opts.start.call(a, j), n.fx.timer(n.extend(i, { elem: a, anim: j, queue: j.opts.queue })), j.progress(j.opts.progress).done(j.opts.done, j.opts.complete).fail(j.opts.fail).always(j.opts.always);
+  }n.Animation = n.extend(_a, { tweeners: { "*": [function (a, b) {
+        var c = this.createTween(a, b);return W(c.elem, a, T.exec(b), c), c;
+      }] }, tweener: function tweener(a, b) {
+      n.isFunction(a) ? (b = a, a = ["*"]) : a = a.match(G);for (var c, d = 0, e = a.length; e > d; d++) {
+        c = a[d], _a.tweeners[c] = _a.tweeners[c] || [], _a.tweeners[c].unshift(b);
+      }
+    }, prefilters: [Za], prefilter: function prefilter(a, b) {
+      b ? _a.prefilters.unshift(a) : _a.prefilters.push(a);
+    } }), n.speed = function (a, b, c) {
+    var d = a && "object" == (typeof a === "undefined" ? "undefined" : _typeof(a)) ? n.extend({}, a) : { complete: c || !c && b || n.isFunction(a) && a, duration: a, easing: c && b || b && !n.isFunction(b) && b };return d.duration = n.fx.off ? 0 : "number" == typeof d.duration ? d.duration : d.duration in n.fx.speeds ? n.fx.speeds[d.duration] : n.fx.speeds._default, null != d.queue && d.queue !== !0 || (d.queue = "fx"), d.old = d.complete, d.complete = function () {
+      n.isFunction(d.old) && d.old.call(this), d.queue && n.dequeue(this, d.queue);
+    }, d;
+  }, n.fn.extend({ fadeTo: function fadeTo(a, b, c, d) {
+      return this.filter(V).css("opacity", 0).show().end().animate({ opacity: b }, a, c, d);
+    }, animate: function animate(a, b, c, d) {
+      var e = n.isEmptyObject(a),
+          f = n.speed(b, c, d),
+          g = function g() {
+        var b = _a(this, n.extend({}, a), f);(e || N.get(this, "finish")) && b.stop(!0);
+      };return g.finish = g, e || f.queue === !1 ? this.each(g) : this.queue(f.queue, g);
+    }, stop: function stop(a, b, c) {
+      var d = function d(a) {
+        var b = a.stop;delete a.stop, b(c);
+      };return "string" != typeof a && (c = b, b = a, a = void 0), b && a !== !1 && this.queue(a || "fx", []), this.each(function () {
+        var b = !0,
+            e = null != a && a + "queueHooks",
+            f = n.timers,
+            g = N.get(this);if (e) g[e] && g[e].stop && d(g[e]);else for (e in g) {
+          g[e] && g[e].stop && Va.test(e) && d(g[e]);
+        }for (e = f.length; e--;) {
+          f[e].elem !== this || null != a && f[e].queue !== a || (f[e].anim.stop(c), b = !1, f.splice(e, 1));
+        }!b && c || n.dequeue(this, a);
+      });
+    }, finish: function finish(a) {
+      return a !== !1 && (a = a || "fx"), this.each(function () {
+        var b,
+            c = N.get(this),
+            d = c[a + "queue"],
+            e = c[a + "queueHooks"],
+            f = n.timers,
+            g = d ? d.length : 0;for (c.finish = !0, n.queue(this, a, []), e && e.stop && e.stop.call(this, !0), b = f.length; b--;) {
+          f[b].elem === this && f[b].queue === a && (f[b].anim.stop(!0), f.splice(b, 1));
+        }for (b = 0; g > b; b++) {
+          d[b] && d[b].finish && d[b].finish.call(this);
+        }delete c.finish;
+      });
+    } }), n.each(["toggle", "show", "hide"], function (a, b) {
+    var c = n.fn[b];n.fn[b] = function (a, d, e) {
+      return null == a || "boolean" == typeof a ? c.apply(this, arguments) : this.animate(Xa(b, !0), a, d, e);
+    };
+  }), n.each({ slideDown: Xa("show"), slideUp: Xa("hide"), slideToggle: Xa("toggle"), fadeIn: { opacity: "show" }, fadeOut: { opacity: "hide" }, fadeToggle: { opacity: "toggle" } }, function (a, b) {
+    n.fn[a] = function (a, c, d) {
+      return this.animate(b, a, c, d);
+    };
+  }), n.timers = [], n.fx.tick = function () {
+    var a,
+        b = 0,
+        c = n.timers;for (Sa = n.now(); b < c.length; b++) {
+      a = c[b], a() || c[b] !== a || c.splice(b--, 1);
+    }c.length || n.fx.stop(), Sa = void 0;
+  }, n.fx.timer = function (a) {
+    n.timers.push(a), a() ? n.fx.start() : n.timers.pop();
+  }, n.fx.interval = 13, n.fx.start = function () {
+    Ta || (Ta = a.setInterval(n.fx.tick, n.fx.interval));
+  }, n.fx.stop = function () {
+    a.clearInterval(Ta), Ta = null;
+  }, n.fx.speeds = { slow: 600, fast: 200, _default: 400 }, n.fn.delay = function (b, c) {
+    return b = n.fx ? n.fx.speeds[b] || b : b, c = c || "fx", this.queue(c, function (c, d) {
+      var e = a.setTimeout(c, b);d.stop = function () {
+        a.clearTimeout(e);
+      };
+    });
+  }, function () {
+    var a = d.createElement("input"),
+        b = d.createElement("select"),
+        c = b.appendChild(d.createElement("option"));a.type = "checkbox", l.checkOn = "" !== a.value, l.optSelected = c.selected, b.disabled = !0, l.optDisabled = !c.disabled, a = d.createElement("input"), a.value = "t", a.type = "radio", l.radioValue = "t" === a.value;
+  }();var ab,
+      bb = n.expr.attrHandle;n.fn.extend({ attr: function attr(a, b) {
+      return K(this, n.attr, a, b, arguments.length > 1);
+    }, removeAttr: function removeAttr(a) {
+      return this.each(function () {
+        n.removeAttr(this, a);
+      });
+    } }), n.extend({ attr: function attr(a, b, c) {
+      var d,
+          e,
+          f = a.nodeType;if (3 !== f && 8 !== f && 2 !== f) return "undefined" == typeof a.getAttribute ? n.prop(a, b, c) : (1 === f && n.isXMLDoc(a) || (b = b.toLowerCase(), e = n.attrHooks[b] || (n.expr.match.bool.test(b) ? ab : void 0)), void 0 !== c ? null === c ? void n.removeAttr(a, b) : e && "set" in e && void 0 !== (d = e.set(a, c, b)) ? d : (a.setAttribute(b, c + ""), c) : e && "get" in e && null !== (d = e.get(a, b)) ? d : (d = n.find.attr(a, b), null == d ? void 0 : d));
+    }, attrHooks: { type: { set: function set(a, b) {
+          if (!l.radioValue && "radio" === b && n.nodeName(a, "input")) {
+            var c = a.value;return a.setAttribute("type", b), c && (a.value = c), b;
+          }
+        } } }, removeAttr: function removeAttr(a, b) {
+      var c,
+          d,
+          e = 0,
+          f = b && b.match(G);if (f && 1 === a.nodeType) while (c = f[e++]) {
+        d = n.propFix[c] || c, n.expr.match.bool.test(c) && (a[d] = !1), a.removeAttribute(c);
+      }
+    } }), ab = { set: function set(a, b, c) {
+      return b === !1 ? n.removeAttr(a, c) : a.setAttribute(c, c), c;
+    } }, n.each(n.expr.match.bool.source.match(/\w+/g), function (a, b) {
+    var c = bb[b] || n.find.attr;bb[b] = function (a, b, d) {
+      var e, f;return d || (f = bb[b], bb[b] = e, e = null != c(a, b, d) ? b.toLowerCase() : null, bb[b] = f), e;
+    };
+  });var cb = /^(?:input|select|textarea|button)$/i,
+      db = /^(?:a|area)$/i;n.fn.extend({ prop: function prop(a, b) {
+      return K(this, n.prop, a, b, arguments.length > 1);
+    }, removeProp: function removeProp(a) {
+      return this.each(function () {
+        delete this[n.propFix[a] || a];
+      });
+    } }), n.extend({ prop: function prop(a, b, c) {
+      var d,
+          e,
+          f = a.nodeType;if (3 !== f && 8 !== f && 2 !== f) return 1 === f && n.isXMLDoc(a) || (b = n.propFix[b] || b, e = n.propHooks[b]), void 0 !== c ? e && "set" in e && void 0 !== (d = e.set(a, c, b)) ? d : a[b] = c : e && "get" in e && null !== (d = e.get(a, b)) ? d : a[b];
+    }, propHooks: { tabIndex: { get: function get(a) {
+          var b = n.find.attr(a, "tabindex");return b ? parseInt(b, 10) : cb.test(a.nodeName) || db.test(a.nodeName) && a.href ? 0 : -1;
+        } } }, propFix: { "for": "htmlFor", "class": "className" } }), l.optSelected || (n.propHooks.selected = { get: function get(a) {
+      var b = a.parentNode;return b && b.parentNode && b.parentNode.selectedIndex, null;
+    }, set: function set(a) {
+      var b = a.parentNode;b && (b.selectedIndex, b.parentNode && b.parentNode.selectedIndex);
+    } }), n.each(["tabIndex", "readOnly", "maxLength", "cellSpacing", "cellPadding", "rowSpan", "colSpan", "useMap", "frameBorder", "contentEditable"], function () {
+    n.propFix[this.toLowerCase()] = this;
+  });var eb = /[\t\r\n\f]/g;function fb(a) {
+    return a.getAttribute && a.getAttribute("class") || "";
+  }n.fn.extend({ addClass: function addClass(a) {
+      var b,
+          c,
+          d,
+          e,
+          f,
+          g,
+          h,
+          i = 0;if (n.isFunction(a)) return this.each(function (b) {
+        n(this).addClass(a.call(this, b, fb(this)));
+      });if ("string" == typeof a && a) {
+        b = a.match(G) || [];while (c = this[i++]) {
+          if (e = fb(c), d = 1 === c.nodeType && (" " + e + " ").replace(eb, " ")) {
+            g = 0;while (f = b[g++]) {
+              d.indexOf(" " + f + " ") < 0 && (d += f + " ");
+            }h = n.trim(d), e !== h && c.setAttribute("class", h);
+          }
+        }
+      }return this;
+    }, removeClass: function removeClass(a) {
+      var b,
+          c,
+          d,
+          e,
+          f,
+          g,
+          h,
+          i = 0;if (n.isFunction(a)) return this.each(function (b) {
+        n(this).removeClass(a.call(this, b, fb(this)));
+      });if (!arguments.length) return this.attr("class", "");if ("string" == typeof a && a) {
+        b = a.match(G) || [];while (c = this[i++]) {
+          if (e = fb(c), d = 1 === c.nodeType && (" " + e + " ").replace(eb, " ")) {
+            g = 0;while (f = b[g++]) {
+              while (d.indexOf(" " + f + " ") > -1) {
+                d = d.replace(" " + f + " ", " ");
+              }
+            }h = n.trim(d), e !== h && c.setAttribute("class", h);
+          }
+        }
+      }return this;
+    }, toggleClass: function toggleClass(a, b) {
+      var c = typeof a === "undefined" ? "undefined" : _typeof(a);return "boolean" == typeof b && "string" === c ? b ? this.addClass(a) : this.removeClass(a) : n.isFunction(a) ? this.each(function (c) {
+        n(this).toggleClass(a.call(this, c, fb(this), b), b);
+      }) : this.each(function () {
+        var b, d, e, f;if ("string" === c) {
+          d = 0, e = n(this), f = a.match(G) || [];while (b = f[d++]) {
+            e.hasClass(b) ? e.removeClass(b) : e.addClass(b);
+          }
+        } else void 0 !== a && "boolean" !== c || (b = fb(this), b && N.set(this, "__className__", b), this.setAttribute && this.setAttribute("class", b || a === !1 ? "" : N.get(this, "__className__") || ""));
+      });
+    }, hasClass: function hasClass(a) {
+      var b,
+          c,
+          d = 0;b = " " + a + " ";while (c = this[d++]) {
+        if (1 === c.nodeType && (" " + fb(c) + " ").replace(eb, " ").indexOf(b) > -1) return !0;
+      }return !1;
+    } });var gb = /\r/g,
+      hb = /[\x20\t\r\n\f]+/g;n.fn.extend({ val: function val(a) {
+      var b,
+          c,
+          d,
+          e = this[0];{
+        if (arguments.length) return d = n.isFunction(a), this.each(function (c) {
+          var e;1 === this.nodeType && (e = d ? a.call(this, c, n(this).val()) : a, null == e ? e = "" : "number" == typeof e ? e += "" : n.isArray(e) && (e = n.map(e, function (a) {
+            return null == a ? "" : a + "";
+          })), b = n.valHooks[this.type] || n.valHooks[this.nodeName.toLowerCase()], b && "set" in b && void 0 !== b.set(this, e, "value") || (this.value = e));
+        });if (e) return b = n.valHooks[e.type] || n.valHooks[e.nodeName.toLowerCase()], b && "get" in b && void 0 !== (c = b.get(e, "value")) ? c : (c = e.value, "string" == typeof c ? c.replace(gb, "") : null == c ? "" : c);
+      }
+    } }), n.extend({ valHooks: { option: { get: function get(a) {
+          var b = n.find.attr(a, "value");return null != b ? b : n.trim(n.text(a)).replace(hb, " ");
+        } }, select: { get: function get(a) {
+          for (var b, c, d = a.options, e = a.selectedIndex, f = "select-one" === a.type || 0 > e, g = f ? null : [], h = f ? e + 1 : d.length, i = 0 > e ? h : f ? e : 0; h > i; i++) {
+            if (c = d[i], (c.selected || i === e) && (l.optDisabled ? !c.disabled : null === c.getAttribute("disabled")) && (!c.parentNode.disabled || !n.nodeName(c.parentNode, "optgroup"))) {
+              if (b = n(c).val(), f) return b;g.push(b);
+            }
+          }return g;
+        }, set: function set(a, b) {
+          var c,
+              d,
+              e = a.options,
+              f = n.makeArray(b),
+              g = e.length;while (g--) {
+            d = e[g], (d.selected = n.inArray(n.valHooks.option.get(d), f) > -1) && (c = !0);
+          }return c || (a.selectedIndex = -1), f;
+        } } } }), n.each(["radio", "checkbox"], function () {
+    n.valHooks[this] = { set: function set(a, b) {
+        return n.isArray(b) ? a.checked = n.inArray(n(a).val(), b) > -1 : void 0;
+      } }, l.checkOn || (n.valHooks[this].get = function (a) {
+      return null === a.getAttribute("value") ? "on" : a.value;
+    });
+  });var ib = /^(?:focusinfocus|focusoutblur)$/;n.extend(n.event, { trigger: function trigger(b, c, e, f) {
+      var g,
+          h,
+          i,
+          j,
+          l,
+          m,
+          o,
+          p = [e || d],
+          q = k.call(b, "type") ? b.type : b,
+          r = k.call(b, "namespace") ? b.namespace.split(".") : [];if (h = i = e = e || d, 3 !== e.nodeType && 8 !== e.nodeType && !ib.test(q + n.event.triggered) && (q.indexOf(".") > -1 && (r = q.split("."), q = r.shift(), r.sort()), l = q.indexOf(":") < 0 && "on" + q, b = b[n.expando] ? b : new n.Event(q, "object" == (typeof b === "undefined" ? "undefined" : _typeof(b)) && b), b.isTrigger = f ? 2 : 3, b.namespace = r.join("."), b.rnamespace = b.namespace ? new RegExp("(^|\\.)" + r.join("\\.(?:.*\\.|)") + "(\\.|$)") : null, b.result = void 0, b.target || (b.target = e), c = null == c ? [b] : n.makeArray(c, [b]), o = n.event.special[q] || {}, f || !o.trigger || o.trigger.apply(e, c) !== !1)) {
+        if (!f && !o.noBubble && !n.isWindow(e)) {
+          for (j = o.delegateType || q, ib.test(j + q) || (h = h.parentNode); h; h = h.parentNode) {
+            p.push(h), i = h;
+          }i === (e.ownerDocument || d) && p.push(i.defaultView || i.parentWindow || a);
+        }g = 0;while ((h = p[g++]) && !b.isPropagationStopped()) {
+          b.type = g > 1 ? j : o.bindType || q, m = (N.get(h, "events") || {})[b.type] && N.get(h, "handle"), m && m.apply(h, c), m = l && h[l], m && m.apply && L(h) && (b.result = m.apply(h, c), b.result === !1 && b.preventDefault());
+        }return b.type = q, f || b.isDefaultPrevented() || o._default && o._default.apply(p.pop(), c) !== !1 || !L(e) || l && n.isFunction(e[q]) && !n.isWindow(e) && (i = e[l], i && (e[l] = null), n.event.triggered = q, e[q](), n.event.triggered = void 0, i && (e[l] = i)), b.result;
+      }
+    }, simulate: function simulate(a, b, c) {
+      var d = n.extend(new n.Event(), c, { type: a, isSimulated: !0 });n.event.trigger(d, null, b);
+    } }), n.fn.extend({ trigger: function trigger(a, b) {
+      return this.each(function () {
+        n.event.trigger(a, b, this);
+      });
+    }, triggerHandler: function triggerHandler(a, b) {
+      var c = this[0];return c ? n.event.trigger(a, b, c, !0) : void 0;
+    } }), n.each("blur focus focusin focusout load resize scroll unload click dblclick mousedown mouseup mousemove mouseover mouseout mouseenter mouseleave change select submit keydown keypress keyup error contextmenu".split(" "), function (a, b) {
+    n.fn[b] = function (a, c) {
+      return arguments.length > 0 ? this.on(b, null, a, c) : this.trigger(b);
+    };
+  }), n.fn.extend({ hover: function hover(a, b) {
+      return this.mouseenter(a).mouseleave(b || a);
+    } }), l.focusin = "onfocusin" in a, l.focusin || n.each({ focus: "focusin", blur: "focusout" }, function (a, b) {
+    var c = function c(a) {
+      n.event.simulate(b, a.target, n.event.fix(a));
+    };n.event.special[b] = { setup: function setup() {
+        var d = this.ownerDocument || this,
+            e = N.access(d, b);e || d.addEventListener(a, c, !0), N.access(d, b, (e || 0) + 1);
+      }, teardown: function teardown() {
+        var d = this.ownerDocument || this,
+            e = N.access(d, b) - 1;e ? N.access(d, b, e) : (d.removeEventListener(a, c, !0), N.remove(d, b));
+      } };
+  });var jb = a.location,
+      kb = n.now(),
+      lb = /\?/;n.parseJSON = function (a) {
+    return JSON.parse(a + "");
+  }, n.parseXML = function (b) {
+    var c;if (!b || "string" != typeof b) return null;try {
+      c = new a.DOMParser().parseFromString(b, "text/xml");
+    } catch (d) {
+      c = void 0;
+    }return c && !c.getElementsByTagName("parsererror").length || n.error("Invalid XML: " + b), c;
+  };var mb = /#.*$/,
+      nb = /([?&])_=[^&]*/,
+      ob = /^(.*?):[ \t]*([^\r\n]*)$/gm,
+      pb = /^(?:about|app|app-storage|.+-extension|file|res|widget):$/,
+      qb = /^(?:GET|HEAD)$/,
+      rb = /^\/\//,
+      sb = {},
+      tb = {},
+      ub = "*/".concat("*"),
+      vb = d.createElement("a");vb.href = jb.href;function wb(a) {
+    return function (b, c) {
+      "string" != typeof b && (c = b, b = "*");var d,
+          e = 0,
+          f = b.toLowerCase().match(G) || [];if (n.isFunction(c)) while (d = f[e++]) {
+        "+" === d[0] ? (d = d.slice(1) || "*", (a[d] = a[d] || []).unshift(c)) : (a[d] = a[d] || []).push(c);
+      }
+    };
+  }function xb(a, b, c, d) {
+    var e = {},
+        f = a === tb;function g(h) {
+      var i;return e[h] = !0, n.each(a[h] || [], function (a, h) {
+        var j = h(b, c, d);return "string" != typeof j || f || e[j] ? f ? !(i = j) : void 0 : (b.dataTypes.unshift(j), g(j), !1);
+      }), i;
+    }return g(b.dataTypes[0]) || !e["*"] && g("*");
+  }function yb(a, b) {
+    var c,
+        d,
+        e = n.ajaxSettings.flatOptions || {};for (c in b) {
+      void 0 !== b[c] && ((e[c] ? a : d || (d = {}))[c] = b[c]);
+    }return d && n.extend(!0, a, d), a;
+  }function zb(a, b, c) {
+    var d,
+        e,
+        f,
+        g,
+        h = a.contents,
+        i = a.dataTypes;while ("*" === i[0]) {
+      i.shift(), void 0 === d && (d = a.mimeType || b.getResponseHeader("Content-Type"));
+    }if (d) for (e in h) {
+      if (h[e] && h[e].test(d)) {
+        i.unshift(e);break;
+      }
+    }if (i[0] in c) f = i[0];else {
+      for (e in c) {
+        if (!i[0] || a.converters[e + " " + i[0]]) {
+          f = e;break;
+        }g || (g = e);
+      }f = f || g;
+    }return f ? (f !== i[0] && i.unshift(f), c[f]) : void 0;
+  }function Ab(a, b, c, d) {
+    var e,
+        f,
+        g,
+        h,
+        i,
+        j = {},
+        k = a.dataTypes.slice();if (k[1]) for (g in a.converters) {
+      j[g.toLowerCase()] = a.converters[g];
+    }f = k.shift();while (f) {
+      if (a.responseFields[f] && (c[a.responseFields[f]] = b), !i && d && a.dataFilter && (b = a.dataFilter(b, a.dataType)), i = f, f = k.shift()) if ("*" === f) f = i;else if ("*" !== i && i !== f) {
+        if (g = j[i + " " + f] || j["* " + f], !g) for (e in j) {
+          if (h = e.split(" "), h[1] === f && (g = j[i + " " + h[0]] || j["* " + h[0]])) {
+            g === !0 ? g = j[e] : j[e] !== !0 && (f = h[0], k.unshift(h[1]));break;
+          }
+        }if (g !== !0) if (g && a["throws"]) b = g(b);else try {
+          b = g(b);
+        } catch (l) {
+          return { state: "parsererror", error: g ? l : "No conversion from " + i + " to " + f };
+        }
+      }
+    }return { state: "success", data: b };
+  }n.extend({ active: 0, lastModified: {}, etag: {}, ajaxSettings: { url: jb.href, type: "GET", isLocal: pb.test(jb.protocol), global: !0, processData: !0, async: !0, contentType: "application/x-www-form-urlencoded; charset=UTF-8", accepts: { "*": ub, text: "text/plain", html: "text/html", xml: "application/xml, text/xml", json: "application/json, text/javascript" }, contents: { xml: /\bxml\b/, html: /\bhtml/, json: /\bjson\b/ }, responseFields: { xml: "responseXML", text: "responseText", json: "responseJSON" }, converters: { "* text": String, "text html": !0, "text json": n.parseJSON, "text xml": n.parseXML }, flatOptions: { url: !0, context: !0 } }, ajaxSetup: function ajaxSetup(a, b) {
+      return b ? yb(yb(a, n.ajaxSettings), b) : yb(n.ajaxSettings, a);
+    }, ajaxPrefilter: wb(sb), ajaxTransport: wb(tb), ajax: function ajax(b, c) {
+      "object" == (typeof b === "undefined" ? "undefined" : _typeof(b)) && (c = b, b = void 0), c = c || {};var e,
+          f,
+          g,
+          h,
+          i,
+          j,
+          k,
+          l,
+          m = n.ajaxSetup({}, c),
+          o = m.context || m,
+          p = m.context && (o.nodeType || o.jquery) ? n(o) : n.event,
+          q = n.Deferred(),
+          r = n.Callbacks("once memory"),
+          s = m.statusCode || {},
+          t = {},
+          u = {},
+          v = 0,
+          w = "canceled",
+          x = { readyState: 0, getResponseHeader: function getResponseHeader(a) {
+          var b;if (2 === v) {
+            if (!h) {
+              h = {};while (b = ob.exec(g)) {
+                h[b[1].toLowerCase()] = b[2];
+              }
+            }b = h[a.toLowerCase()];
+          }return null == b ? null : b;
+        }, getAllResponseHeaders: function getAllResponseHeaders() {
+          return 2 === v ? g : null;
+        }, setRequestHeader: function setRequestHeader(a, b) {
+          var c = a.toLowerCase();return v || (a = u[c] = u[c] || a, t[a] = b), this;
+        }, overrideMimeType: function overrideMimeType(a) {
+          return v || (m.mimeType = a), this;
+        }, statusCode: function statusCode(a) {
+          var b;if (a) if (2 > v) for (b in a) {
+            s[b] = [s[b], a[b]];
+          } else x.always(a[x.status]);return this;
+        }, abort: function abort(a) {
+          var b = a || w;return e && e.abort(b), z(0, b), this;
+        } };if (q.promise(x).complete = r.add, x.success = x.done, x.error = x.fail, m.url = ((b || m.url || jb.href) + "").replace(mb, "").replace(rb, jb.protocol + "//"), m.type = c.method || c.type || m.method || m.type, m.dataTypes = n.trim(m.dataType || "*").toLowerCase().match(G) || [""], null == m.crossDomain) {
+        j = d.createElement("a");try {
+          j.href = m.url, j.href = j.href, m.crossDomain = vb.protocol + "//" + vb.host != j.protocol + "//" + j.host;
+        } catch (y) {
+          m.crossDomain = !0;
+        }
+      }if (m.data && m.processData && "string" != typeof m.data && (m.data = n.param(m.data, m.traditional)), xb(sb, m, c, x), 2 === v) return x;k = n.event && m.global, k && 0 === n.active++ && n.event.trigger("ajaxStart"), m.type = m.type.toUpperCase(), m.hasContent = !qb.test(m.type), f = m.url, m.hasContent || (m.data && (f = m.url += (lb.test(f) ? "&" : "?") + m.data, delete m.data), m.cache === !1 && (m.url = nb.test(f) ? f.replace(nb, "$1_=" + kb++) : f + (lb.test(f) ? "&" : "?") + "_=" + kb++)), m.ifModified && (n.lastModified[f] && x.setRequestHeader("If-Modified-Since", n.lastModified[f]), n.etag[f] && x.setRequestHeader("If-None-Match", n.etag[f])), (m.data && m.hasContent && m.contentType !== !1 || c.contentType) && x.setRequestHeader("Content-Type", m.contentType), x.setRequestHeader("Accept", m.dataTypes[0] && m.accepts[m.dataTypes[0]] ? m.accepts[m.dataTypes[0]] + ("*" !== m.dataTypes[0] ? ", " + ub + "; q=0.01" : "") : m.accepts["*"]);for (l in m.headers) {
+        x.setRequestHeader(l, m.headers[l]);
+      }if (m.beforeSend && (m.beforeSend.call(o, x, m) === !1 || 2 === v)) return x.abort();w = "abort";for (l in { success: 1, error: 1, complete: 1 }) {
+        x[l](m[l]);
+      }if (e = xb(tb, m, c, x)) {
+        if (x.readyState = 1, k && p.trigger("ajaxSend", [x, m]), 2 === v) return x;m.async && m.timeout > 0 && (i = a.setTimeout(function () {
+          x.abort("timeout");
+        }, m.timeout));try {
+          v = 1, e.send(t, z);
+        } catch (y) {
+          if (!(2 > v)) throw y;z(-1, y);
+        }
+      } else z(-1, "No Transport");function z(b, c, d, h) {
+        var j,
+            l,
+            t,
+            u,
+            w,
+            y = c;2 !== v && (v = 2, i && a.clearTimeout(i), e = void 0, g = h || "", x.readyState = b > 0 ? 4 : 0, j = b >= 200 && 300 > b || 304 === b, d && (u = zb(m, x, d)), u = Ab(m, u, x, j), j ? (m.ifModified && (w = x.getResponseHeader("Last-Modified"), w && (n.lastModified[f] = w), w = x.getResponseHeader("etag"), w && (n.etag[f] = w)), 204 === b || "HEAD" === m.type ? y = "nocontent" : 304 === b ? y = "notmodified" : (y = u.state, l = u.data, t = u.error, j = !t)) : (t = y, !b && y || (y = "error", 0 > b && (b = 0))), x.status = b, x.statusText = (c || y) + "", j ? q.resolveWith(o, [l, y, x]) : q.rejectWith(o, [x, y, t]), x.statusCode(s), s = void 0, k && p.trigger(j ? "ajaxSuccess" : "ajaxError", [x, m, j ? l : t]), r.fireWith(o, [x, y]), k && (p.trigger("ajaxComplete", [x, m]), --n.active || n.event.trigger("ajaxStop")));
+      }return x;
+    }, getJSON: function getJSON(a, b, c) {
+      return n.get(a, b, c, "json");
+    }, getScript: function getScript(a, b) {
+      return n.get(a, void 0, b, "script");
+    } }), n.each(["get", "post"], function (a, b) {
+    n[b] = function (a, c, d, e) {
+      return n.isFunction(c) && (e = e || d, d = c, c = void 0), n.ajax(n.extend({ url: a, type: b, dataType: e, data: c, success: d }, n.isPlainObject(a) && a));
+    };
+  }), n._evalUrl = function (a) {
+    return n.ajax({ url: a, type: "GET", dataType: "script", async: !1, global: !1, "throws": !0 });
+  }, n.fn.extend({ wrapAll: function wrapAll(a) {
+      var b;return n.isFunction(a) ? this.each(function (b) {
+        n(this).wrapAll(a.call(this, b));
+      }) : (this[0] && (b = n(a, this[0].ownerDocument).eq(0).clone(!0), this[0].parentNode && b.insertBefore(this[0]), b.map(function () {
+        var a = this;while (a.firstElementChild) {
+          a = a.firstElementChild;
+        }return a;
+      }).append(this)), this);
+    }, wrapInner: function wrapInner(a) {
+      return n.isFunction(a) ? this.each(function (b) {
+        n(this).wrapInner(a.call(this, b));
+      }) : this.each(function () {
+        var b = n(this),
+            c = b.contents();c.length ? c.wrapAll(a) : b.append(a);
+      });
+    }, wrap: function wrap(a) {
+      var b = n.isFunction(a);return this.each(function (c) {
+        n(this).wrapAll(b ? a.call(this, c) : a);
+      });
+    }, unwrap: function unwrap() {
+      return this.parent().each(function () {
+        n.nodeName(this, "body") || n(this).replaceWith(this.childNodes);
+      }).end();
+    } }), n.expr.filters.hidden = function (a) {
+    return !n.expr.filters.visible(a);
+  }, n.expr.filters.visible = function (a) {
+    return a.offsetWidth > 0 || a.offsetHeight > 0 || a.getClientRects().length > 0;
+  };var Bb = /%20/g,
+      Cb = /\[\]$/,
+      Db = /\r?\n/g,
+      Eb = /^(?:submit|button|image|reset|file)$/i,
+      Fb = /^(?:input|select|textarea|keygen)/i;function Gb(a, b, c, d) {
+    var e;if (n.isArray(b)) n.each(b, function (b, e) {
+      c || Cb.test(a) ? d(a, e) : Gb(a + "[" + ("object" == (typeof e === "undefined" ? "undefined" : _typeof(e)) && null != e ? b : "") + "]", e, c, d);
+    });else if (c || "object" !== n.type(b)) d(a, b);else for (e in b) {
+      Gb(a + "[" + e + "]", b[e], c, d);
+    }
+  }n.param = function (a, b) {
+    var c,
+        d = [],
+        e = function e(a, b) {
+      b = n.isFunction(b) ? b() : null == b ? "" : b, d[d.length] = encodeURIComponent(a) + "=" + encodeURIComponent(b);
+    };if (void 0 === b && (b = n.ajaxSettings && n.ajaxSettings.traditional), n.isArray(a) || a.jquery && !n.isPlainObject(a)) n.each(a, function () {
+      e(this.name, this.value);
+    });else for (c in a) {
+      Gb(c, a[c], b, e);
+    }return d.join("&").replace(Bb, "+");
+  }, n.fn.extend({ serialize: function serialize() {
+      return n.param(this.serializeArray());
+    }, serializeArray: function serializeArray() {
+      return this.map(function () {
+        var a = n.prop(this, "elements");return a ? n.makeArray(a) : this;
+      }).filter(function () {
+        var a = this.type;return this.name && !n(this).is(":disabled") && Fb.test(this.nodeName) && !Eb.test(a) && (this.checked || !X.test(a));
+      }).map(function (a, b) {
+        var c = n(this).val();return null == c ? null : n.isArray(c) ? n.map(c, function (a) {
+          return { name: b.name, value: a.replace(Db, "\r\n") };
+        }) : { name: b.name, value: c.replace(Db, "\r\n") };
+      }).get();
+    } }), n.ajaxSettings.xhr = function () {
+    try {
+      return new a.XMLHttpRequest();
+    } catch (b) {}
+  };var Hb = { 0: 200, 1223: 204 },
+      Ib = n.ajaxSettings.xhr();l.cors = !!Ib && "withCredentials" in Ib, l.ajax = Ib = !!Ib, n.ajaxTransport(function (b) {
+    var _c, d;return l.cors || Ib && !b.crossDomain ? { send: function send(e, f) {
+        var g,
+            h = b.xhr();if (h.open(b.type, b.url, b.async, b.username, b.password), b.xhrFields) for (g in b.xhrFields) {
+          h[g] = b.xhrFields[g];
+        }b.mimeType && h.overrideMimeType && h.overrideMimeType(b.mimeType), b.crossDomain || e["X-Requested-With"] || (e["X-Requested-With"] = "XMLHttpRequest");for (g in e) {
+          h.setRequestHeader(g, e[g]);
+        }_c = function c(a) {
+          return function () {
+            _c && (_c = d = h.onload = h.onerror = h.onabort = h.onreadystatechange = null, "abort" === a ? h.abort() : "error" === a ? "number" != typeof h.status ? f(0, "error") : f(h.status, h.statusText) : f(Hb[h.status] || h.status, h.statusText, "text" !== (h.responseType || "text") || "string" != typeof h.responseText ? { binary: h.response } : { text: h.responseText }, h.getAllResponseHeaders()));
+          };
+        }, h.onload = _c(), d = h.onerror = _c("error"), void 0 !== h.onabort ? h.onabort = d : h.onreadystatechange = function () {
+          4 === h.readyState && a.setTimeout(function () {
+            _c && d();
+          });
+        }, _c = _c("abort");try {
+          h.send(b.hasContent && b.data || null);
+        } catch (i) {
+          if (_c) throw i;
+        }
+      }, abort: function abort() {
+        _c && _c();
+      } } : void 0;
+  }), n.ajaxSetup({ accepts: { script: "text/javascript, application/javascript, application/ecmascript, application/x-ecmascript" }, contents: { script: /\b(?:java|ecma)script\b/ }, converters: { "text script": function textScript(a) {
+        return n.globalEval(a), a;
+      } } }), n.ajaxPrefilter("script", function (a) {
+    void 0 === a.cache && (a.cache = !1), a.crossDomain && (a.type = "GET");
+  }), n.ajaxTransport("script", function (a) {
+    if (a.crossDomain) {
+      var b, _c2;return { send: function send(e, f) {
+          b = n("<script>").prop({ charset: a.scriptCharset, src: a.url }).on("load error", _c2 = function c(a) {
+            b.remove(), _c2 = null, a && f("error" === a.type ? 404 : 200, a.type);
+          }), d.head.appendChild(b[0]);
+        }, abort: function abort() {
+          _c2 && _c2();
+        } };
+    }
+  });var Jb = [],
+      Kb = /(=)\?(?=&|$)|\?\?/;n.ajaxSetup({ jsonp: "callback", jsonpCallback: function jsonpCallback() {
+      var a = Jb.pop() || n.expando + "_" + kb++;return this[a] = !0, a;
+    } }), n.ajaxPrefilter("json jsonp", function (b, c, d) {
+    var e,
+        f,
+        g,
+        h = b.jsonp !== !1 && (Kb.test(b.url) ? "url" : "string" == typeof b.data && 0 === (b.contentType || "").indexOf("application/x-www-form-urlencoded") && Kb.test(b.data) && "data");return h || "jsonp" === b.dataTypes[0] ? (e = b.jsonpCallback = n.isFunction(b.jsonpCallback) ? b.jsonpCallback() : b.jsonpCallback, h ? b[h] = b[h].replace(Kb, "$1" + e) : b.jsonp !== !1 && (b.url += (lb.test(b.url) ? "&" : "?") + b.jsonp + "=" + e), b.converters["script json"] = function () {
+      return g || n.error(e + " was not called"), g[0];
+    }, b.dataTypes[0] = "json", f = a[e], a[e] = function () {
+      g = arguments;
+    }, d.always(function () {
+      void 0 === f ? n(a).removeProp(e) : a[e] = f, b[e] && (b.jsonpCallback = c.jsonpCallback, Jb.push(e)), g && n.isFunction(f) && f(g[0]), g = f = void 0;
+    }), "script") : void 0;
+  }), n.parseHTML = function (a, b, c) {
+    if (!a || "string" != typeof a) return null;"boolean" == typeof b && (c = b, b = !1), b = b || d;var e = x.exec(a),
+        f = !c && [];return e ? [b.createElement(e[1])] : (e = ca([a], b, f), f && f.length && n(f).remove(), n.merge([], e.childNodes));
+  };var Lb = n.fn.load;n.fn.load = function (a, b, c) {
+    if ("string" != typeof a && Lb) return Lb.apply(this, arguments);var d,
+        e,
+        f,
+        g = this,
+        h = a.indexOf(" ");return h > -1 && (d = n.trim(a.slice(h)), a = a.slice(0, h)), n.isFunction(b) ? (c = b, b = void 0) : b && "object" == (typeof b === "undefined" ? "undefined" : _typeof(b)) && (e = "POST"), g.length > 0 && n.ajax({ url: a, type: e || "GET", dataType: "html", data: b }).done(function (a) {
+      f = arguments, g.html(d ? n("<div>").append(n.parseHTML(a)).find(d) : a);
+    }).always(c && function (a, b) {
+      g.each(function () {
+        c.apply(this, f || [a.responseText, b, a]);
+      });
+    }), this;
+  }, n.each(["ajaxStart", "ajaxStop", "ajaxComplete", "ajaxError", "ajaxSuccess", "ajaxSend"], function (a, b) {
+    n.fn[b] = function (a) {
+      return this.on(b, a);
+    };
+  }), n.expr.filters.animated = function (a) {
+    return n.grep(n.timers, function (b) {
+      return a === b.elem;
+    }).length;
+  };function Mb(a) {
+    return n.isWindow(a) ? a : 9 === a.nodeType && a.defaultView;
+  }n.offset = { setOffset: function setOffset(a, b, c) {
+      var d,
+          e,
+          f,
+          g,
+          h,
+          i,
+          j,
+          k = n.css(a, "position"),
+          l = n(a),
+          m = {};"static" === k && (a.style.position = "relative"), h = l.offset(), f = n.css(a, "top"), i = n.css(a, "left"), j = ("absolute" === k || "fixed" === k) && (f + i).indexOf("auto") > -1, j ? (d = l.position(), g = d.top, e = d.left) : (g = parseFloat(f) || 0, e = parseFloat(i) || 0), n.isFunction(b) && (b = b.call(a, c, n.extend({}, h))), null != b.top && (m.top = b.top - h.top + g), null != b.left && (m.left = b.left - h.left + e), "using" in b ? b.using.call(a, m) : l.css(m);
+    } }, n.fn.extend({ offset: function offset(a) {
+      if (arguments.length) return void 0 === a ? this : this.each(function (b) {
+        n.offset.setOffset(this, a, b);
+      });var b,
+          c,
+          d = this[0],
+          e = { top: 0, left: 0 },
+          f = d && d.ownerDocument;if (f) return b = f.documentElement, n.contains(b, d) ? (e = d.getBoundingClientRect(), c = Mb(f), { top: e.top + c.pageYOffset - b.clientTop, left: e.left + c.pageXOffset - b.clientLeft }) : e;
+    }, position: function position() {
+      if (this[0]) {
+        var a,
+            b,
+            c = this[0],
+            d = { top: 0, left: 0 };return "fixed" === n.css(c, "position") ? b = c.getBoundingClientRect() : (a = this.offsetParent(), b = this.offset(), n.nodeName(a[0], "html") || (d = a.offset()), d.top += n.css(a[0], "borderTopWidth", !0), d.left += n.css(a[0], "borderLeftWidth", !0)), { top: b.top - d.top - n.css(c, "marginTop", !0), left: b.left - d.left - n.css(c, "marginLeft", !0) };
+      }
+    }, offsetParent: function offsetParent() {
+      return this.map(function () {
+        var a = this.offsetParent;while (a && "static" === n.css(a, "position")) {
+          a = a.offsetParent;
+        }return a || Ea;
+      });
+    } }), n.each({ scrollLeft: "pageXOffset", scrollTop: "pageYOffset" }, function (a, b) {
+    var c = "pageYOffset" === b;n.fn[a] = function (d) {
+      return K(this, function (a, d, e) {
+        var f = Mb(a);return void 0 === e ? f ? f[b] : a[d] : void (f ? f.scrollTo(c ? f.pageXOffset : e, c ? e : f.pageYOffset) : a[d] = e);
+      }, a, d, arguments.length);
+    };
+  }), n.each(["top", "left"], function (a, b) {
+    n.cssHooks[b] = Ga(l.pixelPosition, function (a, c) {
+      return c ? (c = Fa(a, b), Ba.test(c) ? n(a).position()[b] + "px" : c) : void 0;
+    });
+  }), n.each({ Height: "height", Width: "width" }, function (a, b) {
+    n.each({ padding: "inner" + a, content: b, "": "outer" + a }, function (c, d) {
+      n.fn[d] = function (d, e) {
+        var f = arguments.length && (c || "boolean" != typeof d),
+            g = c || (d === !0 || e === !0 ? "margin" : "border");return K(this, function (b, c, d) {
+          var e;return n.isWindow(b) ? b.document.documentElement["client" + a] : 9 === b.nodeType ? (e = b.documentElement, Math.max(b.body["scroll" + a], e["scroll" + a], b.body["offset" + a], e["offset" + a], e["client" + a])) : void 0 === d ? n.css(b, c, g) : n.style(b, c, d, g);
+        }, b, f ? d : void 0, f, null);
+      };
+    });
+  }), n.fn.extend({ bind: function bind(a, b, c) {
+      return this.on(a, null, b, c);
+    }, unbind: function unbind(a, b) {
+      return this.off(a, null, b);
+    }, delegate: function delegate(a, b, c, d) {
+      return this.on(b, a, c, d);
+    }, undelegate: function undelegate(a, b, c) {
+      return 1 === arguments.length ? this.off(a, "**") : this.off(b, a || "**", c);
+    }, size: function size() {
+      return this.length;
+    } }), n.fn.andSelf = n.fn.addBack, "function" == "function" && __webpack_require__(148) && !(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = (function () {
+    return n;
+  }).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));var Nb = a.jQuery,
+      Ob = a.$;return n.noConflict = function (b) {
+    return a.$ === n && (a.$ = Ob), b && a.jQuery === n && (a.jQuery = Nb), n;
+  }, b || (a.jQuery = a.$ = n), n;
+});
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)(module)))
 
 /***/ }),
-/* 146 */
+/* 148 */
+/***/ (function(module, exports) {
+
+/* WEBPACK VAR INJECTION */(function(__webpack_amd_options__) {/* globals __webpack_amd_options__ */
+module.exports = __webpack_amd_options__;
+
+/* WEBPACK VAR INJECTION */}.call(exports, {}))
+
+/***/ }),
+/* 149 */
+/***/ (function(module, exports, __webpack_require__) {
+
+!function(t,e){ true?module.exports=e(__webpack_require__(150)):"function"==typeof define&&define.amd?define("VueFlatpickr",["flatpickr"],e):"object"==typeof exports?exports.VueFlatpickr=e(require("flatpickr")):t.VueFlatpickr=e(t.flatpickr)}("undefined"!=typeof self?self:this,function(t){return function(t){var e={};function n(r){if(e[r])return e[r].exports;var o=e[r]={i:r,l:!1,exports:{}};return t[r].call(o.exports,o,o.exports,n),o.l=!0,o.exports}return n.m=t,n.c=e,n.d=function(t,e,r){n.o(t,e)||Object.defineProperty(t,e,{enumerable:!0,get:r})},n.r=function(t){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(t,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(t,"__esModule",{value:!0})},n.t=function(t,e){if(1&e&&(t=n(t)),8&e)return t;if(4&e&&"object"==typeof t&&t&&t.__esModule)return t;var r=Object.create(null);if(n.r(r),Object.defineProperty(r,"default",{enumerable:!0,value:t}),2&e&&"string"!=typeof t)for(var o in t)n.d(r,o,function(e){return t[e]}.bind(null,o));return r},n.n=function(t){var e=t&&t.__esModule?function(){return t.default}:function(){return t};return n.d(e,"a",e),e},n.o=function(t,e){return Object.prototype.hasOwnProperty.call(t,e)},n.p="",n(n.s=1)}([function(e,n){e.exports=t},function(t,e,n){"use strict";n.r(e);var r=n(0),o=n.n(r),i=["onChange","onClose","onDestroy","onMonthChange","onOpen","onYearChange"];function u(){return(u=Object.assign||function(t){for(var e=1;e<arguments.length;e++){var n=arguments[e];for(var r in n)Object.prototype.hasOwnProperty.call(n,r)&&(t[r]=n[r])}return t}).apply(this,arguments)}var a=function(t){return u({},t)},f=i.concat(["onValueUpdate","onDayCreate","onParseConfig","onReady","onPreCalendarPosition","onKeyDown"]),l=["locale","showMonths"],s={name:"flat-pickr",render:function(t){return t("input",{attrs:{type:"text","data-input":!0},props:{disabled:this.disabled},on:{input:this.onInput}})},props:{value:{default:null,required:!0,validator:function(t){return null===t||t instanceof Date||"string"==typeof t||t instanceof String||t instanceof Array||"number"==typeof t}},config:{type:Object,default:function(){return{wrap:!1,defaultDate:null}}},events:{type:Array,default:function(){return i}},disabled:{type:Boolean,default:!1}},data:function(){return{fp:null}},mounted:function(){var t=this;if(!this.fp){var e=a(this.config);this.events.forEach(function(n){var r,i=o.a.defaultConfig[n]||[];e[n]=(r=e[n]||[],r instanceof Array?r:[r]).concat(i,function(){for(var e=arguments.length,r=new Array(e),o=0;o<e;o++)r[o]=arguments[o];var i;t.$emit.apply(t,[(i=n,i.replace(/([a-z])([A-Z])/g,"$1-$2").toLowerCase())].concat(r))})}),e.defaultDate=this.value||e.defaultDate,this.fp=new o.a(this.getElem(),e),this.fpInput().addEventListener("blur",this.onBlur),this.$watch("disabled",this.watchDisabled,{immediate:!0})}},methods:{getElem:function(){return this.config.wrap?this.$el.parentNode:this.$el},onInput:function(t){var e=this,n=t.target;this.$nextTick(function(){e.$emit("input",n.value)})},fpInput:function(){return this.fp.altInput||this.fp.input},onBlur:function(t){this.$emit("blur",t.target.value)},watchDisabled:function(t){t?this.fpInput().setAttribute("disabled",t):this.fpInput().removeAttribute("disabled")}},watch:{config:{deep:!0,handler:function(t){var e=this,n=a(t);f.forEach(function(t){delete n[t]}),this.fp.set(n),l.forEach(function(t){void 0!==n[t]&&e.fp.set(t,n[t])})}},value:function(t){t!==this.$el.value&&this.fp&&this.fp.setDate(t,!0)}},beforeDestroy:function(){this.fp&&(this.fpInput().removeEventListener("blur",this.onBlur),this.fp.destroy(),this.fp=null)}};n.d(e,"Plugin",function(){return c}),n.d(e,"Component",function(){return s});var c=function(t,e){var n="flat-pickr";"string"==typeof e&&(n=e),t.component(n,s)};s.install=c;e.default=s}]).default});
+
+/***/ }),
+/* 150 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* flatpickr v4.6.3, @license MIT */
@@ -27052,13 +29715,13 @@ if (typeof this !== 'undefined' && this.Sweetalert2){  this.swal = this.sweetAle
 
 
 /***/ }),
-/* 147 */
+/* 151 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(148);
+var content = __webpack_require__(152);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -27066,7 +29729,7 @@ var transform;
 var options = {}
 options.transform = transform
 // add the styles to the DOM
-var update = __webpack_require__(149)(content, options);
+var update = __webpack_require__(153)(content, options);
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -27083,7 +29746,7 @@ if(false) {
 }
 
 /***/ }),
-/* 148 */
+/* 152 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(2)(false);
@@ -27097,7 +29760,7 @@ exports.push([module.i, ".flatpickr-calendar {\n  background: transparent;\n  op
 
 
 /***/ }),
-/* 149 */
+/* 153 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -27143,7 +29806,7 @@ var singleton = null;
 var	singletonCounter = 0;
 var	stylesInsertedAtTop = [];
 
-var	fixUrls = __webpack_require__(150);
+var	fixUrls = __webpack_require__(154);
 
 module.exports = function(list, options) {
 	if (typeof DEBUG !== "undefined" && DEBUG) {
@@ -27456,7 +30119,7 @@ function updateLink (link, options, obj) {
 
 
 /***/ }),
-/* 150 */
+/* 154 */
 /***/ (function(module, exports) {
 
 
@@ -27551,7 +30214,7 @@ module.exports = function (css) {
 
 
 /***/ }),
-/* 151 */
+/* 155 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -27561,8 +30224,8 @@ module.exports = function (css) {
 /* unused harmony export createTooltip */
 /* unused harmony export destroyTooltip */
 /* unused harmony export install */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_popper_js__ = __webpack_require__(152);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_resize__ = __webpack_require__(153);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_popper_js__ = __webpack_require__(156);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_resize__ = __webpack_require__(157);
 
 
 
@@ -31949,7 +34612,7 @@ if (GlobalVue) {
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(1)))
 
 /***/ }),
-/* 152 */
+/* 156 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -34561,7 +37224,7 @@ Popper.Defaults = Defaults;
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(1)))
 
 /***/ }),
-/* 153 */
+/* 157 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -34686,29 +37349,29 @@ if (GlobalVue) {
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(1)))
 
 /***/ }),
-/* 154 */
+/* 158 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_moments_ago_vue__ = __webpack_require__(155);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_moments_ago_vue__ = __webpack_require__(159);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_moments_ago_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_moments_ago_vue__);
 
 /* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0__components_moments_ago_vue___default.a);
 
 /***/ }),
-/* 155 */
+/* 159 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(156)
+  __webpack_require__(160)
 }
 var normalizeComponent = __webpack_require__(4)
 /* script */
-var __vue_script__ = __webpack_require__(158)
+var __vue_script__ = __webpack_require__(162)
 /* template */
-var __vue_template__ = __webpack_require__(166)
+var __vue_template__ = __webpack_require__(169)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -34747,13 +37410,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 156 */
+/* 160 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(157);
+var content = __webpack_require__(161);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -34773,7 +37436,7 @@ if(false) {
 }
 
 /***/ }),
-/* 157 */
+/* 161 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(2)(false);
@@ -34787,12 +37450,12 @@ exports.push([module.i, "\n.vue-moments-ago[data-v-55107a8f] {\n  font-size: 12p
 
 
 /***/ }),
-/* 158 */
+/* 162 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(159);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(163);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_moment__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_moment__);
@@ -34909,18 +37572,18 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.prototype.moment = __WEBPACK_IMPORTE
 });
 
 /***/ }),
-/* 159 */
+/* 163 */
 /***/ (function(module, exports, __webpack_require__) {
 
 if (false) {
   module.exports = require('./vue.common.prod.js')
 } else {
-  module.exports = __webpack_require__(160)
+  module.exports = __webpack_require__(164)
 }
 
 
 /***/ }),
-/* 160 */
+/* 164 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -46863,10 +49526,10 @@ Vue.compile = compileToFunctions;
 
 module.exports = Vue;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(161).setImmediate))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(165).setImmediate))
 
 /***/ }),
-/* 161 */
+/* 165 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {var scope = (typeof global !== "undefined" && global) ||
@@ -46922,7 +49585,7 @@ exports._unrefActive = exports.active = function(item) {
 };
 
 // setimmediate attaches itself to the global object
-__webpack_require__(162);
+__webpack_require__(166);
 // On some exotic environments, it's not clear which object `setimmediate` was
 // able to install onto.  Search each possibility in the same order as the
 // `setimmediate` library.
@@ -46936,7 +49599,7 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
-/* 162 */
+/* 166 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, process) {(function (global, undefined) {
@@ -47126,10 +49789,10 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
     attachTo.clearImmediate = clearImmediate;
 }(typeof self === "undefined" ? typeof global === "undefined" ? this : global : self));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(163)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(167)))
 
 /***/ }),
-/* 163 */
+/* 167 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -47319,292 +49982,264 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 164 */
-/***/ (function(module, exports) {
-
-module.exports = function(module) {
-	if(!module.webpackPolyfill) {
-		module.deprecate = function() {};
-		module.paths = [];
-		// module.parent = undefined by default
-		if(!module.children) module.children = [];
-		Object.defineProperty(module, "loaded", {
-			enumerable: true,
-			get: function() {
-				return module.l;
-			}
-		});
-		Object.defineProperty(module, "id", {
-			enumerable: true,
-			get: function() {
-				return module.i;
-			}
-		});
-		module.webpackPolyfill = 1;
-	}
-	return module;
-};
-
-
-/***/ }),
-/* 165 */
+/* 168 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
-	"./af": 5,
-	"./af.js": 5,
-	"./ar": 6,
-	"./ar-dz": 7,
-	"./ar-dz.js": 7,
-	"./ar-kw": 8,
-	"./ar-kw.js": 8,
-	"./ar-ly": 9,
-	"./ar-ly.js": 9,
-	"./ar-ma": 10,
-	"./ar-ma.js": 10,
-	"./ar-sa": 11,
-	"./ar-sa.js": 11,
-	"./ar-tn": 12,
-	"./ar-tn.js": 12,
-	"./ar.js": 6,
-	"./az": 13,
-	"./az.js": 13,
-	"./be": 14,
-	"./be.js": 14,
-	"./bg": 15,
-	"./bg.js": 15,
-	"./bm": 16,
-	"./bm.js": 16,
-	"./bn": 17,
-	"./bn.js": 17,
-	"./bo": 18,
-	"./bo.js": 18,
-	"./br": 19,
-	"./br.js": 19,
-	"./bs": 20,
-	"./bs.js": 20,
-	"./ca": 21,
-	"./ca.js": 21,
-	"./cs": 22,
-	"./cs.js": 22,
-	"./cv": 23,
-	"./cv.js": 23,
-	"./cy": 24,
-	"./cy.js": 24,
-	"./da": 25,
-	"./da.js": 25,
-	"./de": 26,
-	"./de-at": 27,
-	"./de-at.js": 27,
-	"./de-ch": 28,
-	"./de-ch.js": 28,
-	"./de.js": 26,
-	"./dv": 29,
-	"./dv.js": 29,
-	"./el": 30,
-	"./el.js": 30,
-	"./en-SG": 31,
-	"./en-SG.js": 31,
-	"./en-au": 32,
-	"./en-au.js": 32,
-	"./en-ca": 33,
-	"./en-ca.js": 33,
-	"./en-gb": 34,
-	"./en-gb.js": 34,
-	"./en-ie": 35,
-	"./en-ie.js": 35,
-	"./en-il": 36,
-	"./en-il.js": 36,
-	"./en-nz": 37,
-	"./en-nz.js": 37,
-	"./eo": 38,
-	"./eo.js": 38,
-	"./es": 39,
-	"./es-do": 40,
-	"./es-do.js": 40,
-	"./es-us": 41,
-	"./es-us.js": 41,
-	"./es.js": 39,
-	"./et": 42,
-	"./et.js": 42,
-	"./eu": 43,
-	"./eu.js": 43,
-	"./fa": 44,
-	"./fa.js": 44,
-	"./fi": 45,
-	"./fi.js": 45,
-	"./fo": 46,
-	"./fo.js": 46,
-	"./fr": 47,
-	"./fr-ca": 48,
-	"./fr-ca.js": 48,
-	"./fr-ch": 49,
-	"./fr-ch.js": 49,
-	"./fr.js": 47,
-	"./fy": 50,
-	"./fy.js": 50,
-	"./ga": 51,
-	"./ga.js": 51,
-	"./gd": 52,
-	"./gd.js": 52,
-	"./gl": 53,
-	"./gl.js": 53,
-	"./gom-latn": 54,
-	"./gom-latn.js": 54,
-	"./gu": 55,
-	"./gu.js": 55,
-	"./he": 56,
-	"./he.js": 56,
-	"./hi": 57,
-	"./hi.js": 57,
-	"./hr": 58,
-	"./hr.js": 58,
-	"./hu": 59,
-	"./hu.js": 59,
-	"./hy-am": 60,
-	"./hy-am.js": 60,
-	"./id": 61,
-	"./id.js": 61,
-	"./is": 62,
-	"./is.js": 62,
-	"./it": 63,
-	"./it-ch": 64,
-	"./it-ch.js": 64,
-	"./it.js": 63,
-	"./ja": 65,
-	"./ja.js": 65,
-	"./jv": 66,
-	"./jv.js": 66,
-	"./ka": 67,
-	"./ka.js": 67,
-	"./kk": 68,
-	"./kk.js": 68,
-	"./km": 69,
-	"./km.js": 69,
-	"./kn": 70,
-	"./kn.js": 70,
-	"./ko": 71,
-	"./ko.js": 71,
-	"./ku": 72,
-	"./ku.js": 72,
-	"./ky": 73,
-	"./ky.js": 73,
-	"./lb": 74,
-	"./lb.js": 74,
-	"./lo": 75,
-	"./lo.js": 75,
-	"./lt": 76,
-	"./lt.js": 76,
-	"./lv": 77,
-	"./lv.js": 77,
-	"./me": 78,
-	"./me.js": 78,
-	"./mi": 79,
-	"./mi.js": 79,
-	"./mk": 80,
-	"./mk.js": 80,
-	"./ml": 81,
-	"./ml.js": 81,
-	"./mn": 82,
-	"./mn.js": 82,
-	"./mr": 83,
-	"./mr.js": 83,
-	"./ms": 84,
-	"./ms-my": 85,
-	"./ms-my.js": 85,
-	"./ms.js": 84,
-	"./mt": 86,
-	"./mt.js": 86,
-	"./my": 87,
-	"./my.js": 87,
-	"./nb": 88,
-	"./nb.js": 88,
-	"./ne": 89,
-	"./ne.js": 89,
-	"./nl": 90,
-	"./nl-be": 91,
-	"./nl-be.js": 91,
-	"./nl.js": 90,
-	"./nn": 92,
-	"./nn.js": 92,
-	"./pa-in": 93,
-	"./pa-in.js": 93,
-	"./pl": 94,
-	"./pl.js": 94,
-	"./pt": 95,
-	"./pt-br": 96,
-	"./pt-br.js": 96,
-	"./pt.js": 95,
-	"./ro": 97,
-	"./ro.js": 97,
-	"./ru": 98,
-	"./ru.js": 98,
-	"./sd": 99,
-	"./sd.js": 99,
-	"./se": 100,
-	"./se.js": 100,
-	"./si": 101,
-	"./si.js": 101,
-	"./sk": 102,
-	"./sk.js": 102,
-	"./sl": 103,
-	"./sl.js": 103,
-	"./sq": 104,
-	"./sq.js": 104,
-	"./sr": 105,
-	"./sr-cyrl": 106,
-	"./sr-cyrl.js": 106,
-	"./sr.js": 105,
-	"./ss": 107,
-	"./ss.js": 107,
-	"./sv": 108,
-	"./sv.js": 108,
-	"./sw": 109,
-	"./sw.js": 109,
-	"./ta": 110,
-	"./ta.js": 110,
-	"./te": 111,
-	"./te.js": 111,
-	"./tet": 112,
-	"./tet.js": 112,
-	"./tg": 113,
-	"./tg.js": 113,
-	"./th": 114,
-	"./th.js": 114,
-	"./tl-ph": 115,
-	"./tl-ph.js": 115,
-	"./tlh": 116,
-	"./tlh.js": 116,
-	"./tr": 117,
-	"./tr.js": 117,
-	"./tzl": 118,
-	"./tzl.js": 118,
-	"./tzm": 119,
-	"./tzm-latn": 120,
-	"./tzm-latn.js": 120,
-	"./tzm.js": 119,
-	"./ug-cn": 121,
-	"./ug-cn.js": 121,
-	"./uk": 122,
-	"./uk.js": 122,
-	"./ur": 123,
-	"./ur.js": 123,
-	"./uz": 124,
-	"./uz-latn": 125,
-	"./uz-latn.js": 125,
-	"./uz.js": 124,
-	"./vi": 126,
-	"./vi.js": 126,
-	"./x-pseudo": 127,
-	"./x-pseudo.js": 127,
-	"./yo": 128,
-	"./yo.js": 128,
-	"./zh-cn": 129,
-	"./zh-cn.js": 129,
-	"./zh-hk": 130,
-	"./zh-hk.js": 130,
-	"./zh-tw": 131,
-	"./zh-tw.js": 131
+	"./af": 6,
+	"./af.js": 6,
+	"./ar": 7,
+	"./ar-dz": 8,
+	"./ar-dz.js": 8,
+	"./ar-kw": 9,
+	"./ar-kw.js": 9,
+	"./ar-ly": 10,
+	"./ar-ly.js": 10,
+	"./ar-ma": 11,
+	"./ar-ma.js": 11,
+	"./ar-sa": 12,
+	"./ar-sa.js": 12,
+	"./ar-tn": 13,
+	"./ar-tn.js": 13,
+	"./ar.js": 7,
+	"./az": 14,
+	"./az.js": 14,
+	"./be": 15,
+	"./be.js": 15,
+	"./bg": 16,
+	"./bg.js": 16,
+	"./bm": 17,
+	"./bm.js": 17,
+	"./bn": 18,
+	"./bn.js": 18,
+	"./bo": 19,
+	"./bo.js": 19,
+	"./br": 20,
+	"./br.js": 20,
+	"./bs": 21,
+	"./bs.js": 21,
+	"./ca": 22,
+	"./ca.js": 22,
+	"./cs": 23,
+	"./cs.js": 23,
+	"./cv": 24,
+	"./cv.js": 24,
+	"./cy": 25,
+	"./cy.js": 25,
+	"./da": 26,
+	"./da.js": 26,
+	"./de": 27,
+	"./de-at": 28,
+	"./de-at.js": 28,
+	"./de-ch": 29,
+	"./de-ch.js": 29,
+	"./de.js": 27,
+	"./dv": 30,
+	"./dv.js": 30,
+	"./el": 31,
+	"./el.js": 31,
+	"./en-SG": 32,
+	"./en-SG.js": 32,
+	"./en-au": 33,
+	"./en-au.js": 33,
+	"./en-ca": 34,
+	"./en-ca.js": 34,
+	"./en-gb": 35,
+	"./en-gb.js": 35,
+	"./en-ie": 36,
+	"./en-ie.js": 36,
+	"./en-il": 37,
+	"./en-il.js": 37,
+	"./en-nz": 38,
+	"./en-nz.js": 38,
+	"./eo": 39,
+	"./eo.js": 39,
+	"./es": 40,
+	"./es-do": 41,
+	"./es-do.js": 41,
+	"./es-us": 42,
+	"./es-us.js": 42,
+	"./es.js": 40,
+	"./et": 43,
+	"./et.js": 43,
+	"./eu": 44,
+	"./eu.js": 44,
+	"./fa": 45,
+	"./fa.js": 45,
+	"./fi": 46,
+	"./fi.js": 46,
+	"./fo": 47,
+	"./fo.js": 47,
+	"./fr": 48,
+	"./fr-ca": 49,
+	"./fr-ca.js": 49,
+	"./fr-ch": 50,
+	"./fr-ch.js": 50,
+	"./fr.js": 48,
+	"./fy": 51,
+	"./fy.js": 51,
+	"./ga": 52,
+	"./ga.js": 52,
+	"./gd": 53,
+	"./gd.js": 53,
+	"./gl": 54,
+	"./gl.js": 54,
+	"./gom-latn": 55,
+	"./gom-latn.js": 55,
+	"./gu": 56,
+	"./gu.js": 56,
+	"./he": 57,
+	"./he.js": 57,
+	"./hi": 58,
+	"./hi.js": 58,
+	"./hr": 59,
+	"./hr.js": 59,
+	"./hu": 60,
+	"./hu.js": 60,
+	"./hy-am": 61,
+	"./hy-am.js": 61,
+	"./id": 62,
+	"./id.js": 62,
+	"./is": 63,
+	"./is.js": 63,
+	"./it": 64,
+	"./it-ch": 65,
+	"./it-ch.js": 65,
+	"./it.js": 64,
+	"./ja": 66,
+	"./ja.js": 66,
+	"./jv": 67,
+	"./jv.js": 67,
+	"./ka": 68,
+	"./ka.js": 68,
+	"./kk": 69,
+	"./kk.js": 69,
+	"./km": 70,
+	"./km.js": 70,
+	"./kn": 71,
+	"./kn.js": 71,
+	"./ko": 72,
+	"./ko.js": 72,
+	"./ku": 73,
+	"./ku.js": 73,
+	"./ky": 74,
+	"./ky.js": 74,
+	"./lb": 75,
+	"./lb.js": 75,
+	"./lo": 76,
+	"./lo.js": 76,
+	"./lt": 77,
+	"./lt.js": 77,
+	"./lv": 78,
+	"./lv.js": 78,
+	"./me": 79,
+	"./me.js": 79,
+	"./mi": 80,
+	"./mi.js": 80,
+	"./mk": 81,
+	"./mk.js": 81,
+	"./ml": 82,
+	"./ml.js": 82,
+	"./mn": 83,
+	"./mn.js": 83,
+	"./mr": 84,
+	"./mr.js": 84,
+	"./ms": 85,
+	"./ms-my": 86,
+	"./ms-my.js": 86,
+	"./ms.js": 85,
+	"./mt": 87,
+	"./mt.js": 87,
+	"./my": 88,
+	"./my.js": 88,
+	"./nb": 89,
+	"./nb.js": 89,
+	"./ne": 90,
+	"./ne.js": 90,
+	"./nl": 91,
+	"./nl-be": 92,
+	"./nl-be.js": 92,
+	"./nl.js": 91,
+	"./nn": 93,
+	"./nn.js": 93,
+	"./pa-in": 94,
+	"./pa-in.js": 94,
+	"./pl": 95,
+	"./pl.js": 95,
+	"./pt": 96,
+	"./pt-br": 97,
+	"./pt-br.js": 97,
+	"./pt.js": 96,
+	"./ro": 98,
+	"./ro.js": 98,
+	"./ru": 99,
+	"./ru.js": 99,
+	"./sd": 100,
+	"./sd.js": 100,
+	"./se": 101,
+	"./se.js": 101,
+	"./si": 102,
+	"./si.js": 102,
+	"./sk": 103,
+	"./sk.js": 103,
+	"./sl": 104,
+	"./sl.js": 104,
+	"./sq": 105,
+	"./sq.js": 105,
+	"./sr": 106,
+	"./sr-cyrl": 107,
+	"./sr-cyrl.js": 107,
+	"./sr.js": 106,
+	"./ss": 108,
+	"./ss.js": 108,
+	"./sv": 109,
+	"./sv.js": 109,
+	"./sw": 110,
+	"./sw.js": 110,
+	"./ta": 111,
+	"./ta.js": 111,
+	"./te": 112,
+	"./te.js": 112,
+	"./tet": 113,
+	"./tet.js": 113,
+	"./tg": 114,
+	"./tg.js": 114,
+	"./th": 115,
+	"./th.js": 115,
+	"./tl-ph": 116,
+	"./tl-ph.js": 116,
+	"./tlh": 117,
+	"./tlh.js": 117,
+	"./tr": 118,
+	"./tr.js": 118,
+	"./tzl": 119,
+	"./tzl.js": 119,
+	"./tzm": 120,
+	"./tzm-latn": 121,
+	"./tzm-latn.js": 121,
+	"./tzm.js": 120,
+	"./ug-cn": 122,
+	"./ug-cn.js": 122,
+	"./uk": 123,
+	"./uk.js": 123,
+	"./ur": 124,
+	"./ur.js": 124,
+	"./uz": 125,
+	"./uz-latn": 126,
+	"./uz-latn.js": 126,
+	"./uz.js": 125,
+	"./vi": 127,
+	"./vi.js": 127,
+	"./x-pseudo": 128,
+	"./x-pseudo.js": 128,
+	"./yo": 129,
+	"./yo.js": 129,
+	"./zh-cn": 130,
+	"./zh-cn.js": 130,
+	"./zh-hk": 131,
+	"./zh-hk.js": 131,
+	"./zh-tw": 132,
+	"./zh-tw.js": 132
 };
 function webpackContext(req) {
 	return __webpack_require__(webpackContextResolve(req));
@@ -47620,10 +50255,10 @@ webpackContext.keys = function webpackContextKeys() {
 };
 webpackContext.resolve = webpackContextResolve;
 module.exports = webpackContext;
-webpackContext.id = 165;
+webpackContext.id = 168;
 
 /***/ }),
-/* 166 */
+/* 169 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -47655,7 +50290,7 @@ if (false) {
 }
 
 /***/ }),
-/* 167 */
+/* 170 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -47850,7 +50485,7 @@ var render = function() {
                       _c("div", { staticClass: "label-square" }, [
                         _c("i", { staticClass: "fa-xs fas fa-square" }),
                         _vm._v(
-                          "\n                                    Community Size\n                                "
+                          "\n                                        Community Size\n                                    "
                         )
                       ]),
                       _vm._v(" "),
@@ -47865,7 +50500,7 @@ var render = function() {
                                   : ""
                                 : ""
                             ) +
-                            " Housing Units\n                                "
+                            " Housing Units\n                                    "
                         )
                       ])
                     ]),
@@ -47874,7 +50509,7 @@ var render = function() {
                       _c("div", { staticClass: "label-square" }, [
                         _c("i", { staticClass: "fa-xs fas fa-square" }),
                         _vm._v(
-                          "\n                                    Strong Mayor\n                                "
+                          "\n                                        Strong Mayor\n                                    "
                         )
                       ]),
                       _vm._v(" "),
@@ -47887,7 +50522,7 @@ var render = function() {
                       _c("div", { staticClass: "label-square" }, [
                         _c("i", { staticClass: "fa-xs fas fa-square" }),
                         _vm._v(
-                          "\n                                    Branding Configurations\n                                "
+                          "\n                                        Branding Configurations\n                                    "
                         )
                       ]),
                       _vm._v(" "),
@@ -47914,7 +50549,7 @@ var render = function() {
                         _c("div", { staticClass: "label-square" }, [
                           _c("i", { staticClass: "fa-xs fas fa-square" }),
                           _vm._v(
-                            "\n                                    Community Exclusion\n                                "
+                            "\n                                        Community Exclusion\n                                    "
                           )
                         ]),
                         _vm._v(" "),
@@ -47927,7 +50562,7 @@ var render = function() {
                         _c("div", { staticClass: "label-square" }, [
                           _c("i", { staticClass: "fa-xs fas fa-square" }),
                           _vm._v(
-                            "\n                                    Relationship Manager\n                                "
+                            "\n                                        Relationship Manager\n                                    "
                           )
                         ]),
                         _vm._v(" "),
@@ -47939,7 +50574,7 @@ var render = function() {
                                   ? this.community.relationship_managers[0].name
                                   : "No RMs Assigned"
                                 : "No RMs Assigned"
-                            ) + "\n                                "
+                            ) + "\n                                    "
                           )
                         ])
                       ]),
@@ -47948,7 +50583,7 @@ var render = function() {
                         _c("div", { staticClass: "label-square" }, [
                           _c("i", { staticClass: "fa-xs fas fa-square" }),
                           _vm._v(
-                            "\n                                    Last Update\n                                "
+                            "\n                                        Last Update\n                                    "
                           )
                         ]),
                         _vm._v(" "),
@@ -47983,9 +50618,9 @@ var render = function() {
                               [_vm._v('"')]
                             ),
                             _vm._v(
-                              "\n                                    Pending Change" +
+                              "\n                                        Pending Change" +
                                 _vm._s(this.pendingChanges === 1 ? "" : "s") +
-                                "\n                                "
+                                "\n                                    "
                             )
                           ]
                         )
@@ -48000,7 +50635,7 @@ var render = function() {
                       _c("div", { staticClass: "label-square" }, [
                         _c("i", { staticClass: "fa-xs fas fa-square" }),
                         _vm._v(
-                          "\n                                    Community Links\n                                "
+                          "\n                                        Community Links\n                                    "
                         )
                       ]),
                       _vm._v(" "),
@@ -48013,7 +50648,7 @@ var render = function() {
                           },
                           [
                             _vm._v(
-                              "CORE\n                                        "
+                              "CORE\n                                            "
                             ),
                             _c("i", { staticClass: "fa-xs fas fa-plus-square" })
                           ]
@@ -48027,7 +50662,7 @@ var render = function() {
                           },
                           [
                             _vm._v(
-                              "SHARE\n                                        "
+                              "SHARE\n                                            "
                             ),
                             _c("i", { staticClass: "fa-xs fas fa-plus-square" })
                           ]
@@ -48041,7 +50676,7 @@ var render = function() {
                           },
                           [
                             _vm._v(
-                              "SHAREPOINT\n                                        "
+                              "SHAREPOINT\n                                            "
                             ),
                             _c("i", { staticClass: "fa-xs fas fa-plus-square" })
                           ]
@@ -48055,7 +50690,7 @@ var render = function() {
                           },
                           [
                             _vm._v(
-                              "RP LANDING\n                                        "
+                              "RP LANDING\n                                            "
                             ),
                             _c("i", { staticClass: "fa-xs fas fa-plus-square" })
                           ]
@@ -48063,7 +50698,7 @@ var render = function() {
                         _vm._v(" "),
                         _c("div", { staticClass: "textLinks pointer" }, [
                           _vm._v(
-                            "GOV ADMIN\n                                        "
+                            "GOV ADMIN\n                                            "
                           ),
                           _c("i", { staticClass: "fa-xs fas fa-plus-square" })
                         ])
@@ -48086,7 +50721,7 @@ var render = function() {
                         { attrs: { to: { path: _vm.stateLink } } },
                         [
                           _vm._v(
-                            "\n                                " +
+                            "\n                                    " +
                               _vm._s(
                                 this.community
                                   ? this.community.state
@@ -48094,7 +50729,7 @@ var render = function() {
                                     : ""
                                   : ""
                               ) +
-                              "\n                            "
+                              "\n                                "
                           )
                         ]
                       )
@@ -48201,9 +50836,9 @@ var render = function() {
                                   },
                                   [
                                     _vm._v(
-                                      "\n                            " +
+                                      "\n                                " +
                                         _vm._s(_vm.projectDetails.data.name) +
-                                        "    \n                        "
+                                        "    \n                            "
                                     )
                                   ]
                                 )
@@ -48212,1822 +50847,681 @@ var render = function() {
                           ]
                         ),
                         _vm._v(" "),
-                        _vm.projectDetails
-                          ? _c(
-                              "div",
-                              {
-                                staticClass: "tab-content",
-                                class: _vm.projectDetails.data.name
-                              },
-                              [
-                                _c("div", { staticClass: "px-6 py-3" }, [
+                        _c("div", { staticClass: "add-task-section-wrapper" }, [
+                          _c("div", { staticClass: "section-left" }, [
+                            _c("div", { staticClass: "_btn _btn-default" }, [
+                              _c(
+                                "svg",
+                                {
+                                  staticClass: "MiniIcon-custom",
+                                  attrs: { viewBox: "0 0 24 24" }
+                                },
+                                [
+                                  _c("path", {
+                                    attrs: {
+                                      d:
+                                        "M10,10V4c0-1.1,0.9-2,2-2s2,0.9,2,2v6h6c1.1,0,2,0.9,2,2s-0.9,2-2,2h-6v6c0,1.1-0.9,2-2,2s-2-0.9-2-2v-6H4c-1.1,0-2-0.9-2-2s0.9-2,2-2H10z"
+                                    }
+                                  })
+                                ]
+                              ),
+                              _vm._v(
+                                "\n                                Add Task\n                            "
+                              )
+                            ])
+                          ]),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            { staticClass: "section-right _text-right" },
+                            [
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "_btn _btn-borderless nv-dropdown"
+                                },
+                                [
                                   _c(
-                                    "div",
+                                    "svg",
                                     {
-                                      staticClass:
-                                        "flex border-b border-40 remove-bottom-border"
+                                      staticClass: "MiniIcon-custom",
+                                      attrs: { viewBox: "0 0 24 24" }
                                     },
                                     [
-                                      _c(
-                                        "div",
-                                        {
-                                          staticClass:
-                                            "overflow-hidden overflow-x-auto relative w-full"
+                                      _c("path", {
+                                        attrs: {
+                                          d:
+                                            "M12,3c5,0,9,4,9,9s-4,9-9,9s-9-4-9-9S7,3,12,3 M12,1C5.9,1,1,5.9,1,12s4.9,11,11,11s11-4.9,11-11S18.1,1,12,1L12,1zM11.2,16.2l6-6c0.4-0.4,0.4-1,0-1.4s-1-0.4-1.4,0l-5.3,5.3l-2.3-2.3c-0.4-0.4-1-0.4-1.4,0s-0.4,1,0,1.4l3,3c0.2,0.2,0.5,0.3,0.7,0.3S11,16.4,11.2,16.2z"
+                                        }
+                                      })
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c("span", [_vm._v("All Tasks")]),
+                                  _vm._v(" "),
+                                  _vm._m(1)
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "_assigned-box" }, [
+                                _c(
+                                  "select",
+                                  {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.taskFilter.assignee,
+                                        expression: "taskFilter.assignee"
+                                      }
+                                    ],
+                                    staticClass: "_custom-select",
+                                    attrs: { name: "" },
+                                    on: {
+                                      change: [
+                                        function($event) {
+                                          var $$selectedVal = Array.prototype.filter
+                                            .call(
+                                              $event.target.options,
+                                              function(o) {
+                                                return o.selected
+                                              }
+                                            )
+                                            .map(function(o) {
+                                              var val =
+                                                "_value" in o
+                                                  ? o._value
+                                                  : o.value
+                                              return val
+                                            })
+                                          _vm.$set(
+                                            _vm.taskFilter,
+                                            "assignee",
+                                            $event.target.multiple
+                                              ? $$selectedVal
+                                              : $$selectedVal[0]
+                                          )
                                         },
-                                        [
-                                          _c(
-                                            "table",
-                                            { staticClass: "table w-full" },
-                                            [
-                                              _c("thead", [
-                                                _c("tr", [
-                                                  _c(
-                                                    "th",
-                                                    {
-                                                      staticClass: "text-left"
+                                        _vm.filterTasks
+                                      ]
+                                    }
+                                  },
+                                  [
+                                    _c("option", { attrs: { value: "" } }, [
+                                      _vm._v("Assignee")
+                                    ]),
+                                    _vm._v(" "),
+                                    _vm._l(_vm.users, function(user) {
+                                      return _vm.users.length > 0
+                                        ? _c(
+                                            "option",
+                                            { domProps: { value: user.gid } },
+                                            [_vm._v(_vm._s(user.name))]
+                                          )
+                                        : _vm._e()
+                                    })
+                                  ],
+                                  2
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "_assigned-box" }, [
+                                _c(
+                                  "select",
+                                  {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.taskFilter.section,
+                                        expression: "taskFilter.section"
+                                      }
+                                    ],
+                                    staticClass: "_custom-select",
+                                    attrs: { name: "" },
+                                    on: {
+                                      change: [
+                                        function($event) {
+                                          var $$selectedVal = Array.prototype.filter
+                                            .call(
+                                              $event.target.options,
+                                              function(o) {
+                                                return o.selected
+                                              }
+                                            )
+                                            .map(function(o) {
+                                              var val =
+                                                "_value" in o
+                                                  ? o._value
+                                                  : o.value
+                                              return val
+                                            })
+                                          _vm.$set(
+                                            _vm.taskFilter,
+                                            "section",
+                                            $event.target.multiple
+                                              ? $$selectedVal
+                                              : $$selectedVal[0]
+                                          )
+                                        },
+                                        _vm.filterTasks
+                                      ]
+                                    }
+                                  },
+                                  [
+                                    _c("option", { attrs: { value: "" } }, [
+                                      _vm._v("Choose type")
+                                    ]),
+                                    _vm._v(" "),
+                                    _vm._l(_vm.sections, function(section) {
+                                      return _vm.sections.length > 0
+                                        ? _c(
+                                            "option",
+                                            {
+                                              domProps: { value: section.gid }
+                                            },
+                                            [_vm._v(_vm._s(section.name))]
+                                          )
+                                        : _vm._e()
+                                    })
+                                  ],
+                                  2
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                { staticClass: "_assigned-box" },
+                                [
+                                  _c("flat-pickr", {
+                                    staticClass:
+                                      "w-full form-control form-input-bordered",
+                                    attrs: {
+                                      config: _vm.config,
+                                      placeholder: "Due Date",
+                                      name: "date"
+                                    },
+                                    on: { "on-change": _vm.filterTasks },
+                                    model: {
+                                      value: _vm.taskFilter.due_on,
+                                      callback: function($$v) {
+                                        _vm.$set(_vm.taskFilter, "due_on", $$v)
+                                      },
+                                      expression: "taskFilter.due_on"
+                                    }
+                                  })
+                                ],
+                                1
+                              )
+                            ]
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "main-wrapper" }, [
+                          _c(
+                            "div",
+                            {
+                              staticClass: "task-list-wrapper",
+                              class: {
+                                "task-list-half":
+                                  _vm.sideBar == 1 ? true : false
+                              }
+                            },
+                            [
+                              _vm._m(2),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "task-list-body" }, [
+                                _c(
+                                  "div",
+                                  {
+                                    staticClass: "task-name-box cursor-pointer"
+                                  },
+                                  [
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass: "border-radious-icon",
+                                        class: {
+                                          "task-complete":
+                                            _vm.isTaskComplete == 1
+                                              ? true
+                                              : false
+                                        },
+                                        on: {
+                                          click: function($event) {
+                                            _vm.isTaskComplete == 1
+                                              ? (_vm.isTaskComplete = 0)
+                                              : (_vm.isTaskComplete = 1)
+                                          }
+                                        }
+                                      },
+                                      [
+                                        _c(
+                                          "svg",
+                                          {
+                                            staticClass: "MiniIcon",
+                                            attrs: { viewBox: "0 0 24 24" }
+                                          },
+                                          [
+                                            _c("path", {
+                                              attrs: {
+                                                d:
+                                                  "M9.5,18.2c-0.4,0.4-1,0.4-1.4,0l-3.8-3.8C4,14,4,13.4,4.3,13s1-0.4,1.4,0l3.1,3.1l8.6-8.6c0.4-0.4,1-0.4,1.4,0s0.4,1,0,1.4 L9.5,18.2z"
+                                              }
+                                            })
+                                          ]
+                                        )
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _vm._m(3),
+                                    _vm._v(" "),
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass: "detail-option",
+                                        on: {
+                                          click: function($event) {
+                                            _vm.sideBar == 1
+                                              ? (_vm.sideBar = 0)
+                                              : (_vm.sideBar = 1)
+                                          }
+                                        }
+                                      },
+                                      [
+                                        _vm._v(
+                                          "Detail\n                                        "
+                                        ),
+                                        _c(
+                                          "svg",
+                                          {
+                                            staticClass: "MiniIcon-right",
+                                            attrs: { viewBox: "0 0 24 24" }
+                                          },
+                                          [
+                                            _c("path", {
+                                              attrs: {
+                                                d:
+                                                  "M8.9,20.4c-0.4,0-0.7-0.1-1-0.4c-0.6-0.6-0.7-1.5-0.1-2.1l5.2-5.8L7.8,6C7.3,5.4,7.3,4.4,8,3.9C8.6,3.3,9.5,3.4,10.1,4l6.1,7.1c0.5,0.6,0.5,1.4,0,2l-6.1,6.8C9.8,20.3,9.4,20.4,8.9,20.4z"
+                                              }
+                                            })
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "div",
+                                  {
+                                    staticClass:
+                                      "task-assignee-box cursor-pointer nv-dropdown",
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.hideLogo()
+                                      }
+                                    }
+                                  },
+                                  [
+                                    _c(
+                                      "div",
+                                      { staticClass: "nv-dropdown-trigger" },
+                                      [
+                                        _c(
+                                          "div",
+                                          { staticClass: "assignee-box-logo" },
+                                          [
+                                            _c(
+                                              "svg",
+                                              {
+                                                staticClass: "inside-logo",
+                                                attrs: {
+                                                  focusable: "false",
+                                                  viewBox: "0 0 32 32"
+                                                }
+                                              },
+                                              [
+                                                _c("path", {
+                                                  attrs: {
+                                                    d:
+                                                      "M16,18c-4.4,0-8-3.6-8-8s3.6-8,8-8s8,3.6,8,8S20.4,18,16,18z M16,4c-3.3,0-6,2.7-6,6s2.7,6,6,6s6-2.7,6-6S19.3,4,16,4z M29,32c-0.6,0-1-0.4-1-1v-4.2c0-2.6-2.2-4.8-4.8-4.8H8.8C6.2,22,4,24.2,4,26.8V31c0,0.6-0.4,1-1,1s-1-0.4-1-1v-4.2C2,23,5,20,8.8,20h14.4c3.7,0,6.8,3,6.8,6.8V31C30,31.6,29.6,32,29,32z"
+                                                  }
+                                                })
+                                              ]
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _vm._m(4)
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _vm._m(5)
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "div",
+                                  {
+                                    staticClass:
+                                      "task-date-box cursor-pointer border-right-none"
+                                  },
+                                  [
+                                    _c(
+                                      "div",
+                                      { staticClass: "assignee-box-logo" },
+                                      [
+                                        _c(
+                                          "svg",
+                                          {
+                                            staticClass: "inside-logo",
+                                            attrs: {
+                                              focusable: "false",
+                                              viewBox: "0 0 32 32"
+                                            }
+                                          },
+                                          [
+                                            _c("path", {
+                                              attrs: {
+                                                d:
+                                                  "M24,2V1c0-0.6-0.4-1-1-1s-1,0.4-1,1v1H10V1c0-0.6-0.4-1-1-1S8,0.4,8,1v1C4.7,2,2,4.7,2,8v16c0,3.3,2.7,6,6,6h16c3.3,0,6-2.7,6-6V8C30,4.7,27.3,2,24,2z M8,4v1c0,0.6,0.4,1,1,1s1-0.4,1-1V4h12v1c0,0.6,0.4,1,1,1s1-0.4,1-1V4c2.2,0,4,1.8,4,4v2H4V8C4,5.8,5.8,4,8,4z M24,28H8c-2.2,0-4-1.8-4-4V12h24v12C28,26.2,26.2,28,24,28z"
+                                              }
+                                            })
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ]
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _vm._l(_vm.sectionData, function(section) {
+                                return _vm.sectionData.length > 0
+                                  ? _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "collapse-parent collapse-open"
+                                      },
+                                      [
+                                        _c(
+                                          "div",
+                                          { staticClass: "section-header" },
+                                          [
+                                            _c(
+                                              "div",
+                                              {
+                                                staticClass:
+                                                  "d-flex-inline cursor-pointer nv-collapse"
+                                              },
+                                              [
+                                                _vm._v(
+                                                  _vm._s(section[0].name) +
+                                                    "\n                                        "
+                                                ),
+                                                _c(
+                                                  "svg",
+                                                  {
+                                                    staticClass:
+                                                      "MiniIcon-right",
+                                                    staticStyle: {
+                                                      "enable-background":
+                                                        "new 0 0 511.626 511.626",
+                                                      width: "23px",
+                                                      height: "23px"
                                                     },
-                                                    [
-                                                      _c(
-                                                        "a",
-                                                        {
-                                                          staticClass:
-                                                            "btn btn-default btn-primary",
-                                                          attrs: {
-                                                            href:
-                                                              "javascript:void(0)",
-                                                            dusk:
-                                                              "create-button"
-                                                          },
-                                                          on: {
-                                                            click:
-                                                              _vm.createTask
-                                                          }
-                                                        },
-                                                        [_vm._v("Create")]
-                                                      )
-                                                    ]
-                                                  ),
-                                                  _vm._v(" "),
-                                                  _c(
-                                                    "th",
-                                                    {
-                                                      staticClass: "text-left"
-                                                    },
-                                                    [
-                                                      _c(
-                                                        "div",
-                                                        {
-                                                          staticClass:
-                                                            "remove-bottom-border"
-                                                        },
-                                                        [
-                                                          _c(
-                                                            "div",
-                                                            {
-                                                              staticClass:
-                                                                "flex"
-                                                            },
-                                                            [
-                                                              _c(
-                                                                "div",
-                                                                {
-                                                                  staticClass:
-                                                                    "flex w-full"
-                                                                },
-                                                                [
-                                                                  _vm._m(1),
-                                                                  _vm._v(" "),
-                                                                  _c(
-                                                                    "div",
-                                                                    {
-                                                                      staticClass:
-                                                                        "py-6 px-8"
-                                                                    },
-                                                                    [
-                                                                      _c(
-                                                                        "select",
-                                                                        {
-                                                                          directives: [
-                                                                            {
-                                                                              name:
-                                                                                "model",
-                                                                              rawName:
-                                                                                "v-model",
-                                                                              value:
-                                                                                _vm
-                                                                                  .taskFilter
-                                                                                  .assignee,
-                                                                              expression:
-                                                                                "taskFilter.assignee"
-                                                                            }
-                                                                          ],
-                                                                          staticClass:
-                                                                            "form-control form-select mb-3 w-full",
-                                                                          attrs: {
-                                                                            dusk:
-                                                                              "attachable-select",
-                                                                            "data-testid":
-                                                                              "workspace-select",
-                                                                            name:
-                                                                              "assignee"
-                                                                          },
-                                                                          on: {
-                                                                            change: [
-                                                                              function(
-                                                                                $event
-                                                                              ) {
-                                                                                var $$selectedVal = Array.prototype.filter
-                                                                                  .call(
-                                                                                    $event
-                                                                                      .target
-                                                                                      .options,
-                                                                                    function(
-                                                                                      o
-                                                                                    ) {
-                                                                                      return o.selected
-                                                                                    }
-                                                                                  )
-                                                                                  .map(
-                                                                                    function(
-                                                                                      o
-                                                                                    ) {
-                                                                                      var val =
-                                                                                        "_value" in
-                                                                                        o
-                                                                                          ? o._value
-                                                                                          : o.value
-                                                                                      return val
-                                                                                    }
-                                                                                  )
-                                                                                _vm.$set(
-                                                                                  _vm.taskFilter,
-                                                                                  "assignee",
-                                                                                  $event
-                                                                                    .target
-                                                                                    .multiple
-                                                                                    ? $$selectedVal
-                                                                                    : $$selectedVal[0]
-                                                                                )
-                                                                              },
-                                                                              _vm.filterTasks
-                                                                            ]
-                                                                          }
-                                                                        },
-                                                                        [
-                                                                          _c(
-                                                                            "option",
-                                                                            {
-                                                                              attrs: {
-                                                                                value:
-                                                                                  ""
-                                                                              }
-                                                                            },
-                                                                            [
-                                                                              _vm._v(
-                                                                                "Choose Assigned To"
-                                                                              )
-                                                                            ]
-                                                                          ),
-                                                                          _vm._v(
-                                                                            " "
-                                                                          ),
-                                                                          _vm._l(
-                                                                            _vm.users,
-                                                                            function(
-                                                                              user
-                                                                            ) {
-                                                                              return _vm
-                                                                                .users
-                                                                                .length >
-                                                                                0
-                                                                                ? _c(
-                                                                                    "option",
-                                                                                    {
-                                                                                      domProps: {
-                                                                                        value:
-                                                                                          user.gid
-                                                                                      }
-                                                                                    },
-                                                                                    [
-                                                                                      _vm._v(
-                                                                                        _vm._s(
-                                                                                          user.name
-                                                                                        )
-                                                                                      )
-                                                                                    ]
-                                                                                  )
-                                                                                : _vm._e()
-                                                                            }
-                                                                          )
-                                                                        ],
-                                                                        2
-                                                                      ),
-                                                                      _vm._v(
-                                                                        " "
-                                                                      ),
-                                                                      _vm.errors
-                                                                        .assignee
-                                                                        ? _c(
-                                                                            "div",
-                                                                            {
-                                                                              staticClass:
-                                                                                "help-text help-text mt-2"
-                                                                            },
-                                                                            [
-                                                                              _c(
-                                                                                "div",
-                                                                                {
-                                                                                  staticClass:
-                                                                                    "text-danger"
-                                                                                },
-                                                                                [
-                                                                                  _vm._v(
-                                                                                    _vm._s(
-                                                                                      _vm
-                                                                                        .errors
-                                                                                        .assignee[0]
-                                                                                    )
-                                                                                  )
-                                                                                ]
-                                                                              )
-                                                                            ]
-                                                                          )
-                                                                        : _vm._e()
-                                                                    ]
-                                                                  )
-                                                                ]
-                                                              )
-                                                            ]
-                                                          )
-                                                        ]
-                                                      )
-                                                    ]
-                                                  ),
-                                                  _vm._v(" "),
-                                                  _c(
-                                                    "th",
-                                                    {
-                                                      staticClass: "text-left"
-                                                    },
-                                                    [
-                                                      _c(
-                                                        "label",
-                                                        {
-                                                          staticClass:
-                                                            "checkbox-inline"
-                                                        },
-                                                        [
-                                                          _c("input", {
-                                                            directives: [
-                                                              {
-                                                                name: "model",
-                                                                rawName:
-                                                                  "v-model",
-                                                                value:
-                                                                  _vm.taskFilter
-                                                                    .complete,
-                                                                expression:
-                                                                  "taskFilter.complete"
-                                                              }
-                                                            ],
-                                                            attrs: {
-                                                              type: "checkbox"
-                                                            },
-                                                            domProps: {
-                                                              checked: Array.isArray(
-                                                                _vm.taskFilter
-                                                                  .complete
-                                                              )
-                                                                ? _vm._i(
-                                                                    _vm
-                                                                      .taskFilter
-                                                                      .complete,
-                                                                    null
-                                                                  ) > -1
-                                                                : _vm.taskFilter
-                                                                    .complete
-                                                            },
-                                                            on: {
-                                                              change: [
-                                                                function(
-                                                                  $event
-                                                                ) {
-                                                                  var $$a =
-                                                                      _vm
-                                                                        .taskFilter
-                                                                        .complete,
-                                                                    $$el =
-                                                                      $event.target,
-                                                                    $$c = $$el.checked
-                                                                      ? true
-                                                                      : false
-                                                                  if (
-                                                                    Array.isArray(
-                                                                      $$a
-                                                                    )
-                                                                  ) {
-                                                                    var $$v = null,
-                                                                      $$i = _vm._i(
-                                                                        $$a,
-                                                                        $$v
-                                                                      )
-                                                                    if (
-                                                                      $$el.checked
-                                                                    ) {
-                                                                      $$i < 0 &&
-                                                                        _vm.$set(
-                                                                          _vm.taskFilter,
-                                                                          "complete",
-                                                                          $$a.concat(
-                                                                            [
-                                                                              $$v
-                                                                            ]
-                                                                          )
-                                                                        )
-                                                                    } else {
-                                                                      $$i >
-                                                                        -1 &&
-                                                                        _vm.$set(
-                                                                          _vm.taskFilter,
-                                                                          "complete",
-                                                                          $$a
-                                                                            .slice(
-                                                                              0,
-                                                                              $$i
-                                                                            )
-                                                                            .concat(
-                                                                              $$a.slice(
-                                                                                $$i +
-                                                                                  1
-                                                                              )
-                                                                            )
-                                                                        )
-                                                                    }
-                                                                  } else {
-                                                                    _vm.$set(
-                                                                      _vm.taskFilter,
-                                                                      "complete",
-                                                                      $$c
-                                                                    )
-                                                                  }
-                                                                },
-                                                                _vm.filterTasks
-                                                              ]
-                                                            }
-                                                          }),
-                                                          _vm._v(
-                                                            "Complete\n                                            "
-                                                          )
-                                                        ]
-                                                      )
-                                                    ]
-                                                  ),
-                                                  _vm._v(" "),
-                                                  _c(
-                                                    "th",
-                                                    {
-                                                      staticClass: "text-left",
-                                                      attrs: { colspan: "2" }
-                                                    },
-                                                    [
-                                                      _c(
-                                                        "div",
-                                                        {
-                                                          staticClass:
-                                                            "remove-bottom-border"
-                                                        },
-                                                        [
-                                                          _c(
-                                                            "div",
-                                                            {
-                                                              staticClass:
-                                                                "flex"
-                                                            },
-                                                            [
-                                                              _c(
-                                                                "div",
-                                                                {
-                                                                  staticClass:
-                                                                    "flex w-full"
-                                                                },
-                                                                [
-                                                                  _vm._m(2),
-                                                                  _vm._v(" "),
-                                                                  _c(
-                                                                    "div",
-                                                                    {
-                                                                      staticClass:
-                                                                        "py-6 px-8"
-                                                                    },
-                                                                    [
-                                                                      _c(
-                                                                        "select",
-                                                                        {
-                                                                          directives: [
-                                                                            {
-                                                                              name:
-                                                                                "model",
-                                                                              rawName:
-                                                                                "v-model",
-                                                                              value:
-                                                                                _vm
-                                                                                  .taskFilter
-                                                                                  .section,
-                                                                              expression:
-                                                                                "taskFilter.section"
-                                                                            }
-                                                                          ],
-                                                                          staticClass:
-                                                                            "form-control form-select mb-3 w-full",
-                                                                          attrs: {
-                                                                            dusk:
-                                                                              "attachable-select",
-                                                                            "data-testid":
-                                                                              "workspace-select",
-                                                                            name:
-                                                                              "assignee"
-                                                                          },
-                                                                          on: {
-                                                                            change: [
-                                                                              function(
-                                                                                $event
-                                                                              ) {
-                                                                                var $$selectedVal = Array.prototype.filter
-                                                                                  .call(
-                                                                                    $event
-                                                                                      .target
-                                                                                      .options,
-                                                                                    function(
-                                                                                      o
-                                                                                    ) {
-                                                                                      return o.selected
-                                                                                    }
-                                                                                  )
-                                                                                  .map(
-                                                                                    function(
-                                                                                      o
-                                                                                    ) {
-                                                                                      var val =
-                                                                                        "_value" in
-                                                                                        o
-                                                                                          ? o._value
-                                                                                          : o.value
-                                                                                      return val
-                                                                                    }
-                                                                                  )
-                                                                                _vm.$set(
-                                                                                  _vm.taskFilter,
-                                                                                  "section",
-                                                                                  $event
-                                                                                    .target
-                                                                                    .multiple
-                                                                                    ? $$selectedVal
-                                                                                    : $$selectedVal[0]
-                                                                                )
-                                                                              },
-                                                                              _vm.filterTasks
-                                                                            ]
-                                                                          }
-                                                                        },
-                                                                        [
-                                                                          _c(
-                                                                            "option",
-                                                                            {
-                                                                              attrs: {
-                                                                                value:
-                                                                                  ""
-                                                                              }
-                                                                            },
-                                                                            [
-                                                                              _vm._v(
-                                                                                "Choose Type"
-                                                                              )
-                                                                            ]
-                                                                          ),
-                                                                          _vm._v(
-                                                                            " "
-                                                                          ),
-                                                                          _vm._l(
-                                                                            _vm.sections,
-                                                                            function(
-                                                                              section
-                                                                            ) {
-                                                                              return _vm
-                                                                                .sections
-                                                                                .length >
-                                                                                0
-                                                                                ? _c(
-                                                                                    "option",
-                                                                                    {
-                                                                                      domProps: {
-                                                                                        value:
-                                                                                          section.gid
-                                                                                      }
-                                                                                    },
-                                                                                    [
-                                                                                      _vm._v(
-                                                                                        _vm._s(
-                                                                                          section.name
-                                                                                        )
-                                                                                      )
-                                                                                    ]
-                                                                                  )
-                                                                                : _vm._e()
-                                                                            }
-                                                                          )
-                                                                        ],
-                                                                        2
-                                                                      )
-                                                                    ]
-                                                                  )
-                                                                ]
-                                                              )
-                                                            ]
-                                                          )
-                                                        ]
-                                                      )
-                                                    ]
-                                                  ),
-                                                  _vm._v(" "),
-                                                  _c(
-                                                    "th",
-                                                    {
-                                                      staticClass: "text-left"
-                                                    },
-                                                    [
-                                                      _c(
-                                                        "div",
-                                                        {
-                                                          staticClass:
-                                                            "remove-bottom-border"
-                                                        },
-                                                        [
-                                                          _c(
-                                                            "div",
-                                                            {
-                                                              staticClass:
-                                                                "flex"
-                                                            },
-                                                            [
-                                                              _c(
-                                                                "div",
-                                                                {
-                                                                  staticClass:
-                                                                    "flex w-full"
-                                                                },
-                                                                [
-                                                                  _vm._m(3),
-                                                                  _vm._v(" "),
-                                                                  _c(
-                                                                    "div",
-                                                                    {
-                                                                      staticClass:
-                                                                        "py-6 px-8"
-                                                                    },
-                                                                    [
-                                                                      _c(
-                                                                        "flat-pickr",
-                                                                        {
-                                                                          staticClass:
-                                                                            "w-full form-control form-input-bordered",
-                                                                          attrs: {
-                                                                            config:
-                                                                              _vm.config,
-                                                                            placeholder:
-                                                                              "Select date",
-                                                                            name:
-                                                                              "date"
-                                                                          },
-                                                                          on: {
-                                                                            "on-change":
-                                                                              _vm.filterTasks
-                                                                          },
-                                                                          model: {
-                                                                            value:
-                                                                              _vm
-                                                                                .taskFilter
-                                                                                .due_on,
-                                                                            callback: function(
-                                                                              $$v
-                                                                            ) {
-                                                                              _vm.$set(
-                                                                                _vm.taskFilter,
-                                                                                "due_on",
-                                                                                $$v
-                                                                              )
-                                                                            },
-                                                                            expression:
-                                                                              "taskFilter.due_on"
-                                                                          }
-                                                                        }
-                                                                      )
-                                                                    ],
-                                                                    1
-                                                                  )
-                                                                ]
-                                                              )
-                                                            ]
-                                                          )
-                                                        ]
-                                                      )
-                                                    ]
-                                                  ),
-                                                  _vm._v(" "),
-                                                  _c(
-                                                    "th",
-                                                    {
-                                                      staticClass: "text-left"
-                                                    },
-                                                    [
-                                                      _c(
-                                                        "div",
-                                                        {
-                                                          staticClass:
-                                                            "relative h-9 flex-no-shrink mb-6"
-                                                        },
-                                                        [
-                                                          _c(
-                                                            "svg",
-                                                            {
-                                                              staticClass:
-                                                                "fill-current absolute search-icon-center ml-3 text-70",
-                                                              attrs: {
-                                                                xmlns:
-                                                                  "http://www.w3.org/2000/svg",
-                                                                width: "20",
-                                                                height: "20",
-                                                                viewBox:
-                                                                  "0 0 20 20",
-                                                                "aria-labelledby":
-                                                                  "search",
-                                                                role:
-                                                                  "presentation"
-                                                              }
-                                                            },
-                                                            [
-                                                              _c("path", {
-                                                                attrs: {
-                                                                  "fill-rule":
-                                                                    "nonzero",
-                                                                  d:
-                                                                    "M14.32 12.906l5.387 5.387a1 1 0 0 1-1.414 1.414l-5.387-5.387a8 8 0 1 1 1.414-1.414zM8 14A6 6 0 1 0 8 2a6 6 0 0 0 0 12z"
-                                                                }
-                                                              })
-                                                            ]
-                                                          ),
-                                                          _vm._v(" "),
-                                                          _c("input", {
-                                                            directives: [
-                                                              {
-                                                                name: "model",
-                                                                rawName:
-                                                                  "v-model",
-                                                                value:
-                                                                  _vm.taskFilter
-                                                                    .name,
-                                                                expression:
-                                                                  "taskFilter.name"
-                                                              }
-                                                            ],
-                                                            staticClass:
-                                                              "appearance-none form-search w-search pl-search shadow",
-                                                            attrs: {
-                                                              "data-testid":
-                                                                "search-input",
-                                                              dusk: "search",
-                                                              placeholder:
-                                                                "Search",
-                                                              type: "search"
-                                                            },
-                                                            domProps: {
-                                                              value:
-                                                                _vm.taskFilter
-                                                                  .name
-                                                            },
-                                                            on: {
-                                                              change:
-                                                                _vm.keyTyping,
-                                                              keyup:
-                                                                _vm.keyTyping,
-                                                              input: function(
-                                                                $event
-                                                              ) {
-                                                                if (
-                                                                  $event.target
-                                                                    .composing
-                                                                ) {
-                                                                  return
-                                                                }
-                                                                _vm.$set(
-                                                                  _vm.taskFilter,
-                                                                  "name",
-                                                                  $event.target
-                                                                    .value
-                                                                )
-                                                              }
-                                                            }
-                                                          })
-                                                        ]
-                                                      )
-                                                    ]
-                                                  )
-                                                ])
-                                              ])
-                                            ]
-                                          ),
-                                          _vm._v(" "),
-                                          _c("div", { staticClass: "py-3" }, [
-                                            _c("div", { staticClass: "flex" }, [
-                                              _c(
-                                                "div",
-                                                { staticClass: "w-full" },
-                                                [
-                                                  _c(
-                                                    "table",
-                                                    {
-                                                      staticClass:
-                                                        "table w-full"
-                                                    },
-                                                    [
-                                                      _vm._m(4),
-                                                      _vm._v(" "),
-                                                      _c(
-                                                        "tbody",
-                                                        _vm._l(
-                                                          _vm.tasks,
-                                                          function(t, index) {
-                                                            return _vm.tasks
-                                                              .length > 0 &&
-                                                              _vm.showMe == 1
-                                                              ? _c("tr", [
-                                                                  _c("td", {
-                                                                    domProps: {
-                                                                      textContent: _vm._s(
-                                                                        index +
-                                                                          1
-                                                                      )
-                                                                    }
-                                                                  }),
-                                                                  _vm._v(" "),
-                                                                  _c("td", [
-                                                                    t.editStatus ==
-                                                                      undefined ||
-                                                                    t.editStatus !==
-                                                                      1
-                                                                      ? _c(
-                                                                          "div",
-                                                                          {
-                                                                            on: {
-                                                                              click: function(
-                                                                                $event
-                                                                              ) {
-                                                                                return _vm.editThisQuick(
-                                                                                  index
-                                                                                )
-                                                                              }
-                                                                            }
-                                                                          },
-                                                                          [
-                                                                            _vm._v(
-                                                                              _vm._s(
-                                                                                t
-                                                                                  .data
-                                                                                  .name
-                                                                              )
-                                                                            )
-                                                                          ]
-                                                                        )
-                                                                      : _vm._e(),
-                                                                    _vm._v(" "),
-                                                                    t.editStatus !=
-                                                                      undefined &&
-                                                                    t.editStatus ==
-                                                                      1
-                                                                      ? _c(
-                                                                          "div",
-                                                                          {
-                                                                            staticClass:
-                                                                              "remove-bottom-border"
-                                                                          },
-                                                                          [
-                                                                            _c(
-                                                                              "div",
-                                                                              {
-                                                                                staticClass:
-                                                                                  "flex"
-                                                                              },
-                                                                              [
-                                                                                _c(
-                                                                                  "div",
-                                                                                  {
-                                                                                    staticClass:
-                                                                                      "flex w-full"
-                                                                                  },
-                                                                                  [
-                                                                                    _c(
-                                                                                      "div",
-                                                                                      {
-                                                                                        staticClass:
-                                                                                          "py-6"
-                                                                                      },
-                                                                                      [
-                                                                                        _c(
-                                                                                          "input",
-                                                                                          {
-                                                                                            staticClass:
-                                                                                              "w-full form-control form-input form-input-bordered",
-                                                                                            attrs: {
-                                                                                              dusk:
-                                                                                                "name",
-                                                                                              type:
-                                                                                                "text",
-                                                                                              placeholder:
-                                                                                                "Task Name"
-                                                                                            },
-                                                                                            domProps: {
-                                                                                              value:
-                                                                                                t
-                                                                                                  .data
-                                                                                                  .name
-                                                                                            },
-                                                                                            on: {
-                                                                                              blur: function(
-                                                                                                $event
-                                                                                              ) {
-                                                                                                return _vm.editThisQuick(
-                                                                                                  index
-                                                                                                )
-                                                                                              },
-                                                                                              change: function(
-                                                                                                $event
-                                                                                              ) {
-                                                                                                return _vm.inlineTaskUpdate(
-                                                                                                  index,
-                                                                                                  "name",
-                                                                                                  $event
-                                                                                                )
-                                                                                              }
-                                                                                            }
-                                                                                          }
-                                                                                        )
-                                                                                      ]
-                                                                                    )
-                                                                                  ]
-                                                                                )
-                                                                              ]
-                                                                            )
-                                                                          ]
-                                                                        )
-                                                                      : _vm._e()
-                                                                  ]),
-                                                                  _vm._v(" "),
-                                                                  _c("td", [
-                                                                    (t.data
-                                                                      .assignee !=
-                                                                      null &&
-                                                                      t.editStatus ==
-                                                                        undefined) ||
-                                                                    (t.data
-                                                                      .assignee !=
-                                                                      null &&
-                                                                      t.editStatus !==
-                                                                        1)
-                                                                      ? _c(
-                                                                          "div",
-                                                                          {
-                                                                            on: {
-                                                                              click: function(
-                                                                                $event
-                                                                              ) {
-                                                                                return _vm.editThisQuick(
-                                                                                  index
-                                                                                )
-                                                                              }
-                                                                            }
-                                                                          },
-                                                                          [
-                                                                            _vm._v(
-                                                                              _vm._s(
-                                                                                t
-                                                                                  .data
-                                                                                  .assignee
-                                                                                  .name
-                                                                              )
-                                                                            )
-                                                                          ]
-                                                                        )
-                                                                      : _c(
-                                                                          "div",
-                                                                          {
-                                                                            on: {
-                                                                              click: function(
-                                                                                $event
-                                                                              ) {
-                                                                                return _vm.editThisQuick(
-                                                                                  index
-                                                                                )
-                                                                              }
-                                                                            }
-                                                                          },
-                                                                          [
-                                                                            _vm._v(
-                                                                              "None"
-                                                                            )
-                                                                          ]
-                                                                        ),
-                                                                    _vm._v(" "),
-                                                                    t.editStatus !=
-                                                                      undefined &&
-                                                                    t.editStatus ==
-                                                                      1
-                                                                      ? _c(
-                                                                          "div",
-                                                                          {
-                                                                            staticClass:
-                                                                              "remove-bottom-border"
-                                                                          },
-                                                                          [
-                                                                            _c(
-                                                                              "div",
-                                                                              {
-                                                                                staticClass:
-                                                                                  "flex"
-                                                                              },
-                                                                              [
-                                                                                _c(
-                                                                                  "div",
-                                                                                  {
-                                                                                    staticClass:
-                                                                                      "flex w-full"
-                                                                                  },
-                                                                                  [
-                                                                                    _c(
-                                                                                      "div",
-                                                                                      {
-                                                                                        staticClass:
-                                                                                          "py-6"
-                                                                                      },
-                                                                                      [
-                                                                                        _c(
-                                                                                          "select",
-                                                                                          {
-                                                                                            staticClass:
-                                                                                              "form-control form-select mb-3 w-full",
-                                                                                            attrs: {
-                                                                                              dusk:
-                                                                                                "attachable-select",
-                                                                                              "data-testid":
-                                                                                                "workspace-select",
-                                                                                              name:
-                                                                                                "assignee"
-                                                                                            },
-                                                                                            on: {
-                                                                                              change: function(
-                                                                                                $event
-                                                                                              ) {
-                                                                                                _vm.editThisQuick(
-                                                                                                  index
-                                                                                                )
-                                                                                                _vm.inlineTaskUpdate(
-                                                                                                  index,
-                                                                                                  "assignee",
-                                                                                                  $event
-                                                                                                )
-                                                                                              }
-                                                                                            }
-                                                                                          },
-                                                                                          [
-                                                                                            _c(
-                                                                                              "option",
-                                                                                              {
-                                                                                                attrs: {
-                                                                                                  value:
-                                                                                                    "",
-                                                                                                  disabled:
-                                                                                                    ""
-                                                                                                }
-                                                                                              },
-                                                                                              [
-                                                                                                _vm._v(
-                                                                                                  "Choose Assigned To"
-                                                                                                )
-                                                                                              ]
-                                                                                            ),
-                                                                                            _vm._v(
-                                                                                              " "
-                                                                                            ),
-                                                                                            _vm._l(
-                                                                                              _vm.users,
-                                                                                              function(
-                                                                                                user
-                                                                                              ) {
-                                                                                                return t
-                                                                                                  .data
-                                                                                                  .assignee
-                                                                                                  .gid ==
-                                                                                                  user.gid
-                                                                                                  ? _c(
-                                                                                                      "option",
-                                                                                                      {
-                                                                                                        attrs: {
-                                                                                                          selected:
-                                                                                                            ""
-                                                                                                        },
-                                                                                                        domProps: {
-                                                                                                          value:
-                                                                                                            user.gid
-                                                                                                        }
-                                                                                                      },
-                                                                                                      [
-                                                                                                        _vm._v(
-                                                                                                          _vm._s(
-                                                                                                            user.name
-                                                                                                          )
-                                                                                                        )
-                                                                                                      ]
-                                                                                                    )
-                                                                                                  : _c(
-                                                                                                      "option",
-                                                                                                      {
-                                                                                                        domProps: {
-                                                                                                          value:
-                                                                                                            user.gid
-                                                                                                        }
-                                                                                                      },
-                                                                                                      [
-                                                                                                        _vm._v(
-                                                                                                          _vm._s(
-                                                                                                            user.name
-                                                                                                          )
-                                                                                                        )
-                                                                                                      ]
-                                                                                                    )
-                                                                                              }
-                                                                                            )
-                                                                                          ],
-                                                                                          2
-                                                                                        )
-                                                                                      ]
-                                                                                    )
-                                                                                  ]
-                                                                                )
-                                                                              ]
-                                                                            )
-                                                                          ]
-                                                                        )
-                                                                      : _vm._e()
-                                                                  ]),
-                                                                  _vm._v(" "),
-                                                                  _c("td", [
-                                                                    t.editStatus ==
-                                                                      undefined ||
-                                                                    t.editStatus !==
-                                                                      1
-                                                                      ? _c(
-                                                                          "div",
-                                                                          {
-                                                                            on: {
-                                                                              click: function(
-                                                                                $event
-                                                                              ) {
-                                                                                return _vm.editThisQuick(
-                                                                                  index
-                                                                                )
-                                                                              }
-                                                                            }
-                                                                          },
-                                                                          [
-                                                                            _vm._v(
-                                                                              _vm._s(
-                                                                                t
-                                                                                  .data
-                                                                                  .due_on
-                                                                              )
-                                                                            )
-                                                                          ]
-                                                                        )
-                                                                      : _vm._e(),
-                                                                    _vm._v(" "),
-                                                                    t.editStatus !=
-                                                                      undefined &&
-                                                                    t.editStatus ==
-                                                                      1
-                                                                      ? _c(
-                                                                          "div",
-                                                                          {
-                                                                            staticClass:
-                                                                              "remove-bottom-border"
-                                                                          },
-                                                                          [
-                                                                            _c(
-                                                                              "div",
-                                                                              {
-                                                                                staticClass:
-                                                                                  "flex"
-                                                                              },
-                                                                              [
-                                                                                _c(
-                                                                                  "div",
-                                                                                  {
-                                                                                    staticClass:
-                                                                                      "flex w-full"
-                                                                                  },
-                                                                                  [
-                                                                                    _c(
-                                                                                      "div",
-                                                                                      {
-                                                                                        staticClass:
-                                                                                          "py-6"
-                                                                                      },
-                                                                                      [
-                                                                                        _c(
-                                                                                          "flat-pickr",
-                                                                                          {
-                                                                                            staticClass:
-                                                                                              "w-full form-control form-input-bordered",
-                                                                                            attrs: {
-                                                                                              value:
-                                                                                                t
-                                                                                                  .data
-                                                                                                  .due_on,
-                                                                                              config:
-                                                                                                _vm.config,
-                                                                                              placeholder:
-                                                                                                "Select date",
-                                                                                              name:
-                                                                                                "due_on"
-                                                                                            },
-                                                                                            on: {
-                                                                                              "on-blur": function(
-                                                                                                $event
-                                                                                              ) {
-                                                                                                return _vm.editThisQuick(
-                                                                                                  index
-                                                                                                )
-                                                                                              },
-                                                                                              "on-change": function(
-                                                                                                $event
-                                                                                              ) {
-                                                                                                return _vm.inlineTaskUpdate(
-                                                                                                  index,
-                                                                                                  "due_on",
-                                                                                                  $event
-                                                                                                )
-                                                                                              }
-                                                                                            }
-                                                                                          }
-                                                                                        )
-                                                                                      ],
-                                                                                      1
-                                                                                    )
-                                                                                  ]
-                                                                                )
-                                                                              ]
-                                                                            )
-                                                                          ]
-                                                                        )
-                                                                      : _vm._e()
-                                                                  ]),
-                                                                  _vm._v(" "),
-                                                                  _c(
-                                                                    "td",
-                                                                    {
-                                                                      staticClass:
-                                                                        "text-right"
-                                                                    },
-                                                                    [
-                                                                      _c(
-                                                                        "span",
-                                                                        [
-                                                                          _c(
-                                                                            "a",
-                                                                            {
-                                                                              staticClass:
-                                                                                "cursor-pointer text-70 hover:text-primary mr-3",
-                                                                              attrs: {
-                                                                                dusk:
-                                                                                  "13-view-button",
-                                                                                title:
-                                                                                  "View"
-                                                                              },
-                                                                              on: {
-                                                                                click: function(
-                                                                                  $event
-                                                                                ) {
-                                                                                  return _vm.showTask(
-                                                                                    t
-                                                                                      .data
-                                                                                      .gid
-                                                                                  )
-                                                                                }
-                                                                              }
-                                                                            },
-                                                                            [
-                                                                              _c(
-                                                                                "svg",
-                                                                                {
-                                                                                  staticClass:
-                                                                                    "fill-current",
-                                                                                  attrs: {
-                                                                                    xmlns:
-                                                                                      "http://www.w3.org/2000/svg",
-                                                                                    width:
-                                                                                      "22",
-                                                                                    height:
-                                                                                      "18",
-                                                                                    viewBox:
-                                                                                      "0 0 22 16",
-                                                                                    "aria-labelledby":
-                                                                                      "view",
-                                                                                    role:
-                                                                                      "presentation"
-                                                                                  }
-                                                                                },
-                                                                                [
-                                                                                  _c(
-                                                                                    "path",
-                                                                                    {
-                                                                                      attrs: {
-                                                                                        d:
-                                                                                          "M16.56 13.66a8 8 0 0 1-11.32 0L.3 8.7a1 1 0 0 1 0-1.42l4.95-4.95a8 8 0 0 1 11.32 0l4.95 4.95a1 1 0 0 1 0 1.42l-4.95 4.95-.01.01zm-9.9-1.42a6 6 0 0 0 8.48 0L19.38 8l-4.24-4.24a6 6 0 0 0-8.48 0L2.4 8l4.25 4.24h.01zM10.9 12a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm0-2a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"
-                                                                                      }
-                                                                                    }
-                                                                                  )
-                                                                                ]
-                                                                              )
-                                                                            ]
-                                                                          )
-                                                                        ]
-                                                                      )
-                                                                    ]
-                                                                  )
-                                                                ])
-                                                              : _vm._e()
-                                                          }
-                                                        ),
-                                                        0
-                                                      )
-                                                    ]
-                                                  )
-                                                ]
-                                              ),
-                                              _vm._v(" "),
-                                              _c(
-                                                "div",
-                                                {
-                                                  staticClass: "w-full pl-3",
-                                                  staticStyle: {
-                                                    display: "none"
+                                                    attrs: {
+                                                      focusable: "false",
+                                                      viewBox: "0 0 32 32"
+                                                    }
                                                   },
-                                                  attrs: { id: "taskDetails" }
-                                                },
-                                                [
-                                                  _vm.taskDetails
-                                                    ? _c("div", [
+                                                  [
+                                                    _c("path", {
+                                                      attrs: {
+                                                        d:
+                                                          "M25.9,12.9c-0.5-0.6-1.5-0.7-2.1-0.2L16,19.1l-7.8-6.4c-0.6-0.5-1.6-0.4-2.1,0.2c-0.5,0.6-0.4,1.6,0.2,2.1l8.8,7.2  c0.2,0.2,0.6,0.3,0.9,0.3s0.7-0.1,0.9-0.3l8.8-7.2C26.3,14.5,26.4,13.5,25.9,12.9z"
+                                                      }
+                                                    })
+                                                  ]
+                                                )
+                                              ]
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "div",
+                                          { staticClass: "nv-collapsedown" },
+                                          _vm._l(section["tasks"], function(
+                                            task
+                                          ) {
+                                            return section["tasks"].length > 0
+                                              ? _c(
+                                                  "div",
+                                                  {
+                                                    staticClass:
+                                                      "task-list-body border-top-task-list"
+                                                  },
+                                                  [
+                                                    _c(
+                                                      "div",
+                                                      {
+                                                        staticClass:
+                                                          "task-name-box cursor-pointer"
+                                                      },
+                                                      [
                                                         _c(
                                                           "div",
                                                           {
                                                             staticClass:
-                                                              "flex border-b border-40 pb-3"
+                                                              "border-radious-icon",
+                                                            class: {
+                                                              "task-complete": task[0]
+                                                                .data.completed
+                                                                ? true
+                                                                : false
+                                                            },
+                                                            on: {
+                                                              click: function(
+                                                                $event
+                                                              ) {
+                                                                _vm.isTaskComplete ==
+                                                                1
+                                                                  ? (_vm.isTaskComplete = 0)
+                                                                  : (_vm.isTaskComplete = 1)
+                                                              }
+                                                            }
                                                           },
                                                           [
                                                             _c(
-                                                              "div",
+                                                              "svg",
                                                               {
                                                                 staticClass:
-                                                                  "w-full flex items-center"
+                                                                  "MiniIcon",
+                                                                attrs: {
+                                                                  viewBox:
+                                                                    "0 0 24 24"
+                                                                }
                                                               },
                                                               [
-                                                                _vm
-                                                                  .taskDetails[0]
-                                                                  .data
-                                                                  .completed
-                                                                  ? _c(
-                                                                      "a",
-                                                                      {
-                                                                        staticClass:
-                                                                          "btn btn-default btn-success",
-                                                                        attrs: {
-                                                                          href:
-                                                                            "javascript:void(0)",
-                                                                          onclick:
-                                                                            "document.getElementById('taskDetailsCompleteness').click()",
-                                                                          dusk:
-                                                                            "create-button"
-                                                                        }
-                                                                      },
-                                                                      [
-                                                                        _c(
-                                                                          "i",
-                                                                          {
-                                                                            staticClass:
-                                                                              "fa fa-check"
-                                                                          }
-                                                                        ),
-                                                                        _vm._v(
-                                                                          " Completed"
-                                                                        )
-                                                                      ]
-                                                                    )
-                                                                  : _c(
-                                                                      "a",
-                                                                      {
-                                                                        staticClass:
-                                                                          "btn btn-default btn-primary",
-                                                                        attrs: {
-                                                                          href:
-                                                                            "javascript:void(0)",
-                                                                          onclick:
-                                                                            "document.getElementById('taskDetailsCompleteness').click()",
-                                                                          dusk:
-                                                                            "create-button"
-                                                                        }
-                                                                      },
-                                                                      [
-                                                                        _c(
-                                                                          "i",
-                                                                          {
-                                                                            staticClass:
-                                                                              "fa fa-check"
-                                                                          }
-                                                                        ),
-                                                                        _vm._v(
-                                                                          " Mark as complete"
-                                                                        )
-                                                                      ]
-                                                                    ),
-                                                                _vm._v(" "),
-                                                                _vm
-                                                                  .taskDetails[0]
-                                                                  .data
-                                                                  .completed
-                                                                  ? _c(
-                                                                      "input",
-                                                                      {
-                                                                        staticStyle: {
-                                                                          display:
-                                                                            "none"
-                                                                        },
-                                                                        attrs: {
-                                                                          type:
-                                                                            "checkbox",
-                                                                          id:
-                                                                            "taskDetailsCompleteness",
-                                                                          checked:
-                                                                            ""
-                                                                        },
-                                                                        on: {
-                                                                          click: function(
-                                                                            $event
-                                                                          ) {
-                                                                            return _vm.inlineTaskUpdateNew(
-                                                                              _vm
-                                                                                .taskDetails[0]
-                                                                                .data
-                                                                                .gid,
-                                                                              "completed",
-                                                                              $event
-                                                                            )
-                                                                          }
-                                                                        }
-                                                                      }
-                                                                    )
-                                                                  : _vm._e(),
-                                                                _vm._v(" "),
-                                                                _c("input", {
-                                                                  staticStyle: {
-                                                                    display:
-                                                                      "none"
-                                                                  },
+                                                                _c("path", {
                                                                   attrs: {
-                                                                    type:
-                                                                      "checkbox",
-                                                                    id:
-                                                                      "taskDetailsCompleteness"
-                                                                  },
-                                                                  on: {
-                                                                    click: function(
-                                                                      $event
-                                                                    ) {
-                                                                      return _vm.inlineTaskUpdateNew(
-                                                                        _vm
-                                                                          .taskDetails[0]
-                                                                          .data
-                                                                          .gid,
-                                                                        "completed",
-                                                                        $event
-                                                                      )
-                                                                    }
+                                                                    d:
+                                                                      "M9.5,18.2c-0.4,0.4-1,0.4-1.4,0l-3.8-3.8C4,14,4,13.4,4.3,13s1-0.4,1.4,0l3.1,3.1l8.6-8.6c0.4-0.4,1-0.4,1.4,0s0.4,1,0,1.4 L9.5,18.2z"
                                                                   }
-                                                                }),
-                                                                _vm._v(" "),
-                                                                _c(
-                                                                  "div",
-                                                                  {
-                                                                    staticClass:
-                                                                      "flex-no-shrink ml-auto mb-6"
-                                                                  },
-                                                                  [
-                                                                    _c(
-                                                                      "input",
-                                                                      {
-                                                                        staticStyle: {
-                                                                          display:
-                                                                            "none"
-                                                                        },
-                                                                        attrs: {
-                                                                          type:
-                                                                            "file",
-                                                                          id:
-                                                                            "file",
-                                                                          name:
-                                                                            "file"
-                                                                        },
-                                                                        on: {
-                                                                          change: function(
-                                                                            $event
-                                                                          ) {
-                                                                            return _vm.handleFileUpload(
-                                                                              _vm
-                                                                                .taskDetails[0]
-                                                                                .data
-                                                                                .gid,
-                                                                              $event
-                                                                            )
-                                                                          }
-                                                                        }
-                                                                      }
-                                                                    ),
-                                                                    _vm._v(" "),
-                                                                    _vm._m(5),
-                                                                    _vm._v(" "),
-                                                                    _c("span", [
-                                                                      _c(
-                                                                        "a",
-                                                                        {
-                                                                          staticClass:
-                                                                            "cursor-pointer text-70 hover:text-primary mr-3",
-                                                                          attrs: {
-                                                                            href:
-                                                                              "javascript:void(0)",
-                                                                            dusk:
-                                                                              "1-subtasks-button",
-                                                                            title:
-                                                                              "Add subtasks"
-                                                                          },
-                                                                          on: {
-                                                                            click: function(
-                                                                              $event
-                                                                            ) {
-                                                                              _vm.createNewSubTask = true
-                                                                            }
-                                                                          }
-                                                                        },
-                                                                        [
-                                                                          _c(
-                                                                            "svg",
-                                                                            {
-                                                                              staticClass:
-                                                                                "fill-current",
-                                                                              attrs: {
-                                                                                width:
-                                                                                  "22",
-                                                                                height:
-                                                                                  "18",
-                                                                                focusable:
-                                                                                  "false",
-                                                                                viewBox:
-                                                                                  "0 0 32 32",
-                                                                                "aria-labelledby":
-                                                                                  "edit",
-                                                                                role:
-                                                                                  "presentation"
-                                                                              }
-                                                                            },
-                                                                            [
-                                                                              _c(
-                                                                                "path",
-                                                                                {
-                                                                                  attrs: {
-                                                                                    d:
-                                                                                      "M25,20c-2.4,0-4.4,1.7-4.9,4H11c-3.9,0-7-3.1-7-7v-5h16.1c0.5,2.3,2.5,4,4.9,4c2.8,0,5-2.2,5-5s-2.2-5-5-5c-2.4,0-4.4,1.7-4.9,4H4V3c0-0.6-0.4-1-1-1S2,2.4,2,3v14c0,5,4,9,9,9h9.1c0.5,2.3,2.5,4,4.9,4c2.8,0,5-2.2,5-5S27.8,20,25,20z M25,8c1.7,0,3,1.3,3,3s-1.3,3-3,3s-3-1.3-3-3S23.3,8,25,8z M25,28c-1.7,0-3-1.3-3-3s1.3-3,3-3s3,1.3,3,3S26.7,28,25,28z"
-                                                                                  }
-                                                                                }
-                                                                              )
-                                                                            ]
-                                                                          )
-                                                                        ]
-                                                                      )
-                                                                    ]),
-                                                                    _vm._v(" "),
-                                                                    _c(
-                                                                      "a",
-                                                                      {
-                                                                        staticClass:
-                                                                          "cursor-pointer text-70 hover:text-primary mr-3",
-                                                                        attrs: {
-                                                                          dusk:
-                                                                            "1-edit-button",
-                                                                          title:
-                                                                            "Edit"
-                                                                        },
-                                                                        on: {
-                                                                          click: function(
-                                                                            $event
-                                                                          ) {
-                                                                            return _vm.editTask(
-                                                                              _vm
-                                                                                .taskDetails[0]
-                                                                                .data
-                                                                                .gid
-                                                                            )
-                                                                          }
-                                                                        }
-                                                                      },
-                                                                      [
-                                                                        _c(
-                                                                          "svg",
-                                                                          {
-                                                                            staticClass:
-                                                                              "fill-current",
-                                                                            attrs: {
-                                                                              xmlns:
-                                                                                "http://www.w3.org/2000/svg",
-                                                                              width:
-                                                                                "20",
-                                                                              height:
-                                                                                "20",
-                                                                              viewBox:
-                                                                                "0 0 20 20",
-                                                                              "aria-labelledby":
-                                                                                "edit",
-                                                                              role:
-                                                                                "presentation"
-                                                                            }
-                                                                          },
-                                                                          [
-                                                                            _c(
-                                                                              "path",
-                                                                              {
-                                                                                attrs: {
-                                                                                  d:
-                                                                                    "M4.3 10.3l10-10a1 1 0 0 1 1.4 0l4 4a1 1 0 0 1 0 1.4l-10 10a1 1 0 0 1-.7.3H5a1 1 0 0 1-1-1v-4a1 1 0 0 1 .3-.7zM6 14h2.59l9-9L15 2.41l-9 9V14zm10-2a1 1 0 0 1 2 0v6a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4c0-1.1.9-2 2-2h6a1 1 0 1 1 0 2H2v14h14v-6z"
-                                                                                }
-                                                                              }
-                                                                            )
-                                                                          ]
-                                                                        )
-                                                                      ]
-                                                                    ),
-                                                                    _vm._v(" "),
-                                                                    _c(
-                                                                      "a",
-                                                                      {
-                                                                        staticClass:
-                                                                          "appearance-none cursor-pointer text-70 hover:text-danger mr-3",
-                                                                        attrs: {
-                                                                          title:
-                                                                            "Delete"
-                                                                        },
-                                                                        on: {
-                                                                          click: function(
-                                                                            $event
-                                                                          ) {
-                                                                            return _vm.deleteTask(
-                                                                              _vm
-                                                                                .taskDetails[0]
-                                                                                .data
-                                                                                .gid
-                                                                            )
-                                                                          }
-                                                                        }
-                                                                      },
-                                                                      [
-                                                                        _c(
-                                                                          "svg",
-                                                                          {
-                                                                            staticClass:
-                                                                              "fill-current",
-                                                                            attrs: {
-                                                                              xmlns:
-                                                                                "http://www.w3.org/2000/svg",
-                                                                              width:
-                                                                                "20",
-                                                                              height:
-                                                                                "20",
-                                                                              viewBox:
-                                                                                "0 0 20 20",
-                                                                              "aria-labelledby":
-                                                                                "delete",
-                                                                              role:
-                                                                                "presentation"
-                                                                            }
-                                                                          },
-                                                                          [
-                                                                            _c(
-                                                                              "path",
-                                                                              {
-                                                                                attrs: {
-                                                                                  "fill-rule":
-                                                                                    "nonzero",
-                                                                                  d:
-                                                                                    "M6 4V2a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2h5a1 1 0 0 1 0 2h-1v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6H1a1 1 0 1 1 0-2h5zM4 6v12h12V6H4zm8-2V2H8v2h4zM8 8a1 1 0 0 1 1 1v6a1 1 0 0 1-2 0V9a1 1 0 0 1 1-1zm4 0a1 1 0 0 1 1 1v6a1 1 0 0 1-2 0V9a1 1 0 0 1 1-1z"
-                                                                                }
-                                                                              }
-                                                                            )
-                                                                          ]
-                                                                        )
-                                                                      ]
-                                                                    ),
-                                                                    _vm._v(" "),
-                                                                    _c(
-                                                                      "a",
-                                                                      {
-                                                                        staticClass:
-                                                                          "appearance-none cursor-pointer text-70 hover:text-danger mr-3",
-                                                                        attrs: {
-                                                                          onclick:
-                                                                            "document.getElementById('taskDetails').style.display = 'none'",
-                                                                          tabindex:
-                                                                            "0",
-                                                                          role:
-                                                                            "button",
-                                                                          "aria-disabled":
-                                                                            "false",
-                                                                          "aria-label":
-                                                                            "Close details"
-                                                                        }
-                                                                      },
-                                                                      [
-                                                                        _c(
-                                                                          "svg",
-                                                                          {
-                                                                            staticClass:
-                                                                              "fill-current",
-                                                                            attrs: {
-                                                                              width:
-                                                                                "20",
-                                                                              height:
-                                                                                "20",
-                                                                              focusable:
-                                                                                "false",
-                                                                              viewBox:
-                                                                                "0 0 32 32"
-                                                                            }
-                                                                          },
-                                                                          [
-                                                                            _c(
-                                                                              "path",
-                                                                              {
-                                                                                attrs: {
-                                                                                  d:
-                                                                                    "M2,14.5h18.4l-7.4-7.4c-0.6-0.6-0.6-1.5,0-2.1c0.6-0.6,1.5-0.6,2.1,0l10,10c0.6,0.6,0.6,1.5,0,2.1l-10,10c-0.3,0.3-0.7,0.4-1.1,0.4c-0.4,0-0.8-0.1-1.1-0.4c-0.6-0.6-0.6-1.5,0-2.1l7.4-7.4H2c-0.8,0-1.5-0.7-1.5-1.5C0.5,15.3,1.2,14.5,2,14.5z M28,3.5C28,2.7,28.7,2,29.5,2S31,2.7,31,3.5v25c0,0.8-0.7,1.5-1.5,1.5S28,29.3,28,28.5V3.5z"
-                                                                                }
-                                                                              }
-                                                                            )
-                                                                          ]
-                                                                        )
-                                                                      ]
-                                                                    )
-                                                                  ]
-                                                                )
+                                                                })
                                                               ]
                                                             )
                                                           ]
                                                         ),
                                                         _vm._v(" "),
+                                                        _c("span", [
+                                                          _c("input", {
+                                                            staticClass:
+                                                              "task-body-custom-input",
+                                                            attrs: {
+                                                              type: "text",
+                                                              placeholder:
+                                                                "Write a task name"
+                                                            },
+                                                            domProps: {
+                                                              value:
+                                                                task[0].data
+                                                                  .name
+                                                            }
+                                                          })
+                                                        ]),
+                                                        _vm._v(" "),
                                                         _c(
                                                           "div",
                                                           {
-                                                            staticClass: "flex"
+                                                            staticClass:
+                                                              "detail-option",
+                                                            on: {
+                                                              click: function(
+                                                                $event
+                                                              ) {
+                                                                _vm.sideBar == 1
+                                                                  ? (_vm.sideBar = 0)
+                                                                  : (_vm.sideBar = 1)
+                                                              }
+                                                            }
                                                           },
                                                           [
+                                                            _vm._v(
+                                                              "Detail\n                                                "
+                                                            ),
                                                             _c(
-                                                              "div",
+                                                              "svg",
                                                               {
                                                                 staticClass:
-                                                                  "w-full flex items-center"
+                                                                  "MiniIcon-right",
+                                                                attrs: {
+                                                                  viewBox:
+                                                                    "0 0 24 24"
+                                                                }
                                                               },
                                                               [
-                                                                _c(
+                                                                _c("path", {
+                                                                  attrs: {
+                                                                    d:
+                                                                      "M8.9,20.4c-0.4,0-0.7-0.1-1-0.4c-0.6-0.6-0.7-1.5-0.1-2.1l5.2-5.8L7.8,6C7.3,5.4,7.3,4.4,8,3.9C8.6,3.3,9.5,3.4,10.1,4l6.1,7.1c0.5,0.6,0.5,1.4,0,2l-6.1,6.8C9.8,20.3,9.4,20.4,8.9,20.4z"
+                                                                  }
+                                                                })
+                                                              ]
+                                                            )
+                                                          ]
+                                                        )
+                                                      ]
+                                                    ),
+                                                    _vm._v(" "),
+                                                    _c(
+                                                      "div",
+                                                      {
+                                                        staticClass:
+                                                          "task-assignee-box cursor-pointer nv-dropdown",
+                                                        on: {
+                                                          click: function(
+                                                            $event
+                                                          ) {
+                                                            return _vm.hideLogo(
+                                                              "assignee-logo-id" +
+                                                                task[0].data.gid
+                                                            )
+                                                          }
+                                                        }
+                                                      },
+                                                      [
+                                                        _c(
+                                                          "div",
+                                                          {
+                                                            staticClass:
+                                                              "nv-dropdown-trigger"
+                                                          },
+                                                          [
+                                                            task[0].data
+                                                              .assignee == null
+                                                              ? _c(
                                                                   "div",
                                                                   {
                                                                     staticClass:
-                                                                      "py-3"
+                                                                      "assignee-box-logo",
+                                                                    attrs: {
+                                                                      id:
+                                                                        "'assignee-logo-id' + task[0].data.gid"
+                                                                    }
                                                                   },
                                                                   [
                                                                     _c(
-                                                                      "h2",
+                                                                      "svg",
                                                                       {
                                                                         staticClass:
-                                                                          "flex-no-shrink text-90 font-normal text-2xl",
+                                                                          "inside-logo",
                                                                         attrs: {
-                                                                          id:
-                                                                            "taskNameHeader",
-                                                                          onclick:
-                                                                            "this.style.display = 'none';document.getElementById('taskName').style.display = 'block';document.getElementById('taskDetailsName').focus();"
+                                                                          focusable:
+                                                                            "false",
+                                                                          viewBox:
+                                                                            "0 0 32 32"
                                                                         }
+                                                                      },
+                                                                      [
+                                                                        _c(
+                                                                          "path",
+                                                                          {
+                                                                            attrs: {
+                                                                              d:
+                                                                                "M16,18c-4.4,0-8-3.6-8-8s3.6-8,8-8s8,3.6,8,8S20.4,18,16,18z M16,4c-3.3,0-6,2.7-6,6s2.7,6,6,6s6-2.7,6-6S19.3,4,16,4z M29,32c-0.6,0-1-0.4-1-1v-4.2c0-2.6-2.2-4.8-4.8-4.8H8.8C6.2,22,4,24.2,4,26.8V31c0,0.6-0.4,1-1,1s-1-0.4-1-1v-4.2C2,23,5,20,8.8,20h14.4c3.7,0,6.8,3,6.8,6.8V31C30,31.6,29.6,32,29,32z"
+                                                                            }
+                                                                          }
+                                                                        )
+                                                                      ]
+                                                                    )
+                                                                  ]
+                                                                )
+                                                              : _vm._e(),
+                                                            _vm._v(" "),
+                                                            _vm._m(6, true),
+                                                            _vm._v(" "),
+                                                            task[0].data
+                                                              .assignee
+                                                              ? _c(
+                                                                  "div",
+                                                                  {
+                                                                    staticClass:
+                                                                      "assigned-person"
+                                                                  },
+                                                                  [
+                                                                    _c("div", {
+                                                                      staticClass:
+                                                                        "img-box",
+                                                                      staticStyle: {
+                                                                        "background-image":
+                                                                          "url('https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png')"
+                                                                      }
+                                                                    }),
+                                                                    _vm._v(" "),
+                                                                    _c(
+                                                                      "div",
+                                                                      {
+                                                                        staticClass:
+                                                                          "text-1"
                                                                       },
                                                                       [
                                                                         _vm._v(
                                                                           _vm._s(
-                                                                            _vm
-                                                                              .taskDetails[0]
+                                                                            task[0]
                                                                               .data
+                                                                              .assignee
                                                                               .name
                                                                           )
                                                                         )
                                                                       ]
                                                                     )
                                                                   ]
-                                                                ),
-                                                                _vm._v(" "),
-                                                                _c(
-                                                                  "div",
-                                                                  {
-                                                                    staticClass:
-                                                                      "remove-bottom-border",
-                                                                    staticStyle: {
-                                                                      display:
-                                                                        "none"
-                                                                    },
-                                                                    attrs: {
-                                                                      id:
-                                                                        "taskName"
-                                                                    }
-                                                                  },
-                                                                  [
-                                                                    _c(
-                                                                      "div",
-                                                                      {
-                                                                        staticClass:
-                                                                          "flex"
-                                                                      },
-                                                                      [
-                                                                        _c(
-                                                                          "div",
-                                                                          {
-                                                                            staticClass:
-                                                                              "flex w-full"
-                                                                          },
-                                                                          [
-                                                                            _c(
-                                                                              "div",
-                                                                              {
-                                                                                staticClass:
-                                                                                  "py-6"
-                                                                              },
-                                                                              [
-                                                                                _c(
-                                                                                  "input",
-                                                                                  {
-                                                                                    staticClass:
-                                                                                      "w-full form-control form-input form-input-bordered",
-                                                                                    attrs: {
-                                                                                      dusk:
-                                                                                        "name",
-                                                                                      id:
-                                                                                        "taskDetailsName",
-                                                                                      type:
-                                                                                        "text",
-                                                                                      placeholder:
-                                                                                        "Task Name",
-                                                                                      onblur:
-                                                                                        "document.getElementById('taskName').style.display = 'none';document.getElementById('taskNameHeader').style.display = 'block';"
-                                                                                    },
-                                                                                    domProps: {
-                                                                                      value:
-                                                                                        _vm
-                                                                                          .taskDetails[0]
-                                                                                          .data
-                                                                                          .name
-                                                                                    },
-                                                                                    on: {
-                                                                                      change: function(
-                                                                                        $event
-                                                                                      ) {
-                                                                                        return _vm.inlineTaskUpdateNew(
-                                                                                          _vm
-                                                                                            .taskDetails[0]
-                                                                                            .data
-                                                                                            .gid,
-                                                                                          "name",
-                                                                                          $event
-                                                                                        )
-                                                                                      }
-                                                                                    }
-                                                                                  }
-                                                                                )
-                                                                              ]
-                                                                            )
-                                                                          ]
-                                                                        )
-                                                                      ]
-                                                                    )
-                                                                  ]
                                                                 )
-                                                              ]
-                                                            )
+                                                              : _vm._e()
                                                           ]
                                                         ),
                                                         _vm._v(" "),
@@ -50035,1752 +51529,685 @@ var render = function() {
                                                           "div",
                                                           {
                                                             staticClass:
-                                                              "flex border-b border-40 pb-3"
+                                                              "assignee-box-dropdown nv-dropdown-menu"
                                                           },
-                                                          [
-                                                            _c(
-                                                              "div",
-                                                              {
-                                                                staticClass:
-                                                                  "w-1/2"
-                                                              },
-                                                              [
-                                                                _c("small", [
-                                                                  _vm._v(
-                                                                    "Assigned To"
-                                                                  )
-                                                                ]),
-                                                                _vm._v(" "),
-                                                                _c(
-                                                                  "p",
-                                                                  {
-                                                                    attrs: {
-                                                                      id:
-                                                                        "taskAssigneeHeader",
-                                                                      onclick:
-                                                                        "this.style.display = 'none';document.getElementById('taskAssignee').style.display = 'block';document.getElementById('taskDetailsAssigned').focus();"
-                                                                    }
-                                                                  },
-                                                                  [
-                                                                    _vm._v(
-                                                                      _vm._s(
-                                                                        _vm
-                                                                          .taskDetails[0]
-                                                                          .data
-                                                                          .assignee
-                                                                          .name
-                                                                      )
-                                                                    )
-                                                                  ]
-                                                                ),
-                                                                _vm._v(" "),
-                                                                _c(
-                                                                  "div",
-                                                                  {
-                                                                    staticClass:
-                                                                      "remove-bottom-border",
-                                                                    staticStyle: {
-                                                                      display:
-                                                                        "none"
-                                                                    },
-                                                                    attrs: {
-                                                                      id:
-                                                                        "taskAssignee"
-                                                                    }
-                                                                  },
-                                                                  [
-                                                                    _c(
-                                                                      "div",
-                                                                      {
-                                                                        staticClass:
-                                                                          "flex"
-                                                                      },
-                                                                      [
-                                                                        _c(
-                                                                          "div",
-                                                                          {
-                                                                            staticClass:
-                                                                              "flex w-full"
-                                                                          },
-                                                                          [
-                                                                            _c(
-                                                                              "div",
-                                                                              {
-                                                                                staticClass:
-                                                                                  "py-6"
-                                                                              },
-                                                                              [
-                                                                                _c(
-                                                                                  "select",
-                                                                                  {
-                                                                                    staticClass:
-                                                                                      "form-control form-select mb-3 w-full",
-                                                                                    attrs: {
-                                                                                      id:
-                                                                                        "taskDetailsAssigned",
-                                                                                      onblur:
-                                                                                        "document.getElementById('taskAssignee').style.display = 'none';document.getElementById('taskAssigneeHeader').style.display = 'block';",
-                                                                                      dusk:
-                                                                                        "attachable-select",
-                                                                                      "data-testid":
-                                                                                        "workspace-select",
-                                                                                      name:
-                                                                                        "assignee"
-                                                                                    },
-                                                                                    on: {
-                                                                                      change: function(
-                                                                                        $event
-                                                                                      ) {
-                                                                                        return _vm.inlineTaskUpdateNew(
-                                                                                          _vm
-                                                                                            .taskDetails[0]
-                                                                                            .data
-                                                                                            .gid,
-                                                                                          "assignee",
-                                                                                          $event
-                                                                                        )
-                                                                                      }
-                                                                                    }
-                                                                                  },
-                                                                                  [
-                                                                                    _c(
-                                                                                      "option",
-                                                                                      {
-                                                                                        attrs: {
-                                                                                          value:
-                                                                                            "",
-                                                                                          disabled:
-                                                                                            ""
-                                                                                        }
-                                                                                      },
-                                                                                      [
-                                                                                        _vm._v(
-                                                                                          "Choose Assigned To"
-                                                                                        )
-                                                                                      ]
-                                                                                    ),
-                                                                                    _vm._v(
-                                                                                      " "
-                                                                                    ),
-                                                                                    _vm._l(
-                                                                                      _vm.users,
-                                                                                      function(
-                                                                                        user
-                                                                                      ) {
-                                                                                        return _vm
-                                                                                          .taskDetails[0]
-                                                                                          .data
-                                                                                          .assignee
-                                                                                          .gid ==
-                                                                                          user.gid
-                                                                                          ? _c(
-                                                                                              "option",
-                                                                                              {
-                                                                                                attrs: {
-                                                                                                  selected:
-                                                                                                    ""
-                                                                                                },
-                                                                                                domProps: {
-                                                                                                  value:
-                                                                                                    user.gid
-                                                                                                }
-                                                                                              },
-                                                                                              [
-                                                                                                _vm._v(
-                                                                                                  _vm._s(
-                                                                                                    user.name
-                                                                                                  )
-                                                                                                )
-                                                                                              ]
-                                                                                            )
-                                                                                          : _c(
-                                                                                              "option",
-                                                                                              {
-                                                                                                domProps: {
-                                                                                                  value:
-                                                                                                    user.gid
-                                                                                                }
-                                                                                              },
-                                                                                              [
-                                                                                                _vm._v(
-                                                                                                  _vm._s(
-                                                                                                    user.name
-                                                                                                  )
-                                                                                                )
-                                                                                              ]
-                                                                                            )
-                                                                                      }
-                                                                                    )
-                                                                                  ],
-                                                                                  2
-                                                                                )
-                                                                              ]
-                                                                            )
-                                                                          ]
-                                                                        )
-                                                                      ]
-                                                                    )
-                                                                  ]
-                                                                )
-                                                              ]
-                                                            ),
-                                                            _vm._v(" "),
-                                                            _c(
-                                                              "div",
-                                                              {
-                                                                staticClass:
-                                                                  "w-1/2"
-                                                              },
-                                                              [
-                                                                _c("small", [
-                                                                  _vm._v(
-                                                                    "Due Date"
-                                                                  )
-                                                                ]),
-                                                                _vm._v(" "),
-                                                                _c(
-                                                                  "p",
-                                                                  {
-                                                                    attrs: {
-                                                                      id:
-                                                                        "taskDueOnHeader",
-                                                                      onclick:
-                                                                        "this.style.display = 'none';document.getElementById('taskDueOn').style.display = 'block';"
-                                                                    }
-                                                                  },
-                                                                  [
-                                                                    _vm._v(
-                                                                      _vm._s(
-                                                                        _vm
-                                                                          .taskDetails[0]
-                                                                          .data
-                                                                          .due_on
-                                                                      )
-                                                                    )
-                                                                  ]
-                                                                ),
-                                                                _vm._v(" "),
-                                                                _c(
-                                                                  "div",
-                                                                  {
-                                                                    staticClass:
-                                                                      "remove-bottom-border",
-                                                                    staticStyle: {
-                                                                      display:
-                                                                        "none"
-                                                                    },
-                                                                    attrs: {
-                                                                      id:
-                                                                        "taskDueOn"
-                                                                    }
-                                                                  },
-                                                                  [
-                                                                    _c(
-                                                                      "div",
-                                                                      {
-                                                                        staticClass:
-                                                                          "flex"
-                                                                      },
-                                                                      [
-                                                                        _c(
-                                                                          "div",
-                                                                          {
-                                                                            staticClass:
-                                                                              "flex w-full"
-                                                                          },
-                                                                          [
-                                                                            _c(
-                                                                              "div",
-                                                                              {
-                                                                                staticClass:
-                                                                                  "py-6"
-                                                                              },
-                                                                              [
-                                                                                _c(
-                                                                                  "flat-pickr",
-                                                                                  {
-                                                                                    staticClass:
-                                                                                      "w-full form-control form-input-bordered",
-                                                                                    attrs: {
-                                                                                      value:
-                                                                                        _vm
-                                                                                          .taskDetails[0]
-                                                                                          .data
-                                                                                          .due_on,
-                                                                                      config: {
-                                                                                        config:
-                                                                                          _vm.config
-                                                                                      },
-                                                                                      autofocus:
-                                                                                        "true",
-                                                                                      placeholder:
-                                                                                        "Select date",
-                                                                                      name:
-                                                                                        "due_on"
-                                                                                    },
-                                                                                    on: {
-                                                                                      "on-change": function(
-                                                                                        $event
-                                                                                      ) {
-                                                                                        return _vm.inlineTaskUpdateNew(
-                                                                                          _vm
-                                                                                            .taskDetails[0]
-                                                                                            .data
-                                                                                            .gid,
-                                                                                          "due_on",
-                                                                                          $event
-                                                                                        )
-                                                                                      },
-                                                                                      "on-close":
-                                                                                        _vm.viewToggle
-                                                                                    }
-                                                                                  }
-                                                                                )
-                                                                              ],
-                                                                              1
-                                                                            )
-                                                                          ]
-                                                                        )
-                                                                      ]
-                                                                    )
-                                                                  ]
-                                                                )
-                                                              ]
-                                                            )
-                                                          ]
-                                                        ),
-                                                        _vm._v(" "),
-                                                        _c(
-                                                          "div",
-                                                          {
-                                                            staticClass: "flex"
-                                                          },
-                                                          [
-                                                            _c(
-                                                              "div",
-                                                              {
-                                                                staticClass:
-                                                                  "w-full flex items-center"
-                                                              },
-                                                              [
-                                                                _c(
-                                                                  "div",
-                                                                  {
-                                                                    staticClass:
-                                                                      "py-3",
-                                                                    staticStyle: {
-                                                                      width:
-                                                                        "100%"
-                                                                    }
-                                                                  },
-                                                                  [
-                                                                    _c(
-                                                                      "p",
-                                                                      {
-                                                                        attrs: {
-                                                                          id:
-                                                                            "taskNotesHeader",
-                                                                          onclick:
-                                                                            "this.style.display = 'none';document.getElementById('taskNotes').style.display = 'block';document.getElementById('taskDetailsNotes').focus();"
-                                                                        }
-                                                                      },
-                                                                      [
-                                                                        _vm._v(
-                                                                          _vm._s(
-                                                                            _vm
-                                                                              .taskDetails[0]
-                                                                              .data
-                                                                              .notes
-                                                                          )
-                                                                        )
-                                                                      ]
-                                                                    ),
-                                                                    _vm._v(" "),
-                                                                    _c(
-                                                                      "div",
-                                                                      {
-                                                                        staticClass:
-                                                                          "remove-bottom-border",
-                                                                        staticStyle: {
-                                                                          display:
-                                                                            "none"
-                                                                        },
-                                                                        attrs: {
-                                                                          id:
-                                                                            "taskNotes"
-                                                                        }
-                                                                      },
-                                                                      [
-                                                                        _c(
-                                                                          "div",
-                                                                          {
-                                                                            staticClass:
-                                                                              "flex"
-                                                                          },
-                                                                          [
-                                                                            _c(
-                                                                              "div",
-                                                                              {
-                                                                                staticClass:
-                                                                                  "flex w-full"
-                                                                              },
-                                                                              [
-                                                                                _c(
-                                                                                  "div",
-                                                                                  {
-                                                                                    staticClass:
-                                                                                      "py-6",
-                                                                                    staticStyle: {
-                                                                                      width:
-                                                                                        "100%"
-                                                                                    }
-                                                                                  },
-                                                                                  [
-                                                                                    _c(
-                                                                                      "textarea",
-                                                                                      {
-                                                                                        staticClass:
-                                                                                          "w-full form-control form-input form-input-bordered py-3 h-auto",
-                                                                                        attrs: {
-                                                                                          id:
-                                                                                            "taskDetailsNotes",
-                                                                                          onblur:
-                                                                                            "document.getElementById('taskNotes').style.display = 'none';document.getElementById('taskNotesHeader').style.display = 'block';",
-                                                                                          dusk:
-                                                                                            "title",
-                                                                                          rows:
-                                                                                            "5"
-                                                                                        },
-                                                                                        on: {
-                                                                                          change: function(
-                                                                                            $event
-                                                                                          ) {
-                                                                                            return _vm.inlineTaskUpdateNew(
-                                                                                              _vm
-                                                                                                .taskDetails[0]
-                                                                                                .data
-                                                                                                .gid,
-                                                                                              "notes",
-                                                                                              $event
-                                                                                            )
-                                                                                          }
-                                                                                        }
-                                                                                      },
-                                                                                      [
-                                                                                        _vm._v(
-                                                                                          _vm._s(
-                                                                                            _vm
-                                                                                              .taskDetails[0]
-                                                                                              .data
-                                                                                              .notes
-                                                                                          )
-                                                                                        )
-                                                                                      ]
-                                                                                    )
-                                                                                  ]
-                                                                                )
-                                                                              ]
-                                                                            )
-                                                                          ]
-                                                                        )
-                                                                      ]
-                                                                    )
-                                                                  ]
-                                                                )
-                                                              ]
-                                                            )
-                                                          ]
-                                                        ),
-                                                        _vm._v(" "),
-                                                        _c(
-                                                          "div",
-                                                          {
-                                                            staticClass:
-                                                              "flex border-b border-40"
-                                                          },
-                                                          [
-                                                            _c(
-                                                              "table",
-                                                              {
-                                                                staticClass:
-                                                                  "table w-full"
-                                                              },
-                                                              [
-                                                                _c(
-                                                                  "tbody",
-                                                                  [
-                                                                    _vm._l(
-                                                                      _vm
-                                                                        .taskDetails
-                                                                        .subTasks,
-                                                                      function(
-                                                                        t,
-                                                                        index
-                                                                      ) {
-                                                                        return _vm
-                                                                          .taskDetails
-                                                                          .subTasks
-                                                                          .length >
-                                                                          0
-                                                                          ? _c(
-                                                                              "tr",
-                                                                              [
-                                                                                _c(
-                                                                                  "td",
-                                                                                  {
-                                                                                    domProps: {
-                                                                                      textContent: _vm._s(
-                                                                                        index +
-                                                                                          1
-                                                                                      )
-                                                                                    }
-                                                                                  }
-                                                                                ),
-                                                                                _vm._v(
-                                                                                  " "
-                                                                                ),
-                                                                                _c(
-                                                                                  "td",
-                                                                                  [
-                                                                                    _c(
-                                                                                      "span",
-                                                                                      [
-                                                                                        t[0]
-                                                                                          .data
-                                                                                          .completed
-                                                                                          ? _c(
-                                                                                              "a",
-                                                                                              {
-                                                                                                staticClass:
-                                                                                                  "cursor-pointer text-70 text-success-dark hover:text-success-light mr-3",
-                                                                                                attrs: {
-                                                                                                  onclick:
-                                                                                                    "document.getElementById('subTaskComplete').click()",
-                                                                                                  title:
-                                                                                                    "Complete"
-                                                                                                }
-                                                                                              },
-                                                                                              [
-                                                                                                _c(
-                                                                                                  "i",
-                                                                                                  {
-                                                                                                    staticClass:
-                                                                                                      "fa fa-check-circle"
-                                                                                                  }
-                                                                                                )
-                                                                                              ]
-                                                                                            )
-                                                                                          : _c(
-                                                                                              "a",
-                                                                                              {
-                                                                                                staticClass:
-                                                                                                  "cursor-pointer text-70 text-primary-dark hover:text-primary-light mr-3",
-                                                                                                attrs: {
-                                                                                                  onclick:
-                                                                                                    "document.getElementById('subTaskComplete').click()",
-                                                                                                  title:
-                                                                                                    "Mark as complete"
-                                                                                                }
-                                                                                              },
-                                                                                              [
-                                                                                                _c(
-                                                                                                  "i",
-                                                                                                  {
-                                                                                                    staticClass:
-                                                                                                      "fa fa-check-circle"
-                                                                                                  }
-                                                                                                )
-                                                                                              ]
-                                                                                            )
-                                                                                      ]
-                                                                                    ),
-                                                                                    _vm._v(
-                                                                                      " "
-                                                                                    ),
-                                                                                    t[0]
-                                                                                      .data
-                                                                                      .completed
-                                                                                      ? _c(
-                                                                                          "input",
-                                                                                          {
-                                                                                            staticStyle: {
-                                                                                              display:
-                                                                                                "none"
-                                                                                            },
-                                                                                            attrs: {
-                                                                                              type:
-                                                                                                "checkbox",
-                                                                                              id:
-                                                                                                "subTaskComplete",
-                                                                                              checked:
-                                                                                                ""
-                                                                                            },
-                                                                                            on: {
-                                                                                              click: function(
-                                                                                                $event
-                                                                                              ) {
-                                                                                                return _vm.inlineSubTaskUpdate(
-                                                                                                  index,
-                                                                                                  "completed",
-                                                                                                  $event
-                                                                                                )
-                                                                                              }
-                                                                                            }
-                                                                                          }
-                                                                                        )
-                                                                                      : _c(
-                                                                                          "input",
-                                                                                          {
-                                                                                            staticStyle: {
-                                                                                              display:
-                                                                                                "none"
-                                                                                            },
-                                                                                            attrs: {
-                                                                                              type:
-                                                                                                "checkbox",
-                                                                                              id:
-                                                                                                "subTaskComplete"
-                                                                                            },
-                                                                                            on: {
-                                                                                              click: function(
-                                                                                                $event
-                                                                                              ) {
-                                                                                                return _vm.inlineSubTaskUpdate(
-                                                                                                  index,
-                                                                                                  "completed",
-                                                                                                  $event
-                                                                                                )
-                                                                                              }
-                                                                                            }
-                                                                                          }
-                                                                                        ),
-                                                                                    _vm._v(
-                                                                                      " "
-                                                                                    ),
-                                                                                    _c(
-                                                                                      "div",
-                                                                                      {
-                                                                                        attrs: {
-                                                                                          id:
-                                                                                            "subTaskNotesHeader",
-                                                                                          onclick:
-                                                                                            "this.style.display = 'none';document.getElementById('subTaskNotes').style.display = 'block';document.getElementById('subTaskNotesInput').focus();"
-                                                                                        }
-                                                                                      },
-                                                                                      [
-                                                                                        _vm._v(
-                                                                                          _vm._s(
-                                                                                            t[0]
-                                                                                              .data
-                                                                                              .name
-                                                                                          )
-                                                                                        )
-                                                                                      ]
-                                                                                    ),
-                                                                                    _vm._v(
-                                                                                      " "
-                                                                                    ),
-                                                                                    _c(
-                                                                                      "div",
-                                                                                      {
-                                                                                        staticClass:
-                                                                                          "remove-bottom-border",
-                                                                                        staticStyle: {
-                                                                                          display:
-                                                                                            "none"
-                                                                                        },
-                                                                                        attrs: {
-                                                                                          id:
-                                                                                            "subTaskNotes"
-                                                                                        }
-                                                                                      },
-                                                                                      [
-                                                                                        _c(
-                                                                                          "div",
-                                                                                          {
-                                                                                            staticClass:
-                                                                                              "flex"
-                                                                                          },
-                                                                                          [
-                                                                                            _c(
-                                                                                              "div",
-                                                                                              {
-                                                                                                staticClass:
-                                                                                                  "flex w-full"
-                                                                                              },
-                                                                                              [
-                                                                                                _c(
-                                                                                                  "div",
-                                                                                                  {
-                                                                                                    staticClass:
-                                                                                                      "py-6"
-                                                                                                  },
-                                                                                                  [
-                                                                                                    _c(
-                                                                                                      "input",
-                                                                                                      {
-                                                                                                        staticClass:
-                                                                                                          "w-full form-control form-input form-input-bordered",
-                                                                                                        attrs: {
-                                                                                                          dusk:
-                                                                                                            "name",
-                                                                                                          id:
-                                                                                                            "subTaskNotesInput",
-                                                                                                          type:
-                                                                                                            "text",
-                                                                                                          placeholder:
-                                                                                                            "Task Name",
-                                                                                                          onblur:
-                                                                                                            "document.getElementById('subTaskNotesHeader').style.display = 'block';document.getElementById('subTaskNotes').style.display = 'none';"
-                                                                                                        },
-                                                                                                        domProps: {
-                                                                                                          value:
-                                                                                                            t[0]
-                                                                                                              .data
-                                                                                                              .name
-                                                                                                        },
-                                                                                                        on: {
-                                                                                                          change: function(
-                                                                                                            $event
-                                                                                                          ) {
-                                                                                                            return _vm.inlineSubTaskUpdate(
-                                                                                                              index,
-                                                                                                              "name",
-                                                                                                              $event
-                                                                                                            )
-                                                                                                          }
-                                                                                                        }
-                                                                                                      }
-                                                                                                    )
-                                                                                                  ]
-                                                                                                )
-                                                                                              ]
-                                                                                            )
-                                                                                          ]
-                                                                                        )
-                                                                                      ]
-                                                                                    )
-                                                                                  ]
-                                                                                ),
-                                                                                _vm._v(
-                                                                                  " "
-                                                                                ),
-                                                                                _c(
-                                                                                  "td",
-                                                                                  [
-                                                                                    t[0]
-                                                                                      .data
-                                                                                      .assignee !=
-                                                                                    null
-                                                                                      ? _c(
-                                                                                          "div",
-                                                                                          {
-                                                                                            attrs: {
-                                                                                              id:
-                                                                                                "subTaskAssigneeHeader",
-                                                                                              onclick:
-                                                                                                "this.style.display = 'none';document.getElementById('subTaskAssignee').style.display = 'block';document.getElementById('subTaskAssigneeInput').focus();"
-                                                                                            }
-                                                                                          },
-                                                                                          [
-                                                                                            _vm._v(
-                                                                                              _vm._s(
-                                                                                                t[0]
-                                                                                                  .data
-                                                                                                  .assignee
-                                                                                                  .name
-                                                                                              )
-                                                                                            )
-                                                                                          ]
-                                                                                        )
-                                                                                      : _c(
-                                                                                          "div",
-                                                                                          {
-                                                                                            attrs: {
-                                                                                              onclick:
-                                                                                                "this.style.display = 'none';document.getElementById('subTaskAssignee').style.display = 'block';document.getElementById('subTaskAssigneeInput').focus();"
-                                                                                            }
-                                                                                          },
-                                                                                          [
-                                                                                            _vm._v(
-                                                                                              "None"
-                                                                                            )
-                                                                                          ]
-                                                                                        ),
-                                                                                    _vm._v(
-                                                                                      " "
-                                                                                    ),
-                                                                                    _c(
-                                                                                      "div",
-                                                                                      {
-                                                                                        staticClass:
-                                                                                          "remove-bottom-border",
-                                                                                        staticStyle: {
-                                                                                          display:
-                                                                                            "none"
-                                                                                        },
-                                                                                        attrs: {
-                                                                                          id:
-                                                                                            "subTaskAssignee"
-                                                                                        }
-                                                                                      },
-                                                                                      [
-                                                                                        _c(
-                                                                                          "div",
-                                                                                          {
-                                                                                            staticClass:
-                                                                                              "flex"
-                                                                                          },
-                                                                                          [
-                                                                                            _c(
-                                                                                              "div",
-                                                                                              {
-                                                                                                staticClass:
-                                                                                                  "flex w-full"
-                                                                                              },
-                                                                                              [
-                                                                                                _c(
-                                                                                                  "div",
-                                                                                                  {
-                                                                                                    staticClass:
-                                                                                                      "py-6"
-                                                                                                  },
-                                                                                                  [
-                                                                                                    _c(
-                                                                                                      "select",
-                                                                                                      {
-                                                                                                        staticClass:
-                                                                                                          "form-control form-select mb-3 w-full",
-                                                                                                        attrs: {
-                                                                                                          onblur:
-                                                                                                            "document.getElementById('subTaskAssignee').style.display = 'none';document.getElementById('subTaskAssigneeHeader').style.display = 'block';",
-                                                                                                          id:
-                                                                                                            "subTaskAssigneeInput",
-                                                                                                          dusk:
-                                                                                                            "attachable-select",
-                                                                                                          "data-testid":
-                                                                                                            "workspace-select",
-                                                                                                          name:
-                                                                                                            "assignee"
-                                                                                                        },
-                                                                                                        on: {
-                                                                                                          change: function(
-                                                                                                            $event
-                                                                                                          ) {
-                                                                                                            return _vm.inlineSubTaskUpdate(
-                                                                                                              index,
-                                                                                                              "assignee",
-                                                                                                              $event
-                                                                                                            )
-                                                                                                          }
-                                                                                                        }
-                                                                                                      },
-                                                                                                      [
-                                                                                                        _c(
-                                                                                                          "option",
-                                                                                                          {
-                                                                                                            attrs: {
-                                                                                                              value:
-                                                                                                                "",
-                                                                                                              disabled:
-                                                                                                                ""
-                                                                                                            }
-                                                                                                          },
-                                                                                                          [
-                                                                                                            _vm._v(
-                                                                                                              "Choose Assigned To"
-                                                                                                            )
-                                                                                                          ]
-                                                                                                        ),
-                                                                                                        _vm._v(
-                                                                                                          " "
-                                                                                                        ),
-                                                                                                        _vm._l(
-                                                                                                          _vm.users,
-                                                                                                          function(
-                                                                                                            user
-                                                                                                          ) {
-                                                                                                            return t[0]
-                                                                                                              .data
-                                                                                                              .assignee !=
-                                                                                                              null &&
-                                                                                                              t[0]
-                                                                                                                .data
-                                                                                                                .assignee
-                                                                                                                .gid ==
-                                                                                                                user.gid
-                                                                                                              ? _c(
-                                                                                                                  "option",
-                                                                                                                  {
-                                                                                                                    attrs: {
-                                                                                                                      selected:
-                                                                                                                        ""
-                                                                                                                    },
-                                                                                                                    domProps: {
-                                                                                                                      value:
-                                                                                                                        user.gid
-                                                                                                                    }
-                                                                                                                  },
-                                                                                                                  [
-                                                                                                                    _vm._v(
-                                                                                                                      _vm._s(
-                                                                                                                        user.name
-                                                                                                                      )
-                                                                                                                    )
-                                                                                                                  ]
-                                                                                                                )
-                                                                                                              : _c(
-                                                                                                                  "option",
-                                                                                                                  {
-                                                                                                                    domProps: {
-                                                                                                                      value:
-                                                                                                                        user.gid
-                                                                                                                    }
-                                                                                                                  },
-                                                                                                                  [
-                                                                                                                    _vm._v(
-                                                                                                                      _vm._s(
-                                                                                                                        user.name
-                                                                                                                      )
-                                                                                                                    )
-                                                                                                                  ]
-                                                                                                                )
-                                                                                                          }
-                                                                                                        )
-                                                                                                      ],
-                                                                                                      2
-                                                                                                    )
-                                                                                                  ]
-                                                                                                )
-                                                                                              ]
-                                                                                            )
-                                                                                          ]
-                                                                                        )
-                                                                                      ]
-                                                                                    )
-                                                                                  ]
-                                                                                ),
-                                                                                _vm._v(
-                                                                                  " "
-                                                                                ),
-                                                                                _c(
-                                                                                  "td",
-                                                                                  [
-                                                                                    _c(
-                                                                                      "div",
-                                                                                      {
-                                                                                        attrs: {
-                                                                                          title: _vm.duedate(
-                                                                                            t[0]
-                                                                                              .data
-                                                                                              .due_on
-                                                                                          ),
-                                                                                          id:
-                                                                                            "subTaskDueOnHeader",
-                                                                                          onclick:
-                                                                                            "this.style.display = 'none';document.getElementById('subTaskDueOn').style.display = 'block';"
-                                                                                        }
-                                                                                      },
-                                                                                      [
-                                                                                        _vm._v(
-                                                                                          _vm._s(
-                                                                                            t[0]
-                                                                                              .data
-                                                                                              .due_on
-                                                                                          )
-                                                                                        )
-                                                                                      ]
-                                                                                    ),
-                                                                                    _vm._v(
-                                                                                      " "
-                                                                                    ),
-                                                                                    _c(
-                                                                                      "div",
-                                                                                      {
-                                                                                        staticClass:
-                                                                                          "remove-bottom-border",
-                                                                                        staticStyle: {
-                                                                                          display:
-                                                                                            "none"
-                                                                                        },
-                                                                                        attrs: {
-                                                                                          id:
-                                                                                            "subTaskDueOn"
-                                                                                        }
-                                                                                      },
-                                                                                      [
-                                                                                        _c(
-                                                                                          "div",
-                                                                                          {
-                                                                                            staticClass:
-                                                                                              "flex"
-                                                                                          },
-                                                                                          [
-                                                                                            _c(
-                                                                                              "div",
-                                                                                              {
-                                                                                                staticClass:
-                                                                                                  "flex w-full"
-                                                                                              },
-                                                                                              [
-                                                                                                _c(
-                                                                                                  "div",
-                                                                                                  {
-                                                                                                    staticClass:
-                                                                                                      "py-6"
-                                                                                                  },
-                                                                                                  [
-                                                                                                    _c(
-                                                                                                      "flat-pickr",
-                                                                                                      {
-                                                                                                        staticClass:
-                                                                                                          "w-full form-control form-input-bordered",
-                                                                                                        attrs: {
-                                                                                                          value:
-                                                                                                            t[0]
-                                                                                                              .data
-                                                                                                              .due_on,
-                                                                                                          placeholder:
-                                                                                                            "Select date",
-                                                                                                          autofocus:
-                                                                                                            "true",
-                                                                                                          name:
-                                                                                                            "due_on"
-                                                                                                        },
-                                                                                                        on: {
-                                                                                                          "on-close":
-                                                                                                            _vm.viewToggle,
-                                                                                                          "on-change": function(
-                                                                                                            $event
-                                                                                                          ) {
-                                                                                                            return _vm.inlineSubTaskUpdate(
-                                                                                                              index,
-                                                                                                              "due_on",
-                                                                                                              $event
-                                                                                                            )
-                                                                                                          }
-                                                                                                        }
-                                                                                                      }
-                                                                                                    )
-                                                                                                  ],
-                                                                                                  1
-                                                                                                )
-                                                                                              ]
-                                                                                            )
-                                                                                          ]
-                                                                                        )
-                                                                                      ]
-                                                                                    )
-                                                                                  ]
-                                                                                ),
-                                                                                _vm._v(
-                                                                                  " "
-                                                                                ),
-                                                                                _c(
-                                                                                  "td",
-                                                                                  {
-                                                                                    staticClass:
-                                                                                      "text-right"
-                                                                                  },
-                                                                                  [
-                                                                                    _c(
-                                                                                      "span",
-                                                                                      [
-                                                                                        _c(
-                                                                                          "a",
-                                                                                          {
-                                                                                            staticClass:
-                                                                                              "cursor-pointer text-70 hover:text-primary mr-3",
-                                                                                            attrs: {
-                                                                                              dusk:
-                                                                                                "13-view-button",
-                                                                                              title:
-                                                                                                "View"
-                                                                                            }
-                                                                                          },
-                                                                                          [
-                                                                                            _c(
-                                                                                              "svg",
-                                                                                              {
-                                                                                                staticClass:
-                                                                                                  "fill-current",
-                                                                                                attrs: {
-                                                                                                  xmlns:
-                                                                                                    "http://www.w3.org/2000/svg",
-                                                                                                  width:
-                                                                                                    "22",
-                                                                                                  height:
-                                                                                                    "18",
-                                                                                                  viewBox:
-                                                                                                    "0 0 22 16",
-                                                                                                  "aria-labelledby":
-                                                                                                    "view",
-                                                                                                  role:
-                                                                                                    "presentation"
-                                                                                                }
-                                                                                              },
-                                                                                              [
-                                                                                                _c(
-                                                                                                  "path",
-                                                                                                  {
-                                                                                                    attrs: {
-                                                                                                      d:
-                                                                                                        "M16.56 13.66a8 8 0 0 1-11.32 0L.3 8.7a1 1 0 0 1 0-1.42l4.95-4.95a8 8 0 0 1 11.32 0l4.95 4.95a1 1 0 0 1 0 1.42l-4.95 4.95-.01.01zm-9.9-1.42a6 6 0 0 0 8.48 0L19.38 8l-4.24-4.24a6 6 0 0 0-8.48 0L2.4 8l4.25 4.24h.01zM10.9 12a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm0-2a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"
-                                                                                                    }
-                                                                                                  }
-                                                                                                )
-                                                                                              ]
-                                                                                            )
-                                                                                          ]
-                                                                                        )
-                                                                                      ]
-                                                                                    )
-                                                                                  ]
-                                                                                )
-                                                                              ]
-                                                                            )
-                                                                          : _vm._e()
+                                                          _vm._l(
+                                                            _vm.users,
+                                                            function(user) {
+                                                              return _vm.users
+                                                                .length > 0
+                                                                ? _c(
+                                                                    "div",
+                                                                    {
+                                                                      staticClass:
+                                                                        "each-assignee",
+                                                                      attrs: {
+                                                                        value:
+                                                                          user.gid
                                                                       }
-                                                                    ),
-                                                                    _vm._v(" "),
-                                                                    _vm.createNewSubTask
-                                                                      ? _c(
-                                                                          "tr",
-                                                                          [
-                                                                            _c(
-                                                                              "td",
-                                                                              [
-                                                                                _c(
-                                                                                  "div",
-                                                                                  {
-                                                                                    staticClass:
-                                                                                      "remove-bottom-border"
-                                                                                  },
-                                                                                  [
-                                                                                    _c(
-                                                                                      "div",
-                                                                                      {
-                                                                                        staticClass:
-                                                                                          "flex"
-                                                                                      },
-                                                                                      [
-                                                                                        _c(
-                                                                                          "div",
-                                                                                          {
-                                                                                            staticClass:
-                                                                                              "flex w-full"
-                                                                                          },
-                                                                                          [
-                                                                                            _c(
-                                                                                              "input",
-                                                                                              {
-                                                                                                directives: [
-                                                                                                  {
-                                                                                                    name:
-                                                                                                      "model",
-                                                                                                    rawName:
-                                                                                                      "v-model",
-                                                                                                    value:
-                                                                                                      _vm
-                                                                                                        .subTask
-                                                                                                        .name,
-                                                                                                    expression:
-                                                                                                      "subTask.name"
-                                                                                                  }
-                                                                                                ],
-                                                                                                staticClass:
-                                                                                                  "w-full form-control form-input form-input-bordered",
-                                                                                                attrs: {
-                                                                                                  dusk:
-                                                                                                    "name",
-                                                                                                  type:
-                                                                                                    "text",
-                                                                                                  placeholder:
-                                                                                                    "Task Name"
-                                                                                                },
-                                                                                                domProps: {
-                                                                                                  value:
-                                                                                                    _vm
-                                                                                                      .subTask
-                                                                                                      .name
-                                                                                                },
-                                                                                                on: {
-                                                                                                  input: function(
-                                                                                                    $event
-                                                                                                  ) {
-                                                                                                    if (
-                                                                                                      $event
-                                                                                                        .target
-                                                                                                        .composing
-                                                                                                    ) {
-                                                                                                      return
-                                                                                                    }
-                                                                                                    _vm.$set(
-                                                                                                      _vm.subTask,
-                                                                                                      "name",
-                                                                                                      $event
-                                                                                                        .target
-                                                                                                        .value
-                                                                                                    )
-                                                                                                  }
-                                                                                                }
-                                                                                              }
-                                                                                            ),
-                                                                                            _vm._v(
-                                                                                              " "
-                                                                                            ),
-                                                                                            _vm
-                                                                                              .errors
-                                                                                              .name
-                                                                                              ? _c(
-                                                                                                  "div",
-                                                                                                  {
-                                                                                                    staticClass:
-                                                                                                      "help-text help-text mt-2"
-                                                                                                  },
-                                                                                                  [
-                                                                                                    _c(
-                                                                                                      "div",
-                                                                                                      {
-                                                                                                        staticClass:
-                                                                                                          "text-danger"
-                                                                                                      },
-                                                                                                      [
-                                                                                                        _vm._v(
-                                                                                                          _vm._s(
-                                                                                                            _vm
-                                                                                                              .errors
-                                                                                                              .name[0]
-                                                                                                          )
-                                                                                                        )
-                                                                                                      ]
-                                                                                                    )
-                                                                                                  ]
-                                                                                                )
-                                                                                              : _vm._e()
-                                                                                          ]
-                                                                                        )
-                                                                                      ]
-                                                                                    )
-                                                                                  ]
-                                                                                )
-                                                                              ]
-                                                                            ),
-                                                                            _vm._v(
-                                                                              " "
-                                                                            ),
-                                                                            _c(
-                                                                              "td",
-                                                                              [
-                                                                                _c(
-                                                                                  "div",
-                                                                                  {
-                                                                                    staticClass:
-                                                                                      "remove-bottom-border"
-                                                                                  },
-                                                                                  [
-                                                                                    _c(
-                                                                                      "div",
-                                                                                      {
-                                                                                        staticClass:
-                                                                                          "flex"
-                                                                                      },
-                                                                                      [
-                                                                                        _c(
-                                                                                          "div",
-                                                                                          {
-                                                                                            staticClass:
-                                                                                              "flex w-full"
-                                                                                          },
-                                                                                          [
-                                                                                            _c(
-                                                                                              "select",
-                                                                                              {
-                                                                                                directives: [
-                                                                                                  {
-                                                                                                    name:
-                                                                                                      "model",
-                                                                                                    rawName:
-                                                                                                      "v-model",
-                                                                                                    value:
-                                                                                                      _vm
-                                                                                                        .subTask
-                                                                                                        .assignee,
-                                                                                                    expression:
-                                                                                                      "subTask.assignee"
-                                                                                                  }
-                                                                                                ],
-                                                                                                staticClass:
-                                                                                                  "form-control form-select w-full",
-                                                                                                attrs: {
-                                                                                                  dusk:
-                                                                                                    "attachable-select",
-                                                                                                  "data-testid":
-                                                                                                    "workspace-select",
-                                                                                                  name:
-                                                                                                    "assignee"
-                                                                                                },
-                                                                                                on: {
-                                                                                                  change: function(
-                                                                                                    $event
-                                                                                                  ) {
-                                                                                                    var $$selectedVal = Array.prototype.filter
-                                                                                                      .call(
-                                                                                                        $event
-                                                                                                          .target
-                                                                                                          .options,
-                                                                                                        function(
-                                                                                                          o
-                                                                                                        ) {
-                                                                                                          return o.selected
-                                                                                                        }
-                                                                                                      )
-                                                                                                      .map(
-                                                                                                        function(
-                                                                                                          o
-                                                                                                        ) {
-                                                                                                          var val =
-                                                                                                            "_value" in
-                                                                                                            o
-                                                                                                              ? o._value
-                                                                                                              : o.value
-                                                                                                          return val
-                                                                                                        }
-                                                                                                      )
-                                                                                                    _vm.$set(
-                                                                                                      _vm.subTask,
-                                                                                                      "assignee",
-                                                                                                      $event
-                                                                                                        .target
-                                                                                                        .multiple
-                                                                                                        ? $$selectedVal
-                                                                                                        : $$selectedVal[0]
-                                                                                                    )
-                                                                                                  }
-                                                                                                }
-                                                                                              },
-                                                                                              [
-                                                                                                _c(
-                                                                                                  "option",
-                                                                                                  {
-                                                                                                    attrs: {
-                                                                                                      value:
-                                                                                                        "",
-                                                                                                      disabled:
-                                                                                                        "disabled"
-                                                                                                    }
-                                                                                                  },
-                                                                                                  [
-                                                                                                    _vm._v(
-                                                                                                      "Choose Assigned To"
-                                                                                                    )
-                                                                                                  ]
-                                                                                                ),
-                                                                                                _vm._v(
-                                                                                                  " "
-                                                                                                ),
-                                                                                                _vm._l(
-                                                                                                  _vm.users,
-                                                                                                  function(
-                                                                                                    user
-                                                                                                  ) {
-                                                                                                    return _vm
-                                                                                                      .users
-                                                                                                      .length >
-                                                                                                      0
-                                                                                                      ? _c(
-                                                                                                          "option",
-                                                                                                          {
-                                                                                                            domProps: {
-                                                                                                              value:
-                                                                                                                user.gid
-                                                                                                            }
-                                                                                                          },
-                                                                                                          [
-                                                                                                            _vm._v(
-                                                                                                              _vm._s(
-                                                                                                                user.name
-                                                                                                              )
-                                                                                                            )
-                                                                                                          ]
-                                                                                                        )
-                                                                                                      : _vm._e()
-                                                                                                  }
-                                                                                                )
-                                                                                              ],
-                                                                                              2
-                                                                                            ),
-                                                                                            _vm._v(
-                                                                                              " "
-                                                                                            ),
-                                                                                            _vm
-                                                                                              .errors
-                                                                                              .assignee
-                                                                                              ? _c(
-                                                                                                  "div",
-                                                                                                  {
-                                                                                                    staticClass:
-                                                                                                      "help-text help-text mt-2"
-                                                                                                  },
-                                                                                                  [
-                                                                                                    _c(
-                                                                                                      "div",
-                                                                                                      {
-                                                                                                        staticClass:
-                                                                                                          "text-danger"
-                                                                                                      },
-                                                                                                      [
-                                                                                                        _vm._v(
-                                                                                                          _vm._s(
-                                                                                                            _vm
-                                                                                                              .errors
-                                                                                                              .assignee[0]
-                                                                                                          )
-                                                                                                        )
-                                                                                                      ]
-                                                                                                    )
-                                                                                                  ]
-                                                                                                )
-                                                                                              : _vm._e()
-                                                                                          ]
-                                                                                        )
-                                                                                      ]
-                                                                                    )
-                                                                                  ]
-                                                                                )
-                                                                              ]
-                                                                            ),
-                                                                            _vm._v(
-                                                                              " "
-                                                                            ),
-                                                                            _c(
-                                                                              "td",
-                                                                              [
-                                                                                _c(
-                                                                                  "div",
-                                                                                  {
-                                                                                    staticClass:
-                                                                                      "remove-bottom-border"
-                                                                                  },
-                                                                                  [
-                                                                                    _c(
-                                                                                      "div",
-                                                                                      {
-                                                                                        staticClass:
-                                                                                          "flex"
-                                                                                      },
-                                                                                      [
-                                                                                        _c(
-                                                                                          "div",
-                                                                                          {
-                                                                                            staticClass:
-                                                                                              "flex w-full"
-                                                                                          },
-                                                                                          [
-                                                                                            _c(
-                                                                                              "flat-pickr",
-                                                                                              {
-                                                                                                staticClass:
-                                                                                                  "w-full form-control form-input-bordered",
-                                                                                                attrs: {
-                                                                                                  config:
-                                                                                                    _vm.config,
-                                                                                                  placeholder:
-                                                                                                    "Select date",
-                                                                                                  name:
-                                                                                                    "date"
-                                                                                                },
-                                                                                                model: {
-                                                                                                  value:
-                                                                                                    _vm
-                                                                                                      .subTask
-                                                                                                      .due_on,
-                                                                                                  callback: function(
-                                                                                                    $$v
-                                                                                                  ) {
-                                                                                                    _vm.$set(
-                                                                                                      _vm.subTask,
-                                                                                                      "due_on",
-                                                                                                      $$v
-                                                                                                    )
-                                                                                                  },
-                                                                                                  expression:
-                                                                                                    "subTask.due_on"
-                                                                                                }
-                                                                                              }
-                                                                                            ),
-                                                                                            _vm._v(
-                                                                                              " "
-                                                                                            ),
-                                                                                            _vm
-                                                                                              .errors
-                                                                                              .due_on
-                                                                                              ? _c(
-                                                                                                  "div",
-                                                                                                  {
-                                                                                                    staticClass:
-                                                                                                      "help-text help-text mt-2"
-                                                                                                  },
-                                                                                                  [
-                                                                                                    _c(
-                                                                                                      "div",
-                                                                                                      {
-                                                                                                        staticClass:
-                                                                                                          "text-danger"
-                                                                                                      },
-                                                                                                      [
-                                                                                                        _vm._v(
-                                                                                                          _vm._s(
-                                                                                                            _vm
-                                                                                                              .errors
-                                                                                                              .due_on[0]
-                                                                                                          )
-                                                                                                        )
-                                                                                                      ]
-                                                                                                    )
-                                                                                                  ]
-                                                                                                )
-                                                                                              : _vm._e()
-                                                                                          ],
-                                                                                          1
-                                                                                        )
-                                                                                      ]
-                                                                                    )
-                                                                                  ]
-                                                                                )
-                                                                              ]
-                                                                            ),
-                                                                            _vm._v(
-                                                                              " "
-                                                                            ),
-                                                                            _c(
-                                                                              "td",
-                                                                              [
-                                                                                _c(
-                                                                                  "a",
-                                                                                  {
-                                                                                    staticClass:
-                                                                                      "btn btn-default btn-primary",
-                                                                                    attrs: {
-                                                                                      href:
-                                                                                        "javascript:void(0)",
-                                                                                      dusk:
-                                                                                        "create-button"
-                                                                                    },
-                                                                                    on: {
-                                                                                      click: function(
-                                                                                        $event
-                                                                                      ) {
-                                                                                        return _vm.createSubTask(
-                                                                                          _vm
-                                                                                            .taskDetails[0]
-                                                                                            .data
-                                                                                            .gid
-                                                                                        )
-                                                                                      }
-                                                                                    }
-                                                                                  },
-                                                                                  [
-                                                                                    _vm._v(
-                                                                                      "Create"
-                                                                                    )
-                                                                                  ]
-                                                                                )
-                                                                              ]
-                                                                            )
-                                                                          ]
-                                                                        )
-                                                                      : _vm._e()
-                                                                  ],
-                                                                  2
-                                                                )
-                                                              ]
-                                                            )
-                                                          ]
-                                                        ),
-                                                        _vm._v(" "),
-                                                        _vm.taskDetails.comments
-                                                          .data.length > 0
-                                                          ? _c(
-                                                              "div",
-                                                              {
-                                                                staticClass:
-                                                                  "flex"
-                                                              },
-                                                              [
-                                                                _c(
-                                                                  "div",
-                                                                  {
-                                                                    staticClass:
-                                                                      "w-full flex items-center"
-                                                                  },
-                                                                  [
-                                                                    _c(
-                                                                      "div",
-                                                                      {
-                                                                        staticClass:
-                                                                          "pt-6 px-8"
-                                                                      },
-                                                                      _vm._l(
-                                                                        _vm
-                                                                          .taskDetails
-                                                                          .comments
-                                                                          .data,
-                                                                        function(
-                                                                          comment
-                                                                        ) {
-                                                                          return _c(
-                                                                            "p",
-                                                                            {
-                                                                              staticClass:
-                                                                                "py-1"
-                                                                            },
-                                                                            [
-                                                                              _c(
-                                                                                "b",
-                                                                                [
-                                                                                  _vm._v(
-                                                                                    _vm._s(
-                                                                                      comment
-                                                                                        .created_by
-                                                                                        .name
-                                                                                    )
-                                                                                  )
-                                                                                ]
-                                                                              ),
-                                                                              _vm._v(
-                                                                                " " +
-                                                                                  _vm._s(
-                                                                                    comment.text
-                                                                                  ) +
-                                                                                  " "
-                                                                              ),
-                                                                              _c(
-                                                                                "vue-moments-ago",
-                                                                                {
-                                                                                  attrs: {
-                                                                                    prefix:
-                                                                                      "",
-                                                                                    suffix:
-                                                                                      "ago",
-                                                                                    date:
-                                                                                      comment.created_at
-                                                                                  }
-                                                                                }
-                                                                              )
-                                                                            ],
-                                                                            1
-                                                                          )
+                                                                    },
+                                                                    [
+                                                                      _c(
+                                                                        "div",
+                                                                        {
+                                                                          staticClass:
+                                                                            "profile-img",
+                                                                          staticStyle: {
+                                                                            "background-image":
+                                                                              "url('https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png')"
+                                                                          }
                                                                         }
                                                                       ),
-                                                                      0
-                                                                    )
-                                                                  ]
-                                                                )
-                                                              ]
-                                                            )
-                                                          : _vm._e(),
-                                                        _vm._v(" "),
+                                                                      _vm._v(
+                                                                        " "
+                                                                      ),
+                                                                      _c(
+                                                                        "div",
+                                                                        {
+                                                                          staticClass:
+                                                                            "name-text"
+                                                                        },
+                                                                        [
+                                                                          _vm._v(
+                                                                            _vm._s(
+                                                                              user.name
+                                                                            )
+                                                                          )
+                                                                        ]
+                                                                      )
+                                                                    ]
+                                                                  )
+                                                                : _vm._e()
+                                                            }
+                                                          ),
+                                                          0
+                                                        )
+                                                      ]
+                                                    ),
+                                                    _vm._v(" "),
+                                                    _c(
+                                                      "div",
+                                                      {
+                                                        staticClass:
+                                                          "task-date-box cursor-pointer border-right-none"
+                                                      },
+                                                      [
                                                         _c(
                                                           "div",
                                                           {
-                                                            staticClass: "flex"
+                                                            staticClass:
+                                                              "assignee-box-logo"
                                                           },
                                                           [
                                                             _c(
-                                                              "div",
+                                                              "svg",
                                                               {
                                                                 staticClass:
-                                                                  "w-full flex items-center"
+                                                                  "inside-logo",
+                                                                attrs: {
+                                                                  focusable:
+                                                                    "false",
+                                                                  viewBox:
+                                                                    "0 0 32 32"
+                                                                }
                                                               },
                                                               [
-                                                                _c(
-                                                                  "div",
-                                                                  {
-                                                                    staticClass:
-                                                                      "py-6 px-8",
-                                                                    staticStyle: {
-                                                                      width:
-                                                                        "100%"
-                                                                    }
-                                                                  },
-                                                                  [
-                                                                    _c(
-                                                                      "textarea",
-                                                                      {
-                                                                        directives: [
-                                                                          {
-                                                                            name:
-                                                                              "model",
-                                                                            rawName:
-                                                                              "v-model",
-                                                                            value:
-                                                                              _vm.taskComment,
-                                                                            expression:
-                                                                              "taskComment"
-                                                                          }
-                                                                        ],
-                                                                        staticClass:
-                                                                          "w-full form-control form-input form-input-bordered py-3 h-auto",
-                                                                        attrs: {
-                                                                          dusk:
-                                                                            "title",
-                                                                          rows:
-                                                                            "5",
-                                                                          placeholder:
-                                                                            "Ask a question or post an update"
-                                                                        },
-                                                                        domProps: {
-                                                                          value:
-                                                                            _vm.taskComment
-                                                                        },
-                                                                        on: {
-                                                                          change: function(
-                                                                            $event
-                                                                          ) {
-                                                                            return _vm.storeTaskComment(
-                                                                              _vm
-                                                                                .taskDetails[0]
-                                                                                .data
-                                                                                .gid
-                                                                            )
-                                                                          },
-                                                                          input: function(
-                                                                            $event
-                                                                          ) {
-                                                                            if (
-                                                                              $event
-                                                                                .target
-                                                                                .composing
-                                                                            ) {
-                                                                              return
-                                                                            }
-                                                                            _vm.taskComment =
-                                                                              $event.target.value
-                                                                          }
-                                                                        }
-                                                                      }
-                                                                    )
-                                                                  ]
-                                                                )
+                                                                _c("path", {
+                                                                  attrs: {
+                                                                    d:
+                                                                      "M24,2V1c0-0.6-0.4-1-1-1s-1,0.4-1,1v1H10V1c0-0.6-0.4-1-1-1S8,0.4,8,1v1C4.7,2,2,4.7,2,8v16c0,3.3,2.7,6,6,6h16c3.3,0,6-2.7,6-6V8C30,4.7,27.3,2,24,2z M8,4v1c0,0.6,0.4,1,1,1s1-0.4,1-1V4h12v1c0,0.6,0.4,1,1,1s1-0.4,1-1V4c2.2,0,4,1.8,4,4v2H4V8C4,5.8,5.8,4,8,4z M24,28H8c-2.2,0-4-1.8-4-4V12h24v12C28,26.2,26.2,28,24,28z"
+                                                                  }
+                                                                })
                                                               ]
                                                             )
                                                           ]
-                                                        )
-                                                      ])
-                                                    : _vm._e()
-                                                ]
-                                              )
+                                                        ),
+                                                        _vm._v(" "),
+                                                        task[0].data.due_on
+                                                          ? _c("span", [
+                                                              _vm._v(
+                                                                _vm._s(
+                                                                  task[0].data
+                                                                    .due_on
+                                                                )
+                                                              )
+                                                            ])
+                                                          : _vm._e()
+                                                      ]
+                                                    )
+                                                  ]
+                                                )
+                                              : _vm._e()
+                                          }),
+                                          0
+                                        )
+                                      ]
+                                    )
+                                  : _vm._e()
+                              })
+                            ],
+                            2
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass: "task-list-detail-wrapper",
+                              class: {
+                                hideMe: _vm.sideBar == 0 ? true : false
+                              },
+                              attrs: { id: "task-detail" }
+                            },
+                            [
+                              _c(
+                                "div",
+                                { staticClass: "add-task-section-wrapper" },
+                                [
+                                  _c("div", { staticClass: "section-left" }, [
+                                    _c(
+                                      "div",
+                                      {
+                                        class: {
+                                          _btn: true,
+                                          "_btn-default": true,
+                                          "_btn _btn-default-active":
+                                            _vm.isMarkComplete == 1
+                                              ? true
+                                              : false
+                                        },
+                                        on: {
+                                          click: function($event) {
+                                            _vm.isMarkComplete == 1
+                                              ? (_vm.isMarkComplete = 0)
+                                              : (_vm.isMarkComplete = 1)
+                                          }
+                                        }
+                                      },
+                                      [
+                                        _c(
+                                          "svg",
+                                          {
+                                            staticClass: "MiniIcon-custom",
+                                            attrs: { viewBox: "0 0 24 24" }
+                                          },
+                                          [
+                                            _c("path", {
+                                              attrs: {
+                                                d:
+                                                  "M9.2,20c-0.5,0.5-1.3,0.5-1.9,0l-5.1-5.1c-0.4-0.5-0.4-1.3,0-1.9c0.4-0.5,1.3-0.5,1.9,0l4.1,4.1L19.7,5.7 c0.5-0.5,1.3-0.5,1.9,0s0.5,1.3,0,1.9L9.2,20z"
+                                              }
+                                            })
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _vm.isMarkComplete == 0
+                                          ? _c("span", [
+                                              _vm._v("Mark Complete")
                                             ])
-                                          ])
+                                          : _vm._e(),
+                                        _vm._v(" "),
+                                        _vm.isMarkComplete == 1
+                                          ? _c("span", [_vm._v("Completed")])
+                                          : _vm._e()
+                                      ]
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass: "section-right _text-right"
+                                    },
+                                    [
+                                      _c("div", { staticClass: "logo-box" }, [
+                                        _c(
+                                          "svg",
+                                          {
+                                            staticClass: "hide-box-icon",
+                                            attrs: {
+                                              focusable: "false",
+                                              viewBox: "0 0 32 32"
+                                            }
+                                          },
+                                          [
+                                            _c("path", {
+                                              attrs: {
+                                                d:
+                                                  "M19,32c-3.9,0-7-3.1-7-7V10c0-2.2,1.8-4,4-4s4,1.8,4,4v9c0,0.6-0.4,1-1,1s-1-0.4-1-1v-9c0-1.1-0.9-2-2-2s-2,0.9-2,2v15c0,2.8,2.2,5,5,5s5-2.2,5-5V10c0-4.4-3.6-8-8-8s-8,3.6-8,8v5c0,0.6-0.4,1-1,1s-1-0.4-1-1v-5C6,4.5,10.5,0,16,0s10,4.5,10,10v15C26,28.9,22.9,32,19,32z"
+                                              }
+                                            })
+                                          ]
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c("div", { staticClass: "logo-box" }, [
+                                        _c(
+                                          "svg",
+                                          {
+                                            staticClass: "hide-box-icon",
+                                            attrs: {
+                                              focusable: "false",
+                                              viewBox: "0 0 32 32"
+                                            }
+                                          },
+                                          [
+                                            _c("path", {
+                                              attrs: {
+                                                d:
+                                                  "M25,20c-2.4,0-4.4,1.7-4.9,4H11c-3.9,0-7-3.1-7-7v-5h16.1c0.5,2.3,2.5,4,4.9,4c2.8,0,5-2.2,5-5s-2.2-5-5-5c-2.4,0-4.4,1.7-4.9,4H4V3c0-0.6-0.4-1-1-1S2,2.4,2,3v14c0,5,4,9,9,9h9.1c0.5,2.3,2.5,4,4.9,4c2.8,0,5-2.2,5-5S27.8,20,25,20z M25,8c1.7,0,3,1.3,3,3s-1.3,3-3,3s-3-1.3-3-3S23.3,8,25,8z M25,28c-1.7,0-3-1.3-3-3s1.3-3,3-3s3,1.3,3,3S26.7,28,25,28z"
+                                              }
+                                            })
+                                          ]
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c("div", { staticClass: "logo-box" }, [
+                                        _c(
+                                          "svg",
+                                          {
+                                            staticClass: "hide-box-icon",
+                                            attrs: {
+                                              focusable: "false",
+                                              viewBox: "0 0 32 32"
+                                            }
+                                          },
+                                          [
+                                            _c("path", {
+                                              attrs: {
+                                                d:
+                                                  "M9,32c-2.3,0-4.6-0.9-6.4-2.6c-3.5-3.5-3.5-9.2,0-12.7l4-4c0.4-0.4,1-0.4,1.4,0c0.4,0.4,0.4,1,0,1.4l-4,4c-2.7,2.7-2.7,7.2,0,9.9s7.2,2.7,9.9,0l4-4c2.7-2.7,2.7-7.2,0-9.9c-0.8-0.8-1.8-1.4-2.9-1.7c-0.5-0.2-0.8-0.7-0.7-1.3c0.2-0.5,0.7-0.8,1.3-0.7c1.4,0.4,2.7,1.2,3.7,2.2c3.5,3.5,3.5,9.2,0,12.7l-4,4C13.6,31.1,11.3,32,9,32z M16.6,21.6c-0.1,0-0.2,0-0.3,0c-1.4-0.4-2.7-1.2-3.7-2.2c-1.7-1.7-2.6-4-2.6-6.4s0.9-4.7,2.6-6.4l4-4c3.5-3.5,9.2-3.5,12.7,0s3.5,9.2,0,12.7l-4,4c-0.4,0.4-1,0.4-1.4,0s-0.4-1,0-1.4l4-4c2.7-2.7,2.7-7.2,0-9.9S20.7,1.3,18,4l-4,4c-1.3,1.4-2,3.1-2,5s0.7,3.6,2.1,5c0.8,0.8,1.8,1.4,2.9,1.7c0.5,0.2,0.8,0.7,0.7,1.3C17.5,21.4,17.1,21.6,16.6,21.6z"
+                                              }
+                                            })
+                                          ]
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c("div", { staticClass: "logo-box" }, [
+                                        _c(
+                                          "svg",
+                                          {
+                                            staticClass: "hide-box-icon",
+                                            attrs: {
+                                              focusable: "false",
+                                              viewBox: "0 0 32 32"
+                                            }
+                                          },
+                                          [
+                                            _c("path", {
+                                              attrs: {
+                                                d:
+                                                  "M28.3,4.3c-1.2-1.4-3-2.1-4.9-1.9c-1.3,0.1-2.5,0.8-3.5,1.8L6,18c-0.6,0.6-1.1,1.4-1.4,2.2l-2.2,6.4C2.1,27.5,2.3,28.4,3,29c0.4,0.4,1,0.7,1.6,0.7c0.3,0,0.5,0,0.8-0.1l6.4-2.2c0.8-0.3,1.6-0.8,2.2-1.4l13.9-13.9C30,10,30.1,6.4,28.3,4.3z M4.7,27.7c-0.2,0.1-0.3,0-0.3-0.1c-0.1-0.1-0.1-0.2-0.1-0.3l2-5.8l4.2,4.2L4.7,27.7z M26.4,10.7L12.5,24.6c-0.1,0.1-0.1,0.1-0.2,0.1l-5.1-5.1c0-0.1,0.1-0.1,0.1-0.2l14-13.8c0.7-0.7,1.5-1.1,2.3-1.2c1.2-0.1,2.4,0.3,3.2,1.2C28,7,27.8,9.4,26.4,10.7z"
+                                              }
+                                            })
+                                          ]
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass: "logo-box",
+                                          on: {
+                                            click: function($event) {
+                                              _vm.sideBar == 1
+                                                ? (_vm.sideBar = 0)
+                                                : (_vm.sideBar = 1)
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "svg",
+                                            {
+                                              staticClass: "hide-box-icon",
+                                              attrs: {
+                                                focusable: "false",
+                                                viewBox: "0 0 32 32"
+                                              }
+                                            },
+                                            [
+                                              _c("path", {
+                                                attrs: {
+                                                  d:
+                                                    "M2,14.5h18.4l-7.4-7.4c-0.6-0.6-0.6-1.5,0-2.1c0.6-0.6,1.5-0.6,2.1,0l10,10c0.6,0.6,0.6,1.5,0,2.1l-10,10c-0.3,0.3-0.7,0.4-1.1,0.4c-0.4,0-0.8-0.1-1.1-0.4c-0.6-0.6-0.6-1.5,0-2.1l7.4-7.4H2c-0.8,0-1.5-0.7-1.5-1.5C0.5,15.3,1.2,14.5,2,14.5z M28,3.5C28,2.7,28.7,2,29.5,2S31,2.7,31,3.5v25c0,0.8-0.7,1.5-1.5,1.5S28,29.3,28,28.5V3.5z"
+                                                }
+                                              })
+                                            ]
+                                          )
                                         ]
                                       )
                                     ]
                                   )
-                                ])
-                              ]
-                            )
-                          : _vm._e()
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "head-text-section" }, [
+                                _c("input", {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.taskName,
+                                      expression: "taskName"
+                                    }
+                                  ],
+                                  staticClass: "input-big",
+                                  attrs: {
+                                    type: "text",
+                                    placeholder: "Write a task name"
+                                  },
+                                  domProps: { value: _vm.taskName },
+                                  on: {
+                                    input: function($event) {
+                                      if ($event.target.composing) {
+                                        return
+                                      }
+                                      _vm.taskName = $event.target.value
+                                    }
+                                  }
+                                })
+                              ]),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "head-text-section border-bottom-task-list"
+                                },
+                                [
+                                  _c(
+                                    "div",
+                                    { staticClass: "radious-square-input" },
+                                    [
+                                      _c(
+                                        "div",
+                                        { staticClass: "logo-border" },
+                                        [
+                                          _c(
+                                            "svg",
+                                            {
+                                              staticClass: "input-icon-1",
+                                              attrs: {
+                                                focusable: "false",
+                                                viewBox: "0 0 32 32"
+                                              }
+                                            },
+                                            [
+                                              _c("path", {
+                                                attrs: {
+                                                  d:
+                                                    "M16,18c-4.4,0-8-3.6-8-8s3.6-8,8-8s8,3.6,8,8S20.4,18,16,18z M16,4c-3.3,0-6,2.7-6,6s2.7,6,6,6s6-2.7,6-6S19.3,4,16,4z M29,32c-0.6,0-1-0.4-1-1v-4.2c0-2.6-2.2-4.8-4.8-4.8H8.8C6.2,22,4,24.2,4,26.8V31c0,0.6-0.4,1-1,1s-1-0.4-1-1v-4.2C2,23,5,20,8.8,20h14.4c3.7,0,6.8,3,6.8,6.8V31C30,31.6,29.6,32,29,32z"
+                                                }
+                                              })
+                                            ]
+                                          )
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c("input", {
+                                        staticClass: "input-design",
+                                        attrs: {
+                                          type: "text",
+                                          placeholder: "Unassigne"
+                                        }
+                                      })
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "radious-square-input" },
+                                    [
+                                      _c(
+                                        "div",
+                                        { staticClass: "logo-border" },
+                                        [
+                                          _c(
+                                            "svg",
+                                            {
+                                              staticClass: "input-icon-2",
+                                              attrs: {
+                                                focusable: "false",
+                                                viewBox: "0 0 32 32"
+                                              }
+                                            },
+                                            [
+                                              _c("path", {
+                                                attrs: {
+                                                  d:
+                                                    "M24,2V1c0-0.6-0.4-1-1-1s-1,0.4-1,1v1H10V1c0-0.6-0.4-1-1-1S8,0.4,8,1v1C4.7,2,2,4.7,2,8v16c0,3.3,2.7,6,6,6h16c3.3,0,6-2.7,6-6V8C30,4.7,27.3,2,24,2z M8,4v1c0,0.6,0.4,1,1,1s1-0.4,1-1V4h12v1c0,0.6,0.4,1,1,1s1-0.4,1-1V4c2.2,0,4,1.8,4,4v2H4V8C4,5.8,5.8,4,8,4z M24,28H8c-2.2,0-4-1.8-4-4V12h24v12C28,26.2,26.2,28,24,28z"
+                                                }
+                                              })
+                                            ]
+                                          )
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c("input", {
+                                        staticClass: "input-design",
+                                        attrs: {
+                                          type: "text",
+                                          placeholder: "Unassigne"
+                                        }
+                                      })
+                                    ]
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "head-text-section" }, [
+                                _c("div", { staticClass: "text-area-logo" }, [
+                                  _c(
+                                    "svg",
+                                    {
+                                      staticClass: "t-logo",
+                                      attrs: {
+                                        focusable: "false",
+                                        viewBox: "0 0 32 32"
+                                      }
+                                    },
+                                    [
+                                      _c("path", {
+                                        attrs: {
+                                          d:
+                                            "M31,8H1C0.4,8,0,7.6,0,7s0.4-1,1-1h30c0.6,0,1,0.4,1,1S31.6,8,31,8z M23,14H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,14,23,14z M27,20H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h26c0.6,0,1,0.4,1,1S27.6,20,27,20z M19,26H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h18c0.6,0,1,0.4,1,1S19.6,26,19,26z"
+                                        }
+                                      })
+                                    ]
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("textarea", {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.taskDesc,
+                                      expression: "taskDesc"
+                                    }
+                                  ],
+                                  staticClass: "custom-text-area",
+                                  attrs: {
+                                    name: "",
+                                    cols: "30",
+                                    rows: "5",
+                                    placeholder: "Description"
+                                  },
+                                  domProps: { value: _vm.taskDesc },
+                                  on: {
+                                    input: function($event) {
+                                      if ($event.target.composing) {
+                                        return
+                                      }
+                                      _vm.taskDesc = $event.target.value
+                                    }
+                                  }
+                                })
+                              ]),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "head-text-section _position-relative border-bottom-task-list"
+                                },
+                                [
+                                  _c("div", { staticClass: "_input-logo" }, [
+                                    _c(
+                                      "svg",
+                                      {
+                                        staticClass: "t-logo",
+                                        attrs: {
+                                          focusable: "false",
+                                          viewBox: "0 0 32 32"
+                                        }
+                                      },
+                                      [
+                                        _c("path", {
+                                          attrs: {
+                                            d:
+                                              "M10,13.5c0.8,0,1.5,0.7,1.5,1.5s-0.7,1.5-1.5,1.5S8.5,15.8,8.5,15S9.2,13.5,10,13.5z M23,14h-8c-0.6,0-1,0.4-1,1s0.4,1,1,1h8c0.6,0,1-0.4,1-1S23.6,14,23,14z M23,20h-8c-0.6,0-1,0.4-1,1s0.4,1,1,1h8c0.6,0,1-0.4,1-1S23.6,20,23,20z M10,19.5c0.8,0,1.5,0.7,1.5,1.5s-0.7,1.5-1.5,1.5S8.5,21.8,8.5,21S9.2,19.5,10,19.5z M24,2h-2.2c-0.4-1.2-1.5-2-2.8-2h-6c-1.3,0-2.4,0.8-2.8,2H8C4.7,2,2,4.7,2,8v18c0,3.3,2.7,6,6,6h16c3.3,0,6-2.7,6-6V8C30,4.7,27.3,2,24,2z M13,2h6c0.6,0,1,0.4,1,1v2c0,0.6-0.4,1-1,1h-6c-0.6,0-1-0.4-1-1V3C12,2.4,12.4,2,13,2z M28,26c0,2.2-1.8,4-4,4H8c-2.2,0-4-1.8-4-4V8c0-2.2,1.8-4,4-4h2v1c0,1.7,1.3,3,3,3h6c1.7,0,3-1.3,3-3V4h2c2.2,0,4,1.8,4,4V26z"
+                                          }
+                                        })
+                                      ]
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.taskProject,
+                                        expression: "taskProject"
+                                      }
+                                    ],
+                                    staticClass: "custom-input-add-project",
+                                    attrs: {
+                                      name: "",
+                                      placeholder: "Add to Project"
+                                    },
+                                    domProps: { value: _vm.taskProject },
+                                    on: {
+                                      input: function($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.taskProject = $event.target.value
+                                      }
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "new-task" }, [
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass: "border-radious-icon",
+                                        class: {
+                                          "task-complete":
+                                            _vm.isTaskComplete == 1
+                                              ? true
+                                              : false
+                                        },
+                                        on: {
+                                          click: function($event) {
+                                            _vm.isTaskComplete == 1
+                                              ? (_vm.isTaskComplete = 0)
+                                              : (_vm.isTaskComplete = 1)
+                                          }
+                                        }
+                                      },
+                                      [
+                                        _c(
+                                          "svg",
+                                          {
+                                            staticClass: "MiniIcon",
+                                            attrs: { viewBox: "0 0 24 24" }
+                                          },
+                                          [
+                                            _c("path", {
+                                              attrs: {
+                                                d:
+                                                  "M9.5,18.2c-0.4,0.4-1,0.4-1.4,0l-3.8-3.8C4,14,4,13.4,4.3,13s1-0.4,1.4,0l3.1,3.1l8.6-8.6c0.4-0.4,1-0.4,1.4,0s0.4,1,0,1.4 L9.5,18.2z"
+                                              }
+                                            })
+                                          ]
+                                        )
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c("input", {
+                                      staticClass: "new-task-input",
+                                      attrs: { type: "text" }
+                                    }),
+                                    _vm._v(" "),
+                                    _c(
+                                      "div",
+                                      { staticClass: "new-task-logo" },
+                                      [
+                                        _c(
+                                          "div",
+                                          {
+                                            staticClass: "logo-1  nv-dropdown"
+                                          },
+                                          [
+                                            _c(
+                                              "svg",
+                                              {
+                                                staticClass: "_icon",
+                                                attrs: {
+                                                  focusable: "false",
+                                                  viewBox: "0 0 32 32"
+                                                }
+                                              },
+                                              [
+                                                _c("path", {
+                                                  attrs: {
+                                                    d:
+                                                      "M16,18c-4.4,0-8-3.6-8-8s3.6-8,8-8s8,3.6,8,8S20.4,18,16,18z M16,4c-3.3,0-6,2.7-6,6s2.7,6,6,6s6-2.7,6-6S19.3,4,16,4z M29,32c-0.6,0-1-0.4-1-1v-4.2c0-2.6-2.2-4.8-4.8-4.8H8.8C6.2,22,4,24.2,4,26.8V31c0,0.6-0.4,1-1,1s-1-0.4-1-1v-4.2C2,23,5,20,8.8,20h14.4c3.7,0,6.8,3,6.8,6.8V31C30,31.6,29.6,32,29,32z"
+                                                  }
+                                                })
+                                              ]
+                                            ),
+                                            _vm._v(" "),
+                                            _vm._m(7)
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c("div", { staticClass: "logo-2" }, [
+                                          _c(
+                                            "svg",
+                                            {
+                                              staticClass: "_icon",
+                                              attrs: {
+                                                focusable: "false",
+                                                viewBox: "0 0 32 32"
+                                              }
+                                            },
+                                            [
+                                              _c("path", {
+                                                attrs: {
+                                                  d:
+                                                    "M24,2V1c0-0.6-0.4-1-1-1s-1,0.4-1,1v1H10V1c0-0.6-0.4-1-1-1S8,0.4,8,1v1C4.7,2,2,4.7,2,8v16c0,3.3,2.7,6,6,6h16c3.3,0,6-2.7,6-6V8C30,4.7,27.3,2,24,2z M8,4v1c0,0.6,0.4,1,1,1s1-0.4,1-1V4h12v1c0,0.6,0.4,1,1,1s1-0.4,1-1V4c2.2,0,4,1.8,4,4v2H4V8C4,5.8,5.8,4,8,4z M24,28H8c-2.2,0-4-1.8-4-4V12h24v12C28,26.2,26.2,28,24,28z"
+                                                }
+                                              })
+                                            ]
+                                          )
+                                        ]),
+                                        _vm._v(" "),
+                                        _c("div", { staticClass: "logo-3" }, [
+                                          _c(
+                                            "svg",
+                                            {
+                                              staticClass: "_icon",
+                                              attrs: {
+                                                focusable: "false",
+                                                viewBox: "0 0 32 32"
+                                              }
+                                            },
+                                            [
+                                              _c("path", {
+                                                attrs: {
+                                                  d:
+                                                    "M5,31c-0.1,0-0.3,0-0.4-0.1C4.2,30.7,4,30.4,4,30v-7.1c-2.5-2.3-4-5.5-4-8.9C0,7.4,5.4,2,12,2h8c6.6,0,12,5.4,12,12 s-5.4,12-12,12h-8c-0.1,0-0.3,0-0.4,0l-5.9,4.8C5.4,30.9,5.2,31,5,31z M12,4C6.5,4,2,8.5,2,14c0,3,1.3,5.8,3.6,7.7C5.9,21.9,6,22.2,6,22.5v5.4l4.6-3.7C10.8,24,11,24,11.3,24h0.1c0.2,0,0.4,0,0.6,0h8c5.5,0,10-4.5,10-10S25.5,4,20,4 C20,4,12,4,12,4z"
+                                                }
+                                              })
+                                            ]
+                                          )
+                                        ]),
+                                        _vm._v(" "),
+                                        _c("div", { staticClass: "logo-3" }, [
+                                          _c(
+                                            "svg",
+                                            {
+                                              staticClass: "_icon",
+                                              attrs: {
+                                                focusable: "false",
+                                                viewBox: "0 0 32 32"
+                                              }
+                                            },
+                                            [
+                                              _c("path", {
+                                                attrs: {
+                                                  d:
+                                                    "M23.2,16c0,0.3-0.1,0.7-0.3,0.9l-9,11c-0.5,0.6-1.5,0.7-2.1,0.2s-0.7-1.5-0.2-2.1l8.2-10L11.6,6c-0.5-0.6-0.4-1.6,0.2-2.1s1.6-0.4,2.1,0.2l9,11C23.1,15.3,23.2,15.7,23.2,16z"
+                                                }
+                                              })
+                                            ]
+                                          )
+                                        ])
+                                      ]
+                                    )
+                                  ])
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _vm._m(8),
+                              _vm._v(" "),
+                              _vm._m(9)
+                            ]
+                          )
+                        ])
                       ])
                     : _vm._e(),
                   _vm._v(" "),
@@ -51875,7 +52302,7 @@ var render = function() {
                                                       "flex border-b border-40 w-full"
                                                   },
                                                   [
-                                                    _vm._m(6),
+                                                    _vm._m(10),
                                                     _vm._v(" "),
                                                     _c(
                                                       "div",
@@ -51983,7 +52410,7 @@ var render = function() {
                                                       "flex border-b border-40 w-full"
                                                   },
                                                   [
-                                                    _vm._m(7),
+                                                    _vm._m(11),
                                                     _vm._v(" "),
                                                     _c(
                                                       "div",
@@ -52153,7 +52580,7 @@ var render = function() {
                                                       "flex border-b border-40 w-full"
                                                   },
                                                   [
-                                                    _vm._m(8),
+                                                    _vm._m(12),
                                                     _vm._v(" "),
                                                     _c(
                                                       "div",
@@ -52326,7 +52753,7 @@ var render = function() {
                                                       "flex border-b border-40 w-full"
                                                   },
                                                   [
-                                                    _vm._m(9),
+                                                    _vm._m(13),
                                                     _vm._v(" "),
                                                     _c(
                                                       "div",
@@ -52418,7 +52845,7 @@ var render = function() {
                                                       "flex border-b border-40 w-full"
                                                   },
                                                   [
-                                                    _vm._m(10),
+                                                    _vm._m(14),
                                                     _vm._v(" "),
                                                     _c(
                                                       "div",
@@ -52603,62 +53030,45 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "py-6 px-8" }, [
-      _c(
-        "label",
-        {
-          staticClass: "inline-block text-80 pt-2 leading-tight",
-          attrs: { for: "name" }
-        },
-        [_vm._v("Assigned To")]
-      )
-    ])
+    return _c(
+      "div",
+      { staticClass: "task-head-box-dropdown nv-dropdown-menu" },
+      [
+        _c("div", { staticClass: "each-box" }, [
+          _c("a", { attrs: { href: "#" } }, [_vm._v("All Task")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "each-box" }, [
+          _c("a", { attrs: { href: "#" } }, [_vm._v("Incomplete tasks")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "each-box" }, [
+          _c("a", { attrs: { href: "#" } }, [_vm._v("Complete Tasks")])
+        ])
+      ]
+    )
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "w-1/5 py-6 px-8" }, [
-      _c(
-        "label",
-        {
-          staticClass: "inline-block text-80 pt-2 leading-tight",
-          attrs: { for: "name" }
-        },
-        [_vm._v("Type")]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "py-6 px-8" }, [
-      _c(
-        "label",
-        {
-          staticClass: "inline-block text-80 pt-2 leading-tight",
-          attrs: { for: "name" }
-        },
-        [_vm._v("Due Date")]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("thead", [
-      _c("tr", [
-        _c("th", { staticClass: "text-left" }, [_vm._v("SL")]),
-        _vm._v(" "),
-        _c("th", { staticClass: "text-left" }, [_vm._v("Task")]),
-        _vm._v(" "),
-        _c("th", { staticClass: "text-left" }, [_vm._v("Assignee")]),
-        _vm._v(" "),
-        _c("th", { staticClass: "text-left" }, [_vm._v("Due Date")]),
-        _vm._v(" "),
-        _c("th", { staticClass: "text-right" })
+    return _c("div", { staticClass: "task-list-header" }, [
+      _c("div", { staticClass: "task-name-box" }, [
+        _vm._v(
+          "\n                                    Task name\n                                "
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "task-assignee-box" }, [
+        _vm._v(
+          "\n                                    Assignee\n                                "
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "task-assignee-box border-right-none" }, [
+        _vm._v(
+          "\n                                    Due Date\n                                "
+        )
       ])
     ])
   },
@@ -52666,18 +53076,188 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
+    return _c("span", [
+      _c("input", {
+        staticClass: "task-body-custom-input",
+        attrs: { type: "text" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", [
+      _c("input", {
+        staticClass: "assignee-box-input assigned-input",
+        attrs: { type: "text" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
     return _c(
-      "a",
-      {
-        staticClass: "cursor-pointer text-70 hover:text-primary mr-3",
-        attrs: {
-          onclick: "document.getElementById('file').click()",
-          dusk: "13-view-button",
-          title: "Attach file"
-        }
-      },
-      [_c("i", { staticClass: "fa fa-paperclip" })]
+      "div",
+      { staticClass: "assignee-box-dropdown nv-dropdown-menu" },
+      [
+        _c("div", { staticClass: "each-assignee" }, [
+          _c("div", {
+            staticClass: "profile-img",
+            staticStyle: {
+              "background-image":
+                "url('https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png')"
+            }
+          }),
+          _vm._v(" "),
+          _c("div", { staticClass: "name-text" }, [_vm._v("Shadin Rana")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "each-assignee" }, [
+          _c("div", {
+            staticClass: "profile-img",
+            staticStyle: {
+              "background-image":
+                "url('https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png')"
+            }
+          }),
+          _vm._v(" "),
+          _c("div", { staticClass: "name-text" }, [_vm._v("Shadin Rana")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "each-assignee" }, [
+          _c("div", {
+            staticClass: "profile-img",
+            staticStyle: {
+              "background-image":
+                "url('https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png')"
+            }
+          }),
+          _vm._v(" "),
+          _c("div", { staticClass: "name-text" }, [_vm._v("Shadin Rana")])
+        ])
+      ]
     )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", [
+      _c("input", {
+        staticClass: "assignee-box-input nv-dropdown-trigger",
+        attrs: { type: "text" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "assignee-box-dropdown nv-dropdown-menu" },
+      [
+        _c("div", { staticClass: "each-assignee" }, [
+          _c("div", {
+            staticClass: "profile-img",
+            staticStyle: {
+              "background-image":
+                "url('https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png')"
+            }
+          }),
+          _vm._v(" "),
+          _c("div", { staticClass: "name-text" }, [_vm._v("Shadin Rana")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "each-assignee" }, [
+          _c("div", {
+            staticClass: "profile-img",
+            staticStyle: {
+              "background-image":
+                "url('https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png')"
+            }
+          }),
+          _vm._v(" "),
+          _c("div", { staticClass: "name-text" }, [_vm._v("Shadin Rana")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "each-assignee" }, [
+          _c("div", {
+            staticClass: "profile-img",
+            staticStyle: {
+              "background-image":
+                "url('https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png')"
+            }
+          }),
+          _vm._v(" "),
+          _c("div", { staticClass: "name-text" }, [_vm._v("Shadin Rana")])
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "head-text-section border-bottom-task-list" },
+      [
+        _c("div", { staticClass: "profile-img" }, [
+          _c("div", {
+            staticClass: "_img",
+            staticStyle: {
+              "background-image":
+                "url('https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png')"
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "detail-text-area" }, [
+          _c("span", [
+            _c("a", { staticClass: "lnk-text", attrs: { href: "#" } }, [
+              _vm._v("Sadhin Rana ")
+            ]),
+            _vm._v("created this task.")
+          ]),
+          _vm._v(" "),
+          _c("span", { staticClass: "small-text" }, [_vm._v("8 minutes ago")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "detail-text-area" }, [
+          _c("span", { staticClass: "small-text" }, [
+            _vm._v("Sadhin Rana added to "),
+            _c("a", { staticClass: "lnk-text", attrs: { href: "#" } }, [
+              _vm._v("Project 1")
+            ]),
+            _vm._v(" 8 minutes ago")
+          ])
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "head-text-section bg-light" }, [
+      _c("div", { staticClass: "profile-img" }, [
+        _c("div", {
+          staticClass: "_img",
+          staticStyle: {
+            "background-image":
+              "url('https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png')"
+          }
+        })
+      ]),
+      _vm._v(" "),
+      _c("textarea", {
+        staticClass: "custom-text-area-chat",
+        attrs: { name: "", cols: "30", rows: "5", placeholder: "Description" }
+      })
+    ])
   },
   function() {
     var _vm = this
@@ -52765,7 +53345,7 @@ if (false) {
 }
 
 /***/ }),
-/* 168 */
+/* 171 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
