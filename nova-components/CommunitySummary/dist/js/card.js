@@ -17475,7 +17475,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "*{margin:0;padding:0;box-sizing:border-box;font-family:Roboto,sans-serif;outline:0}._btn{font-size:12px;padding:6px 9px;text-align:center;text-decoration:none;-webkit-box-align:center;align-items:center;border-radius:4px;border-style:solid;border-width:1px;-moz-box-sizing:border-box;box-sizing:border-box;cursor:pointer;display:inline-flex;flex-shrink:0;-webkit-box-pack:center;justify-content:center;line-height:1;min-width:50px;-webkit-transition-duration:.2s;transition-duration:.2s;-webkit-transition-property:background,border,box-shadow,color,fill;transition-property:background,border,box-shadow,color,fill}._btn-default{background:#fff;border-color:#9ca6af;color:#273240;fill:#4b607a;font-weight:700}._btn-default:hover{background-color:#f6f8f9;border-color:#6f7782;border-style:solid;color:#161c24;fill:#161c24}._btn-default-active{background-color:#00bf9c;border:none;color:#fff;fill:#fff}._btn-default-active:hover{border:none;background-color:#00987c;color:#fff;fill:#fff}._btn-borderless{background:#fff;border:none;color:#273240;fill:#4b607a;font-weight:700;padding:9px 9px}._btn-borderless:hover{background-color:#d3dde4;border:none;color:#161c24;fill:#161c24}._btn-active{background-color:#00bf9c;border:none;color:#fff;fill:#fff}._btn-active:hover{background-color:#00987c;color:#fff;fill:#fff}.MiniIcon-custom{height:12px;width:12px;margin-right:5px}.MiniIcon-right{height:12px;width:12px;margin-left:5px;cursor:pointer}.MiniIcon{height:13px;width:13px;cursor:pointer}.MiniIcon:hover{fill:#00987c}.main-wrapper{width:100%;display:inline-block;position:relative;min-height:600px;overflow-x:hidden;overflow-y:auto}.add-task-section-wrapper{align-items:center;background-color:#fff;border-bottom:1px solid #e8ecee;border-top:1px solid #e8ecee;display:flex;-webkit-box-flex:0;flex:0 0 auto;height:70px;padding-left:20px;padding-right:15px;width:100%;vertical-align:middle}.add-task-section-wrapper .section-left{width:50%;float:left}.add-task-section-wrapper .section-right{width:50%;float:left;display:inline-flex;align-items:center;justify-content:flex-end;position:relative}.add-task-section-wrapper .section-right .task-head-box-dropdown{position:absolute;background-color:#f1f1f1;min-width:160px;overflow:auto;box-shadow:0 8px 16px 0 rgba(0,0,0,.2);z-index:1;top:36px;left:8px}.add-task-section-wrapper .section-right .task-head-box-dropdown .each-box{padding:12px 5px;background-color:#fff;text-align:left}.add-task-section-wrapper .section-right .task-head-box-dropdown .each-box:hover{background-color:#ddd}.add-task-section-wrapper .section-right .task-head-box-dropdown .each-box a{color:#273240;text-decoration:none}.add-task-section-wrapper .section-right ._assigned-box{display:inline-block;margin:0 5px;position:relative}.add-task-section-wrapper .section-right ._assigned-box .search-logo{position:absolute;left:7px;top:5px;fill:#4b607a}.add-task-section-wrapper .section-right .logo-box{width:50px;display:table;text-align:center;position:relative}.add-task-section-wrapper .section-right .logo-box .hide-box-icon{width:14px;height:14px;fill:#4b607a;cursor:pointer}.add-task-section-wrapper .section-right .logo-box .hide-box-icon :focus,.add-task-section-wrapper .section-right .logo-box .hide-box-icon:hover{fill:#32c1ff}.task-list-wrapper{width:calc(100% - 0px);display:table;padding:0 20px;transition:.5s}.task-list-wrapper.task-list-half{width:calc(100% - 760px);float:left;transition:.5s}.task-list-wrapper .task-list-header{width:100%;border-bottom:1px solid #e8ecee;display:table;font-size:13px;font-weight:700}.task-list-wrapper .task-list-header .task-name-box{width:70%;border-right:1px solid #e8ecee;padding:10px 5px;float:left;background-color:#fff}.task-list-wrapper .task-list-header .task-name-box:hover{background-color:#f6f8f9}.task-list-wrapper .task-list-header .task-assignee-box{width:15%;border-right:1px solid #e8ecee;padding:10px 5px;float:left;background-color:#fff}.task-list-wrapper .task-list-header .task-assignee-box:hover{background-color:#f6f8f9}.task-list-wrapper .task-list-body{width:100%;border-bottom:1px solid #e8ecee;display:flex;font-size:13px;font-weight:700}.task-list-wrapper .task-list-body .task-name-box{width:70%;border-right:1px solid #e8ecee;padding:5px 5px;float:left;background-color:#fff;position:relative;display:inline-flex;align-items:center}.task-list-wrapper .task-list-body .task-name-box .detail-option{position:absolute;right:0;top:12px;font-size:12px;font-weight:700;display:inline-flex;align-items:center;opacity:0;cursor:pointer}.task-list-wrapper .task-list-body .task-name-box .border-radious-icon{background:#fff;border:1px solid #cbd4db;border-radius:50%;color:#6f7782;fill:#6f7782;width:15px;height:15px;margin-right:5px}.task-list-wrapper .task-list-body .task-name-box .border-radious-icon.task-complete{border:1px solid #00987c!important}.task-list-wrapper .task-list-body .task-name-box .border-radious-icon.task-complete .MiniIcon{fill:#00987c!important}.task-list-wrapper .task-list-body .task-name-box .border-radious-icon .MiniIcon{height:13px;width:13px;cursor:pointer}.task-list-wrapper .task-list-body .task-name-box .border-radious-icon .MiniIcon:hover{fill:#00987c}.task-list-wrapper .task-list-body .task-name-box .border-radious-icon:hover{color:#00987c;border-color:#00987c}.task-list-wrapper .task-list-body .task-name-box:hover{background-color:#f6f8f9}.task-list-wrapper .task-list-body .task-name-box:hover .task-body-custom-input{background-color:#f6f8f9}.task-list-wrapper .task-list-body .task-name-box:hover .detail-option{opacity:1}.task-list-wrapper .task-list-body .task-assignee-box{width:15%;border-right:1px solid #e8ecee;padding:0;float:left;background-color:#fff;position:relative}.task-list-wrapper .task-list-body .task-assignee-box .assigned-person{display:inline-flex;align-items:center;width:100%;position:absolute;left:0;top:0;z-index:1;background:#fff;padding:4px}.task-list-wrapper .task-list-body .task-assignee-box .assigned-person .img-box{width:25px;height:25px;display:inline-block;background-size:cover;background-position:center;background-repeat:no-repeat;margin-right:10px}.task-list-wrapper .task-list-body .task-assignee-box .assignee-box-dropdown{position:absolute;background-color:#fff;min-width:280px;overflow:auto;box-shadow:0 8px 16px 0 rgba(0,0,0,.2);z-index:2;padding:7px 7px 3px 7px}.task-list-wrapper .task-list-body .task-assignee-box .assignee-box-dropdown .each-assignee{width:100%;display:inline-flex;align-items:center;margin:5px 0}.task-list-wrapper .task-list-body .task-assignee-box .assignee-box-dropdown .each-assignee:hover{background-color:#e8ecee}.task-list-wrapper .task-list-body .task-assignee-box .assignee-box-dropdown .each-assignee .profile-img{width:25px;height:25px;background-repeat:no-repeat;background-position:center;background-size:cover;margin-right:10px;padding:0 5px}.task-list-wrapper .task-list-body .task-assignee-box .assignee-box-dropdown .each-assignee .name-text{color:#273240;font-size:12px;font-weight:700}.task-list-wrapper .task-list-body .task-assignee-box .assignee-box-logo{position:absolute;width:28px;height:28px;border:1px dashed #9ca6af;border-radius:50%;top:2px;left:7px;text-align:center;padding-top:3px;visibility:hidden}.task-list-wrapper .task-list-body .task-assignee-box .assignee-box-logo .inside-logo{width:18px;height:18px;fill:#9ca6af}.task-list-wrapper .task-list-body .task-assignee-box .assignee-box-input{border-color:transparent;box-shadow:none;min-width:100px;width:100%;background-color:#fff;border-style:solid;border-width:1px;height:33px;padding:0 5px;cursor:pointer}.task-list-wrapper .task-list-body .task-assignee-box .assignee-box-input:hover{background-color:#f6f8f9}.task-list-wrapper .task-list-body .task-assignee-box .assignee-box-input:focus{border-color:#32c1ff;background-color:#fff}.task-list-wrapper .task-list-body .task-assignee-box .assignee-box-input:focus .inside-logo{display:none}.task-list-wrapper .task-list-body .task-assignee-box:hover{background-color:#f6f8f9}.task-list-wrapper .task-list-body .task-assignee-box:hover .assignee-box-logo{visibility:visible}.task-list-wrapper .task-list-body .task-assignee-box:focus .assignee-box-logo{visibility:hidden}.task-list-wrapper .task-list-body .task-date-box{width:15%;border-right:1px solid #e8ecee;padding:9px 39px;float:left;background-color:#fff;position:relative}.task-list-wrapper .task-list-body .task-date-box .assignee-box-logo{position:absolute;width:28px;height:28px;border:1px dashed #9ca6af;border-radius:50%;top:2px;left:7px;text-align:center;padding-top:3px;visibility:hidden}.task-list-wrapper .task-list-body .task-date-box .assignee-box-logo .inside-logo{width:18px;height:18px;fill:#9ca6af}.task-list-wrapper .task-list-body .task-date-box:hover{background-color:#f6f8f9}.task-list-wrapper .task-list-body .task-date-box:hover .assignee-box-logo{visibility:visible}.task-list-wrapper .task-list-body .task-date-box:focus .assignee-box-logo{visibility:hidden}.task-list-wrapper .task-list-body .box-active{background-color:#edf8ff}.task-list-wrapper .task-list-body .task-body-custom-input{border-color:transparent;border-radius:2px;box-shadow:none;min-width:200px;width:100%;background-color:#fff;border-style:solid;border-width:1px;padding:2px}.task-list-wrapper .task-list-body .task-body-custom-input:hover{background-color:#f6f8f9}.task-list-wrapper .task-list-body .task-body-custom-input:focus{border-color:#9ca6af;background-color:#fff}.task-list-wrapper .section-header{width:100%;font-size:20px;font-weight:700;display:table;padding:15px 0;color:#273240}.task-list-detail-wrapper{width:760px;background-color:#fff;border-left:1px solid #e8ecee;border-top:1px solid #e8ecee;position:absolute;top:0;right:0;display:inline-block;transition:.5s;box-shadow:0 5px 20px 0 rgba(21,27,38,.08);float:left;padding:0;transform-origin:100% 0;transform:scaleX(1);z-index:100;height:600px;overflow-x:hidden;overflow-y:scroll}.task-list-detail-wrapper.hideMe{transform:scaleX(0);transform-origin:100% 0;transition:.5s}.task-list-detail-wrapper .head-text-section{width:100%;padding:10px 20px;display:table}.task-list-detail-wrapper .head-text-section .input-big{border:1px solid transparent;box-shadow:none;font-size:30px;font-weight:700;transition:.2s;width:100%;padding:10px;color:#273240}.task-list-detail-wrapper .head-text-section .input-big:hover{border:1px solid #9ca6af;border-radius:4px;transition:.2s}.task-list-detail-wrapper .head-text-section .radious-square-input{position:relative;display:inline-block}.task-list-detail-wrapper .head-text-section .radious-square-input:hover .input-design{border:1px solid #9ca6af;border-radius:25px}.task-list-detail-wrapper .head-text-section .radious-square-input:hover .logo-border{border:1px solid #9ca6af}.task-list-detail-wrapper .head-text-section .radious-square-input:hover .logo-border .input-icon-1{fill:#7f878e}.task-list-detail-wrapper .head-text-section .radious-square-input .logo-border{position:absolute;width:30px;height:30px;border:1px dashed #9ca6af;border-radius:50%;top:6px;left:7px;text-align:center;padding-top:3px}.task-list-detail-wrapper .head-text-section .radious-square-input .logo-border .input-icon-1{width:18px;height:18px;fill:#9ca6af}.task-list-detail-wrapper .head-text-section .radious-square-input .logo-border .input-icon-2{width:22px;height:21px;fill:#9ca6af;padding-top:2px}.task-list-detail-wrapper .head-text-section .radious-square-input .input-design{font-size:12px;font-weight:900;padding:13px 0 13px 45px;border:1px solid transparent;cursor:pointer;box-shadow:none;width:65%}.task-list-detail-wrapper .head-text-section .radious-square-input .input-design:focus{border:1px solid #9ca6af;border-radius:4px;width:100%}.task-list-detail-wrapper .head-text-section .text-area-logo{width:25px;display:inline-block;float:left;padding-top:3px}.task-list-detail-wrapper .head-text-section .text-area-logo .t-logo{width:18px;height:18px;fill:#4b607a}.task-list-detail-wrapper .head-text-section ._input-logo{width:25px;display:inline-block;float:left;padding:10px 0 0 0}.task-list-detail-wrapper .head-text-section ._input-logo .t-logo{width:18px;height:18px;fill:#4b607a}.task-list-detail-wrapper .head-text-section .custom-text-area{border:1px solid transparent;box-shadow:none;font-size:13px;font-weight:700;transition:.2s;width:96%;padding:5px 10px;display:inline-block;color:#273240;float:left}.task-list-detail-wrapper .head-text-section .custom-text-area:hover{border:1px solid #9ca6af;border-radius:4px;transition:.2s}.task-list-detail-wrapper .head-text-section .custom-input-add-project{border:1px solid transparent;box-shadow:none;font-size:13px;font-weight:700;transition:.2s;width:96%;padding:10px 10px;display:inline-block;color:#273240;cursor:pointer;float:left}.task-list-detail-wrapper .head-text-section .custom-input-add-project::placeholder{color:#32c1ff}.task-list-detail-wrapper .head-text-section .custom-input-add-project:focus{border:1px solid #9ca6af;border-radius:4px;transition:.2s}.task-list-detail-wrapper .head-text-section .custom-input-add-project:focus::placeholder{color:#273240}.task-list-detail-wrapper .head-text-section .profile-img{width:40px;display:inline-block;float:left;margin-right:8px}.task-list-detail-wrapper .head-text-section .profile-img ._img{width:35px;height:35px;border-radius:50%;display:inline-block;background-position:center;background-repeat:no-repeat;background-size:cover}.task-list-detail-wrapper .head-text-section .detail-text-area{width:90%;padding:10px 0;display:inline-block;float:left;font-size:13px;font-weight:700}.task-list-detail-wrapper .head-text-section .detail-text-area .lnk-text{text-decoration:none;color:#273240}.task-list-detail-wrapper .head-text-section .detail-text-area .lnk-text:hover{color:#32c1ff}.task-list-detail-wrapper .head-text-section .detail-text-area .small-text{font-size:11px;color:#c2c2c2}.task-list-detail-wrapper .head-text-section .custom-text-area-chat{border:1px solid #9ca6af;box-shadow:none;font-size:13px;font-weight:700;transition:.2s;width:93%;padding:5px 10px;display:inline-block;color:#273240;float:left;border-radius:4px}.task-list-detail-wrapper .head-text-section .new-task{width:100%;display:flex;border-top:1px solid #e8ecee;border-bottom:1px solid #e8ecee;align-items:center;position:relative}.task-list-detail-wrapper .head-text-section .new-task:focus{border-top:1px solid #32c1ff;border-bottom:1px solid #32c1ff}.task-list-detail-wrapper .head-text-section .new-task:hover{border-top:1px solid #32c1ff;border-bottom:1px solid #32c1ff}.task-list-detail-wrapper .head-text-section .new-task .border-radious-icon{background:#fff;border:1px solid #cbd4db;border-radius:50%;color:#6f7782;fill:#6f7782;width:15px;height:15px;margin-right:5px}.task-list-detail-wrapper .head-text-section .new-task .border-radious-icon.task-complete{border:1px solid #00987c!important}.task-list-detail-wrapper .head-text-section .new-task .border-radious-icon.task-complete .MiniIcon{fill:#00987c!important}.task-list-detail-wrapper .head-text-section .new-task .border-radious-icon .MiniIcon{height:15px;width:14px;cursor:pointer}.task-list-detail-wrapper .head-text-section .new-task .border-radious-icon .MiniIcon:hover{fill:#00987c}.task-list-detail-wrapper .head-text-section .new-task .border-radious-icon:hover{color:#00987c;border-color:#00987c}.task-list-detail-wrapper .head-text-section .new-task .new-task-input{width:90%;border:1px solid transparent;height:35px;box-shadow:none}.task-list-detail-wrapper .head-text-section .new-task .new-task-logo{position:absolute;right:0;display:inline-flex;top:5px}.task-list-detail-wrapper .head-text-section .new-task .new-task-logo .logo-1{width:25px;height:25px;border:1px solid #e8ecee;border-radius:50%;margin-right:14px;position:relative}.task-list-detail-wrapper .head-text-section .new-task .new-task-logo .logo-1 .assignee-box-dropdown{position:absolute;background-color:#fff;min-width:200px;overflow:auto;box-shadow:0 8px 16px 0 rgba(0,0,0,.2);z-index:1;padding:7px 7px 3px 7px;left:-263px;top:29px}.task-list-detail-wrapper .head-text-section .new-task .new-task-logo .logo-1 .assignee-box-dropdown .each-assignee{width:100%;display:inline-flex;align-items:center;margin:5px 0}.task-list-detail-wrapper .head-text-section .new-task .new-task-logo .logo-1 .assignee-box-dropdown .each-assignee:hover{background-color:#e8ecee}.task-list-detail-wrapper .head-text-section .new-task .new-task-logo .logo-1 .assignee-box-dropdown .each-assignee .profile-img{width:25px;height:25px;background-repeat:no-repeat;background-position:center;background-size:cover;margin-right:10px;padding:0 5px}.task-list-detail-wrapper .head-text-section .new-task .new-task-logo .logo-1 .assignee-box-dropdown .each-assignee .name-text{color:#273240;font-size:12px;font-weight:700}.task-list-detail-wrapper .head-text-section .new-task .new-task-logo .logo-1 ._icon{height:19px;width:23px;padding:3px 0 0 0;fill:#7f878e}.task-list-detail-wrapper .head-text-section .new-task .new-task-logo .logo-2{width:25px;height:25px;border:1px solid #e8ecee;border-radius:50%;margin-right:14px}.task-list-detail-wrapper .head-text-section .new-task .new-task-logo .logo-2 ._icon{height:19px;width:23px;padding:3px 0 0 0;fill:#7f878e}.task-list-detail-wrapper .head-text-section .new-task .new-task-logo .logo-3{width:13px;height:25px;padding-top:5px}.task-list-detail-wrapper .head-text-section .new-task .new-task-logo .logo-3 ._icon{width:15px;height:15px;fill:#4b607a}._float-left{float:left}._float-right{float:right}._text-left{text-align:left}._text-right{text-align:right}._font-15{font-size:15px}.border-top-task-list{border-top:1px solid #e8ecee}.border-bottom-task-list{border-bottom:1px solid #e8ecee}.d-flex-inline{display:inline-flex;align-items:center}.bg-light{background-color:#f6f8f9}.no-padding{padding:0!important}.cursor-pointer{cursor:pointer}.border-right-none{border-right:none!important}.drop-down-menu_{display:none;position:absolute;background-color:#fff;min-width:160px;overflow:auto;box-shadow:0 8px 16px 0 rgba(0,0,0,.2);z-index:1}.drop-down-menu_ a{color:#273240;padding:12px 16px;text-decoration:none;display:block}.drop-down-menu_ a:hover{background-color:#ddd}.nv-dropdown-menu{display:none}.nv-dropdown-menu .assigned-person{display:none}.nv-open .nv-dropdown-menu{display:block}.nv-open .assigned-person,.nv-open .assignee-box-logo{display:none!important}.assigned-display{display:inline-flex}.collapse-open .nv-collapsedown{display:table}.nv-collapsedown{display:none;width:100%}.logo-show{display:block}.logo-hide{display:none}._position-relative{position:relative}._custom-select{min-width:150px;font-size:12px;font-weight:900;padding:6px 5px;width:100%;border-radius:4px;border:1px solid #9ca6af!important;cursor:pointer}._custom-select:hover{border-color:#6f7782}._custom-input-search{min-width:150px;font-size:12px;font-weight:900;padding:6px 0 6px 22px;width:100%;border-radius:25px;cursor:pointer;box-shadow:none;border-width:1px;border-style:solid;transition:.4s;border:1px solid #9ca6af!important}._custom-input-search:hover{border-color:#6f7782}._custom-input-search:focus{min-width:200px;transition:.4s}.loader-io{width:100%;display:flex;align-items:center;justify-content:center;height:100%}@keyframes ldio-aebf04cd3u{0%{transform:rotate(0)}50%{transform:rotate(180deg)}100%{transform:rotate(360deg)}}.ldio-aebf04cd3u div{position:absolute;animation:ldio-aebf04cd3u 1s linear infinite;width:160px;height:160px;top:20px;left:20px;border-radius:50%;box-shadow:0 4px 0 0 #0a0a0a;transform-origin:80px 82px}.loadingio-spinner-eclipse-utvtio44ngo{width:200px;height:200px;display:inline-block;overflow:hidden;background:#fff}.ldio-aebf04cd3u{width:100%;height:100%;position:relative;transform:translateZ(0) scale(1);backface-visibility:hidden;transform-origin:0 0}.ldio-aebf04cd3u div{box-sizing:content-box}", ""]);
+exports.push([module.i, "*{margin:0;padding:0;box-sizing:border-box;font-family:Roboto,sans-serif;outline:0}._btn{font-size:12px;padding:6px 9px;text-align:center;text-decoration:none;-webkit-box-align:center;align-items:center;border-radius:4px;border-style:solid;border-width:1px;-moz-box-sizing:border-box;box-sizing:border-box;cursor:pointer;display:inline-flex;flex-shrink:0;-webkit-box-pack:center;justify-content:center;line-height:1;min-width:50px;-webkit-transition-duration:.2s;transition-duration:.2s;-webkit-transition-property:background,border,box-shadow,color,fill;transition-property:background,border,box-shadow,color,fill}._btn-default{background:#fff;border-color:#9ca6af;color:#273240;fill:#4b607a;font-weight:700}._btn-default:hover{background-color:#f6f8f9;border-color:#6f7782;border-style:solid;color:#161c24;fill:#161c24}._btn-default-active{background-color:#00bf9c;border:none;color:#fff;fill:#fff}._btn-default-active:hover{border:none;background-color:#00987c;color:#fff;fill:#fff}._btn-borderless{background:#fff;border:none;color:#273240;fill:#4b607a;font-weight:700;padding:9px 9px}._btn-borderless:hover{background-color:#d3dde4;border:none;color:#161c24;fill:#161c24}._btn-active{background-color:#00bf9c;border:none;color:#fff;fill:#fff}._btn-active:hover{background-color:#00987c;color:#fff;fill:#fff}.MiniIcon-custom{height:12px;width:12px;margin-right:5px}.MiniIcon-right{height:12px;width:12px;margin-left:5px;cursor:pointer}.MiniIcon{height:13px;width:13px;cursor:pointer}.MiniIcon:hover{fill:#00987c}.main-wrapper{width:100%;display:inline-block;position:relative;min-height:600px;overflow-x:hidden;overflow-y:auto}.add-task-section-wrapper{align-items:center;background-color:#fff;border-bottom:1px solid #e8ecee;border-top:1px solid #e8ecee;display:flex;-webkit-box-flex:0;flex:0 0 auto;height:70px;padding-left:20px;padding-right:15px;width:100%;vertical-align:middle}.add-task-section-wrapper .section-left{width:50%;float:left}.add-task-section-wrapper .section-right{width:50%;float:left;display:inline-flex;align-items:center;justify-content:flex-end;position:relative}.add-task-section-wrapper .section-right .task-head-box-dropdown{position:absolute;background-color:#f1f1f1;min-width:160px;overflow:auto;box-shadow:0 8px 16px 0 rgba(0,0,0,.2);z-index:1;top:36px;left:8px}.add-task-section-wrapper .section-right .task-head-box-dropdown .each-box{padding:12px 5px;background-color:#fff;text-align:left}.add-task-section-wrapper .section-right .task-head-box-dropdown .each-box:hover{background-color:#ddd}.add-task-section-wrapper .section-right .task-head-box-dropdown .each-box a{color:#273240;text-decoration:none}.add-task-section-wrapper .section-right ._assigned-box{display:inline-block;margin:0 5px;position:relative}.add-task-section-wrapper .section-right ._assigned-box .search-logo{position:absolute;left:7px;top:5px;fill:#4b607a}.add-task-section-wrapper .section-right .logo-box{width:50px;display:table;text-align:center;position:relative}.add-task-section-wrapper .section-right .logo-box .hide-box-icon{width:14px;height:14px;fill:#4b607a;cursor:pointer}.add-task-section-wrapper .section-right .logo-box .hide-box-icon :focus,.add-task-section-wrapper .section-right .logo-box .hide-box-icon:hover{fill:#32c1ff}.task-list-wrapper{width:calc(100% - 0px);display:table;padding:0 20px;transition:.5s}.task-list-wrapper.task-list-half{width:calc(100% - 760px);float:left;transition:.5s}.task-list-wrapper .task-list-header{width:100%;border-bottom:1px solid #e8ecee;display:table;font-size:13px;font-weight:700}.task-list-wrapper .task-list-header .task-name-box{width:70%;border-right:1px solid #e8ecee;padding:10px 5px;float:left;background-color:#fff}.task-list-wrapper .task-list-header .task-name-box:hover{background-color:#f6f8f9}.task-list-wrapper .task-list-header .task-assignee-box{width:15%;border-right:1px solid #e8ecee;padding:10px 5px;float:left;background-color:#fff}.task-list-wrapper .task-list-header .task-assignee-box:hover{background-color:#f6f8f9}.task-list-wrapper .task-list-body{width:100%;border-bottom:1px solid #e8ecee;display:flex;font-size:13px;font-weight:700}.task-list-wrapper .task-list-body .task-name-box{width:70%;border-right:1px solid #e8ecee;padding:5px 5px;float:left;background-color:#fff;position:relative;display:inline-flex;align-items:center}.task-list-wrapper .task-list-body .task-name-box .detail-option{position:absolute;right:0;top:12px;font-size:12px;font-weight:700;display:inline-flex;align-items:center;opacity:0;cursor:pointer}.task-list-wrapper .task-list-body .task-name-box .border-radious-icon{background:#fff;border:1px solid #cbd4db;border-radius:50%;color:#6f7782;fill:#6f7782;width:15px;height:15px;margin-right:5px}.task-list-wrapper .task-list-body .task-name-box .border-radious-icon.task-complete{border:1px solid #00987c!important}.task-list-wrapper .task-list-body .task-name-box .border-radious-icon.task-complete .MiniIcon{fill:#00987c!important}.task-list-wrapper .task-list-body .task-name-box .border-radious-icon .MiniIcon{height:13px;width:13px;cursor:pointer}.task-list-wrapper .task-list-body .task-name-box .border-radious-icon .MiniIcon:hover{fill:#00987c}.task-list-wrapper .task-list-body .task-name-box .border-radious-icon:hover{color:#00987c;border-color:#00987c}.task-list-wrapper .task-list-body .task-name-box:hover{background-color:#f6f8f9}.task-list-wrapper .task-list-body .task-name-box:hover .task-body-custom-input{background-color:#f6f8f9}.task-list-wrapper .task-list-body .task-name-box:hover .detail-option{opacity:1}.task-list-wrapper .task-list-body .task-assignee-box{width:15%;border-right:1px solid #e8ecee;padding:0;float:left;background-color:#fff;position:relative}.task-list-wrapper .task-list-body .task-assignee-box .assigned-person{display:inline-flex;align-items:center;width:100%;position:absolute;left:0;top:0;z-index:1;background:#fff;padding:4px}.task-list-wrapper .task-list-body .task-assignee-box .assigned-person .img-box{width:25px;height:25px;display:inline-block;background-size:cover;background-position:center;background-repeat:no-repeat;margin-right:10px}.task-list-wrapper .task-list-body .task-assignee-box .assignee-box-dropdown{position:absolute;background-color:#fff;min-width:280px;overflow:auto;box-shadow:0 8px 16px 0 rgba(0,0,0,.2);z-index:2;padding:7px 7px 3px 7px}.task-list-wrapper .task-list-body .task-assignee-box .assignee-box-dropdown .each-assignee{width:100%;display:inline-flex;align-items:center;margin:5px 0}.task-list-wrapper .task-list-body .task-assignee-box .assignee-box-dropdown .each-assignee:hover{background-color:#e8ecee}.task-list-wrapper .task-list-body .task-assignee-box .assignee-box-dropdown .each-assignee .profile-img{width:25px;height:25px;background-repeat:no-repeat;background-position:center;background-size:cover;margin-right:10px;padding:0 5px}.task-list-wrapper .task-list-body .task-assignee-box .assignee-box-dropdown .each-assignee .name-text{color:#273240;font-size:12px;font-weight:700}.task-list-wrapper .task-list-body .task-assignee-box .assignee-box-logo{position:absolute;width:28px;height:28px;border:1px dashed #9ca6af;border-radius:50%;top:2px;left:7px;text-align:center;padding-top:3px;visibility:hidden}.task-list-wrapper .task-list-body .task-assignee-box .assignee-box-logo .inside-logo{width:18px;height:18px;fill:#9ca6af}.task-list-wrapper .task-list-body .task-assignee-box .assignee-box-input{border-color:transparent;box-shadow:none;min-width:100px;width:100%;background-color:#fff;border-style:solid;border-width:1px;height:33px;padding:0 5px;cursor:pointer}.task-list-wrapper .task-list-body .task-assignee-box .assignee-box-input:hover{background-color:#f6f8f9}.task-list-wrapper .task-list-body .task-assignee-box .assignee-box-input:focus{border-color:#32c1ff;background-color:#fff}.task-list-wrapper .task-list-body .task-assignee-box .assignee-box-input:focus .inside-logo{display:none}.task-list-wrapper .task-list-body .task-assignee-box:hover{background-color:#f6f8f9}.task-list-wrapper .task-list-body .task-assignee-box:hover .assignee-box-logo{visibility:visible}.task-list-wrapper .task-list-body .task-assignee-box:focus .assignee-box-logo{visibility:hidden}.task-list-wrapper .task-list-body .task-date-box{width:15%;border-right:1px solid #e8ecee;padding:9px 39px;float:left;background-color:#fff;position:relative}.task-list-wrapper .task-list-body .task-date-box .assignee-box-logo{position:absolute;width:28px;height:28px;border:1px dashed #9ca6af;border-radius:50%;top:2px;left:7px;text-align:center;padding-top:3px;visibility:hidden}.task-list-wrapper .task-list-body .task-date-box .assignee-box-logo .inside-logo{width:18px;height:18px;fill:#9ca6af}.task-list-wrapper .task-list-body .task-date-box:hover{background-color:#f6f8f9}.task-list-wrapper .task-list-body .task-date-box:hover .assignee-box-logo{visibility:visible}.task-list-wrapper .task-list-body .task-date-box:focus .assignee-box-logo{visibility:hidden}.task-list-wrapper .task-list-body .box-active{background-color:#edf8ff}.task-list-wrapper .task-list-body .task-body-custom-input{border-color:transparent;border-radius:2px;box-shadow:none;min-width:200px;width:100%;background-color:#fff;border-style:solid;border-width:1px;padding:2px}.task-list-wrapper .task-list-body .task-body-custom-input:hover{background-color:#f6f8f9}.task-list-wrapper .task-list-body .task-body-custom-input:focus{border-color:#9ca6af;background-color:#fff}.task-list-wrapper .section-header{width:100%;font-size:20px;font-weight:700;display:table;padding:15px 0;color:#273240}.task-list-detail-wrapper{width:760px;background-color:#fff;border-left:1px solid #e8ecee;border-top:1px solid #e8ecee;position:absolute;top:0;right:0;display:inline-block;transition:.5s;box-shadow:0 5px 20px 0 rgba(21,27,38,.08);float:left;padding:0;transform-origin:100% 0;transform:scaleX(1);z-index:100;height:600px;overflow-x:hidden;overflow-y:scroll}.task-list-detail-wrapper.hideMe{transform:scaleX(0);transform-origin:100% 0;transition:.5s}.task-list-detail-wrapper .head-text-section{width:100%;padding:10px 20px;display:table}.task-list-detail-wrapper .head-text-section .input-big{border:1px solid transparent;box-shadow:none;font-size:30px;font-weight:700;transition:.2s;width:100%;padding:10px;color:#273240}.task-list-detail-wrapper .head-text-section .input-big:hover{border:1px solid #9ca6af;border-radius:4px;transition:.2s}.task-list-detail-wrapper .head-text-section .radious-square-input{position:relative;display:inline-block}.task-list-detail-wrapper .head-text-section .radious-square-input:hover .input-design{border:1px solid #9ca6af;border-radius:25px}.task-list-detail-wrapper .head-text-section .radious-square-input:hover .logo-border{border:1px solid #9ca6af}.task-list-detail-wrapper .head-text-section .radious-square-input:hover .logo-border .input-icon-1{fill:#7f878e}.task-list-detail-wrapper .head-text-section .radious-square-input .logo-border{position:absolute;width:30px;height:30px;border:1px dashed #9ca6af;border-radius:50%;top:6px;left:7px;text-align:center;padding-top:3px}.task-list-detail-wrapper .head-text-section .radious-square-input .logo-border .input-icon-1{width:18px;height:18px;fill:#9ca6af}.task-list-detail-wrapper .head-text-section .radious-square-input .logo-border .input-icon-2{width:22px;height:21px;fill:#9ca6af;padding-top:2px}.task-list-detail-wrapper .head-text-section .radious-square-input .input-design{font-size:12px;font-weight:900;padding:13px 0 13px 45px;border:1px solid transparent;cursor:pointer;box-shadow:none;width:65%}.task-list-detail-wrapper .head-text-section .radious-square-input .input-design:focus{border:1px solid #9ca6af;border-radius:4px;width:100%}.task-list-detail-wrapper .head-text-section .text-area-logo{width:25px;display:inline-block;float:left;padding-top:3px}.task-list-detail-wrapper .head-text-section .text-area-logo .t-logo{width:18px;height:18px;fill:#4b607a}.task-list-detail-wrapper .head-text-section ._input-logo{width:25px;display:inline-block;float:left;padding:10px 0 0 0}.task-list-detail-wrapper .head-text-section ._input-logo .t-logo{width:18px;height:18px;fill:#4b607a}.task-list-detail-wrapper .head-text-section .custom-text-area{border:1px solid transparent;box-shadow:none;font-size:13px;font-weight:700;transition:.2s;width:96%;padding:5px 10px;display:inline-block;color:#273240;float:left}.task-list-detail-wrapper .head-text-section .custom-text-area:hover{border:1px solid #9ca6af;border-radius:4px;transition:.2s}.task-list-detail-wrapper .head-text-section .custom-input-add-project{border:1px solid transparent;box-shadow:none;font-size:13px;font-weight:700;transition:.2s;width:96%;padding:10px 10px;display:inline-block;color:#273240;cursor:pointer;float:left}.task-list-detail-wrapper .head-text-section .custom-input-add-project::placeholder{color:#32c1ff}.task-list-detail-wrapper .head-text-section .custom-input-add-project:focus{border:1px solid #9ca6af;border-radius:4px;transition:.2s}.task-list-detail-wrapper .head-text-section .custom-input-add-project:focus::placeholder{color:#273240}.task-list-detail-wrapper .head-text-section .profile-img{width:40px;display:inline-block;float:left;margin-right:8px}.task-list-detail-wrapper .head-text-section .profile-img ._img{width:35px;height:35px;border-radius:50%;display:inline-block;background-position:center;background-repeat:no-repeat;background-size:cover}.task-list-detail-wrapper .head-text-section .detail-text-area{width:90%;padding:10px 0;display:inline-block;float:left;font-size:13px;font-weight:700}.task-list-detail-wrapper .head-text-section .detail-text-area .lnk-text{text-decoration:none;color:#273240}.task-list-detail-wrapper .head-text-section .detail-text-area .lnk-text:hover{color:#32c1ff}.task-list-detail-wrapper .head-text-section .detail-text-area .small-text{font-size:11px;color:#c2c2c2}.task-list-detail-wrapper .head-text-section .custom-text-area-chat{border:1px solid #9ca6af;box-shadow:none;font-size:13px;font-weight:700;transition:.2s;width:93%;padding:5px 10px;display:inline-block;color:#273240;float:left;border-radius:4px}.task-list-detail-wrapper .head-text-section .new-task{width:100%;display:flex;border-top:1px solid #e8ecee;border-bottom:1px solid #e8ecee;align-items:center;position:relative}.task-list-detail-wrapper .head-text-section .new-task:focus{border-top:1px solid #32c1ff;border-bottom:1px solid #32c1ff}.task-list-detail-wrapper .head-text-section .new-task:hover{border-top:1px solid #32c1ff;border-bottom:1px solid #32c1ff}.task-list-detail-wrapper .head-text-section .new-task .border-radious-icon{background:#fff;border:1px solid #cbd4db;border-radius:50%;color:#6f7782;fill:#6f7782;width:15px;height:15px;margin-right:5px}.task-list-detail-wrapper .head-text-section .new-task .border-radious-icon.task-complete{border:1px solid #00987c!important}.task-list-detail-wrapper .head-text-section .new-task .border-radious-icon.task-complete .MiniIcon{fill:#00987c!important}.task-list-detail-wrapper .head-text-section .new-task .border-radious-icon .MiniIcon{height:15px;width:14px;cursor:pointer}.task-list-detail-wrapper .head-text-section .new-task .border-radious-icon .MiniIcon:hover{fill:#00987c}.task-list-detail-wrapper .head-text-section .new-task .border-radious-icon:hover{color:#00987c;border-color:#00987c}.task-list-detail-wrapper .head-text-section .new-task .new-task-input{width:90%;border:1px solid transparent;height:35px;box-shadow:none}.task-list-detail-wrapper .head-text-section .new-task .new-task-logo{position:absolute;right:0;display:inline-flex;top:5px}.task-list-detail-wrapper .head-text-section .new-task .new-task-logo .logo-1{width:25px;height:25px;border:1px solid #e8ecee;border-radius:50%;margin-right:14px;position:relative}.task-list-detail-wrapper .head-text-section .new-task .new-task-logo .logo-1 .assignee-box-dropdown{position:absolute;background-color:#fff;min-width:200px;overflow:auto;box-shadow:0 8px 16px 0 rgba(0,0,0,.2);z-index:1;padding:7px 7px 3px 7px;left:-263px;top:29px}.task-list-detail-wrapper .head-text-section .new-task .new-task-logo .logo-1 .assignee-box-dropdown .each-assignee{width:100%;display:inline-flex;align-items:center;margin:5px 0}.task-list-detail-wrapper .head-text-section .new-task .new-task-logo .logo-1 .assignee-box-dropdown .each-assignee:hover{background-color:#e8ecee}.task-list-detail-wrapper .head-text-section .new-task .new-task-logo .logo-1 .assignee-box-dropdown .each-assignee .profile-img{width:25px;height:25px;background-repeat:no-repeat;background-position:center;background-size:cover;margin-right:10px;padding:0 5px}.task-list-detail-wrapper .head-text-section .new-task .new-task-logo .logo-1 .assignee-box-dropdown .each-assignee .name-text{color:#273240;font-size:12px;font-weight:700}.task-list-detail-wrapper .head-text-section .new-task .new-task-logo .logo-1 ._icon{height:19px;width:23px;padding:3px 0 0 0;fill:#7f878e}.task-list-detail-wrapper .head-text-section .new-task .new-task-logo .logo-2{width:25px;height:25px;border:1px solid #e8ecee;border-radius:50%;margin-right:14px}.task-list-detail-wrapper .head-text-section .new-task .new-task-logo .logo-2 ._icon{height:19px;width:23px;padding:3px 0 0 0;fill:#7f878e}.task-list-detail-wrapper .head-text-section .new-task .new-task-logo .logo-3{width:13px;height:25px;padding-top:5px}.task-list-detail-wrapper .head-text-section .new-task .new-task-logo .logo-3 ._icon{width:15px;height:15px;fill:#4b607a}._float-left{float:left}._float-right{float:right}._text-left{text-align:left}._text-right{text-align:right}._font-15{font-size:15px}.border-top-task-list{border-top:1px solid #e8ecee}.border-bottom-task-list{border-bottom:1px solid #e8ecee}.d-flex-inline{display:inline-flex;align-items:center}.bg-light{background-color:#f6f8f9}.no-padding{padding:0!important}.cursor-pointer{cursor:pointer}.border-right-none{border-right:none!important}.drop-down-menu_{display:none;position:absolute;background-color:#fff;min-width:160px;overflow:auto;box-shadow:0 8px 16px 0 rgba(0,0,0,.2);z-index:1}.drop-down-menu_ a{color:#273240;padding:12px 16px;text-decoration:none;display:block}.drop-down-menu_ a:hover{background-color:#ddd}.nv-dropdown-menu{display:none}.nv-dropdown-menu .assigned-person{display:none}.nv-open .nv-dropdown-menu{display:block}.nv-open .assigned-person,.nv-open .assignee-box-logo{display:none!important}.assigned-display{display:inline-flex}.nv-collapsedown{width:100%}.logo-show{display:block}.logo-hide{display:none}._position-relative{position:relative}._custom-select{min-width:150px;font-size:12px;font-weight:900;padding:6px 5px;width:100%;border-radius:4px;border:1px solid #9ca6af!important;cursor:pointer}._custom-select:hover{border-color:#6f7782}._custom-input-search{min-width:150px;font-size:12px;font-weight:900;padding:6px 0 6px 22px;width:100%;border-radius:25px;cursor:pointer;box-shadow:none;border-width:1px;border-style:solid;transition:.4s;border:1px solid #9ca6af!important}._custom-input-search:hover{border-color:#6f7782}._custom-input-search:focus{min-width:200px;transition:.4s}.assignee-box-dropdown{position:absolute;background-color:#fff;min-width:280px;overflow:auto;box-shadow:0 8px 16px 0 rgba(0,0,0,.2);z-index:2;padding:7px 7px 3px 7px}.assignee-box-dropdown .each-assignee{width:100%;display:inline-flex;align-items:center;margin:5px 0}.assignee-box-dropdown .each-assignee:hover{background-color:#e8ecee}.assignee-box-dropdown .each-assignee .profile-img{width:25px;height:25px;background-repeat:no-repeat;background-position:center;background-size:cover;margin-right:10px;padding:0 5px}.assignee-box-dropdown .each-assignee .name-text{color:#273240;font-size:12px;font-weight:700}.loader-io{width:100%;display:flex;align-items:center;justify-content:center;height:100%}@keyframes ldio-aebf04cd3u{0%{transform:rotate(0)}50%{transform:rotate(180deg)}100%{transform:rotate(360deg)}}.ldio-aebf04cd3u div{position:absolute;animation:ldio-aebf04cd3u 1s linear infinite;width:160px;height:160px;top:20px;left:20px;border-radius:50%;box-shadow:0 4px 0 0 #0a0a0a;transform-origin:80px 82px}.loadingio-spinner-eclipse-utvtio44ngo{width:200px;height:200px;display:inline-block;overflow:hidden;background:#fff}.ldio-aebf04cd3u{width:100%;height:100%;position:relative;transform:translateZ(0) scale(1);backface-visibility:hidden;transform-origin:0 0}.ldio-aebf04cd3u div{box-sizing:content-box}", ""]);
 
 // exports
 
@@ -18624,6 +18624,145 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -18665,8 +18804,8 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
     },
     data: function data() {
         return {
-            showMe: 1,
             createNewSubTask: false,
+            createNewTaskCounter: 0,
             community: null,
             estForeclosures: 0,
             loaded: false,
@@ -18729,9 +18868,6 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             taskDetailsTemplate: 1,
             isComplete: 0,
             isMarkComplete: 0,
-            taskName: '',
-            taskDesc: '',
-            taskProject: '',
             sideBar: 0,
             isTaskComplete: 0
         };
@@ -19263,19 +19399,6 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
         }
     },
     methods: {
-        editThisQuick: function editThisQuick(ind) {
-            var THIS = this;
-            this.showMe = 0;
-            if (this.tasks[ind].editStatus == undefined || this.tasks[ind].editStatus == 0) {
-                this.tasks[ind].editStatus = 1;
-            } else {
-                this.tasks[ind].editStatus = 0;
-            }
-
-            setTimeout(function () {
-                THIS.showMe = 1;
-            }, 500);
-        },
         navigateToChanges: function navigateToChanges() {
             window.scrollTo(0, document.body.scrollHeight);
             document.querySelector("#nova > div > div.content > div.px-view.py-view.mx-auto > div > div.relative > div:nth-child(5) > div > div > div.tabs-wrap.border-b-2.border-40.w-full > div > button:nth-child(6)").click();
@@ -19457,10 +19580,14 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
         showTask: function showTask(id) {
             var _this9 = this;
 
-            document.getElementById('taskDetails').style.display = 'block';
-            document.getElementById('loader').style.display = 'block';
+            this.sideBar = 1;
+            __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.loader-io').css('display', 'flex');
+            __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.task-details-wrapper').hide();
+
             Nova.request().get('/api/asana/task/details/' + id).then(function (response) {
-                document.getElementById('loader').style.display = 'none';
+                __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.loader-io').hide();
+                __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.task-details-wrapper').show();
+
                 if (response.status == 200) {
                     _this9.taskDetails = response.data.data;
                 } else {
@@ -19648,6 +19775,9 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             }, 1000);
         },
         handleFileUpload: function handleFileUpload(id, e) {
+            __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.loader-io').css('display', 'flex');
+            __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.task-details-wrapper').hide();
+
             /*
             Handles a change on the file upload
             */
@@ -19671,6 +19801,9 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                     'Content-Type': 'multipart/form-data'
                 }
             }).then(function (response) {
+                __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.loader-io').hide();
+                __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.task-details-wrapper').show();
+
                 e.target.value = "";
 
                 if (response.data.status == 200) {
@@ -19691,6 +19824,9 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                     });
                 }
             }).catch(function () {
+                __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.loader-io').hide();
+                __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.task-details-wrapper').show();
+
                 __WEBPACK_IMPORTED_MODULE_0_sweetalert2___default.a.fire({
                     type: 'error',
                     title: 'FAILURE!!',
@@ -19807,9 +19943,13 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
         storeTaskComment: function storeTaskComment(id) {
             var _this16 = this;
 
-            document.getElementById('loader').style.display = 'block';
+            __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.loader-io').css('display', 'flex');
+            __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.task-details-wrapper').hide();
+
             Nova.request().post('/api/asana/task/' + id + '/stories', { taskComment: this.taskComment }).then(function (response) {
-                document.getElementById('loader').style.display = 'none';
+                __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.loader-io').hide();
+                __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.task-details-wrapper').show();
+
                 if (response.data.status === 200) {
                     _this16.taskComment = '';
                     _this16.taskDetails.comments = response.data.data;
@@ -19835,20 +19975,20 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                 }
             });
         },
-        hideLogo: function hideLogo(id) {
-            __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()("#" + id).addClass("logo-hide");
+        focusInput: function focusInput(e) {
+            //$(e.target).find("input").focus();
         },
 
         uiUpdateMounted: function uiUpdateMounted() {
             var _this = this;
 
-            __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.nv-collapse').on('click', function () {
-                __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.collapse-parent').toggleClass('collapse-open');
+            __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.main-wrapper').on('click', '.nv-collapse', function () {
+                __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()(this).closest('.collapse-parent').find('.nv-collapsedown').slideToggle();
             });
 
-            __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.nv-dropdown').on('click', function () {
+            __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.main-wrapper').on('click', '.nv-dropdown', function () {
                 __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.nv-dropdown').removeClass('nv-open');
-                __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()(this).closest('.nv-dropdown').addClass('nv-open');
+                __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()(this).addClass('nv-open');
             });
 
             __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()(window).on('mouseup', function (e) {
@@ -50485,7 +50625,7 @@ var render = function() {
                       _c("div", { staticClass: "label-square" }, [
                         _c("i", { staticClass: "fa-xs fas fa-square" }),
                         _vm._v(
-                          "\n                                        Community Size\n                                    "
+                          "\n                                    Community Size\n                                "
                         )
                       ]),
                       _vm._v(" "),
@@ -50500,7 +50640,7 @@ var render = function() {
                                   : ""
                                 : ""
                             ) +
-                            " Housing Units\n                                    "
+                            " Housing Units\n                                "
                         )
                       ])
                     ]),
@@ -50509,7 +50649,7 @@ var render = function() {
                       _c("div", { staticClass: "label-square" }, [
                         _c("i", { staticClass: "fa-xs fas fa-square" }),
                         _vm._v(
-                          "\n                                        Strong Mayor\n                                    "
+                          "\n                                    Strong Mayor\n                                "
                         )
                       ]),
                       _vm._v(" "),
@@ -50522,7 +50662,7 @@ var render = function() {
                       _c("div", { staticClass: "label-square" }, [
                         _c("i", { staticClass: "fa-xs fas fa-square" }),
                         _vm._v(
-                          "\n                                        Branding Configurations\n                                    "
+                          "\n                                    Branding Configurations\n                                "
                         )
                       ]),
                       _vm._v(" "),
@@ -50549,7 +50689,7 @@ var render = function() {
                         _c("div", { staticClass: "label-square" }, [
                           _c("i", { staticClass: "fa-xs fas fa-square" }),
                           _vm._v(
-                            "\n                                        Community Exclusion\n                                    "
+                            "\n                                    Community Exclusion\n                                "
                           )
                         ]),
                         _vm._v(" "),
@@ -50562,7 +50702,7 @@ var render = function() {
                         _c("div", { staticClass: "label-square" }, [
                           _c("i", { staticClass: "fa-xs fas fa-square" }),
                           _vm._v(
-                            "\n                                        Relationship Manager\n                                    "
+                            "\n                                    Relationship Manager\n                                "
                           )
                         ]),
                         _vm._v(" "),
@@ -50574,7 +50714,7 @@ var render = function() {
                                   ? this.community.relationship_managers[0].name
                                   : "No RMs Assigned"
                                 : "No RMs Assigned"
-                            ) + "\n                                    "
+                            ) + "\n                                "
                           )
                         ])
                       ]),
@@ -50583,7 +50723,7 @@ var render = function() {
                         _c("div", { staticClass: "label-square" }, [
                           _c("i", { staticClass: "fa-xs fas fa-square" }),
                           _vm._v(
-                            "\n                                        Last Update\n                                    "
+                            "\n                                    Last Update\n                                "
                           )
                         ]),
                         _vm._v(" "),
@@ -50618,9 +50758,9 @@ var render = function() {
                               [_vm._v('"')]
                             ),
                             _vm._v(
-                              "\n                                        Pending Change" +
+                              "\n                                    Pending Change" +
                                 _vm._s(this.pendingChanges === 1 ? "" : "s") +
-                                "\n                                    "
+                                "\n                                "
                             )
                           ]
                         )
@@ -50635,7 +50775,7 @@ var render = function() {
                       _c("div", { staticClass: "label-square" }, [
                         _c("i", { staticClass: "fa-xs fas fa-square" }),
                         _vm._v(
-                          "\n                                        Community Links\n                                    "
+                          "\n                                    Community Links\n                                "
                         )
                       ]),
                       _vm._v(" "),
@@ -50648,7 +50788,7 @@ var render = function() {
                           },
                           [
                             _vm._v(
-                              "CORE\n                                            "
+                              "CORE\n                                        "
                             ),
                             _c("i", { staticClass: "fa-xs fas fa-plus-square" })
                           ]
@@ -50662,7 +50802,7 @@ var render = function() {
                           },
                           [
                             _vm._v(
-                              "SHARE\n                                            "
+                              "SHARE\n                                        "
                             ),
                             _c("i", { staticClass: "fa-xs fas fa-plus-square" })
                           ]
@@ -50676,7 +50816,7 @@ var render = function() {
                           },
                           [
                             _vm._v(
-                              "SHAREPOINT\n                                            "
+                              "SHAREPOINT\n                                        "
                             ),
                             _c("i", { staticClass: "fa-xs fas fa-plus-square" })
                           ]
@@ -50690,7 +50830,7 @@ var render = function() {
                           },
                           [
                             _vm._v(
-                              "RP LANDING\n                                            "
+                              "RP LANDING\n                                        "
                             ),
                             _c("i", { staticClass: "fa-xs fas fa-plus-square" })
                           ]
@@ -50698,7 +50838,7 @@ var render = function() {
                         _vm._v(" "),
                         _c("div", { staticClass: "textLinks pointer" }, [
                           _vm._v(
-                            "GOV ADMIN\n                                            "
+                            "GOV ADMIN\n                                        "
                           ),
                           _c("i", { staticClass: "fa-xs fas fa-plus-square" })
                         ])
@@ -50721,7 +50861,7 @@ var render = function() {
                         { attrs: { to: { path: _vm.stateLink } } },
                         [
                           _vm._v(
-                            "\n                                    " +
+                            "\n                                " +
                               _vm._s(
                                 this.community
                                   ? this.community.state
@@ -50729,7 +50869,7 @@ var render = function() {
                                     : ""
                                   : ""
                               ) +
-                              "\n                                "
+                              "\n                            "
                           )
                         ]
                       )
@@ -50836,9 +50976,9 @@ var render = function() {
                                   },
                                   [
                                     _vm._v(
-                                      "\n                                " +
+                                      "\n                            " +
                                         _vm._s(_vm.projectDetails.data.name) +
-                                        "    \n                            "
+                                        "    \n                        "
                                     )
                                   ]
                                 )
@@ -50849,26 +50989,37 @@ var render = function() {
                         _vm._v(" "),
                         _c("div", { staticClass: "add-task-section-wrapper" }, [
                           _c("div", { staticClass: "section-left" }, [
-                            _c("div", { staticClass: "_btn _btn-default" }, [
-                              _c(
-                                "svg",
-                                {
-                                  staticClass: "MiniIcon-custom",
-                                  attrs: { viewBox: "0 0 24 24" }
-                                },
-                                [
-                                  _c("path", {
-                                    attrs: {
-                                      d:
-                                        "M10,10V4c0-1.1,0.9-2,2-2s2,0.9,2,2v6h6c1.1,0,2,0.9,2,2s-0.9,2-2,2h-6v6c0,1.1-0.9,2-2,2s-2-0.9-2-2v-6H4c-1.1,0-2-0.9-2-2s0.9-2,2-2H10z"
-                                    }
-                                  })
-                                ]
-                              ),
-                              _vm._v(
-                                "\n                                Add Task\n                            "
-                              )
-                            ])
+                            _c(
+                              "div",
+                              {
+                                staticClass: "_btn _btn-default",
+                                on: {
+                                  click: function($event) {
+                                    _vm.createNewTaskCounter += 1
+                                  }
+                                }
+                              },
+                              [
+                                _c(
+                                  "svg",
+                                  {
+                                    staticClass: "MiniIcon-custom",
+                                    attrs: { viewBox: "0 0 24 24" }
+                                  },
+                                  [
+                                    _c("path", {
+                                      attrs: {
+                                        d:
+                                          "M10,10V4c0-1.1,0.9-2,2-2s2,0.9,2,2v6h6c1.1,0,2,0.9,2,2s-0.9,2-2,2h-6v6c0,1.1-0.9,2-2,2s-2-0.9-2-2v-6H4c-1.1,0-2-0.9-2-2s0.9-2,2-2H10z"
+                                      }
+                                    })
+                                  ]
+                                ),
+                                _vm._v(
+                                  "\n                            Add Task\n                        "
+                                )
+                              ]
+                            )
                           ]),
                           _vm._v(" "),
                           _c(
@@ -51071,171 +51222,248 @@ var render = function() {
                             [
                               _vm._m(2),
                               _vm._v(" "),
-                              _c("div", { staticClass: "task-list-body" }, [
-                                _c(
-                                  "div",
-                                  {
-                                    staticClass: "task-name-box cursor-pointer"
-                                  },
-                                  [
-                                    _c(
+                              _vm._l(_vm.createNewTaskCounter, function(i) {
+                                return _vm.createNewTaskCounter > 0
+                                  ? _c(
                                       "div",
-                                      {
-                                        staticClass: "border-radious-icon",
-                                        class: {
-                                          "task-complete":
-                                            _vm.isTaskComplete == 1
-                                              ? true
-                                              : false
-                                        },
-                                        on: {
-                                          click: function($event) {
-                                            _vm.isTaskComplete == 1
-                                              ? (_vm.isTaskComplete = 0)
-                                              : (_vm.isTaskComplete = 1)
-                                          }
-                                        }
-                                      },
-                                      [
-                                        _c(
-                                          "svg",
-                                          {
-                                            staticClass: "MiniIcon",
-                                            attrs: { viewBox: "0 0 24 24" }
-                                          },
-                                          [
-                                            _c("path", {
-                                              attrs: {
-                                                d:
-                                                  "M9.5,18.2c-0.4,0.4-1,0.4-1.4,0l-3.8-3.8C4,14,4,13.4,4.3,13s1-0.4,1.4,0l3.1,3.1l8.6-8.6c0.4-0.4,1-0.4,1.4,0s0.4,1,0,1.4 L9.5,18.2z"
-                                              }
-                                            })
-                                          ]
-                                        )
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _vm._m(3),
-                                    _vm._v(" "),
-                                    _c(
-                                      "div",
-                                      {
-                                        staticClass: "detail-option",
-                                        on: {
-                                          click: function($event) {
-                                            _vm.sideBar == 1
-                                              ? (_vm.sideBar = 0)
-                                              : (_vm.sideBar = 1)
-                                          }
-                                        }
-                                      },
-                                      [
-                                        _vm._v(
-                                          "Detail\n                                        "
-                                        ),
-                                        _c(
-                                          "svg",
-                                          {
-                                            staticClass: "MiniIcon-right",
-                                            attrs: { viewBox: "0 0 24 24" }
-                                          },
-                                          [
-                                            _c("path", {
-                                              attrs: {
-                                                d:
-                                                  "M8.9,20.4c-0.4,0-0.7-0.1-1-0.4c-0.6-0.6-0.7-1.5-0.1-2.1l5.2-5.8L7.8,6C7.3,5.4,7.3,4.4,8,3.9C8.6,3.3,9.5,3.4,10.1,4l6.1,7.1c0.5,0.6,0.5,1.4,0,2l-6.1,6.8C9.8,20.3,9.4,20.4,8.9,20.4z"
-                                              }
-                                            })
-                                          ]
-                                        )
-                                      ]
-                                    )
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "div",
-                                  {
-                                    staticClass:
-                                      "task-assignee-box cursor-pointer nv-dropdown",
-                                    on: {
-                                      click: function($event) {
-                                        return _vm.hideLogo()
-                                      }
-                                    }
-                                  },
-                                  [
-                                    _c(
-                                      "div",
-                                      { staticClass: "nv-dropdown-trigger" },
+                                      { staticClass: "task-list-body" },
                                       [
                                         _c(
                                           "div",
-                                          { staticClass: "assignee-box-logo" },
+                                          {
+                                            staticClass:
+                                              "task-name-box cursor-pointer"
+                                          },
                                           [
                                             _c(
-                                              "svg",
+                                              "div",
                                               {
-                                                staticClass: "inside-logo",
-                                                attrs: {
-                                                  focusable: "false",
-                                                  viewBox: "0 0 32 32"
+                                                staticClass:
+                                                  "border-radious-icon",
+                                                class: {
+                                                  "task-complete":
+                                                    _vm.isTaskComplete == 1
+                                                      ? true
+                                                      : false
+                                                },
+                                                on: {
+                                                  click: function($event) {
+                                                    _vm.isTaskComplete == 1
+                                                      ? (_vm.isTaskComplete = 0)
+                                                      : (_vm.isTaskComplete = 1)
+                                                  }
                                                 }
                                               },
                                               [
-                                                _c("path", {
-                                                  attrs: {
-                                                    d:
-                                                      "M16,18c-4.4,0-8-3.6-8-8s3.6-8,8-8s8,3.6,8,8S20.4,18,16,18z M16,4c-3.3,0-6,2.7-6,6s2.7,6,6,6s6-2.7,6-6S19.3,4,16,4z M29,32c-0.6,0-1-0.4-1-1v-4.2c0-2.6-2.2-4.8-4.8-4.8H8.8C6.2,22,4,24.2,4,26.8V31c0,0.6-0.4,1-1,1s-1-0.4-1-1v-4.2C2,23,5,20,8.8,20h14.4c3.7,0,6.8,3,6.8,6.8V31C30,31.6,29.6,32,29,32z"
+                                                _c(
+                                                  "svg",
+                                                  {
+                                                    staticClass: "MiniIcon",
+                                                    attrs: {
+                                                      viewBox: "0 0 24 24"
+                                                    }
+                                                  },
+                                                  [
+                                                    _c("path", {
+                                                      attrs: {
+                                                        d:
+                                                          "M9.5,18.2c-0.4,0.4-1,0.4-1.4,0l-3.8-3.8C4,14,4,13.4,4.3,13s1-0.4,1.4,0l3.1,3.1l8.6-8.6c0.4-0.4,1-0.4,1.4,0s0.4,1,0,1.4 L9.5,18.2z"
+                                                      }
+                                                    })
+                                                  ]
+                                                )
+                                              ]
+                                            ),
+                                            _vm._v(" "),
+                                            _vm._m(3, true),
+                                            _vm._v(" "),
+                                            _c(
+                                              "div",
+                                              {
+                                                staticClass: "detail-option",
+                                                on: {
+                                                  click: function($event) {
+                                                    _vm.sideBar == 1
+                                                      ? (_vm.sideBar = 0)
+                                                      : (_vm.sideBar = 1)
                                                   }
-                                                })
+                                                }
+                                              },
+                                              [
+                                                _vm._v(
+                                                  "Detail\n                                    "
+                                                ),
+                                                _c(
+                                                  "svg",
+                                                  {
+                                                    staticClass:
+                                                      "MiniIcon-right",
+                                                    attrs: {
+                                                      viewBox: "0 0 24 24"
+                                                    }
+                                                  },
+                                                  [
+                                                    _c("path", {
+                                                      attrs: {
+                                                        d:
+                                                          "M8.9,20.4c-0.4,0-0.7-0.1-1-0.4c-0.6-0.6-0.7-1.5-0.1-2.1l5.2-5.8L7.8,6C7.3,5.4,7.3,4.4,8,3.9C8.6,3.3,9.5,3.4,10.1,4l6.1,7.1c0.5,0.6,0.5,1.4,0,2l-6.1,6.8C9.8,20.3,9.4,20.4,8.9,20.4z"
+                                                      }
+                                                    })
+                                                  ]
+                                                )
                                               ]
                                             )
                                           ]
                                         ),
                                         _vm._v(" "),
-                                        _vm._m(4)
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _vm._m(5)
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "div",
-                                  {
-                                    staticClass:
-                                      "task-date-box cursor-pointer border-right-none"
-                                  },
-                                  [
-                                    _c(
-                                      "div",
-                                      { staticClass: "assignee-box-logo" },
-                                      [
                                         _c(
-                                          "svg",
+                                          "div",
                                           {
-                                            staticClass: "inside-logo",
-                                            attrs: {
-                                              focusable: "false",
-                                              viewBox: "0 0 32 32"
-                                            }
+                                            staticClass:
+                                              "task-assignee-box cursor-pointer nv-dropdown"
                                           },
                                           [
-                                            _c("path", {
-                                              attrs: {
-                                                d:
-                                                  "M24,2V1c0-0.6-0.4-1-1-1s-1,0.4-1,1v1H10V1c0-0.6-0.4-1-1-1S8,0.4,8,1v1C4.7,2,2,4.7,2,8v16c0,3.3,2.7,6,6,6h16c3.3,0,6-2.7,6-6V8C30,4.7,27.3,2,24,2z M8,4v1c0,0.6,0.4,1,1,1s1-0.4,1-1V4h12v1c0,0.6,0.4,1,1,1s1-0.4,1-1V4c2.2,0,4,1.8,4,4v2H4V8C4,5.8,5.8,4,8,4z M24,28H8c-2.2,0-4-1.8-4-4V12h24v12C28,26.2,26.2,28,24,28z"
-                                              }
-                                            })
+                                            _c(
+                                              "div",
+                                              {
+                                                staticClass:
+                                                  "nv-dropdown-trigger"
+                                              },
+                                              [
+                                                _c(
+                                                  "div",
+                                                  {
+                                                    staticClass:
+                                                      "assignee-box-logo"
+                                                  },
+                                                  [
+                                                    _c(
+                                                      "svg",
+                                                      {
+                                                        staticClass:
+                                                          "inside-logo",
+                                                        attrs: {
+                                                          focusable: "false",
+                                                          viewBox: "0 0 32 32"
+                                                        }
+                                                      },
+                                                      [
+                                                        _c("path", {
+                                                          attrs: {
+                                                            d:
+                                                              "M16,18c-4.4,0-8-3.6-8-8s3.6-8,8-8s8,3.6,8,8S20.4,18,16,18z M16,4c-3.3,0-6,2.7-6,6s2.7,6,6,6s6-2.7,6-6S19.3,4,16,4z M29,32c-0.6,0-1-0.4-1-1v-4.2c0-2.6-2.2-4.8-4.8-4.8H8.8C6.2,22,4,24.2,4,26.8V31c0,0.6-0.4,1-1,1s-1-0.4-1-1v-4.2C2,23,5,20,8.8,20h14.4c3.7,0,6.8,3,6.8,6.8V31C30,31.6,29.6,32,29,32z"
+                                                          }
+                                                        })
+                                                      ]
+                                                    )
+                                                  ]
+                                                ),
+                                                _vm._v(" "),
+                                                _vm._m(4, true)
+                                              ]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "div",
+                                              {
+                                                staticClass:
+                                                  "assignee-box-dropdown nv-dropdown-menu"
+                                              },
+                                              _vm._l(_vm.users, function(user) {
+                                                return _vm.users.length > 0
+                                                  ? _c(
+                                                      "div",
+                                                      {
+                                                        staticClass:
+                                                          "each-assignee"
+                                                      },
+                                                      [
+                                                        _c("div", {
+                                                          staticClass:
+                                                            "profile-img",
+                                                          staticStyle: {
+                                                            "background-image":
+                                                              "url('https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png')"
+                                                          }
+                                                        }),
+                                                        _vm._v(" "),
+                                                        _c(
+                                                          "div",
+                                                          {
+                                                            staticClass:
+                                                              "name-text"
+                                                          },
+                                                          [
+                                                            _vm._v(
+                                                              _vm._s(user.name)
+                                                            )
+                                                          ]
+                                                        )
+                                                      ]
+                                                    )
+                                                  : _vm._e()
+                                              }),
+                                              0
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "div",
+                                          {
+                                            staticClass:
+                                              "task-assignee-box cursor-pointer border-right-none"
+                                          },
+                                          [
+                                            _c(
+                                              "div",
+                                              {
+                                                staticClass: "assignee-box-logo"
+                                              },
+                                              [
+                                                _c(
+                                                  "svg",
+                                                  {
+                                                    staticClass: "inside-logo",
+                                                    attrs: {
+                                                      focusable: "false",
+                                                      viewBox: "0 0 32 32"
+                                                    }
+                                                  },
+                                                  [
+                                                    _c("path", {
+                                                      attrs: {
+                                                        d:
+                                                          "M24,2V1c0-0.6-0.4-1-1-1s-1,0.4-1,1v1H10V1c0-0.6-0.4-1-1-1S8,0.4,8,1v1C4.7,2,2,4.7,2,8v16c0,3.3,2.7,6,6,6h16c3.3,0,6-2.7,6-6V8C30,4.7,27.3,2,24,2z M8,4v1c0,0.6,0.4,1,1,1s1-0.4,1-1V4h12v1c0,0.6,0.4,1,1,1s1-0.4,1-1V4c2.2,0,4,1.8,4,4v2H4V8C4,5.8,5.8,4,8,4z M24,28H8c-2.2,0-4-1.8-4-4V12h24v12C28,26.2,26.2,28,24,28z"
+                                                      }
+                                                    })
+                                                  ]
+                                                )
+                                              ]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "span",
+                                              [
+                                                _c("flat-pickr", {
+                                                  staticClass:
+                                                    "assignee-box-input assigned-input",
+                                                  attrs: { name: "date" },
+                                                  on: {
+                                                    "on-change": function(
+                                                      $event
+                                                    ) {}
+                                                  }
+                                                })
+                                              ],
+                                              1
+                                            )
                                           ]
                                         )
                                       ]
                                     )
-                                  ]
-                                )
-                              ]),
+                                  : _vm._e()
+                              }),
                               _vm._v(" "),
                               _vm._l(_vm.sectionData, function(section) {
                                 return _vm.sectionData.length > 0
@@ -51259,7 +51487,7 @@ var render = function() {
                                               [
                                                 _vm._v(
                                                   _vm._s(section[0].name) +
-                                                    "\n                                        "
+                                                    "\n                                    "
                                                 ),
                                                 _c(
                                                   "svg",
@@ -51322,16 +51550,6 @@ var render = function() {
                                                                 .data.completed
                                                                 ? true
                                                                 : false
-                                                            },
-                                                            on: {
-                                                              click: function(
-                                                                $event
-                                                              ) {
-                                                                _vm.isTaskComplete ==
-                                                                1
-                                                                  ? (_vm.isTaskComplete = 0)
-                                                                  : (_vm.isTaskComplete = 1)
-                                                              }
                                                             }
                                                           },
                                                           [
@@ -51383,15 +51601,16 @@ var render = function() {
                                                               click: function(
                                                                 $event
                                                               ) {
-                                                                _vm.sideBar == 1
-                                                                  ? (_vm.sideBar = 0)
-                                                                  : (_vm.sideBar = 1)
+                                                                return _vm.showTask(
+                                                                  task[0].data
+                                                                    .gid
+                                                                )
                                                               }
                                                             }
                                                           },
                                                           [
                                                             _vm._v(
-                                                              "Detail\n                                                "
+                                                              "Detail\n                                            "
                                                             ),
                                                             _c(
                                                               "svg",
@@ -51426,9 +51645,8 @@ var render = function() {
                                                           click: function(
                                                             $event
                                                           ) {
-                                                            return _vm.hideLogo(
-                                                              "assignee-logo-id" +
-                                                                task[0].data.gid
+                                                            return _vm.focusInput(
+                                                              _vm.event
                                                             )
                                                           }
                                                         }
@@ -51482,7 +51700,7 @@ var render = function() {
                                                                 )
                                                               : _vm._e(),
                                                             _vm._v(" "),
-                                                            _vm._m(6, true),
+                                                            _vm._m(5, true),
                                                             _vm._v(" "),
                                                             task[0].data
                                                               .assignee
@@ -51659,552 +51877,1602 @@ var render = function() {
                               attrs: { id: "task-detail" }
                             },
                             [
-                              _c(
-                                "div",
-                                { staticClass: "add-task-section-wrapper" },
-                                [
-                                  _c("div", { staticClass: "section-left" }, [
-                                    _c(
-                                      "div",
-                                      {
-                                        class: {
-                                          _btn: true,
-                                          "_btn-default": true,
-                                          "_btn _btn-default-active":
-                                            _vm.isMarkComplete == 1
-                                              ? true
-                                              : false
-                                        },
-                                        on: {
-                                          click: function($event) {
-                                            _vm.isMarkComplete == 1
-                                              ? (_vm.isMarkComplete = 0)
-                                              : (_vm.isMarkComplete = 1)
-                                          }
-                                        }
-                                      },
-                                      [
-                                        _c(
-                                          "svg",
-                                          {
-                                            staticClass: "MiniIcon-custom",
-                                            attrs: { viewBox: "0 0 24 24" }
-                                          },
-                                          [
-                                            _c("path", {
-                                              attrs: {
-                                                d:
-                                                  "M9.2,20c-0.5,0.5-1.3,0.5-1.9,0l-5.1-5.1c-0.4-0.5-0.4-1.3,0-1.9c0.4-0.5,1.3-0.5,1.9,0l4.1,4.1L19.7,5.7 c0.5-0.5,1.3-0.5,1.9,0s0.5,1.3,0,1.9L9.2,20z"
-                                              }
-                                            })
-                                          ]
-                                        ),
-                                        _vm._v(" "),
-                                        _vm.isMarkComplete == 0
-                                          ? _c("span", [
-                                              _vm._v("Mark Complete")
-                                            ])
-                                          : _vm._e(),
-                                        _vm._v(" "),
-                                        _vm.isMarkComplete == 1
-                                          ? _c("span", [_vm._v("Completed")])
-                                          : _vm._e()
-                                      ]
-                                    )
-                                  ]),
-                                  _vm._v(" "),
-                                  _c(
+                              _vm._m(6),
+                              _vm._v(" "),
+                              _vm.taskDetails
+                                ? _c(
                                     "div",
-                                    {
-                                      staticClass: "section-right _text-right"
-                                    },
+                                    { staticClass: "task-details-wrapper" },
                                     [
-                                      _c("div", { staticClass: "logo-box" }, [
-                                        _c(
-                                          "svg",
-                                          {
-                                            staticClass: "hide-box-icon",
-                                            attrs: {
-                                              focusable: "false",
-                                              viewBox: "0 0 32 32"
-                                            }
-                                          },
-                                          [
-                                            _c("path", {
-                                              attrs: {
-                                                d:
-                                                  "M19,32c-3.9,0-7-3.1-7-7V10c0-2.2,1.8-4,4-4s4,1.8,4,4v9c0,0.6-0.4,1-1,1s-1-0.4-1-1v-9c0-1.1-0.9-2-2-2s-2,0.9-2,2v15c0,2.8,2.2,5,5,5s5-2.2,5-5V10c0-4.4-3.6-8-8-8s-8,3.6-8,8v5c0,0.6-0.4,1-1,1s-1-0.4-1-1v-5C6,4.5,10.5,0,16,0s10,4.5,10,10v15C26,28.9,22.9,32,19,32z"
-                                              }
-                                            })
-                                          ]
-                                        )
-                                      ]),
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass:
+                                            "add-task-section-wrapper"
+                                        },
+                                        [
+                                          _c(
+                                            "div",
+                                            { staticClass: "section-left" },
+                                            [
+                                              _c(
+                                                "div",
+                                                {
+                                                  class: {
+                                                    _btn: true,
+                                                    "_btn-default": true,
+                                                    "_btn _btn-default-active": _vm
+                                                      .taskDetails[0].data
+                                                      .completed
+                                                      ? true
+                                                      : false
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "svg",
+                                                    {
+                                                      staticClass:
+                                                        "MiniIcon-custom",
+                                                      attrs: {
+                                                        viewBox: "0 0 24 24"
+                                                      }
+                                                    },
+                                                    [
+                                                      _c("path", {
+                                                        attrs: {
+                                                          d:
+                                                            "M9.2,20c-0.5,0.5-1.3,0.5-1.9,0l-5.1-5.1c-0.4-0.5-0.4-1.3,0-1.9c0.4-0.5,1.3-0.5,1.9,0l4.1,4.1L19.7,5.7 c0.5-0.5,1.3-0.5,1.9,0s0.5,1.3,0,1.9L9.2,20z"
+                                                        }
+                                                      })
+                                                    ]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _vm.taskDetails[0].data
+                                                    .completed
+                                                    ? _c("span", [
+                                                        _vm._v("Completed")
+                                                      ])
+                                                    : _c("span", [
+                                                        _vm._v("Mark Complete")
+                                                      ])
+                                                ]
+                                              )
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass:
+                                                "section-right _text-right"
+                                            },
+                                            [
+                                              _c("input", {
+                                                staticStyle: {
+                                                  display: "none"
+                                                },
+                                                attrs: {
+                                                  type: "file",
+                                                  id: "file",
+                                                  name: "file"
+                                                },
+                                                on: {
+                                                  change: function($event) {
+                                                    return _vm.handleFileUpload(
+                                                      _vm.taskDetails[0].data
+                                                        .gid,
+                                                      $event
+                                                    )
+                                                  }
+                                                }
+                                              }),
+                                              _vm._v(" "),
+                                              _c(
+                                                "div",
+                                                {
+                                                  staticClass: "logo-box",
+                                                  attrs: {
+                                                    onclick:
+                                                      "document.getElementById('file').click()"
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "svg",
+                                                    {
+                                                      staticClass:
+                                                        "hide-box-icon",
+                                                      attrs: {
+                                                        focusable: "false",
+                                                        viewBox: "0 0 32 32"
+                                                      }
+                                                    },
+                                                    [
+                                                      _c("path", {
+                                                        attrs: {
+                                                          d:
+                                                            "M19,32c-3.9,0-7-3.1-7-7V10c0-2.2,1.8-4,4-4s4,1.8,4,4v9c0,0.6-0.4,1-1,1s-1-0.4-1-1v-9c0-1.1-0.9-2-2-2s-2,0.9-2,2v15c0,2.8,2.2,5,5,5s5-2.2,5-5V10c0-4.4-3.6-8-8-8s-8,3.6-8,8v5c0,0.6-0.4,1-1,1s-1-0.4-1-1v-5C6,4.5,10.5,0,16,0s10,4.5,10,10v15C26,28.9,22.9,32,19,32z"
+                                                        }
+                                                      })
+                                                    ]
+                                                  )
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "div",
+                                                { staticClass: "logo-box" },
+                                                [
+                                                  _c(
+                                                    "svg",
+                                                    {
+                                                      staticClass:
+                                                        "hide-box-icon",
+                                                      attrs: {
+                                                        focusable: "false",
+                                                        viewBox: "0 0 32 32"
+                                                      }
+                                                    },
+                                                    [
+                                                      _c("path", {
+                                                        attrs: {
+                                                          d:
+                                                            "M25,20c-2.4,0-4.4,1.7-4.9,4H11c-3.9,0-7-3.1-7-7v-5h16.1c0.5,2.3,2.5,4,4.9,4c2.8,0,5-2.2,5-5s-2.2-5-5-5c-2.4,0-4.4,1.7-4.9,4H4V3c0-0.6-0.4-1-1-1S2,2.4,2,3v14c0,5,4,9,9,9h9.1c0.5,2.3,2.5,4,4.9,4c2.8,0,5-2.2,5-5S27.8,20,25,20z M25,8c1.7,0,3,1.3,3,3s-1.3,3-3,3s-3-1.3-3-3S23.3,8,25,8z M25,28c-1.7,0-3-1.3-3-3s1.3-3,3-3s3,1.3,3,3S26.7,28,25,28z"
+                                                        }
+                                                      })
+                                                    ]
+                                                  )
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "div",
+                                                { staticClass: "logo-box" },
+                                                [
+                                                  _c(
+                                                    "svg",
+                                                    {
+                                                      staticClass:
+                                                        "hide-box-icon",
+                                                      attrs: {
+                                                        focusable: "false",
+                                                        viewBox: "0 0 32 32"
+                                                      }
+                                                    },
+                                                    [
+                                                      _c("path", {
+                                                        attrs: {
+                                                          d:
+                                                            "M9,32c-2.3,0-4.6-0.9-6.4-2.6c-3.5-3.5-3.5-9.2,0-12.7l4-4c0.4-0.4,1-0.4,1.4,0c0.4,0.4,0.4,1,0,1.4l-4,4c-2.7,2.7-2.7,7.2,0,9.9s7.2,2.7,9.9,0l4-4c2.7-2.7,2.7-7.2,0-9.9c-0.8-0.8-1.8-1.4-2.9-1.7c-0.5-0.2-0.8-0.7-0.7-1.3c0.2-0.5,0.7-0.8,1.3-0.7c1.4,0.4,2.7,1.2,3.7,2.2c3.5,3.5,3.5,9.2,0,12.7l-4,4C13.6,31.1,11.3,32,9,32z M16.6,21.6c-0.1,0-0.2,0-0.3,0c-1.4-0.4-2.7-1.2-3.7-2.2c-1.7-1.7-2.6-4-2.6-6.4s0.9-4.7,2.6-6.4l4-4c3.5-3.5,9.2-3.5,12.7,0s3.5,9.2,0,12.7l-4,4c-0.4,0.4-1,0.4-1.4,0s-0.4-1,0-1.4l4-4c2.7-2.7,2.7-7.2,0-9.9S20.7,1.3,18,4l-4,4c-1.3,1.4-2,3.1-2,5s0.7,3.6,2.1,5c0.8,0.8,1.8,1.4,2.9,1.7c0.5,0.2,0.8,0.7,0.7,1.3C17.5,21.4,17.1,21.6,16.6,21.6z"
+                                                        }
+                                                      })
+                                                    ]
+                                                  )
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "div",
+                                                { staticClass: "logo-box" },
+                                                [
+                                                  _c(
+                                                    "svg",
+                                                    {
+                                                      staticClass:
+                                                        "hide-box-icon",
+                                                      attrs: {
+                                                        focusable: "false",
+                                                        viewBox: "0 0 32 32"
+                                                      }
+                                                    },
+                                                    [
+                                                      _c("path", {
+                                                        attrs: {
+                                                          d:
+                                                            "M28.3,4.3c-1.2-1.4-3-2.1-4.9-1.9c-1.3,0.1-2.5,0.8-3.5,1.8L6,18c-0.6,0.6-1.1,1.4-1.4,2.2l-2.2,6.4C2.1,27.5,2.3,28.4,3,29c0.4,0.4,1,0.7,1.6,0.7c0.3,0,0.5,0,0.8-0.1l6.4-2.2c0.8-0.3,1.6-0.8,2.2-1.4l13.9-13.9C30,10,30.1,6.4,28.3,4.3z M4.7,27.7c-0.2,0.1-0.3,0-0.3-0.1c-0.1-0.1-0.1-0.2-0.1-0.3l2-5.8l4.2,4.2L4.7,27.7z M26.4,10.7L12.5,24.6c-0.1,0.1-0.1,0.1-0.2,0.1l-5.1-5.1c0-0.1,0.1-0.1,0.1-0.2l14-13.8c0.7-0.7,1.5-1.1,2.3-1.2c1.2-0.1,2.4,0.3,3.2,1.2C28,7,27.8,9.4,26.4,10.7z"
+                                                        }
+                                                      })
+                                                    ]
+                                                  )
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "div",
+                                                {
+                                                  staticClass: "logo-box",
+                                                  on: {
+                                                    click: function($event) {
+                                                      _vm.sideBar == 1
+                                                        ? (_vm.sideBar = 0)
+                                                        : (_vm.sideBar = 1)
+                                                    }
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "svg",
+                                                    {
+                                                      staticClass:
+                                                        "hide-box-icon",
+                                                      attrs: {
+                                                        focusable: "false",
+                                                        viewBox: "0 0 32 32"
+                                                      }
+                                                    },
+                                                    [
+                                                      _c("path", {
+                                                        attrs: {
+                                                          d:
+                                                            "M2,14.5h18.4l-7.4-7.4c-0.6-0.6-0.6-1.5,0-2.1c0.6-0.6,1.5-0.6,2.1,0l10,10c0.6,0.6,0.6,1.5,0,2.1l-10,10c-0.3,0.3-0.7,0.4-1.1,0.4c-0.4,0-0.8-0.1-1.1-0.4c-0.6-0.6-0.6-1.5,0-2.1l7.4-7.4H2c-0.8,0-1.5-0.7-1.5-1.5C0.5,15.3,1.2,14.5,2,14.5z M28,3.5C28,2.7,28.7,2,29.5,2S31,2.7,31,3.5v25c0,0.8-0.7,1.5-1.5,1.5S28,29.3,28,28.5V3.5z"
+                                                        }
+                                                      })
+                                                    ]
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      ),
                                       _vm._v(" "),
-                                      _c("div", { staticClass: "logo-box" }, [
-                                        _c(
-                                          "svg",
-                                          {
-                                            staticClass: "hide-box-icon",
-                                            attrs: {
-                                              focusable: "false",
-                                              viewBox: "0 0 32 32"
-                                            }
-                                          },
-                                          [
-                                            _c("path", {
-                                              attrs: {
-                                                d:
-                                                  "M25,20c-2.4,0-4.4,1.7-4.9,4H11c-3.9,0-7-3.1-7-7v-5h16.1c0.5,2.3,2.5,4,4.9,4c2.8,0,5-2.2,5-5s-2.2-5-5-5c-2.4,0-4.4,1.7-4.9,4H4V3c0-0.6-0.4-1-1-1S2,2.4,2,3v14c0,5,4,9,9,9h9.1c0.5,2.3,2.5,4,4.9,4c2.8,0,5-2.2,5-5S27.8,20,25,20z M25,8c1.7,0,3,1.3,3,3s-1.3,3-3,3s-3-1.3-3-3S23.3,8,25,8z M25,28c-1.7,0-3-1.3-3-3s1.3-3,3-3s3,1.3,3,3S26.7,28,25,28z"
+                                      _c(
+                                        "div",
+                                        { staticClass: "head-text-section" },
+                                        [
+                                          _c("input", {
+                                            directives: [
+                                              {
+                                                name: "model",
+                                                rawName: "v-model",
+                                                value:
+                                                  _vm.taskDetails[0].data.name,
+                                                expression:
+                                                  "taskDetails[0].data.name"
                                               }
-                                            })
-                                          ]
-                                        )
-                                      ]),
-                                      _vm._v(" "),
-                                      _c("div", { staticClass: "logo-box" }, [
-                                        _c(
-                                          "svg",
-                                          {
-                                            staticClass: "hide-box-icon",
+                                            ],
+                                            staticClass: "input-big",
                                             attrs: {
-                                              focusable: "false",
-                                              viewBox: "0 0 32 32"
-                                            }
-                                          },
-                                          [
-                                            _c("path", {
-                                              attrs: {
-                                                d:
-                                                  "M9,32c-2.3,0-4.6-0.9-6.4-2.6c-3.5-3.5-3.5-9.2,0-12.7l4-4c0.4-0.4,1-0.4,1.4,0c0.4,0.4,0.4,1,0,1.4l-4,4c-2.7,2.7-2.7,7.2,0,9.9s7.2,2.7,9.9,0l4-4c2.7-2.7,2.7-7.2,0-9.9c-0.8-0.8-1.8-1.4-2.9-1.7c-0.5-0.2-0.8-0.7-0.7-1.3c0.2-0.5,0.7-0.8,1.3-0.7c1.4,0.4,2.7,1.2,3.7,2.2c3.5,3.5,3.5,9.2,0,12.7l-4,4C13.6,31.1,11.3,32,9,32z M16.6,21.6c-0.1,0-0.2,0-0.3,0c-1.4-0.4-2.7-1.2-3.7-2.2c-1.7-1.7-2.6-4-2.6-6.4s0.9-4.7,2.6-6.4l4-4c3.5-3.5,9.2-3.5,12.7,0s3.5,9.2,0,12.7l-4,4c-0.4,0.4-1,0.4-1.4,0s-0.4-1,0-1.4l4-4c2.7-2.7,2.7-7.2,0-9.9S20.7,1.3,18,4l-4,4c-1.3,1.4-2,3.1-2,5s0.7,3.6,2.1,5c0.8,0.8,1.8,1.4,2.9,1.7c0.5,0.2,0.8,0.7,0.7,1.3C17.5,21.4,17.1,21.6,16.6,21.6z"
+                                              type: "text",
+                                              placeholder: "Write a task name"
+                                            },
+                                            domProps: {
+                                              value:
+                                                _vm.taskDetails[0].data.name
+                                            },
+                                            on: {
+                                              input: function($event) {
+                                                if ($event.target.composing) {
+                                                  return
+                                                }
+                                                _vm.$set(
+                                                  _vm.taskDetails[0].data,
+                                                  "name",
+                                                  $event.target.value
+                                                )
                                               }
-                                            })
-                                          ]
-                                        )
-                                      ]),
-                                      _vm._v(" "),
-                                      _c("div", { staticClass: "logo-box" }, [
-                                        _c(
-                                          "svg",
-                                          {
-                                            staticClass: "hide-box-icon",
-                                            attrs: {
-                                              focusable: "false",
-                                              viewBox: "0 0 32 32"
                                             }
-                                          },
-                                          [
-                                            _c("path", {
-                                              attrs: {
-                                                d:
-                                                  "M28.3,4.3c-1.2-1.4-3-2.1-4.9-1.9c-1.3,0.1-2.5,0.8-3.5,1.8L6,18c-0.6,0.6-1.1,1.4-1.4,2.2l-2.2,6.4C2.1,27.5,2.3,28.4,3,29c0.4,0.4,1,0.7,1.6,0.7c0.3,0,0.5,0,0.8-0.1l6.4-2.2c0.8-0.3,1.6-0.8,2.2-1.4l13.9-13.9C30,10,30.1,6.4,28.3,4.3z M4.7,27.7c-0.2,0.1-0.3,0-0.3-0.1c-0.1-0.1-0.1-0.2-0.1-0.3l2-5.8l4.2,4.2L4.7,27.7z M26.4,10.7L12.5,24.6c-0.1,0.1-0.1,0.1-0.2,0.1l-5.1-5.1c0-0.1,0.1-0.1,0.1-0.2l14-13.8c0.7-0.7,1.5-1.1,2.3-1.2c1.2-0.1,2.4,0.3,3.2,1.2C28,7,27.8,9.4,26.4,10.7z"
-                                              }
-                                            })
-                                          ]
-                                        )
-                                      ]),
+                                          })
+                                        ]
+                                      ),
                                       _vm._v(" "),
                                       _c(
                                         "div",
                                         {
-                                          staticClass: "logo-box",
-                                          on: {
-                                            click: function($event) {
-                                              _vm.sideBar == 1
-                                                ? (_vm.sideBar = 0)
-                                                : (_vm.sideBar = 1)
-                                            }
-                                          }
+                                          staticClass:
+                                            "head-text-section border-bottom-task-list"
                                         },
                                         [
                                           _c(
-                                            "svg",
+                                            "div",
                                             {
-                                              staticClass: "hide-box-icon",
-                                              attrs: {
-                                                focusable: "false",
-                                                viewBox: "0 0 32 32"
-                                              }
+                                              staticClass:
+                                                "radious-square-input nv-dropdown"
                                             },
                                             [
-                                              _c("path", {
+                                              _c(
+                                                "div",
+                                                { staticClass: "logo-border" },
+                                                [
+                                                  _c(
+                                                    "svg",
+                                                    {
+                                                      staticClass:
+                                                        "input-icon-1",
+                                                      attrs: {
+                                                        focusable: "false",
+                                                        viewBox: "0 0 32 32"
+                                                      }
+                                                    },
+                                                    [
+                                                      _c("path", {
+                                                        attrs: {
+                                                          d:
+                                                            "M16,18c-4.4,0-8-3.6-8-8s3.6-8,8-8s8,3.6,8,8S20.4,18,16,18z M16,4c-3.3,0-6,2.7-6,6s2.7,6,6,6s6-2.7,6-6S19.3,4,16,4z M29,32c-0.6,0-1-0.4-1-1v-4.2c0-2.6-2.2-4.8-4.8-4.8H8.8C6.2,22,4,24.2,4,26.8V31c0,0.6-0.4,1-1,1s-1-0.4-1-1v-4.2C2,23,5,20,8.8,20h14.4c3.7,0,6.8,3,6.8,6.8V31C30,31.6,29.6,32,29,32z"
+                                                        }
+                                                      })
+                                                    ]
+                                                  )
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c("input", {
+                                                staticClass: "input-design",
                                                 attrs: {
-                                                  d:
-                                                    "M2,14.5h18.4l-7.4-7.4c-0.6-0.6-0.6-1.5,0-2.1c0.6-0.6,1.5-0.6,2.1,0l10,10c0.6,0.6,0.6,1.5,0,2.1l-10,10c-0.3,0.3-0.7,0.4-1.1,0.4c-0.4,0-0.8-0.1-1.1-0.4c-0.6-0.6-0.6-1.5,0-2.1l7.4-7.4H2c-0.8,0-1.5-0.7-1.5-1.5C0.5,15.3,1.2,14.5,2,14.5z M28,3.5C28,2.7,28.7,2,29.5,2S31,2.7,31,3.5v25c0,0.8-0.7,1.5-1.5,1.5S28,29.3,28,28.5V3.5z"
+                                                  type: "text",
+                                                  placeholder: "Assignee"
+                                                },
+                                                domProps: {
+                                                  value:
+                                                    _vm.taskDetails[0].data
+                                                      .assignee.name
+                                                }
+                                              }),
+                                              _vm._v(" "),
+                                              _c(
+                                                "div",
+                                                {
+                                                  staticClass:
+                                                    "assignee-box-dropdown nv-dropdown-menu"
+                                                },
+                                                _vm._l(_vm.users, function(
+                                                  user
+                                                ) {
+                                                  return _vm.users.length > 0
+                                                    ? _c(
+                                                        "div",
+                                                        {
+                                                          staticClass:
+                                                            "each-assignee"
+                                                        },
+                                                        [
+                                                          _c("div", {
+                                                            staticClass:
+                                                              "profile-img",
+                                                            staticStyle: {
+                                                              "background-image":
+                                                                "url('https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png')"
+                                                            }
+                                                          }),
+                                                          _vm._v(" "),
+                                                          _c(
+                                                            "div",
+                                                            {
+                                                              staticClass:
+                                                                "name-text"
+                                                            },
+                                                            [
+                                                              _vm._v(
+                                                                _vm._s(
+                                                                  user.name
+                                                                )
+                                                              )
+                                                            ]
+                                                          )
+                                                        ]
+                                                      )
+                                                    : _vm._e()
+                                                }),
+                                                0
+                                              )
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass:
+                                                "radious-square-input"
+                                            },
+                                            [
+                                              _c(
+                                                "div",
+                                                { staticClass: "logo-border" },
+                                                [
+                                                  _c(
+                                                    "svg",
+                                                    {
+                                                      staticClass:
+                                                        "input-icon-2",
+                                                      attrs: {
+                                                        focusable: "false",
+                                                        viewBox: "0 0 32 32"
+                                                      }
+                                                    },
+                                                    [
+                                                      _c("path", {
+                                                        attrs: {
+                                                          d:
+                                                            "M24,2V1c0-0.6-0.4-1-1-1s-1,0.4-1,1v1H10V1c0-0.6-0.4-1-1-1S8,0.4,8,1v1C4.7,2,2,4.7,2,8v16c0,3.3,2.7,6,6,6h16c3.3,0,6-2.7,6-6V8C30,4.7,27.3,2,24,2z M8,4v1c0,0.6,0.4,1,1,1s1-0.4,1-1V4h12v1c0,0.6,0.4,1,1,1s1-0.4,1-1V4c2.2,0,4,1.8,4,4v2H4V8C4,5.8,5.8,4,8,4z M24,28H8c-2.2,0-4-1.8-4-4V12h24v12C28,26.2,26.2,28,24,28z"
+                                                        }
+                                                      })
+                                                    ]
+                                                  )
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c("flat-pickr", {
+                                                staticClass: "input-design",
+                                                attrs: {
+                                                  value:
+                                                    _vm.taskDetails[0].data
+                                                      .due_on,
+                                                  placeholder: "Due date",
+                                                  name: "due_on"
+                                                },
+                                                on: {
+                                                  "on-change": function(
+                                                    $event
+                                                  ) {
+                                                    return _vm.inlineTaskUpdateNew(
+                                                      _vm.taskDetails[0].data
+                                                        .gid,
+                                                      "due_on",
+                                                      $event
+                                                    )
+                                                  }
                                                 }
                                               })
-                                            ]
+                                            ],
+                                            1
                                           )
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        { staticClass: "head-text-section" },
+                                        [
+                                          _c(
+                                            "div",
+                                            { staticClass: "text-area-logo" },
+                                            [
+                                              _c(
+                                                "svg",
+                                                {
+                                                  staticClass: "t-logo",
+                                                  attrs: {
+                                                    focusable: "false",
+                                                    viewBox: "0 0 32 32"
+                                                  }
+                                                },
+                                                [
+                                                  _c("path", {
+                                                    attrs: {
+                                                      d:
+                                                        "M31,8H1C0.4,8,0,7.6,0,7s0.4-1,1-1h30c0.6,0,1,0.4,1,1S31.6,8,31,8z M23,14H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,14,23,14z M27,20H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h26c0.6,0,1,0.4,1,1S27.6,20,27,20z M19,26H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h18c0.6,0,1,0.4,1,1S19.6,26,19,26z"
+                                                    }
+                                                  })
+                                                ]
+                                              )
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c("textarea", {
+                                            directives: [
+                                              {
+                                                name: "model",
+                                                rawName: "v-model",
+                                                value:
+                                                  _vm.taskDetails[0].data.notes,
+                                                expression:
+                                                  "taskDetails[0].data.notes"
+                                              }
+                                            ],
+                                            staticClass: "custom-text-area",
+                                            attrs: {
+                                              name: "",
+                                              cols: "30",
+                                              rows: "5",
+                                              placeholder: "Description"
+                                            },
+                                            domProps: {
+                                              value:
+                                                _vm.taskDetails[0].data.notes
+                                            },
+                                            on: {
+                                              input: function($event) {
+                                                if ($event.target.composing) {
+                                                  return
+                                                }
+                                                _vm.$set(
+                                                  _vm.taskDetails[0].data,
+                                                  "notes",
+                                                  $event.target.value
+                                                )
+                                              }
+                                            }
+                                          })
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass:
+                                            "head-text-section _position-relative border-bottom-task-list"
+                                        },
+                                        [
+                                          _c(
+                                            "div",
+                                            { staticClass: "_input-logo" },
+                                            [
+                                              _c(
+                                                "svg",
+                                                {
+                                                  staticClass: "t-logo",
+                                                  attrs: {
+                                                    focusable: "false",
+                                                    viewBox: "0 0 32 32"
+                                                  }
+                                                },
+                                                [
+                                                  _c("path", {
+                                                    attrs: {
+                                                      d:
+                                                        "M10,13.5c0.8,0,1.5,0.7,1.5,1.5s-0.7,1.5-1.5,1.5S8.5,15.8,8.5,15S9.2,13.5,10,13.5z M23,14h-8c-0.6,0-1,0.4-1,1s0.4,1,1,1h8c0.6,0,1-0.4,1-1S23.6,14,23,14z M23,20h-8c-0.6,0-1,0.4-1,1s0.4,1,1,1h8c0.6,0,1-0.4,1-1S23.6,20,23,20z M10,19.5c0.8,0,1.5,0.7,1.5,1.5s-0.7,1.5-1.5,1.5S8.5,21.8,8.5,21S9.2,19.5,10,19.5z M24,2h-2.2c-0.4-1.2-1.5-2-2.8-2h-6c-1.3,0-2.4,0.8-2.8,2H8C4.7,2,2,4.7,2,8v18c0,3.3,2.7,6,6,6h16c3.3,0,6-2.7,6-6V8C30,4.7,27.3,2,24,2z M13,2h6c0.6,0,1,0.4,1,1v2c0,0.6-0.4,1-1,1h-6c-0.6,0-1-0.4-1-1V3C12,2.4,12.4,2,13,2z M28,26c0,2.2-1.8,4-4,4H8c-2.2,0-4-1.8-4-4V8c0-2.2,1.8-4,4-4h2v1c0,1.7,1.3,3,3,3h6c1.7,0,3-1.3,3-3V4h2c2.2,0,4,1.8,4,4V26z"
+                                                    }
+                                                  })
+                                                ]
+                                              )
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c("input", {
+                                            staticClass:
+                                              "custom-input-add-project",
+                                            attrs: {
+                                              name: "",
+                                              placeholder: "Add to Project"
+                                            }
+                                          }),
+                                          _vm._v(" "),
+                                          _vm._l(
+                                            _vm.taskDetails.subTasks,
+                                            function(t, index) {
+                                              return _vm.taskDetails.subTasks
+                                                .length > 0
+                                                ? _c(
+                                                    "div",
+                                                    { staticClass: "new-task" },
+                                                    [
+                                                      _c(
+                                                        "div",
+                                                        {
+                                                          staticClass:
+                                                            "border-radious-icon",
+                                                          class: {
+                                                            "task-complete": t[0]
+                                                              .data.completed
+                                                              ? true
+                                                              : false
+                                                          }
+                                                        },
+                                                        [
+                                                          _c(
+                                                            "svg",
+                                                            {
+                                                              staticClass:
+                                                                "MiniIcon",
+                                                              attrs: {
+                                                                viewBox:
+                                                                  "0 0 24 24"
+                                                              }
+                                                            },
+                                                            [
+                                                              _c("path", {
+                                                                attrs: {
+                                                                  d:
+                                                                    "M9.5,18.2c-0.4,0.4-1,0.4-1.4,0l-3.8-3.8C4,14,4,13.4,4.3,13s1-0.4,1.4,0l3.1,3.1l8.6-8.6c0.4-0.4,1-0.4,1.4,0s0.4,1,0,1.4 L9.5,18.2z"
+                                                                }
+                                                              })
+                                                            ]
+                                                          )
+                                                        ]
+                                                      ),
+                                                      _vm._v(" "),
+                                                      _c("input", {
+                                                        directives: [
+                                                          {
+                                                            name: "model",
+                                                            rawName: "v-model",
+                                                            value:
+                                                              _vm.taskDetails
+                                                                .subTasks[
+                                                                index
+                                                              ][0].data.name,
+                                                            expression:
+                                                              "taskDetails.subTasks[index][0].data.name"
+                                                          }
+                                                        ],
+                                                        staticClass:
+                                                          "new-task-input",
+                                                        attrs: { type: "text" },
+                                                        domProps: {
+                                                          value:
+                                                            _vm.taskDetails
+                                                              .subTasks[
+                                                              index
+                                                            ][0].data.name
+                                                        },
+                                                        on: {
+                                                          input: function(
+                                                            $event
+                                                          ) {
+                                                            if (
+                                                              $event.target
+                                                                .composing
+                                                            ) {
+                                                              return
+                                                            }
+                                                            _vm.$set(
+                                                              _vm.taskDetails
+                                                                .subTasks[
+                                                                index
+                                                              ][0].data,
+                                                              "name",
+                                                              $event.target
+                                                                .value
+                                                            )
+                                                          }
+                                                        }
+                                                      }),
+                                                      _vm._v(" "),
+                                                      _c(
+                                                        "div",
+                                                        {
+                                                          staticClass:
+                                                            "new-task-logo"
+                                                        },
+                                                        [
+                                                          _c(
+                                                            "div",
+                                                            {
+                                                              staticClass:
+                                                                "logo-1 cursor-pointer nv-dropdown"
+                                                            },
+                                                            [
+                                                              _c(
+                                                                "svg",
+                                                                {
+                                                                  staticClass:
+                                                                    "_icon",
+                                                                  attrs: {
+                                                                    focusable:
+                                                                      "false",
+                                                                    viewBox:
+                                                                      "0 0 32 32"
+                                                                  }
+                                                                },
+                                                                [
+                                                                  _c("path", {
+                                                                    attrs: {
+                                                                      d:
+                                                                        "M16,18c-4.4,0-8-3.6-8-8s3.6-8,8-8s8,3.6,8,8S20.4,18,16,18z M16,4c-3.3,0-6,2.7-6,6s2.7,6,6,6s6-2.7,6-6S19.3,4,16,4z M29,32c-0.6,0-1-0.4-1-1v-4.2c0-2.6-2.2-4.8-4.8-4.8H8.8C6.2,22,4,24.2,4,26.8V31c0,0.6-0.4,1-1,1s-1-0.4-1-1v-4.2C2,23,5,20,8.8,20h14.4c3.7,0,6.8,3,6.8,6.8V31C30,31.6,29.6,32,29,32z"
+                                                                    }
+                                                                  })
+                                                                ]
+                                                              ),
+                                                              _vm._v(" "),
+                                                              _c(
+                                                                "div",
+                                                                {
+                                                                  staticClass:
+                                                                    "assignee-box-dropdown nv-dropdown-menu"
+                                                                },
+                                                                _vm._l(
+                                                                  _vm.users,
+                                                                  function(
+                                                                    user
+                                                                  ) {
+                                                                    return _vm
+                                                                      .users
+                                                                      .length >
+                                                                      0
+                                                                      ? _c(
+                                                                          "div",
+                                                                          {
+                                                                            staticClass:
+                                                                              "each-assignee",
+                                                                            attrs: {
+                                                                              value:
+                                                                                user.gid
+                                                                            }
+                                                                          },
+                                                                          [
+                                                                            _c(
+                                                                              "div",
+                                                                              {
+                                                                                staticClass:
+                                                                                  "profile-img",
+                                                                                staticStyle: {
+                                                                                  "background-image":
+                                                                                    "url('https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png')"
+                                                                                }
+                                                                              }
+                                                                            ),
+                                                                            _vm._v(
+                                                                              " "
+                                                                            ),
+                                                                            _c(
+                                                                              "div",
+                                                                              {
+                                                                                staticClass:
+                                                                                  "name-text"
+                                                                              },
+                                                                              [
+                                                                                _vm._v(
+                                                                                  _vm._s(
+                                                                                    user.name
+                                                                                  )
+                                                                                )
+                                                                              ]
+                                                                            )
+                                                                          ]
+                                                                        )
+                                                                      : _vm._e()
+                                                                  }
+                                                                ),
+                                                                0
+                                                              )
+                                                            ]
+                                                          ),
+                                                          _vm._v(" "),
+                                                          _c(
+                                                            "div",
+                                                            {
+                                                              staticClass:
+                                                                "logo-2 cursor-pointer"
+                                                            },
+                                                            [
+                                                              _c(
+                                                                "svg",
+                                                                {
+                                                                  staticClass:
+                                                                    "_icon",
+                                                                  attrs: {
+                                                                    focusable:
+                                                                      "false",
+                                                                    viewBox:
+                                                                      "0 0 32 32"
+                                                                  }
+                                                                },
+                                                                [
+                                                                  _c("path", {
+                                                                    attrs: {
+                                                                      d:
+                                                                        "M24,2V1c0-0.6-0.4-1-1-1s-1,0.4-1,1v1H10V1c0-0.6-0.4-1-1-1S8,0.4,8,1v1C4.7,2,2,4.7,2,8v16c0,3.3,2.7,6,6,6h16c3.3,0,6-2.7,6-6V8C30,4.7,27.3,2,24,2z M8,4v1c0,0.6,0.4,1,1,1s1-0.4,1-1V4h12v1c0,0.6,0.4,1,1,1s1-0.4,1-1V4c2.2,0,4,1.8,4,4v2H4V8C4,5.8,5.8,4,8,4z M24,28H8c-2.2,0-4-1.8-4-4V12h24v12C28,26.2,26.2,28,24,28z"
+                                                                    }
+                                                                  })
+                                                                ]
+                                                              )
+                                                            ]
+                                                          ),
+                                                          _vm._v(" "),
+                                                          _c(
+                                                            "div",
+                                                            {
+                                                              staticClass:
+                                                                "logo-3 cursor-pointer"
+                                                            },
+                                                            [
+                                                              _c(
+                                                                "svg",
+                                                                {
+                                                                  staticClass:
+                                                                    "_icon",
+                                                                  attrs: {
+                                                                    focusable:
+                                                                      "false",
+                                                                    viewBox:
+                                                                      "0 0 32 32"
+                                                                  }
+                                                                },
+                                                                [
+                                                                  _c("path", {
+                                                                    attrs: {
+                                                                      d:
+                                                                        "M5,31c-0.1,0-0.3,0-0.4-0.1C4.2,30.7,4,30.4,4,30v-7.1c-2.5-2.3-4-5.5-4-8.9C0,7.4,5.4,2,12,2h8c6.6,0,12,5.4,12,12 s-5.4,12-12,12h-8c-0.1,0-0.3,0-0.4,0l-5.9,4.8C5.4,30.9,5.2,31,5,31z M12,4C6.5,4,2,8.5,2,14c0,3,1.3,5.8,3.6,7.7C5.9,21.9,6,22.2,6,22.5v5.4l4.6-3.7C10.8,24,11,24,11.3,24h0.1c0.2,0,0.4,0,0.6,0h8c5.5,0,10-4.5,10-10S25.5,4,20,4 C20,4,12,4,12,4z"
+                                                                    }
+                                                                  })
+                                                                ]
+                                                              )
+                                                            ]
+                                                          ),
+                                                          _vm._v(" "),
+                                                          _c(
+                                                            "div",
+                                                            {
+                                                              staticClass:
+                                                                "logo-3"
+                                                            },
+                                                            [
+                                                              _c(
+                                                                "svg",
+                                                                {
+                                                                  staticClass:
+                                                                    "_icon",
+                                                                  attrs: {
+                                                                    focusable:
+                                                                      "false",
+                                                                    viewBox:
+                                                                      "0 0 32 32"
+                                                                  }
+                                                                },
+                                                                [
+                                                                  _c("path", {
+                                                                    attrs: {
+                                                                      d:
+                                                                        "M23.2,16c0,0.3-0.1,0.7-0.3,0.9l-9,11c-0.5,0.6-1.5,0.7-2.1,0.2s-0.7-1.5-0.2-2.1l8.2-10L11.6,6c-0.5-0.6-0.4-1.6,0.2-2.1s1.6-0.4,2.1,0.2l9,11C23.1,15.3,23.2,15.7,23.2,16z"
+                                                                    }
+                                                                  })
+                                                                ]
+                                                              )
+                                                            ]
+                                                          )
+                                                        ]
+                                                      )
+                                                    ]
+                                                  )
+                                                : _vm._e()
+                                            }
+                                          )
+                                        ],
+                                        2
+                                      ),
+                                      _vm._v(" "),
+                                      _vm._l(
+                                        _vm.taskDetails.comments.data,
+                                        function(comment) {
+                                          return _vm.taskDetails.comments.data
+                                            .length > 0
+                                            ? _c(
+                                                "div",
+                                                {
+                                                  staticClass:
+                                                    "head-text-section border-bottom-task-list"
+                                                },
+                                                [
+                                                  _vm._m(7, true),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "div",
+                                                    {
+                                                      staticClass:
+                                                        "detail-text-area"
+                                                    },
+                                                    [
+                                                      _c("span", [
+                                                        _c(
+                                                          "a",
+                                                          {
+                                                            staticClass:
+                                                              "lnk-text",
+                                                            attrs: { href: "#" }
+                                                          },
+                                                          [
+                                                            _vm._v(
+                                                              _vm._s(
+                                                                comment
+                                                                  .created_by
+                                                                  .name
+                                                              ) + " "
+                                                            )
+                                                          ]
+                                                        ),
+                                                        _vm._v(
+                                                          _vm._s(comment.text)
+                                                        )
+                                                      ]),
+                                                      _vm._v(" "),
+                                                      _c(
+                                                        "span",
+                                                        {
+                                                          staticClass:
+                                                            "small-text"
+                                                        },
+                                                        [
+                                                          _c(
+                                                            "vue-moments-ago",
+                                                            {
+                                                              attrs: {
+                                                                prefix: "",
+                                                                suffix: "ago",
+                                                                date:
+                                                                  comment.created_at
+                                                              }
+                                                            }
+                                                          )
+                                                        ],
+                                                        1
+                                                      )
+                                                    ]
+                                                  )
+                                                ]
+                                              )
+                                            : _vm._e()
+                                        }
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass:
+                                            "head-text-section bg-light"
+                                        },
+                                        [
+                                          _vm._m(8),
+                                          _vm._v(" "),
+                                          _c("textarea", {
+                                            directives: [
+                                              {
+                                                name: "model",
+                                                rawName: "v-model",
+                                                value: _vm.taskComment,
+                                                expression: "taskComment"
+                                              }
+                                            ],
+                                            staticClass:
+                                              "custom-text-area-chat",
+                                            attrs: {
+                                              cols: "30",
+                                              rows: "5",
+                                              placeholder: "Description"
+                                            },
+                                            domProps: {
+                                              value: _vm.taskComment
+                                            },
+                                            on: {
+                                              change: function($event) {
+                                                return _vm.storeTaskComment(
+                                                  _vm.taskDetails[0].data.gid
+                                                )
+                                              },
+                                              input: function($event) {
+                                                if ($event.target.composing) {
+                                                  return
+                                                }
+                                                _vm.taskComment =
+                                                  $event.target.value
+                                              }
+                                            }
+                                          })
                                         ]
                                       )
-                                    ]
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "head-text-section" }, [
-                                _c("input", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value: _vm.taskName,
-                                      expression: "taskName"
-                                    }
-                                  ],
-                                  staticClass: "input-big",
-                                  attrs: {
-                                    type: "text",
-                                    placeholder: "Write a task name"
-                                  },
-                                  domProps: { value: _vm.taskName },
-                                  on: {
-                                    input: function($event) {
-                                      if ($event.target.composing) {
-                                        return
-                                      }
-                                      _vm.taskName = $event.target.value
-                                    }
-                                  }
-                                })
-                              ]),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                {
-                                  staticClass:
-                                    "head-text-section border-bottom-task-list"
-                                },
-                                [
-                                  _c(
-                                    "div",
-                                    { staticClass: "radious-square-input" },
-                                    [
-                                      _c(
-                                        "div",
-                                        { staticClass: "logo-border" },
-                                        [
-                                          _c(
-                                            "svg",
-                                            {
-                                              staticClass: "input-icon-1",
-                                              attrs: {
-                                                focusable: "false",
-                                                viewBox: "0 0 32 32"
-                                              }
-                                            },
-                                            [
-                                              _c("path", {
-                                                attrs: {
-                                                  d:
-                                                    "M16,18c-4.4,0-8-3.6-8-8s3.6-8,8-8s8,3.6,8,8S20.4,18,16,18z M16,4c-3.3,0-6,2.7-6,6s2.7,6,6,6s6-2.7,6-6S19.3,4,16,4z M29,32c-0.6,0-1-0.4-1-1v-4.2c0-2.6-2.2-4.8-4.8-4.8H8.8C6.2,22,4,24.2,4,26.8V31c0,0.6-0.4,1-1,1s-1-0.4-1-1v-4.2C2,23,5,20,8.8,20h14.4c3.7,0,6.8,3,6.8,6.8V31C30,31.6,29.6,32,29,32z"
-                                                }
-                                              })
-                                            ]
-                                          )
-                                        ]
-                                      ),
-                                      _vm._v(" "),
-                                      _c("input", {
-                                        staticClass: "input-design",
-                                        attrs: {
-                                          type: "text",
-                                          placeholder: "Unassigne"
-                                        }
-                                      })
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "div",
-                                    { staticClass: "radious-square-input" },
-                                    [
-                                      _c(
-                                        "div",
-                                        { staticClass: "logo-border" },
-                                        [
-                                          _c(
-                                            "svg",
-                                            {
-                                              staticClass: "input-icon-2",
-                                              attrs: {
-                                                focusable: "false",
-                                                viewBox: "0 0 32 32"
-                                              }
-                                            },
-                                            [
-                                              _c("path", {
-                                                attrs: {
-                                                  d:
-                                                    "M24,2V1c0-0.6-0.4-1-1-1s-1,0.4-1,1v1H10V1c0-0.6-0.4-1-1-1S8,0.4,8,1v1C4.7,2,2,4.7,2,8v16c0,3.3,2.7,6,6,6h16c3.3,0,6-2.7,6-6V8C30,4.7,27.3,2,24,2z M8,4v1c0,0.6,0.4,1,1,1s1-0.4,1-1V4h12v1c0,0.6,0.4,1,1,1s1-0.4,1-1V4c2.2,0,4,1.8,4,4v2H4V8C4,5.8,5.8,4,8,4z M24,28H8c-2.2,0-4-1.8-4-4V12h24v12C28,26.2,26.2,28,24,28z"
-                                                }
-                                              })
-                                            ]
-                                          )
-                                        ]
-                                      ),
-                                      _vm._v(" "),
-                                      _c("input", {
-                                        staticClass: "input-design",
-                                        attrs: {
-                                          type: "text",
-                                          placeholder: "Unassigne"
-                                        }
-                                      })
-                                    ]
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "head-text-section" }, [
-                                _c("div", { staticClass: "text-area-logo" }, [
-                                  _c(
-                                    "svg",
-                                    {
-                                      staticClass: "t-logo",
-                                      attrs: {
-                                        focusable: "false",
-                                        viewBox: "0 0 32 32"
-                                      }
-                                    },
-                                    [
-                                      _c("path", {
-                                        attrs: {
-                                          d:
-                                            "M31,8H1C0.4,8,0,7.6,0,7s0.4-1,1-1h30c0.6,0,1,0.4,1,1S31.6,8,31,8z M23,14H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,14,23,14z M27,20H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h26c0.6,0,1,0.4,1,1S27.6,20,27,20z M19,26H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h18c0.6,0,1,0.4,1,1S19.6,26,19,26z"
-                                        }
-                                      })
-                                    ]
-                                  )
-                                ]),
-                                _vm._v(" "),
-                                _c("textarea", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value: _vm.taskDesc,
-                                      expression: "taskDesc"
-                                    }
-                                  ],
-                                  staticClass: "custom-text-area",
-                                  attrs: {
-                                    name: "",
-                                    cols: "30",
-                                    rows: "5",
-                                    placeholder: "Description"
-                                  },
-                                  domProps: { value: _vm.taskDesc },
-                                  on: {
-                                    input: function($event) {
-                                      if ($event.target.composing) {
-                                        return
-                                      }
-                                      _vm.taskDesc = $event.target.value
-                                    }
-                                  }
-                                })
-                              ]),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                {
-                                  staticClass:
-                                    "head-text-section _position-relative border-bottom-task-list"
-                                },
-                                [
-                                  _c("div", { staticClass: "_input-logo" }, [
-                                    _c(
-                                      "svg",
-                                      {
-                                        staticClass: "t-logo",
-                                        attrs: {
-                                          focusable: "false",
-                                          viewBox: "0 0 32 32"
-                                        }
-                                      },
-                                      [
-                                        _c("path", {
-                                          attrs: {
-                                            d:
-                                              "M10,13.5c0.8,0,1.5,0.7,1.5,1.5s-0.7,1.5-1.5,1.5S8.5,15.8,8.5,15S9.2,13.5,10,13.5z M23,14h-8c-0.6,0-1,0.4-1,1s0.4,1,1,1h8c0.6,0,1-0.4,1-1S23.6,14,23,14z M23,20h-8c-0.6,0-1,0.4-1,1s0.4,1,1,1h8c0.6,0,1-0.4,1-1S23.6,20,23,20z M10,19.5c0.8,0,1.5,0.7,1.5,1.5s-0.7,1.5-1.5,1.5S8.5,21.8,8.5,21S9.2,19.5,10,19.5z M24,2h-2.2c-0.4-1.2-1.5-2-2.8-2h-6c-1.3,0-2.4,0.8-2.8,2H8C4.7,2,2,4.7,2,8v18c0,3.3,2.7,6,6,6h16c3.3,0,6-2.7,6-6V8C30,4.7,27.3,2,24,2z M13,2h6c0.6,0,1,0.4,1,1v2c0,0.6-0.4,1-1,1h-6c-0.6,0-1-0.4-1-1V3C12,2.4,12.4,2,13,2z M28,26c0,2.2-1.8,4-4,4H8c-2.2,0-4-1.8-4-4V8c0-2.2,1.8-4,4-4h2v1c0,1.7,1.3,3,3,3h6c1.7,0,3-1.3,3-3V4h2c2.2,0,4,1.8,4,4V26z"
-                                          }
-                                        })
-                                      ]
-                                    )
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("input", {
-                                    directives: [
-                                      {
-                                        name: "model",
-                                        rawName: "v-model",
-                                        value: _vm.taskProject,
-                                        expression: "taskProject"
-                                      }
                                     ],
-                                    staticClass: "custom-input-add-project",
-                                    attrs: {
-                                      name: "",
-                                      placeholder: "Add to Project"
-                                    },
-                                    domProps: { value: _vm.taskProject },
-                                    on: {
-                                      input: function($event) {
-                                        if ($event.target.composing) {
-                                          return
-                                        }
-                                        _vm.taskProject = $event.target.value
-                                      }
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("div", { staticClass: "new-task" }, [
-                                    _c(
-                                      "div",
-                                      {
-                                        staticClass: "border-radious-icon",
-                                        class: {
-                                          "task-complete":
-                                            _vm.isTaskComplete == 1
-                                              ? true
-                                              : false
+                                    2
+                                  )
+                                : _c(
+                                    "div",
+                                    { staticClass: "task-details-wrapper" },
+                                    [
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass:
+                                            "add-task-section-wrapper"
                                         },
-                                        on: {
-                                          click: function($event) {
-                                            _vm.isTaskComplete == 1
-                                              ? (_vm.isTaskComplete = 0)
-                                              : (_vm.isTaskComplete = 1)
-                                          }
-                                        }
-                                      },
-                                      [
-                                        _c(
-                                          "svg",
-                                          {
-                                            staticClass: "MiniIcon",
-                                            attrs: { viewBox: "0 0 24 24" }
-                                          },
-                                          [
-                                            _c("path", {
-                                              attrs: {
-                                                d:
-                                                  "M9.5,18.2c-0.4,0.4-1,0.4-1.4,0l-3.8-3.8C4,14,4,13.4,4.3,13s1-0.4,1.4,0l3.1,3.1l8.6-8.6c0.4-0.4,1-0.4,1.4,0s0.4,1,0,1.4 L9.5,18.2z"
-                                              }
-                                            })
-                                          ]
-                                        )
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c("input", {
-                                      staticClass: "new-task-input",
-                                      attrs: { type: "text" }
-                                    }),
-                                    _vm._v(" "),
-                                    _c(
-                                      "div",
-                                      { staticClass: "new-task-logo" },
-                                      [
-                                        _c(
-                                          "div",
-                                          {
-                                            staticClass: "logo-1  nv-dropdown"
-                                          },
-                                          [
-                                            _c(
-                                              "svg",
-                                              {
-                                                staticClass: "_icon",
-                                                attrs: {
-                                                  focusable: "false",
-                                                  viewBox: "0 0 32 32"
-                                                }
-                                              },
-                                              [
-                                                _c("path", {
-                                                  attrs: {
-                                                    d:
-                                                      "M16,18c-4.4,0-8-3.6-8-8s3.6-8,8-8s8,3.6,8,8S20.4,18,16,18z M16,4c-3.3,0-6,2.7-6,6s2.7,6,6,6s6-2.7,6-6S19.3,4,16,4z M29,32c-0.6,0-1-0.4-1-1v-4.2c0-2.6-2.2-4.8-4.8-4.8H8.8C6.2,22,4,24.2,4,26.8V31c0,0.6-0.4,1-1,1s-1-0.4-1-1v-4.2C2,23,5,20,8.8,20h14.4c3.7,0,6.8,3,6.8,6.8V31C30,31.6,29.6,32,29,32z"
+                                        [
+                                          _c(
+                                            "div",
+                                            { staticClass: "section-left" },
+                                            [
+                                              _c(
+                                                "div",
+                                                {
+                                                  class: {
+                                                    _btn: true,
+                                                    "_btn-default": true,
+                                                    "_btn _btn-default-active":
+                                                      _vm.isMarkComplete == 1
+                                                        ? true
+                                                        : false
                                                   }
-                                                })
-                                              ]
-                                            ),
-                                            _vm._v(" "),
-                                            _vm._m(7)
-                                          ]
-                                        ),
-                                        _vm._v(" "),
-                                        _c("div", { staticClass: "logo-2" }, [
+                                                },
+                                                [
+                                                  _c(
+                                                    "svg",
+                                                    {
+                                                      staticClass:
+                                                        "MiniIcon-custom",
+                                                      attrs: {
+                                                        viewBox: "0 0 24 24"
+                                                      }
+                                                    },
+                                                    [
+                                                      _c("path", {
+                                                        attrs: {
+                                                          d:
+                                                            "M9.2,20c-0.5,0.5-1.3,0.5-1.9,0l-5.1-5.1c-0.4-0.5-0.4-1.3,0-1.9c0.4-0.5,1.3-0.5,1.9,0l4.1,4.1L19.7,5.7 c0.5-0.5,1.3-0.5,1.9,0s0.5,1.3,0,1.9L9.2,20z"
+                                                        }
+                                                      })
+                                                    ]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _vm.isMarkComplete == 0
+                                                    ? _c("span", [
+                                                        _vm._v("Mark Complete")
+                                                      ])
+                                                    : _vm._e(),
+                                                  _vm._v(" "),
+                                                  _vm.isMarkComplete == 1
+                                                    ? _c("span", [
+                                                        _vm._v("Completed")
+                                                      ])
+                                                    : _vm._e()
+                                                ]
+                                              )
+                                            ]
+                                          ),
+                                          _vm._v(" "),
                                           _c(
-                                            "svg",
+                                            "div",
                                             {
-                                              staticClass: "_icon",
-                                              attrs: {
-                                                focusable: "false",
-                                                viewBox: "0 0 32 32"
-                                              }
+                                              staticClass:
+                                                "section-right _text-right"
                                             },
                                             [
-                                              _c("path", {
+                                              _c(
+                                                "div",
+                                                { staticClass: "logo-box" },
+                                                [
+                                                  _c(
+                                                    "svg",
+                                                    {
+                                                      staticClass:
+                                                        "hide-box-icon",
+                                                      attrs: {
+                                                        focusable: "false",
+                                                        viewBox: "0 0 32 32"
+                                                      }
+                                                    },
+                                                    [
+                                                      _c("path", {
+                                                        attrs: {
+                                                          d:
+                                                            "M19,32c-3.9,0-7-3.1-7-7V10c0-2.2,1.8-4,4-4s4,1.8,4,4v9c0,0.6-0.4,1-1,1s-1-0.4-1-1v-9c0-1.1-0.9-2-2-2s-2,0.9-2,2v15c0,2.8,2.2,5,5,5s5-2.2,5-5V10c0-4.4-3.6-8-8-8s-8,3.6-8,8v5c0,0.6-0.4,1-1,1s-1-0.4-1-1v-5C6,4.5,10.5,0,16,0s10,4.5,10,10v15C26,28.9,22.9,32,19,32z"
+                                                        }
+                                                      })
+                                                    ]
+                                                  )
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "div",
+                                                { staticClass: "logo-box" },
+                                                [
+                                                  _c(
+                                                    "svg",
+                                                    {
+                                                      staticClass:
+                                                        "hide-box-icon",
+                                                      attrs: {
+                                                        focusable: "false",
+                                                        viewBox: "0 0 32 32"
+                                                      }
+                                                    },
+                                                    [
+                                                      _c("path", {
+                                                        attrs: {
+                                                          d:
+                                                            "M25,20c-2.4,0-4.4,1.7-4.9,4H11c-3.9,0-7-3.1-7-7v-5h16.1c0.5,2.3,2.5,4,4.9,4c2.8,0,5-2.2,5-5s-2.2-5-5-5c-2.4,0-4.4,1.7-4.9,4H4V3c0-0.6-0.4-1-1-1S2,2.4,2,3v14c0,5,4,9,9,9h9.1c0.5,2.3,2.5,4,4.9,4c2.8,0,5-2.2,5-5S27.8,20,25,20z M25,8c1.7,0,3,1.3,3,3s-1.3,3-3,3s-3-1.3-3-3S23.3,8,25,8z M25,28c-1.7,0-3-1.3-3-3s1.3-3,3-3s3,1.3,3,3S26.7,28,25,28z"
+                                                        }
+                                                      })
+                                                    ]
+                                                  )
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "div",
+                                                { staticClass: "logo-box" },
+                                                [
+                                                  _c(
+                                                    "svg",
+                                                    {
+                                                      staticClass:
+                                                        "hide-box-icon",
+                                                      attrs: {
+                                                        focusable: "false",
+                                                        viewBox: "0 0 32 32"
+                                                      }
+                                                    },
+                                                    [
+                                                      _c("path", {
+                                                        attrs: {
+                                                          d:
+                                                            "M9,32c-2.3,0-4.6-0.9-6.4-2.6c-3.5-3.5-3.5-9.2,0-12.7l4-4c0.4-0.4,1-0.4,1.4,0c0.4,0.4,0.4,1,0,1.4l-4,4c-2.7,2.7-2.7,7.2,0,9.9s7.2,2.7,9.9,0l4-4c2.7-2.7,2.7-7.2,0-9.9c-0.8-0.8-1.8-1.4-2.9-1.7c-0.5-0.2-0.8-0.7-0.7-1.3c0.2-0.5,0.7-0.8,1.3-0.7c1.4,0.4,2.7,1.2,3.7,2.2c3.5,3.5,3.5,9.2,0,12.7l-4,4C13.6,31.1,11.3,32,9,32z M16.6,21.6c-0.1,0-0.2,0-0.3,0c-1.4-0.4-2.7-1.2-3.7-2.2c-1.7-1.7-2.6-4-2.6-6.4s0.9-4.7,2.6-6.4l4-4c3.5-3.5,9.2-3.5,12.7,0s3.5,9.2,0,12.7l-4,4c-0.4,0.4-1,0.4-1.4,0s-0.4-1,0-1.4l4-4c2.7-2.7,2.7-7.2,0-9.9S20.7,1.3,18,4l-4,4c-1.3,1.4-2,3.1-2,5s0.7,3.6,2.1,5c0.8,0.8,1.8,1.4,2.9,1.7c0.5,0.2,0.8,0.7,0.7,1.3C17.5,21.4,17.1,21.6,16.6,21.6z"
+                                                        }
+                                                      })
+                                                    ]
+                                                  )
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "div",
+                                                { staticClass: "logo-box" },
+                                                [
+                                                  _c(
+                                                    "svg",
+                                                    {
+                                                      staticClass:
+                                                        "hide-box-icon",
+                                                      attrs: {
+                                                        focusable: "false",
+                                                        viewBox: "0 0 32 32"
+                                                      }
+                                                    },
+                                                    [
+                                                      _c("path", {
+                                                        attrs: {
+                                                          d:
+                                                            "M28.3,4.3c-1.2-1.4-3-2.1-4.9-1.9c-1.3,0.1-2.5,0.8-3.5,1.8L6,18c-0.6,0.6-1.1,1.4-1.4,2.2l-2.2,6.4C2.1,27.5,2.3,28.4,3,29c0.4,0.4,1,0.7,1.6,0.7c0.3,0,0.5,0,0.8-0.1l6.4-2.2c0.8-0.3,1.6-0.8,2.2-1.4l13.9-13.9C30,10,30.1,6.4,28.3,4.3z M4.7,27.7c-0.2,0.1-0.3,0-0.3-0.1c-0.1-0.1-0.1-0.2-0.1-0.3l2-5.8l4.2,4.2L4.7,27.7z M26.4,10.7L12.5,24.6c-0.1,0.1-0.1,0.1-0.2,0.1l-5.1-5.1c0-0.1,0.1-0.1,0.1-0.2l14-13.8c0.7-0.7,1.5-1.1,2.3-1.2c1.2-0.1,2.4,0.3,3.2,1.2C28,7,27.8,9.4,26.4,10.7z"
+                                                        }
+                                                      })
+                                                    ]
+                                                  )
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "div",
+                                                {
+                                                  staticClass: "logo-box",
+                                                  on: {
+                                                    click: function($event) {
+                                                      _vm.sideBar == 1
+                                                        ? (_vm.sideBar = 0)
+                                                        : (_vm.sideBar = 1)
+                                                    }
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "svg",
+                                                    {
+                                                      staticClass:
+                                                        "hide-box-icon",
+                                                      attrs: {
+                                                        focusable: "false",
+                                                        viewBox: "0 0 32 32"
+                                                      }
+                                                    },
+                                                    [
+                                                      _c("path", {
+                                                        attrs: {
+                                                          d:
+                                                            "M2,14.5h18.4l-7.4-7.4c-0.6-0.6-0.6-1.5,0-2.1c0.6-0.6,1.5-0.6,2.1,0l10,10c0.6,0.6,0.6,1.5,0,2.1l-10,10c-0.3,0.3-0.7,0.4-1.1,0.4c-0.4,0-0.8-0.1-1.1-0.4c-0.6-0.6-0.6-1.5,0-2.1l7.4-7.4H2c-0.8,0-1.5-0.7-1.5-1.5C0.5,15.3,1.2,14.5,2,14.5z M28,3.5C28,2.7,28.7,2,29.5,2S31,2.7,31,3.5v25c0,0.8-0.7,1.5-1.5,1.5S28,29.3,28,28.5V3.5z"
+                                                        }
+                                                      })
+                                                    ]
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        { staticClass: "head-text-section" },
+                                        [
+                                          _c("input", {
+                                            directives: [
+                                              {
+                                                name: "model",
+                                                rawName: "v-model",
+                                                value: _vm.taskName,
+                                                expression: "taskName"
+                                              }
+                                            ],
+                                            staticClass: "input-big",
+                                            attrs: {
+                                              type: "text",
+                                              placeholder: "Write a task name"
+                                            },
+                                            domProps: { value: _vm.taskName },
+                                            on: {
+                                              input: function($event) {
+                                                if ($event.target.composing) {
+                                                  return
+                                                }
+                                                _vm.taskName =
+                                                  $event.target.value
+                                              }
+                                            }
+                                          })
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass:
+                                            "head-text-section border-bottom-task-list"
+                                        },
+                                        [
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass:
+                                                "radious-square-input"
+                                            },
+                                            [
+                                              _c(
+                                                "div",
+                                                { staticClass: "logo-border" },
+                                                [
+                                                  _c(
+                                                    "svg",
+                                                    {
+                                                      staticClass:
+                                                        "input-icon-1",
+                                                      attrs: {
+                                                        focusable: "false",
+                                                        viewBox: "0 0 32 32"
+                                                      }
+                                                    },
+                                                    [
+                                                      _c("path", {
+                                                        attrs: {
+                                                          d:
+                                                            "M16,18c-4.4,0-8-3.6-8-8s3.6-8,8-8s8,3.6,8,8S20.4,18,16,18z M16,4c-3.3,0-6,2.7-6,6s2.7,6,6,6s6-2.7,6-6S19.3,4,16,4z M29,32c-0.6,0-1-0.4-1-1v-4.2c0-2.6-2.2-4.8-4.8-4.8H8.8C6.2,22,4,24.2,4,26.8V31c0,0.6-0.4,1-1,1s-1-0.4-1-1v-4.2C2,23,5,20,8.8,20h14.4c3.7,0,6.8,3,6.8,6.8V31C30,31.6,29.6,32,29,32z"
+                                                        }
+                                                      })
+                                                    ]
+                                                  )
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c("input", {
+                                                staticClass: "input-design",
                                                 attrs: {
-                                                  d:
-                                                    "M24,2V1c0-0.6-0.4-1-1-1s-1,0.4-1,1v1H10V1c0-0.6-0.4-1-1-1S8,0.4,8,1v1C4.7,2,2,4.7,2,8v16c0,3.3,2.7,6,6,6h16c3.3,0,6-2.7,6-6V8C30,4.7,27.3,2,24,2z M8,4v1c0,0.6,0.4,1,1,1s1-0.4,1-1V4h12v1c0,0.6,0.4,1,1,1s1-0.4,1-1V4c2.2,0,4,1.8,4,4v2H4V8C4,5.8,5.8,4,8,4z M24,28H8c-2.2,0-4-1.8-4-4V12h24v12C28,26.2,26.2,28,24,28z"
+                                                  type: "text",
+                                                  placeholder: "Unassigne"
+                                                }
+                                              })
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass:
+                                                "radious-square-input"
+                                            },
+                                            [
+                                              _c(
+                                                "div",
+                                                { staticClass: "logo-border" },
+                                                [
+                                                  _c(
+                                                    "svg",
+                                                    {
+                                                      staticClass:
+                                                        "input-icon-2",
+                                                      attrs: {
+                                                        focusable: "false",
+                                                        viewBox: "0 0 32 32"
+                                                      }
+                                                    },
+                                                    [
+                                                      _c("path", {
+                                                        attrs: {
+                                                          d:
+                                                            "M24,2V1c0-0.6-0.4-1-1-1s-1,0.4-1,1v1H10V1c0-0.6-0.4-1-1-1S8,0.4,8,1v1C4.7,2,2,4.7,2,8v16c0,3.3,2.7,6,6,6h16c3.3,0,6-2.7,6-6V8C30,4.7,27.3,2,24,2z M8,4v1c0,0.6,0.4,1,1,1s1-0.4,1-1V4h12v1c0,0.6,0.4,1,1,1s1-0.4,1-1V4c2.2,0,4,1.8,4,4v2H4V8C4,5.8,5.8,4,8,4z M24,28H8c-2.2,0-4-1.8-4-4V12h24v12C28,26.2,26.2,28,24,28z"
+                                                        }
+                                                      })
+                                                    ]
+                                                  )
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c("input", {
+                                                staticClass: "input-design",
+                                                attrs: {
+                                                  type: "text",
+                                                  placeholder: "Unassigne"
                                                 }
                                               })
                                             ]
                                           )
-                                        ]),
-                                        _vm._v(" "),
-                                        _c("div", { staticClass: "logo-3" }, [
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        { staticClass: "head-text-section" },
+                                        [
                                           _c(
-                                            "svg",
-                                            {
-                                              staticClass: "_icon",
-                                              attrs: {
-                                                focusable: "false",
-                                                viewBox: "0 0 32 32"
-                                              }
-                                            },
+                                            "div",
+                                            { staticClass: "text-area-logo" },
                                             [
-                                              _c("path", {
-                                                attrs: {
-                                                  d:
-                                                    "M5,31c-0.1,0-0.3,0-0.4-0.1C4.2,30.7,4,30.4,4,30v-7.1c-2.5-2.3-4-5.5-4-8.9C0,7.4,5.4,2,12,2h8c6.6,0,12,5.4,12,12 s-5.4,12-12,12h-8c-0.1,0-0.3,0-0.4,0l-5.9,4.8C5.4,30.9,5.2,31,5,31z M12,4C6.5,4,2,8.5,2,14c0,3,1.3,5.8,3.6,7.7C5.9,21.9,6,22.2,6,22.5v5.4l4.6-3.7C10.8,24,11,24,11.3,24h0.1c0.2,0,0.4,0,0.6,0h8c5.5,0,10-4.5,10-10S25.5,4,20,4 C20,4,12,4,12,4z"
+                                              _c(
+                                                "svg",
+                                                {
+                                                  staticClass: "t-logo",
+                                                  attrs: {
+                                                    focusable: "false",
+                                                    viewBox: "0 0 32 32"
+                                                  }
+                                                },
+                                                [
+                                                  _c("path", {
+                                                    attrs: {
+                                                      d:
+                                                        "M31,8H1C0.4,8,0,7.6,0,7s0.4-1,1-1h30c0.6,0,1,0.4,1,1S31.6,8,31,8z M23,14H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,14,23,14z M27,20H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h26c0.6,0,1,0.4,1,1S27.6,20,27,20z M19,26H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h18c0.6,0,1,0.4,1,1S19.6,26,19,26z"
+                                                    }
+                                                  })
+                                                ]
+                                              )
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c("textarea", {
+                                            directives: [
+                                              {
+                                                name: "model",
+                                                rawName: "v-model",
+                                                value: _vm.taskDesc,
+                                                expression: "taskDesc"
+                                              }
+                                            ],
+                                            staticClass: "custom-text-area",
+                                            attrs: {
+                                              name: "",
+                                              cols: "30",
+                                              rows: "5",
+                                              placeholder: "Description"
+                                            },
+                                            domProps: { value: _vm.taskDesc },
+                                            on: {
+                                              input: function($event) {
+                                                if ($event.target.composing) {
+                                                  return
                                                 }
-                                              })
+                                                _vm.taskDesc =
+                                                  $event.target.value
+                                              }
+                                            }
+                                          })
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass:
+                                            "head-text-section _position-relative border-bottom-task-list"
+                                        },
+                                        [
+                                          _c(
+                                            "div",
+                                            { staticClass: "_input-logo" },
+                                            [
+                                              _c(
+                                                "svg",
+                                                {
+                                                  staticClass: "t-logo",
+                                                  attrs: {
+                                                    focusable: "false",
+                                                    viewBox: "0 0 32 32"
+                                                  }
+                                                },
+                                                [
+                                                  _c("path", {
+                                                    attrs: {
+                                                      d:
+                                                        "M10,13.5c0.8,0,1.5,0.7,1.5,1.5s-0.7,1.5-1.5,1.5S8.5,15.8,8.5,15S9.2,13.5,10,13.5z M23,14h-8c-0.6,0-1,0.4-1,1s0.4,1,1,1h8c0.6,0,1-0.4,1-1S23.6,14,23,14z M23,20h-8c-0.6,0-1,0.4-1,1s0.4,1,1,1h8c0.6,0,1-0.4,1-1S23.6,20,23,20z M10,19.5c0.8,0,1.5,0.7,1.5,1.5s-0.7,1.5-1.5,1.5S8.5,21.8,8.5,21S9.2,19.5,10,19.5z M24,2h-2.2c-0.4-1.2-1.5-2-2.8-2h-6c-1.3,0-2.4,0.8-2.8,2H8C4.7,2,2,4.7,2,8v18c0,3.3,2.7,6,6,6h16c3.3,0,6-2.7,6-6V8C30,4.7,27.3,2,24,2z M13,2h6c0.6,0,1,0.4,1,1v2c0,0.6-0.4,1-1,1h-6c-0.6,0-1-0.4-1-1V3C12,2.4,12.4,2,13,2z M28,26c0,2.2-1.8,4-4,4H8c-2.2,0-4-1.8-4-4V8c0-2.2,1.8-4,4-4h2v1c0,1.7,1.3,3,3,3h6c1.7,0,3-1.3,3-3V4h2c2.2,0,4,1.8,4,4V26z"
+                                                    }
+                                                  })
+                                                ]
+                                              )
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c("input", {
+                                            directives: [
+                                              {
+                                                name: "model",
+                                                rawName: "v-model",
+                                                value: _vm.taskProject,
+                                                expression: "taskProject"
+                                              }
+                                            ],
+                                            staticClass:
+                                              "custom-input-add-project",
+                                            attrs: {
+                                              name: "",
+                                              placeholder: "Add to Project"
+                                            },
+                                            domProps: {
+                                              value: _vm.taskProject
+                                            },
+                                            on: {
+                                              input: function($event) {
+                                                if ($event.target.composing) {
+                                                  return
+                                                }
+                                                _vm.taskProject =
+                                                  $event.target.value
+                                              }
+                                            }
+                                          }),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            { staticClass: "new-task" },
+                                            [
+                                              _c(
+                                                "div",
+                                                {
+                                                  staticClass:
+                                                    "border-radious-icon",
+                                                  class: {
+                                                    "task-complete":
+                                                      _vm.isTaskComplete == 1
+                                                        ? true
+                                                        : false
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "svg",
+                                                    {
+                                                      staticClass: "MiniIcon",
+                                                      attrs: {
+                                                        viewBox: "0 0 24 24"
+                                                      }
+                                                    },
+                                                    [
+                                                      _c("path", {
+                                                        attrs: {
+                                                          d:
+                                                            "M9.5,18.2c-0.4,0.4-1,0.4-1.4,0l-3.8-3.8C4,14,4,13.4,4.3,13s1-0.4,1.4,0l3.1,3.1l8.6-8.6c0.4-0.4,1-0.4,1.4,0s0.4,1,0,1.4 L9.5,18.2z"
+                                                        }
+                                                      })
+                                                    ]
+                                                  )
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c("input", {
+                                                staticClass: "new-task-input",
+                                                attrs: { type: "text" }
+                                              }),
+                                              _vm._v(" "),
+                                              _c(
+                                                "div",
+                                                {
+                                                  staticClass: "new-task-logo"
+                                                },
+                                                [
+                                                  _c(
+                                                    "div",
+                                                    {
+                                                      staticClass:
+                                                        "logo-1 cursor-pointer nv-dropdown"
+                                                    },
+                                                    [
+                                                      _c(
+                                                        "svg",
+                                                        {
+                                                          staticClass: "_icon",
+                                                          attrs: {
+                                                            focusable: "false",
+                                                            viewBox: "0 0 32 32"
+                                                          }
+                                                        },
+                                                        [
+                                                          _c("path", {
+                                                            attrs: {
+                                                              d:
+                                                                "M16,18c-4.4,0-8-3.6-8-8s3.6-8,8-8s8,3.6,8,8S20.4,18,16,18z M16,4c-3.3,0-6,2.7-6,6s2.7,6,6,6s6-2.7,6-6S19.3,4,16,4z M29,32c-0.6,0-1-0.4-1-1v-4.2c0-2.6-2.2-4.8-4.8-4.8H8.8C6.2,22,4,24.2,4,26.8V31c0,0.6-0.4,1-1,1s-1-0.4-1-1v-4.2C2,23,5,20,8.8,20h14.4c3.7,0,6.8,3,6.8,6.8V31C30,31.6,29.6,32,29,32z"
+                                                            }
+                                                          })
+                                                        ]
+                                                      ),
+                                                      _vm._v(" "),
+                                                      _vm._m(9)
+                                                    ]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "div",
+                                                    {
+                                                      staticClass:
+                                                        "logo-2 cursor-pointer"
+                                                    },
+                                                    [
+                                                      _c(
+                                                        "svg",
+                                                        {
+                                                          staticClass: "_icon",
+                                                          attrs: {
+                                                            focusable: "false",
+                                                            viewBox: "0 0 32 32"
+                                                          }
+                                                        },
+                                                        [
+                                                          _c("path", {
+                                                            attrs: {
+                                                              d:
+                                                                "M24,2V1c0-0.6-0.4-1-1-1s-1,0.4-1,1v1H10V1c0-0.6-0.4-1-1-1S8,0.4,8,1v1C4.7,2,2,4.7,2,8v16c0,3.3,2.7,6,6,6h16c3.3,0,6-2.7,6-6V8C30,4.7,27.3,2,24,2z M8,4v1c0,0.6,0.4,1,1,1s1-0.4,1-1V4h12v1c0,0.6,0.4,1,1,1s1-0.4,1-1V4c2.2,0,4,1.8,4,4v2H4V8C4,5.8,5.8,4,8,4z M24,28H8c-2.2,0-4-1.8-4-4V12h24v12C28,26.2,26.2,28,24,28z"
+                                                            }
+                                                          })
+                                                        ]
+                                                      )
+                                                    ]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "div",
+                                                    {
+                                                      staticClass:
+                                                        "logo-3 cursor-pointer"
+                                                    },
+                                                    [
+                                                      _c(
+                                                        "svg",
+                                                        {
+                                                          staticClass: "_icon",
+                                                          attrs: {
+                                                            focusable: "false",
+                                                            viewBox: "0 0 32 32"
+                                                          }
+                                                        },
+                                                        [
+                                                          _c("path", {
+                                                            attrs: {
+                                                              d:
+                                                                "M5,31c-0.1,0-0.3,0-0.4-0.1C4.2,30.7,4,30.4,4,30v-7.1c-2.5-2.3-4-5.5-4-8.9C0,7.4,5.4,2,12,2h8c6.6,0,12,5.4,12,12 s-5.4,12-12,12h-8c-0.1,0-0.3,0-0.4,0l-5.9,4.8C5.4,30.9,5.2,31,5,31z M12,4C6.5,4,2,8.5,2,14c0,3,1.3,5.8,3.6,7.7C5.9,21.9,6,22.2,6,22.5v5.4l4.6-3.7C10.8,24,11,24,11.3,24h0.1c0.2,0,0.4,0,0.6,0h8c5.5,0,10-4.5,10-10S25.5,4,20,4 C20,4,12,4,12,4z"
+                                                            }
+                                                          })
+                                                        ]
+                                                      )
+                                                    ]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "div",
+                                                    { staticClass: "logo-3" },
+                                                    [
+                                                      _c(
+                                                        "svg",
+                                                        {
+                                                          staticClass: "_icon",
+                                                          attrs: {
+                                                            focusable: "false",
+                                                            viewBox: "0 0 32 32"
+                                                          }
+                                                        },
+                                                        [
+                                                          _c("path", {
+                                                            attrs: {
+                                                              d:
+                                                                "M23.2,16c0,0.3-0.1,0.7-0.3,0.9l-9,11c-0.5,0.6-1.5,0.7-2.1,0.2s-0.7-1.5-0.2-2.1l8.2-10L11.6,6c-0.5-0.6-0.4-1.6,0.2-2.1s1.6-0.4,2.1,0.2l9,11C23.1,15.3,23.2,15.7,23.2,16z"
+                                                            }
+                                                          })
+                                                        ]
+                                                      )
+                                                    ]
+                                                  )
+                                                ]
+                                              )
                                             ]
                                           )
-                                        ]),
-                                        _vm._v(" "),
-                                        _c("div", { staticClass: "logo-3" }, [
-                                          _c(
-                                            "svg",
-                                            {
-                                              staticClass: "_icon",
-                                              attrs: {
-                                                focusable: "false",
-                                                viewBox: "0 0 32 32"
-                                              }
-                                            },
-                                            [
-                                              _c("path", {
-                                                attrs: {
-                                                  d:
-                                                    "M23.2,16c0,0.3-0.1,0.7-0.3,0.9l-9,11c-0.5,0.6-1.5,0.7-2.1,0.2s-0.7-1.5-0.2-2.1l8.2-10L11.6,6c-0.5-0.6-0.4-1.6,0.2-2.1s1.6-0.4,2.1,0.2l9,11C23.1,15.3,23.2,15.7,23.2,16z"
-                                                }
-                                              })
-                                            ]
-                                          )
-                                        ])
-                                      ]
-                                    )
-                                  ])
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _vm._m(8),
-                              _vm._v(" "),
-                              _vm._m(9)
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _vm._m(10),
+                                      _vm._v(" "),
+                                      _vm._m(11)
+                                    ]
+                                  )
                             ]
                           )
                         ])
@@ -52302,7 +53570,7 @@ var render = function() {
                                                       "flex border-b border-40 w-full"
                                                   },
                                                   [
-                                                    _vm._m(10),
+                                                    _vm._m(12),
                                                     _vm._v(" "),
                                                     _c(
                                                       "div",
@@ -52410,7 +53678,7 @@ var render = function() {
                                                       "flex border-b border-40 w-full"
                                                   },
                                                   [
-                                                    _vm._m(11),
+                                                    _vm._m(13),
                                                     _vm._v(" "),
                                                     _c(
                                                       "div",
@@ -52580,7 +53848,7 @@ var render = function() {
                                                       "flex border-b border-40 w-full"
                                                   },
                                                   [
-                                                    _vm._m(12),
+                                                    _vm._m(14),
                                                     _vm._v(" "),
                                                     _c(
                                                       "div",
@@ -52753,7 +54021,7 @@ var render = function() {
                                                       "flex border-b border-40 w-full"
                                                   },
                                                   [
-                                                    _vm._m(13),
+                                                    _vm._m(15),
                                                     _vm._v(" "),
                                                     _c(
                                                       "div",
@@ -52845,7 +54113,7 @@ var render = function() {
                                                       "flex border-b border-40 w-full"
                                                   },
                                                   [
-                                                    _vm._m(14),
+                                                    _vm._m(16),
                                                     _vm._v(" "),
                                                     _c(
                                                       "div",
@@ -53055,19 +54323,19 @@ var staticRenderFns = [
     return _c("div", { staticClass: "task-list-header" }, [
       _c("div", { staticClass: "task-name-box" }, [
         _vm._v(
-          "\n                                    Task name\n                                "
+          "\n                                Task name\n                            "
         )
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "task-assignee-box" }, [
         _vm._v(
-          "\n                                    Assignee\n                                "
+          "\n                                Assignee\n                            "
         )
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "task-assignee-box border-right-none" }, [
         _vm._v(
-          "\n                                    Due Date\n                                "
+          "\n                                Due Date\n                            "
         )
       ])
     ])
@@ -53098,56 +54366,48 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "assignee-box-dropdown nv-dropdown-menu" },
-      [
-        _c("div", { staticClass: "each-assignee" }, [
-          _c("div", {
-            staticClass: "profile-img",
-            staticStyle: {
-              "background-image":
-                "url('https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png')"
-            }
-          }),
-          _vm._v(" "),
-          _c("div", { staticClass: "name-text" }, [_vm._v("Shadin Rana")])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "each-assignee" }, [
-          _c("div", {
-            staticClass: "profile-img",
-            staticStyle: {
-              "background-image":
-                "url('https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png')"
-            }
-          }),
-          _vm._v(" "),
-          _c("div", { staticClass: "name-text" }, [_vm._v("Shadin Rana")])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "each-assignee" }, [
-          _c("div", {
-            staticClass: "profile-img",
-            staticStyle: {
-              "background-image":
-                "url('https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png')"
-            }
-          }),
-          _vm._v(" "),
-          _c("div", { staticClass: "name-text" }, [_vm._v("Shadin Rana")])
-        ])
-      ]
-    )
+    return _c("span", [
+      _c("input", {
+        staticClass: "assignee-box-input nv-dropdown-trigger",
+        attrs: { type: "text" }
+      })
+    ])
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("span", [
-      _c("input", {
-        staticClass: "assignee-box-input nv-dropdown-trigger",
-        attrs: { type: "text" }
+    return _c("div", { staticClass: "loader-io" }, [
+      _c("div", { staticClass: "loadingio-spinner-eclipse-utvtio44ngo" }, [
+        _c("div", { staticClass: "ldio-aebf04cd3u" }, [_c("div")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "profile-img" }, [
+      _c("div", {
+        staticClass: "_img",
+        staticStyle: {
+          "background-image":
+            "url('https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png')"
+        }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "profile-img" }, [
+      _c("div", {
+        staticClass: "_img",
+        staticStyle: {
+          "background-image":
+            "url('https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png')"
+        }
       })
     ])
   },
