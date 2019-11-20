@@ -180,502 +180,379 @@
                 <h1 class="flex-no-shrink text-90 font-normal text-2xl">Tasks/Projects</h1>
                 <!---->
                 <div class="flex-no-shrink ml-auto mb-6">
-                    <a href="javascript:void(0)" v-if="projectDetails == null" @click="createProject" class="btn btn-default btn-primary" dusk="create-button">Create Project</a>
+                    <a href="javascript:void(0)" v-if="!isLoading && projectDetails == null" @click="createProject" class="btn btn-default btn-primary" dusk="create-button">Create Project</a>
                 </div>
             </div>
         </div>
-        <div class="w-full flex items-center" id="loader">
-            <div class="lds-facebook"><div></div><div></div><div></div></div>
+        <div class="relationship-tabs-panel card">
+            <div class="loader-io" v-if="isLoading">
+                <div class="loadingio-spinner-eclipse-utvtio44ngo">
+                    <div class="ldio-aebf04cd3u">
+                        <div></div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div v-if="!isLoading" class="relationship-tabs-panel card">
-            <div class="w-full" v-if="Template === 1">
+            <div class="w-full">
                 <div v-if="projectDetails">
                     <div class="tabs-wrap border-b-2 border-40 w-full">
                         <div class="tabs flex flex-row overflow-x-auto">
                             <button class="py-5 px-8 border-b-2 focus:outline-none tab text-grey-black font-bold border-primary">
-                                {{ projectDetails.data.name }} &nbsp;&nbsp;&nbsp;
+                                {{ projectDetails.data.name }}
                             </button>
                         </div>
                     </div>
-                    <div class="add-task-section-wrapper">
-                        <div class="section-left">
-                            <div class="_btn _btn-default" @click="createNewTaskCounter += 1">
-                                <svg class="MiniIcon-custom" viewBox="0 0 24 24">
-                                    <path d="M10,10V4c0-1.1,0.9-2,2-2s2,0.9,2,2v6h6c1.1,0,2,0.9,2,2s-0.9,2-2,2h-6v6c0,1.1-0.9,2-2,2s-2-0.9-2-2v-6H4c-1.1,0-2-0.9-2-2s0.9-2,2-2H10z"></path>
-                                </svg>
-                                Add Task
+                    <div class="tab-content">
+                        <div class="add-task-section-wrapper">
+                            <div class="section-left">
+                                <div class="_btn _btn-default" @click="createNewTask = true">
+                                    <svg class="MiniIcon-custom" viewBox="0 0 24 24">
+                                        <path d="M10,10V4c0-1.1,0.9-2,2-2s2,0.9,2,2v6h6c1.1,0,2,0.9,2,2s-0.9,2-2,2h-6v6c0,1.1-0.9,2-2,2s-2-0.9-2-2v-6H4c-1.1,0-2-0.9-2-2s0.9-2,2-2H10z"></path>
+                                    </svg>
+                                    Add Task
+                                </div>
+                            </div>
+                            <div class="section-right _text-right">
+                                <div class="_btn _btn-borderless nv-dropdown">
+                                    <svg class="MiniIcon-custom" viewBox="0 0 24 24">
+                                        <path d="M12,3c5,0,9,4,9,9s-4,9-9,9s-9-4-9-9S7,3,12,3 M12,1C5.9,1,1,5.9,1,12s4.9,11,11,11s11-4.9,11-11S18.1,1,12,1L12,1zM11.2,16.2l6-6c0.4-0.4,0.4-1,0-1.4s-1-0.4-1.4,0l-5.3,5.3l-2.3-2.3c-0.4-0.4-1-0.4-1.4,0s-0.4,1,0,1.4l3,3c0.2,0.2,0.5,0.3,0.7,0.3S11,16.4,11.2,16.2z">
+                                        </path>
+                                    </svg>
+                                    <span>All Tasks</span>
+                                    <div class="task-head-box-dropdown nv-dropdown-menu">
+                                        <div class="each-box">
+                                            <a href="#">All Task</a>
+                                        </div>
+                                        <div class="each-box">
+                                            <a href="#">Incomplete tasks</a>
+                                        </div>
+                                        <div class="each-box">
+                                            <a href="#">Complete Tasks</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="_assigned-box">
+                                    <select class="_custom-select" v-model="taskFilter.assignee" @change="filterTasks">
+                                        <option value="">Assignee</option>
+                                        <option v-if="users.length > 0" v-for="user in users" :value="user.gid">{{ user.name }}</option>
+                                    </select>
+                                </div>
+                                <div class="_assigned-box">
+                                    <select class="_custom-select" v-model="taskFilter.section" @change="filterTasks" name="">
+                                        <option value="">Choose type</option>
+                                        <option v-if="sections.length > 0" v-for="section in sections" :value="section.gid">{{ section.name }}</option>
+                                    </select>
+                                </div>
+                                <div class="_assigned-box">
+                                    <flat-pickr
+                                        v-model="taskFilter.due_on"
+                                        :config="config"
+                                        @on-change="filterTasks"
+                                        class="w-full form-control form-input-bordered"
+                                        placeholder="Due Date"
+                                        name="date">
+                                    </flat-pickr>
+                                </div>
                             </div>
                         </div>
-                        <div class="section-right _text-right">
-                            <div class="_btn _btn-borderless nv-dropdown">
-                                <svg class="MiniIcon-custom" viewBox="0 0 24 24">
-                                    <path d="M12,3c5,0,9,4,9,9s-4,9-9,9s-9-4-9-9S7,3,12,3 M12,1C5.9,1,1,5.9,1,12s4.9,11,11,11s11-4.9,11-11S18.1,1,12,1L12,1zM11.2,16.2l6-6c0.4-0.4,0.4-1,0-1.4s-1-0.4-1.4,0l-5.3,5.3l-2.3-2.3c-0.4-0.4-1-0.4-1.4,0s-0.4,1,0,1.4l3,3c0.2,0.2,0.5,0.3,0.7,0.3S11,16.4,11.2,16.2z">
-                                    </path>
-                                </svg>
-                                <span>All Tasks</span>
-                                <div class="task-head-box-dropdown nv-dropdown-menu">
-                                    <div class="each-box">
-                                        <a href="#">All Task</a>
+                        <div class="main-wrapper">
+                            <div class="task-list-wrapper" :class="{'task-list-half': sideBar == 1 ? true:false}">
+                                <div class="task-list-header">
+                                    <div class="task-name-box">
+                                        Task name
                                     </div>
-                                    <div class="each-box">
-                                        <a href="#">Incomplete tasks</a>
+                                    <div class="task-assignee-box">
+                                        Assignee
                                     </div>
-                                    <div class="each-box">
-                                        <a href="#">Complete Tasks</a>
+                                    <div class="task-assignee-box border-right-none">
+                                        Due Date
                                     </div>
                                 </div>
-                            </div>
-                            <div class="_assigned-box">
-                                <select class="_custom-select" v-model="taskFilter.assignee" @change="filterTasks" name="">
-                                    <option value="">Assignee</option>
-                                    <option v-if="users.length > 0" v-for="user in users" :value="user.gid">{{ user.name }}</option>
-                                </select>
-                            </div>
-                            <div class="_assigned-box">
-                                <select class="_custom-select" v-model="taskFilter.section" @change="filterTasks" name="">
-                                    <option value="">Choose type</option>
-                                    <option v-if="sections.length > 0" v-for="section in sections" :value="section.gid">{{ section.name }}</option>
-                                </select>
-                            </div>
-                            <div class="_assigned-box">
-                                <flat-pickr
-                                    v-model="taskFilter.due_on"
-                                    :config="config"
-                                    @on-change="filterTasks"
-                                    class="w-full form-control form-input-bordered"
-                                    placeholder="Due Date"
-                                    name="date">
-                                </flat-pickr>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="main-wrapper">
-                        <div class="task-list-wrapper" :class="{'task-list-half': sideBar == 1 ? true:false}">
-                            <div class="task-list-header">
-                                <div class="task-name-box">
-                                    Task name
-                                </div>
-                                <div class="task-assignee-box">
-                                    Assignee
-                                </div>
-                                <div class="task-assignee-box border-right-none">
-                                    Due Date
-                                </div>
-                            </div>
-                            <div class="task-list-body" v-if="createNewTaskCounter > 0" v-for="i in createNewTaskCounter">
-                                <div class="task-name-box cursor-pointer">
-                                    <div @click="isTaskComplete == 1 ? isTaskComplete = 0 : isTaskComplete = 1" class="border-radious-icon" :class="{'task-complete': isTaskComplete == 1 ? true : false}">
-                                        <svg class="MiniIcon"
-                                             viewBox="0 0 24 24">
-                                            <path d="M9.5,18.2c-0.4,0.4-1,0.4-1.4,0l-3.8-3.8C4,14,4,13.4,4.3,13s1-0.4,1.4,0l3.1,3.1l8.6-8.6c0.4-0.4,1-0.4,1.4,0s0.4,1,0,1.4 L9.5,18.2z"></path>
-                                        </svg>
-                                    </div>
-                                    <span><input type="text" class="task-body-custom-input"></span>
-                                    <div @click="sideBar == 1 ? sideBar = 0 : sideBar = 1" class="detail-option">Detail
-                                        <svg class="MiniIcon-right" viewBox="0 0 24 24">
-                                            <path d="M8.9,20.4c-0.4,0-0.7-0.1-1-0.4c-0.6-0.6-0.7-1.5-0.1-2.1l5.2-5.8L7.8,6C7.3,5.4,7.3,4.4,8,3.9C8.6,3.3,9.5,3.4,10.1,4l6.1,7.1c0.5,0.6,0.5,1.4,0,2l-6.1,6.8C9.8,20.3,9.4,20.4,8.9,20.4z"></path>
-                                        </svg>
-                                    </div>
-                                </div>
-                                <div class="task-assignee-box cursor-pointer nv-dropdown">
-                                    <div class="nv-dropdown-trigger">
-                                        <div class="assignee-box-logo">
-                                            <svg class="inside-logo" focusable="false" viewBox="0 0 32 32">
-                                                <path d="M16,18c-4.4,0-8-3.6-8-8s3.6-8,8-8s8,3.6,8,8S20.4,18,16,18z M16,4c-3.3,0-6,2.7-6,6s2.7,6,6,6s6-2.7,6-6S19.3,4,16,4z M29,32c-0.6,0-1-0.4-1-1v-4.2c0-2.6-2.2-4.8-4.8-4.8H8.8C6.2,22,4,24.2,4,26.8V31c0,0.6-0.4,1-1,1s-1-0.4-1-1v-4.2C2,23,5,20,8.8,20h14.4c3.7,0,6.8,3,6.8,6.8V31C30,31.6,29.6,32,29,32z"></path>
+                                <div class="task-list-body" v-if="createNewTask">
+                                    <div class="task-name-box cursor-pointer">
+                                        <div @click="" class="border-radious-icon" :class="{'task-complete': isTaskComplete == 1 ? true : false}">
+                                            <svg class="MiniIcon"
+                                                 viewBox="0 0 24 24">
+                                                <path d="M9.5,18.2c-0.4,0.4-1,0.4-1.4,0l-3.8-3.8C4,14,4,13.4,4.3,13s1-0.4,1.4,0l3.1,3.1l8.6-8.6c0.4-0.4,1-0.4,1.4,0s0.4,1,0,1.4 L9.5,18.2z"></path>
                                             </svg>
                                         </div>
-                                        <span><input type="text" class="assignee-box-input assigned-input"></span>
-                                    </div>
-
-                                    <div class="assignee-box-dropdown nv-dropdown-menu">
-                                        <div class="each-assignee" v-if="users.length > 0" v-for="user in users">
-                                            <div class="profile-img"
-                                                 style="background-image: url('https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png')"></div>
-                                            <div class="name-text">{{ user.name }}</div>
+                                        <span><input type="text" v-model="task.name" class="task-body-custom-input"></span>
+                                        <div @click="storeTask" class="detail-option">Create
+                                            <svg class="MiniIcon-right" viewBox="0 0 24 24">
+                                                <path d="M8.9,20.4c-0.4,0-0.7-0.1-1-0.4c-0.6-0.6-0.7-1.5-0.1-2.1l5.2-5.8L7.8,6C7.3,5.4,7.3,4.4,8,3.9C8.6,3.3,9.5,3.4,10.1,4l6.1,7.1c0.5,0.6,0.5,1.4,0,2l-6.1,6.8C9.8,20.3,9.4,20.4,8.9,20.4z"></path>
+                                            </svg>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="task-assignee-box cursor-pointer border-right-none">
-                                    <div class="assignee-box-logo">
-                                        <svg class="inside-logo" focusable="false" viewBox="0 0 32 32">
-                                            <path d="M24,2V1c0-0.6-0.4-1-1-1s-1,0.4-1,1v1H10V1c0-0.6-0.4-1-1-1S8,0.4,8,1v1C4.7,2,2,4.7,2,8v16c0,3.3,2.7,6,6,6h16c3.3,0,6-2.7,6-6V8C30,4.7,27.3,2,24,2z M8,4v1c0,0.6,0.4,1,1,1s1-0.4,1-1V4h12v1c0,0.6,0.4,1,1,1s1-0.4,1-1V4c2.2,0,4,1.8,4,4v2H4V8C4,5.8,5.8,4,8,4z M24,28H8c-2.2,0-4-1.8-4-4V12h24v12C28,26.2,26.2,28,24,28z"></path>
-                                        </svg>
-                                    </div>
-                                    <span>
-                                        <flat-pickr
-                                            @on-change=""
-                                            class="assignee-box-input assigned-input"
-                                            name="date">
-                                        </flat-pickr>
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="collapse-parent collapse-open" v-if="sectionData.length > 0" v-for="section in sectionData">
-                                <div class="section-header">
-                                    <div class="d-flex-inline cursor-pointer nv-collapse">{{ section[0].name }}
-                                        <svg style="enable-background:new 0 0 511.626 511.626;width: 23px;height: 23px;"
-                                             class="MiniIcon-right"
-                                             focusable="false" viewBox="0 0 32 32">
-                                            <path d="M25.9,12.9c-0.5-0.6-1.5-0.7-2.1-0.2L16,19.1l-7.8-6.4c-0.6-0.5-1.6-0.4-2.1,0.2c-0.5,0.6-0.4,1.6,0.2,2.1l8.8,7.2  c0.2,0.2,0.6,0.3,0.9,0.3s0.7-0.1,0.9-0.3l8.8-7.2C26.3,14.5,26.4,13.5,25.9,12.9z"></path>
-                                        </svg>
-                                    </div>
-                                </div>
-                                <div class="nv-collapsedown">
-                                    <div class="task-list-body border-top-task-list" v-if="section['tasks'].length > 0" v-for="task in section['tasks']">
-                                        <div class="task-name-box cursor-pointer">
-                                            <div class="border-radious-icon" :class="{'task-complete': task[0].data.completed ? true : false}">
-                                                <svg class="MiniIcon"
-                                                     viewBox="0 0 24 24">
-                                                    <path d="M9.5,18.2c-0.4,0.4-1,0.4-1.4,0l-3.8-3.8C4,14,4,13.4,4.3,13s1-0.4,1.4,0l3.1,3.1l8.6-8.6c0.4-0.4,1-0.4,1.4,0s0.4,1,0,1.4 L9.5,18.2z"></path>
-                                                </svg>
-                                            </div>
-                                            <span><input type="text" class="task-body-custom-input" placeholder="Write a task name" :value="task[0].data.name"></span>
-                                            <div @click="showTask(task[0].data.gid)" class="detail-option">Detail
-                                                <svg class="MiniIcon-right" viewBox="0 0 24 24">
-                                                    <path d="M8.9,20.4c-0.4,0-0.7-0.1-1-0.4c-0.6-0.6-0.7-1.5-0.1-2.1l5.2-5.8L7.8,6C7.3,5.4,7.3,4.4,8,3.9C8.6,3.3,9.5,3.4,10.1,4l6.1,7.1c0.5,0.6,0.5,1.4,0,2l-6.1,6.8C9.8,20.3,9.4,20.4,8.9,20.4z"></path>
-                                                </svg>
-                                            </div>
-                                        </div>
-                                        <div class="task-assignee-box cursor-pointer nv-dropdown" @click="focusInput(event)">
-                                            <div class="nv-dropdown-trigger">
-                                                <div id="'assignee-logo-id' + task[0].data.gid" class="assignee-box-logo" v-if="task[0].data.assignee == null">
-                                                    <svg class="inside-logo" focusable="false" viewBox="0 0 32 32">
-                                                        <path d="M16,18c-4.4,0-8-3.6-8-8s3.6-8,8-8s8,3.6,8,8S20.4,18,16,18z M16,4c-3.3,0-6,2.7-6,6s2.7,6,6,6s6-2.7,6-6S19.3,4,16,4z M29,32c-0.6,0-1-0.4-1-1v-4.2c0-2.6-2.2-4.8-4.8-4.8H8.8C6.2,22,4,24.2,4,26.8V31c0,0.6-0.4,1-1,1s-1-0.4-1-1v-4.2C2,23,5,20,8.8,20h14.4c3.7,0,6.8,3,6.8,6.8V31C30,31.6,29.6,32,29,32z"></path>
-                                                    </svg>
-                                                </div>
-                                                <span><input type="text" class="assignee-box-input nv-dropdown-trigger"></span>
-
-                                                <div class="assigned-person" v-if="task[0].data.assignee">
-                                                    <div class="img-box"  style="background-image: url('https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png')"></div>
-                                                    <div class="text-1">{{ task[0].data.assignee.name }}</div>
-                                                </div>
-                                            </div>
-                                            <div class="assignee-box-dropdown nv-dropdown-menu">
-                                                <div class="each-assignee" v-if="users.length > 0" v-for="user in users" :value="user.gid">
-                                                    <div class="profile-img" style="background-image: url('https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png')"></div>
-                                                    <div class="name-text">{{ user.name }}</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="task-date-box cursor-pointer border-right-none">
+                                    <div class="task-assignee-box cursor-pointer nv-dropdown">
+                                        <div class="nv-dropdown-trigger">
                                             <div class="assignee-box-logo">
                                                 <svg class="inside-logo" focusable="false" viewBox="0 0 32 32">
-                                                    <path d="M24,2V1c0-0.6-0.4-1-1-1s-1,0.4-1,1v1H10V1c0-0.6-0.4-1-1-1S8,0.4,8,1v1C4.7,2,2,4.7,2,8v16c0,3.3,2.7,6,6,6h16c3.3,0,6-2.7,6-6V8C30,4.7,27.3,2,24,2z M8,4v1c0,0.6,0.4,1,1,1s1-0.4,1-1V4h12v1c0,0.6,0.4,1,1,1s1-0.4,1-1V4c2.2,0,4,1.8,4,4v2H4V8C4,5.8,5.8,4,8,4z M24,28H8c-2.2,0-4-1.8-4-4V12h24v12C28,26.2,26.2,28,24,28z"></path>
+                                                    <path d="M16,18c-4.4,0-8-3.6-8-8s3.6-8,8-8s8,3.6,8,8S20.4,18,16,18z M16,4c-3.3,0-6,2.7-6,6s2.7,6,6,6s6-2.7,6-6S19.3,4,16,4z M29,32c-0.6,0-1-0.4-1-1v-4.2c0-2.6-2.2-4.8-4.8-4.8H8.8C6.2,22,4,24.2,4,26.8V31c0,0.6-0.4,1-1,1s-1-0.4-1-1v-4.2C2,23,5,20,8.8,20h14.4c3.7,0,6.8,3,6.8,6.8V31C30,31.6,29.6,32,29,32z"></path>
                                                 </svg>
                                             </div>
-                                            <span v-if="task[0].data.due_on">{{ task[0].data.due_on }}</span>
+                                            <span><input type="text" class="assignee-box-input assigned-input"></span>
                                         </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="task-list-detail-wrapper" id="task-detail" :class="{'hideMe': sideBar == 0 ? true:false}">
-                            <div class="loader-io">
-                                <div class="loadingio-spinner-eclipse-utvtio44ngo">
-                                    <div class="ldio-aebf04cd3u">
-                                        <div></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="task-details-wrapper" v-if="taskDetails">
-                                <div class="add-task-section-wrapper">
-                                    <div class="section-left">
-                                        <div :class="{'_btn': true, '_btn-default':true, '_btn _btn-default-active': taskDetails[0].data.completed ? true : false}">
-                                            <svg class="MiniIcon-custom" viewBox="0 0 24 24">
-                                                <path d="M9.2,20c-0.5,0.5-1.3,0.5-1.9,0l-5.1-5.1c-0.4-0.5-0.4-1.3,0-1.9c0.4-0.5,1.3-0.5,1.9,0l4.1,4.1L19.7,5.7 c0.5-0.5,1.3-0.5,1.9,0s0.5,1.3,0,1.9L9.2,20z"></path>
-                                            </svg>
-                                            <span v-if="taskDetails[0].data.completed">Completed</span>
-                                            <span v-else="">Mark Complete</span>
-                                        </div>
-                                    </div>
-                                    <div class="section-right _text-right">
-                                        <input type="file" id="file" name="file" v-on:change="handleFileUpload(taskDetails[0].data.gid, $event)" style="display: none">
-                                        <div class="logo-box" onclick="document.getElementById('file').click()">
-                                            <svg class="hide-box-icon" focusable="false" viewBox="0 0 32 32">
-                                                <path d="M19,32c-3.9,0-7-3.1-7-7V10c0-2.2,1.8-4,4-4s4,1.8,4,4v9c0,0.6-0.4,1-1,1s-1-0.4-1-1v-9c0-1.1-0.9-2-2-2s-2,0.9-2,2v15c0,2.8,2.2,5,5,5s5-2.2,5-5V10c0-4.4-3.6-8-8-8s-8,3.6-8,8v5c0,0.6-0.4,1-1,1s-1-0.4-1-1v-5C6,4.5,10.5,0,16,0s10,4.5,10,10v15C26,28.9,22.9,32,19,32z"></path>
-                                            </svg>
-                                        </div>
-                                        <div class="logo-box">
-                                            <svg class="hide-box-icon" focusable="false" viewBox="0 0 32 32">
-                                                <path d="M25,20c-2.4,0-4.4,1.7-4.9,4H11c-3.9,0-7-3.1-7-7v-5h16.1c0.5,2.3,2.5,4,4.9,4c2.8,0,5-2.2,5-5s-2.2-5-5-5c-2.4,0-4.4,1.7-4.9,4H4V3c0-0.6-0.4-1-1-1S2,2.4,2,3v14c0,5,4,9,9,9h9.1c0.5,2.3,2.5,4,4.9,4c2.8,0,5-2.2,5-5S27.8,20,25,20z M25,8c1.7,0,3,1.3,3,3s-1.3,3-3,3s-3-1.3-3-3S23.3,8,25,8z M25,28c-1.7,0-3-1.3-3-3s1.3-3,3-3s3,1.3,3,3S26.7,28,25,28z"></path>
-                                            </svg>
-                                        </div>
-                                        <div class="logo-box">
-                                            <svg class="hide-box-icon" focusable="false" viewBox="0 0 32 32">
-                                                <path d="M9,32c-2.3,0-4.6-0.9-6.4-2.6c-3.5-3.5-3.5-9.2,0-12.7l4-4c0.4-0.4,1-0.4,1.4,0c0.4,0.4,0.4,1,0,1.4l-4,4c-2.7,2.7-2.7,7.2,0,9.9s7.2,2.7,9.9,0l4-4c2.7-2.7,2.7-7.2,0-9.9c-0.8-0.8-1.8-1.4-2.9-1.7c-0.5-0.2-0.8-0.7-0.7-1.3c0.2-0.5,0.7-0.8,1.3-0.7c1.4,0.4,2.7,1.2,3.7,2.2c3.5,3.5,3.5,9.2,0,12.7l-4,4C13.6,31.1,11.3,32,9,32z M16.6,21.6c-0.1,0-0.2,0-0.3,0c-1.4-0.4-2.7-1.2-3.7-2.2c-1.7-1.7-2.6-4-2.6-6.4s0.9-4.7,2.6-6.4l4-4c3.5-3.5,9.2-3.5,12.7,0s3.5,9.2,0,12.7l-4,4c-0.4,0.4-1,0.4-1.4,0s-0.4-1,0-1.4l4-4c2.7-2.7,2.7-7.2,0-9.9S20.7,1.3,18,4l-4,4c-1.3,1.4-2,3.1-2,5s0.7,3.6,2.1,5c0.8,0.8,1.8,1.4,2.9,1.7c0.5,0.2,0.8,0.7,0.7,1.3C17.5,21.4,17.1,21.6,16.6,21.6z"></path>
-                                            </svg>
-                                        </div>
-                                        <div class="logo-box">
-                                            <svg class="hide-box-icon" focusable="false" viewBox="0 0 32 32">
-                                                <path d="M28.3,4.3c-1.2-1.4-3-2.1-4.9-1.9c-1.3,0.1-2.5,0.8-3.5,1.8L6,18c-0.6,0.6-1.1,1.4-1.4,2.2l-2.2,6.4C2.1,27.5,2.3,28.4,3,29c0.4,0.4,1,0.7,1.6,0.7c0.3,0,0.5,0,0.8-0.1l6.4-2.2c0.8-0.3,1.6-0.8,2.2-1.4l13.9-13.9C30,10,30.1,6.4,28.3,4.3z M4.7,27.7c-0.2,0.1-0.3,0-0.3-0.1c-0.1-0.1-0.1-0.2-0.1-0.3l2-5.8l4.2,4.2L4.7,27.7z M26.4,10.7L12.5,24.6c-0.1,0.1-0.1,0.1-0.2,0.1l-5.1-5.1c0-0.1,0.1-0.1,0.1-0.2l14-13.8c0.7-0.7,1.5-1.1,2.3-1.2c1.2-0.1,2.4,0.3,3.2,1.2C28,7,27.8,9.4,26.4,10.7z"></path>
-                                            </svg>
-                                        </div>
-                                        <div class="logo-box" @click="sideBar == 1 ? sideBar = 0 : sideBar = 1">
-                                            <svg class="hide-box-icon" focusable="false" viewBox="0 0 32 32">
-                                                <path d="M2,14.5h18.4l-7.4-7.4c-0.6-0.6-0.6-1.5,0-2.1c0.6-0.6,1.5-0.6,2.1,0l10,10c0.6,0.6,0.6,1.5,0,2.1l-10,10c-0.3,0.3-0.7,0.4-1.1,0.4c-0.4,0-0.8-0.1-1.1-0.4c-0.6-0.6-0.6-1.5,0-2.1l7.4-7.4H2c-0.8,0-1.5-0.7-1.5-1.5C0.5,15.3,1.2,14.5,2,14.5z M28,3.5C28,2.7,28.7,2,29.5,2S31,2.7,31,3.5v25c0,0.8-0.7,1.5-1.5,1.5S28,29.3,28,28.5V3.5z"></path>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="head-text-section">
-                                    <input type="text" class="input-big" placeholder="Write a task name" v-model="taskDetails[0].data.name">
-                                </div>
-                                <div class="head-text-section border-bottom-task-list">
-                                    <div class="radious-square-input nv-dropdown">
-                                        <div class="logo-border">
-                                            <svg class="input-icon-1" focusable="false" viewBox="0 0 32 32">
-                                                <path d="M16,18c-4.4,0-8-3.6-8-8s3.6-8,8-8s8,3.6,8,8S20.4,18,16,18z M16,4c-3.3,0-6,2.7-6,6s2.7,6,6,6s6-2.7,6-6S19.3,4,16,4z M29,32c-0.6,0-1-0.4-1-1v-4.2c0-2.6-2.2-4.8-4.8-4.8H8.8C6.2,22,4,24.2,4,26.8V31c0,0.6-0.4,1-1,1s-1-0.4-1-1v-4.2C2,23,5,20,8.8,20h14.4c3.7,0,6.8,3,6.8,6.8V31C30,31.6,29.6,32,29,32z"></path>
-                                            </svg>
-                                        </div>
-
-                                        <input type="text" placeholder="Assignee" :value="taskDetails[0].data.assignee.name" class="input-design">
-
-                                        <!--<div class="assigned-person" v-if="taskDetails[0].data.assignee">
-                                            <div class="img-box"  style="background-image: url('https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png')"></div>
-                                            <div class="text-1">{{ taskDetails[0].data.assignee.name }}</div>
-                                        </div>-->
 
                                         <div class="assignee-box-dropdown nv-dropdown-menu">
-                                            <div class="each-assignee" v-if="users.length > 0" v-for="user in users">
+                                            <div class="each-assignee" v-if="users.length > 0" v-for="user in users" @click="collapseDropdown(user.gid)">
                                                 <div class="profile-img"
                                                      style="background-image: url('https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png')"></div>
                                                 <div class="name-text">{{ user.name }}</div>
                                             </div>
                                         </div>
+
+                                        <div class="assigned-person" v-if="task.assignee">
+                                            <div class="img-box"  style="background-image: url('https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png')"></div>
+                                            <div class="text-1">{{ users[users.findIndex((element) => element.gid == task.assignee)].name }}</div>
+                                        </div>
                                     </div>
-                                    <div class="radious-square-input">
-                                        <div class="logo-border">
-                                            <svg class="input-icon-2" focusable="false" viewBox="0 0 32 32">
+                                    <div class="task-assignee-box cursor-pointer border-right-none">
+                                        <div class="assignee-box-logo">
+                                            <svg class="inside-logo" focusable="false" viewBox="0 0 32 32">
                                                 <path d="M24,2V1c0-0.6-0.4-1-1-1s-1,0.4-1,1v1H10V1c0-0.6-0.4-1-1-1S8,0.4,8,1v1C4.7,2,2,4.7,2,8v16c0,3.3,2.7,6,6,6h16c3.3,0,6-2.7,6-6V8C30,4.7,27.3,2,24,2z M8,4v1c0,0.6,0.4,1,1,1s1-0.4,1-1V4h12v1c0,0.6,0.4,1,1,1s1-0.4,1-1V4c2.2,0,4,1.8,4,4v2H4V8C4,5.8,5.8,4,8,4z M24,28H8c-2.2,0-4-1.8-4-4V12h24v12C28,26.2,26.2,28,24,28z"></path>
                                             </svg>
                                         </div>
-                                        <flat-pickr
-                                            :value="taskDetails[0].data.due_on"
-                                            @on-change="inlineTaskUpdateNew(taskDetails[0].data.gid, 'due_on', $event)"
-                                            class="input-design"
-                                            placeholder="Due date"
-                                            name="due_on">
-                                        </flat-pickr>
+                                        <span>
+                                            <flat-pickr
+                                                v-model="task.due_on"
+                                                @on-change="task.due_on = convert($event)"
+                                                class="assignee-box-input assigned-input"
+                                                name="date">
+                                            </flat-pickr>
+                                        </span>
                                     </div>
                                 </div>
-                                <div class="head-text-section">
-                                    <div class="text-area-logo">
-                                        <svg class="t-logo" focusable="false" viewBox="0 0 32 32">
-                                            <path d="M31,8H1C0.4,8,0,7.6,0,7s0.4-1,1-1h30c0.6,0,1,0.4,1,1S31.6,8,31,8z M23,14H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,14,23,14z M27,20H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h26c0.6,0,1,0.4,1,1S27.6,20,27,20z M19,26H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h18c0.6,0,1,0.4,1,1S19.6,26,19,26z"></path>
-                                        </svg>
-                                    </div>
-                                    <textarea name="" class="custom-text-area" cols="30" rows="5" placeholder="Description" v-model="taskDetails[0].data.notes"></textarea>
-                                </div>
-                                <div class="head-text-section _position-relative border-bottom-task-list">
-                                    <div class="_input-logo">
-                                        <svg class="t-logo" focusable="false" viewBox="0 0 32 32">
-                                            <path d="M10,13.5c0.8,0,1.5,0.7,1.5,1.5s-0.7,1.5-1.5,1.5S8.5,15.8,8.5,15S9.2,13.5,10,13.5z M23,14h-8c-0.6,0-1,0.4-1,1s0.4,1,1,1h8c0.6,0,1-0.4,1-1S23.6,14,23,14z M23,20h-8c-0.6,0-1,0.4-1,1s0.4,1,1,1h8c0.6,0,1-0.4,1-1S23.6,20,23,20z M10,19.5c0.8,0,1.5,0.7,1.5,1.5s-0.7,1.5-1.5,1.5S8.5,21.8,8.5,21S9.2,19.5,10,19.5z M24,2h-2.2c-0.4-1.2-1.5-2-2.8-2h-6c-1.3,0-2.4,0.8-2.8,2H8C4.7,2,2,4.7,2,8v18c0,3.3,2.7,6,6,6h16c3.3,0,6-2.7,6-6V8C30,4.7,27.3,2,24,2z M13,2h6c0.6,0,1,0.4,1,1v2c0,0.6-0.4,1-1,1h-6c-0.6,0-1-0.4-1-1V3C12,2.4,12.4,2,13,2z M28,26c0,2.2-1.8,4-4,4H8c-2.2,0-4-1.8-4-4V8c0-2.2,1.8-4,4-4h2v1c0,1.7,1.3,3,3,3h6c1.7,0,3-1.3,3-3V4h2c2.2,0,4,1.8,4,4V26z"></path>
-                                        </svg>
-                                    </div>
-                                    <input name="" class="custom-input-add-project" placeholder="Add to Project">
-                                    <div class="new-task" v-if="taskDetails.subTasks.length > 0" v-for="(t, index) in taskDetails.subTasks">
-                                        <div class="border-radious-icon" :class="{'task-complete': t[0].data.completed ? true : false}">
-                                            <svg class="MiniIcon"
-                                                 viewBox="0 0 24 24">
-                                                <path d="M9.5,18.2c-0.4,0.4-1,0.4-1.4,0l-3.8-3.8C4,14,4,13.4,4.3,13s1-0.4,1.4,0l3.1,3.1l8.6-8.6c0.4-0.4,1-0.4,1.4,0s0.4,1,0,1.4 L9.5,18.2z"></path>
+                                <div class="collapse-parent collapse-open" v-if="sectionData.length > 0" v-for="(section, index) in sectionData" :key="index">
+                                    <div class="section-header">
+                                        <div class="d-flex-inline cursor-pointer nv-collapse">{{ section[0].name }}
+                                            <svg style="enable-background:new 0 0 511.626 511.626;width: 23px;height: 23px;"
+                                                 class="MiniIcon-right"
+                                                 focusable="false" viewBox="0 0 32 32">
+                                                <path d="M25.9,12.9c-0.5-0.6-1.5-0.7-2.1-0.2L16,19.1l-7.8-6.4c-0.6-0.5-1.6-0.4-2.1,0.2c-0.5,0.6-0.4,1.6,0.2,2.1l8.8,7.2  c0.2,0.2,0.6,0.3,0.9,0.3s0.7-0.1,0.9-0.3l8.8-7.2C26.3,14.5,26.4,13.5,25.9,12.9z"></path>
                                             </svg>
                                         </div>
-                                        <input type="text" class="new-task-input" v-model="taskDetails.subTasks[index][0].data.name">
-                                        <div class="new-task-logo">
-                                            <div class="logo-1 cursor-pointer nv-dropdown">
-                                                <svg class="_icon" focusable="false" viewBox="0 0 32 32">
-                                                    <path d="M16,18c-4.4,0-8-3.6-8-8s3.6-8,8-8s8,3.6,8,8S20.4,18,16,18z M16,4c-3.3,0-6,2.7-6,6s2.7,6,6,6s6-2.7,6-6S19.3,4,16,4z M29,32c-0.6,0-1-0.4-1-1v-4.2c0-2.6-2.2-4.8-4.8-4.8H8.8C6.2,22,4,24.2,4,26.8V31c0,0.6-0.4,1-1,1s-1-0.4-1-1v-4.2C2,23,5,20,8.8,20h14.4c3.7,0,6.8,3,6.8,6.8V31C30,31.6,29.6,32,29,32z"></path>
-                                                </svg>
+                                    </div>
+                                    <div class="nv-collapsedown">
+                                        <div class="task-list-body border-top-task-list" v-if="section['tasks'].length > 0" v-for="(task, i) in section['tasks']" :key="i">
+                                            <div class="task-name-box cursor-pointer">
+                                                <div class="border-radious-icon" :class="{'task-complete': task[0].data.completed ? true : false}" @click="toogleComplete('taskDetailsCompleteness' + task[0].data.gid)">
+                                                    <svg class="MiniIcon" viewBox="0 0 24 24">
+                                                        <path d="M9.5,18.2c-0.4,0.4-1,0.4-1.4,0l-3.8-3.8C4,14,4,13.4,4.3,13s1-0.4,1.4,0l3.1,3.1l8.6-8.6c0.4-0.4,1-0.4,1.4,0s0.4,1,0,1.4 L9.5,18.2z"></path>
+                                                    </svg>
+                                                </div>
+                                                <input type="checkbox" v-if="task[0].data.completed" @click="editTask(task[0].data.gid, 'completed', $event)" :id="'taskDetailsCompleteness' + task[0].data.gid" style="display:none;" checked>
+                                                <input type="checkbox" v-else="" @click="editTask(task[0].data.gid, 'completed', $event)" :id="'taskDetailsCompleteness' + task[0].data.gid" style="display:none;">
+                                                <span><input type="text" class="task-body-custom-input" placeholder="Write a task name" :value="task[0].data.name" @change="editTask(task[0].data.gid, 'name', $event)"></span>
+                                                <div @click="showTask(task[0].data.gid)" class="detail-option">Detail
+                                                    <svg class="MiniIcon-right" viewBox="0 0 24 24">
+                                                        <path d="M8.9,20.4c-0.4,0-0.7-0.1-1-0.4c-0.6-0.6-0.7-1.5-0.1-2.1l5.2-5.8L7.8,6C7.3,5.4,7.3,4.4,8,3.9C8.6,3.3,9.5,3.4,10.1,4l6.1,7.1c0.5,0.6,0.5,1.4,0,2l-6.1,6.8C9.8,20.3,9.4,20.4,8.9,20.4z"></path>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                            <div class="task-assignee-box cursor-pointer nv-dropdown">
+                                                <div class="nv-dropdown-trigger">
+                                                    <div id="'assignee-logo-id' + task[0].data.gid" class="assignee-box-logo" v-if="task[0].data.assignee == null">
+                                                        <svg class="inside-logo" focusable="false" viewBox="0 0 32 32">
+                                                            <path d="M16,18c-4.4,0-8-3.6-8-8s3.6-8,8-8s8,3.6,8,8S20.4,18,16,18z M16,4c-3.3,0-6,2.7-6,6s2.7,6,6,6s6-2.7,6-6S19.3,4,16,4z M29,32c-0.6,0-1-0.4-1-1v-4.2c0-2.6-2.2-4.8-4.8-4.8H8.8C6.2,22,4,24.2,4,26.8V31c0,0.6-0.4,1-1,1s-1-0.4-1-1v-4.2C2,23,5,20,8.8,20h14.4c3.7,0,6.8,3,6.8,6.8V31C30,31.6,29.6,32,29,32z"></path>
+                                                        </svg>
+                                                    </div>
+                                                    <span><input type="text" class="assignee-box-input nv-dropdown-trigger"></span>
+
+                                                    <div class="assigned-person" v-if="task[0].data.assignee">
+                                                        <div class="img-box"  style="background-image: url('https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png')"></div>
+                                                        <div class="text-1">{{ task[0].data.assignee.name }}</div>
+                                                    </div>
+                                                </div>
                                                 <div class="assignee-box-dropdown nv-dropdown-menu">
-                                                    <div class="each-assignee" v-if="users.length > 0" v-for="user in users" :value="user.gid">
+                                                    <div class="each-assignee" v-if="users.length > 0" v-for="user in users" @click="editTask(task[0].data.gid, 'assignee', user.gid)">
                                                         <div class="profile-img" style="background-image: url('https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png')"></div>
                                                         <div class="name-text">{{ user.name }}</div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="logo-2 cursor-pointer">
-                                                <svg class="_icon" focusable="false" viewBox="0 0 32 32">
-                                                    <path d="M24,2V1c0-0.6-0.4-1-1-1s-1,0.4-1,1v1H10V1c0-0.6-0.4-1-1-1S8,0.4,8,1v1C4.7,2,2,4.7,2,8v16c0,3.3,2.7,6,6,6h16c3.3,0,6-2.7,6-6V8C30,4.7,27.3,2,24,2z M8,4v1c0,0.6,0.4,1,1,1s1-0.4,1-1V4h12v1c0,0.6,0.4,1,1,1s1-0.4,1-1V4c2.2,0,4,1.8,4,4v2H4V8C4,5.8,5.8,4,8,4z M24,28H8c-2.2,0-4-1.8-4-4V12h24v12C28,26.2,26.2,28,24,28z"></path>
-                                                </svg>
-                                            </div>
-                                            <div class="logo-3 cursor-pointer">
-                                                <svg class="_icon" focusable="false"
-                                                     viewBox="0 0 32 32">
-                                                    <path d="M5,31c-0.1,0-0.3,0-0.4-0.1C4.2,30.7,4,30.4,4,30v-7.1c-2.5-2.3-4-5.5-4-8.9C0,7.4,5.4,2,12,2h8c6.6,0,12,5.4,12,12 s-5.4,12-12,12h-8c-0.1,0-0.3,0-0.4,0l-5.9,4.8C5.4,30.9,5.2,31,5,31z M12,4C6.5,4,2,8.5,2,14c0,3,1.3,5.8,3.6,7.7C5.9,21.9,6,22.2,6,22.5v5.4l4.6-3.7C10.8,24,11,24,11.3,24h0.1c0.2,0,0.4,0,0.6,0h8c5.5,0,10-4.5,10-10S25.5,4,20,4 C20,4,12,4,12,4z"></path>
-                                                </svg>
-                                            </div>
-                                            <div class="logo-3">
-                                                <svg class="_icon" focusable="false"
-                                                     viewBox="0 0 32 32">
-                                                    <path d="M23.2,16c0,0.3-0.1,0.7-0.3,0.9l-9,11c-0.5,0.6-1.5,0.7-2.1,0.2s-0.7-1.5-0.2-2.1l8.2-10L11.6,6c-0.5-0.6-0.4-1.6,0.2-2.1s1.6-0.4,2.1,0.2l9,11C23.1,15.3,23.2,15.7,23.2,16z"></path>
-                                                </svg>
+                                            <div class="task-assignee-box cursor-pointer border-right-none" :title="duedate(task[0].data.due_on)">
+                                                <div class="assignee-box-logo">
+                                                    <svg class="inside-logo" focusable="false" viewBox="0 0 32 32">
+                                                        <path d="M24,2V1c0-0.6-0.4-1-1-1s-1,0.4-1,1v1H10V1c0-0.6-0.4-1-1-1S8,0.4,8,1v1C4.7,2,2,4.7,2,8v16c0,3.3,2.7,6,6,6h16c3.3,0,6-2.7,6-6V8C30,4.7,27.3,2,24,2z M8,4v1c0,0.6,0.4,1,1,1s1-0.4,1-1V4h12v1c0,0.6,0.4,1,1,1s1-0.4,1-1V4c2.2,0,4,1.8,4,4v2H4V8C4,5.8,5.8,4,8,4z M24,28H8c-2.2,0-4-1.8-4-4V12h24v12C28,26.2,26.2,28,24,28z"></path>
+                                                    </svg>
+                                                </div>
+                                                <span>
+                                                    <flat-pickr
+                                                        :value="task[0].data.due_on"
+                                                        @on-change="editTask(task[0].data.gid, 'due_on', $event)"
+                                                        class="assignee-box-input assigned-input"
+                                                        name="date">
+                                                    </flat-pickr>
+                                                </span>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-
-                                <div class="head-text-section border-bottom-task-list" v-if="taskDetails.comments.data.length > 0" v-for="comment in taskDetails.comments.data">
-                                    <div class="profile-img">
-                                        <div class="_img" style="background-image: url('https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png')"></div>
-                                    </div>
-                                    <div class="detail-text-area">
-                                        <span><a class="lnk-text" href="#">{{ comment.created_by.name }} </a>{{ comment.text }}</span>
-                                        <span class="small-text"><vue-moments-ago prefix="" suffix="ago" :date="comment.created_at"></vue-moments-ago></span>
-                                    </div>
-                                </div>
-                                <div class="head-text-section bg-light">
-                                    <div class="profile-img">
-                                        <div class="_img" style="background-image: url('https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png')"></div>
-                                    </div>
-                                    <textarea @change="storeTaskComment(taskDetails[0].data.gid)" v-model="taskComment" class="custom-text-area-chat" cols="30" rows="5" placeholder="Description"></textarea>
                                 </div>
                             </div>
-                            <div class="task-details-wrapper" v-else="">
-                                <div class="add-task-section-wrapper">
-                                    <div class="section-left">
-                                        <div :class="{'_btn': true, '_btn-default':true, '_btn _btn-default-active': isMarkComplete == 1 ? true : false}">
-                                            <svg class="MiniIcon-custom" viewBox="0 0 24 24">
-                                                <path d="M9.2,20c-0.5,0.5-1.3,0.5-1.9,0l-5.1-5.1c-0.4-0.5-0.4-1.3,0-1.9c0.4-0.5,1.3-0.5,1.9,0l4.1,4.1L19.7,5.7 c0.5-0.5,1.3-0.5,1.9,0s0.5,1.3,0,1.9L9.2,20z"></path>
-                                            </svg>
-                                            <span v-if="isMarkComplete == 0">Mark Complete</span>
-                                            <span v-if="isMarkComplete == 1">Completed</span>
-                                        </div>
-                                    </div>
-                                    <div class="section-right _text-right">
-                                        <div class="logo-box">
-                                            <svg class="hide-box-icon" focusable="false" viewBox="0 0 32 32">
-                                                <path d="M19,32c-3.9,0-7-3.1-7-7V10c0-2.2,1.8-4,4-4s4,1.8,4,4v9c0,0.6-0.4,1-1,1s-1-0.4-1-1v-9c0-1.1-0.9-2-2-2s-2,0.9-2,2v15c0,2.8,2.2,5,5,5s5-2.2,5-5V10c0-4.4-3.6-8-8-8s-8,3.6-8,8v5c0,0.6-0.4,1-1,1s-1-0.4-1-1v-5C6,4.5,10.5,0,16,0s10,4.5,10,10v15C26,28.9,22.9,32,19,32z"></path>
-                                            </svg>
-                                        </div>
-                                        <div class="logo-box">
-                                            <svg class="hide-box-icon" focusable="false" viewBox="0 0 32 32">
-                                                <path d="M25,20c-2.4,0-4.4,1.7-4.9,4H11c-3.9,0-7-3.1-7-7v-5h16.1c0.5,2.3,2.5,4,4.9,4c2.8,0,5-2.2,5-5s-2.2-5-5-5c-2.4,0-4.4,1.7-4.9,4H4V3c0-0.6-0.4-1-1-1S2,2.4,2,3v14c0,5,4,9,9,9h9.1c0.5,2.3,2.5,4,4.9,4c2.8,0,5-2.2,5-5S27.8,20,25,20z M25,8c1.7,0,3,1.3,3,3s-1.3,3-3,3s-3-1.3-3-3S23.3,8,25,8z M25,28c-1.7,0-3-1.3-3-3s1.3-3,3-3s3,1.3,3,3S26.7,28,25,28z"></path>
-                                            </svg>
-                                        </div>
-                                        <div class="logo-box">
-                                            <svg class="hide-box-icon" focusable="false" viewBox="0 0 32 32">
-                                                <path d="M9,32c-2.3,0-4.6-0.9-6.4-2.6c-3.5-3.5-3.5-9.2,0-12.7l4-4c0.4-0.4,1-0.4,1.4,0c0.4,0.4,0.4,1,0,1.4l-4,4c-2.7,2.7-2.7,7.2,0,9.9s7.2,2.7,9.9,0l4-4c2.7-2.7,2.7-7.2,0-9.9c-0.8-0.8-1.8-1.4-2.9-1.7c-0.5-0.2-0.8-0.7-0.7-1.3c0.2-0.5,0.7-0.8,1.3-0.7c1.4,0.4,2.7,1.2,3.7,2.2c3.5,3.5,3.5,9.2,0,12.7l-4,4C13.6,31.1,11.3,32,9,32z M16.6,21.6c-0.1,0-0.2,0-0.3,0c-1.4-0.4-2.7-1.2-3.7-2.2c-1.7-1.7-2.6-4-2.6-6.4s0.9-4.7,2.6-6.4l4-4c3.5-3.5,9.2-3.5,12.7,0s3.5,9.2,0,12.7l-4,4c-0.4,0.4-1,0.4-1.4,0s-0.4-1,0-1.4l4-4c2.7-2.7,2.7-7.2,0-9.9S20.7,1.3,18,4l-4,4c-1.3,1.4-2,3.1-2,5s0.7,3.6,2.1,5c0.8,0.8,1.8,1.4,2.9,1.7c0.5,0.2,0.8,0.7,0.7,1.3C17.5,21.4,17.1,21.6,16.6,21.6z"></path>
-                                            </svg>
-                                        </div>
-                                        <div class="logo-box">
-                                            <svg class="hide-box-icon" focusable="false" viewBox="0 0 32 32">
-                                                <path d="M28.3,4.3c-1.2-1.4-3-2.1-4.9-1.9c-1.3,0.1-2.5,0.8-3.5,1.8L6,18c-0.6,0.6-1.1,1.4-1.4,2.2l-2.2,6.4C2.1,27.5,2.3,28.4,3,29c0.4,0.4,1,0.7,1.6,0.7c0.3,0,0.5,0,0.8-0.1l6.4-2.2c0.8-0.3,1.6-0.8,2.2-1.4l13.9-13.9C30,10,30.1,6.4,28.3,4.3z M4.7,27.7c-0.2,0.1-0.3,0-0.3-0.1c-0.1-0.1-0.1-0.2-0.1-0.3l2-5.8l4.2,4.2L4.7,27.7z M26.4,10.7L12.5,24.6c-0.1,0.1-0.1,0.1-0.2,0.1l-5.1-5.1c0-0.1,0.1-0.1,0.1-0.2l14-13.8c0.7-0.7,1.5-1.1,2.3-1.2c1.2-0.1,2.4,0.3,3.2,1.2C28,7,27.8,9.4,26.4,10.7z"></path>
-                                            </svg>
-                                        </div>
-                                        <div class="logo-box" @click="sideBar == 1 ? sideBar = 0 : sideBar = 1">
-                                            <svg class="hide-box-icon" focusable="false" viewBox="0 0 32 32">
-                                                <path d="M2,14.5h18.4l-7.4-7.4c-0.6-0.6-0.6-1.5,0-2.1c0.6-0.6,1.5-0.6,2.1,0l10,10c0.6,0.6,0.6,1.5,0,2.1l-10,10c-0.3,0.3-0.7,0.4-1.1,0.4c-0.4,0-0.8-0.1-1.1-0.4c-0.6-0.6-0.6-1.5,0-2.1l7.4-7.4H2c-0.8,0-1.5-0.7-1.5-1.5C0.5,15.3,1.2,14.5,2,14.5z M28,3.5C28,2.7,28.7,2,29.5,2S31,2.7,31,3.5v25c0,0.8-0.7,1.5-1.5,1.5S28,29.3,28,28.5V3.5z"></path>
-                                            </svg>
+                            <div class="task-list-detail-wrapper" id="task-detail" :class="{'hideMe': sideBar == 0 ? true:false}">
+                                <div class="loader-io">
+                                    <div class="loadingio-spinner-eclipse-utvtio44ngo">
+                                        <div class="ldio-aebf04cd3u">
+                                            <div></div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="head-text-section">
-                                    <input type="text" class="input-big" placeholder="Write a task name" v-model="taskName">
-                                </div>
-                                <div class="head-text-section border-bottom-task-list">
-                                    <div class="radious-square-input">
-                                        <div class="logo-border">
-                                            <svg class="input-icon-1" focusable="false" viewBox="0 0 32 32">
-                                                <path d="M16,18c-4.4,0-8-3.6-8-8s3.6-8,8-8s8,3.6,8,8S20.4,18,16,18z M16,4c-3.3,0-6,2.7-6,6s2.7,6,6,6s6-2.7,6-6S19.3,4,16,4z M29,32c-0.6,0-1-0.4-1-1v-4.2c0-2.6-2.2-4.8-4.8-4.8H8.8C6.2,22,4,24.2,4,26.8V31c0,0.6-0.4,1-1,1s-1-0.4-1-1v-4.2C2,23,5,20,8.8,20h14.4c3.7,0,6.8,3,6.8,6.8V31C30,31.6,29.6,32,29,32z"></path>
-                                            </svg>
+                                <div class="task-details-wrapper" v-if="taskDetails">
+                                    <div class="add-task-section-wrapper">
+                                        <div class="section-left">
+                                            <div :class="{'_btn': true, '_btn-default':true, '_btn _btn-default-active': taskDetails[0].data.completed ? true : false}">
+                                                <svg class="MiniIcon-custom" viewBox="0 0 24 24">
+                                                    <path d="M9.2,20c-0.5,0.5-1.3,0.5-1.9,0l-5.1-5.1c-0.4-0.5-0.4-1.3,0-1.9c0.4-0.5,1.3-0.5,1.9,0l4.1,4.1L19.7,5.7 c0.5-0.5,1.3-0.5,1.9,0s0.5,1.3,0,1.9L9.2,20z"></path>
+                                                </svg>
+                                                <span v-if="taskDetails[0].data.completed">Completed</span>
+                                                <span v-else="">Mark Complete</span>
+                                            </div>
                                         </div>
-                                        <input type="text" placeholder="Unassigne" class="input-design">
-                                    </div>
-                                    <div class="radious-square-input">
-                                        <div class="logo-border">
-                                            <svg class="input-icon-2" focusable="false" viewBox="0 0 32 32">
-                                                <path d="M24,2V1c0-0.6-0.4-1-1-1s-1,0.4-1,1v1H10V1c0-0.6-0.4-1-1-1S8,0.4,8,1v1C4.7,2,2,4.7,2,8v16c0,3.3,2.7,6,6,6h16c3.3,0,6-2.7,6-6V8C30,4.7,27.3,2,24,2z M8,4v1c0,0.6,0.4,1,1,1s1-0.4,1-1V4h12v1c0,0.6,0.4,1,1,1s1-0.4,1-1V4c2.2,0,4,1.8,4,4v2H4V8C4,5.8,5.8,4,8,4z M24,28H8c-2.2,0-4-1.8-4-4V12h24v12C28,26.2,26.2,28,24,28z"></path>
-                                            </svg>
+                                        <div class="section-right _text-right">
+                                            <input type="file" id="file" name="file" v-on:change="handleFileUpload(taskDetails[0].data.gid, $event)" style="display: none">
+                                            <div class="logo-box" onclick="document.getElementById('file').click()">
+                                                <svg class="hide-box-icon" focusable="false" viewBox="0 0 32 32">
+                                                    <path d="M19,32c-3.9,0-7-3.1-7-7V10c0-2.2,1.8-4,4-4s4,1.8,4,4v9c0,0.6-0.4,1-1,1s-1-0.4-1-1v-9c0-1.1-0.9-2-2-2s-2,0.9-2,2v15c0,2.8,2.2,5,5,5s5-2.2,5-5V10c0-4.4-3.6-8-8-8s-8,3.6-8,8v5c0,0.6-0.4,1-1,1s-1-0.4-1-1v-5C6,4.5,10.5,0,16,0s10,4.5,10,10v15C26,28.9,22.9,32,19,32z"></path>
+                                                </svg>
+                                            </div>
+                                            <div class="logo-box">
+                                                <svg class="hide-box-icon" focusable="false" viewBox="0 0 32 32">
+                                                    <path d="M25,20c-2.4,0-4.4,1.7-4.9,4H11c-3.9,0-7-3.1-7-7v-5h16.1c0.5,2.3,2.5,4,4.9,4c2.8,0,5-2.2,5-5s-2.2-5-5-5c-2.4,0-4.4,1.7-4.9,4H4V3c0-0.6-0.4-1-1-1S2,2.4,2,3v14c0,5,4,9,9,9h9.1c0.5,2.3,2.5,4,4.9,4c2.8,0,5-2.2,5-5S27.8,20,25,20z M25,8c1.7,0,3,1.3,3,3s-1.3,3-3,3s-3-1.3-3-3S23.3,8,25,8z M25,28c-1.7,0-3-1.3-3-3s1.3-3,3-3s3,1.3,3,3S26.7,28,25,28z"></path>
+                                                </svg>
+                                            </div>
+                                            <div class="logo-box">
+                                                <svg class="hide-box-icon" focusable="false" viewBox="0 0 32 32">
+                                                    <path d="M9,32c-2.3,0-4.6-0.9-6.4-2.6c-3.5-3.5-3.5-9.2,0-12.7l4-4c0.4-0.4,1-0.4,1.4,0c0.4,0.4,0.4,1,0,1.4l-4,4c-2.7,2.7-2.7,7.2,0,9.9s7.2,2.7,9.9,0l4-4c2.7-2.7,2.7-7.2,0-9.9c-0.8-0.8-1.8-1.4-2.9-1.7c-0.5-0.2-0.8-0.7-0.7-1.3c0.2-0.5,0.7-0.8,1.3-0.7c1.4,0.4,2.7,1.2,3.7,2.2c3.5,3.5,3.5,9.2,0,12.7l-4,4C13.6,31.1,11.3,32,9,32z M16.6,21.6c-0.1,0-0.2,0-0.3,0c-1.4-0.4-2.7-1.2-3.7-2.2c-1.7-1.7-2.6-4-2.6-6.4s0.9-4.7,2.6-6.4l4-4c3.5-3.5,9.2-3.5,12.7,0s3.5,9.2,0,12.7l-4,4c-0.4,0.4-1,0.4-1.4,0s-0.4-1,0-1.4l4-4c2.7-2.7,2.7-7.2,0-9.9S20.7,1.3,18,4l-4,4c-1.3,1.4-2,3.1-2,5s0.7,3.6,2.1,5c0.8,0.8,1.8,1.4,2.9,1.7c0.5,0.2,0.8,0.7,0.7,1.3C17.5,21.4,17.1,21.6,16.6,21.6z"></path>
+                                                </svg>
+                                            </div>
+                                            <div class="logo-box">
+                                                <a title="Delete" @click="deleteTask(taskDetails[0].data.gid)"
+                                                   class="appearance-none cursor-pointer text-70 hover:text-danger mr-3">
+                                                    <svg class="hide-box-icon" viewBox="0 0 20 20" aria-labelledby="delete" role="presentation">
+                                                        <path fill-rule="nonzero" d="M6 4V2a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2h5a1 1 0 0 1 0 2h-1v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6H1a1 1 0 1 1 0-2h5zM4 6v12h12V6H4zm8-2V2H8v2h4zM8 8a1 1 0 0 1 1 1v6a1 1 0 0 1-2 0V9a1 1 0 0 1 1-1zm4 0a1 1 0 0 1 1 1v6a1 1 0 0 1-2 0V9a1 1 0 0 1 1-1z"></path>
+                                                    </svg>
+                                                </a>
+                                            </div>
+                                            <div class="logo-box" @click="sideBar == 1 ? sideBar = 0 : sideBar = 1">
+                                                <svg class="hide-box-icon" focusable="false" viewBox="0 0 32 32">
+                                                    <path d="M2,14.5h18.4l-7.4-7.4c-0.6-0.6-0.6-1.5,0-2.1c0.6-0.6,1.5-0.6,2.1,0l10,10c0.6,0.6,0.6,1.5,0,2.1l-10,10c-0.3,0.3-0.7,0.4-1.1,0.4c-0.4,0-0.8-0.1-1.1-0.4c-0.6-0.6-0.6-1.5,0-2.1l7.4-7.4H2c-0.8,0-1.5-0.7-1.5-1.5C0.5,15.3,1.2,14.5,2,14.5z M28,3.5C28,2.7,28.7,2,29.5,2S31,2.7,31,3.5v25c0,0.8-0.7,1.5-1.5,1.5S28,29.3,28,28.5V3.5z"></path>
+                                                </svg>
+                                            </div>
                                         </div>
-                                        <input type="text" placeholder="Unassigne" class="input-design">
                                     </div>
-                                </div>
-                                <div class="head-text-section">
-                                    <div class="text-area-logo">
-                                        <svg class="t-logo" focusable="false" viewBox="0 0 32 32">
-                                            <path d="M31,8H1C0.4,8,0,7.6,0,7s0.4-1,1-1h30c0.6,0,1,0.4,1,1S31.6,8,31,8z M23,14H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,14,23,14z M27,20H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h26c0.6,0,1,0.4,1,1S27.6,20,27,20z M19,26H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h18c0.6,0,1,0.4,1,1S19.6,26,19,26z"></path>
-                                        </svg>
+                                    <div class="head-text-section">
+                                        <input type="text" class="input-big" placeholder="Write a task name" v-model="taskDetails[0].data.name">
                                     </div>
-                                    <textarea name="" v-model="taskDesc" class="custom-text-area" cols="30" rows="5" placeholder="Description"></textarea>
-                                </div>
-                                <div class="head-text-section _position-relative border-bottom-task-list">
-                                    <div class="_input-logo">
-                                        <svg class="t-logo" focusable="false" viewBox="0 0 32 32">
-                                            <path d="M10,13.5c0.8,0,1.5,0.7,1.5,1.5s-0.7,1.5-1.5,1.5S8.5,15.8,8.5,15S9.2,13.5,10,13.5z M23,14h-8c-0.6,0-1,0.4-1,1s0.4,1,1,1h8c0.6,0,1-0.4,1-1S23.6,14,23,14z M23,20h-8c-0.6,0-1,0.4-1,1s0.4,1,1,1h8c0.6,0,1-0.4,1-1S23.6,20,23,20z M10,19.5c0.8,0,1.5,0.7,1.5,1.5s-0.7,1.5-1.5,1.5S8.5,21.8,8.5,21S9.2,19.5,10,19.5z M24,2h-2.2c-0.4-1.2-1.5-2-2.8-2h-6c-1.3,0-2.4,0.8-2.8,2H8C4.7,2,2,4.7,2,8v18c0,3.3,2.7,6,6,6h16c3.3,0,6-2.7,6-6V8C30,4.7,27.3,2,24,2z M13,2h6c0.6,0,1,0.4,1,1v2c0,0.6-0.4,1-1,1h-6c-0.6,0-1-0.4-1-1V3C12,2.4,12.4,2,13,2z M28,26c0,2.2-1.8,4-4,4H8c-2.2,0-4-1.8-4-4V8c0-2.2,1.8-4,4-4h2v1c0,1.7,1.3,3,3,3h6c1.7,0,3-1.3,3-3V4h2c2.2,0,4,1.8,4,4V26z"></path>
-                                        </svg>
-                                    </div>
-                                    <input name="" v-model="taskProject" class="custom-input-add-project"
-                                           placeholder="Add to Project">
-                                    <div class="new-task">
-                                        <div class="border-radious-icon" :class="{'task-complete': isTaskComplete == 1 ? true : false}">
-                                            <svg class="MiniIcon"
-                                                 viewBox="0 0 24 24">
-                                                <path d="M9.5,18.2c-0.4,0.4-1,0.4-1.4,0l-3.8-3.8C4,14,4,13.4,4.3,13s1-0.4,1.4,0l3.1,3.1l8.6-8.6c0.4-0.4,1-0.4,1.4,0s0.4,1,0,1.4 L9.5,18.2z"></path>
-                                            </svg>
-                                        </div>
-                                        <input type="text" class="new-task-input">
-                                        <div class="new-task-logo">
-                                            <div class="logo-1 cursor-pointer nv-dropdown">
-                                                <svg class="_icon" focusable="false" viewBox="0 0 32 32">
+                                    <div class="head-text-section border-bottom-task-list">
+                                        <div class="radious-square-input nv-dropdown">
+                                            <div class="logo-border">
+                                                <svg class="input-icon-1" focusable="false" viewBox="0 0 32 32">
                                                     <path d="M16,18c-4.4,0-8-3.6-8-8s3.6-8,8-8s8,3.6,8,8S20.4,18,16,18z M16,4c-3.3,0-6,2.7-6,6s2.7,6,6,6s6-2.7,6-6S19.3,4,16,4z M29,32c-0.6,0-1-0.4-1-1v-4.2c0-2.6-2.2-4.8-4.8-4.8H8.8C6.2,22,4,24.2,4,26.8V31c0,0.6-0.4,1-1,1s-1-0.4-1-1v-4.2C2,23,5,20,8.8,20h14.4c3.7,0,6.8,3,6.8,6.8V31C30,31.6,29.6,32,29,32z"></path>
                                                 </svg>
-                                                <div class="assignee-box-dropdown nv-dropdown-menu">
-                                                    <div class="each-assignee">
-                                                        <div class="profile-img"
-                                                             style="background-image: url('https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png')"></div>
-                                                        <div class="name-text">Shadin Rana</div>
-                                                    </div>
-                                                    <div class="each-assignee">
-                                                        <div class="profile-img"
-                                                             style="background-image: url('https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png')"></div>
-                                                        <div class="name-text">Shadin Rana</div>
-                                                    </div>
-                                                    <div class="each-assignee">
-                                                        <div class="profile-img"
-                                                             style="background-image: url('https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png')"></div>
-                                                        <div class="name-text">Shadin Rana</div>
-                                                    </div>
+                                            </div>
+
+                                            <input type="text" placeholder="Assignee" :value="taskDetails[0].data.assignee  ? taskDetails[0].data.assignee.name : ''" class="input-design">
+
+                                            <!--<div class="assigned-person" v-if="taskDetails[0].data.assignee">
+                                                <div class="img-box"  style="background-image: url('https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png')"></div>
+                                                <div class="text-1">{{ taskDetails[0].data.assignee.name }}</div>
+                                            </div>-->
+
+                                            <div class="assignee-box-dropdown nv-dropdown-menu">
+                                                <div class="each-assignee" v-if="users.length > 0" v-for="user in users">
+                                                    <div class="profile-img"
+                                                         style="background-image: url('https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png')"></div>
+                                                    <div class="name-text">{{ user.name }}</div>
                                                 </div>
                                             </div>
-                                            <div class="logo-2 cursor-pointer">
-                                                <svg class="_icon" focusable="false" viewBox="0 0 32 32">
+                                        </div>
+                                        <div class="radious-square-input">
+                                            <div class="logo-border">
+                                                <svg class="input-icon-2" focusable="false" viewBox="0 0 32 32">
                                                     <path d="M24,2V1c0-0.6-0.4-1-1-1s-1,0.4-1,1v1H10V1c0-0.6-0.4-1-1-1S8,0.4,8,1v1C4.7,2,2,4.7,2,8v16c0,3.3,2.7,6,6,6h16c3.3,0,6-2.7,6-6V8C30,4.7,27.3,2,24,2z M8,4v1c0,0.6,0.4,1,1,1s1-0.4,1-1V4h12v1c0,0.6,0.4,1,1,1s1-0.4,1-1V4c2.2,0,4,1.8,4,4v2H4V8C4,5.8,5.8,4,8,4z M24,28H8c-2.2,0-4-1.8-4-4V12h24v12C28,26.2,26.2,28,24,28z"></path>
                                                 </svg>
                                             </div>
-                                            <div class="logo-3 cursor-pointer">
-                                                <svg class="_icon" focusable="false"
-                                                     viewBox="0 0 32 32">
-                                                    <path d="M5,31c-0.1,0-0.3,0-0.4-0.1C4.2,30.7,4,30.4,4,30v-7.1c-2.5-2.3-4-5.5-4-8.9C0,7.4,5.4,2,12,2h8c6.6,0,12,5.4,12,12 s-5.4,12-12,12h-8c-0.1,0-0.3,0-0.4,0l-5.9,4.8C5.4,30.9,5.2,31,5,31z M12,4C6.5,4,2,8.5,2,14c0,3,1.3,5.8,3.6,7.7C5.9,21.9,6,22.2,6,22.5v5.4l4.6-3.7C10.8,24,11,24,11.3,24h0.1c0.2,0,0.4,0,0.6,0h8c5.5,0,10-4.5,10-10S25.5,4,20,4 C20,4,12,4,12,4z"></path>
+                                            <flat-pickr
+                                                :value="taskDetails[0].data.due_on"
+                                                @on-change="inlineTaskUpdateNew(taskDetails[0].data.gid, 'due_on', $event)"
+                                                class="input-design"
+                                                placeholder="Due date"
+                                                name="due_on">
+                                            </flat-pickr>
+                                        </div>
+                                    </div>
+                                    <div class="head-text-section">
+                                        <div class="text-area-logo">
+                                            <svg class="t-logo" focusable="false" viewBox="0 0 32 32">
+                                                <path d="M31,8H1C0.4,8,0,7.6,0,7s0.4-1,1-1h30c0.6,0,1,0.4,1,1S31.6,8,31,8z M23,14H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,14,23,14z M27,20H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h26c0.6,0,1,0.4,1,1S27.6,20,27,20z M19,26H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h18c0.6,0,1,0.4,1,1S19.6,26,19,26z"></path>
+                                            </svg>
+                                        </div>
+                                        <textarea name="" class="custom-text-area" cols="30" rows="5" placeholder="Description" v-model="taskDetails[0].data.notes"></textarea>
+                                    </div>
+                                    <div class="head-text-section _position-relative border-bottom-task-list">
+                                        <div class="_input-logo">
+                                            <svg class="t-logo" focusable="false" viewBox="0 0 32 32">
+                                                <path d="M10,13.5c0.8,0,1.5,0.7,1.5,1.5s-0.7,1.5-1.5,1.5S8.5,15.8,8.5,15S9.2,13.5,10,13.5z M23,14h-8c-0.6,0-1,0.4-1,1s0.4,1,1,1h8c0.6,0,1-0.4,1-1S23.6,14,23,14z M23,20h-8c-0.6,0-1,0.4-1,1s0.4,1,1,1h8c0.6,0,1-0.4,1-1S23.6,20,23,20z M10,19.5c0.8,0,1.5,0.7,1.5,1.5s-0.7,1.5-1.5,1.5S8.5,21.8,8.5,21S9.2,19.5,10,19.5z M24,2h-2.2c-0.4-1.2-1.5-2-2.8-2h-6c-1.3,0-2.4,0.8-2.8,2H8C4.7,2,2,4.7,2,8v18c0,3.3,2.7,6,6,6h16c3.3,0,6-2.7,6-6V8C30,4.7,27.3,2,24,2z M13,2h6c0.6,0,1,0.4,1,1v2c0,0.6-0.4,1-1,1h-6c-0.6,0-1-0.4-1-1V3C12,2.4,12.4,2,13,2z M28,26c0,2.2-1.8,4-4,4H8c-2.2,0-4-1.8-4-4V8c0-2.2,1.8-4,4-4h2v1c0,1.7,1.3,3,3,3h6c1.7,0,3-1.3,3-3V4h2c2.2,0,4,1.8,4,4V26z"></path>
+                                            </svg>
+                                        </div>
+                                        <input name="" class="custom-input-add-project" placeholder="Add to Project">
+                                        <div class="new-task" v-if="taskDetails.subTasks.length > 0" v-for="(t, index) in taskDetails.subTasks">
+                                            <div class="border-radious-icon" :class="{'task-complete': t[0].data.completed ? true : false}">
+                                                <svg class="MiniIcon"
+                                                     viewBox="0 0 24 24">
+                                                    <path d="M9.5,18.2c-0.4,0.4-1,0.4-1.4,0l-3.8-3.8C4,14,4,13.4,4.3,13s1-0.4,1.4,0l3.1,3.1l8.6-8.6c0.4-0.4,1-0.4,1.4,0s0.4,1,0,1.4 L9.5,18.2z"></path>
                                                 </svg>
                                             </div>
-                                            <div class="logo-3">
-                                                <svg class="_icon" focusable="false"
-                                                     viewBox="0 0 32 32">
-                                                    <path d="M23.2,16c0,0.3-0.1,0.7-0.3,0.9l-9,11c-0.5,0.6-1.5,0.7-2.1,0.2s-0.7-1.5-0.2-2.1l8.2-10L11.6,6c-0.5-0.6-0.4-1.6,0.2-2.1s1.6-0.4,2.1,0.2l9,11C23.1,15.3,23.2,15.7,23.2,16z"></path>
-                                                </svg>
+                                            <input type="text" class="new-task-input" v-model="taskDetails.subTasks[index][0].data.name">
+                                            <div class="new-task-logo">
+                                                <div class="logo-1 cursor-pointer nv-dropdown">
+                                                    <svg class="_icon" focusable="false" viewBox="0 0 32 32">
+                                                        <path d="M16,18c-4.4,0-8-3.6-8-8s3.6-8,8-8s8,3.6,8,8S20.4,18,16,18z M16,4c-3.3,0-6,2.7-6,6s2.7,6,6,6s6-2.7,6-6S19.3,4,16,4z M29,32c-0.6,0-1-0.4-1-1v-4.2c0-2.6-2.2-4.8-4.8-4.8H8.8C6.2,22,4,24.2,4,26.8V31c0,0.6-0.4,1-1,1s-1-0.4-1-1v-4.2C2,23,5,20,8.8,20h14.4c3.7,0,6.8,3,6.8,6.8V31C30,31.6,29.6,32,29,32z"></path>
+                                                    </svg>
+                                                    <div class="assignee-box-dropdown nv-dropdown-menu">
+                                                        <div class="each-assignee" v-if="users.length > 0" v-for="user in users" :value="user.gid">
+                                                            <div class="profile-img" style="background-image: url('https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png')"></div>
+                                                            <div class="name-text">{{ user.name }}</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="logo-2 cursor-pointer">
+                                                    <svg class="_icon" focusable="false" viewBox="0 0 32 32">
+                                                        <path d="M24,2V1c0-0.6-0.4-1-1-1s-1,0.4-1,1v1H10V1c0-0.6-0.4-1-1-1S8,0.4,8,1v1C4.7,2,2,4.7,2,8v16c0,3.3,2.7,6,6,6h16c3.3,0,6-2.7,6-6V8C30,4.7,27.3,2,24,2z M8,4v1c0,0.6,0.4,1,1,1s1-0.4,1-1V4h12v1c0,0.6,0.4,1,1,1s1-0.4,1-1V4c2.2,0,4,1.8,4,4v2H4V8C4,5.8,5.8,4,8,4z M24,28H8c-2.2,0-4-1.8-4-4V12h24v12C28,26.2,26.2,28,24,28z"></path>
+                                                    </svg>
+                                                </div>
+                                                <div class="logo-3 cursor-pointer">
+                                                    <svg class="_icon" focusable="false"
+                                                         viewBox="0 0 32 32">
+                                                        <path d="M5,31c-0.1,0-0.3,0-0.4-0.1C4.2,30.7,4,30.4,4,30v-7.1c-2.5-2.3-4-5.5-4-8.9C0,7.4,5.4,2,12,2h8c6.6,0,12,5.4,12,12 s-5.4,12-12,12h-8c-0.1,0-0.3,0-0.4,0l-5.9,4.8C5.4,30.9,5.2,31,5,31z M12,4C6.5,4,2,8.5,2,14c0,3,1.3,5.8,3.6,7.7C5.9,21.9,6,22.2,6,22.5v5.4l4.6-3.7C10.8,24,11,24,11.3,24h0.1c0.2,0,0.4,0,0.6,0h8c5.5,0,10-4.5,10-10S25.5,4,20,4 C20,4,12,4,12,4z"></path>
+                                                    </svg>
+                                                </div>
+                                                <div class="logo-3">
+                                                    <svg class="_icon" focusable="false"
+                                                         viewBox="0 0 32 32">
+                                                        <path d="M23.2,16c0,0.3-0.1,0.7-0.3,0.9l-9,11c-0.5,0.6-1.5,0.7-2.1,0.2s-0.7-1.5-0.2-2.1l8.2-10L11.6,6c-0.5-0.6-0.4-1.6,0.2-2.1s1.6-0.4,2.1,0.2l9,11C23.1,15.3,23.2,15.7,23.2,16z"></path>
+                                                    </svg>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
 
-                                <div class="head-text-section border-bottom-task-list">
-                                    <div class="profile-img">
-                                        <div class="_img"
-                                             style="background-image: url('https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png')"></div>
+                                    <div class="head-text-section border-bottom-task-list" v-if="taskDetails.comments.data.length > 0" v-for="comment in taskDetails.comments.data">
+                                        <div class="profile-img">
+                                            <div class="_img" style="background-image: url('https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png')"></div>
+                                        </div>
+                                        <div class="detail-text-area">
+                                            <span><a class="lnk-text" href="#">{{ comment.created_by.name }} </a>{{ comment.text }}</span>
+                                            <span class="small-text"><vue-moments-ago prefix="" suffix="ago" :date="comment.created_at"></vue-moments-ago></span>
+                                        </div>
                                     </div>
-                                    <div class="detail-text-area">
-                                        <span><a class="lnk-text" href="#">Sadhin Rana </a>created this task.</span>
-                                        <span class="small-text">8 minutes ago</span>
+                                    <div class="head-text-section bg-light">
+                                        <div class="profile-img">
+                                            <div class="_img" style="background-image: url('https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png')"></div>
+                                        </div>
+                                        <textarea @change="storeTaskComment(taskDetails[0].data.gid)" v-model="taskComment" class="custom-text-area-chat" cols="30" rows="5" placeholder="Description"></textarea>
                                     </div>
-                                    <div class="detail-text-area">
-                                        <span class="small-text">Sadhin Rana added to <a class="lnk-text" href="#">Project 1</a> 8 minutes ago</span>
-                                    </div>
-                                </div>
-                                <div class="head-text-section bg-light">
-                                    <div class="profile-img">
-                                        <div class="_img" style="background-image: url('https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png')"></div>
-                                    </div>
-                                    <textarea name="" class="custom-text-area-chat" cols="30" rows="5" placeholder="Description"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -1117,7 +994,7 @@
                     <h2 class="ph">No projects yet</h2>
                 </div>
             </div>
-            <div class="w-full" v-if="Template === 3">
+            <!--<div class="w-full" v-if="Template === 3">
                 <div class="tabs-wrap border-b-2 border-40 w-full">
                     <div class="tabs flex flex-row overflow-x-auto">
                         <button class="py-5 px-8 border-b-2 focus:outline-none tab text-grey-black font-bold border-primary">
@@ -1142,7 +1019,7 @@
                                                                 <label for="name" class="inline-block text-80 pt-2 leading-tight">Task Name</label>
                                                             </div>
                                                             <div class="py-6 px-8 w-1/2">
-                                                                <input v-model="task.name" dusk="name" type="text" placeholder="Task Name" class="w-full form-control form-input form-input-bordered"> <!---->
+                                                                <input v-model="task.name" dusk="name" type="text" placeholder="Task Name" class="w-full form-control form-input form-input-bordered"> &lt;!&ndash;&ndash;&gt;
                                                                 <div class="help-text help-text mt-2" v-if="errors.name"><div class="text-danger">{{ errors.name[0] }}</div></div>
                                                             </div>
                                                         </div>
@@ -1225,7 +1102,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>-->
         </div>
     </div>
 </template>
@@ -1275,13 +1152,12 @@
         data: function () {
             return {
                 createNewSubTask: false,
-                createNewTaskCounter: 0,
+                createNewTask: false,
                 community: null,
                 estForeclosures: 0,
                 loaded: false,
                 latestActivity: null,
                 pendingChanges: 0,
-                Template: 1,
                 tasks: [],
                 users: [],
                 sections: [],
@@ -1289,7 +1165,6 @@
                 errors: [],
                 success: null,
                 projectDetails: null,
-                isEditTask: false,
                 isLoading: true,
                 project: {
                     id: null,
@@ -1299,14 +1174,23 @@
                     osusr_mlv_community_id: this.resourceId,
                 },
                 task: {
-                    id: null,
                     name: '',
                     workspace: '',
                     assignee: '',
                     due_on: '',
                     notes: '',
                     section: '',
-                    project: [],
+                    projects: [],
+                },
+                taskUpdate: {
+                    id: null,
+                    name: '',
+                    workspace: '',
+                    assignee: '',
+                    due_on: '',
+                    notes: '',
+                    completed: '',
+                    section: '',
                 },
                 subTask: {
                     id: null,
@@ -1333,7 +1217,6 @@
                 },
                 taskDetails: null,
                 file: '',
-                editStatus: 0,
                 taskComment: '',
                 taskDetailsTemplate: 1,
                 isComplete: 0,
@@ -1987,11 +1870,11 @@
             },
             getProjects() {
                 let _this = this;
+                this.isLoading = true;
                 this.project.name = null;
-                document.getElementById('loader').style.display = 'block';
+
                 Nova.request().get('/api/asana/project?osusr_mlv_community_id=' + this.resourceId).then(response => {
                     this.isLoading = false;
-                    document.getElementById('loader').style.display = 'none';
 
                     if (response.data.data) {
                         this.projectDetails = response.data.data[0];
@@ -2000,7 +1883,7 @@
                         this.sections = response.data.data['sections'].data;
                         this.sectionData = response.data.data['sectionData'];
                         this.users = response.data.data['users'].data;
-                        this.task.project = this.projectDetails.data.gid;
+                        this.task.projects = [this.projectDetails.data.gid];
                         this.subTask.project = this.projectDetails.data.gid;
                         this.task.workspace = this.projectDetails.data.workspace.gid;
                     } else {
@@ -2018,38 +1901,25 @@
                 Nova.request().post('/api/asana/project/store', this.project).then(response => {
                     document.getElementById('loader').style.display = 'none';
                     if (response.data.status === 200) {
-                        this.Template = 1;
                         this.getProjects();
                     } else {
                         this.errors = response.data.errors;
                     }
                 });
             },
-            createTask() {
-                this.Template = 3;
-                this.isEditTask = false;
-                this.task.id = null;
-                this.task.name = '';
-                this.task.assignee = '';
-                this.task.due_on = '';
-                this.task.section = '';
-                this.task.notes = '';
-            },
             storeTask() {
-                if (this.isEditTask) {
-                    this.updateTask();
-                } else {
-                    document.getElementById('loader').style.display = 'block';
-                    Nova.request().post('/api/asana/task/store', this.task).then(response => {
-                        document.getElementById('loader').style.display = 'none';
-                        if (response.data.status === 200) {
-                            this.Template = 1;
-                            this.getProjects();
-                        } else {
-                            this.errors = response.data.errors;
-                        }
-                    });
-                }
+                this.isLoading = true;
+
+                Nova.request().post('/api/asana/task/store', this.task).then(response => {
+                    this.isLoading = false;
+                    this.createNewTask = false;
+
+                    if (response.data.status === 200) {
+                        this.getProjects();
+                    } else {
+                        this.errors = response.data.errors;
+                    }
+                });
             },
             showTask(id) {
                 this.sideBar = 1;
@@ -2067,29 +1937,35 @@
                     }
                 });
             },
-            editTask(id) {
-                this.Template = 3;
-                this.isEditTask = true;
-                document.getElementById('loader').style.display = 'block';
-                Nova.request().get('/api/asana/task/' + id + '/edit').then(response => {
-                    document.getElementById('loader').style.display = 'none';
-                    this.task.id = id;
-                    this.task.name = response.data.data.name ? response.data.data.name : '';
-                    this.task.due_on = response.data.data.due_on ? response.data.data.due_on : '';
-                    this.task.notes = response.data.data.notes ? response.data.data.notes : '';
-                    this.task.assignee = response.data.data.assignee ? response.data.data.assignee.gid : '';
-                    this.task.section = response.data.data.memberships[0].section.gid ? response.data.data.memberships[0].section.gid : '';
-                    this.task.workspace = response.data.data.workspace.gid;
-                });
+            editTask(id, key, e) {
+                this.isLoading = true;
+                this.taskUpdate = {};
+                this.taskUpdate.id = id;
+
+                if (key == 'name') {
+                    this.taskUpdate.name = e.target.value;
+                } else if (key == 'assignee') {
+                    this.taskUpdate.assignee = e;
+                } else if (key == 'completed') {
+                    if (e.target.checked) {
+                        this.taskUpdate.completed = true;
+                    } else {
+                        this.taskUpdate.completed = false;
+                    }
+                } else if (key == 'due_on') {
+                    this.taskUpdate.due_on = this.convert(e);
+                }
+
+                this.updateTask();
             },
             updateTask() {
-                this.task._method = "PUT";
-                document.getElementById('loader').style.display = 'block';
-                Nova.request().post('/api/asana/task/update/' + this.task.id, this.task).then(response => {
-                    document.getElementById('loader').style.display = 'none';
+                this.taskUpdate._method = "PUT";
+
+                Nova.request().post('/api/asana/task/update/' + this.taskUpdate.id, this.taskUpdate).then(response => {
+                    this.isLoading = false;
+
                     if (response.data.status === 200) {
-                        this.task = {};
-                        this.Template = 1;
+                        this.taskUpdate = {};
                         this.getProjects();
                     } else {
                         this.errors = response.data.errors;
@@ -2135,7 +2011,6 @@
                 Nova.request().post('/api/asana/task/update/' + t.data.gid, formData).then(response => {
                     document.getElementById('loader').style.display = 'none';
                     if (response.data.status === 200) {
-                        this.Template = 1;
                     } else {
                         this.errors = response.data.errors;
                     }
@@ -2165,7 +2040,6 @@
                 Nova.request().post('/api/asana/task/update/' + id, formData).then(response => {
                     document.getElementById('loader').style.display = 'none';
                     if (response.data.status === 200) {
-                        this.Template = 1;
                         if (name == 'name') {
                             this.taskDetails[0].data.name = e.target.value;
                         } else if(name == 'notes') {
@@ -2190,6 +2064,7 @@
             },
             deleteTask(id) {
                 let THIS = this;
+
                 Swal.fire({
                     type: 'error',
                     title: 'Delete Task',
@@ -2198,12 +2073,12 @@
                     focusConfirm: true
                 }).then(res => {
                     if(res.value !== undefined){
-                        document.getElementById('taskDetails').style.display = 'none';
-                        document.getElementById('loader').style.display = 'block';
+                        this.isLoading = true;
 
                         Nova.request().post('/api/asana/task/destroy/' + id, {_method: 'DELETE'}).then(response => {
+                            this.isLoading = false;
+
                             if (response.data.status === 200) {
-                                THIS.Template = 1;
                                 THIS.getProjects();
                                 document.getElementById('loader').style.display = 'none';
                             } else {
@@ -2221,7 +2096,6 @@
                 params = params.toString();
                 Nova.request().get('/api/asana/task/show?' + params).then(response => {
                     if (response.data.status === 200) {
-                        THIS.Template = 1;
                         THIS.tasks = response.data.data;
                         document.getElementById('loader').style.display = 'none';
                     } else {
@@ -2396,7 +2270,6 @@
                 Nova.request().post('/api/asana/task/update/' + t.data.gid, formData).then(response => {
                     document.getElementById('loader').style.display = 'none';
                     if (response.data.status === 200) {
-                        this.Template = 1;
                     } else {
                         this.errors = response.data.errors;
                     }
@@ -2435,9 +2308,6 @@
                     }
                 });
             },
-            focusInput(e){
-                //$(e.target).find("input").focus();
-            },
             uiUpdateMounted: function () {
                 let _this = this;
 
@@ -2448,6 +2318,7 @@
                 $('.main-wrapper').on('click','.nv-dropdown', function () {
                     $('.nv-dropdown').removeClass('nv-open');
                     $(this).addClass('nv-open');
+                    $(this).find('input').focus();
                 });
 
                 $(window).on('mouseup', function(e){
@@ -2462,6 +2333,15 @@
                     }
                     $("#assignee-logo-id").removeClass("logo-hide");
                 });
+            },
+            collapseDropdown(id) {
+                this.task.assignee = id;
+                setTimeout(function () {
+                    $('.nv-dropdown').removeClass('nv-open');
+                }, 100)
+            },
+            toogleComplete(id) {
+                document.getElementById(id).click();
             }
         },
         created() {
@@ -2520,47 +2400,7 @@
         cursor: pointer;
     }
 
-    #loader {
-        display: none;
-    }
-
-    .lds-facebook {
-        display: inline-block;
-        position: relative;
-        width: 64px;
-        height: 64px;
-    }
-    .lds-facebook div {
-        display: inline-block;
-        position: absolute;
-        left: 6px;
-        width: 13px;
-        background: #fff;
-        animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
-    }
-    .lds-facebook div:nth-child(1) {
-        left: 6px;
-        animation-delay: -0.24s;
-    }
-    .lds-facebook div:nth-child(2) {
-        left: 26px;
-        animation-delay: -0.12s;
-    }
-    .lds-facebook div:nth-child(3) {
-        left: 45px;
-        /*animation-delay: 0;*/
-    }
     .ph{
         padding: 20px 10px;
-    }
-    @keyframes lds-facebook {
-        0% {
-            top: 6px;
-            height: 51px;
-        }
-        50%, 100% {
-            top: 19px;
-            height: 26px;
-        }
     }
 </style>

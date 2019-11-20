@@ -78,7 +78,7 @@ class TaskController extends Controller
             'notes' => 'nullable|string',
             'section' => 'nullable|string',
             'workspace' => 'required|string',
-            'project' => 'required|string',
+            'projects' => 'required|array',
         );
 
         $validator = Validator::make ( $request->all(), $rules);
@@ -89,41 +89,46 @@ class TaskController extends Controller
 
         // Creates a task.
         try {
-            $data = [
-                'name' => $request->name,
-                'workspace' => $request->workspace,
-                'projects' => [$request->project],
-                'assignee' => $request->assignee,
-                'due_on' => $request->due_on,
-                'notes' => $request->notes,
-            ];
+            $data = [];
+
+            foreach ($request->all() as $key => $item) {
+                if ($key != 'section') {
+                    if (!empty($item)) {
+                        $data[$key] = $item;
+                    }
+                }
+            }
 
             $task = json_decode($this->asana->createTask($data), 1);
 
-            $param = [
-                'data' => [
-                    'task' => $task['data']['gid'],
-                ]
-            ];
+            if (isset($request->section) && !empty($request->section)) {
+                $param = [
+                    'data' => [
+                        'task' => $task['data']['gid'],
+                    ]
+                ];
 
-            $ch = curl_init();
+                $ch = curl_init();
 
-            curl_setopt($ch, CURLOPT_URL, 'https://app.asana.com/api/1.0/sections/' . $request->section . '/addTask');
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-            curl_setopt($ch, CURLOPT_POST, 1);
-            curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($param));
+                curl_setopt($ch, CURLOPT_URL, 'https://app.asana.com/api/1.0/sections/' . $request->section . '/addTask');
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+                curl_setopt($ch, CURLOPT_POST, 1);
+                curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($param));
 
-            $headers = array();
-            $headers[] = 'Content-Type: application/json';
-            $headers[] = 'Accept: application/json';
-            $headers[] = 'Authorization: Bearer ' . env('ASANA_PAT');
-            curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+                $headers = array();
+                $headers[] = 'Content-Type: application/json';
+                $headers[] = 'Accept: application/json';
+                $headers[] = 'Authorization: Bearer ' . env('ASANA_PAT');
+                curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 
-            $result = curl_exec($ch);
-            if (curl_errno($ch)) {
-                echo 'Error:' . curl_error($ch);
+                $result = curl_exec($ch);
+
+                if (curl_errno($ch)) {
+                    echo 'Error:' . curl_error($ch);
+                }
+
+                curl_close($ch);
             }
-            curl_close($ch);
 
             return response()->json(['status' => 200, 'data' => $task], 200);
         } catch (\Exception $e) {
@@ -310,7 +315,7 @@ class TaskController extends Controller
             'due_on' => 'nullable|date',
             'notes' => 'nullable|string',
             'section' => 'nullable|string',
-            'workspace' => 'required|string',
+            'completed' => 'nullable|boolean',
         );
 
         $validator = Validator::make ( $request->all(), $rules);
@@ -321,19 +326,17 @@ class TaskController extends Controller
 
         // Update a task.
         try {
-            $data = [];
+            $data = $request->all();
 
-            foreach ($request->all() as $key => $item) {
-                if ($key != '_method' || $key != 'section') {
-                    if (!empty($item)) {
-                        $data[$key] = $item;
-                    }
+            foreach ($data as $key => $item) {
+                if ($key == '_method' || $key == 'section' || $key == 'id') {
+                    unset($data[$key]);
                 }
             }
 
             $task = json_decode($this->asana->updateTask($id, $data), 1);
 
-            if (isset($request->section)) {
+            if (isset($request->section) && !empty($request->section)) {
                 $param = [
                     'data' => [
                         'task' => $id,
