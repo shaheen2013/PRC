@@ -315,7 +315,6 @@ class TaskController extends Controller
             'due_on' => 'nullable|date',
             'notes' => 'nullable|string',
             'section' => 'nullable|string',
-            'completed' => 'nullable|boolean',
         );
 
         $validator = Validator::make ( $request->all(), $rules);

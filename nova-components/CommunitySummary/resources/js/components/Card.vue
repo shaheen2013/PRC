@@ -291,13 +291,12 @@
                                                     <path d="M16,18c-4.4,0-8-3.6-8-8s3.6-8,8-8s8,3.6,8,8S20.4,18,16,18z M16,4c-3.3,0-6,2.7-6,6s2.7,6,6,6s6-2.7,6-6S19.3,4,16,4z M29,32c-0.6,0-1-0.4-1-1v-4.2c0-2.6-2.2-4.8-4.8-4.8H8.8C6.2,22,4,24.2,4,26.8V31c0,0.6-0.4,1-1,1s-1-0.4-1-1v-4.2C2,23,5,20,8.8,20h14.4c3.7,0,6.8,3,6.8,6.8V31C30,31.6,29.6,32,29,32z"></path>
                                                 </svg>
                                             </div>
-                                            <span><input type="text" class="assignee-box-input assigned-input"></span>
+                                            <span><input type="text" class="assignee-box-input assigned-input" @keyup="textSearch($event, false)" onblur="this.value = '';document.querySelectorAll('.each-assignee').forEach(function(el) {el.style.display = 'inline-flex';});"></span>
                                         </div>
 
                                         <div class="assignee-box-dropdown nv-dropdown-menu">
                                             <div class="each-assignee" v-if="users.length > 0" v-for="user in users" @click="collapseDropdown(user.gid)">
-                                                <div class="profile-img"
-                                                     style="background-image: url('https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png')"></div>
+                                                <div class="profile-img" style="background-image: url('https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png')"></div>
                                                 <div class="name-text">{{ user.name }}</div>
                                             </div>
                                         </div>
@@ -334,16 +333,16 @@
                                         </div>
                                     </div>
                                     <div class="nv-collapsedown">
-                                        <div class="task-list-body border-top-task-list" v-if="section['tasks'].length > 0" v-for="(task, i) in section['tasks']" :key="i">
+                                        <div class="task-list-body-section" v-if="section['tasks'].length > 0" v-for="(task, i) in section['tasks']" :key="i">
                                             <div class="task-name-box cursor-pointer">
                                                 <div class="border-radious-icon" :class="{'task-complete': task[0].data.completed ? true : false}" @click="toogleComplete('taskDetailsCompleteness' + task[0].data.gid)">
                                                     <svg class="MiniIcon" viewBox="0 0 24 24">
                                                         <path d="M9.5,18.2c-0.4,0.4-1,0.4-1.4,0l-3.8-3.8C4,14,4,13.4,4.3,13s1-0.4,1.4,0l3.1,3.1l8.6-8.6c0.4-0.4,1-0.4,1.4,0s0.4,1,0,1.4 L9.5,18.2z"></path>
                                                     </svg>
                                                 </div>
-                                                <input type="checkbox" v-if="task[0].data.completed" @click="editTask(task[0].data.gid, 'completed', $event)" :id="'taskDetailsCompleteness' + task[0].data.gid" style="display:none;" checked>
-                                                <input type="checkbox" v-else="" @click="editTask(task[0].data.gid, 'completed', $event)" :id="'taskDetailsCompleteness' + task[0].data.gid" style="display:none;">
-                                                <span><input type="text" class="task-body-custom-input" placeholder="Write a task name" :value="task[0].data.name" @change="editTask(task[0].data.gid, 'name', $event)"></span>
+                                                <input type="checkbox" v-if="task[0].data.completed" @click="editTask(task[0].data.gid, 'completed', $event, index, i)" :id="'taskDetailsCompleteness' + task[0].data.gid" style="display:none;" checked>
+                                                <input type="checkbox" v-else="" @click="editTask(task[0].data.gid, 'completed', $event, index, i)" :id="'taskDetailsCompleteness' + task[0].data.gid" style="display:none;">
+                                                <span><input type="text" class="task-body-custom-input" placeholder="Write a task name" :value="task[0].data.name" @change="editTask(task[0].data.gid, 'name', $event, index, i)"></span>
                                                 <div @click="showTask(task[0].data.gid)" class="detail-option">Detail
                                                     <svg class="MiniIcon-right" viewBox="0 0 24 24">
                                                         <path d="M8.9,20.4c-0.4,0-0.7-0.1-1-0.4c-0.6-0.6-0.7-1.5-0.1-2.1l5.2-5.8L7.8,6C7.3,5.4,7.3,4.4,8,3.9C8.6,3.3,9.5,3.4,10.1,4l6.1,7.1c0.5,0.6,0.5,1.4,0,2l-6.1,6.8C9.8,20.3,9.4,20.4,8.9,20.4z"></path>
@@ -357,7 +356,7 @@
                                                             <path d="M16,18c-4.4,0-8-3.6-8-8s3.6-8,8-8s8,3.6,8,8S20.4,18,16,18z M16,4c-3.3,0-6,2.7-6,6s2.7,6,6,6s6-2.7,6-6S19.3,4,16,4z M29,32c-0.6,0-1-0.4-1-1v-4.2c0-2.6-2.2-4.8-4.8-4.8H8.8C6.2,22,4,24.2,4,26.8V31c0,0.6-0.4,1-1,1s-1-0.4-1-1v-4.2C2,23,5,20,8.8,20h14.4c3.7,0,6.8,3,6.8,6.8V31C30,31.6,29.6,32,29,32z"></path>
                                                         </svg>
                                                     </div>
-                                                    <span><input type="text" class="assignee-box-input nv-dropdown-trigger"></span>
+                                                    <span><input type="text" class="assignee-box-input nv-dropdown-trigger" @keyup="textSearch($event, false)" onblur="this.value = '';document.querySelectorAll('.each-assignee').forEach(function(el) {el.style.display = 'inline-flex';});"></span>
 
                                                     <div class="assigned-person" v-if="task[0].data.assignee">
                                                         <div class="img-box"  style="background-image: url('https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png')"></div>
@@ -365,7 +364,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="assignee-box-dropdown nv-dropdown-menu">
-                                                    <div class="each-assignee" v-if="users.length > 0" v-for="user in users" @click="editTask(task[0].data.gid, 'assignee', user.gid)">
+                                                    <div class="each-assignee" v-if="users.length > 0" v-for="user in users" @click="editTask(task[0].data.gid, 'assignee', user, index, i)">
                                                         <div class="profile-img" style="background-image: url('https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png')"></div>
                                                         <div class="name-text">{{ user.name }}</div>
                                                     </div>
@@ -380,7 +379,7 @@
                                                 <span>
                                                     <flat-pickr
                                                         :value="task[0].data.due_on"
-                                                        @on-change="editTask(task[0].data.gid, 'due_on', $event)"
+                                                        @on-change="editTask(task[0].data.gid, 'due_on', $event, index, i)"
                                                         class="assignee-box-input assigned-input"
                                                         name="date">
                                                     </flat-pickr>
@@ -391,7 +390,7 @@
                                 </div>
                             </div>
                             <div class="task-list-detail-wrapper" id="task-detail" :class="{'hideMe': sideBar == 0 ? true:false}">
-                                <div class="loader-io">
+                                <div class="loader-io" style="display: none">
                                     <div class="loadingio-spinner-eclipse-utvtio44ngo">
                                         <div class="ldio-aebf04cd3u">
                                             <div></div>
@@ -405,8 +404,10 @@
                                                 <svg class="MiniIcon-custom" viewBox="0 0 24 24">
                                                     <path d="M9.2,20c-0.5,0.5-1.3,0.5-1.9,0l-5.1-5.1c-0.4-0.5-0.4-1.3,0-1.9c0.4-0.5,1.3-0.5,1.9,0l4.1,4.1L19.7,5.7 c0.5-0.5,1.3-0.5,1.9,0s0.5,1.3,0,1.9L9.2,20z"></path>
                                                 </svg>
-                                                <span v-if="taskDetails[0].data.completed">Completed</span>
-                                                <span v-else="">Mark Complete</span>
+                                                <span v-if="taskDetails[0].data.completed" onclick="document.getElementById('taskDetailsCompleteness').click()">Completed</span>
+                                                <span v-else="" onclick="document.getElementById('taskDetailsCompleteness').click()">Mark As Complete</span>
+                                                <input type="checkbox" v-if="taskDetails[0].data.completed" @click="inlineTaskUpdate(taskDetails[0].data.gid, 'completed', $event)" id="taskDetailsCompleteness" style="display:none;" checked>
+                                                <input type="checkbox" v-else="" @click="inlineTaskUpdate(taskDetails[0].data.gid, 'completed', $event)" id="taskDetailsCompleteness" style="display:none;">
                                             </div>
                                         </div>
                                         <div class="section-right _text-right">
@@ -416,7 +417,7 @@
                                                     <path d="M19,32c-3.9,0-7-3.1-7-7V10c0-2.2,1.8-4,4-4s4,1.8,4,4v9c0,0.6-0.4,1-1,1s-1-0.4-1-1v-9c0-1.1-0.9-2-2-2s-2,0.9-2,2v15c0,2.8,2.2,5,5,5s5-2.2,5-5V10c0-4.4-3.6-8-8-8s-8,3.6-8,8v5c0,0.6-0.4,1-1,1s-1-0.4-1-1v-5C6,4.5,10.5,0,16,0s10,4.5,10,10v15C26,28.9,22.9,32,19,32z"></path>
                                                 </svg>
                                             </div>
-                                            <div class="logo-box">
+                                            <div class="logo-box" @click="createNewSubTask = true">
                                                 <svg class="hide-box-icon" focusable="false" viewBox="0 0 32 32">
                                                     <path d="M25,20c-2.4,0-4.4,1.7-4.9,4H11c-3.9,0-7-3.1-7-7v-5h16.1c0.5,2.3,2.5,4,4.9,4c2.8,0,5-2.2,5-5s-2.2-5-5-5c-2.4,0-4.4,1.7-4.9,4H4V3c0-0.6-0.4-1-1-1S2,2.4,2,3v14c0,5,4,9,9,9h9.1c0.5,2.3,2.5,4,4.9,4c2.8,0,5-2.2,5-5S27.8,20,25,20z M25,8c1.7,0,3,1.3,3,3s-1.3,3-3,3s-3-1.3-3-3S23.3,8,25,8z M25,28c-1.7,0-3-1.3-3-3s1.3-3,3-3s3,1.3,3,3S26.7,28,25,28z"></path>
                                                 </svg>
@@ -442,25 +443,25 @@
                                         </div>
                                     </div>
                                     <div class="head-text-section">
-                                        <input type="text" class="input-big" placeholder="Write a task name" v-model="taskDetails[0].data.name">
+                                        <input type="text" class="input-big" placeholder="Write a task name" :value="taskDetails[0].data.name" @change="inlineTaskUpdate(taskDetails[0].data.gid, 'name', $event)">
                                     </div>
                                     <div class="head-text-section border-bottom-task-list">
-                                        <div class="radious-square-input nv-dropdown">
+                                        <div class="radious-square-input cursor-pointer nv-dropdown">
                                             <div class="logo-border">
                                                 <svg class="input-icon-1" focusable="false" viewBox="0 0 32 32">
                                                     <path d="M16,18c-4.4,0-8-3.6-8-8s3.6-8,8-8s8,3.6,8,8S20.4,18,16,18z M16,4c-3.3,0-6,2.7-6,6s2.7,6,6,6s6-2.7,6-6S19.3,4,16,4z M29,32c-0.6,0-1-0.4-1-1v-4.2c0-2.6-2.2-4.8-4.8-4.8H8.8C6.2,22,4,24.2,4,26.8V31c0,0.6-0.4,1-1,1s-1-0.4-1-1v-4.2C2,23,5,20,8.8,20h14.4c3.7,0,6.8,3,6.8,6.8V31C30,31.6,29.6,32,29,32z"></path>
                                                 </svg>
                                             </div>
 
-                                            <input type="text" placeholder="Assignee" :value="taskDetails[0].data.assignee  ? taskDetails[0].data.assignee.name : ''" class="input-design">
+                                            <input type="text" placeholder="Assignee" class="input-design" @keyup="textSearch($event, false)" onblur="this.value = '';document.querySelectorAll('.each-assignee').forEach(function(el) {el.style.display = 'inline-flex';});">
 
-                                            <!--<div class="assigned-person" v-if="taskDetails[0].data.assignee">
-                                                <div class="img-box"  style="background-image: url('https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png')"></div>
+                                            <div class="assigned-person" v-if="taskDetails[0].data.assignee">
+                                                <div class="img-box" style="background-image: url('https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png')"></div>
                                                 <div class="text-1">{{ taskDetails[0].data.assignee.name }}</div>
-                                            </div>-->
+                                            </div>
 
                                             <div class="assignee-box-dropdown nv-dropdown-menu">
-                                                <div class="each-assignee" v-if="users.length > 0" v-for="user in users">
+                                                <div class="each-assignee" v-if="users.length > 0" v-for="user in users" @click="inlineTaskUpdate(taskDetails[0].data.gid, 'assignee', user)">
                                                     <div class="profile-img"
                                                          style="background-image: url('https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png')"></div>
                                                     <div class="name-text">{{ user.name }}</div>
@@ -475,7 +476,7 @@
                                             </div>
                                             <flat-pickr
                                                 :value="taskDetails[0].data.due_on"
-                                                @on-change="inlineTaskUpdateNew(taskDetails[0].data.gid, 'due_on', $event)"
+                                                @on-change="inlineTaskUpdate(taskDetails[0].data.gid, 'due_on', $event)"
                                                 class="input-design"
                                                 placeholder="Due date"
                                                 name="due_on">
@@ -488,7 +489,7 @@
                                                 <path d="M31,8H1C0.4,8,0,7.6,0,7s0.4-1,1-1h30c0.6,0,1,0.4,1,1S31.6,8,31,8z M23,14H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,14,23,14z M27,20H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h26c0.6,0,1,0.4,1,1S27.6,20,27,20z M19,26H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h18c0.6,0,1,0.4,1,1S19.6,26,19,26z"></path>
                                             </svg>
                                         </div>
-                                        <textarea name="" class="custom-text-area" cols="30" rows="5" placeholder="Description" v-model="taskDetails[0].data.notes"></textarea>
+                                        <textarea name="" class="custom-text-area" cols="30" rows="5" placeholder="Description" :value="taskDetails[0].data.notes" @change="inlineTaskUpdate(taskDetails[0].data.gid, 'notes', $event)"></textarea>
                                     </div>
                                     <div class="head-text-section _position-relative border-bottom-task-list">
                                         <div class="_input-logo">
@@ -496,7 +497,71 @@
                                                 <path d="M10,13.5c0.8,0,1.5,0.7,1.5,1.5s-0.7,1.5-1.5,1.5S8.5,15.8,8.5,15S9.2,13.5,10,13.5z M23,14h-8c-0.6,0-1,0.4-1,1s0.4,1,1,1h8c0.6,0,1-0.4,1-1S23.6,14,23,14z M23,20h-8c-0.6,0-1,0.4-1,1s0.4,1,1,1h8c0.6,0,1-0.4,1-1S23.6,20,23,20z M10,19.5c0.8,0,1.5,0.7,1.5,1.5s-0.7,1.5-1.5,1.5S8.5,21.8,8.5,21S9.2,19.5,10,19.5z M24,2h-2.2c-0.4-1.2-1.5-2-2.8-2h-6c-1.3,0-2.4,0.8-2.8,2H8C4.7,2,2,4.7,2,8v18c0,3.3,2.7,6,6,6h16c3.3,0,6-2.7,6-6V8C30,4.7,27.3,2,24,2z M13,2h6c0.6,0,1,0.4,1,1v2c0,0.6-0.4,1-1,1h-6c-0.6,0-1-0.4-1-1V3C12,2.4,12.4,2,13,2z M28,26c0,2.2-1.8,4-4,4H8c-2.2,0-4-1.8-4-4V8c0-2.2,1.8-4,4-4h2v1c0,1.7,1.3,3,3,3h6c1.7,0,3-1.3,3-3V4h2c2.2,0,4,1.8,4,4V26z"></path>
                                             </svg>
                                         </div>
-                                        <input name="" class="custom-input-add-project" placeholder="Add to Project">
+                                        <div class="project-name-label">{{ projectDetails.data.name }}</div>
+                                        <div class="project-select-box">
+                                            <select @change="inlineTaskUpdate(taskDetails[0].data.gid, 'section', $event)" class="cursor-pointer">
+                                                <option v-for="section in sections" :value="section.gid" v-if="taskDetails[0].data.memberships[0].section.gid == section.gid" selected>{{ section.name }}</option>
+                                                <option :value="section.gid" v-else="">{{ section.name }}</option>
+                                            </select>
+                                        </div>
+                                        <div class="new-task" v-if="createNewSubTask">
+                                            <div class="border-radious-icon">
+                                                <svg class="MiniIcon"
+                                                     viewBox="0 0 24 24">
+                                                    <path d="M9.5,18.2c-0.4,0.4-1,0.4-1.4,0l-3.8-3.8C4,14,4,13.4,4.3,13s1-0.4,1.4,0l3.1,3.1l8.6-8.6c0.4-0.4,1-0.4,1.4,0s0.4,1,0,1.4 L9.5,18.2z"></path>
+                                                </svg>
+                                            </div>
+                                            <input type="text" class="new-task-input" v-model="subTask.name">
+                                            <div class="new-task-logo">
+                                                <div class="detail-option">Create
+                                                    <svg viewBox="0 0 24 24" class="MiniIcon-right"><path d="M8.9,20.4c-0.4,0-0.7-0.1-1-0.4c-0.6-0.6-0.7-1.5-0.1-2.1l5.2-5.8L7.8,6C7.3,5.4,7.3,4.4,8,3.9C8.6,3.3,9.5,3.4,10.1,4l6.1,7.1c0.5,0.6,0.5,1.4,0,2l-6.1,6.8C9.8,20.3,9.4,20.4,8.9,20.4z"></path></svg>
+                                                </div>
+                                                <div class="logo-2 cursor-pointer">
+                                                    <svg class="_icon" focusable="false" viewBox="0 0 32 32">
+                                                        <path d="M24,2V1c0-0.6-0.4-1-1-1s-1,0.4-1,1v1H10V1c0-0.6-0.4-1-1-1S8,0.4,8,1v1C4.7,2,2,4.7,2,8v16c0,3.3,2.7,6,6,6h16c3.3,0,6-2.7,6-6V8C30,4.7,27.3,2,24,2z M8,4v1c0,0.6,0.4,1,1,1s1-0.4,1-1V4h12v1c0,0.6,0.4,1,1,1s1-0.4,1-1V4c2.2,0,4,1.8,4,4v2H4V8C4,5.8,5.8,4,8,4z M24,28H8c-2.2,0-4-1.8-4-4V12h24v12C28,26.2,26.2,28,24,28z"></path>
+                                                    </svg>
+                                                    <!--<span>
+                                                        <flat-pickr
+                                                            @on-change="subTask.due_on = convert($event)"
+                                                            class="input-design"
+                                                            placeholder="Due date"
+                                                            name="due_on">
+                                                        </flat-pickr>
+                                                    </span>-->
+                                                </div>
+                                                <div class="logo-1 cursor-pointer nv-dropdown">
+                                                    <svg class="_icon" focusable="false" viewBox="0 0 32 32">
+                                                        <path d="M16,18c-4.4,0-8-3.6-8-8s3.6-8,8-8s8,3.6,8,8S20.4,18,16,18z M16,4c-3.3,0-6,2.7-6,6s2.7,6,6,6s6-2.7,6-6S19.3,4,16,4z M29,32c-0.6,0-1-0.4-1-1v-4.2c0-2.6-2.2-4.8-4.8-4.8H8.8C6.2,22,4,24.2,4,26.8V31c0,0.6-0.4,1-1,1s-1-0.4-1-1v-4.2C2,23,5,20,8.8,20h14.4c3.7,0,6.8,3,6.8,6.8V31C30,31.6,29.6,32,29,32z"></path>
+                                                    </svg>
+                                                    <div class="assignee-box-dropdown no-overflow nv-dropdown-menu">
+                                                        <div class="_position-relative nv-dropdown-under-input">
+                                                            <label class="ass-label">Assignee</label>
+                                                            <br>
+                                                            <input type="text" placeholder="Name" class="drop-down-input" @keyup="textSearch($event, true)" onblur="this.value = '';document.querySelectorAll('.each-assignee-under-input').forEach(function(el) {el.style.display = 'inline-flex';});">
+                                                            <div class="assignee-box-dropdown-under-input nv-dropdown-menu-under-input">
+                                                                <div class="each-assignee-under-input" v-if="users.length > 0" v-for="user in users" @click="subTask.assignee = user.gid">
+                                                                    <div class="profile-img"
+                                                                         style="background-image: url('https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png')"></div>
+                                                                    <div class="name-text">{{ user.name }}</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="logo-3 cursor-pointer">
+                                                    <svg class="_icon" focusable="false"
+                                                         viewBox="0 0 32 32">
+                                                        <path d="M5,31c-0.1,0-0.3,0-0.4-0.1C4.2,30.7,4,30.4,4,30v-7.1c-2.5-2.3-4-5.5-4-8.9C0,7.4,5.4,2,12,2h8c6.6,0,12,5.4,12,12 s-5.4,12-12,12h-8c-0.1,0-0.3,0-0.4,0l-5.9,4.8C5.4,30.9,5.2,31,5,31z M12,4C6.5,4,2,8.5,2,14c0,3,1.3,5.8,3.6,7.7C5.9,21.9,6,22.2,6,22.5v5.4l4.6-3.7C10.8,24,11,24,11.3,24h0.1c0.2,0,0.4,0,0.6,0h8c5.5,0,10-4.5,10-10S25.5,4,20,4 C20,4,12,4,12,4z"></path>
+                                                    </svg>
+                                                </div>
+                                                <div class="logo-3">
+                                                    <svg class="_icon" focusable="false"
+                                                         viewBox="0 0 32 32">
+                                                        <path d="M23.2,16c0,0.3-0.1,0.7-0.3,0.9l-9,11c-0.5,0.6-1.5,0.7-2.1,0.2s-0.7-1.5-0.2-2.1l8.2-10L11.6,6c-0.5-0.6-0.4-1.6,0.2-2.1s1.6-0.4,2.1,0.2l9,11C23.1,15.3,23.2,15.7,23.2,16z"></path>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <div class="new-task" v-if="taskDetails.subTasks.length > 0" v-for="(t, index) in taskDetails.subTasks">
                                             <div class="border-radious-icon" :class="{'task-complete': t[0].data.completed ? true : false}">
                                                 <svg class="MiniIcon"
@@ -994,115 +1059,6 @@
                     <h2 class="ph">No projects yet</h2>
                 </div>
             </div>
-            <!--<div class="w-full" v-if="Template === 3">
-                <div class="tabs-wrap border-b-2 border-40 w-full">
-                    <div class="tabs flex flex-row overflow-x-auto">
-                        <button class="py-5 px-8 border-b-2 focus:outline-none tab text-grey-black font-bold border-primary">
-                            <div v-if="isEditTask">Update Task</div><div v-if="!isEditTask">Create Task</div>
-                        </button>
-                    </div>
-                </div>
-                <div class="tab-content tasks">
-
-                    <div class="px-6 py-3">
-                        <div class="flex border-b border-40 remove-bottom-border">
-                            <div class="overflow-hidden overflow-x-auto relative w-full">
-
-                                <div class="relative">
-                                    <form autocomplete="off" @submit.prevent="storeTask">
-                                        <div class="mb-8">
-                                            <div class="card">
-                                                <div class="remove-bottom-border">
-                                                    <div class="flex border-b border-40">
-                                                        <div class="flex border-b border-40 w-full">
-                                                            <div class="w-1/5 py-6 px-8">
-                                                                <label for="name" class="inline-block text-80 pt-2 leading-tight">Task Name</label>
-                                                            </div>
-                                                            <div class="py-6 px-8 w-1/2">
-                                                                <input v-model="task.name" dusk="name" type="text" placeholder="Task Name" class="w-full form-control form-input form-input-bordered"> &lt;!&ndash;&ndash;&gt;
-                                                                <div class="help-text help-text mt-2" v-if="errors.name"><div class="text-danger">{{ errors.name[0] }}</div></div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="remove-bottom-border">
-                                                    <div class="flex border-b border-40">
-                                                        <div class="flex border-b border-40 w-full">
-                                                            <div class="w-1/5 py-6 px-8">
-                                                                <label for="name" class="inline-block text-80 pt-2 leading-tight">Assigned To</label>
-                                                            </div>
-                                                            <div class="py-6 px-8 w-1/2">
-                                                                <select v-model="task.assignee" dusk="attachable-select" data-testid="workspace-select" name="assignee" class="form-control form-select mb-3 w-full">
-                                                                    <option value="" disabled="disabled">Choose Assigned To</option>
-                                                                    <option v-if="users.length > 0" v-for="user in users" :value="user.gid">{{ user.name }}</option>
-                                                                </select>
-                                                                <div class="help-text help-text mt-2" v-if="errors.assignee"><div class="text-danger">{{ errors.assignee[0] }}</div></div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="remove-bottom-border">
-                                                    <div class="flex border-b border-40">
-                                                        <div class="flex border-b border-40 w-full">
-                                                            <div class="w-1/5 py-6 px-8">
-                                                                <label for="name" class="inline-block text-80 pt-2 leading-tight">Type</label>
-                                                            </div>
-                                                            <div class="py-6 px-8 w-1/2">
-                                                                <select v-model="task.section" dusk="attachable-select" data-testid="workspace-select" name="assignee" class="form-control form-select mb-3 w-full">
-                                                                    <option value="" disabled="disabled">Choose Type</option>
-                                                                    <option v-if="sections.length > 0" v-for="section in sections" :value="section.gid">{{ section.name }}</option>
-                                                                </select>
-                                                                <div class="help-text help-text mt-2" v-if="errors.section"><div class="text-danger">{{ errors.section[0] }}</div></div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="remove-bottom-border">
-                                                    <div class="flex border-b border-40">
-                                                        <div class="flex border-b border-40 w-full">
-                                                            <div class="w-1/5 py-6 px-8">
-                                                                <label for="name" class="inline-block text-80 pt-2 leading-tight">Due Date</label>
-                                                            </div>
-                                                            <div class="py-6 px-8 w-1/2">
-                                                                <flat-pickr
-                                                                    v-model="task.due_on"
-                                                                    :config="config"
-                                                                    class="w-full form-control form-input-bordered"
-                                                                    placeholder="Select date"
-                                                                    name="date">
-                                                                </flat-pickr>
-                                                                <div class="help-text help-text mt-2" v-if="errors.due_on"><div class="text-danger">{{ errors.due_on[0] }}</div></div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="remove-bottom-border">
-                                                    <div class="flex border-b border-40">
-                                                        <div class="flex border-b border-40 w-full">
-                                                            <div class="w-1/5 py-6 px-8">
-                                                                <label for="name" class="inline-block text-80 pt-2 leading-tight">Description</label>
-                                                            </div>
-                                                            <div class="py-6 px-8 w-1/2">
-                                                                <textarea v-model="task.notes" dusk="title" rows="5" class="w-full form-control form-input form-input-bordered py-3 h-auto"></textarea>
-                                                                <div class="help-text help-text mt-2" v-if="errors.notes"><div class="text-danger">{{ errors.notes[0] }}</div></div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="flex items-center">
-                                            <a tabindex="0" class="btn btn-link dim cursor-pointer text-80 ml-auto mr-6" @click="Template = 1">Cancel</a>
-                                            <button v-if="!isEditTask" type="submit" class="btn btn-default btn-primary inline-flex items-center relative" dusk="create-button"><span class="">Create Task</span></button>
-                                            <button v-if="isEditTask" type="submit" class="btn btn-default btn-primary inline-flex items-center relative" dusk="create-button"><span class="">Update Task</span></button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>-->
         </div>
     </div>
 </template>
@@ -1193,7 +1149,6 @@
                     section: '',
                 },
                 subTask: {
-                    id: null,
                     name: '',
                     workspace: '25961259746709',
                     assignee: '',
@@ -1937,23 +1892,31 @@
                     }
                 });
             },
-            editTask(id, key, e) {
+            editTask(id, key, e, sectionIndex, taskIndex) {
                 this.isLoading = true;
                 this.taskUpdate = {};
                 this.taskUpdate.id = id;
 
                 if (key == 'name') {
                     this.taskUpdate.name = e.target.value;
+                    this.sectionData[sectionIndex]['tasks'][taskIndex][0].data.name = e.target.value;
                 } else if (key == 'assignee') {
-                    this.taskUpdate.assignee = e;
+                    this.taskUpdate.assignee = e.gid;
+                    this.sectionData[sectionIndex]['tasks'][taskIndex][0].data.assignee = e;
+                    setTimeout(function () {
+                        $('.nv-dropdown').removeClass('nv-open');
+                    }, 100);
                 } else if (key == 'completed') {
                     if (e.target.checked) {
                         this.taskUpdate.completed = true;
+                        this.sectionData[sectionIndex]['tasks'][taskIndex][0].data.completed = true;
                     } else {
                         this.taskUpdate.completed = false;
+                        this.sectionData[sectionIndex]['tasks'][taskIndex][0].data.completed = false;
                     }
                 } else if (key == 'due_on') {
                     this.taskUpdate.due_on = this.convert(e);
+                    this.sectionData[sectionIndex]['tasks'][taskIndex][0].data.due_on = this.convert(e);
                 }
 
                 this.updateTask();
@@ -1966,51 +1929,55 @@
 
                     if (response.data.status === 200) {
                         this.taskUpdate = {};
-                        this.getProjects();
                     } else {
                         this.errors = response.data.errors;
                     }
                 });
             },
-            inlineTaskUpdate(index, name, e) {
-                document.getElementById('loader').style.display = 'block';
+            inlineTaskUpdate(id, name, e) {
+                $('.task-details-wrapper').hide();
+                $('.loader-io').css('display', 'flex');
 
                 let formData = new FormData();
                 formData.append('_method', 'PUT');
-                formData.append('workspace', '25961259746709');
 
                 if (name == 'completed') {
                     if (e.target.checked) {
                         formData.append(name, true);
+                        this.taskDetails[0].data.completed = true;
                     } else {
                         formData.append(name, false);
+                        this.taskDetails[0].data.completed = false;
                     }
                 } else if (name == 'due_on') {
-                    this.editThisQuick(index);
                     formData.append(name, this.convert(e));
+                }  else if (name == 'assignee') {
+                    formData.append(name, e.gid);
+                    setTimeout(function () {
+                        $('.nv-dropdown').removeClass('nv-open');
+                    }, 100);
                 } else {
                     formData.append(name, e.target.value);
                 }
 
-                if (name == 'name') {
-                    this.tasks[index].data.name = e.target.value;
-                } else if(name == 'notes') {
-                    this.tasks[index].data.notes = e.target.value;
-                } else if(name == 'due_on') {
-                    this.tasks[index].data.due_on = this.convert(e);
-                } else if (name == 'section') {
-                    this.tasks[index].data.memberships[0].section.gid = e.target.value;
-                    this.tasks[index].data.memberships[0].section.name = e.target.options[e.target.selectedIndex].text;
-                }  else if (name == 'assignee') {
-                    this.tasks[index].data.assignee.gid = e.target.value;
-                    this.tasks[index].data.assignee.name = e.target.options[e.target.selectedIndex].text;
-                }
+                Nova.request().post('/api/asana/task/update/' + id, formData).then(response => {
+                    $('.loader-io').hide();
+                    $('.task-details-wrapper').show();
 
-                let t = this.tasks[index];
-
-                Nova.request().post('/api/asana/task/update/' + t.data.gid, formData).then(response => {
-                    document.getElementById('loader').style.display = 'none';
                     if (response.data.status === 200) {
+                        if (name == 'name') {
+                            this.taskDetails[0].data.name = e.target.value;
+                        } else if(name == 'notes') {
+                            this.taskDetails[0].data.notes = e.target.value;
+                        } else if(name == 'due_on') {
+                            this.taskDetails[0].data.due_on = this.convert(e);
+                        } else if (name == 'section') {
+                            this.taskDetails[0].data.memberships[0].section.gid = e.target.value;
+                            this.taskDetails[0].data.memberships[0].section.name = e.target.options[e.target.selectedIndex].text;
+                            this.getProjects();
+                        }  else if (name == 'assignee') {
+                            this.taskDetails[0].data.assignee = e;
+                        }
                     } else {
                         this.errors = response.data.errors;
                     }
@@ -2311,11 +2278,23 @@
             uiUpdateMounted: function () {
                 let _this = this;
 
-                $('.main-wrapper').on('click','.nv-collapse', function () {
+                $('.main-wrapper').on('click', '.nv-collapse', function () {
                     $(this).closest('.collapse-parent').find('.nv-collapsedown').slideToggle();
                 });
 
-                $('.main-wrapper').on('click','.nv-dropdown', function () {
+                $('.main-wrapper').on('keyup', '.drop-down-input', function () {
+                    $('.nv-dropdown-under-input').removeClass('nv-open-under-input');
+                    $(this).closest('.nv-dropdown-under-input').addClass('nv-open-under-input');
+                });
+
+                $('.main-wrapper').on('click', '.each-assignee-under-input', function () {
+                    setTimeout(function () {
+                        $('.nv-dropdown').removeClass('nv-open');
+                        $('.nv-dropdown-under-input').removeClass('nv-open-under-input');
+                    }, 200);
+                });
+
+                $('.main-wrapper').on('click', '.nv-dropdown', function () {
                     $('.nv-dropdown').removeClass('nv-open');
                     $(this).addClass('nv-open');
                     $(this).find('input').focus();
@@ -2326,6 +2305,7 @@
                     var clickTarget = clicked.closest('.nv-dropdown');
                     if(clickTarget.length === 0){
                         $('.nv-dropdown').removeClass('nv-open');
+                        $('.nv-dropdown-under-input').removeClass('nv-open-under-input');
                     }
                     var sideBar = clicked.closest('#task-detail');
                     if(sideBar.length === 0){
@@ -2336,12 +2316,38 @@
             },
             collapseDropdown(id) {
                 this.task.assignee = id;
+
                 setTimeout(function () {
                     $('.nv-dropdown').removeClass('nv-open');
-                }, 100)
+                }, 100);
             },
             toogleComplete(id) {
                 document.getElementById(id).click();
+            },
+            textSearch(e, flag) {
+                var val = e.target.value.toLowerCase();
+
+                if (flag) {
+                    $(".name-text").each(function () {
+                        var text = $(this).text().toLowerCase();
+
+                        if (text.indexOf(val) == -1) {
+                            $(this).closest('.each-assignee-under-input').hide();
+                        } else {
+                            $(this).closest('.each-assignee-under-input').css('display', 'inline-flex');
+                        }
+                    });
+                } else {
+                    $(".name-text").each(function () {
+                        var text = $(this).text().toLowerCase();
+
+                        if (text.indexOf(val) == -1) {
+                            $(this).closest('.each-assignee').hide();
+                        } else {
+                            $(this).closest('.each-assignee').css('display', 'inline-flex');
+                        }
+                    });
+                }
             }
         },
         created() {
