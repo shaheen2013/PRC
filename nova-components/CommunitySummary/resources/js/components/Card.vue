@@ -291,7 +291,7 @@
                                                     <path d="M16,18c-4.4,0-8-3.6-8-8s3.6-8,8-8s8,3.6,8,8S20.4,18,16,18z M16,4c-3.3,0-6,2.7-6,6s2.7,6,6,6s6-2.7,6-6S19.3,4,16,4z M29,32c-0.6,0-1-0.4-1-1v-4.2c0-2.6-2.2-4.8-4.8-4.8H8.8C6.2,22,4,24.2,4,26.8V31c0,0.6-0.4,1-1,1s-1-0.4-1-1v-4.2C2,23,5,20,8.8,20h14.4c3.7,0,6.8,3,6.8,6.8V31C30,31.6,29.6,32,29,32z"></path>
                                                 </svg>
                                             </div>
-                                            <span><input type="text" class="assignee-box-input assigned-input" @keyup="textSearch($event, false)" onblur="this.value = '';document.querySelectorAll('.each-assignee').forEach(function(el) {el.style.display = 'inline-flex';});"></span>
+                                            <span><input type="text" class="assignee-box-input assigned-input" @keyup="textSearch($event, false)" @blur="clearInput($event, false)"></span>
                                         </div>
 
                                         <div class="assignee-box-dropdown nv-dropdown-menu">
@@ -343,7 +343,17 @@
                                                 <input type="checkbox" v-if="task[0].data.completed" @click="editTask(task[0].data.gid, 'completed', $event, index, i)" :id="'taskDetailsCompleteness' + task[0].data.gid" style="display:none;" checked>
                                                 <input type="checkbox" v-else="" @click="editTask(task[0].data.gid, 'completed', $event, index, i)" :id="'taskDetailsCompleteness' + task[0].data.gid" style="display:none;">
                                                 <span><input type="text" class="task-body-custom-input" placeholder="Write a task name" :value="task[0].data.name" @change="editTask(task[0].data.gid, 'name', $event, index, i)"></span>
-                                                <div @click="showTask(task[0].data.gid)" class="detail-option">Detail
+                                                <span @click="showTask(task[0].data.gid)" class="comment-section-name" v-if="task['comments'] > 0"><span class="comment-count">{{ task['comments'] }}</span>
+                                                    <svg class="comment-logo cursor-pointer" focusable="false" viewBox="0 0 32 32" height="14px" width="14px">
+                                                        <path d="M5,31c-0.1,0-0.3,0-0.4-0.1C4.2,30.7,4,30.4,4,30v-7.1c-2.5-2.3-4-5.5-4-8.9C0,7.4,5.4,2,12,2h8c6.6,0,12,5.4,12,12 s-5.4,12-12,12h-8c-0.1,0-0.3,0-0.4,0l-5.9,4.8C5.4,30.9,5.2,31,5,31z M12,4C6.5,4,2,8.5,2,14c0,3,1.3,5.8,3.6,7.7C5.9,21.9,6,22.2,6,22.5v5.4l4.6-3.7C10.8,24,11,24,11.3,24h0.1c0.2,0,0.4,0,0.6,0h8c5.5,0,10-4.5,10-10S25.5,4,20,4 C20,4,12,4,12,4z"></path>
+                                                    </svg>
+                                                </span>
+                                                <span @click="showTask(task[0].data.gid)" class="comment-section-name" v-if="task['subTasks'] > 0"><span class="comment-count">{{ task['subTasks'] }}</span>
+                                                    <svg class="comment-logo cursor-pointer" focusable="false" viewBox="0 0 32 32" height="14px" width="14px">
+                                                        <path d="M25,20c-2.4,0-4.4,1.7-4.9,4H11c-3.9,0-7-3.1-7-7v-5h16.1c0.5,2.3,2.5,4,4.9,4c2.8,0,5-2.2,5-5s-2.2-5-5-5c-2.4,0-4.4,1.7-4.9,4H4V3c0-0.6-0.4-1-1-1S2,2.4,2,3v14c0,5,4,9,9,9h9.1c0.5,2.3,2.5,4,4.9,4c2.8,0,5-2.2,5-5S27.8,20,25,20z M25,8c1.7,0,3,1.3,3,3s-1.3,3-3,3s-3-1.3-3-3S23.3,8,25,8z M25,28c-1.7,0-3-1.3-3-3s1.3-3,3-3s3,1.3,3,3S26.7,28,25,28z"></path>
+                                                    </svg>
+                                                </span>
+                                                <div v-if="sideBar == 0" @click="showTask(task[0].data.gid)" class="detail-option">Detail
                                                     <svg class="MiniIcon-right" viewBox="0 0 24 24">
                                                         <path d="M8.9,20.4c-0.4,0-0.7-0.1-1-0.4c-0.6-0.6-0.7-1.5-0.1-2.1l5.2-5.8L7.8,6C7.3,5.4,7.3,4.4,8,3.9C8.6,3.3,9.5,3.4,10.1,4l6.1,7.1c0.5,0.6,0.5,1.4,0,2l-6.1,6.8C9.8,20.3,9.4,20.4,8.9,20.4z"></path>
                                                     </svg>
@@ -356,7 +366,7 @@
                                                             <path d="M16,18c-4.4,0-8-3.6-8-8s3.6-8,8-8s8,3.6,8,8S20.4,18,16,18z M16,4c-3.3,0-6,2.7-6,6s2.7,6,6,6s6-2.7,6-6S19.3,4,16,4z M29,32c-0.6,0-1-0.4-1-1v-4.2c0-2.6-2.2-4.8-4.8-4.8H8.8C6.2,22,4,24.2,4,26.8V31c0,0.6-0.4,1-1,1s-1-0.4-1-1v-4.2C2,23,5,20,8.8,20h14.4c3.7,0,6.8,3,6.8,6.8V31C30,31.6,29.6,32,29,32z"></path>
                                                         </svg>
                                                     </div>
-                                                    <span><input type="text" class="assignee-box-input nv-dropdown-trigger" @keyup="textSearch($event, false)" onblur="this.value = '';document.querySelectorAll('.each-assignee').forEach(function(el) {el.style.display = 'inline-flex';});"></span>
+                                                    <span><input type="text" class="assignee-box-input nv-dropdown-trigger" @keyup="textSearch($event, false)" @blur="clearInput($event, false)"></span>
 
                                                     <div class="assigned-person" v-if="task[0].data.assignee">
                                                         <div class="img-box"  style="background-image: url('https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png')"></div>
@@ -453,7 +463,7 @@
                                                 </svg>
                                             </div>
 
-                                            <input type="text" placeholder="Assignee" class="input-design" @keyup="textSearch($event, false)" onblur="this.value = '';document.querySelectorAll('.each-assignee').forEach(function(el) {el.style.display = 'inline-flex';});">
+                                            <input type="text" placeholder="Assignee" class="input-design" @keyup="textSearch($event, false)" @blur="clearInput($event, false)">
 
                                             <div class="assigned-person" v-if="taskDetails[0].data.assignee">
                                                 <div class="img-box" style="background-image: url('https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png')"></div>
@@ -513,91 +523,111 @@
                                             </div>
                                             <input type="text" class="new-task-input" v-model="subTask.name">
                                             <div class="new-task-logo">
-                                                <div class="detail-option">Create
-                                                    <svg viewBox="0 0 24 24" class="MiniIcon-right"><path d="M8.9,20.4c-0.4,0-0.7-0.1-1-0.4c-0.6-0.6-0.7-1.5-0.1-2.1l5.2-5.8L7.8,6C7.3,5.4,7.3,4.4,8,3.9C8.6,3.3,9.5,3.4,10.1,4l6.1,7.1c0.5,0.6,0.5,1.4,0,2l-6.1,6.8C9.8,20.3,9.4,20.4,8.9,20.4z"></path></svg>
+                                                <div class="logo-1" @click="createSubTask(taskDetails[0].data.gid)">
+                                                    <div class="detail-option">Create
+                                                        <svg viewBox="0 0 24 24" class="MiniIcon-right"><path d="M8.9,20.4c-0.4,0-0.7-0.1-1-0.4c-0.6-0.6-0.7-1.5-0.1-2.1l5.2-5.8L7.8,6C7.3,5.4,7.3,4.4,8,3.9C8.6,3.3,9.5,3.4,10.1,4l6.1,7.1c0.5,0.6,0.5,1.4,0,2l-6.1,6.8C9.8,20.3,9.4,20.4,8.9,20.4z"></path></svg>
+                                                    </div>
                                                 </div>
-                                                <div class="logo-2 cursor-pointer">
-                                                    <svg class="_icon" focusable="false" viewBox="0 0 32 32">
-                                                        <path d="M24,2V1c0-0.6-0.4-1-1-1s-1,0.4-1,1v1H10V1c0-0.6-0.4-1-1-1S8,0.4,8,1v1C4.7,2,2,4.7,2,8v16c0,3.3,2.7,6,6,6h16c3.3,0,6-2.7,6-6V8C30,4.7,27.3,2,24,2z M8,4v1c0,0.6,0.4,1,1,1s1-0.4,1-1V4h12v1c0,0.6,0.4,1,1,1s1-0.4,1-1V4c2.2,0,4,1.8,4,4v2H4V8C4,5.8,5.8,4,8,4z M24,28H8c-2.2,0-4-1.8-4-4V12h24v12C28,26.2,26.2,28,24,28z"></path>
-                                                    </svg>
-                                                    <!--<span>
+                                                <div class="logo-1 nv-dropdown">
+                                                    <div class="new-task-date cursor-pointer" v-if="subTask.due_on">{{ subTask.due_on }}</div>
+                                                    <div class="icon-border cursor-pointer" v-else="">
+                                                        <svg class="_icon" focusable="false" viewBox="0 0 32 32">
+                                                            <path d="M24,2V1c0-0.6-0.4-1-1-1s-1,0.4-1,1v1H10V1c0-0.6-0.4-1-1-1S8,0.4,8,1v1C4.7,2,2,4.7,2,8v16c0,3.3,2.7,6,6,6h16c3.3,0,6-2.7,6-6V8C30,4.7,27.3,2,24,2z M8,4v1c0,0.6,0.4,1,1,1s1-0.4,1-1V4h12v1c0,0.6,0.4,1,1,1s1-0.4,1-1V4c2.2,0,4,1.8,4,4v2H4V8C4,5.8,5.8,4,8,4z M24,28H8c-2.2,0-4-1.8-4-4V12h24v12C28,26.2,26.2,28,24,28z"></path>
+                                                        </svg>
+                                                    </div>
+                                                    <div class="assignee-box-dropdown nv-dropdown-menu">
                                                         <flat-pickr
                                                             @on-change="subTask.due_on = convert($event)"
-                                                            class="input-design"
-                                                            placeholder="Due date"
-                                                            name="due_on">
+                                                            :config="{inline: true}"
+                                                            class="date-input-uder-new-task">
                                                         </flat-pickr>
-                                                    </span>-->
+                                                    </div>
                                                 </div>
                                                 <div class="logo-1 cursor-pointer nv-dropdown">
-                                                    <svg class="_icon" focusable="false" viewBox="0 0 32 32">
-                                                        <path d="M16,18c-4.4,0-8-3.6-8-8s3.6-8,8-8s8,3.6,8,8S20.4,18,16,18z M16,4c-3.3,0-6,2.7-6,6s2.7,6,6,6s6-2.7,6-6S19.3,4,16,4z M29,32c-0.6,0-1-0.4-1-1v-4.2c0-2.6-2.2-4.8-4.8-4.8H8.8C6.2,22,4,24.2,4,26.8V31c0,0.6-0.4,1-1,1s-1-0.4-1-1v-4.2C2,23,5,20,8.8,20h14.4c3.7,0,6.8,3,6.8,6.8V31C30,31.6,29.6,32,29,32z"></path>
-                                                    </svg>
+                                                    <div class="new-task-date cursor-pointer" v-if="subTask.assignee">{{ users[users.findIndex((element) => element.gid == subTask.assignee)].name }}</div>
+                                                    <div class="icon-border" v-else="">
+                                                        <svg class="_icon cursor-pointer" focusable="false" viewBox="0 0 32 32">
+                                                            <path d="M16,18c-4.4,0-8-3.6-8-8s3.6-8,8-8s8,3.6,8,8S20.4,18,16,18z M16,4c-3.3,0-6,2.7-6,6s2.7,6,6,6s6-2.7,6-6S19.3,4,16,4z M29,32c-0.6,0-1-0.4-1-1v-4.2c0-2.6-2.2-4.8-4.8-4.8H8.8C6.2,22,4,24.2,4,26.8V31c0,0.6-0.4,1-1,1s-1-0.4-1-1v-4.2C2,23,5,20,8.8,20h14.4c3.7,0,6.8,3,6.8,6.8V31C30,31.6,29.6,32,29,32z"></path>
+                                                        </svg>
+                                                    </div>
                                                     <div class="assignee-box-dropdown no-overflow nv-dropdown-menu">
                                                         <div class="_position-relative nv-dropdown-under-input">
                                                             <label class="ass-label">Assignee</label>
                                                             <br>
-                                                            <input type="text" placeholder="Name" class="drop-down-input" @keyup="textSearch($event, true)" onblur="this.value = '';document.querySelectorAll('.each-assignee-under-input').forEach(function(el) {el.style.display = 'inline-flex';});">
+                                                            <input type="text" placeholder="Name" class="drop-down-input" @keyup="textSearch($event, true)" @blur="clearInput($event, true)">
                                                             <div class="assignee-box-dropdown-under-input nv-dropdown-menu-under-input">
                                                                 <div class="each-assignee-under-input" v-if="users.length > 0" v-for="user in users" @click="subTask.assignee = user.gid">
-                                                                    <div class="profile-img"
-                                                                         style="background-image: url('https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png')"></div>
+                                                                    <div class="profile-img" style="background-image: url('https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png')"></div>
                                                                     <div class="name-text">{{ user.name }}</div>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="logo-3 cursor-pointer">
-                                                    <svg class="_icon" focusable="false"
-                                                         viewBox="0 0 32 32">
-                                                        <path d="M5,31c-0.1,0-0.3,0-0.4-0.1C4.2,30.7,4,30.4,4,30v-7.1c-2.5-2.3-4-5.5-4-8.9C0,7.4,5.4,2,12,2h8c6.6,0,12,5.4,12,12 s-5.4,12-12,12h-8c-0.1,0-0.3,0-0.4,0l-5.9,4.8C5.4,30.9,5.2,31,5,31z M12,4C6.5,4,2,8.5,2,14c0,3,1.3,5.8,3.6,7.7C5.9,21.9,6,22.2,6,22.5v5.4l4.6-3.7C10.8,24,11,24,11.3,24h0.1c0.2,0,0.4,0,0.6,0h8c5.5,0,10-4.5,10-10S25.5,4,20,4 C20,4,12,4,12,4z"></path>
-                                                    </svg>
-                                                </div>
-                                                <div class="logo-3">
-                                                    <svg class="_icon" focusable="false"
-                                                         viewBox="0 0 32 32">
-                                                        <path d="M23.2,16c0,0.3-0.1,0.7-0.3,0.9l-9,11c-0.5,0.6-1.5,0.7-2.1,0.2s-0.7-1.5-0.2-2.1l8.2-10L11.6,6c-0.5-0.6-0.4-1.6,0.2-2.1s1.6-0.4,2.1,0.2l9,11C23.1,15.3,23.2,15.7,23.2,16z"></path>
-                                                    </svg>
-                                                </div>
                                             </div>
                                         </div>
-                                        <div class="new-task" v-if="taskDetails.subTasks.length > 0" v-for="(t, index) in taskDetails.subTasks">
-                                            <div class="border-radious-icon" :class="{'task-complete': t[0].data.completed ? true : false}">
+                                        <div class="new-task" v-if="taskDetails.subTasks.length > 0" v-for="(t, index) in taskDetails.subTasks" :key="index">
+                                            <div class="border-radious-icon" :class="{'task-complete': t[0].data.completed ? true : false}" onclick="document.getElementById('subTaskCompleteness').click()">
                                                 <svg class="MiniIcon"
                                                      viewBox="0 0 24 24">
                                                     <path d="M9.5,18.2c-0.4,0.4-1,0.4-1.4,0l-3.8-3.8C4,14,4,13.4,4.3,13s1-0.4,1.4,0l3.1,3.1l8.6-8.6c0.4-0.4,1-0.4,1.4,0s0.4,1,0,1.4 L9.5,18.2z"></path>
                                                 </svg>
                                             </div>
-                                            <input type="text" class="new-task-input" v-model="taskDetails.subTasks[index][0].data.name">
+                                            <input type="checkbox" style="display: none" v-if="t[0].data.completed" id="subTaskCompleteness" checked @click="inlineSubTaskUpdate(t[0].data.gid, index, 'completed', $event)">
+                                            <input type="checkbox" style="display: none" v-else="" id="subTaskCompleteness" @click="inlineSubTaskUpdate(t[0].data.gid, index, 'completed', $event)">
+                                            <input type="text" class="new-task-input" :value="t[0].data.name" @change="inlineSubTaskUpdate(t[0].data.gid, index, 'name', $event)">
                                             <div class="new-task-logo">
-                                                <div class="logo-1 cursor-pointer nv-dropdown">
-                                                    <svg class="_icon" focusable="false" viewBox="0 0 32 32">
-                                                        <path d="M16,18c-4.4,0-8-3.6-8-8s3.6-8,8-8s8,3.6,8,8S20.4,18,16,18z M16,4c-3.3,0-6,2.7-6,6s2.7,6,6,6s6-2.7,6-6S19.3,4,16,4z M29,32c-0.6,0-1-0.4-1-1v-4.2c0-2.6-2.2-4.8-4.8-4.8H8.8C6.2,22,4,24.2,4,26.8V31c0,0.6-0.4,1-1,1s-1-0.4-1-1v-4.2C2,23,5,20,8.8,20h14.4c3.7,0,6.8,3,6.8,6.8V31C30,31.6,29.6,32,29,32z"></path>
-                                                    </svg>
+                                                <div class="logo-1 nv-dropdown">
+                                                    <div class="new-task-date cursor-pointer" v-if="t[0].data.due_on">{{ t[0].data.due_on }}</div>
+                                                    <div class="icon-border cursor-pointer" v-else="">
+                                                        <svg class="_icon" focusable="false" viewBox="0 0 32 32">
+                                                            <path d="M24,2V1c0-0.6-0.4-1-1-1s-1,0.4-1,1v1H10V1c0-0.6-0.4-1-1-1S8,0.4,8,1v1C4.7,2,2,4.7,2,8v16c0,3.3,2.7,6,6,6h16c3.3,0,6-2.7,6-6V8C30,4.7,27.3,2,24,2z M8,4v1c0,0.6,0.4,1,1,1s1-0.4,1-1V4h12v1c0,0.6,0.4,1,1,1s1-0.4,1-1V4c2.2,0,4,1.8,4,4v2H4V8C4,5.8,5.8,4,8,4z M24,28H8c-2.2,0-4-1.8-4-4V12h24v12C28,26.2,26.2,28,24,28z"></path>
+                                                        </svg>
+                                                    </div>
                                                     <div class="assignee-box-dropdown nv-dropdown-menu">
-                                                        <div class="each-assignee" v-if="users.length > 0" v-for="user in users" :value="user.gid">
-                                                            <div class="profile-img" style="background-image: url('https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png')"></div>
-                                                            <div class="name-text">{{ user.name }}</div>
+                                                        <flat-pickr
+                                                            :value="t[0].data.due_on"
+                                                            @on-change="inlineSubTaskUpdate(t[0].data.gid, index, 'due_on', $event)"
+                                                            :config="{inline: true}"
+                                                            class="date-input-uder-new-task">
+                                                        </flat-pickr>
+                                                    </div>
+                                                </div>
+                                                <div class="logo-1 cursor-pointer nv-dropdown">
+                                                    <div class="new-task-date cursor-pointer" v-if="t[0].data.assignee">{{ t[0].data.assignee.name }}</div>
+                                                    <div class="icon-border" v-else="">
+                                                        <svg class="_icon cursor-pointer" focusable="false" viewBox="0 0 32 32">
+                                                            <path d="M16,18c-4.4,0-8-3.6-8-8s3.6-8,8-8s8,3.6,8,8S20.4,18,16,18z M16,4c-3.3,0-6,2.7-6,6s2.7,6,6,6s6-2.7,6-6S19.3,4,16,4z M29,32c-0.6,0-1-0.4-1-1v-4.2c0-2.6-2.2-4.8-4.8-4.8H8.8C6.2,22,4,24.2,4,26.8V31c0,0.6-0.4,1-1,1s-1-0.4-1-1v-4.2C2,23,5,20,8.8,20h14.4c3.7,0,6.8,3,6.8,6.8V31C30,31.6,29.6,32,29,32z"></path>
+                                                        </svg>
+                                                    </div>
+                                                    <div class="assignee-box-dropdown no-overflow nv-dropdown-menu">
+                                                        <div class="_position-relative nv-dropdown-under-input">
+                                                            <label class="ass-label">Assignee</label>
+                                                            <br>
+                                                            <input type="text" placeholder="Name" class="drop-down-input" @keyup="textSearch($event, true)" @blur="clearInput($event, true)">
+                                                            <div class="assignee-box-dropdown-under-input nv-dropdown-menu-under-input">
+                                                                <div class="each-assignee-under-input" v-if="users.length > 0" v-for="user in users" @click="inlineSubTaskUpdate(t[0].data.gid, index, 'assignee', user)">
+                                                                    <div class="profile-img" style="background-image: url('https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png')"></div>
+                                                                    <div class="name-text">{{ user.name }}</div>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="logo-2 cursor-pointer">
-                                                    <svg class="_icon" focusable="false" viewBox="0 0 32 32">
-                                                        <path d="M24,2V1c0-0.6-0.4-1-1-1s-1,0.4-1,1v1H10V1c0-0.6-0.4-1-1-1S8,0.4,8,1v1C4.7,2,2,4.7,2,8v16c0,3.3,2.7,6,6,6h16c3.3,0,6-2.7,6-6V8C30,4.7,27.3,2,24,2z M8,4v1c0,0.6,0.4,1,1,1s1-0.4,1-1V4h12v1c0,0.6,0.4,1,1,1s1-0.4,1-1V4c2.2,0,4,1.8,4,4v2H4V8C4,5.8,5.8,4,8,4z M24,28H8c-2.2,0-4-1.8-4-4V12h24v12C28,26.2,26.2,28,24,28z"></path>
-                                                    </svg>
-                                                </div>
-                                                <div class="logo-3 cursor-pointer">
-                                                    <svg class="_icon" focusable="false"
-                                                         viewBox="0 0 32 32">
-                                                        <path d="M5,31c-0.1,0-0.3,0-0.4-0.1C4.2,30.7,4,30.4,4,30v-7.1c-2.5-2.3-4-5.5-4-8.9C0,7.4,5.4,2,12,2h8c6.6,0,12,5.4,12,12 s-5.4,12-12,12h-8c-0.1,0-0.3,0-0.4,0l-5.9,4.8C5.4,30.9,5.2,31,5,31z M12,4C6.5,4,2,8.5,2,14c0,3,1.3,5.8,3.6,7.7C5.9,21.9,6,22.2,6,22.5v5.4l4.6-3.7C10.8,24,11,24,11.3,24h0.1c0.2,0,0.4,0,0.6,0h8c5.5,0,10-4.5,10-10S25.5,4,20,4 C20,4,12,4,12,4z"></path>
-                                                    </svg>
-                                                </div>
-                                                <div class="logo-3">
-                                                    <svg class="_icon" focusable="false"
-                                                         viewBox="0 0 32 32">
-                                                        <path d="M23.2,16c0,0.3-0.1,0.7-0.3,0.9l-9,11c-0.5,0.6-1.5,0.7-2.1,0.2s-0.7-1.5-0.2-2.1l8.2-10L11.6,6c-0.5-0.6-0.4-1.6,0.2-2.1s1.6-0.4,2.1,0.2l9,11C23.1,15.3,23.2,15.7,23.2,16z"></path>
-                                                    </svg>
+                                                <div class="section-comment">
+                                                    <span class="comment-count" v-if="t['comments']['data'].length > 0">{{ t['comments']['data'].length }}</span>
+                                                    <div class="logo-2">
+                                                        <svg class="_icon cursor-pointer" focusable="false"
+                                                             viewBox="0 0 32 32">
+                                                            <path d="M5,31c-0.1,0-0.3,0-0.4-0.1C4.2,30.7,4,30.4,4,30v-7.1c-2.5-2.3-4-5.5-4-8.9C0,7.4,5.4,2,12,2h8c6.6,0,12,5.4,12,12 s-5.4,12-12,12h-8c-0.1,0-0.3,0-0.4,0l-5.9,4.8C5.4,30.9,5.2,31,5,31z M12,4C6.5,4,2,8.5,2,14c0,3,1.3,5.8,3.6,7.7C5.9,21.9,6,22.2,6,22.5v5.4l4.6-3.7C10.8,24,11,24,11.3,24h0.1c0.2,0,0.4,0,0.6,0h8c5.5,0,10-4.5,10-10S25.5,4,20,4 C20,4,12,4,12,4z"></path>
+                                                        </svg>
+                                                    </div>
+                                                    <div class="logo-2">
+                                                        <svg class="_icon cursor-pointer" focusable="false"
+                                                             viewBox="0 0 32 32">
+                                                            <path d="M23.2,16c0,0.3-0.1,0.7-0.3,0.9l-9,11c-0.5,0.6-1.5,0.7-2.1,0.2s-0.7-1.5-0.2-2.1l8.2-10L11.6,6c-0.5-0.6-0.4-1.6,0.2-2.1s1.6-0.4,2.1,0.2l9,11C23.1,15.3,23.2,15.7,23.2,16z"></path>
+                                                        </svg>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -616,7 +646,7 @@
                                         <div class="profile-img">
                                             <div class="_img" style="background-image: url('https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png')"></div>
                                         </div>
-                                        <textarea @change="storeTaskComment(taskDetails[0].data.gid)" v-model="taskComment" class="custom-text-area-chat" cols="30" rows="5" placeholder="Description"></textarea>
+                                        <textarea @change="storeTaskComment(taskDetails[0].data.gid)" v-model="taskComment" class="custom-text-area-chat" cols="30" rows="5" placeholder="Ask a question or post an update"></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -1150,10 +1180,15 @@
                 },
                 subTask: {
                     name: '',
-                    workspace: '25961259746709',
                     assignee: '',
                     due_on: '',
-                    project: [],
+                    project: '',
+                },
+                subTaskUpdate: {
+                    name: '',
+                    assignee: '',
+                    due_on: '',
+                    project: '',
                 },
                 taskFilter: {
                     name: '',
@@ -1466,7 +1501,6 @@
                     }
                 }
             },
-
             contractExpiration() {
                 let closestExpiration = null;
                 let programs = [];
@@ -1851,10 +1885,12 @@
                 });
             },
             createProject() {
-                document.getElementById('loader').style.display = 'block';
+                this.isLoading = true;
                 this.project.name = this.community.STATE + '-' + this.community.COUNTY + '-' + this.community.FRIENDLYNAME + '-' + this.community.COMMUNITYID + '-Standard';
+
                 Nova.request().post('/api/asana/project/store', this.project).then(response => {
-                    document.getElementById('loader').style.display = 'none';
+                    this.isLoading = false;
+
                     if (response.data.status === 200) {
                         this.getProjects();
                     } else {
@@ -1983,52 +2019,6 @@
                     }
                 });
             },
-            inlineTaskUpdateNew(id, name, e) {
-                document.getElementById('loader').style.display = 'block';
-
-                let formData = new FormData();
-                formData.append('_method', 'PUT');
-                formData.append('workspace', '25961259746709');
-
-                if (name == 'completed') {
-                    if (e.target.checked) {
-                        formData.append(name, true);
-                        this.taskDetails[0].data.completed = true;
-                    } else {
-                        formData.append(name, false);
-                        this.taskDetails[0].data.completed = false;
-                    }
-                } else if (name == 'due_on') {
-                    formData.append(name, this.convert(e));
-                } else {
-                    formData.append(name, e.target.value);
-                }
-
-                Nova.request().post('/api/asana/task/update/' + id, formData).then(response => {
-                    document.getElementById('loader').style.display = 'none';
-                    if (response.data.status === 200) {
-                        if (name == 'name') {
-                            this.taskDetails[0].data.name = e.target.value;
-                        } else if(name == 'notes') {
-                            this.taskDetails[0].data.notes = e.target.value;
-                        } else if(name == 'due_on') {
-                            document.getElementById('taskDueOnHeader').style.display = 'block';
-                            document.getElementById('taskDueOn').style.display = 'none';
-                            this.taskDetails[0].data.due_on = this.convert(e);
-                        } else if (name == 'section') {
-                            this.taskDetails[0].data.memberships[0].section.gid = e.target.value;
-                            this.taskDetails[0].data.memberships[0].section.name = e.target.options[e.target.selectedIndex].text;
-                        }  else if (name == 'assignee') {
-                            document.getElementById('taskAssigneeHeader').style.display = 'block';
-                            document.getElementById('taskAssignee').style.display = 'none';
-                            this.taskDetails[0].data.assignee.gid = e.target.value;
-                            this.taskDetails[0].data.assignee.name = e.target.options[e.target.selectedIndex].text;
-                        }
-                    } else {
-                        this.errors = response.data.errors;
-                    }
-                });
-            },
             deleteTask(id) {
                 let THIS = this;
 
@@ -2058,13 +2048,15 @@
             filterTasks(a, b, c) {
                 let THIS = this;
                 this.taskFilter.due_on = b;
-                document.getElementById('loader').style.display = 'block';
+                this.isLoading = true;
                 let params = new URLSearchParams(THIS.taskFilter);
                 params = params.toString();
+
                 Nova.request().get('/api/asana/task/show?' + params).then(response => {
+                    this.isLoading = false;
+
                     if (response.data.status === 200) {
                         THIS.tasks = response.data.data;
-                        document.getElementById('loader').style.display = 'none';
                     } else {
                         THIS.errors = response.data.errors;
                     }
@@ -2150,9 +2142,13 @@
                 return [date.getFullYear(), mnth, day].join("-");
             },
             createSubTask(id) {
-                document.getElementById('loader').style.display = 'block';
+                $('.task-details-wrapper').hide();
+                $('.loader-io').css('display', 'flex');
+
                 Nova.request().post('/api/asana/task/' + id + '/subtasks', this.subTask).then(response => {
-                    document.getElementById('loader').style.display = 'none';
+                    $('.loader-io').hide();
+                    $('.task-details-wrapper').show();
+
                     if (response.data.status === 200) {
                         this.createNewSubTask = false;
                         this.taskDetails.subTasks.push(response.data.data);
@@ -2191,52 +2187,49 @@
                     return 'N/A';
                 }
             },
-            inlineSubTaskUpdate(index, name, e) {
-                document.getElementById('loader').style.display = 'block';
+            inlineSubTaskUpdate(id, index, name, e) {
+                $('.task-details-wrapper').hide();
+                $('.loader-io').css('display', 'flex');
 
-                let formData = new FormData();
-                formData.append('_method', 'PUT');
-                formData.append('workspace', '25961259746709');
+                this.subTaskUpdate = {};
+                this.subTaskUpdate.id = id;
+                this.subTaskUpdate._method = 'put';
 
                 if (name == 'completed') {
                     if (e.target.checked) {
-                        formData.append(name, true);
-                        this.taskDetails.subTasks[index].data.completed = true;
+                        this.subTaskUpdate.completed = true;
+                        this.taskDetails.subTasks[index][0].data.completed = true;
                     } else {
-                        formData.append(name, false);
-                        this.taskDetails.subTasks[index].data.completed = false;
+                        this.subTaskUpdate.completed = false;
+                        this.taskDetails.subTasks[index][0].data.completed = false;
                     }
                 } else if (name == 'due_on') {
-                    formData.append(name, this.convert(e));
-                } else {
-                    formData.append(name, e.target.value);
-                }
-
-                if (name == 'name') {
-                    this.taskDetails.subTasks[index].data.name = e.target.value;
+                    this.subTaskUpdate.due_on = this.convert(e);
+                } else if (name == 'assignee') {
+                    this.subTaskUpdate.assignee = e.gid;
+                } else if (name == 'name') {
+                    this.subTaskUpdate.name = e.target.value;
                 } else if(name == 'notes') {
-                    this.taskDetails.subTasks[index].data.notes = e.target.value;
-                } else if(name == 'due_on') {
-                    this.taskDetails.subTasks[index].data.due_on = this.convert(e);
-
-                    document.getElementById('subTaskDueOnHeader').style.display = 'block';
-                    document.getElementById('subTaskDueOn').style.display = 'none';
-                } else if (name == 'section') {
-                    this.taskDetails.subTasks[index].data.memberships[0].section.gid = e.target.value;
-                    this.taskDetails.subTasks[index].data.memberships[0].section.name = e.target.options[e.target.selectedIndex].text;
-                }  else if (name == 'assignee') {
-                    document.getElementById('subTaskAssignee').style.display = 'none';
-                    document.getElementById('subTaskAssigneeHeader').style.display = 'block';
-
-                    this.taskDetails.subTasks[index].data.assignee.gid = e.target.value;
-                    this.taskDetails.subTasks[index].data.assignee.name = e.target.options[e.target.selectedIndex].text;
+                    this.subTaskUpdate.notes = e.target.value;
                 }
 
-                let t = this.taskDetails.subTasks[index];
+                Nova.request().post('/api/asana/task/update/' + this.subTaskUpdate.id, this.subTaskUpdate).then(response => {
+                    $('.loader-io').hide();
+                    $('.task-details-wrapper').show();
 
-                Nova.request().post('/api/asana/task/update/' + t.data.gid, formData).then(response => {
-                    document.getElementById('loader').style.display = 'none';
                     if (response.data.status === 200) {
+                        if (name == 'name') {
+                            this.taskDetails.subTasks[index][0].data.name = e.target.value;
+                        } else if(name == 'notes') {
+                            this.taskDetails.subTasks[index][0].data.notes = e.target.value;
+                        } else if(name == 'due_on') {
+                            this.taskDetails.subTasks[index][0].data.due_on = this.convert(e);
+                        } else if (name == 'section') {
+                            this.taskDetails.subTasks[index][0].data.memberships[0].section.gid = e.target.value;
+                            this.taskDetails.subTasks[index][0].data.memberships[0].section.name = e.target.options[e.target.selectedIndex].text;
+                        }  else if (name == 'assignee') {
+                            this.taskDetails.subTasks[index][0].data.assignee = e;
+                        }
                     } else {
                         this.errors = response.data.errors;
                     }
@@ -2348,6 +2341,16 @@
                         }
                     });
                 }
+            },
+            clearInput(e, flag) {
+                setTimeout(function () {
+                    e.target.value = '';
+                    if (flag) {
+                        $('.each-assignee-under-input').css('display', 'inline-flex');
+                    } else {
+                        $('.each-assignee').css('display', 'inline-flex');
+                    }
+                }, 1000);
             }
         },
         created() {

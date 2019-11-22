@@ -404,6 +404,7 @@ class TaskController extends Controller
             $comments = json_decode($this->asana->getTaskStories($id));
 
             foreach ($subTasks->data as $datum) {
+                $temp = [];
                 $temp[] = json_decode($this->asana->getTask($datum->gid));
                 $temp['comments'] = json_decode($this->asana->getTaskStories($datum->gid));
                 $data[] = $temp;
@@ -467,9 +468,6 @@ class TaskController extends Controller
             'name' => 'nullable|string|max:255',
             'assignee' => 'nullable|string|max:255',
             'due_on' => 'nullable|date',
-            'notes' => 'nullable|string',
-            'section' => 'nullable|string',
-            'workspace' => 'required|string',
             'project' => 'required|string',
         );
 
@@ -483,14 +481,13 @@ class TaskController extends Controller
         try {
             $data = [
                 'name' => $request->name,
-                'workspace' => $request->workspace,
                 'projects' => [$request->project],
                 'assignee' => $request->assignee,
                 'due_on' => $request->due_on,
-                //'notes' => $request->notes,
             ];
 
-            $task = json_decode($this->asana->createSubTask($id, $data), 1);
+            $task[] = json_decode($this->asana->createSubTask($id, $data), 1);
+            $task['comments'] = json_decode($this->asana->getTaskStories($task[0]['data']['gid']));
 
             return response()->json(['status' => 200, 'data' => $task], 200);
         } catch (\Exception $e) {

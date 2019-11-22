@@ -67,12 +67,15 @@ class ProjectController extends Controller
 
                     foreach ($result['data'] as $task) {
                         $tempTask = [];
-                        $subTasks = json_decode($this->asana->getSubTasks($task['gid']));
-                        $comments = json_decode($this->asana->getTaskStories($task['gid']));
                         $tempTask[] = json_decode($this->asana->getTask($task['gid']), 1);
-                        $tempTask['subTasks'] = count($subTasks->data);
-                        $tempTask['comments'] = count($comments->data);
-                        $tempTasks[] = $tempTask;
+
+                        if ($tempTask[0]['data']['parent'] == null) {
+                            $subTasks = json_decode($this->asana->getSubTasks($task['gid']));
+                            $comments = json_decode($this->asana->getTaskStories($task['gid']));
+                            $tempTask['subTasks'] = count($subTasks->data);
+                            $tempTask['comments'] = count($comments->data);
+                            $tempTasks[] = $tempTask;
+                        }
                     }
 
                     $temp['tasks'] = $tempTasks;
