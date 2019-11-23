@@ -219,16 +219,18 @@
                                         <path d="M12,3c5,0,9,4,9,9s-4,9-9,9s-9-4-9-9S7,3,12,3 M12,1C5.9,1,1,5.9,1,12s4.9,11,11,11s11-4.9,11-11S18.1,1,12,1L12,1zM11.2,16.2l6-6c0.4-0.4,0.4-1,0-1.4s-1-0.4-1.4,0l-5.3,5.3l-2.3-2.3c-0.4-0.4-1-0.4-1.4,0s-0.4,1,0,1.4l3,3c0.2,0.2,0.5,0.3,0.7,0.3S11,16.4,11.2,16.2z">
                                         </path>
                                     </svg>
-                                    <span>All Tasks</span>
+                                    <span v-if="taskFilter.complete == '' || taskFilter.complete == 'all'">All Tasks</span>
+                                    <span v-if="taskFilter.complete == 'true'">Complete Tasks</span>
+                                    <span v-if="taskFilter.complete == 'false'">Incomplete Tasks</span>
                                     <div class="task-head-box-dropdown nv-dropdown-menu">
-                                        <div class="each-box">
-                                            <a href="#">All Task</a>
+                                        <div class="each-box" @click="filterTasks('completed', 'all')">
+                                            <a href="javascript:void(0)">All Task</a>
                                         </div>
                                         <div class="each-box">
-                                            <a href="#">Incomplete tasks</a>
+                                            <a href="javascript:void(0)" @click="filterTasks('completed', 'false')">Incomplete tasks</a>
                                         </div>
                                         <div class="each-box">
-                                            <a href="#">Complete Tasks</a>
+                                            <a href="javascript:void(0)" @click="filterTasks('completed', 'true')">Complete Tasks</a>
                                         </div>
                                     </div>
                                 </div>
@@ -239,7 +241,7 @@
                                     </select>
                                 </div>
                                 <div class="_assigned-box">
-                                    <select class="_custom-select" v-model="taskFilter.section" @change="filterTasks" name="">
+                                    <select class="_custom-select" v-model="taskFilter.section" @change="filterTasks">
                                         <option value="">Choose type</option>
                                         <option v-if="sections.length > 0" v-for="section in sections" :value="section.gid">{{ section.name }}</option>
                                     </select>
@@ -247,12 +249,20 @@
                                 <div class="_assigned-box">
                                     <flat-pickr
                                         v-model="taskFilter.due_on"
-                                        :config="config"
+                                        :config="{config}"
                                         @on-change="filterTasks"
                                         class="w-full form-control form-input-bordered"
                                         placeholder="Due Date"
                                         name="date">
                                     </flat-pickr>
+                                </div>
+                                <div class="_assigned-box">
+                                    <input type="text" class="_custom-input-search" placeholder="Search" v-model="taskFilter.name" @change="keyTyping" @keyup="keyTyping">
+                                    <div class="search-logo">
+                                        <svg class="" focusable="false" viewBox="0 0 32 32" style="width: 14px;">
+                                            <path d="M29.707,28.293l-8.256-8.256C23.042,18.13,24,15.677,24,13c0-6.075-4.925-11-11-11S2,6.925,2,13s4.925,11,11,11c2.677,0,5.13-0.958,7.037-2.549l8.256,8.256L29.707,28.293z M4,13c0-4.963,4.037-9,9-9c4.963,0,9,4.037,9,9s-4.037,9-9,9C8.037,22,4,17.963,4,13z"></path>
+                                        </svg>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -315,6 +325,7 @@
                                         <span>
                                             <flat-pickr
                                                 v-model="task.due_on"
+                                                :config="{altInput: true, altFormat: 'F j, Y'}"
                                                 @on-change="task.due_on = convert($event)"
                                                 class="assignee-box-input assigned-input"
                                                 name="date">
@@ -389,6 +400,7 @@
                                                 <span>
                                                     <flat-pickr
                                                         :value="task[0].data.due_on"
+                                                        :config="{altInput: true, altFormat: 'F j, Y'}"
                                                         @on-change="editTask(task[0].data.gid, 'due_on', $event, index, i)"
                                                         class="assignee-box-input assigned-input"
                                                         name="date">
@@ -433,11 +445,6 @@
                                                 </svg>
                                             </div>
                                             <div class="logo-box">
-                                                <svg class="hide-box-icon" focusable="false" viewBox="0 0 32 32">
-                                                    <path d="M9,32c-2.3,0-4.6-0.9-6.4-2.6c-3.5-3.5-3.5-9.2,0-12.7l4-4c0.4-0.4,1-0.4,1.4,0c0.4,0.4,0.4,1,0,1.4l-4,4c-2.7,2.7-2.7,7.2,0,9.9s7.2,2.7,9.9,0l4-4c2.7-2.7,2.7-7.2,0-9.9c-0.8-0.8-1.8-1.4-2.9-1.7c-0.5-0.2-0.8-0.7-0.7-1.3c0.2-0.5,0.7-0.8,1.3-0.7c1.4,0.4,2.7,1.2,3.7,2.2c3.5,3.5,3.5,9.2,0,12.7l-4,4C13.6,31.1,11.3,32,9,32z M16.6,21.6c-0.1,0-0.2,0-0.3,0c-1.4-0.4-2.7-1.2-3.7-2.2c-1.7-1.7-2.6-4-2.6-6.4s0.9-4.7,2.6-6.4l4-4c3.5-3.5,9.2-3.5,12.7,0s3.5,9.2,0,12.7l-4,4c-0.4,0.4-1,0.4-1.4,0s-0.4-1,0-1.4l4-4c2.7-2.7,2.7-7.2,0-9.9S20.7,1.3,18,4l-4,4c-1.3,1.4-2,3.1-2,5s0.7,3.6,2.1,5c0.8,0.8,1.8,1.4,2.9,1.7c0.5,0.2,0.8,0.7,0.7,1.3C17.5,21.4,17.1,21.6,16.6,21.6z"></path>
-                                                </svg>
-                                            </div>
-                                            <div class="logo-box">
                                                 <a title="Delete" @click="deleteTask(taskDetails[0].data.gid)"
                                                    class="appearance-none cursor-pointer text-70 hover:text-danger mr-3">
                                                     <svg class="hide-box-icon" viewBox="0 0 20 20" aria-labelledby="delete" role="presentation">
@@ -453,7 +460,10 @@
                                         </div>
                                     </div>
                                     <div class="head-text-section">
-                                        <input type="text" class="input-big" placeholder="Write a task name" :value="taskDetails[0].data.name" @change="inlineTaskUpdate(taskDetails[0].data.gid, 'name', $event)">
+                                        <a href="javascript:void(0)" v-if="taskParents.length > 0" v-for="(parent, index) in taskParents" :key="index" title="Parent's notes and comments" @click="showParentTask(parent.id, index)">{{ parent.name }}
+                                            <svg focusable="false" viewBox="0 0 32 32" class="_icon cursor-pointer" width="14px" height="14px"><path data-v-b9bc2c0a="" d="M23.2,16c0,0.3-0.1,0.7-0.3,0.9l-9,11c-0.5,0.6-1.5,0.7-2.1,0.2s-0.7-1.5-0.2-2.1l8.2-10L11.6,6c-0.5-0.6-0.4-1.6,0.2-2.1s1.6-0.4,2.1,0.2l9,11C23.1,15.3,23.2,15.7,23.2,16z"></path></svg>
+                                        </a>
+                                        <input type="text" class="input-big padding-head-text-10" placeholder="Write a task name" :value="taskDetails[0].data.name" @change="inlineTaskUpdate(taskDetails[0].data.gid, 'name', $event)">
                                     </div>
                                     <div class="head-text-section border-bottom-task-list">
                                         <div class="radious-square-input cursor-pointer nv-dropdown">
@@ -486,6 +496,7 @@
                                             </div>
                                             <flat-pickr
                                                 :value="taskDetails[0].data.due_on"
+                                                :config="{altInput: true, altFormat: 'F j, Y'}"
                                                 @on-change="inlineTaskUpdate(taskDetails[0].data.gid, 'due_on', $event)"
                                                 class="input-design"
                                                 placeholder="Due date"
@@ -529,7 +540,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="logo-1 nv-dropdown">
-                                                    <div class="new-task-date cursor-pointer" v-if="subTask.due_on">{{ subTask.due_on }}</div>
+                                                    <div class="new-task-date cursor-pointer" v-if="subTask.due_on">{{ new Date(subTask.due_on).toDateString() }}</div>
                                                     <div class="icon-border cursor-pointer" v-else="">
                                                         <svg class="_icon" focusable="false" viewBox="0 0 32 32">
                                                             <path d="M24,2V1c0-0.6-0.4-1-1-1s-1,0.4-1,1v1H10V1c0-0.6-0.4-1-1-1S8,0.4,8,1v1C4.7,2,2,4.7,2,8v16c0,3.3,2.7,6,6,6h16c3.3,0,6-2.7,6-6V8C30,4.7,27.3,2,24,2z M8,4v1c0,0.6,0.4,1,1,1s1-0.4,1-1V4h12v1c0,0.6,0.4,1,1,1s1-0.4,1-1V4c2.2,0,4,1.8,4,4v2H4V8C4,5.8,5.8,4,8,4z M24,28H8c-2.2,0-4-1.8-4-4V12h24v12C28,26.2,26.2,28,24,28z"></path>
@@ -538,7 +549,7 @@
                                                     <div class="assignee-box-dropdown nv-dropdown-menu">
                                                         <flat-pickr
                                                             @on-change="subTask.due_on = convert($event)"
-                                                            :config="{inline: true}"
+                                                            :config="{inline: true, altInput: true, altFormat: 'F j, Y'}"
                                                             class="date-input-uder-new-task">
                                                         </flat-pickr>
                                                     </div>
@@ -578,7 +589,7 @@
                                             <input type="text" class="new-task-input" :value="t[0].data.name" @change="inlineSubTaskUpdate(t[0].data.gid, index, 'name', $event)">
                                             <div class="new-task-logo">
                                                 <div class="logo-1 nv-dropdown">
-                                                    <div class="new-task-date cursor-pointer" v-if="t[0].data.due_on">{{ t[0].data.due_on }}</div>
+                                                    <div class="new-task-date cursor-pointer" v-if="t[0].data.due_on" :title="duedate(t[0].data.due_on)">{{ new Date(t[0].data.due_on).toDateString() }}</div>
                                                     <div class="icon-border cursor-pointer" v-else="">
                                                         <svg class="_icon" focusable="false" viewBox="0 0 32 32">
                                                             <path d="M24,2V1c0-0.6-0.4-1-1-1s-1,0.4-1,1v1H10V1c0-0.6-0.4-1-1-1S8,0.4,8,1v1C4.7,2,2,4.7,2,8v16c0,3.3,2.7,6,6,6h16c3.3,0,6-2.7,6-6V8C30,4.7,27.3,2,24,2z M8,4v1c0,0.6,0.4,1,1,1s1-0.4,1-1V4h12v1c0,0.6,0.4,1,1,1s1-0.4,1-1V4c2.2,0,4,1.8,4,4v2H4V8C4,5.8,5.8,4,8,4z M24,28H8c-2.2,0-4-1.8-4-4V12h24v12C28,26.2,26.2,28,24,28z"></path>
@@ -588,7 +599,7 @@
                                                         <flat-pickr
                                                             :value="t[0].data.due_on"
                                                             @on-change="inlineSubTaskUpdate(t[0].data.gid, index, 'due_on', $event)"
-                                                            :config="{inline: true}"
+                                                            :config="{inline: true, altInput: true, altFormat: 'F j, Y'}"
                                                             class="date-input-uder-new-task">
                                                         </flat-pickr>
                                                     </div>
@@ -614,7 +625,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="section-comment">
+                                                <div class="section-comment" @click="showChildTask(t[0].data.gid, taskDetails[0].data.gid, taskDetails[0].data.name)">
                                                     <span class="comment-count" v-if="t['comments']['data'].length > 0">{{ t['comments']['data'].length }}</span>
                                                     <div class="logo-2">
                                                         <svg class="_icon cursor-pointer" focusable="false"
@@ -638,7 +649,7 @@
                                             <div class="_img" style="background-image: url('https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png')"></div>
                                         </div>
                                         <div class="detail-text-area">
-                                            <span><a class="lnk-text" href="#">{{ comment.created_by.name }} </a>{{ comment.text }}</span>
+                                            <span><a class="lnk-text" href="javascript:void(0)">{{ comment.created_by.name }} </a>{{ comment.text }}</span>
                                             <span class="small-text"><vue-moments-ago prefix="" suffix="ago" :date="comment.created_at"></vue-moments-ago></span>
                                         </div>
                                     </div>
@@ -652,438 +663,6 @@
                             </div>
                         </div>
                     </div>
-                    <!--<div v-if="projectDetails" class="tab-content" :class="projectDetails.data.name">
-                        <div class="px-6 py-3">
-                            <div class="flex border-b border-40 remove-bottom-border">
-                                <div class="overflow-hidden overflow-x-auto relative w-full">
-                                    <table class="table w-full">
-                                        <thead>
-                                        <tr>
-                                            <th class="text-left">
-                                                <a href="javascript:void(0)" @click="createTask" class="btn btn-default btn-primary" dusk="create-button">Create</a>
-                                            </th>
-                                            <th class="text-left">
-                                                <div class="remove-bottom-border">
-                                                    <div class="flex">
-                                                        <div class="flex w-full">
-                                                            <div class="py-6 px-8">
-                                                                <label for="name" class="inline-block text-80 pt-2 leading-tight">Assigned To</label>
-                                                            </div>
-                                                            <div class="py-6 px-8">
-                                                                <select v-model="taskFilter.assignee" @change="filterTasks" dusk="attachable-select" data-testid="workspace-select" name="assignee" class="form-control form-select mb-3 w-full">
-                                                                    <option value="">Choose Assigned To</option>
-                                                                    <option v-if="users.length > 0" v-for="user in users" :value="user.gid">{{ user.name }}</option>
-                                                                </select>
-                                                                <div class="help-text help-text mt-2" v-if="errors.assignee"><div class="text-danger">{{ errors.assignee[0] }}</div></div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </th>
-                                            <th class="text-left">
-                                                <label class="checkbox-inline">
-                                                    <input type="checkbox" v-model="taskFilter.complete" @change="filterTasks">Complete
-                                                </label>
-                                            </th>
-                                            <th class="text-left" colspan="2">
-                                                <div class="remove-bottom-border">
-                                                    <div class="flex">
-                                                        <div class="flex w-full">
-                                                            <div class="w-1/5 py-6 px-8">
-                                                                <label for="name" class="inline-block text-80 pt-2 leading-tight">Type</label>
-                                                            </div>
-                                                            <div class="py-6 px-8">
-                                                                <select v-model="taskFilter.section" @change="filterTasks" dusk="attachable-select" data-testid="workspace-select" name="assignee" class="form-control form-select mb-3 w-full">
-                                                                    <option value="">Choose Type</option>
-                                                                    <option v-if="sections.length > 0" v-for="section in sections" :value="section.gid">{{ section.name }}</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </th>
-                                            <th class="text-left">
-                                                <div class="remove-bottom-border">
-                                                    <div class="flex">
-                                                        <div class="flex w-full">
-                                                            <div class="py-6 px-8">
-                                                                <label for="name" class="inline-block text-80 pt-2 leading-tight">Due Date</label>
-                                                            </div>
-                                                            <div class="py-6 px-8">
-                                                                <flat-pickr
-                                                                    v-model="taskFilter.due_on"
-                                                                    :config="config"
-                                                                    @on-change="filterTasks"
-                                                                    class="w-full form-control form-input-bordered"
-                                                                    placeholder="Select date"
-                                                                    name="date">
-                                                                </flat-pickr>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </th>
-                                            <th class="text-left">
-                                                <div class="relative h-9 flex-no-shrink mb-6"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" aria-labelledby="search" role="presentation" class="fill-current absolute search-icon-center ml-3 text-70"><path fill-rule="nonzero" d="M14.32 12.906l5.387 5.387a1 1 0 0 1-1.414 1.414l-5.387-5.387a8 8 0 1 1 1.414-1.414zM8 14A6 6 0 1 0 8 2a6 6 0 0 0 0 12z"></path></svg> <input data-testid="search-input" dusk="search" v-model="taskFilter.name" @change="keyTyping" @keyup="keyTyping" placeholder="Search" type="search" class="appearance-none form-search w-search pl-search shadow"></div>
-                                            </th>
-                                        </tr>
-                                        </thead>
-                                    </table>
-                                    <div class="py-3">
-                                        <div class="flex">
-                                            <div class="w-full">
-                                                <table class="table w-full">
-                                                    <thead>
-                                                    <tr>
-                                                        <th class="text-left">SL</th>
-                                                        <th class="text-left">Task</th>
-                                                        <th class="text-left">Assignee</th>
-                                                        &lt;!&ndash;<th class="text-left">Type</th>&ndash;&gt;
-                                                        <th class="text-left">Due Date</th>
-                                                        &lt;!&ndash;<th class="text-left">Description</th>
-                                                        <th class="text-left">Complete</th>&ndash;&gt;
-                                                        <th class="text-right">
-
-                                                        </th>
-                                                    </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                    <tr v-for="(t,index) in tasks" v-if="tasks.length > 0 && showMe == 1">
-                                                        <td v-text="index+1"></td>
-                                                        <td>
-                                                            <div @click="editThisQuick(index)" v-if="t.editStatus == undefined || t.editStatus !== 1">{{ t.data.name }}</div>
-                                                            <div class="remove-bottom-border" v-if="t.editStatus != undefined && t.editStatus == 1">
-                                                                <div class="flex">
-                                                                    <div class="flex w-full">
-                                                                        <div class="py-6">
-                                                                            <input dusk="name" type="text" placeholder="Task Name" :value="t.data.name"
-                                                                                   @blur="editThisQuick(index)"
-                                                                                   @change="inlineTaskUpdate(index, 'name', $event)" class="w-full form-control form-input form-input-bordered">
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            <div @click="editThisQuick(index)" v-if="(t.data.assignee != null && t.editStatus == undefined) || (t.data.assignee != null && t.editStatus !== 1)">{{ t.data.assignee.name }}</div>
-                                                            <div @click="editThisQuick(index)" v-else="">None</div>
-                                                            <div class="remove-bottom-border" v-if="t.editStatus != undefined && t.editStatus == 1">
-                                                                <div class="flex">
-                                                                    <div class="flex w-full">
-                                                                        <div class="py-6">
-                                                                            <select @change="editThisQuick(index);inlineTaskUpdate(index, 'assignee', $event)" dusk="attachable-select" data-testid="workspace-select" name="assignee" class="form-control form-select mb-3 w-full">
-                                                                                <option value="" disabled>Choose Assigned To</option>
-                                                                                <option v-for="user in users" :value="user.gid" v-if="t.data.assignee.gid == user.gid" selected>{{ user.name }}</option>
-                                                                                <option :value="user.gid" v-else="">{{ user.name }}</option>
-                                                                            </select>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                        &lt;!&ndash;<td>
-                                                            <div @click="editThisQuick(index)" v-if="t.editStatus == undefined || t.editStatus !== 1">{{ t.data.memberships[0].section.name }}</div>
-                                                            <div class="remove-bottom-border" v-if="t.editStatus != undefined && t.editStatus == 1">
-                                                                <div class="flex">
-                                                                    <div class="flex w-full">
-                                                                        <div class="py-6">
-                                                                            <select dusk="attachable-select" @blur="editThisQuick(index)" @change="editThisQuick(index);inlineTaskUpdate(index, 'section', $event)" data-testid="workspace-select" name="section" class="form-control form-select mb-3 w-full">
-                                                                                <option value="" disabled="disabled">Choose Type</option>
-                                                                                <option v-for="section in sections" :value="section.gid" v-if="t.data.memberships[0].section.gid == section.gid" selected>{{ section.name }}</option>
-                                                                                <option :value="section.gid" v-else="">{{ section.name }}</option>
-                                                                            </select>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </td>&ndash;&gt;
-                                                        <td>
-                                                            <div @click="editThisQuick(index)" v-if="t.editStatus == undefined || t.editStatus !== 1">{{ t.data.due_on }}</div>
-                                                            <div class="remove-bottom-border" v-if="t.editStatus != undefined && t.editStatus == 1">
-                                                                <div class="flex">
-                                                                    <div class="flex w-full">
-                                                                        <div class="py-6">
-                                                                            <flat-pickr
-                                                                                :value="t.data.due_on"
-                                                                                :config="config"
-                                                                                @on-blur="editThisQuick(index)"
-                                                                                @on-change="inlineTaskUpdate(index, 'due_on', $event)"
-                                                                                class="w-full form-control form-input-bordered"
-                                                                                placeholder="Select date"
-                                                                                name="due_on">
-                                                                            </flat-pickr>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                        &lt;!&ndash;<td>
-                                                            <div @click="editThisQuick(index)" v-if="t.editStatus == undefined || t.editStatus !== 1">{{ t.data.notes }}</div>
-                                                            <div class="remove-bottom-border" v-if="t.editStatus != undefined && t.editStatus == 1">
-                                                                <div class="flex">
-                                                                    <div class="flex w-full">
-                                                                        <div class="py-6">
-                                                                            <textarea @blur="editThisQuick(index)" @change="inlineTaskUpdate(index, 'notes', $event)" dusk="title" rows="5" class="w-full form-control form-input form-input-bordered py-3 h-auto">{{ t.data.notes }}</textarea>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            <input type="checkbox" v-if="t.data.completed" @change="inlineTaskUpdate(index, 'completed', $event)" checked>
-                                                            <input type="checkbox" v-else="" @change="inlineTaskUpdate(index, 'completed', $event)">
-                                                        </td>&ndash;&gt;
-                                                        <td class="text-right">
-                                                            <span><a @click="showTask(t.data.gid)" class="cursor-pointer text-70 hover:text-primary mr-3" dusk="13-view-button" title="View"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="18" viewBox="0 0 22 16" aria-labelledby="view" role="presentation" class="fill-current"><path d="M16.56 13.66a8 8 0 0 1-11.32 0L.3 8.7a1 1 0 0 1 0-1.42l4.95-4.95a8 8 0 0 1 11.32 0l4.95 4.95a1 1 0 0 1 0 1.42l-4.95 4.95-.01.01zm-9.9-1.42a6 6 0 0 0 8.48 0L19.38 8l-4.24-4.24a6 6 0 0 0-8.48 0L2.4 8l4.25 4.24h.01zM10.9 12a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm0-2a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"></path></svg></a></span>
-                                                        </td>
-                                                    </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                            <div class="w-full pl-3" id="taskDetails" style="display: none">
-                                                <div v-if="taskDetails">
-                                                    <div class="flex border-b border-40 pb-3">
-                                                        &lt;!&ndash;&ndash;&gt;
-                                                        <div class="w-full flex items-center">
-                                                            <a href="javascript:void(0)" v-if="taskDetails[0].data.completed" onclick="document.getElementById('taskDetailsCompleteness').click()" class="btn btn-default btn-success" dusk="create-button"><i class="fa fa-check"></i> Completed</a>
-                                                            <a href="javascript:void(0)" v-else="" onclick="document.getElementById('taskDetailsCompleteness').click()" class="btn btn-default btn-primary" dusk="create-button"><i class="fa fa-check"></i> Mark as complete</a>
-                                                            <input type="checkbox" v-if="taskDetails[0].data.completed" @click="inlineTaskUpdateNew(taskDetails[0].data.gid, 'completed', $event)" id="taskDetailsCompleteness" style="display:none;" checked>
-                                                            <input type="checkbox" v-if="" @click="inlineTaskUpdateNew(taskDetails[0].data.gid, 'completed', $event)" id="taskDetailsCompleteness" style="display:none;">
-                                                            &lt;!&ndash;&ndash;&gt;
-                                                            <div class="flex-no-shrink ml-auto mb-6">
-                                                                <input type="file" id="file" name="file" v-on:change="handleFileUpload(taskDetails[0].data.gid, $event)" style="display: none">
-                                                                <a onclick="document.getElementById('file').click()" class="cursor-pointer text-70 hover:text-primary mr-3" dusk="13-view-button" title="Attach file"><i class="fa fa-paperclip"></i></a>
-                                                                <span><a href="javascript:void(0)" @click="createNewSubTask = true" class="cursor-pointer text-70 hover:text-primary mr-3" dusk="1-subtasks-button" title="Add subtasks"><svg width="22" height="18" focusable="false" viewBox="0 0 32 32" aria-labelledby="edit" role="presentation" class="fill-current"><path d="M25,20c-2.4,0-4.4,1.7-4.9,4H11c-3.9,0-7-3.1-7-7v-5h16.1c0.5,2.3,2.5,4,4.9,4c2.8,0,5-2.2,5-5s-2.2-5-5-5c-2.4,0-4.4,1.7-4.9,4H4V3c0-0.6-0.4-1-1-1S2,2.4,2,3v14c0,5,4,9,9,9h9.1c0.5,2.3,2.5,4,4.9,4c2.8,0,5-2.2,5-5S27.8,20,25,20z M25,8c1.7,0,3,1.3,3,3s-1.3,3-3,3s-3-1.3-3-3S23.3,8,25,8z M25,28c-1.7,0-3-1.3-3-3s1.3-3,3-3s3,1.3,3,3S26.7,28,25,28z"></path></svg></a></span>
-                                                                <a @click="editTask(taskDetails[0].data.gid)" class="cursor-pointer text-70 hover:text-primary mr-3" dusk="1-edit-button"
-                                                                   title="Edit">
-                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                                                         viewBox="0 0 20 20" aria-labelledby="edit" role="presentation"
-                                                                         class="fill-current">
-                                                                        <path
-                                                                            d="M4.3 10.3l10-10a1 1 0 0 1 1.4 0l4 4a1 1 0 0 1 0 1.4l-10 10a1 1 0 0 1-.7.3H5a1 1 0 0 1-1-1v-4a1 1 0 0 1 .3-.7zM6 14h2.59l9-9L15 2.41l-9 9V14zm10-2a1 1 0 0 1 2 0v6a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4c0-1.1.9-2 2-2h6a1 1 0 1 1 0 2H2v14h14v-6z"></path>
-                                                                    </svg>
-                                                                </a>
-                                                                <a title="Delete" @click="deleteTask(taskDetails[0].data.gid)"
-                                                                   class="appearance-none cursor-pointer text-70 hover:text-danger mr-3">
-                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                                                         viewBox="0 0 20 20" aria-labelledby="delete" role="presentation"
-                                                                         class="fill-current">
-                                                                        <path fill-rule="nonzero"
-                                                                              d="M6 4V2a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2h5a1 1 0 0 1 0 2h-1v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6H1a1 1 0 1 1 0-2h5zM4 6v12h12V6H4zm8-2V2H8v2h4zM8 8a1 1 0 0 1 1 1v6a1 1 0 0 1-2 0V9a1 1 0 0 1 1-1zm4 0a1 1 0 0 1 1 1v6a1 1 0 0 1-2 0V9a1 1 0 0 1 1-1z"></path>
-                                                                    </svg>
-                                                                </a>
-                                                                <a onclick="document.getElementById('taskDetails').style.display = 'none'" class="appearance-none cursor-pointer text-70 hover:text-danger mr-3" tabindex="0" role="button" aria-disabled="false" aria-label="Close details"><svg class="fill-current" width="20" height="20" focusable="false" viewBox="0 0 32 32"><path d="M2,14.5h18.4l-7.4-7.4c-0.6-0.6-0.6-1.5,0-2.1c0.6-0.6,1.5-0.6,2.1,0l10,10c0.6,0.6,0.6,1.5,0,2.1l-10,10c-0.3,0.3-0.7,0.4-1.1,0.4c-0.4,0-0.8-0.1-1.1-0.4c-0.6-0.6-0.6-1.5,0-2.1l7.4-7.4H2c-0.8,0-1.5-0.7-1.5-1.5C0.5,15.3,1.2,14.5,2,14.5z M28,3.5C28,2.7,28.7,2,29.5,2S31,2.7,31,3.5v25c0,0.8-0.7,1.5-1.5,1.5S28,29.3,28,28.5V3.5z"></path></svg></a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="flex">
-                                                        <div class="w-full flex items-center">
-                                                            <div class="py-3">
-                                                                <h2 id="taskNameHeader" class="flex-no-shrink text-90 font-normal text-2xl" onclick="this.style.display = 'none';document.getElementById('taskName').style.display = 'block';document.getElementById('taskDetailsName').focus();">{{ taskDetails[0].data.name }}</h2>
-                                                            </div>
-                                                            <div class="remove-bottom-border" id="taskName" style="display: none">
-                                                                <div class="flex">
-                                                                    <div class="flex w-full">
-                                                                        <div class="py-6">
-                                                                            <input dusk="name" id="taskDetailsName" type="text" placeholder="Task Name" :value="taskDetails[0].data.name" onblur="document.getElementById('taskName').style.display = 'none';document.getElementById('taskNameHeader').style.display = 'block';" @change="inlineTaskUpdateNew(taskDetails[0].data.gid, 'name', $event)" class="w-full form-control form-input form-input-bordered">
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="flex border-b border-40 pb-3">
-                                                        <div class="w-1/2">
-                                                            <small>Assigned To</small>
-                                                            <p id="taskAssigneeHeader" onclick="this.style.display = 'none';document.getElementById('taskAssignee').style.display = 'block';document.getElementById('taskDetailsAssigned').focus();">{{ taskDetails[0].data.assignee.name }}</p>
-                                                            <div class="remove-bottom-border" id="taskAssignee" style="display: none">
-                                                                <div class="flex">
-                                                                    <div class="flex w-full">
-                                                                        <div class="py-6">
-                                                                            <select id="taskDetailsAssigned" onblur="document.getElementById('taskAssignee').style.display = 'none';document.getElementById('taskAssigneeHeader').style.display = 'block';" @change="inlineTaskUpdateNew(taskDetails[0].data.gid, 'assignee', $event)" dusk="attachable-select" data-testid="workspace-select" name="assignee" class="form-control form-select mb-3 w-full">
-                                                                                <option value="" disabled>Choose Assigned To</option>
-                                                                                <option v-for="user in users" :value="user.gid" v-if="taskDetails[0].data.assignee.gid == user.gid" selected>{{ user.name }}</option>
-                                                                                <option :value="user.gid" v-else="">{{ user.name }}</option>
-                                                                            </select>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="w-1/2">
-                                                            <small>Due Date</small>
-                                                            <p id="taskDueOnHeader" onclick="this.style.display = 'none';document.getElementById('taskDueOn').style.display = 'block';">{{ taskDetails[0].data.due_on }}</p>
-                                                            <div class="remove-bottom-border" id="taskDueOn" style="display: none">
-                                                                <div class="flex">
-                                                                    <div class="flex w-full">
-                                                                        <div class="py-6">
-                                                                            <flat-pickr
-                                                                                :value="taskDetails[0].data.due_on"
-                                                                                :config="{config}"
-                                                                                @on-change="inlineTaskUpdateNew(taskDetails[0].data.gid, 'due_on', $event)"
-                                                                                @on-close="viewToggle"
-                                                                                class="w-full form-control form-input-bordered"
-                                                                                autofocus="true"
-                                                                                placeholder="Select date"
-                                                                                name="due_on">
-                                                                            </flat-pickr>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="flex">
-                                                        <div class="w-full flex items-center">
-                                                            <div class="py-3" style="width: 100%;">
-                                                                <p id="taskNotesHeader" onclick="this.style.display = 'none';document.getElementById('taskNotes').style.display = 'block';document.getElementById('taskDetailsNotes').focus();">{{ taskDetails[0].data.notes }}</p>
-                                                                <div class="remove-bottom-border" id="taskNotes" style="display: none">
-                                                                    <div class="flex">
-                                                                        <div class="flex w-full">
-                                                                            <div class="py-6" style="width: 100%;">
-                                                                                <textarea id="taskDetailsNotes" onblur="document.getElementById('taskNotes').style.display = 'none';document.getElementById('taskNotesHeader').style.display = 'block';" @change="inlineTaskUpdateNew(taskDetails[0].data.gid, 'notes', $event)" dusk="title" rows="5" class="w-full form-control form-input form-input-bordered py-3 h-auto">{{ taskDetails[0].data.notes }}</textarea>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="flex border-b border-40">
-                                                        <table class="table w-full">
-                                                            <tbody>
-                                                            <tr v-if="taskDetails.subTasks.length > 0" v-for="(t, index) in taskDetails.subTasks">
-                                                                <td v-text="index+1"></td>
-                                                                <td>
-                                                                    <span>
-                                                                        <a v-if="t[0].data.completed" onclick="document.getElementById('subTaskComplete').click()" class="cursor-pointer text-70 text-success-dark hover:text-success-light mr-3" title="Complete"><i class="fa fa-check-circle"></i>
-                                                                        </a>
-                                                                        <a v-else="" onclick="document.getElementById('subTaskComplete').click()" class="cursor-pointer text-70 text-primary-dark hover:text-primary-light mr-3" title="Mark as complete"><i class="fa fa-check-circle"></i>
-                                                                        </a>
-                                                                    </span>
-                                                                    <input type="checkbox" id="subTaskComplete" v-if="t[0].data.completed" @click="inlineSubTaskUpdate(index, 'completed', $event)" checked style="display: none">
-                                                                    <input type="checkbox" id="subTaskComplete" v-else="" @click="inlineSubTaskUpdate(index, 'completed', $event)" style="display: none">
-                                                                    <div id="subTaskNotesHeader" onclick="this.style.display = 'none';document.getElementById('subTaskNotes').style.display = 'block';document.getElementById('subTaskNotesInput').focus();">{{ t[0].data.name }}</div>
-                                                                    <div class="remove-bottom-border" id="subTaskNotes" style="display: none">
-                                                                        <div class="flex">
-                                                                            <div class="flex w-full">
-                                                                                <div class="py-6">
-                                                                                    <input dusk="name" id="subTaskNotesInput" type="text" placeholder="Task Name" :value="t[0].data.name" onblur="document.getElementById('subTaskNotesHeader').style.display = 'block';document.getElementById('subTaskNotes').style.display = 'none';" @change="inlineSubTaskUpdate(index, 'name', $event)" class="w-full form-control form-input form-input-bordered">
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div id="subTaskAssigneeHeader" v-if="t[0].data.assignee != null" onclick="this.style.display = 'none';document.getElementById('subTaskAssignee').style.display = 'block';document.getElementById('subTaskAssigneeInput').focus();">{{ t[0].data.assignee.name }}</div>
-                                                                    <div v-else="" onclick="this.style.display = 'none';document.getElementById('subTaskAssignee').style.display = 'block';document.getElementById('subTaskAssigneeInput').focus();">None</div>
-                                                                    <div class="remove-bottom-border" style="display: none" id="subTaskAssignee">
-                                                                        <div class="flex">
-                                                                            <div class="flex w-full">
-                                                                                <div class="py-6">
-                                                                                    <select onblur="document.getElementById('subTaskAssignee').style.display = 'none';document.getElementById('subTaskAssigneeHeader').style.display = 'block';" id="subTaskAssigneeInput" @change="inlineSubTaskUpdate(index, 'assignee', $event)" dusk="attachable-select" data-testid="workspace-select" name="assignee" class="form-control form-select mb-3 w-full">
-                                                                                        <option value="" disabled>Choose Assigned To</option>
-                                                                                        <option v-for="user in users" :value="user.gid" v-if="t[0].data.assignee != null && t[0].data.assignee.gid == user.gid" selected>{{ user.name }}</option>
-                                                                                        <option :value="user.gid" v-else="">{{ user.name }}</option>
-                                                                                    </select>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div :title="duedate(t[0].data.due_on)" id="subTaskDueOnHeader" onclick="this.style.display = 'none';document.getElementById('subTaskDueOn').style.display = 'block';">{{ t[0].data.due_on }}</div>
-                                                                    <div class="remove-bottom-border" id="subTaskDueOn" style="display: none">
-                                                                        <div class="flex">
-                                                                            <div class="flex w-full">
-                                                                                <div class="py-6">
-                                                                                    <flat-pickr
-                                                                                        :value="t[0].data.due_on"
-                                                                                        @on-close="viewToggle"
-                                                                                        @on-change="inlineSubTaskUpdate(index, 'due_on', $event)"
-                                                                                        class="w-full form-control form-input-bordered"
-                                                                                        placeholder="Select date"
-                                                                                        autofocus="true"
-                                                                                        name="due_on">
-                                                                                    </flat-pickr>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                                <td class="text-right">
-                                                                    <span><a class="cursor-pointer text-70 hover:text-primary mr-3" dusk="13-view-button" title="View"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="18" viewBox="0 0 22 16" aria-labelledby="view" role="presentation" class="fill-current"><path d="M16.56 13.66a8 8 0 0 1-11.32 0L.3 8.7a1 1 0 0 1 0-1.42l4.95-4.95a8 8 0 0 1 11.32 0l4.95 4.95a1 1 0 0 1 0 1.42l-4.95 4.95-.01.01zm-9.9-1.42a6 6 0 0 0 8.48 0L19.38 8l-4.24-4.24a6 6 0 0 0-8.48 0L2.4 8l4.25 4.24h.01zM10.9 12a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm0-2a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"></path></svg></a></span>
-                                                                </td>
-                                                            </tr>
-                                                            <tr v-if="createNewSubTask">
-                                                                <td>
-                                                                    <div class="remove-bottom-border">
-                                                                        <div class="flex">
-                                                                            <div class="flex w-full">
-                                                                                <input v-model="subTask.name" dusk="name" type="text" placeholder="Task Name" class="w-full form-control form-input form-input-bordered"> &lt;!&ndash;&ndash;&gt;
-                                                                                <div class="help-text help-text mt-2" v-if="errors.name"><div class="text-danger">{{ errors.name[0] }}</div></div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="remove-bottom-border">
-                                                                        <div class="flex">
-                                                                            <div class="flex w-full">
-                                                                                <select v-model="subTask.assignee" dusk="attachable-select" data-testid="workspace-select" name="assignee" class="form-control form-select w-full">
-                                                                                    <option value="" disabled="disabled">Choose Assigned To</option>
-                                                                                    <option v-if="users.length > 0" v-for="user in users" :value="user.gid">{{ user.name }}</option>
-                                                                                </select>
-                                                                                <div class="help-text help-text mt-2" v-if="errors.assignee"><div class="text-danger">{{ errors.assignee[0] }}</div></div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="remove-bottom-border">
-                                                                        <div class="flex">
-                                                                            <div class="flex w-full">
-                                                                                <flat-pickr
-                                                                                    v-model="subTask.due_on"
-                                                                                    :config="config"
-                                                                                    class="w-full form-control form-input-bordered"
-                                                                                    placeholder="Select date"
-                                                                                    name="date">
-                                                                                </flat-pickr>
-                                                                                <div class="help-text help-text mt-2" v-if="errors.due_on"><div class="text-danger">{{ errors.due_on[0] }}</div></div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <a href="javascript:void(0)" @click="createSubTask(taskDetails[0].data.gid)" class="btn btn-default btn-primary" dusk="create-button">Create</a>
-                                                                </td>
-                                                            </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                    <div class="flex" v-if="taskDetails.comments.data.length > 0">
-                                                        <div class="w-full flex items-center">
-                                                            <div class="pt-6 px-8">
-                                                                <p class="py-1" v-for="comment in taskDetails.comments.data"><b>{{ comment.created_by.name }}</b> {{ comment.text }} <vue-moments-ago prefix="" suffix="ago" :date="comment.created_at"></vue-moments-ago></p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="flex">
-                                                        <div class="w-full flex items-center">
-                                                            <div class="py-6 px-8" style="width: 100%">
-                                                                <textarea @change="storeTaskComment(taskDetails[0].data.gid)" v-model="taskComment" dusk="title" rows="5" class="w-full form-control form-input form-input-bordered py-3 h-auto" placeholder="Ask a question or post an update"></textarea>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>-->
                 </div>
                 <div v-if="projectDetails == null" class="card">
                     <h2 class="ph">No projects yet</h2>
@@ -1137,8 +716,6 @@
         },
         data: function () {
             return {
-                createNewSubTask: false,
-                createNewTask: false,
                 community: null,
                 estForeclosures: 0,
                 loaded: false,
@@ -1208,7 +785,9 @@
                 taskDetails: null,
                 file: '',
                 taskComment: '',
-                taskDetailsTemplate: 1,
+                createNewSubTask: false,
+                createNewTask: false,
+                taskParents: [],
                 isComplete: 0,
                 isMarkComplete: 0,
                 sideBar: 0,
@@ -1914,6 +1493,7 @@
             },
             showTask(id) {
                 this.sideBar = 1;
+                this.taskParents = [];
                 $('.loader-io').css('display', 'flex');
                 $('.task-details-wrapper').hide();
 
@@ -1958,10 +1538,15 @@
                 this.updateTask();
             },
             updateTask() {
+                let _this = this;
                 this.taskUpdate._method = "PUT";
 
                 Nova.request().post('/api/asana/task/update/' + this.taskUpdate.id, this.taskUpdate).then(response => {
                     this.isLoading = false;
+
+                    setTimeout(function () {
+                        _this.uiUpdateMounted()
+                    }, 500);
 
                     if (response.data.status === 200) {
                         this.taskUpdate = {};
@@ -2035,6 +1620,10 @@
                         Nova.request().post('/api/asana/task/destroy/' + id, {_method: 'DELETE'}).then(response => {
                             this.isLoading = false;
 
+                            setTimeout(function () {
+                                THIS.uiUpdateMounted()
+                            }, 500);
+
                             if (response.data.status === 200) {
                                 THIS.getProjects();
                                 document.getElementById('loader').style.display = 'none';
@@ -2045,18 +1634,30 @@
                     }
                 });
             },
-            filterTasks(a, b, c) {
+            filterTasks(key, val) {
                 let THIS = this;
-                this.taskFilter.due_on = b;
                 this.isLoading = true;
+
+                if (key == 'completed') {
+                    this.taskFilter.complete = val;
+                } else {
+                    if (val) {
+                        this.taskFilter.due_on = val;
+                    }
+                }
+
                 let params = new URLSearchParams(THIS.taskFilter);
                 params = params.toString();
 
                 Nova.request().get('/api/asana/task/show?' + params).then(response => {
                     this.isLoading = false;
 
+                    setTimeout(function () {
+                        THIS.uiUpdateMounted()
+                    }, 500);
+
                     if (response.data.status === 200) {
-                        THIS.tasks = response.data.data;
+                        THIS.sectionData = response.data.data;
                     } else {
                         THIS.errors = response.data.errors;
                     }
@@ -2268,6 +1869,51 @@
                     }
                 });
             },
+            showChildTask(id, parentId, parentName) {
+                this.taskParents.push({
+                    id: parentId,
+                    name: parentName
+                });
+                $('.loader-io').css('display', 'flex');
+                $('.task-details-wrapper').hide();
+
+                Nova.request().get('/api/asana/task/details/' + id).then(response => {
+                    $('.loader-io').hide();
+                    $('.task-details-wrapper').show();
+
+                    if (response.status == 200) {
+                        this.taskDetails = response.data.data;
+                    } else {
+                        this.errors = response.data.msg.errors;
+                    }
+                });
+            },
+            showParentTask(id, index) {
+                if (this.taskParents.length == 1) {
+                    this.taskParents = [];
+                } else {
+                    if (index == 0) {
+                        this.taskParents = [];
+                    } else if (this.taskParents.length - 1 == index) {
+                        this.taskParents.pop();
+                    } else {
+                        this.taskParents.splice(index, this.taskParents.length - index);
+                    }
+                }
+                $('.loader-io').css('display', 'flex');
+                $('.task-details-wrapper').hide();
+
+                Nova.request().get('/api/asana/task/details/' + id).then(response => {
+                    $('.loader-io').hide();
+                    $('.task-details-wrapper').show();
+
+                    if (response.status == 200) {
+                        this.taskDetails = response.data.data;
+                    } else {
+                        this.errors = response.data.msg.errors;
+                    }
+                });
+            },
             uiUpdateMounted: function () {
                 let _this = this;
 
@@ -2287,7 +1933,7 @@
                     }, 200);
                 });
 
-                $('.main-wrapper').on('click', '.nv-dropdown', function () {
+                $('.tab-content').on('click', '.nv-dropdown', function () {
                     $('.nv-dropdown').removeClass('nv-open');
                     $(this).addClass('nv-open');
                     $(this).find('input').focus();

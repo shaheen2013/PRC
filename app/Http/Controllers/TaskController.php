@@ -162,120 +162,165 @@ class TaskController extends Controller
         }
 
         try {
-            $tasks = json_decode($this->asana->getProjectTasks($request->project));
-            $response = [];
+            // Get sections
+            $sections = [];
+            $secctionData = json_decode($this->asana->getProjectSections($request->project));
 
-            foreach ($tasks->data  as $task) {
-                $data = json_decode($this->asana->getTask($task->gid));
+            foreach ($secctionData->data as $datum) {
+                $temp = [];
+                $tempTasks = [];
+                $temp[] = $datum;
 
-                foreach ($request->all() as $index => $value) {
-                    if (!empty($value) && $index != 'project') {
-                        switch ($index) {
-                            case "name":
-                                if ($data->data->name || $data->data->notes) {
-                                    if ($data->data->name) {
-                                        if (strtolower($data->data->name) == strtolower($value)) {
-                                            $matched = true;
-                                        } else {
-                                            if ($data->data->notes) {
+                $ch = curl_init();
+
+                curl_setopt($ch, CURLOPT_URL, 'https://app.asana.com/api/1.0/sections/'. $datum->gid .'/tasks');
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+                curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
+
+                $headers = array();
+                $headers[] = 'Accept: application/json';
+                $headers[] = 'Authorization: Bearer '. env('ASANA_PAT');
+
+                curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+                $result = json_decode(curl_exec($ch), 1);
+
+                foreach ($result['data'] as $task) {
+                    $tempTask = [];
+                    $data = json_decode($this->asana->getTask($task['gid']));
+
+                    if ($data->data->parent == null) {
+                        foreach ($request->all() as $index => $value) {
+                            if (!empty($value) && $index != 'project') {
+                                switch ($index) {
+                                    case "name":
+                                        if ($data->data->name || $data->data->notes) {
+                                            if ($data->data->name) {
+                                                if (strtolower($data->data->name) == strtolower($value)) {
+                                                    $matched = true;
+                                                } else {
+                                                    if ($data->data->notes) {
+                                                        if (strpos($data->data->notes, $value) !== false) {
+                                                            $matched = true;
+                                                        } else {
+                                                            $matched = false;
+                                                        }
+                                                    } else {
+                                                        $matched = false;
+                                                    }
+                                                }
+                                            } else {
                                                 if (strpos($data->data->notes, $value) !== false) {
                                                     $matched = true;
                                                 } else {
                                                     $matched = false;
                                                 }
+                                            }
+                                        } else {
+                                            $matched = false;
+                                        }
+                                        break;
+                                    case "assignee":
+                                        if ($data->data->assignee) {
+                                            if ($data->data->assignee->gid == $value) {
+                                                $matched = true;
+                                            } else {
+                                                $matched = false;
+                                            }
+                                        } else {
+                                            $matched = false;
+                                        }
+                                        break;
+                                    case "due_on":
+                                        if ($data->data->due_on) {
+                                            if ($data->data->due_on == $value) {
+                                                $matched = true;
+                                            } else {
+                                                $matched = false;
+                                            }
+                                        } else {
+                                            $matched = false;
+                                        }
+                                        break;
+                                    case "notes":
+                                        if ($data->data->notes) {
+                                            if (strpos($data->data->notes, $value) !== false) {
+                                                $matched = true;
+                                            } else {
+                                                $matched = false;
+                                            }
+                                        } else {
+                                            $matched = false;
+                                        }
+                                        break;
+                                    case "section":
+                                        if (isset($data->data->memberships[0]->section)) {
+                                            if ($data->data->memberships[0]->section->gid == $value) {
+                                                $matched = true;
+                                            } else {
+                                                $matched = false;
+                                            }
+                                        } else {
+                                            $matched = false;
+                                        }
+                                        break;
+                                    case "complete":
+                                        if ($value == 'all') {
+                                            $matched = true;
+                                        } elseif ($value == 'true') {
+                                            if ($data->data->completed) {
+                                                $matched = true;
+                                            } else {
+                                                $matched = false;
+                                            }
+                                        } else {
+                                            if (!$data->data->completed) {
+                                                $matched = true;
                                             } else {
                                                 $matched = false;
                                             }
                                         }
-                                    } else {
-                                        if (strpos($data->data->notes, $value) !== false) {
-                                            $matched = true;
-                                        } else {
-                                            $matched = false;
-                                        }
-                                    }
-                                } else {
-                                    $matched = false;
+                                        break;
+                                    default:
                                 }
-                                break;
-                            case "assignee":
-                                if ($data->data->assignee) {
-                                    if ($data->data->assignee->gid == $value) {
-                                        $matched = true;
-                                    } else {
-                                        $matched = false;
-                                    }
-                                } else {
-                                    $matched = false;
+
+                                if (!$matched) {
+                                    break;
                                 }
-                                break;
-                            case "due_on":
-                                if ($data->data->due_on) {
-                                    if ($data->data->due_on == $value) {
-                                        $matched = true;
-                                    } else {
-                                        $matched = false;
-                                    }
-                                } else {
-                                    $matched = false;
-                                }
-                                break;
-                            case "notes":
-                                if ($data->data->notes) {
-                                    if (strpos($data->data->notes, $value) !== false) {
-                                        $matched = true;
-                                    } else {
-                                        $matched = false;
-                                    }
-                                } else {
-                                    $matched = false;
-                                }
-                                break;
-                            case "section":
-                                if (isset($data->data->memberships[0]->section)) {
-                                    if ($data->data->memberships[0]->section->gid == $value) {
-                                        $matched = true;
-                                    } else {
-                                        $matched = false;
-                                    }
-                                } else {
-                                    $matched = false;
-                                }
-                                break;
-                            case "complete":
-                                if ($value == 'true') {
-                                    if ($data->data->completed) {
-                                        $matched = true;
-                                    } else {
-                                        $matched = false;
-                                    }
-                                } else {
-                                    if (!$data->data->completed) {
-                                        $matched = true;
-                                    } else {
-                                        $matched = false;
-                                    }
-                                }
-                                break;
-                            default:
+                            }
                         }
 
-                        if (!$matched) {
-                            break;
+                        if (isset($matched)) {
+                            if ($matched) {
+                                $subTasks = json_decode($this->asana->getSubTasks($task['gid']));
+                                $comments = json_decode($this->asana->getTaskStories($task['gid']));
+                                $tempTask[] = $data;
+                                $tempTask['subTasks'] = count($subTasks->data);
+                                $tempTask['comments'] = count($comments->data);
+                                $tempTasks[] = $tempTask;
+                            }
+                        } else {
+                            $subTasks = json_decode($this->asana->getSubTasks($task['gid']));
+                            $comments = json_decode($this->asana->getTaskStories($task['gid']));
+                            $tempTask[] = $data;
+                            $tempTask['subTasks'] = count($subTasks->data);
+                            $tempTask['comments'] = count($comments->data);
+                            $tempTasks[] = $tempTask;
                         }
                     }
                 }
 
-                if (isset($matched)) {
-                    if ($matched) {
-                        $response[] = $data;
-                    }
-                } else {
-                    $response[] = $data;
+                $temp['tasks'] = $tempTasks;
+                $sections[] = $temp;
+
+                if (curl_errno($ch)) {
+                    echo 'Error:' . curl_error($ch);
                 }
+
+                curl_close($ch);
             }
 
-            return response()->json(['status' => 200, 'data' => $response], 200);
+            return response()->json(['status' => 200, 'data' => $sections], 200);
         } catch (\Exception $e) {
             return response()->json(['status' => 500, 'msg' => $e->getMessage()], 200);
         }
