@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Asana;
+use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -148,7 +149,7 @@ class TaskController extends Controller
         $rules = array(
             'name' => 'nullable|string|max:255',
             'assignee' => 'nullable|string|max:255',
-            'due_on' => 'nullable|date',
+            'due_on' => 'nullable|integer',
             'notes' => 'nullable|string',
             'section' => 'nullable|string',
             'project' => 'required|string',
@@ -233,10 +234,33 @@ class TaskController extends Controller
                                         break;
                                     case "due_on":
                                         if ($data->data->due_on) {
-                                            if ($data->data->due_on == $value) {
-                                                $matched = true;
-                                            } else {
+                                            if (strtotime($data->data->due_on) < time()) {
                                                 $matched = false;
+                                            } else {
+                                                $now = new DateTime();
+                                                $due_on = new DateTime($data->data->due_on);
+                                                $interval = $now->diff($due_on);
+                                                $days = $interval->format('%a');
+
+                                                if ($value == 7) {
+                                                    if ($days <= 7) {
+                                                        $matched = true;
+                                                    } else {
+                                                        $matched = false;
+                                                    }
+                                                } elseif ($value == 30) {
+                                                    if ($days <= 30) {
+                                                        $matched = true;
+                                                    } else {
+                                                        $matched = false;
+                                                    }
+                                                } else {
+                                                    if ($days <= 90) {
+                                                        $matched = true;
+                                                    } else {
+                                                        $matched = false;
+                                                    }
+                                                }
                                             }
                                         } else {
                                             $matched = false;
@@ -444,19 +468,34 @@ class TaskController extends Controller
     {
         try {
             $data = [];
+            $tempComments = [];
             $task[] = json_decode($this->asana->getTask($id));
             $subTasks = json_decode($this->asana->getSubTasks($id));
             $comments = json_decode($this->asana->getTaskStories($id));
 
+            foreach ($comments->data as $comment) {
+                $tempComment = [];
+
+                if ($comment->type == 'comment') {
+                    $tempComment[] = $comment;
+                    $tempComment['details'] = json_decode($this->asana->getSingleStory($comment->gid));
+                } else {
+                    $tempComment[] = $comment;
+                }
+
+                $tempComments[] = $tempComment;
+            }
+
             foreach ($subTasks->data as $datum) {
                 $temp = [];
                 $temp[] = json_decode($this->asana->getTask($datum->gid));
-                $temp['comments'] = json_decode($this->asana->getTaskStories($datum->gid));
+                $count = json_decode($this->asana->getTaskStories($datum->gid), 1);
+                $temp['comments'] = count($count['data']);
                 $data[] = $temp;
             }
 
             $task['subTasks'] = $data;
-            $task['comments'] = $comments;
+            $task['comments'] = $tempComments;
 
             return response()->json(['status' => 200, 'data' => $task], 200);
         } catch (\Exception $e) {

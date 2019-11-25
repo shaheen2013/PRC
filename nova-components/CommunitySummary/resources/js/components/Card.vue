@@ -247,14 +247,12 @@
                                     </select>
                                 </div>
                                 <div class="_assigned-box">
-                                    <flat-pickr
-                                        v-model="taskFilter.due_on"
-                                        :config="{config}"
-                                        @on-change="filterTasks"
-                                        class="w-full form-control form-input-bordered"
-                                        placeholder="Due Date"
-                                        name="date">
-                                    </flat-pickr>
+                                    <select class="_custom-select" v-model="taskFilter.due_on" @change="filterTasks">
+                                        <option value="">Choose Due Date</option>
+                                        <option value="7">Due in 7 days</option>
+                                        <option value="30">Up in 30 days</option>
+                                        <option value="90">Up in 90 days</option>
+                                    </select>
                                 </div>
                                 <div class="_assigned-box">
                                     <input type="text" class="_custom-input-search" placeholder="Search" v-model="taskFilter.name" @change="keyTyping" @keyup="keyTyping">
@@ -354,6 +352,11 @@
                                                 <input type="checkbox" v-if="task[0].data.completed" @click="editTask(task[0].data.gid, 'completed', $event, index, i)" :id="'taskDetailsCompleteness' + task[0].data.gid" style="display:none;" checked>
                                                 <input type="checkbox" v-else="" @click="editTask(task[0].data.gid, 'completed', $event, index, i)" :id="'taskDetailsCompleteness' + task[0].data.gid" style="display:none;">
                                                 <span><input type="text" class="task-body-custom-input" placeholder="Write a task name" :value="task[0].data.name" @change="editTask(task[0].data.gid, 'name', $event, index, i)"></span>
+                                                <span class="comment-section-name" v-if="task[0].data.num_likes">
+                                                    <span class="comment-count-like">{{ task[0].data.num_likes }}</span>
+                                                    <svg class="comment-logo-like cursor-pointer" viewBox="0 0 24 24"><path
+                                                        d="M2.7,8H5v2v10v2H2.7C1.2,22,0,20.8,0,19.4v-8.7C0,9.2,1.2,8,2.7,8z M23.1,9.2C22.4,8.4,21.5,8,20.5,8H16V5.2 C16,3.5,16.5,2,15.2,1c-0.6-0.5-1.5-0.6-2.2-0.5c-0.8,0.2-1.4,0.7-1.8,1.5L7,8v14h12.2c1.7,0,3.2-1.2,3.4-2.9l1.2-7 C24.1,11,23.8,10,23.1,9.2z"></path></svg>
+                                                </span>
                                                 <span @click="showTask(task[0].data.gid)" class="comment-section-name" v-if="task['comments'] > 0"><span class="comment-count">{{ task['comments'] }}</span>
                                                     <svg class="comment-logo cursor-pointer" focusable="false" viewBox="0 0 32 32" height="14px" width="14px">
                                                         <path d="M5,31c-0.1,0-0.3,0-0.4-0.1C4.2,30.7,4,30.4,4,30v-7.1c-2.5-2.3-4-5.5-4-8.9C0,7.4,5.4,2,12,2h8c6.6,0,12,5.4,12,12 s-5.4,12-12,12h-8c-0.1,0-0.3,0-0.4,0l-5.9,4.8C5.4,30.9,5.2,31,5,31z M12,4C6.5,4,2,8.5,2,14c0,3,1.3,5.8,3.6,7.7C5.9,21.9,6,22.2,6,22.5v5.4l4.6-3.7C10.8,24,11,24,11.3,24h0.1c0.2,0,0.4,0,0.6,0h8c5.5,0,10-4.5,10-10S25.5,4,20,4 C20,4,12,4,12,4z"></path>
@@ -452,6 +455,15 @@
                                                     </svg>
                                                 </a>
                                             </div>
+                                            <div class="logo-box">
+                                                <span class="like-count" v-if="taskDetails[0].data.num_likes">{{ taskDetails[0].data.num_likes }}</span>
+                                                <svg class="hide-box-icon-primary" focusable="false" viewBox="0 0 32 32" v-if="taskDetails[0].data.num_likes">
+                                                    <path d="M5,15c-1.1,0-2,0.9-2,2v10c0,1.1,0.9,2,2,2h1.9c0.6,0,1-0.4,1-1V16c0-0.6-0.4-1-1-1H5z M26.5,13H19V7.5c0-1.6-0.7-3-2-4l0,0c-1-0.8-2.5-0.4-3,0.7l-3.3,9c-0.4,1-0.5,2-0.5,3V28c0,0.6,0.4,1,1,1h13.9c1.5,0,2.7-1.1,3-2.5l1.6-10C29.7,14.6,28.3,13,26.5,13z"></path>
+                                                </svg>
+                                                <svg class="hide-box-icon " focusable="false" viewBox="0 0 32 32" v-else="">
+                                                    <path d="M29.6,13.3c-0.8-0.9-1.9-1.4-3.1-1.4h-6.4V7.5c0-1.9-0.9-3.8-2.5-4.9C16.9,2,15.9,1.8,15,2.1c-0.9,0.2-1.7,0.8-2,1.7L8.3,13.9H5c-1.7,0-3.1,1.4-3.1,3.1v10c0,1.7,1.4,3.1,3.1,3.1h2.9H9h15.9c2,0,3.7-1.5,4-3.5l1.6-10C30.7,15.4,30.4,14.2,29.6,13.3z M5,27.9c-0.5,0-0.9-0.4-0.9-0.9V17c0-0.5,0.4-0.9,0.9-0.9h2.9v11.8C7.9,27.9,5,27.9,5,27.9z M28.4,16.3l-1.6,10c-0.1,0.9-0.9,1.6-1.9,1.6H10.1V15.2L15,4.7c0.2-0.3,0.4-0.5,0.6-0.5c0.2,0,0.5-0.1,0.8,0.2c1,0.7,1.6,1.9,1.6,3.2v6.6h8.6c0.6,0,1.1,0.2,1.5,0.7C28.3,15.2,28.5,15.7,28.4,16.3z"></path>
+                                                </svg>
+                                            </div>
                                             <div class="logo-box" @click="sideBar == 1 ? sideBar = 0 : sideBar = 1">
                                                 <svg class="hide-box-icon" focusable="false" viewBox="0 0 32 32">
                                                     <path d="M2,14.5h18.4l-7.4-7.4c-0.6-0.6-0.6-1.5,0-2.1c0.6-0.6,1.5-0.6,2.1,0l10,10c0.6,0.6,0.6,1.5,0,2.1l-10,10c-0.3,0.3-0.7,0.4-1.1,0.4c-0.4,0-0.8-0.1-1.1-0.4c-0.6-0.6-0.6-1.5,0-2.1l7.4-7.4H2c-0.8,0-1.5-0.7-1.5-1.5C0.5,15.3,1.2,14.5,2,14.5z M28,3.5C28,2.7,28.7,2,29.5,2S31,2.7,31,3.5v25c0,0.8-0.7,1.5-1.5,1.5S28,29.3,28,28.5V3.5z"></path>
@@ -460,10 +472,12 @@
                                         </div>
                                     </div>
                                     <div class="head-text-section">
-                                        <a href="javascript:void(0)" v-if="taskParents.length > 0" v-for="(parent, index) in taskParents" :key="index" title="Parent's notes and comments" @click="showParentTask(parent.id, index)">{{ parent.name }}
-                                            <svg focusable="false" viewBox="0 0 32 32" class="_icon cursor-pointer" width="14px" height="14px"><path data-v-b9bc2c0a="" d="M23.2,16c0,0.3-0.1,0.7-0.3,0.9l-9,11c-0.5,0.6-1.5,0.7-2.1,0.2s-0.7-1.5-0.2-2.1l8.2-10L11.6,6c-0.5-0.6-0.4-1.6,0.2-2.1s1.6-0.4,2.1,0.2l9,11C23.1,15.3,23.2,15.7,23.2,16z"></path></svg>
-                                        </a>
-                                        <input type="text" class="input-big padding-head-text-10" placeholder="Write a task name" :value="taskDetails[0].data.name" @change="inlineTaskUpdate(taskDetails[0].data.gid, 'name', $event)">
+                                        <div v-if="taskParents.length > 0" v-for="(parent, index) in taskParents" :key="index" title="Parent's notes and comments" @click="showParentTask(parent.id, index)">
+                                            <a href="javascript:void(0)" class="parent-task">{{ parent.name }}<svg viewBox="0 0 24 24" class="MiniIcon-right"><path d="M8.9,20.4c-0.4,0-0.7-0.1-1-0.4c-0.6-0.6-0.7-1.5-0.1-2.1l5.2-5.8L7.8,6C7.3,5.4,7.3,4.4,8,3.9C8.6,3.3,9.5,3.4,10.1,4l6.1,7.1c0.5,0.6,0.5,1.4,0,2l-6.1,6.8C9.8,20.3,9.4,20.4,8.9,20.4z"></path></svg></a>
+                                        </div>
+                                    </div>
+                                    <div class="head-text-section padding-head-text-10">
+                                        <input type="text" class="input-big" placeholder="Write a task name" :value="taskDetails[0].data.name" @change="inlineTaskUpdate(taskDetails[0].data.gid, 'name', $event)">
                                     </div>
                                     <div class="head-text-section border-bottom-task-list">
                                         <div class="radious-square-input cursor-pointer nv-dropdown">
@@ -521,7 +535,7 @@
                                         <div class="project-name-label">{{ projectDetails.data.name }}</div>
                                         <div class="project-select-box">
                                             <select @change="inlineTaskUpdate(taskDetails[0].data.gid, 'section', $event)" class="cursor-pointer">
-                                                <option v-for="section in sections" :value="section.gid" v-if="taskDetails[0].data.memberships[0].section.gid == section.gid" selected>{{ section.name }}</option>
+                                                <option v-for="section in sections" :value="section.gid" v-if="taskDetails[0].data.memberships.length > 0 && taskDetails[0].data.memberships[0].section.gid == section.gid" selected>{{ section.name }}</option>
                                                 <option :value="section.gid" v-else="">{{ section.name }}</option>
                                             </select>
                                         </div>
@@ -626,7 +640,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="section-comment" @click="showChildTask(t[0].data.gid, taskDetails[0].data.gid, taskDetails[0].data.name)">
-                                                    <span class="comment-count" v-if="t['comments']['data'].length > 0">{{ t['comments']['data'].length }}</span>
+                                                    <span class="comment-count" v-if="t['comments']">{{ t['comments'] }}</span>
                                                     <div class="logo-2">
                                                         <svg class="_icon cursor-pointer" focusable="false"
                                                              viewBox="0 0 32 32">
@@ -644,14 +658,46 @@
                                         </div>
                                     </div>
 
-                                    <div class="head-text-section border-bottom-task-list" v-if="taskDetails.comments.data.length > 0" v-for="comment in taskDetails.comments.data">
-                                        <div class="profile-img">
-                                            <div class="_img" style="background-image: url('https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png')"></div>
+                                    <div class="head-text-section border-bottom-task-list" v-if="taskDetails.comments.length > 0">
+                                        <div class="comment-bar" v-for="comment in taskDetails.comments" v-if="comment[0].type == 'comment'">
+                                            <div class="profile-img">
+                                                <div class="_img" style="background-image: url('https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png')"></div>
+                                            </div>
+                                            <div class="detail-text-area">
+                                                <span><a class="lnk-text" href="javascript:void(0)">{{ comment[0].created_by.name }} </a></span>
+                                                <span class="small-text"><vue-moments-ago prefix="" suffix="ago" :date="comment[0].created_at"></vue-moments-ago></span>
+                                                <div class="comment-each">{{ comment[0].text }}</div>
+                                            </div>
+                                            <div class="like-option cursor-pointer">
+                                                <span class="like-count" v-if="comment['details']['data'].num_likes">{{ comment['details']['data'].num_likes }}</span>
+                                                <svg viewBox="0 0 24 24" class="like-button-active" v-if="comment['details']['data'].num_likes">
+                                                    <path d="M2.7,8H5v2v10v2H2.7C1.2,22,0,20.8,0,19.4v-8.7C0,9.2,1.2,8,2.7,8z M23.1,9.2C22.4,8.4,21.5,8,20.5,8H16V5.2 C16,3.5,16.5,2,15.2,1c-0.6-0.5-1.5-0.6-2.2-0.5c-0.8,0.2-1.4,0.7-1.8,1.5L7,8v14h12.2c1.7,0,3.2-1.2,3.4-2.9l1.2-7 C24.1,11,23.8,10,23.1,9.2z"></path>
+                                                </svg>
+                                                <svg focusable="false" viewBox="0 0 32 32" class="like-button" v-else>
+                                                    <path d="M29.6,13.3c-0.8-0.9-1.9-1.4-3.1-1.4h-6.4V7.5c0-1.9-0.9-3.8-2.5-4.9C16.9,2,15.9,1.8,15,2.1c-0.9,0.2-1.7,0.8-2,1.7L8.3,13.9H5c-1.7,0-3.1,1.4-3.1,3.1v10c0,1.7,1.4,3.1,3.1,3.1h2.9H9h15.9c2,0,3.7-1.5,4-3.5l1.6-10C30.7,15.4,30.4,14.2,29.6,13.3z M5,27.9c-0.5,0-0.9-0.4-0.9-0.9V17c0-0.5,0.4-0.9,0.9-0.9h2.9v11.8C7.9,27.9,5,27.9,5,27.9z M28.4,16.3l-1.6,10c-0.1,0.9-0.9,1.6-1.9,1.6H10.1V15.2L15,4.7c0.2-0.3,0.4-0.5,0.6-0.5c0.2,0,0.5-0.1,0.8,0.2c1,0.7,1.6,1.9,1.6,3.2v6.6h8.6c0.6,0,1.1,0.2,1.5,0.7C28.3,15.2,28.5,15.7,28.4,16.3z"></path>
+                                                </svg>
+                                                <!--<span class="nv-dropdown">
+                                                    <svg focusable="false" viewBox="0 0 32 32" class="" style="width: 20px; height: 18px"><path
+                                                        d="M25.9,12.9c-0.5-0.6-1.5-0.7-2.1-0.2L16,19.1l-7.8-6.4c-0.6-0.5-1.6-0.4-2.1,0.2c-0.5,0.6-0.4,1.6,0.2,2.1l8.8,7.2  c0.2,0.2,0.6,0.3,0.9,0.3s0.7-0.1,0.9-0.3l8.8-7.2C26.3,14.5,26.4,13.5,25.9,12.9z"></path></svg>
+                                                    <div class="task-head-box-dropdown nv-dropdown-menu">
+                                                        <div class="each-box"><a href="javascript:void(0)">Edit Task</a></div>
+                                                        <div class="each-box"><a href="javascript:void(0)">Delete Task</a></div>
+                                                    </div>
+                                                </span>-->
+                                            </div>
                                         </div>
-                                        <div class="detail-text-area">
-                                            <span><a class="lnk-text" href="javascript:void(0)">{{ comment.created_by.name }} </a>{{ comment.text }}</span>
-                                            <span class="small-text"><vue-moments-ago prefix="" suffix="ago" :date="comment.created_at"></vue-moments-ago></span>
-                                        </div>
+                                       <div class="history-bar" v-else>
+                                           <div class="profile-img">
+                                               <div class="_img" style="background-image: url('https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png')"></div>
+                                           </div>
+                                           <div class="detail-text-area">
+                                               <span><a class="lnk-text" href="javascript:void(0)">{{ comment[0].created_by.name }} </a>{{ comment[0].text }}</span>
+                                               <span class="small-text"><vue-moments-ago prefix="" suffix="ago" :date="comment[0].created_at"></vue-moments-ago></span>
+                                           </div>
+                                           <div class="detail-text-area">
+                                               <span class="small-text">{{ comment[0].created_by.name }} {{ comment[0].text }} <vue-moments-ago prefix="" suffix="ago" :date="comment[0].created_at"></vue-moments-ago></span>
+                                           </div>
+                                       </div>
                                     </div>
                                     <div class="head-text-section bg-light">
                                         <div class="profile-img">
@@ -1877,6 +1923,7 @@
                 $('.loader-io').css('display', 'flex');
                 $('.task-details-wrapper').hide();
 
+                this.taskDetails = null;
                 Nova.request().get('/api/asana/task/details/' + id).then(response => {
                     $('.loader-io').hide();
                     $('.task-details-wrapper').show();
@@ -1903,6 +1950,7 @@
                 $('.loader-io').css('display', 'flex');
                 $('.task-details-wrapper').hide();
 
+                this.taskDetails = null;
                 Nova.request().get('/api/asana/task/details/' + id).then(response => {
                     $('.loader-io').hide();
                     $('.task-details-wrapper').show();
@@ -1949,6 +1997,7 @@
                     var sideBar = clicked.closest('#task-detail');
                     if(sideBar.length === 0){
                         _this.sideBar = 0;
+                        _this.taskDetails = null;
                     }
                     $("#assignee-logo-id").removeClass("logo-hide");
                 });
@@ -1997,7 +2046,7 @@
                         $('.each-assignee').css('display', 'inline-flex');
                     }
                 }, 1000);
-            }
+            },
         },
         created() {
             Nova.request().post('/nova-vendor/community-summary/community', {

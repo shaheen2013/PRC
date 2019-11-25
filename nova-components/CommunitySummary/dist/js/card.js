@@ -17475,7 +17475,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "*{margin:0;padding:0;box-sizing:border-box;font-family:Roboto,sans-serif;outline:0}._btn{font-size:12px;padding:6px 9px;text-align:center;text-decoration:none;-webkit-box-align:center;align-items:center;border-radius:4px;border-style:solid;border-width:1px;-moz-box-sizing:border-box;box-sizing:border-box;cursor:pointer;display:inline-flex;flex-shrink:0;-webkit-box-pack:center;justify-content:center;line-height:1;min-width:50px;-webkit-transition-duration:.2s;transition-duration:.2s;-webkit-transition-property:background,border,box-shadow,color,fill;transition-property:background,border,box-shadow,color,fill}._btn-default{background:#fff;border-color:#9ca6af;color:#273240;fill:#4b607a;font-weight:700}._btn-default:hover{background-color:#f6f8f9;border-color:#6f7782;border-style:solid;color:#161c24;fill:#161c24}._btn-default-active{background-color:#00bf9c;border:none;color:#fff;fill:#fff}._btn-default-active:hover{border:none;background-color:#00987c;color:#fff;fill:#fff}._btn-borderless{background:#fff;border:none;color:#273240;fill:#4b607a;font-weight:700;padding:9px 9px}._btn-borderless:hover{background-color:#d3dde4;border:none;color:#161c24;fill:#161c24}._btn-active{background-color:#00bf9c;border:none;color:#fff;fill:#fff}._btn-active:hover{background-color:#00987c;color:#fff;fill:#fff}.MiniIcon-custom{height:12px;width:12px;margin-right:5px}.MiniIcon-right{height:12px;width:12px;margin-left:5px;cursor:pointer}.MiniIcon{height:13px;width:13px;cursor:pointer}.MiniIcon:hover{fill:#00987c}.main-wrapper{width:100%;display:inline-block;position:relative;min-height:600px;overflow-x:hidden;overflow-y:auto}.add-task-section-wrapper{align-items:center;background-color:#fff;border-bottom:1px solid #e8ecee;border-top:1px solid #e8ecee;display:flex;-webkit-box-flex:0;flex:0 0 auto;height:70px;padding-left:20px;padding-right:15px;width:100%;vertical-align:middle}.add-task-section-wrapper .section-left{width:50%;float:left}.add-task-section-wrapper .section-right{width:50%;float:left;display:inline-flex;align-items:center;justify-content:flex-end;position:relative}.add-task-section-wrapper .section-right .task-head-box-dropdown{position:absolute;background-color:#f1f1f1;min-width:160px;overflow:auto;box-shadow:0 8px 16px 0 rgba(0,0,0,.2);z-index:4;top:36px;left:8px}.add-task-section-wrapper .section-right .task-head-box-dropdown .each-box{padding:12px 5px;background-color:#fff;text-align:left}.add-task-section-wrapper .section-right .task-head-box-dropdown .each-box:hover{background-color:#ddd}.add-task-section-wrapper .section-right .task-head-box-dropdown .each-box a{color:#273240;text-decoration:none}.add-task-section-wrapper .section-right ._assigned-box{display:inline-block;margin:0 5px;position:relative}.add-task-section-wrapper .section-right ._assigned-box .search-logo{position:absolute;left:7px;top:11px;fill:#4b607a}.add-task-section-wrapper .section-right .logo-box{width:50px;display:table;text-align:center;position:relative}.add-task-section-wrapper .section-right .logo-box .hide-box-icon{width:14px;height:14px;fill:#4b607a;cursor:pointer}.add-task-section-wrapper .section-right .logo-box .hide-box-icon :focus,.add-task-section-wrapper .section-right .logo-box .hide-box-icon:hover{fill:#32c1ff}.task-list-wrapper{width:calc(100% - 0px);display:table;padding:0 20px;transition:.5s}.task-list-wrapper.task-list-half{width:calc(100% - 760px);float:left;transition:.5s}.task-list-wrapper .task-list-header{width:100%;border-bottom:1px solid #e8ecee;display:table;font-size:13px;font-weight:700}.task-list-wrapper .task-list-header .task-name-box{width:70%;border-right:1px solid #e8ecee;padding:10px 5px;float:left;background-color:#fff}.task-list-wrapper .task-list-header .task-name-box:hover{background-color:#f6f8f9}.task-list-wrapper .task-list-header .task-assignee-box{width:15%;border-right:1px solid #e8ecee;padding:10px 5px;float:left;background-color:#fff}.task-list-wrapper .task-list-header .task-assignee-box:hover{background-color:#f6f8f9}.task-list-wrapper .task-list-body{width:100%;border-bottom:1px solid #e8ecee;display:flex;font-size:13px;font-weight:700}.task-list-wrapper .task-list-body .comment-section-name{display:flex;align-items:center}.task-list-wrapper .task-list-body .comment-section-name .comment-count{font-size:11px;color:#273240;font-weight:700}.task-list-wrapper .task-list-body .comment-section-name .comment-logo{width:25px;height:13px;fill:#4b607a;margin-right:15px}.task-list-wrapper .task-list-body .comment-section-name .comment-logo:hover{fill:#32c1ff}.task-list-wrapper .task-list-body .task-name-box{width:70%;border-right:1px solid #e8ecee;padding:5px 5px;float:left;background-color:#fff;position:relative;display:inline-flex;align-items:center}.task-list-wrapper .task-list-body .task-name-box .detail-option{position:absolute;right:0;top:12px;font-size:12px;font-weight:700;display:inline-flex;align-items:center;opacity:0;cursor:pointer}.task-list-wrapper .task-list-body .task-name-box .border-radious-icon{background:#fff;border:1px solid #cbd4db;border-radius:50%;color:#6f7782;fill:#6f7782;width:15px;height:15px;margin-right:5px}.task-list-wrapper .task-list-body .task-name-box .border-radious-icon.task-complete{border:1px solid #00987c!important}.task-list-wrapper .task-list-body .task-name-box .border-radious-icon.task-complete .MiniIcon{fill:#00987c!important}.task-list-wrapper .task-list-body .task-name-box .border-radious-icon .MiniIcon{height:13px;width:13px;cursor:pointer}.task-list-wrapper .task-list-body .task-name-box .border-radious-icon .MiniIcon:hover{fill:#00987c}.task-list-wrapper .task-list-body .task-name-box .border-radious-icon:hover{color:#00987c;border-color:#00987c}.task-list-wrapper .task-list-body .task-name-box:hover{background-color:#f6f8f9}.task-list-wrapper .task-list-body .task-name-box:hover .task-body-custom-input{background-color:#f6f8f9}.task-list-wrapper .task-list-body .task-name-box:hover .detail-option{opacity:1}.task-list-wrapper .task-list-body .task-assignee-box{width:15%;border-right:1px solid #e8ecee;padding:0;float:left;background-color:#fff;position:relative}.task-list-wrapper .task-list-body .task-assignee-box .assigned-person{display:inline-flex;align-items:center;width:100%;position:absolute;left:0;top:0;z-index:1;background:#fff;padding:4px}.task-list-wrapper .task-list-body .task-assignee-box .assigned-person .img-box{width:25px;height:25px;display:inline-block;background-size:cover;background-position:center;background-repeat:no-repeat;margin-right:10px}.task-list-wrapper .task-list-body .task-assignee-box .assignee-box-dropdown{position:absolute;background-color:#fff;min-width:280px;overflow:auto;box-shadow:0 8px 16px 0 rgba(0,0,0,.2);z-index:2;padding:7px 7px 3px 7px;max-height:250px}.task-list-wrapper .task-list-body .task-assignee-box .assignee-box-dropdown .each-assignee{width:100%;display:inline-flex;align-items:center;margin:5px 0}.task-list-wrapper .task-list-body .task-assignee-box .assignee-box-dropdown .each-assignee:hover{background-color:#e8ecee}.task-list-wrapper .task-list-body .task-assignee-box .assignee-box-dropdown .each-assignee .profile-img{width:25px;height:25px;background-repeat:no-repeat;background-position:center;background-size:cover;margin-right:10px;padding:0 5px}.task-list-wrapper .task-list-body .task-assignee-box .assignee-box-dropdown .each-assignee .name-text{color:#273240;font-size:12px;font-weight:700}.task-list-wrapper .task-list-body .task-assignee-box .assignee-box-logo{position:absolute;width:28px;height:28px;border:1px dashed #9ca6af;border-radius:50%;top:2px;left:7px;text-align:center;padding-top:3px;visibility:hidden}.task-list-wrapper .task-list-body .task-assignee-box .assignee-box-logo .inside-logo{width:18px;height:18px;fill:#9ca6af}.task-list-wrapper .task-list-body .task-assignee-box .assignee-box-input{border-color:transparent;box-shadow:none;min-width:100px;width:100%;background-color:#fff;border-style:solid;border-width:1px;height:33px;padding:0 5px;cursor:pointer}.task-list-wrapper .task-list-body .task-assignee-box .assignee-box-input:hover{background-color:#f6f8f9}.task-list-wrapper .task-list-body .task-assignee-box .assignee-box-input:focus{border-color:#32c1ff;background-color:#fff}.task-list-wrapper .task-list-body .task-assignee-box .assignee-box-input:focus .inside-logo{display:none}.task-list-wrapper .task-list-body .task-assignee-box:hover{background-color:#f6f8f9}.task-list-wrapper .task-list-body .task-assignee-box:hover .assignee-box-logo{visibility:visible}.task-list-wrapper .task-list-body .task-assignee-box:focus .assignee-box-logo{visibility:hidden}.task-list-wrapper .task-list-body .task-date-box{width:15%;border-right:1px solid #e8ecee;padding:9px 39px;float:left;background-color:#fff;position:relative}.task-list-wrapper .task-list-body .task-date-box .assignee-box-logo{position:absolute;width:28px;height:28px;border:1px dashed #9ca6af;border-radius:50%;top:2px;left:7px;text-align:center;padding-top:3px;visibility:hidden}.task-list-wrapper .task-list-body .task-date-box .assignee-box-logo .inside-logo{width:18px;height:18px;fill:#9ca6af}.task-list-wrapper .task-list-body .task-date-box:hover{background-color:#f6f8f9}.task-list-wrapper .task-list-body .task-date-box:hover .assignee-box-logo{visibility:visible}.task-list-wrapper .task-list-body .task-date-box:focus .assignee-box-logo{visibility:hidden}.task-list-wrapper .task-list-body .box-active{background-color:#edf8ff}.task-list-wrapper .task-list-body .task-body-custom-input{border-color:transparent;border-radius:2px;box-shadow:none;min-width:200px;width:100%;background-color:#fff;border-style:solid;border-width:1px;padding:2px}.task-list-wrapper .task-list-body .task-body-custom-input:hover{background-color:#f6f8f9}.task-list-wrapper .task-list-body .task-body-custom-input:focus{border-color:#9ca6af;background-color:#fff}.task-list-wrapper .section-header{width:100%;font-size:20px;font-weight:700;display:table;padding:15px 0;color:#273240}.task-list-wrapper .task-list-body-section{width:100%;border-top:1px solid #e8ecee;display:flex;font-size:13px;font-weight:700}.task-list-wrapper .task-list-body-section .comment-section-name{display:flex;align-items:center}.task-list-wrapper .task-list-body-section .comment-section-name .comment-count{font-size:11px;color:#273240;font-weight:700}.task-list-wrapper .task-list-body-section .comment-section-name .comment-logo{width:25px;height:13px;fill:#4b607a;margin-right:15px}.task-list-wrapper .task-list-body-section .comment-section-name .comment-logo:hover{fill:#32c1ff}.task-list-wrapper .task-list-body-section:last-child{border-bottom:1px solid #e8ecee}.task-list-wrapper .task-list-body-section .task-name-box{width:70%;border-right:1px solid #e8ecee;padding:5px 5px;float:left;background-color:#fff;position:relative;display:inline-flex;align-items:center}.task-list-wrapper .task-list-body-section .task-name-box .detail-option{position:absolute;right:0;top:12px;font-size:12px;font-weight:700;display:inline-flex;align-items:center;opacity:0;cursor:pointer}.task-list-wrapper .task-list-body-section .task-name-box .border-radious-icon{background:#fff;border:1px solid #cbd4db;border-radius:50%;color:#6f7782;fill:#6f7782;width:15px;height:15px;margin-right:5px}.task-list-wrapper .task-list-body-section .task-name-box .border-radious-icon.task-complete{border:1px solid #00987c!important}.task-list-wrapper .task-list-body-section .task-name-box .border-radious-icon.task-complete .MiniIcon{fill:#00987c!important}.task-list-wrapper .task-list-body-section .task-name-box .border-radious-icon .MiniIcon{height:13px;width:13px;cursor:pointer}.task-list-wrapper .task-list-body-section .task-name-box .border-radious-icon .MiniIcon:hover{fill:#00987c}.task-list-wrapper .task-list-body-section .task-name-box .border-radious-icon:hover{color:#00987c;border-color:#00987c}.task-list-wrapper .task-list-body-section .task-name-box:hover{background-color:#f6f8f9}.task-list-wrapper .task-list-body-section .task-name-box:hover .task-body-custom-input{background-color:#f6f8f9}.task-list-wrapper .task-list-body-section .task-name-box:hover .detail-option{opacity:1}.task-list-wrapper .task-list-body-section .task-assignee-box{width:15%;border-right:1px solid #e8ecee;padding:0;float:left;background-color:#fff;position:relative}.task-list-wrapper .task-list-body-section .task-assignee-box .assigned-person{display:inline-flex;align-items:center;width:100%;position:absolute;left:0;top:0;z-index:1;background:#fff;padding:4px}.task-list-wrapper .task-list-body-section .task-assignee-box .assigned-person .img-box{width:25px;height:25px;display:inline-block;background-size:cover;background-position:center;background-repeat:no-repeat;margin-right:10px}.task-list-wrapper .task-list-body-section .task-assignee-box .assignee-box-dropdown{position:absolute;background-color:#fff;min-width:280px;overflow:auto;box-shadow:0 8px 16px 0 rgba(0,0,0,.2);z-index:2;padding:7px 7px 3px 7px;max-height:250px}.task-list-wrapper .task-list-body-section .task-assignee-box .assignee-box-dropdown .each-assignee{width:100%;display:inline-flex;align-items:center;margin:5px 0}.task-list-wrapper .task-list-body-section .task-assignee-box .assignee-box-dropdown .each-assignee:hover{background-color:#e8ecee}.task-list-wrapper .task-list-body-section .task-assignee-box .assignee-box-dropdown .each-assignee .profile-img{width:25px;height:25px;background-repeat:no-repeat;background-position:center;background-size:cover;margin-right:10px;padding:0 5px}.task-list-wrapper .task-list-body-section .task-assignee-box .assignee-box-dropdown .each-assignee .name-text{color:#273240;font-size:12px;font-weight:700}.task-list-wrapper .task-list-body-section .task-assignee-box .assignee-box-logo{position:absolute;width:28px;height:28px;border:1px dashed #9ca6af;border-radius:50%;top:2px;left:7px;text-align:center;padding-top:3px;visibility:hidden}.task-list-wrapper .task-list-body-section .task-assignee-box .assignee-box-logo .inside-logo{width:18px;height:18px;fill:#9ca6af}.task-list-wrapper .task-list-body-section .task-assignee-box .assignee-box-input{border-color:transparent;box-shadow:none;min-width:100px;width:100%;background-color:#fff;border-style:solid;border-width:1px;height:33px;padding:0 5px;cursor:pointer}.task-list-wrapper .task-list-body-section .task-assignee-box .assignee-box-input:hover{background-color:#f6f8f9}.task-list-wrapper .task-list-body-section .task-assignee-box .assignee-box-input:focus{border-color:#32c1ff;background-color:#fff}.task-list-wrapper .task-list-body-section .task-assignee-box .assignee-box-input:focus .inside-logo{display:none}.task-list-wrapper .task-list-body-section .task-assignee-box:hover{background-color:#f6f8f9}.task-list-wrapper .task-list-body-section .task-assignee-box:hover .assignee-box-logo{visibility:visible}.task-list-wrapper .task-list-body-section .task-assignee-box:focus .assignee-box-logo{visibility:hidden}.task-list-wrapper .task-list-body-section .task-date-box{width:15%;border-right:1px solid #e8ecee;padding:9px 39px;float:left;background-color:#fff;position:relative}.task-list-wrapper .task-list-body-section .task-date-box .assignee-box-logo{position:absolute;width:28px;height:28px;border:1px dashed #9ca6af;border-radius:50%;top:2px;left:7px;text-align:center;padding-top:3px;visibility:hidden}.task-list-wrapper .task-list-body-section .task-date-box .assignee-box-logo .inside-logo{width:18px;height:18px;fill:#9ca6af}.task-list-wrapper .task-list-body-section .task-date-box:hover{background-color:#f6f8f9}.task-list-wrapper .task-list-body-section .task-date-box:hover .assignee-box-logo{visibility:visible}.task-list-wrapper .task-list-body-section .task-date-box:focus .assignee-box-logo{visibility:hidden}.task-list-wrapper .task-list-body-section .box-active{background-color:#edf8ff}.task-list-wrapper .task-list-body-section .task-body-custom-input{border-color:transparent;border-radius:2px;box-shadow:none;min-width:200px;width:100%;background-color:#fff;border-style:solid;border-width:1px;padding:2px}.task-list-wrapper .task-list-body-section .task-body-custom-input:hover{background-color:#f6f8f9}.task-list-wrapper .task-list-body-section .task-body-custom-input:focus{border-color:#9ca6af;background-color:#fff}.task-list-detail-wrapper{width:760px;background-color:#fff;border-left:1px solid #e8ecee;border-top:1px solid #e8ecee;position:absolute;top:0;right:0;display:inline-block;transition:.5s;box-shadow:0 5px 20px 0 rgba(21,27,38,.08);float:left;padding:0;transform-origin:100% 0;transform:scaleX(1);z-index:100;height:600px;overflow-x:hidden;overflow-y:scroll}.task-list-detail-wrapper.hideMe{transform:scaleX(0);transform-origin:100% 0;transition:.5s}.task-list-detail-wrapper .section-comment{display:inline-flex;align-items:center}.task-list-detail-wrapper .section-comment .comment-count{font-size:11px;color:#273240;font-weight:700}.task-list-detail-wrapper .head-text-section{width:100%;padding:10px 20px;display:table}.task-list-detail-wrapper .head-text-section .input-big{border:1px solid transparent;box-shadow:none;font-size:30px;font-weight:700;transition:.2s;width:100%;padding:10px;color:#273240}.task-list-detail-wrapper .head-text-section .input-big:hover{border:1px solid #9ca6af;border-radius:4px;transition:.2s}.task-list-detail-wrapper .head-text-section .radious-square-input{position:relative;display:inline-block}.task-list-detail-wrapper .head-text-section .radious-square-input .assigned-person{display:inline-flex;align-items:center;width:100%;position:absolute;left:-2px;top:0;z-index:1;background:#fff;padding:6px;border:1px solid transparent;border-radius:25px}.task-list-detail-wrapper .head-text-section .radious-square-input .assigned-person:hover{border:1px solid #9ca6af}.task-list-detail-wrapper .head-text-section .radious-square-input .assigned-person .img-box{width:30px;height:30px;display:inline-block;background-size:cover;background-position:center;background-repeat:no-repeat;margin-right:10px}.task-list-detail-wrapper .head-text-section .radious-square-input .assigned-person .text-1{font-size:13px;font-weight:600}.task-list-detail-wrapper .head-text-section .radious-square-input:hover .input-design{border:1px solid #9ca6af;border-radius:25px}.task-list-detail-wrapper .head-text-section .radious-square-input:hover .logo-border{border:1px solid #9ca6af}.task-list-detail-wrapper .head-text-section .radious-square-input:hover .logo-border .input-icon-1{fill:#7f878e}.task-list-detail-wrapper .head-text-section .radious-square-input .logo-border{position:absolute;width:30px;height:30px;border:1px dashed #9ca6af;border-radius:50%;top:6px;left:7px;text-align:center;padding-top:3px}.task-list-detail-wrapper .head-text-section .radious-square-input .logo-border .input-icon-1{width:18px;height:18px;fill:#9ca6af}.task-list-detail-wrapper .head-text-section .radious-square-input .logo-border .input-icon-2{width:22px;height:21px;fill:#9ca6af;padding-top:2px}.task-list-detail-wrapper .head-text-section .radious-square-input .input-design{font-size:12px;font-weight:900;padding:13px 0 13px 45px;border:1px solid transparent;cursor:pointer;box-shadow:none;width:65%}.task-list-detail-wrapper .head-text-section .radious-square-input .input-design:focus{border:1px solid #9ca6af;border-radius:4px;width:100%}.task-list-detail-wrapper .head-text-section .text-area-logo{width:25px;display:inline-block;float:left;padding-top:3px}.task-list-detail-wrapper .head-text-section .text-area-logo .t-logo{width:18px;height:18px;fill:#4b607a}.task-list-detail-wrapper .head-text-section ._input-logo{width:25px;display:inline-block;float:left;padding:3px 0 10px 0}.task-list-detail-wrapper .head-text-section ._input-logo .t-logo{width:18px;height:18px;fill:#4b607a}.task-list-detail-wrapper .head-text-section .custom-text-area{border:1px solid transparent;box-shadow:none;font-size:13px;font-weight:700;transition:.2s;width:96%;padding:5px 10px;display:inline-block;color:#273240;float:left}.task-list-detail-wrapper .head-text-section .custom-text-area:hover{border:1px solid #9ca6af;border-radius:4px;transition:.2s}.task-list-detail-wrapper .head-text-section .custom-input-add-project{border:1px solid transparent;box-shadow:none;font-size:13px;font-weight:700;transition:.2s;width:96%;padding:10px 10px;display:inline-block;color:#273240;cursor:pointer;float:left}.task-list-detail-wrapper .head-text-section .custom-input-add-project::placeholder{color:#32c1ff}.task-list-detail-wrapper .head-text-section .custom-input-add-project:focus{border:1px solid #9ca6af;border-radius:4px;transition:.2s}.task-list-detail-wrapper .head-text-section .custom-input-add-project:focus::placeholder{color:#273240}.task-list-detail-wrapper .head-text-section .profile-img{width:40px;display:inline-block;float:left;margin-right:8px}.task-list-detail-wrapper .head-text-section .profile-img ._img{width:35px;height:35px;border-radius:50%;display:inline-block;background-position:center;background-repeat:no-repeat;background-size:cover}.task-list-detail-wrapper .head-text-section .detail-text-area{width:90%;padding:10px 0;display:inline-block;float:left;font-size:13px;font-weight:700}.task-list-detail-wrapper .head-text-section .detail-text-area .lnk-text{text-decoration:none;color:#32c1ff}.task-list-detail-wrapper .head-text-section .detail-text-area .lnk-text:hover{color:#32c1ff}.task-list-detail-wrapper .head-text-section .detail-text-area .small-text{font-size:11px;color:#c2c2c2}.task-list-detail-wrapper .head-text-section .custom-text-area-chat{border:1px solid #9ca6af;box-shadow:none;font-size:13px;font-weight:700;transition:.2s;width:93%;padding:5px 10px;display:inline-block;color:#273240;float:left;border-radius:4px}.task-list-detail-wrapper .head-text-section .new-task{width:100%;display:flex;border-top:1px solid #e8ecee;border-bottom:1px solid #e8ecee;align-items:center;position:relative}.task-list-detail-wrapper .head-text-section .new-task:focus{border-top:1px solid #32c1ff;border-bottom:1px solid #32c1ff}.task-list-detail-wrapper .head-text-section .new-task .border-radious-icon{background:#fff;border:1px solid #cbd4db;border-radius:50%;color:#6f7782;fill:#6f7782;width:15px;height:15px;margin-right:5px}.task-list-detail-wrapper .head-text-section .new-task .border-radious-icon.task-complete{border:1px solid #00987c!important}.task-list-detail-wrapper .head-text-section .new-task .border-radious-icon.task-complete .MiniIcon{fill:#00987c!important}.task-list-detail-wrapper .head-text-section .new-task .border-radious-icon .MiniIcon{height:15px;width:14px;cursor:pointer}.task-list-detail-wrapper .head-text-section .new-task .border-radious-icon .MiniIcon:hover{fill:#00987c}.task-list-detail-wrapper .head-text-section .new-task .border-radious-icon:hover{color:#00987c;border-color:#00987c}.task-list-detail-wrapper .head-text-section .new-task .new-task-input{width:90%;border:1px solid transparent;height:35px;box-shadow:none}.task-list-detail-wrapper .head-text-section .new-task .new-task-logo{position:absolute;right:0;display:inline-flex;top:5px}.task-list-detail-wrapper .head-text-section .new-task .new-task-logo .logo-1{width:auto;position:relative}.task-list-detail-wrapper .head-text-section .new-task .new-task-logo .logo-1 .icon-border{width:25px;height:25px;border:1px solid #e8ecee;border-radius:50%;margin-right:14px}.task-list-detail-wrapper .head-text-section .new-task .new-task-logo .logo-1 .icon-border ._icon{height:19px;width:23px;padding:3px 0 0 0;fill:#7f878e}.task-list-detail-wrapper .head-text-section .new-task .new-task-logo .logo-1 .icon-border-1{width:25px;height:25px;border:1px solid #e8ecee;border-radius:50%;margin-right:14px;position:absolute}.task-list-detail-wrapper .head-text-section .new-task .new-task-logo .logo-1 .icon-border-1 ._icon{height:19px;width:23px;padding:3px 0 0 0;fill:#7f878e}.task-list-detail-wrapper .head-text-section .new-task .new-task-logo .logo-1 .assignee-box-dropdown{position:absolute;background-color:#fff;min-width:200px;overflow:auto;box-shadow:0 8px 16px 0 rgba(0,0,0,.2);z-index:1;padding:7px 7px 3px 7px;left:-178px;top:29px;max-height:250px}.task-list-detail-wrapper .head-text-section .new-task .new-task-logo .logo-1 .assignee-box-dropdown .ass-label{font-size:12px;font-weight:600}.task-list-detail-wrapper .head-text-section .new-task .new-task-logo .logo-1 .assignee-box-dropdown .date-input-uder-new-task{font-size:11px;font-weight:600;background-color:#fff;padding:8px 0;margin-right:15px;box-shadow:none;width:30px;border-radius:4px}.task-list-detail-wrapper .head-text-section .new-task .new-task-logo .logo-1 .assignee-box-dropdown .drop-down-input{padding:5px;border-radius:4px;border:1px solid #e8ecee;box-shadow:none;margin:8px 0;position:relative;width:100%}.task-list-detail-wrapper .head-text-section .new-task .new-task-logo .logo-1 .assignee-box-dropdown .assignee-box-dropdown-under-input{position:absolute;background-color:#fff;min-width:200px;overflow:auto;box-shadow:0 8px 16px 0 rgba(0,0,0,.2);z-index:1;padding:7px 7px 3px 7px;left:-137px;top:60px;overflow-y:auto;overflow-x:hidden;max-height:250px}.task-list-detail-wrapper .head-text-section .new-task .new-task-logo .logo-1 .assignee-box-dropdown .assignee-box-dropdown-under-input .each-assignee-under-input{width:100%;display:inline-flex;align-items:center;margin:5px 0}.task-list-detail-wrapper .head-text-section .new-task .new-task-logo .logo-1 .assignee-box-dropdown .assignee-box-dropdown-under-input .each-assignee-under-input:hover{background-color:#e8ecee}.task-list-detail-wrapper .head-text-section .new-task .new-task-logo .logo-1 .assignee-box-dropdown .assignee-box-dropdown-under-input .each-assignee-under-input .profile-img{width:25px;height:25px;background-repeat:no-repeat;background-position:center;background-size:cover;margin-right:10px;padding:0 5px}.task-list-detail-wrapper .head-text-section .new-task .new-task-logo .logo-1 .assignee-box-dropdown .assignee-box-dropdown-under-input .each-assignee-under-input .name-text{color:#273240;font-size:12px;font-weight:700}.task-list-detail-wrapper .head-text-section .new-task .new-task-logo .logo-1 .assignee-box-dropdown .each-assignee{width:100%;display:inline-flex;align-items:center;margin:5px 0}.task-list-detail-wrapper .head-text-section .new-task .new-task-logo .logo-1 .assignee-box-dropdown .each-assignee:hover{background-color:#e8ecee}.task-list-detail-wrapper .head-text-section .new-task .new-task-logo .logo-1 .assignee-box-dropdown .each-assignee .profile-img{width:25px;height:25px;background-repeat:no-repeat;background-position:center;background-size:cover;margin-right:10px;padding:0 5px}.task-list-detail-wrapper .head-text-section .new-task .new-task-logo .logo-1 .assignee-box-dropdown .each-assignee .name-text{color:#273240;font-size:12px;font-weight:700}.task-list-detail-wrapper .head-text-section .new-task .new-task-logo .logo-1 .new-task-date{font-size:11px;font-weight:600;background-color:#fff;padding:8px 0;margin-right:15px}.task-list-detail-wrapper .head-text-section .new-task .new-task-logo .logo-1 .detail-option{font-size:12px;font-weight:700;display:inline-flex;align-items:center;opacity:0;cursor:pointer;height:28px}.task-list-detail-wrapper .head-text-section .new-task .new-task-logo .logo-2{width:13px;height:25px}.task-list-detail-wrapper .head-text-section .new-task .new-task-logo .logo-2 ._icon{height:19px;width:23px;padding:3px 0 0 0;fill:#7f878e}.task-list-detail-wrapper .head-text-section .new-task .new-task-logo .logo-3{width:13px;height:25px;padding-top:5px}.task-list-detail-wrapper .head-text-section .new-task .new-task-logo .logo-3 ._icon{width:15px;height:15px;fill:#4b607a}.task-list-detail-wrapper .head-text-section .new-task:hover{border-top:1px solid #32c1ff;border-bottom:1px solid #32c1ff}.task-list-detail-wrapper .head-text-section .new-task:hover .new-task-logo .logo-1 .detail-option{opacity:1}.task-list-detail-wrapper .head-text-section .project-name-label{width:auto;float:left;display:table;padding:6px 15px 6px 15px;font-size:11px;font-weight:700;background:#f2f2f2;border-radius:25px;margin-right:6px}.task-list-detail-wrapper .head-text-section .project-select-box{width:auto;float:left;display:table}.task-list-detail-wrapper .head-text-section .project-select-box select{width:150px;border-left:none;border-top:none;border-right:none;border-bottom:1px dotted}.task-list-detail-wrapper .head-text-section .project-select-box select:hover{border-color:#32c1ff;color:#32c1ff}._float-left{float:left}._float-right{float:right}._text-left{text-align:left}._text-right{text-align:right}._font-15{font-size:15px}.border-top-task-list{border-top:1px solid #e8ecee}.border-bottom-task-list{border-bottom:1px solid #e8ecee}.d-flex-inline{display:inline-flex;align-items:center}.bg-light{background-color:#f6f8f9}.no-padding{padding:0!important}.cursor-pointer{cursor:pointer}.border-right-none{border-right:none!important}.drop-down-menu_{display:none;position:absolute;background-color:#fff;min-width:160px;overflow:auto;box-shadow:0 8px 16px 0 rgba(0,0,0,.2);z-index:1}.drop-down-menu_ a{color:#273240;padding:12px 16px;text-decoration:none;display:block}.drop-down-menu_ a:hover{background-color:#ddd}.nv-dropdown-menu{display:none}.nv-dropdown-menu .assigned-person{display:none}.nv-dropdown-menu-under-input{display:none}.nv-open-under-input .nv-dropdown-menu-under-input{display:block}.nv-open .nv-dropdown-menu{display:block}.nv-open .assigned-person,.nv-open .assignee-box-logo{display:none!important}.assigned-display{display:inline-flex}.nv-collapsedown{width:100%}.logo-show{display:block}.logo-hide{display:none}._position-relative{position:relative}.padding-head-text-10{padding:10px!important}._custom-select{min-width:150px;font-size:12px;font-weight:900;padding:6px 5px;width:100%;border-radius:4px;border:1px solid #9ca6af!important;cursor:pointer}._custom-select:hover{border-color:#6f7782}._custom-input-search{min-width:170px;font-size:12px;font-weight:900;padding:10px 0 10px 22px;width:100%;border-radius:25px;cursor:pointer;box-shadow:none;border-width:1px;border-style:solid;transition:.4s;border:1px solid #9ca6af!important}._custom-input-search:hover{border-color:#6f7782}._custom-input-search:focus{min-width:250px;transition:.4s}.assignee-box-dropdown{position:absolute;background-color:#fff;min-width:280px;overflow:auto;box-shadow:0 8px 16px 0 rgba(0,0,0,.2);z-index:2;padding:7px 7px 3px 7px;max-height:250px;overflow-y:auto;overflow-x:hidden}.assignee-box-dropdown.no-overflow{overflow:initial!important}.assignee-box-dropdown .each-assignee{width:100%;display:inline-flex;align-items:center;margin:5px 0}.assignee-box-dropdown .each-assignee:hover{background-color:#e8ecee}.assignee-box-dropdown .each-assignee .profile-img{width:25px;height:25px;background-repeat:no-repeat;background-position:center;background-size:cover;margin-right:10px;padding:0 5px}.assignee-box-dropdown .each-assignee .name-text{color:#273240;font-size:12px;font-weight:700}.loader-io{width:100%;display:flex;align-items:center;justify-content:center;height:100%}@keyframes ldio-aebf04cd3u{0%{transform:rotate(0)}50%{transform:rotate(180deg)}100%{transform:rotate(360deg)}}.ldio-aebf04cd3u div{position:absolute;animation:ldio-aebf04cd3u 1s linear infinite;width:160px;height:160px;top:20px;left:20px;border-radius:50%;box-shadow:0 4px 0 0 #0a0a0a;transform-origin:80px 82px}.loadingio-spinner-eclipse-utvtio44ngo{width:200px;height:200px;display:inline-block;overflow:hidden;background:#fff}.ldio-aebf04cd3u{width:100%;height:100%;position:relative;transform:translateZ(0) scale(1);backface-visibility:hidden;transform-origin:0 0}.ldio-aebf04cd3u div{box-sizing:content-box}", ""]);
+exports.push([module.i, "*{margin:0;padding:0;box-sizing:border-box;font-family:Roboto,sans-serif;outline:0}._btn{font-size:12px;padding:6px 9px;text-align:center;text-decoration:none;-webkit-box-align:center;align-items:center;border-radius:4px;border-style:solid;border-width:1px;-moz-box-sizing:border-box;box-sizing:border-box;cursor:pointer;display:inline-flex;flex-shrink:0;-webkit-box-pack:center;justify-content:center;line-height:1;min-width:50px;-webkit-transition-duration:.2s;transition-duration:.2s;-webkit-transition-property:background,border,box-shadow,color,fill;transition-property:background,border,box-shadow,color,fill}._btn-default{background:#fff;border-color:#9ca6af;color:#273240;fill:#4b607a;font-weight:700}._btn-default:hover{background-color:#f6f8f9;border-color:#6f7782;border-style:solid;color:#161c24;fill:#161c24}._btn-default-active{background-color:#00bf9c;border:none;color:#fff;fill:#fff}._btn-default-active:hover{border:none;background-color:#00987c;color:#fff;fill:#fff}._btn-borderless{background:#fff;border:none;color:#273240;fill:#4b607a;font-weight:700;padding:9px 9px}._btn-borderless:hover{background-color:#d3dde4;border:none;color:#161c24;fill:#161c24}._btn-active{background-color:#00bf9c;border:none;color:#fff;fill:#fff}._btn-active:hover{background-color:#00987c;color:#fff;fill:#fff}.MiniIcon-custom{height:12px;width:12px;margin-right:5px}.MiniIcon-right{height:12px;width:12px;margin-left:5px;cursor:pointer}.MiniIcon{height:13px;width:13px;cursor:pointer}.MiniIcon:hover{fill:#00987c}.main-wrapper{width:100%;display:inline-block;position:relative;min-height:600px;overflow-x:hidden;overflow-y:auto}.add-task-section-wrapper{align-items:center;background-color:#fff;border-bottom:1px solid #e8ecee;border-top:1px solid #e8ecee;display:flex;-webkit-box-flex:0;flex:0 0 auto;height:70px;padding-left:20px;padding-right:15px;width:100%;vertical-align:middle}.add-task-section-wrapper .section-left{width:50%;float:left}.add-task-section-wrapper .section-right{width:50%;float:left;display:inline-flex;align-items:center;justify-content:flex-end;position:relative}.add-task-section-wrapper .section-right .task-head-box-dropdown{position:absolute;background-color:#f1f1f1;min-width:160px;overflow:auto;box-shadow:0 8px 16px 0 rgba(0,0,0,.2);z-index:4;top:36px;left:8px}.add-task-section-wrapper .section-right .task-head-box-dropdown .each-box{padding:12px 5px;background-color:#fff;text-align:left}.add-task-section-wrapper .section-right .task-head-box-dropdown .each-box:hover{background-color:#ddd}.add-task-section-wrapper .section-right .task-head-box-dropdown .each-box a{color:#273240;text-decoration:none}.add-task-section-wrapper .section-right ._assigned-box{display:inline-block;margin:0 5px;position:relative}.add-task-section-wrapper .section-right ._assigned-box .search-logo{position:absolute;left:7px;top:11px;fill:#4b607a}.add-task-section-wrapper .section-right .logo-box{width:50px;display:table;text-align:center;position:relative}.add-task-section-wrapper .section-right .logo-box .hide-box-icon{width:14px;height:14px;fill:#4b607a;cursor:pointer}.add-task-section-wrapper .section-right .logo-box .hide-box-icon :focus,.add-task-section-wrapper .section-right .logo-box .hide-box-icon:hover{fill:#32c1ff}.add-task-section-wrapper .section-right .logo-box .hide-box-icon-primary{width:14px;height:14px;fill:#32c1ff;cursor:pointer}.add-task-section-wrapper .section-right .like-count{position:absolute;font-size:12px;color:#32c1ff;top:-9px;right:12px;display:table;font-weight:600}.task-list-wrapper{width:calc(100% - 0px);display:table;padding:0 20px;transition:.5s}.task-list-wrapper.task-list-half{width:calc(100% - 760px);float:left;transition:.5s}.task-list-wrapper .task-list-header{width:100%;border-bottom:1px solid #e8ecee;display:table;font-size:13px;font-weight:700}.task-list-wrapper .task-list-header .task-name-box{width:70%;border-right:1px solid #e8ecee;padding:10px 5px;float:left;background-color:#fff}.task-list-wrapper .task-list-header .task-name-box:hover{background-color:#f6f8f9}.task-list-wrapper .task-list-header .task-assignee-box{width:15%;border-right:1px solid #e8ecee;padding:10px 5px;float:left;background-color:#fff}.task-list-wrapper .task-list-header .task-assignee-box:hover{background-color:#f6f8f9}.task-list-wrapper .task-list-body{width:100%;border-bottom:1px solid #e8ecee;display:flex;font-size:13px;font-weight:700}.task-list-wrapper .task-list-body .comment-section-name{display:flex;align-items:center}.task-list-wrapper .task-list-body .comment-section-name .comment-count{font-size:11px;color:#273240;font-weight:700}.task-list-wrapper .task-list-body .comment-section-name .comment-count-like{font-size:11px;color:#32c1ff;font-weight:700}.task-list-wrapper .task-list-body .comment-section-name .comment-logo{width:25px;height:13px;fill:#4b607a;margin-right:15px}.task-list-wrapper .task-list-body .comment-section-name .comment-logo:hover{fill:#32c1ff}.task-list-wrapper .task-list-body .comment-section-name .comment-logo-like{width:25px;height:13px;fill:#32c1ff;margin-right:15px}.task-list-wrapper .task-list-body .task-name-box{width:70%;border-right:1px solid #e8ecee;padding:5px 5px;float:left;background-color:#fff;position:relative;display:inline-flex;align-items:center}.task-list-wrapper .task-list-body .task-name-box .detail-option{position:absolute;right:0;top:12px;font-size:12px;font-weight:700;display:inline-flex;align-items:center;opacity:0;cursor:pointer}.task-list-wrapper .task-list-body .task-name-box .border-radious-icon{background:#fff;border:1px solid #cbd4db;border-radius:50%;color:#6f7782;fill:#6f7782;width:15px;height:15px;margin-right:5px}.task-list-wrapper .task-list-body .task-name-box .border-radious-icon.task-complete{border:1px solid #00987c!important}.task-list-wrapper .task-list-body .task-name-box .border-radious-icon.task-complete .MiniIcon{fill:#00987c!important}.task-list-wrapper .task-list-body .task-name-box .border-radious-icon .MiniIcon{height:13px;width:13px;cursor:pointer}.task-list-wrapper .task-list-body .task-name-box .border-radious-icon .MiniIcon:hover{fill:#00987c}.task-list-wrapper .task-list-body .task-name-box .border-radious-icon:hover{color:#00987c;border-color:#00987c}.task-list-wrapper .task-list-body .task-name-box:hover{background-color:#f6f8f9}.task-list-wrapper .task-list-body .task-name-box:hover .task-body-custom-input{background-color:#f6f8f9}.task-list-wrapper .task-list-body .task-name-box:hover .detail-option{opacity:1}.task-list-wrapper .task-list-body .task-assignee-box{width:15%;border-right:1px solid #e8ecee;padding:0;float:left;background-color:#fff;position:relative}.task-list-wrapper .task-list-body .task-assignee-box .assigned-person{display:inline-flex;align-items:center;width:100%;position:absolute;left:0;top:0;z-index:1;background:#fff;padding:4px}.task-list-wrapper .task-list-body .task-assignee-box .assigned-person .img-box{width:25px;height:25px;display:inline-block;background-size:cover;background-position:center;background-repeat:no-repeat;margin-right:10px}.task-list-wrapper .task-list-body .task-assignee-box .assignee-box-dropdown{position:absolute;background-color:#fff;min-width:280px;overflow:auto;box-shadow:0 8px 16px 0 rgba(0,0,0,.2);z-index:2;padding:7px 7px 3px 7px;max-height:250px}.task-list-wrapper .task-list-body .task-assignee-box .assignee-box-dropdown .each-assignee{width:100%;display:inline-flex;align-items:center;margin:5px 0}.task-list-wrapper .task-list-body .task-assignee-box .assignee-box-dropdown .each-assignee:hover{background-color:#e8ecee}.task-list-wrapper .task-list-body .task-assignee-box .assignee-box-dropdown .each-assignee .profile-img{width:25px;height:25px;background-repeat:no-repeat;background-position:center;background-size:cover;margin-right:10px;padding:0 5px}.task-list-wrapper .task-list-body .task-assignee-box .assignee-box-dropdown .each-assignee .name-text{color:#273240;font-size:12px;font-weight:700}.task-list-wrapper .task-list-body .task-assignee-box .assignee-box-logo{position:absolute;width:28px;height:28px;border:1px dashed #9ca6af;border-radius:50%;top:2px;left:7px;text-align:center;padding-top:3px;visibility:hidden}.task-list-wrapper .task-list-body .task-assignee-box .assignee-box-logo .inside-logo{width:18px;height:18px;fill:#9ca6af}.task-list-wrapper .task-list-body .task-assignee-box .assignee-box-input{border-color:transparent;box-shadow:none;min-width:100px;width:100%;background-color:#fff;border-style:solid;border-width:1px;height:33px;padding:0 5px;cursor:pointer}.task-list-wrapper .task-list-body .task-assignee-box .assignee-box-input:hover{background-color:#f6f8f9}.task-list-wrapper .task-list-body .task-assignee-box .assignee-box-input:focus{border-color:#32c1ff;background-color:#fff}.task-list-wrapper .task-list-body .task-assignee-box .assignee-box-input:focus .inside-logo{display:none}.task-list-wrapper .task-list-body .task-assignee-box:hover{background-color:#f6f8f9}.task-list-wrapper .task-list-body .task-assignee-box:hover .assignee-box-logo{visibility:visible}.task-list-wrapper .task-list-body .task-assignee-box:focus .assignee-box-logo{visibility:hidden}.task-list-wrapper .task-list-body .task-date-box{width:15%;border-right:1px solid #e8ecee;padding:9px 39px;float:left;background-color:#fff;position:relative}.task-list-wrapper .task-list-body .task-date-box .assignee-box-logo{position:absolute;width:28px;height:28px;border:1px dashed #9ca6af;border-radius:50%;top:2px;left:7px;text-align:center;padding-top:3px;visibility:hidden}.task-list-wrapper .task-list-body .task-date-box .assignee-box-logo .inside-logo{width:18px;height:18px;fill:#9ca6af}.task-list-wrapper .task-list-body .task-date-box:hover{background-color:#f6f8f9}.task-list-wrapper .task-list-body .task-date-box:hover .assignee-box-logo{visibility:visible}.task-list-wrapper .task-list-body .task-date-box:focus .assignee-box-logo{visibility:hidden}.task-list-wrapper .task-list-body .box-active{background-color:#edf8ff}.task-list-wrapper .task-list-body .task-body-custom-input{border-color:transparent;border-radius:2px;box-shadow:none;min-width:200px;width:100%;background-color:#fff;border-style:solid;border-width:1px;padding:2px}.task-list-wrapper .task-list-body .task-body-custom-input:hover{background-color:#f6f8f9}.task-list-wrapper .task-list-body .task-body-custom-input:focus{border-color:#9ca6af;background-color:#fff}.task-list-wrapper .section-header{width:100%;font-size:20px;font-weight:700;display:table;padding:15px 0;color:#273240}.task-list-wrapper .task-list-body-section{width:100%;border-top:1px solid #e8ecee;display:flex;font-size:13px;font-weight:700}.task-list-wrapper .task-list-body-section .comment-section-name{display:flex;align-items:center}.task-list-wrapper .task-list-body-section .comment-section-name .comment-count-like{font-size:11px;color:#32c1ff;font-weight:700}.task-list-wrapper .task-list-body-section .comment-section-name .comment-logo-like{width:25px;height:13px;fill:#32c1ff;margin-right:15px}.task-list-wrapper .task-list-body-section .comment-section-name .comment-count{font-size:11px;color:#273240;font-weight:700}.task-list-wrapper .task-list-body-section .comment-section-name .comment-logo{width:25px;height:13px;fill:#4b607a;margin-right:15px}.task-list-wrapper .task-list-body-section .comment-section-name .comment-logo:hover{fill:#32c1ff}.task-list-wrapper .task-list-body-section:last-child{border-bottom:1px solid #e8ecee}.task-list-wrapper .task-list-body-section .task-name-box{width:70%;border-right:1px solid #e8ecee;padding:5px 5px;float:left;background-color:#fff;position:relative;display:inline-flex;align-items:center}.task-list-wrapper .task-list-body-section .task-name-box .detail-option{position:absolute;right:0;top:12px;font-size:12px;font-weight:700;display:inline-flex;align-items:center;opacity:0;cursor:pointer}.task-list-wrapper .task-list-body-section .task-name-box .border-radious-icon{background:#fff;border:1px solid #cbd4db;border-radius:50%;color:#6f7782;fill:#6f7782;width:15px;height:15px;margin-right:5px}.task-list-wrapper .task-list-body-section .task-name-box .border-radious-icon.task-complete{border:1px solid #00987c!important}.task-list-wrapper .task-list-body-section .task-name-box .border-radious-icon.task-complete .MiniIcon{fill:#00987c!important}.task-list-wrapper .task-list-body-section .task-name-box .border-radious-icon .MiniIcon{height:13px;width:13px;cursor:pointer}.task-list-wrapper .task-list-body-section .task-name-box .border-radious-icon .MiniIcon:hover{fill:#00987c}.task-list-wrapper .task-list-body-section .task-name-box .border-radious-icon:hover{color:#00987c;border-color:#00987c}.task-list-wrapper .task-list-body-section .task-name-box:hover{background-color:#f6f8f9}.task-list-wrapper .task-list-body-section .task-name-box:hover .task-body-custom-input{background-color:#f6f8f9}.task-list-wrapper .task-list-body-section .task-name-box:hover .detail-option{opacity:1}.task-list-wrapper .task-list-body-section .task-assignee-box{width:15%;border-right:1px solid #e8ecee;padding:0;float:left;background-color:#fff;position:relative}.task-list-wrapper .task-list-body-section .task-assignee-box .assigned-person{display:inline-flex;align-items:center;width:100%;position:absolute;left:0;top:0;z-index:1;background:#fff;padding:4px}.task-list-wrapper .task-list-body-section .task-assignee-box .assigned-person .img-box{width:25px;height:25px;display:inline-block;background-size:cover;background-position:center;background-repeat:no-repeat;margin-right:10px}.task-list-wrapper .task-list-body-section .task-assignee-box .assignee-box-dropdown{position:absolute;background-color:#fff;min-width:280px;overflow:auto;box-shadow:0 8px 16px 0 rgba(0,0,0,.2);z-index:2;padding:7px 7px 3px 7px;max-height:250px}.task-list-wrapper .task-list-body-section .task-assignee-box .assignee-box-dropdown .each-assignee{width:100%;display:inline-flex;align-items:center;margin:5px 0}.task-list-wrapper .task-list-body-section .task-assignee-box .assignee-box-dropdown .each-assignee:hover{background-color:#e8ecee}.task-list-wrapper .task-list-body-section .task-assignee-box .assignee-box-dropdown .each-assignee .profile-img{width:25px;height:25px;background-repeat:no-repeat;background-position:center;background-size:cover;margin-right:10px;padding:0 5px}.task-list-wrapper .task-list-body-section .task-assignee-box .assignee-box-dropdown .each-assignee .name-text{color:#273240;font-size:12px;font-weight:700}.task-list-wrapper .task-list-body-section .task-assignee-box .assignee-box-logo{position:absolute;width:28px;height:28px;border:1px dashed #9ca6af;border-radius:50%;top:2px;left:7px;text-align:center;padding-top:3px;visibility:hidden}.task-list-wrapper .task-list-body-section .task-assignee-box .assignee-box-logo .inside-logo{width:18px;height:18px;fill:#9ca6af}.task-list-wrapper .task-list-body-section .task-assignee-box .assignee-box-input{border-color:transparent;box-shadow:none;min-width:100px;width:100%;background-color:#fff;border-style:solid;border-width:1px;height:33px;padding:0 5px;cursor:pointer}.task-list-wrapper .task-list-body-section .task-assignee-box .assignee-box-input:hover{background-color:#f6f8f9}.task-list-wrapper .task-list-body-section .task-assignee-box .assignee-box-input:focus{border-color:#32c1ff;background-color:#fff}.task-list-wrapper .task-list-body-section .task-assignee-box .assignee-box-input:focus .inside-logo{display:none}.task-list-wrapper .task-list-body-section .task-assignee-box:hover{background-color:#f6f8f9}.task-list-wrapper .task-list-body-section .task-assignee-box:hover .assignee-box-logo{visibility:visible}.task-list-wrapper .task-list-body-section .task-assignee-box:focus .assignee-box-logo{visibility:hidden}.task-list-wrapper .task-list-body-section .task-date-box{width:15%;border-right:1px solid #e8ecee;padding:9px 39px;float:left;background-color:#fff;position:relative}.task-list-wrapper .task-list-body-section .task-date-box .assignee-box-logo{position:absolute;width:28px;height:28px;border:1px dashed #9ca6af;border-radius:50%;top:2px;left:7px;text-align:center;padding-top:3px;visibility:hidden}.task-list-wrapper .task-list-body-section .task-date-box .assignee-box-logo .inside-logo{width:18px;height:18px;fill:#9ca6af}.task-list-wrapper .task-list-body-section .task-date-box:hover{background-color:#f6f8f9}.task-list-wrapper .task-list-body-section .task-date-box:hover .assignee-box-logo{visibility:visible}.task-list-wrapper .task-list-body-section .task-date-box:focus .assignee-box-logo{visibility:hidden}.task-list-wrapper .task-list-body-section .box-active{background-color:#edf8ff}.task-list-wrapper .task-list-body-section .task-body-custom-input{border-color:transparent;border-radius:2px;box-shadow:none;min-width:200px;width:100%;background-color:#fff;border-style:solid;border-width:1px;padding:2px}.task-list-wrapper .task-list-body-section .task-body-custom-input:hover{background-color:#f6f8f9}.task-list-wrapper .task-list-body-section .task-body-custom-input:focus{border-color:#9ca6af;background-color:#fff}.task-list-detail-wrapper{width:760px;background-color:#fff;border-left:1px solid #e8ecee;border-top:1px solid #e8ecee;position:absolute;top:0;right:0;display:inline-block;transition:.5s;box-shadow:0 5px 20px 0 rgba(21,27,38,.08);float:left;padding:0;transform-origin:100% 0;transform:scaleX(1);z-index:100;height:600px;overflow-x:hidden;overflow-y:scroll}.task-list-detail-wrapper.hideMe{transform:scaleX(0);transform-origin:100% 0;transition:.5s}.task-list-detail-wrapper .section-comment{display:inline-flex;align-items:center}.task-list-detail-wrapper .section-comment .comment-count{font-size:11px;color:#273240;font-weight:700}.task-list-detail-wrapper .head-text-section{width:100%;padding:10px 20px;display:table}.task-list-detail-wrapper .head-text-section .input-big{border:1px solid transparent;box-shadow:none;font-size:30px;font-weight:700;transition:.2s;width:100%;padding:10px;color:#273240}.task-list-detail-wrapper .head-text-section .input-big:hover{border:1px solid #9ca6af;border-radius:4px;transition:.2s}.task-list-detail-wrapper .head-text-section .radious-square-input{position:relative;display:inline-block}.task-list-detail-wrapper .head-text-section .radious-square-input .assigned-person{display:inline-flex;align-items:center;width:100%;position:absolute;left:-2px;top:0;z-index:1;background:#fff;padding:6px;border:1px solid transparent;border-radius:25px}.task-list-detail-wrapper .head-text-section .radious-square-input .assigned-person:hover{border:1px solid #9ca6af}.task-list-detail-wrapper .head-text-section .radious-square-input .assigned-person .img-box{width:30px;height:30px;display:inline-block;background-size:cover;background-position:center;background-repeat:no-repeat;margin-right:10px}.task-list-detail-wrapper .head-text-section .radious-square-input .assigned-person .text-1{font-size:13px;font-weight:600}.task-list-detail-wrapper .head-text-section .radious-square-input:hover .input-design{border:1px solid #9ca6af;border-radius:25px}.task-list-detail-wrapper .head-text-section .radious-square-input:hover .logo-border{border:1px solid #9ca6af}.task-list-detail-wrapper .head-text-section .radious-square-input:hover .logo-border .input-icon-1{fill:#7f878e}.task-list-detail-wrapper .head-text-section .radious-square-input .logo-border{position:absolute;width:30px;height:30px;border:1px dashed #9ca6af;border-radius:50%;top:6px;left:7px;text-align:center;padding-top:3px}.task-list-detail-wrapper .head-text-section .radious-square-input .logo-border .input-icon-1{width:18px;height:18px;fill:#9ca6af}.task-list-detail-wrapper .head-text-section .radious-square-input .logo-border .input-icon-2{width:22px;height:21px;fill:#9ca6af;padding-top:2px}.task-list-detail-wrapper .head-text-section .radious-square-input .input-design{font-size:12px;font-weight:900;padding:13px 0 13px 45px;border:1px solid transparent;cursor:pointer;box-shadow:none;width:65%}.task-list-detail-wrapper .head-text-section .radious-square-input .input-design:focus{border:1px solid #9ca6af;border-radius:4px;width:100%}.task-list-detail-wrapper .head-text-section .text-area-logo{width:25px;display:inline-block;float:left;padding-top:3px}.task-list-detail-wrapper .head-text-section .text-area-logo .t-logo{width:18px;height:18px;fill:#4b607a}.task-list-detail-wrapper .head-text-section ._input-logo{width:25px;display:inline-block;float:left;padding:3px 0 10px 0}.task-list-detail-wrapper .head-text-section ._input-logo .t-logo{width:18px;height:18px;fill:#4b607a}.task-list-detail-wrapper .head-text-section .custom-text-area{border:1px solid transparent;box-shadow:none;font-size:13px;font-weight:700;transition:.2s;width:96%;padding:5px 10px;display:inline-block;color:#273240;float:left}.task-list-detail-wrapper .head-text-section .custom-text-area:hover{border:1px solid #9ca6af;border-radius:4px;transition:.2s}.task-list-detail-wrapper .head-text-section .custom-input-add-project{border:1px solid transparent;box-shadow:none;font-size:13px;font-weight:700;transition:.2s;width:96%;padding:10px 10px;display:inline-block;color:#273240;cursor:pointer;float:left}.task-list-detail-wrapper .head-text-section .custom-input-add-project::placeholder{color:#32c1ff}.task-list-detail-wrapper .head-text-section .custom-input-add-project:focus{border:1px solid #9ca6af;border-radius:4px;transition:.2s}.task-list-detail-wrapper .head-text-section .custom-input-add-project:focus::placeholder{color:#273240}.task-list-detail-wrapper .head-text-section .profile-img{width:40px;display:inline-block;float:left;margin-right:8px}.task-list-detail-wrapper .head-text-section .profile-img ._img{width:35px;height:35px;border-radius:50%;display:inline-block;background-position:center;background-repeat:no-repeat;background-size:cover}.task-list-detail-wrapper .head-text-section .detail-text-area{width:90%;padding:10px 0;display:inline-block;float:left;font-size:13px;font-weight:700}.task-list-detail-wrapper .head-text-section .detail-text-area .lnk-text{text-decoration:none;color:#32c1ff}.task-list-detail-wrapper .head-text-section .detail-text-area .lnk-text:hover{color:#32c1ff}.task-list-detail-wrapper .head-text-section .detail-text-area .small-text{font-size:11px;color:#c2c2c2}.task-list-detail-wrapper .head-text-section .detail-text-area .comment-each{padding:5px 0 0 0;font-weight:400}.task-list-detail-wrapper .head-text-section .custom-text-area-chat{border:1px solid #9ca6af;box-shadow:none;font-size:13px;font-weight:700;transition:.2s;width:93%;padding:5px 10px;display:inline-block;color:#273240;float:left;border-radius:4px}.task-list-detail-wrapper .head-text-section .new-task{width:100%;display:flex;border-top:1px solid #e8ecee;align-items:center;position:relative}.task-list-detail-wrapper .head-text-section .new-task:last-child{border-bottom:1px solid #e8ecee}.task-list-detail-wrapper .head-text-section .new-task:focus{border-top:1px solid #32c1ff;border-bottom:1px solid #32c1ff}.task-list-detail-wrapper .head-text-section .new-task .border-radious-icon{background:#fff;border:1px solid #cbd4db;border-radius:50%;color:#6f7782;fill:#6f7782;width:15px;height:15px;margin-right:5px}.task-list-detail-wrapper .head-text-section .new-task .border-radious-icon.task-complete{border:1px solid #00987c!important}.task-list-detail-wrapper .head-text-section .new-task .border-radious-icon.task-complete .MiniIcon{fill:#00987c!important}.task-list-detail-wrapper .head-text-section .new-task .border-radious-icon .MiniIcon{height:15px;width:14px;cursor:pointer}.task-list-detail-wrapper .head-text-section .new-task .border-radious-icon .MiniIcon:hover{fill:#00987c}.task-list-detail-wrapper .head-text-section .new-task .border-radious-icon:hover{color:#00987c;border-color:#00987c}.task-list-detail-wrapper .head-text-section .new-task .new-task-input{width:90%;border:1px solid transparent;height:35px;box-shadow:none}.task-list-detail-wrapper .head-text-section .new-task .new-task-logo{position:absolute;right:0;display:inline-flex;top:5px}.task-list-detail-wrapper .head-text-section .new-task .new-task-logo .logo-1{width:auto;position:relative}.task-list-detail-wrapper .head-text-section .new-task .new-task-logo .logo-1 .icon-border{width:25px;height:25px;border:1px solid #e8ecee;border-radius:50%;margin-right:14px}.task-list-detail-wrapper .head-text-section .new-task .new-task-logo .logo-1 .icon-border ._icon{height:19px;width:23px;padding:3px 0 0 0;fill:#7f878e}.task-list-detail-wrapper .head-text-section .new-task .new-task-logo .logo-1 .icon-border-1{width:25px;height:25px;border:1px solid #e8ecee;border-radius:50%;margin-right:14px;position:absolute}.task-list-detail-wrapper .head-text-section .new-task .new-task-logo .logo-1 .icon-border-1 ._icon{height:19px;width:23px;padding:3px 0 0 0;fill:#7f878e}.task-list-detail-wrapper .head-text-section .new-task .new-task-logo .logo-1 .assignee-box-dropdown{position:absolute;background-color:#fff;min-width:200px;overflow:auto;box-shadow:0 8px 16px 0 rgba(0,0,0,.2);z-index:1;padding:7px 7px 3px 7px;left:-178px;top:29px;max-height:250px}.task-list-detail-wrapper .head-text-section .new-task .new-task-logo .logo-1 .assignee-box-dropdown .ass-label{font-size:12px;font-weight:600}.task-list-detail-wrapper .head-text-section .new-task .new-task-logo .logo-1 .assignee-box-dropdown .date-input-uder-new-task{font-size:11px;font-weight:600;background-color:#fff;padding:8px 0;margin-right:15px;box-shadow:none;width:30px;border-radius:4px}.task-list-detail-wrapper .head-text-section .new-task .new-task-logo .logo-1 .assignee-box-dropdown .drop-down-input{padding:5px;border-radius:4px;border:1px solid #e8ecee;box-shadow:none;margin:8px 0;position:relative;width:100%}.task-list-detail-wrapper .head-text-section .new-task .new-task-logo .logo-1 .assignee-box-dropdown .assignee-box-dropdown-under-input{position:absolute;background-color:#fff;min-width:200px;overflow:auto;box-shadow:0 8px 16px 0 rgba(0,0,0,.2);z-index:1;padding:7px 7px 3px 7px;left:-137px;top:60px;overflow-y:auto;overflow-x:hidden;max-height:250px}.task-list-detail-wrapper .head-text-section .new-task .new-task-logo .logo-1 .assignee-box-dropdown .assignee-box-dropdown-under-input .each-assignee-under-input{width:100%;display:inline-flex;align-items:center;margin:5px 0}.task-list-detail-wrapper .head-text-section .new-task .new-task-logo .logo-1 .assignee-box-dropdown .assignee-box-dropdown-under-input .each-assignee-under-input:hover{background-color:#e8ecee}.task-list-detail-wrapper .head-text-section .new-task .new-task-logo .logo-1 .assignee-box-dropdown .assignee-box-dropdown-under-input .each-assignee-under-input .profile-img{width:25px;height:25px;background-repeat:no-repeat;background-position:center;background-size:cover;margin-right:10px;padding:0 5px}.task-list-detail-wrapper .head-text-section .new-task .new-task-logo .logo-1 .assignee-box-dropdown .assignee-box-dropdown-under-input .each-assignee-under-input .name-text{color:#273240;font-size:12px;font-weight:700}.task-list-detail-wrapper .head-text-section .new-task .new-task-logo .logo-1 .assignee-box-dropdown .each-assignee{width:100%;display:inline-flex;align-items:center;margin:5px 0}.task-list-detail-wrapper .head-text-section .new-task .new-task-logo .logo-1 .assignee-box-dropdown .each-assignee:hover{background-color:#e8ecee}.task-list-detail-wrapper .head-text-section .new-task .new-task-logo .logo-1 .assignee-box-dropdown .each-assignee .profile-img{width:25px;height:25px;background-repeat:no-repeat;background-position:center;background-size:cover;margin-right:10px;padding:0 5px}.task-list-detail-wrapper .head-text-section .new-task .new-task-logo .logo-1 .assignee-box-dropdown .each-assignee .name-text{color:#273240;font-size:12px;font-weight:700}.task-list-detail-wrapper .head-text-section .new-task .new-task-logo .logo-1 .new-task-date{font-size:11px;font-weight:600;background-color:#fff;padding:8px 0;margin-right:15px}.task-list-detail-wrapper .head-text-section .new-task .new-task-logo .logo-1 .detail-option{font-size:12px;font-weight:700;display:inline-flex;align-items:center;opacity:0;cursor:pointer;height:28px}.task-list-detail-wrapper .head-text-section .new-task .new-task-logo .logo-2{width:13px;height:25px}.task-list-detail-wrapper .head-text-section .new-task .new-task-logo .logo-2 ._icon{height:19px;width:23px;padding:3px 0 0 0;fill:#7f878e}.task-list-detail-wrapper .head-text-section .new-task .new-task-logo .logo-3{width:13px;height:25px;padding-top:5px}.task-list-detail-wrapper .head-text-section .new-task .new-task-logo .logo-3 ._icon{width:15px;height:15px;fill:#4b607a}.task-list-detail-wrapper .head-text-section .new-task:hover{border-top:1px solid #32c1ff;border-bottom:1px solid #32c1ff}.task-list-detail-wrapper .head-text-section .new-task:hover .new-task-logo .logo-1 .detail-option{opacity:1}.task-list-detail-wrapper .head-text-section .project-name-label{width:auto;float:left;display:table;padding:6px 15px 6px 15px;font-size:11px;font-weight:700;background:#f2f2f2;border-radius:25px;margin-right:6px}.task-list-detail-wrapper .head-text-section .project-select-box{width:auto;float:left;display:table}.task-list-detail-wrapper .head-text-section .project-select-box select{width:150px;border-left:none;border-top:none;border-right:none;border-bottom:1px dotted}.task-list-detail-wrapper .head-text-section .project-select-box select:hover{border-color:#32c1ff;color:#32c1ff}.task-list-detail-wrapper .head-text-section .parent-task{text-decoration:none;color:#273240;font-size:14px;border-bottom:1px dotted #273240;padding-bottom:2px;margin-bottom:6px;display:table;font-weight:600}.task-list-detail-wrapper .head-text-section .parent-task:hover{color:#32c1ff;border-bottom:1px dotted #32c1ff}.task-list-detail-wrapper .head-text-section .parent-task:hover .MiniIcon-right{fill:#32c1ff}.task-list-detail-wrapper .head-text-section .parent-task .MiniIcon-right{fill:#4b607a}.task-list-detail-wrapper .head-text-section .history-bar{width:100%;display:table}.task-list-detail-wrapper .head-text-section .comment-bar{position:relative;width:100%;display:flex}.task-list-detail-wrapper .head-text-section .comment-bar .like-option{position:absolute;top:0;right:-14px;display:inline-flex;width:auto;align-items:center}.task-list-detail-wrapper .head-text-section .comment-bar .like-option .like-button{fill:#4b607a;width:14px}.task-list-detail-wrapper .head-text-section .comment-bar .like-option .like-button-active{fill:#32c1ff;width:14px}.task-list-detail-wrapper .head-text-section .comment-bar .like-option .like-count{color:#32c1ff;margin-right:4px;font-size:12px;font-weight:500}.task-list-detail-wrapper .head-text-section .comment-bar .like-option .task-head-box-dropdown{position:absolute;background-color:#f1f1f1;min-width:160px;overflow:auto;box-shadow:0 8px 16px 0 rgba(0,0,0,.2);z-index:4;top:22px;left:-106px}.task-list-detail-wrapper .head-text-section .comment-bar .like-option .task-head-box-dropdown .each-box{padding:5px 5px;background-color:#fff;text-align:left}.task-list-detail-wrapper .head-text-section .comment-bar .like-option .task-head-box-dropdown .each-box:hover{background-color:#ddd}.task-list-detail-wrapper .head-text-section .comment-bar .like-option .task-head-box-dropdown .each-box a{color:#273240;text-decoration:none;font-size:12px;font-weight:600}._float-left{float:left}._float-right{float:right}._text-left{text-align:left}._text-right{text-align:right}._font-15{font-size:15px}.border-top-task-list{border-top:1px solid #e8ecee}.border-bottom-task-list{border-bottom:1px solid #e8ecee}.d-flex-inline{display:inline-flex;align-items:center}.bg-light{background-color:#f6f8f9}.no-padding{padding:0!important}.cursor-pointer{cursor:pointer}.border-right-none{border-right:none!important}.drop-down-menu_{display:none;position:absolute;background-color:#fff;min-width:160px;overflow:auto;box-shadow:0 8px 16px 0 rgba(0,0,0,.2);z-index:1}.drop-down-menu_ a{color:#273240;padding:12px 16px;text-decoration:none;display:block}.drop-down-menu_ a:hover{background-color:#ddd}.nv-dropdown-menu{display:none}.nv-dropdown-menu .assigned-person{display:none}.nv-dropdown-menu-under-input{display:none}.nv-open-under-input .nv-dropdown-menu-under-input{display:block}.nv-open .nv-dropdown-menu{display:block}.nv-open .assigned-person,.nv-open .assignee-box-logo{display:none!important}.assigned-display{display:inline-flex}.nv-collapsedown{width:100%}.logo-show{display:block}.logo-hide{display:none}._position-relative{position:relative}.padding-head-text-10{padding:10px!important}._custom-select{min-width:150px;font-size:12px;font-weight:900;padding:6px 5px;width:100%;border-radius:4px;border:1px solid #9ca6af!important;cursor:pointer}._custom-select:hover{border-color:#6f7782}._custom-input-search{min-width:170px;font-size:12px;font-weight:900;padding:10px 0 10px 22px;width:100%;border-radius:25px;cursor:pointer;box-shadow:none;border-width:1px;border-style:solid;transition:.4s;border:1px solid #9ca6af!important}._custom-input-search:hover{border-color:#6f7782}._custom-input-search:focus{min-width:250px;transition:.4s}.assignee-box-dropdown{position:absolute;background-color:#fff;min-width:280px;overflow:auto;box-shadow:0 8px 16px 0 rgba(0,0,0,.2);z-index:2;padding:7px 7px 3px 7px;max-height:250px;overflow-y:auto;overflow-x:hidden}.assignee-box-dropdown.no-overflow{overflow:initial!important}.assignee-box-dropdown .each-assignee{width:100%;display:inline-flex;align-items:center;margin:5px 0}.assignee-box-dropdown .each-assignee:hover{background-color:#e8ecee}.assignee-box-dropdown .each-assignee .profile-img{width:25px;height:25px;background-repeat:no-repeat;background-position:center;background-size:cover;margin-right:10px;padding:0 5px}.assignee-box-dropdown .each-assignee .name-text{color:#273240;font-size:12px;font-weight:700}.loader-io{width:100%;display:flex;align-items:center;justify-content:center;height:100%}@keyframes ldio-aebf04cd3u{0%{transform:rotate(0)}50%{transform:rotate(180deg)}100%{transform:rotate(360deg)}}.ldio-aebf04cd3u div{position:absolute;animation:ldio-aebf04cd3u 1s linear infinite;width:160px;height:160px;top:20px;left:20px;border-radius:50%;box-shadow:0 4px 0 0 #0a0a0a;transform-origin:80px 82px}.loadingio-spinner-eclipse-utvtio44ngo{width:200px;height:200px;display:inline-block;overflow:hidden;background:#fff}.ldio-aebf04cd3u{width:100%;height:100%;position:relative;transform:translateZ(0) scale(1);backface-visibility:hidden;transform-origin:0 0}.ldio-aebf04cd3u div{box-sizing:content-box}", ""]);
 
 // exports
 
@@ -17531,6 +17531,52 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_vue_moments_ago__ = __webpack_require__(158);
 function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -19420,6 +19466,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.loader-io').css('display', 'flex');
             __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.task-details-wrapper').hide();
 
+            this.taskDetails = null;
             Nova.request().get('/api/asana/task/details/' + id).then(function (response) {
                 __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.loader-io').hide();
                 __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.task-details-wrapper').show();
@@ -19448,6 +19495,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.loader-io').css('display', 'flex');
             __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.task-details-wrapper').hide();
 
+            this.taskDetails = null;
             Nova.request().get('/api/asana/task/details/' + id).then(function (response) {
                 __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.loader-io').hide();
                 __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.task-details-wrapper').show();
@@ -19495,6 +19543,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                 var sideBar = clicked.closest('#task-detail');
                 if (sideBar.length === 0) {
                     _this.sideBar = 0;
+                    _this.taskDetails = null;
                 }
                 __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()("#assignee-logo-id").removeClass("logo-hide");
             });
@@ -50789,30 +50838,64 @@ var render = function() {
                               )
                             ]),
                             _vm._v(" "),
-                            _c(
-                              "div",
-                              { staticClass: "_assigned-box" },
-                              [
-                                _c("flat-pickr", {
-                                  staticClass:
-                                    "w-full form-control form-input-bordered",
-                                  attrs: {
-                                    config: { config: _vm.config },
-                                    placeholder: "Due Date",
-                                    name: "date"
-                                  },
-                                  on: { "on-change": _vm.filterTasks },
-                                  model: {
-                                    value: _vm.taskFilter.due_on,
-                                    callback: function($$v) {
-                                      _vm.$set(_vm.taskFilter, "due_on", $$v)
-                                    },
-                                    expression: "taskFilter.due_on"
+                            _c("div", { staticClass: "_assigned-box" }, [
+                              _c(
+                                "select",
+                                {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.taskFilter.due_on,
+                                      expression: "taskFilter.due_on"
+                                    }
+                                  ],
+                                  staticClass: "_custom-select",
+                                  on: {
+                                    change: [
+                                      function($event) {
+                                        var $$selectedVal = Array.prototype.filter
+                                          .call($event.target.options, function(
+                                            o
+                                          ) {
+                                            return o.selected
+                                          })
+                                          .map(function(o) {
+                                            var val =
+                                              "_value" in o ? o._value : o.value
+                                            return val
+                                          })
+                                        _vm.$set(
+                                          _vm.taskFilter,
+                                          "due_on",
+                                          $event.target.multiple
+                                            ? $$selectedVal
+                                            : $$selectedVal[0]
+                                        )
+                                      },
+                                      _vm.filterTasks
+                                    ]
                                   }
-                                })
-                              ],
-                              1
-                            ),
+                                },
+                                [
+                                  _c("option", { attrs: { value: "" } }, [
+                                    _vm._v("Choose Due Date")
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("option", { attrs: { value: "7" } }, [
+                                    _vm._v("Due in 7 days")
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("option", { attrs: { value: "30" } }, [
+                                    _vm._v("Up in 30 days")
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("option", { attrs: { value: "90" } }, [
+                                    _vm._v("Up in 90 days")
+                                  ])
+                                ]
+                              )
+                            ]),
                             _vm._v(" "),
                             _c("div", { staticClass: "_assigned-box" }, [
                               _c("input", {
@@ -51400,6 +51483,54 @@ var render = function() {
                                                           }
                                                         })
                                                       ]),
+                                                      _vm._v(" "),
+                                                      task[0].data.num_likes
+                                                        ? _c(
+                                                            "span",
+                                                            {
+                                                              staticClass:
+                                                                "comment-section-name"
+                                                            },
+                                                            [
+                                                              _c(
+                                                                "span",
+                                                                {
+                                                                  staticClass:
+                                                                    "comment-count-like"
+                                                                },
+                                                                [
+                                                                  _vm._v(
+                                                                    _vm._s(
+                                                                      task[0]
+                                                                        .data
+                                                                        .num_likes
+                                                                    )
+                                                                  )
+                                                                ]
+                                                              ),
+                                                              _vm._v(" "),
+                                                              _c(
+                                                                "svg",
+                                                                {
+                                                                  staticClass:
+                                                                    "comment-logo-like cursor-pointer",
+                                                                  attrs: {
+                                                                    viewBox:
+                                                                      "0 0 24 24"
+                                                                  }
+                                                                },
+                                                                [
+                                                                  _c("path", {
+                                                                    attrs: {
+                                                                      d:
+                                                                        "M2.7,8H5v2v10v2H2.7C1.2,22,0,20.8,0,19.4v-8.7C0,9.2,1.2,8,2.7,8z M23.1,9.2C22.4,8.4,21.5,8,20.5,8H16V5.2 C16,3.5,16.5,2,15.2,1c-0.6-0.5-1.5-0.6-2.2-0.5c-0.8,0.2-1.4,0.7-1.8,1.5L7,8v14h12.2c1.7,0,3.2-1.2,3.4-2.9l1.2-7 C24.1,11,23.8,10,23.1,9.2z"
+                                                                    }
+                                                                  })
+                                                                ]
+                                                              )
+                                                            ]
+                                                          )
+                                                        : _vm._e(),
                                                       _vm._v(" "),
                                                       task["comments"] > 0
                                                         ? _c(
@@ -52134,6 +52265,72 @@ var render = function() {
                                             _vm._v(" "),
                                             _c(
                                               "div",
+                                              { staticClass: "logo-box" },
+                                              [
+                                                _vm.taskDetails[0].data
+                                                  .num_likes
+                                                  ? _c(
+                                                      "span",
+                                                      {
+                                                        staticClass:
+                                                          "like-count"
+                                                      },
+                                                      [
+                                                        _vm._v(
+                                                          _vm._s(
+                                                            _vm.taskDetails[0]
+                                                              .data.num_likes
+                                                          )
+                                                        )
+                                                      ]
+                                                    )
+                                                  : _vm._e(),
+                                                _vm._v(" "),
+                                                _vm.taskDetails[0].data
+                                                  .num_likes
+                                                  ? _c(
+                                                      "svg",
+                                                      {
+                                                        staticClass:
+                                                          "hide-box-icon-primary",
+                                                        attrs: {
+                                                          focusable: "false",
+                                                          viewBox: "0 0 32 32"
+                                                        }
+                                                      },
+                                                      [
+                                                        _c("path", {
+                                                          attrs: {
+                                                            d:
+                                                              "M5,15c-1.1,0-2,0.9-2,2v10c0,1.1,0.9,2,2,2h1.9c0.6,0,1-0.4,1-1V16c0-0.6-0.4-1-1-1H5z M26.5,13H19V7.5c0-1.6-0.7-3-2-4l0,0c-1-0.8-2.5-0.4-3,0.7l-3.3,9c-0.4,1-0.5,2-0.5,3V28c0,0.6,0.4,1,1,1h13.9c1.5,0,2.7-1.1,3-2.5l1.6-10C29.7,14.6,28.3,13,26.5,13z"
+                                                          }
+                                                        })
+                                                      ]
+                                                    )
+                                                  : _c(
+                                                      "svg",
+                                                      {
+                                                        staticClass:
+                                                          "hide-box-icon ",
+                                                        attrs: {
+                                                          focusable: "false",
+                                                          viewBox: "0 0 32 32"
+                                                        }
+                                                      },
+                                                      [
+                                                        _c("path", {
+                                                          attrs: {
+                                                            d:
+                                                              "M29.6,13.3c-0.8-0.9-1.9-1.4-3.1-1.4h-6.4V7.5c0-1.9-0.9-3.8-2.5-4.9C16.9,2,15.9,1.8,15,2.1c-0.9,0.2-1.7,0.8-2,1.7L8.3,13.9H5c-1.7,0-3.1,1.4-3.1,3.1v10c0,1.7,1.4,3.1,3.1,3.1h2.9H9h15.9c2,0,3.7-1.5,4-3.5l1.6-10C30.7,15.4,30.4,14.2,29.6,13.3z M5,27.9c-0.5,0-0.9-0.4-0.9-0.9V17c0-0.5,0.4-0.9,0.9-0.9h2.9v11.8C7.9,27.9,5,27.9,5,27.9z M28.4,16.3l-1.6,10c-0.1,0.9-0.9,1.6-1.9,1.6H10.1V15.2L15,4.7c0.2-0.3,0.4-0.5,0.6-0.5c0.2,0,0.5-0.1,0.8,0.2c1,0.7,1.6,1.9,1.6,3.2v6.6h8.6c0.6,0,1.1,0.2,1.5,0.7C28.3,15.2,28.5,15.7,28.4,16.3z"
+                                                          }
+                                                        })
+                                                      ]
+                                                    )
+                                              ]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "div",
                                               {
                                                 staticClass: "logo-box",
                                                 on: {
@@ -52174,65 +52371,75 @@ var render = function() {
                                     _c(
                                       "div",
                                       { staticClass: "head-text-section" },
-                                      [
-                                        _vm._l(_vm.taskParents, function(
-                                          parent,
-                                          index
-                                        ) {
-                                          return _vm.taskParents.length > 0
-                                            ? _c(
-                                                "a",
-                                                {
-                                                  key: index,
-                                                  attrs: {
-                                                    href: "javascript:void(0)",
-                                                    title:
-                                                      "Parent's notes and comments"
-                                                  },
-                                                  on: {
-                                                    click: function($event) {
-                                                      return _vm.showParentTask(
-                                                        parent.id,
-                                                        index
-                                                      )
-                                                    }
-                                                  }
+                                      _vm._l(_vm.taskParents, function(
+                                        parent,
+                                        index
+                                      ) {
+                                        return _vm.taskParents.length > 0
+                                          ? _c(
+                                              "div",
+                                              {
+                                                key: index,
+                                                attrs: {
+                                                  title:
+                                                    "Parent's notes and comments"
                                                 },
-                                                [
-                                                  _vm._v(
-                                                    _vm._s(parent.name) +
-                                                      "\n                                        "
-                                                  ),
-                                                  _c(
-                                                    "svg",
-                                                    {
-                                                      staticClass:
-                                                        "_icon cursor-pointer",
-                                                      attrs: {
-                                                        focusable: "false",
-                                                        viewBox: "0 0 32 32",
-                                                        width: "14px",
-                                                        height: "14px"
-                                                      }
-                                                    },
-                                                    [
-                                                      _c("path", {
+                                                on: {
+                                                  click: function($event) {
+                                                    return _vm.showParentTask(
+                                                      parent.id,
+                                                      index
+                                                    )
+                                                  }
+                                                }
+                                              },
+                                              [
+                                                _c(
+                                                  "a",
+                                                  {
+                                                    staticClass: "parent-task",
+                                                    attrs: {
+                                                      href: "javascript:void(0)"
+                                                    }
+                                                  },
+                                                  [
+                                                    _vm._v(_vm._s(parent.name)),
+                                                    _c(
+                                                      "svg",
+                                                      {
+                                                        staticClass:
+                                                          "MiniIcon-right",
                                                         attrs: {
-                                                          "data-v-b9bc2c0a": "",
-                                                          d:
-                                                            "M23.2,16c0,0.3-0.1,0.7-0.3,0.9l-9,11c-0.5,0.6-1.5,0.7-2.1,0.2s-0.7-1.5-0.2-2.1l8.2-10L11.6,6c-0.5-0.6-0.4-1.6,0.2-2.1s1.6-0.4,2.1,0.2l9,11C23.1,15.3,23.2,15.7,23.2,16z"
+                                                          viewBox: "0 0 24 24"
                                                         }
-                                                      })
-                                                    ]
-                                                  )
-                                                ]
-                                              )
-                                            : _vm._e()
-                                        }),
-                                        _vm._v(" "),
+                                                      },
+                                                      [
+                                                        _c("path", {
+                                                          attrs: {
+                                                            d:
+                                                              "M8.9,20.4c-0.4,0-0.7-0.1-1-0.4c-0.6-0.6-0.7-1.5-0.1-2.1l5.2-5.8L7.8,6C7.3,5.4,7.3,4.4,8,3.9C8.6,3.3,9.5,3.4,10.1,4l6.1,7.1c0.5,0.6,0.5,1.4,0,2l-6.1,6.8C9.8,20.3,9.4,20.4,8.9,20.4z"
+                                                          }
+                                                        })
+                                                      ]
+                                                    )
+                                                  ]
+                                                )
+                                              ]
+                                            )
+                                          : _vm._e()
+                                      }),
+                                      0
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "head-text-section padding-head-text-10"
+                                      },
+                                      [
                                         _c("input", {
-                                          staticClass:
-                                            "input-big padding-head-text-10",
+                                          staticClass: "input-big",
                                           attrs: {
                                             type: "text",
                                             placeholder: "Write a task name"
@@ -52250,8 +52457,7 @@ var render = function() {
                                             }
                                           }
                                         })
-                                      ],
-                                      2
+                                      ]
                                     ),
                                     _vm._v(" "),
                                     _c(
@@ -52585,8 +52791,10 @@ var render = function() {
                                                 section
                                               ) {
                                                 return _vm.taskDetails[0].data
-                                                  .memberships[0].section.gid ==
-                                                  section.gid
+                                                  .memberships.length > 0 &&
+                                                  _vm.taskDetails[0].data
+                                                    .memberships[0].section
+                                                    .gid == section.gid
                                                   ? _c(
                                                       "option",
                                                       {
@@ -53485,9 +53693,7 @@ var render = function() {
                                                             }
                                                           },
                                                           [
-                                                            t["comments"][
-                                                              "data"
-                                                            ].length > 0
+                                                            t["comments"]
                                                               ? _c(
                                                                   "span",
                                                                   {
@@ -53499,9 +53705,7 @@ var render = function() {
                                                                       _vm._s(
                                                                         t[
                                                                           "comments"
-                                                                        ][
-                                                                          "data"
-                                                                        ].length
+                                                                        ]
                                                                       )
                                                                     )
                                                                   ]
@@ -53582,77 +53786,295 @@ var render = function() {
                                       2
                                     ),
                                     _vm._v(" "),
-                                    _vm._l(
-                                      _vm.taskDetails.comments.data,
-                                      function(comment) {
-                                        return _vm.taskDetails.comments.data
-                                          .length > 0
-                                          ? _c(
-                                              "div",
-                                              {
-                                                staticClass:
-                                                  "head-text-section border-bottom-task-list"
-                                              },
-                                              [
-                                                _vm._m(3, true),
-                                                _vm._v(" "),
-                                                _c(
-                                                  "div",
-                                                  {
-                                                    staticClass:
-                                                      "detail-text-area"
-                                                  },
-                                                  [
-                                                    _c("span", [
+                                    _vm.taskDetails.comments.length > 0
+                                      ? _c(
+                                          "div",
+                                          {
+                                            staticClass:
+                                              "head-text-section border-bottom-task-list"
+                                          },
+                                          _vm._l(
+                                            _vm.taskDetails.comments,
+                                            function(comment) {
+                                              return comment[0].type ==
+                                                "comment"
+                                                ? _c(
+                                                    "div",
+                                                    {
+                                                      staticClass: "comment-bar"
+                                                    },
+                                                    [
+                                                      _vm._m(3, true),
+                                                      _vm._v(" "),
                                                       _c(
-                                                        "a",
+                                                        "div",
                                                         {
                                                           staticClass:
-                                                            "lnk-text",
-                                                          attrs: {
-                                                            href:
-                                                              "javascript:void(0)"
-                                                          }
+                                                            "detail-text-area"
                                                         },
                                                         [
-                                                          _vm._v(
-                                                            _vm._s(
-                                                              comment.created_by
-                                                                .name
-                                                            ) + " "
+                                                          _c("span", [
+                                                            _c(
+                                                              "a",
+                                                              {
+                                                                staticClass:
+                                                                  "lnk-text",
+                                                                attrs: {
+                                                                  href:
+                                                                    "javascript:void(0)"
+                                                                }
+                                                              },
+                                                              [
+                                                                _vm._v(
+                                                                  _vm._s(
+                                                                    comment[0]
+                                                                      .created_by
+                                                                      .name
+                                                                  ) + " "
+                                                                )
+                                                              ]
+                                                            )
+                                                          ]),
+                                                          _vm._v(" "),
+                                                          _c(
+                                                            "span",
+                                                            {
+                                                              staticClass:
+                                                                "small-text"
+                                                            },
+                                                            [
+                                                              _c(
+                                                                "vue-moments-ago",
+                                                                {
+                                                                  attrs: {
+                                                                    prefix: "",
+                                                                    suffix:
+                                                                      "ago",
+                                                                    date:
+                                                                      comment[0]
+                                                                        .created_at
+                                                                  }
+                                                                }
+                                                              )
+                                                            ],
+                                                            1
+                                                          ),
+                                                          _vm._v(" "),
+                                                          _c(
+                                                            "div",
+                                                            {
+                                                              staticClass:
+                                                                "comment-each"
+                                                            },
+                                                            [
+                                                              _vm._v(
+                                                                _vm._s(
+                                                                  comment[0]
+                                                                    .text
+                                                                )
+                                                              )
+                                                            ]
                                                           )
                                                         ]
                                                       ),
-                                                      _vm._v(
-                                                        _vm._s(comment.text)
+                                                      _vm._v(" "),
+                                                      _c(
+                                                        "div",
+                                                        {
+                                                          staticClass:
+                                                            "like-option cursor-pointer"
+                                                        },
+                                                        [
+                                                          comment["details"][
+                                                            "data"
+                                                          ].num_likes
+                                                            ? _c(
+                                                                "span",
+                                                                {
+                                                                  staticClass:
+                                                                    "like-count"
+                                                                },
+                                                                [
+                                                                  _vm._v(
+                                                                    _vm._s(
+                                                                      comment[
+                                                                        "details"
+                                                                      ]["data"]
+                                                                        .num_likes
+                                                                    )
+                                                                  )
+                                                                ]
+                                                              )
+                                                            : _vm._e(),
+                                                          _vm._v(" "),
+                                                          comment["details"][
+                                                            "data"
+                                                          ].num_likes
+                                                            ? _c(
+                                                                "svg",
+                                                                {
+                                                                  staticClass:
+                                                                    "like-button-active",
+                                                                  attrs: {
+                                                                    viewBox:
+                                                                      "0 0 24 24"
+                                                                  }
+                                                                },
+                                                                [
+                                                                  _c("path", {
+                                                                    attrs: {
+                                                                      d:
+                                                                        "M2.7,8H5v2v10v2H2.7C1.2,22,0,20.8,0,19.4v-8.7C0,9.2,1.2,8,2.7,8z M23.1,9.2C22.4,8.4,21.5,8,20.5,8H16V5.2 C16,3.5,16.5,2,15.2,1c-0.6-0.5-1.5-0.6-2.2-0.5c-0.8,0.2-1.4,0.7-1.8,1.5L7,8v14h12.2c1.7,0,3.2-1.2,3.4-2.9l1.2-7 C24.1,11,23.8,10,23.1,9.2z"
+                                                                    }
+                                                                  })
+                                                                ]
+                                                              )
+                                                            : _c(
+                                                                "svg",
+                                                                {
+                                                                  staticClass:
+                                                                    "like-button",
+                                                                  attrs: {
+                                                                    focusable:
+                                                                      "false",
+                                                                    viewBox:
+                                                                      "0 0 32 32"
+                                                                  }
+                                                                },
+                                                                [
+                                                                  _c("path", {
+                                                                    attrs: {
+                                                                      d:
+                                                                        "M29.6,13.3c-0.8-0.9-1.9-1.4-3.1-1.4h-6.4V7.5c0-1.9-0.9-3.8-2.5-4.9C16.9,2,15.9,1.8,15,2.1c-0.9,0.2-1.7,0.8-2,1.7L8.3,13.9H5c-1.7,0-3.1,1.4-3.1,3.1v10c0,1.7,1.4,3.1,3.1,3.1h2.9H9h15.9c2,0,3.7-1.5,4-3.5l1.6-10C30.7,15.4,30.4,14.2,29.6,13.3z M5,27.9c-0.5,0-0.9-0.4-0.9-0.9V17c0-0.5,0.4-0.9,0.9-0.9h2.9v11.8C7.9,27.9,5,27.9,5,27.9z M28.4,16.3l-1.6,10c-0.1,0.9-0.9,1.6-1.9,1.6H10.1V15.2L15,4.7c0.2-0.3,0.4-0.5,0.6-0.5c0.2,0,0.5-0.1,0.8,0.2c1,0.7,1.6,1.9,1.6,3.2v6.6h8.6c0.6,0,1.1,0.2,1.5,0.7C28.3,15.2,28.5,15.7,28.4,16.3z"
+                                                                    }
+                                                                  })
+                                                                ]
+                                                              )
+                                                        ]
                                                       )
-                                                    ]),
-                                                    _vm._v(" "),
-                                                    _c(
-                                                      "span",
-                                                      {
-                                                        staticClass:
-                                                          "small-text"
-                                                      },
-                                                      [
-                                                        _c("vue-moments-ago", {
-                                                          attrs: {
-                                                            prefix: "",
-                                                            suffix: "ago",
-                                                            date:
-                                                              comment.created_at
-                                                          }
-                                                        })
-                                                      ],
-                                                      1
-                                                    )
-                                                  ]
-                                                )
-                                              ]
-                                            )
-                                          : _vm._e()
-                                      }
-                                    ),
+                                                    ]
+                                                  )
+                                                : _c(
+                                                    "div",
+                                                    {
+                                                      staticClass: "history-bar"
+                                                    },
+                                                    [
+                                                      _vm._m(4),
+                                                      _vm._v(" "),
+                                                      _c(
+                                                        "div",
+                                                        {
+                                                          staticClass:
+                                                            "detail-text-area"
+                                                        },
+                                                        [
+                                                          _c("span", [
+                                                            _c(
+                                                              "a",
+                                                              {
+                                                                staticClass:
+                                                                  "lnk-text",
+                                                                attrs: {
+                                                                  href:
+                                                                    "javascript:void(0)"
+                                                                }
+                                                              },
+                                                              [
+                                                                _vm._v(
+                                                                  _vm._s(
+                                                                    comment[0]
+                                                                      .created_by
+                                                                      .name
+                                                                  ) + " "
+                                                                )
+                                                              ]
+                                                            ),
+                                                            _vm._v(
+                                                              _vm._s(
+                                                                comment[0].text
+                                                              )
+                                                            )
+                                                          ]),
+                                                          _vm._v(" "),
+                                                          _c(
+                                                            "span",
+                                                            {
+                                                              staticClass:
+                                                                "small-text"
+                                                            },
+                                                            [
+                                                              _c(
+                                                                "vue-moments-ago",
+                                                                {
+                                                                  attrs: {
+                                                                    prefix: "",
+                                                                    suffix:
+                                                                      "ago",
+                                                                    date:
+                                                                      comment[0]
+                                                                        .created_at
+                                                                  }
+                                                                }
+                                                              )
+                                                            ],
+                                                            1
+                                                          )
+                                                        ]
+                                                      ),
+                                                      _vm._v(" "),
+                                                      _c(
+                                                        "div",
+                                                        {
+                                                          staticClass:
+                                                            "detail-text-area"
+                                                        },
+                                                        [
+                                                          _c(
+                                                            "span",
+                                                            {
+                                                              staticClass:
+                                                                "small-text"
+                                                            },
+                                                            [
+                                                              _vm._v(
+                                                                _vm._s(
+                                                                  comment[0]
+                                                                    .created_by
+                                                                    .name
+                                                                ) +
+                                                                  " " +
+                                                                  _vm._s(
+                                                                    comment[0]
+                                                                      .text
+                                                                  ) +
+                                                                  " "
+                                                              ),
+                                                              _c(
+                                                                "vue-moments-ago",
+                                                                {
+                                                                  attrs: {
+                                                                    prefix: "",
+                                                                    suffix:
+                                                                      "ago",
+                                                                    date:
+                                                                      comment[0]
+                                                                        .created_at
+                                                                  }
+                                                                }
+                                                              )
+                                                            ],
+                                                            1
+                                                          )
+                                                        ]
+                                                      )
+                                                    ]
+                                                  )
+                                            }
+                                          ),
+                                          0
+                                        )
+                                      : _vm._e(),
                                     _vm._v(" "),
                                     _c(
                                       "div",
@@ -53661,7 +54083,7 @@ var render = function() {
                                           "head-text-section bg-light"
                                       },
                                       [
-                                        _vm._m(4),
+                                        _vm._m(5),
                                         _vm._v(" "),
                                         _c("textarea", {
                                           directives: [
@@ -53697,8 +54119,7 @@ var render = function() {
                                         })
                                       ]
                                     )
-                                  ],
-                                  2
+                                  ]
                                 )
                               : _vm._e()
                           ]
@@ -53766,6 +54187,20 @@ var staticRenderFns = [
         ])
       ]
     )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "profile-img" }, [
+      _c("div", {
+        staticClass: "_img",
+        staticStyle: {
+          "background-image":
+            "url('https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png')"
+        }
+      })
+    ])
   },
   function() {
     var _vm = this
