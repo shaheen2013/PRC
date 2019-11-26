@@ -608,4 +608,102 @@ class TaskController extends Controller
             return response()->json(['status' => 500, 'msg' => $e->getMessage()], 200);
         }
     }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  Request $request
+     * @return \Illuminate\Http\Response
+     */
+    public function sort(Request $request)
+    {
+        // Validate form data
+        $rules = array(
+            'due_on' => 'nullable|string',
+            'project' => 'required|string',
+        );
+
+        $validator = Validator::make($request->all(), $rules);
+
+        if ($validator->fails()){
+            return response()->json(array('errors'=> $validator->getMessageBag()->toarray()));
+        }
+
+        try {
+            $data = [];
+            $tasks = [];
+            $tempTasks = json_decode($this->asana->getProjectTasks($request->project), 1);
+
+            foreach ($tempTasks['data'] as $tempTask) {
+                $temp = json_decode($this->asana->getTask($tempTask['gid']), 1);
+
+                if ($temp['data']['parent'] == null && $temp['data']['due_on'] != null) {
+                    $data[] = $temp['data'];
+                }
+            }
+
+            $sortedArr = collect($data)->sortBy('due_on')->values();
+
+            foreach ($sortedArr as $value) {
+                $tempTask = [];
+                $tempTask[] = $value;
+
+                $subTasks = json_decode($this->asana->getSubTasks($value['gid']));
+                $comments = json_decode($this->asana->getTaskStories($value['gid']));
+                $tempTask['subTasks'] = count($subTasks->data);
+                $tempTask['comments'] = count($comments->data);
+                $tasks[] = $tempTask;
+            }
+
+            // Get sections
+            $sections = [];
+            $secctionData = json_decode($this->asana->getProjectSections($request->project));
+
+            foreach ($secctionData->data as $datum) {
+                $temp = [];
+                $tempTasks = [];
+                $temp[] = $datum;
+
+                $ch = curl_init();
+
+                curl_setopt($ch, CURLOPT_URL, 'https://app.asana.com/api/1.0/sections/'. $datum->gid .'/tasks');
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+                curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
+
+                $headers = array();
+                $headers[] = 'Accept: application/json';
+                $headers[] = 'Authorization: Bearer '. env('ASANA_PAT');
+
+                curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+                $result = json_decode(curl_exec($ch), 1);
+
+                foreach ($result['data'] as $task) {
+                    $tempTask = [];
+                    $tempTask[] = json_decode($this->asana->getTask($task['gid']), 1);
+
+                    if ($tempTask[0]['data']['parent'] == null && $tempTask[0]['data']['due_on'] == null) {
+                        $subTasks = json_decode($this->asana->getSubTasks($task['gid']));
+                        $comments = json_decode($this->asana->getTaskStories($task['gid']));
+                        $tempTask['subTasks'] = count($subTasks->data);
+                        $tempTask['comments'] = count($comments->data);
+                        $tempTasks[] = $tempTask;
+                    }
+                }
+
+                $temp['tasks'] = $tempTasks;
+                $sections[] = $temp;
+
+                if (curl_errno($ch)) {
+                    echo 'Error:' . curl_error($ch);
+                }
+
+                curl_close($ch);
+            }
+
+            return response()->json(['status' => 200, 'data' => ['tasks' => $tasks, 'sections' => $sections]], 200);
+        } catch (\Exception $e) {
+            return response()->json(['status' => 500, 'msg' => $e->getMessage()], 200);
+        }
+    }
 }

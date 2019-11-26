@@ -249,4 +249,68 @@ class ProjectController extends Controller
             return response()->json(['status' => 500, 'msg' => $e->getMessage()], 200);
         }
     }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  Int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function duplicate(Request $request, $id)
+    {
+        // Validate form data
+        $rules = array(
+            'name' => 'required|string|max:255',
+            'team' => 'required|string',
+            'should_skip_weekends' => 'required|string',
+            'osusr_mlv_community_id' => 'required|integer',
+        );
+
+        $validator = Validator::make ( $request->all(), $rules);
+
+        if ($validator->fails()){
+            return response()->json(array('errors'=> $validator->getMessageBag()->toarray()));
+        }
+
+        // Create a new project
+        try {
+            $data = [
+                'name' => $request->name,
+                'team' => $request->team,
+                'schedule_dates' => [
+                    'should_skip_weekends' => $request->should_skip_weekends,
+                    'due_on' => date('Y-m-d'),
+                ]
+            ];
+
+            $ch = curl_init();
+
+            curl_setopt($ch, CURLOPT_URL, 'https://app.asana.com/api/1.0/projects/' . $id . '/duplicate');
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+            curl_setopt($ch, CURLOPT_POST, 1);
+
+            $headers = array();
+            $headers[] = 'Content-Type: application/json';
+            $headers[] = 'Accept: application/json';
+            $headers[] = 'Authorization: Bearer ' . env('ASANA_PAT');
+            curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+
+            $project = json_decode(curl_exec($ch));
+            if (curl_errno($ch)) {
+                echo 'Error:' . curl_error($ch);
+            }
+            curl_close($ch);
+
+            $newProject = new Project();
+            $newProject->osusr_mlv_community_id = $request->osusr_mlv_community_id;
+            $newProject->project_id = $project->data->gid;
+            $newProject->save();
+
+            return response()->json(['status' => 200, 'data' => $project], 200);
+        } catch (\Exception $e) {
+            return response()->json(['status' => 500, 'msg' => $e->getMessage()], 200);
+        }
+    }
 }
