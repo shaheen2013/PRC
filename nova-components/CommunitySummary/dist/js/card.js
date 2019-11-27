@@ -18336,7 +18336,6 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 //
 //
 //
-//
 
 
 
@@ -18383,6 +18382,8 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             loaded: false,
             latestActivity: null,
             pendingChanges: 0,
+            projects: [],
+            activeProject: null,
             tasks: [],
             users: [],
             sections: [],
@@ -19099,17 +19100,19 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                 _this6.isLoading = false;
 
                 if (response.data.data) {
-                    _this6.projectDetails = response.data.data[0];
+                    _this6.projectDetails = response.data.data.project[0];
+                    _this6.projects = response.data.data.projects;
+                    _this6.activeProject = _this6.projectDetails.data.gid;
                     _this6.taskFilter.project = _this6.projectDetails.data.gid;
-                    _this6.tasks = _this6.projectDetails.tasks;
-                    _this6.sections = response.data.data['sections'].data;
-                    _this6.sectionData = response.data.data['sectionData'];
-                    _this6.users = response.data.data['users'].data;
+                    _this6.sections = response.data.data.project['sections'].data;
+                    _this6.sectionData = response.data.data.project['sectionData'];
+                    _this6.users = response.data.data.project['users'].data;
                     _this6.task.projects = [_this6.projectDetails.data.gid];
                     _this6.subTask.project = _this6.projectDetails.data.gid;
                     _this6.task.workspace = _this6.projectDetails.data.workspace.gid;
                 } else {
                     _this6.projectDetails = null;
+                    _this6.projects = [];
                 }
 
                 setTimeout(function () {
@@ -19133,24 +19136,50 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                 }
             });
         },
-        storeTask: function storeTask() {
+        getProjectDetails: function getProjectDetails(id) {
             var _this8 = this;
+
+            var _this = this;
+            this.isLoading = true;
+
+            Nova.request().get('/api/asana/project/show/' + id).then(function (response) {
+                _this8.isLoading = false;
+
+                if (response.data.data) {
+                    _this8.projectDetails = response.data.data[0];
+                    _this8.activeProject = _this8.projectDetails.data.gid;
+                    _this8.taskFilter.project = _this8.projectDetails.data.gid;
+                    _this8.sections = response.data.data['sections'].data;
+                    _this8.sectionData = response.data.data['sectionData'];
+                    _this8.users = response.data.data['users'].data;
+                    _this8.task.projects = [_this8.projectDetails.data.gid];
+                    _this8.subTask.project = _this8.projectDetails.data.gid;
+                    _this8.task.workspace = _this8.projectDetails.data.workspace.gid;
+                } else {}
+
+                setTimeout(function () {
+                    _this.uiUpdateMounted();
+                }, 500);
+            });
+        },
+        storeTask: function storeTask() {
+            var _this9 = this;
 
             this.isLoading = true;
 
             Nova.request().post('/api/asana/task/store', this.task).then(function (response) {
-                _this8.isLoading = false;
-                _this8.createNewTask = false;
+                _this9.isLoading = false;
+                _this9.createNewTask = false;
 
                 if (response.data.status === 200) {
-                    _this8.getProjects();
+                    _this9.getProjects();
                 } else {
-                    _this8.errors = response.data.errors;
+                    _this9.errors = response.data.errors;
                 }
             });
         },
         showTask: function showTask(id) {
-            var _this9 = this;
+            var _this10 = this;
 
             this.sideBar = 1;
             this.taskParents = [];
@@ -19162,9 +19191,9 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                 __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.task-details-wrapper').show();
 
                 if (response.status == 200) {
-                    _this9.taskDetails = response.data.data;
+                    _this10.taskDetails = response.data.data;
                 } else {
-                    _this9.errors = response.data.msg.errors;
+                    _this10.errors = response.data.msg.errors;
                 }
             });
         },
@@ -19198,27 +19227,27 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             this.updateTask();
         },
         updateTask: function updateTask() {
-            var _this10 = this;
+            var _this11 = this;
 
             var _this = this;
             this.taskUpdate._method = "PUT";
 
             Nova.request().post('/api/asana/task/update/' + this.taskUpdate.id, this.taskUpdate).then(function (response) {
-                _this10.isLoading = false;
+                _this11.isLoading = false;
 
                 setTimeout(function () {
                     _this.uiUpdateMounted();
                 }, 500);
 
                 if (response.data.status === 200) {
-                    _this10.taskUpdate = {};
+                    _this11.taskUpdate = {};
                 } else {
-                    _this10.errors = response.data.errors;
+                    _this11.errors = response.data.errors;
                 }
             });
         },
         inlineTaskUpdate: function inlineTaskUpdate(id, name, e) {
-            var _this11 = this;
+            var _this12 = this;
 
             __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.task-details-wrapper').hide();
             __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.loader-io').css('display', 'flex');
@@ -19251,25 +19280,25 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
                 if (response.data.status === 200) {
                     if (name == 'name') {
-                        _this11.taskDetails[0].data.name = e.target.value;
+                        _this12.taskDetails[0].data.name = e.target.value;
                     } else if (name == 'notes') {
-                        _this11.taskDetails[0].data.notes = e.target.value;
+                        _this12.taskDetails[0].data.notes = e.target.value;
                     } else if (name == 'due_on') {
-                        _this11.taskDetails[0].data.due_on = _this11.convert(e);
+                        _this12.taskDetails[0].data.due_on = _this12.convert(e);
                     } else if (name == 'section') {
-                        _this11.taskDetails[0].data.memberships[0].section.gid = e.target.value;
-                        _this11.taskDetails[0].data.memberships[0].section.name = e.target.options[e.target.selectedIndex].text;
-                        _this11.getProjects();
+                        _this12.taskDetails[0].data.memberships[0].section.gid = e.target.value;
+                        _this12.taskDetails[0].data.memberships[0].section.name = e.target.options[e.target.selectedIndex].text;
+                        _this12.getProjects();
                     } else if (name == 'assignee') {
-                        _this11.taskDetails[0].data.assignee = e;
+                        _this12.taskDetails[0].data.assignee = e;
                     }
                 } else {
-                    _this11.errors = response.data.errors;
+                    _this12.errors = response.data.errors;
                 }
             });
         },
         deleteTask: function deleteTask(id) {
-            var _this12 = this;
+            var _this13 = this;
 
             var THIS = this;
 
@@ -19281,10 +19310,10 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                 focusConfirm: true
             }).then(function (res) {
                 if (res.value !== undefined) {
-                    _this12.isLoading = true;
+                    _this13.isLoading = true;
 
                     Nova.request().post('/api/asana/task/destroy/' + id, { _method: 'DELETE' }).then(function (response) {
-                        _this12.isLoading = false;
+                        _this13.isLoading = false;
 
                         if (response.data.status === 200) {
                             THIS.getProjects();
@@ -19296,7 +19325,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             });
         },
         filterTasks: function filterTasks(key, val) {
-            var _this13 = this;
+            var _this14 = this;
 
             var THIS = this;
             this.isLoading = true;
@@ -19313,7 +19342,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             params = params.toString();
 
             Nova.request().get('/api/asana/task/show?' + params).then(function (response) {
-                _this13.isLoading = false;
+                _this14.isLoading = false;
 
                 setTimeout(function () {
                     THIS.uiUpdateMounted();
@@ -19404,7 +19433,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             return [date.getFullYear(), mnth, day].join("-");
         },
         createSubTask: function createSubTask(id) {
-            var _this14 = this;
+            var _this15 = this;
 
             __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.task-details-wrapper').hide();
             __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.loader-io').css('display', 'flex');
@@ -19414,10 +19443,10 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                 __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.task-details-wrapper').show();
 
                 if (response.data.status === 200) {
-                    _this14.createNewSubTask = false;
-                    _this14.taskDetails.subTasks.push(response.data.data);
+                    _this15.createNewSubTask = false;
+                    _this15.taskDetails.subTasks.push(response.data.data);
                 } else {
-                    _this14.errors = response.data.errors;
+                    _this15.errors = response.data.errors;
                 }
             });
         },
@@ -19445,7 +19474,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             }
         },
         inlineSubTaskUpdate: function inlineSubTaskUpdate(id, index, name, e) {
-            var _this15 = this;
+            var _this16 = this;
 
             __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.task-details-wrapper').hide();
             __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.loader-io').css('display', 'flex');
@@ -19478,24 +19507,24 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
                 if (response.data.status === 200) {
                     if (name == 'name') {
-                        _this15.taskDetails.subTasks[index][0].data.name = e.target.value;
+                        _this16.taskDetails.subTasks[index][0].data.name = e.target.value;
                     } else if (name == 'notes') {
-                        _this15.taskDetails.subTasks[index][0].data.notes = e.target.value;
+                        _this16.taskDetails.subTasks[index][0].data.notes = e.target.value;
                     } else if (name == 'due_on') {
-                        _this15.taskDetails.subTasks[index][0].data.due_on = _this15.convert(e);
+                        _this16.taskDetails.subTasks[index][0].data.due_on = _this16.convert(e);
                     } else if (name == 'section') {
-                        _this15.taskDetails.subTasks[index][0].data.memberships[0].section.gid = e.target.value;
-                        _this15.taskDetails.subTasks[index][0].data.memberships[0].section.name = e.target.options[e.target.selectedIndex].text;
+                        _this16.taskDetails.subTasks[index][0].data.memberships[0].section.gid = e.target.value;
+                        _this16.taskDetails.subTasks[index][0].data.memberships[0].section.name = e.target.options[e.target.selectedIndex].text;
                     } else if (name == 'assignee') {
-                        _this15.taskDetails.subTasks[index][0].data.assignee = e;
+                        _this16.taskDetails.subTasks[index][0].data.assignee = e;
                     }
                 } else {
-                    _this15.errors = response.data.errors;
+                    _this16.errors = response.data.errors;
                 }
             });
         },
         storeTaskComment: function storeTaskComment(id) {
-            var _this16 = this;
+            var _this17 = this;
 
             __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.loader-io').css('display', 'flex');
             __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.task-details-wrapper').hide();
@@ -19505,8 +19534,8 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                 __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.task-details-wrapper').show();
 
                 if (response.data.status === 200) {
-                    _this16.taskComment = '';
-                    _this16.taskDetails.comments = response.data.data;
+                    _this17.taskComment = '';
+                    _this17.taskDetails.comments = response.data.data;
                     __WEBPACK_IMPORTED_MODULE_0_sweetalert2___default.a.fire({
                         type: 'success',
                         position: 'top-end',
@@ -19516,7 +19545,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                     });
                 } else {
                     if (response.data.errors) {
-                        _this16.errors = response.data.errors;
+                        _this17.errors = response.data.errors;
                     }
 
                     __WEBPACK_IMPORTED_MODULE_0_sweetalert2___default.a.fire({
@@ -19530,7 +19559,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             });
         },
         showChildTask: function showChildTask(id, parentId, parentName) {
-            var _this17 = this;
+            var _this18 = this;
 
             this.taskParents.push({
                 id: parentId,
@@ -19545,14 +19574,14 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                 __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.task-details-wrapper').show();
 
                 if (response.status == 200) {
-                    _this17.taskDetails = response.data.data;
+                    _this18.taskDetails = response.data.data;
                 } else {
-                    _this17.errors = response.data.msg.errors;
+                    _this18.errors = response.data.msg.errors;
                 }
             });
         },
         showParentTask: function showParentTask(id, index) {
-            var _this18 = this;
+            var _this19 = this;
 
             if (this.taskParents.length == 1) {
                 this.taskParents = [];
@@ -19574,9 +19603,9 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                 __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.task-details-wrapper').show();
 
                 if (response.status == 200) {
-                    _this18.taskDetails = response.data.data;
+                    _this19.taskDetails = response.data.data;
                 } else {
-                    _this18.errors = response.data.msg.errors;
+                    _this19.errors = response.data.msg.errors;
                 }
             });
         },
@@ -19667,7 +19696,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             }, 1000);
         },
         sortTask: function sortTask() {
-            var _this19 = this;
+            var _this20 = this;
 
             var _this = this;
             this.isSort = !this.isSort;
@@ -19682,38 +19711,56 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                 this.isLoading = true;
 
                 Nova.request().get('/api/asana/task/sort?' + params).then(function (response) {
-                    _this19.isLoading = false;
+                    _this20.isLoading = false;
 
                     if (response.status == 200) {
-                        _this19.tasks = response.data.data.tasks;
-                        _this19.sectionData = response.data.data.sections;
+                        _this20.tasks = response.data.data.tasks;
+                        _this20.sectionData = response.data.data.sections;
 
                         setTimeout(function () {
                             _this.uiUpdateMounted();
                         }, 500);
                     } else {
-                        _this19.errors = response.data.msg.errors;
+                        _this20.errors = response.data.msg.errors;
                     }
                 });
             } else {
                 this.getProjects();
             }
+        },
+        storeNewTemplateProject: function storeNewTemplateProject() {
+            var _this21 = this;
+
+            this.isLoading = true;
+            var formData = new FormData();
+            formData.append('name', this.community.STATE + '-' + this.community.COUNTY + '-' + this.community.FRIENDLYNAME + '-' + this.community.COMMUNITYID + '-Onboarding');
+            formData.append('osusr_mlv_community_id', this.community.COMMUNITYID);
+
+            Nova.request().post('/api/asana/project/duplicate', formData).then(function (response) {
+                _this21.isLoading = false;
+
+                if (response.data.status === 200) {
+                    _this21.getProjects();
+                } else {
+                    _this21.errors = response.data.errors;
+                }
+            });
         }
     },
     created: function created() {
-        var _this20 = this;
+        var _this22 = this;
 
         Nova.request().post('/nova-vendor/community-summary/community', {
             communityId: this.resourceId
         }).then(function (response) {
             console.log(response.data);
-            _this20.community = response.data[0];
-            _this20.loaded = true;
+            _this22.community = response.data[0];
+            _this22.loaded = true;
         });
         Nova.request().post('/nova-vendor/community-summary/foreclosures', {
             communityId: this.resourceId
         }).then(function (response) {
-            _this20.estForeclosures = response.data;
+            _this22.estForeclosures = response.data;
         });
         this.getLatestActivity();
         this.getPendingChangeCount();
@@ -50637,6 +50684,21 @@ var render = function() {
                   },
                   [_vm._v("Create Project")]
                 )
+              : _vm._e(),
+            _vm._v(" "),
+            !_vm.isLoading && _vm.projectDetails && _vm.projects.length == 1
+              ? _c(
+                  "a",
+                  {
+                    staticClass: "btn btn-default btn-primary",
+                    attrs: {
+                      href: "javascript:void(0)",
+                      dusk: "create-button"
+                    },
+                    on: { click: _vm.storeNewTemplateProject }
+                  },
+                  [_vm._v("Create Onboardingasa Project")]
+                )
               : _vm._e()
           ])
         ])
@@ -50660,22 +50722,36 @@ var render = function() {
                         _c(
                           "div",
                           { staticClass: "tabs flex flex-row overflow-x-auto" },
-                          [
-                            _c(
+                          _vm._l(_vm.projects, function(project) {
+                            return _c(
                               "button",
                               {
                                 staticClass:
-                                  "py-5 px-8 border-b-2 focus:outline-none tab text-grey-black font-bold border-primary"
+                                  "py-5 px-8 border-b-2 focus:outline-none tab",
+                                class: {
+                                  "text-grey-black font-bold border-primary":
+                                    project.data.gid === _vm.activeProject,
+                                  "text-grey font-semibold border-40":
+                                    project.data.gid !== _vm.activeProject
+                                },
+                                on: {
+                                  click: function($event) {
+                                    return _vm.getProjectDetails(
+                                      project.data.gid
+                                    )
+                                  }
+                                }
                               },
                               [
                                 _vm._v(
                                   "\n                            " +
-                                    _vm._s(_vm.projectDetails.data.name) +
+                                    _vm._s(project.data.name) +
                                     "\n                        "
                                 )
                               ]
                             )
-                          ]
+                          }),
+                          0
                         )
                       ]
                     ),

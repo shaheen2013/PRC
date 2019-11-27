@@ -23,7 +23,8 @@ Route::group(['prefix' => 'asana'], function () {
         Route::get('/', 'ProjectController@index');
         Route::get('/create', 'ProjectController@create');
         Route::post('/store', 'ProjectController@store');
-        Route::post('/{id}/duplicate', 'ProjectController@duplicate');
+        Route::get('/show/{id}', 'ProjectController@show');
+        Route::post('/duplicate', 'ProjectController@duplicate');
         Route::get('/{id}/edit', 'ProjectController@edit');
         Route::put('/update/{id}', 'ProjectController@update');
         Route::delete('/destroy/{id}', 'ProjectController@destroy');

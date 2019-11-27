@@ -32,18 +32,25 @@ class ProjectController extends Controller
         // Get all Asana projects
         try {
             // Get all projects by community_id
-            $dbProjects = Project::where('osusr_mlv_community_id', $request->osusr_mlv_community_id)->first();
+            $dbProject = Project::where('osusr_mlv_community_id', $request->osusr_mlv_community_id)->first();
 
-            if ($dbProjects) {
+            if ($dbProject) {
                 $project = [];
+                $projects = [];
 
-                $project[] = json_decode($this->asana->getProject($dbProjects->project_id), 1);
+                $dbProjects = Project::where('osusr_mlv_community_id', $request->osusr_mlv_community_id)->get();
+
+                foreach ($dbProjects as $item) {
+                    $projects[] = json_decode($this->asana->getProject($item->project_id),1);
+                }
+
+                $project[] = json_decode($this->asana->getProject($dbProject->project_id),1);
 
                 $project['users'] = json_decode($this->asana->getWorkspaceUsers('25961259746709'));
 
                 // Get sections
                 $sections = [];
-                $secctionData = json_decode($this->asana->getProjectSections($dbProjects->project_id));
+                $secctionData = json_decode($this->asana->getProjectSections($dbProject->project_id));
                 $project['sections'] = $secctionData;
 
                 foreach ($secctionData->data as $datum) {
@@ -90,7 +97,7 @@ class ProjectController extends Controller
 
                 $project['sectionData'] = $sections;
 
-                return response()->json(['status' => 200, 'data' => $project], 200);
+                return response()->json(['status' => 200, 'data' => ['project' => $project, 'projects' => $projects]], 200);
             } else {
                 return response()->json(['status' => 200, 'data' => null], 200);
             }
@@ -176,7 +183,62 @@ class ProjectController extends Controller
      */
     public function show($id)
     {
-        //
+        $project = [];
+
+        $project[] = json_decode($this->asana->getProject($id),1);
+
+        $project['users'] = json_decode($this->asana->getWorkspaceUsers('25961259746709'));
+
+        // Get sections
+        $sections = [];
+        $secctionData = json_decode($this->asana->getProjectSections($id));
+        $project['sections'] = $secctionData;
+
+        foreach ($secctionData->data as $datum) {
+            $temp = [];
+            $tempTasks = [];
+            $temp[] = $datum;
+
+            $ch = curl_init();
+
+            curl_setopt($ch, CURLOPT_URL, 'https://app.asana.com/api/1.0/sections/'. $datum->gid .'/tasks');
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
+
+            $headers = array();
+            $headers[] = 'Accept: application/json';
+            $headers[] = 'Authorization: Bearer '. env('ASANA_PAT');
+
+            curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+            $result = json_decode(curl_exec($ch), 1);
+
+            foreach ($result['data'] as $task) {
+                $tempTask = [];
+                $tempTask[] = json_decode($this->asana->getTask($task['gid']), 1);
+
+                if ($tempTask[0]['data']['parent'] == null) {
+                    $subTasks = json_decode($this->asana->getSubTasks($task['gid']));
+                    $comments = json_decode($this->asana->getTaskStories($task['gid']));
+                    $tempTask['subTasks'] = count($subTasks->data);
+                    $tempTask['comments'] = count($comments->data);
+                    $tempTasks[] = $tempTask;
+                }
+            }
+
+            $temp['tasks'] = $tempTasks;
+            $sections[] = $temp;
+
+            if (curl_errno($ch)) {
+                echo 'Error:' . curl_error($ch);
+            }
+
+            curl_close($ch);
+        }
+
+        $project['sectionData'] = $sections;
+
+        return response()->json(['status' => 200, 'data' => $project], 200);
     }
 
     /**
@@ -254,16 +316,13 @@ class ProjectController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  Int $id
      * @return \Illuminate\Http\Response
      */
-    public function duplicate(Request $request, $id)
+    public function duplicate(Request $request)
     {
         // Validate form data
         $rules = array(
             'name' => 'required|string|max:255',
-            'team' => 'required|string',
-            'should_skip_weekends' => 'required|string',
             'osusr_mlv_community_id' => 'required|integer',
         );
 
@@ -276,17 +335,31 @@ class ProjectController extends Controller
         // Create a new project
         try {
             $data = [
-                'name' => $request->name,
-                'team' => $request->team,
-                'schedule_dates' => [
-                    'should_skip_weekends' => $request->should_skip_weekends,
-                    'due_on' => date('Y-m-d'),
+                'data' => [
+                    'name' => $request->name,
+                    "include" => array(
+                        "members",
+                        "task_notes",
+                        "task_assignee",
+                        "task_subtasks",
+                        "task_attachments",
+                        "task_dates",
+                        "task_dependencies",
+                        "task_followers",
+                        "task_tags",
+                        "task_projects"
+                    ),
+                    'schedule_dates' => [
+                        'should_skip_weekends' => true,
+                        'start_on' => date('Y-m-d'),
+                    ]
                 ]
             ];
+            $data = json_encode($data);
 
             $ch = curl_init();
 
-            curl_setopt($ch, CURLOPT_URL, 'https://app.asana.com/api/1.0/projects/' . $id . '/duplicate');
+            curl_setopt($ch, CURLOPT_URL, 'https://app.asana.com/api/1.0/projects/1124713106776588/duplicate');
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
             curl_setopt($ch, CURLOPT_POST, 1);
 
@@ -305,7 +378,7 @@ class ProjectController extends Controller
 
             $newProject = new Project();
             $newProject->osusr_mlv_community_id = $request->osusr_mlv_community_id;
-            $newProject->project_id = $project->data->gid;
+            $newProject->project_id = $project->data->new_project->gid;
             $newProject->save();
 
             return response()->json(['status' => 200, 'data' => $project], 200);

@@ -175,12 +175,11 @@
         </loading-card>
         <br><br>
         <div class="flex mb-4">
-            <!---->
             <div class="w-full flex items-center">
                 <h1 class="flex-no-shrink text-90 font-normal text-2xl">Tasks/Projects</h1>
-                <!---->
                 <div class="flex-no-shrink ml-auto mb-6">
                     <a href="javascript:void(0)" v-if="!isLoading && projectDetails == null" @click="createProject" class="btn btn-default btn-primary" dusk="create-button">Create Project</a>
+                    <a href="javascript:void(0)" v-if="!isLoading && projectDetails && projects.length == 1" @click="storeNewTemplateProject" class="btn btn-default btn-primary" dusk="create-button">Create Onboardingasa Project</a>
                 </div>
             </div>
         </div>
@@ -198,8 +197,8 @@
                 <div v-if="projectDetails">
                     <div class="tabs-wrap border-b-2 border-40 w-full">
                         <div class="tabs flex flex-row overflow-x-auto">
-                            <button class="py-5 px-8 border-b-2 focus:outline-none tab text-grey-black font-bold border-primary">
-                                {{ projectDetails.data.name }}
+                            <button class="py-5 px-8 border-b-2 focus:outline-none tab" v-for="project in projects" :class="{'text-grey-black font-bold border-primary' : project.data.gid === activeProject, 'text-grey font-semibold border-40' : project.data.gid !== activeProject}" @click="getProjectDetails(project.data.gid)">
+                                {{ project.data.name }}
                             </button>
                         </div>
                     </div>
@@ -853,6 +852,8 @@
                 loaded: false,
                 latestActivity: null,
                 pendingChanges: 0,
+                projects: [],
+                activeProject: null,
                 tasks: [],
                 users: [],
                 sections: [],
@@ -1576,17 +1577,19 @@
                     this.isLoading = false;
 
                     if (response.data.data) {
-                        this.projectDetails = response.data.data[0];
+                        this.projectDetails = response.data.data.project[0];
+                        this.projects = response.data.data.projects;
+                        this.activeProject = this.projectDetails.data.gid;
                         this.taskFilter.project = this.projectDetails.data.gid;
-                        this.tasks = this.projectDetails.tasks;
-                        this.sections = response.data.data['sections'].data;
-                        this.sectionData = response.data.data['sectionData'];
-                        this.users = response.data.data['users'].data;
+                        this.sections = response.data.data.project['sections'].data;
+                        this.sectionData = response.data.data.project['sectionData'];
+                        this.users = response.data.data.project['users'].data;
                         this.task.projects = [this.projectDetails.data.gid];
                         this.subTask.project = this.projectDetails.data.gid;
                         this.task.workspace = this.projectDetails.data.workspace.gid;
                     } else {
                         this.projectDetails = null;
+                        this.projects = [];
                     }
 
                     setTimeout(function () {
@@ -1606,6 +1609,32 @@
                     } else {
                         this.errors = response.data.errors;
                     }
+                });
+            },
+            getProjectDetails(id) {
+                let _this = this;
+                this.isLoading = true;
+
+                Nova.request().get('/api/asana/project/show/' + id).then(response => {
+                    this.isLoading = false;
+
+                    if (response.data.data) {
+                        this.projectDetails = response.data.data[0];
+                        this.activeProject = this.projectDetails.data.gid;
+                        this.taskFilter.project = this.projectDetails.data.gid;
+                        this.sections = response.data.data['sections'].data;
+                        this.sectionData = response.data.data['sectionData'];
+                        this.users = response.data.data['users'].data;
+                        this.task.projects = [this.projectDetails.data.gid];
+                        this.subTask.project = this.projectDetails.data.gid;
+                        this.task.workspace = this.projectDetails.data.workspace.gid;
+                    } else {
+
+                    }
+
+                    setTimeout(function () {
+                        _this.uiUpdateMounted()
+                    }, 500);
                 });
             },
             storeTask() {
@@ -2150,6 +2179,22 @@
                 } else {
                     this.getProjects();
                 }
+            },
+            storeNewTemplateProject() {
+                this.isLoading = true;
+                let formData = new FormData();
+                formData.append('name', this.community.STATE + '-' + this.community.COUNTY + '-' + this.community.FRIENDLYNAME + '-' + this.community.COMMUNITYID + '-Onboarding');
+                formData.append('osusr_mlv_community_id', this.community.COMMUNITYID);
+
+                Nova.request().post('/api/asana/project/duplicate', formData).then(response => {
+                    this.isLoading = false;
+
+                    if (response.data.status === 200) {
+                        this.getProjects();
+                    } else {
+                        this.errors = response.data.errors;
+                    }
+                });
             }
         },
         created() {
