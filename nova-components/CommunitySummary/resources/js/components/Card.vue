@@ -179,7 +179,7 @@
                 <h1 class="flex-no-shrink text-90 font-normal text-2xl">Tasks/Projects</h1>
                 <div class="flex-no-shrink ml-auto mb-6">
                     <a href="javascript:void(0)" v-if="!isLoading && projectDetails == null" @click="createProject" class="btn btn-default btn-primary" dusk="create-button">Create Project</a>
-                    <a href="javascript:void(0)" v-if="!isLoading && projectDetails && projects.length == 1" @click="storeNewTemplateProject" class="btn btn-default btn-primary" dusk="create-button">Create Onboardingasa Project</a>
+                    <a href="javascript:void(0)" v-if="!isLoading && projectDetails && projects.length == 1" @click="storeNewTemplateProject" class="btn btn-default btn-primary" dusk="create-button">Create Onboarding Project</a>
                 </div>
             </div>
         </div>

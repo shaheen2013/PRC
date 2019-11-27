@@ -50697,7 +50697,7 @@ var render = function() {
                     },
                     on: { click: _vm.storeNewTemplateProject }
                   },
-                  [_vm._v("Create Onboardingasa Project")]
+                  [_vm._v("Create Onboarding Project")]
                 )
               : _vm._e()
           ])
