@@ -45,6 +45,8 @@ Route::group(['prefix' => 'asana'], function () {
     });
 });
 
+Route::get('/connect/oauth/asana/secure', 'AsanaController@index');
+
 Route::get('/community/{community}/remittance/contacts', function ($community_id) {
     $community = CMCommunity::with(['salesConfiguration'])->find($community_id);
     if ($community) {
