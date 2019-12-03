@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['prefix' => 'asana'], function () {
     Route::group(['prefix' => 'project',], function () {
-        Route::get('/', 'ProjectController@index');
+        Route::get('/', 'ProjectController@index')->name('projectIndex');
         Route::get('/create', 'ProjectController@create');
         Route::post('/store', 'ProjectController@store');
         Route::get('/show/{id}', 'ProjectController@show');
@@ -28,6 +28,8 @@ Route::group(['prefix' => 'asana'], function () {
         Route::get('/{id}/edit', 'ProjectController@edit');
         Route::put('/update/{id}', 'ProjectController@update');
         Route::delete('/destroy/{id}', 'ProjectController@destroy');
+        
+        Route::get('/showlike/{id}', 'ProjectController@getTaskLikeById');
     });
     Route::group(['prefix' => 'task',], function () {
         Route::get('/', 'TaskController@index');
@@ -45,7 +47,7 @@ Route::group(['prefix' => 'asana'], function () {
     });
 });
 
-Route::get('/connect/oauth/asana/secure', 'AsanaController@index');
+
 
 Route::get('/community/{community}/remittance/contacts', function ($community_id) {
     $community = CMCommunity::with(['salesConfiguration'])->find($community_id);

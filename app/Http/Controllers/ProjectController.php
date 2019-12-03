@@ -6,9 +6,14 @@ use Asana;
 use App\Project;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use App\Accesstoken;
+use Carbon\Carbon;
 
 class ProjectController extends Controller
 {
+    private $token;
+    private $asana;
+    private $genToken = false;
     /**
      * Create a new controller instance.
      *
@@ -16,10 +21,17 @@ class ProjectController extends Controller
      */
     public function __construct()
     {
-        // $this->middleware('auth');
-        $this->asana = new Asana([
-            'personalAccessToken' => env('ASANA_PAT')
-        ]);
+        $token = Accesstoken::where('client_id', '1151360720602219')->first();
+        if($token){
+            $token = $this->checkToken($token);
+            
+            $this->token = $token;
+            $this->asana = new Asana([
+                'personalAccessToken' => $token
+            ]);
+        }else{
+            $this->genToken = true;
+        }
     }
 
     /**
@@ -29,6 +41,11 @@ class ProjectController extends Controller
      */
     public function index(Request $request)
     {
+        // Check For Access Token
+        if($this->genToken){
+            return response()->json(['status' => 200, 'data' => ['project' => [], 'projects' => [], 'genToken' => $this->genToken]], 200);
+        }
+        // dd($this->token);
         // Get all Asana projects
         try {
             // Get all projects by community_id
@@ -53,7 +70,7 @@ class ProjectController extends Controller
                 $secctionData = json_decode($this->asana->getProjectSections($dbProject->project_id));
                 $project['sections'] = $secctionData;
 
-                foreach ($secctionData->data as $datum) {
+                foreach ($secctionData->data as $key => $datum) {
                     $temp = [];
                     $tempTasks = [];
                     $temp[] = $datum;
@@ -66,27 +83,21 @@ class ProjectController extends Controller
 
                     $headers = array();
                     $headers[] = 'Accept: application/json';
-                    $headers[] = 'Authorization: Bearer '. env('ASANA_PAT');
+                    $headers[] = 'Authorization: Bearer '. $this->token;
 
                     curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 
                     $result = json_decode(curl_exec($ch), 1);
 
-                    foreach ($result['data'] as $task) {
-                        $tempTask = [];
-                        $tempTask[] = json_decode($this->asana->getTask($task['gid']), 1);
-
-                        if ($tempTask[0]['data']['parent'] == null) {
-                            $subTasks = json_decode($this->asana->getSubTasks($task['gid']));
-                            $comments = json_decode($this->asana->getTaskStories($task['gid']));
-                            $tempTask['subTasks'] = count($subTasks->data);
-                            $tempTask['comments'] = count($comments->data);
-                            $tempTasks[] = $tempTask;
+                    if (isset($result['data'])) {
+                        foreach ($result['data'] as $key => $task) {
+                            $tempTask = [];
+                            $tempTask[] = [];
                         }
                     }
 
                     $temp['tasks'] = $tempTasks;
-                    $sections[] = $temp;
+                    $sections[] = $temp;                    
 
                     if (curl_errno($ch)) {
                         echo 'Error:' . curl_error($ch);
@@ -97,7 +108,7 @@ class ProjectController extends Controller
 
                 $project['sectionData'] = $sections;
 
-                return response()->json(['status' => 200, 'data' => ['project' => $project, 'projects' => $projects]], 200);
+                return response()->json(['status' => 200, 'data' => ['project' => $project, 'projects' => $projects, 'genToken' => $this->genToken]], 200);
             } else {
                 return response()->json(['status' => 200, 'data' => null], 200);
             }
@@ -194,7 +205,8 @@ class ProjectController extends Controller
         $secctionData = json_decode($this->asana->getProjectSections($id));
         $project['sections'] = $secctionData;
 
-        foreach ($secctionData->data as $datum) {
+        foreach ($secctionData->data as $key => $datum) {
+
             $temp = [];
             $tempTasks = [];
             $temp[] = $datum;
@@ -212,8 +224,46 @@ class ProjectController extends Controller
             curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 
             $result = json_decode(curl_exec($ch), 1);
+            foreach ($result['data'] as $key => $task) {
+                $tempTask = [];
+                $tempTask[] = [];
+            }
 
-            foreach ($result['data'] as $task) {
+            $temp['tasks'] = $tempTasks;
+            $sections[] = $temp;
+
+            if (curl_errno($ch)) {
+                echo 'Error:' . curl_error($ch);
+            }
+
+            curl_close($ch);
+        }
+
+        $project['sectionData'] = $sections;
+
+        return response()->json(['status' => 200, 'data' => $project], 200);
+    }
+    public function getTaskLikeById($id){
+            $temp = [];
+            $tempTasks = [];
+
+
+            $ch = curl_init();
+
+            curl_setopt($ch, CURLOPT_URL, 'https://app.asana.com/api/1.0/sections/'. $id .'/tasks');
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
+
+            $headers = array();
+            $headers[] = 'Accept: application/json';
+            $headers[] = 'Authorization: Bearer '. env('ASANA_PAT');
+
+            curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+            $result = json_decode(curl_exec($ch), 1);
+            foreach ($result['data'] as $key => $task) {
+               if($key > 1) break;
+
                 $tempTask = [];
                 $tempTask[] = json_decode($this->asana->getTask($task['gid']), 1);
 
@@ -234,11 +284,73 @@ class ProjectController extends Controller
             }
 
             curl_close($ch);
+
+
+        return response()->json(['status' => 200, 'data' => $sections, 'section_id' => $id], 200);
+    }
+    private function checkToken($token)
+    {
+        $createdAt = $token->updated_at->addHours(1);
+        // dd($createdAt);
+        // $createdAt = $token->updated_at->addMinutes(30);
+        $isValid = $this->tokenExpired($createdAt);
+        if($isValid){
+            $data = [
+                'grant_type'    => 'refresh_token',
+                'client_id'     => env('ASANA_CLIENT_ID'),
+                'client_secret' => env('ASANA_CLIENT_SECRET'),
+                'redirect_uri'  => env('ASANA_REDIRECT_URL'),
+                'code'          => $token->code,
+                'refresh_token' => $token->refresh_token
+            ];
+            
+            $curl = curl_init();
+            
+            curl_setopt_array($curl, array(
+                CURLOPT_URL => "https://app.asana.com/-/oauth_token",
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_ENCODING => "",
+                CURLOPT_MAXREDIRS => 10,
+                CURLOPT_TIMEOUT => 30000,
+                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                CURLOPT_CUSTOMREQUEST => "POST",
+                CURLOPT_POSTFIELDS => $data,
+            ));
+            
+            $response = curl_exec($curl);
+            $err = curl_error($curl);
+            
+            curl_close($curl);
+            $code = $token->code;
+            $refresh = $token->refresh_token;
+            $client = $token->client_id;
+            if ($err) {
+                echo "cURL Error #:" . $err;
+            } else {
+                $token = Accesstoken::where('client_id', '1151360720602219')->first();
+                if(!$token){
+                    $token = new Accesstoken();
+                    $token->client_id = $client;
+                }
+                $token->code = $code;
+                $token->token_type = json_decode($response)->token_type;
+                $token->expires_in = json_decode($response)->expires_in;
+                $token->access_token = json_decode($response)->access_token;
+                $token->data = json_encode(json_decode($response)->data);
+                $token->refresh_token = $refresh;
+                $token->save();
+            }
+            return json_decode($response)->access_token;
         }
+        return $token->access_token;
+    }
 
-        $project['sectionData'] = $sections;
-
-        return response()->json(['status' => 200, 'data' => $project], 200);
+    public function tokenExpired($dt)
+    {
+        if (Carbon::parse($dt) < Carbon::now()) {
+            return true;
+        }
+        return false;
     }
 
     /**

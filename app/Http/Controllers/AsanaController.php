@@ -48,17 +48,17 @@ class AsanaController extends Controller
             $result = $this->asanaAuth->getData();
             $this->asana = $result;
             // Now we can create a normal asana object with the access token.
-            $asana = new Asana(array('accessToken' => $result->access_token));
-            $asana->getProjects();
-            // As Asana API documentation says, when response is successful, we receive a 200 in response so...
-            if ($asana->hasError()) {
-                echo 'Error while trying to connect to Asana, response code: ' . $asana->responseCode;
-                return;
-            }
-            // $asana->getData() contains an object in json with all projects
-            foreach ($asana->getData() as $project) {
-                echo 'Project ID: ' . $project->id . ' is ' . $project->name . '<br>' . PHP_EOL;
-            }
+           $asana = new Asana(array('accessToken' => $result->access_token));
+           $asana->getProjects();
+           // As Asana API documentation says, when response is successful, we receive a 200 in response so...
+           if ($asana->hasError()) {
+               echo 'Error while trying to connect to Asana, response code: ' . $asana->responseCode;
+               return;
+           }
+           // $asana->getData() contains an object in json with all projects
+           foreach ($asana->getData() as $project) {
+               echo 'Project ID: ' . $project->id . ' is ' . $project->name . '<br>' . PHP_EOL;
+           }
         }
     }
 

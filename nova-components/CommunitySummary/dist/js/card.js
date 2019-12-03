@@ -18336,6 +18336,10 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -19095,11 +19099,13 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             var _this = this;
             this.isLoading = true;
             this.project.name = null;
-
             Nova.request().get('/api/asana/project?osusr_mlv_community_id=' + this.resourceId).then(function (response) {
                 _this6.isLoading = false;
 
                 if (response.data.data) {
+                    if (response.data.data.genToken === true) {
+                        __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('#authAsana').css('visibility', 'visible');
+                    }
                     _this6.projectDetails = response.data.data.project[0];
                     _this6.projects = response.data.data.projects;
                     _this6.activeProject = _this6.projectDetails.data.gid;
@@ -19110,6 +19116,23 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                     _this6.task.projects = [_this6.projectDetails.data.gid];
                     _this6.subTask.project = _this6.projectDetails.data.gid;
                     _this6.task.workspace = _this6.projectDetails.data.workspace.gid;
+
+                    //Store Localstorage
+                    var activeProjectKey = _this6.projectDetails.data.gid;
+                    var activeProjectData = response.data.data.project;
+
+                    var resObjectObject = {};
+                    resObjectObject[activeProjectKey] = activeProjectData;
+                    var resObjectString = JSON.stringify(resObjectObject);
+                    localStorage.setItem('projects', resObjectString);
+
+                    var projToLoad = response.data.data.projects.filter(function (projs) {
+                        return projs.data.gid !== _this6.projectDetails.data.gid;
+                    });
+                    console.log('Filtered', projToLoad);
+                    projToLoad.map(function (proj) {
+                        _this6.asyncProjLoad(proj.data.gid);
+                    });
                 } else {
                     _this6.projectDetails = null;
                     _this6.projects = [];
@@ -19120,41 +19143,90 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                 }, 500);
             });
         },
-        createProject: function createProject() {
+        asyncProjLoad: function asyncProjLoad(id) {
             var _this7 = this;
+
+            Nova.request().get('/api/asana/project/show/' + id).then(function (response) {
+                _this7.isLoading = false;
+                if (response.data.data) {
+                    var projectDetails = response.data.data[0];
+
+                    //Store Localstorage
+                    var activeProjectKey = projectDetails.data.gid;
+                    var activeProjectData = response.data.data;
+
+                    var resObjectObject = JSON.parse(localStorage.getItem('projects'));
+                    resObjectObject[activeProjectKey] = activeProjectData;
+                    var resObjectString = JSON.stringify(resObjectObject);
+                    localStorage.setItem('projects', resObjectString);
+                }
+            });
+        },
+        createProject: function createProject() {
+            var _this8 = this;
 
             this.isLoading = true;
             this.project.name = this.community.STATE + '-' + this.community.COUNTY + '-' + this.community.FRIENDLYNAME + '-' + this.community.COMMUNITYID + '-Standard';
 
             Nova.request().post('/api/asana/project/store', this.project).then(function (response) {
-                _this7.isLoading = false;
+                _this8.isLoading = false;
 
                 if (response.data.status === 200) {
-                    _this7.getProjects();
+                    _this8.getProjects();
                 } else {
-                    _this7.errors = response.data.errors;
+                    _this8.errors = response.data.errors;
                 }
             });
         },
         getProjectDetails: function getProjectDetails(id) {
-            var _this8 = this;
+            var _this9 = this;
 
             var _this = this;
+
+            var storedItems = JSON.parse(localStorage.getItem('projects'));
+            var isProjectExists = false;
+            Object.keys(storedItems).map(function (projKey) {
+                if (projKey === id) {
+                    var curProj = storedItems[projKey];
+                    _this9.projectDetails = curProj[0];
+                    _this9.activeProject = _this9.projectDetails.data.gid;
+                    _this9.taskFilter.project = _this9.projectDetails.data.gid;
+                    _this9.sections = curProj['sections'].data;
+                    _this9.sectionData = curProj['sectionData'];
+                    _this9.users = curProj['users'].data;
+                    _this9.task.projects = [_this9.projectDetails.data.gid];
+                    _this9.subTask.project = _this9.projectDetails.data.gid;
+                    _this9.task.workspace = _this9.projectDetails.data.workspace.gid;
+                    isProjectExists = true;
+                    return true;
+                }
+            });
+            if (isProjectExists) {
+                return false;
+            }
+
             this.isLoading = true;
-
             Nova.request().get('/api/asana/project/show/' + id).then(function (response) {
-                _this8.isLoading = false;
-
+                _this9.isLoading = false;
                 if (response.data.data) {
-                    _this8.projectDetails = response.data.data[0];
-                    _this8.activeProject = _this8.projectDetails.data.gid;
-                    _this8.taskFilter.project = _this8.projectDetails.data.gid;
-                    _this8.sections = response.data.data['sections'].data;
-                    _this8.sectionData = response.data.data['sectionData'];
-                    _this8.users = response.data.data['users'].data;
-                    _this8.task.projects = [_this8.projectDetails.data.gid];
-                    _this8.subTask.project = _this8.projectDetails.data.gid;
-                    _this8.task.workspace = _this8.projectDetails.data.workspace.gid;
+                    _this9.projectDetails = response.data.data[0];
+                    _this9.activeProject = _this9.projectDetails.data.gid;
+                    _this9.taskFilter.project = _this9.projectDetails.data.gid;
+                    _this9.sections = response.data.data['sections'].data;
+                    _this9.sectionData = response.data.data['sectionData'];
+                    _this9.users = response.data.data['users'].data;
+                    _this9.task.projects = [_this9.projectDetails.data.gid];
+                    _this9.subTask.project = _this9.projectDetails.data.gid;
+                    _this9.task.workspace = _this9.projectDetails.data.workspace.gid;
+
+                    //Store Localstorage
+                    var activeProjectKey = _this9.projectDetails.data.gid;
+                    var activeProjectData = response.data.data;
+
+                    var resObjectObject = JSON.parse(localStorage.getItem('projects'));
+                    resObjectObject[activeProjectKey] = activeProjectData;
+                    var resObjectString = JSON.stringify(resObjectObject);
+                    localStorage.setItem('projects', resObjectString);
                 } else {}
 
                 setTimeout(function () {
@@ -19162,24 +19234,46 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                 }, 500);
             });
         },
+        getLikeDataById: function getLikeDataById(id) {
+            var _this10 = this;
+
+            var project = false;
+            var secDat = this.sectionData.map(function (section) {
+                if (section[0].gid == id && section.tasks.length > 0) {
+                    project = true;
+                    return;
+                }
+            });
+            if (project) return false;
+
+            __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('#spinner' + id).show();
+            Nova.request().get('/api/asana/project/showlike/' + id).then(function (response) {
+                __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('#spinner' + id).hide();
+                _this10.sectionData.map(function (section) {
+                    if (section[0].gid == response.data.section_id) {
+                        section.tasks = response.data.data[0].tasks;
+                    }
+                });
+            });
+        },
         storeTask: function storeTask() {
-            var _this9 = this;
+            var _this11 = this;
 
             this.isLoading = true;
 
             Nova.request().post('/api/asana/task/store', this.task).then(function (response) {
-                _this9.isLoading = false;
-                _this9.createNewTask = false;
+                _this11.isLoading = false;
+                _this11.createNewTask = false;
 
                 if (response.data.status === 200) {
-                    _this9.getProjects();
+                    _this11.getProjects();
                 } else {
-                    _this9.errors = response.data.errors;
+                    _this11.errors = response.data.errors;
                 }
             });
         },
         showTask: function showTask(id) {
-            var _this10 = this;
+            var _this12 = this;
 
             this.sideBar = 1;
             this.taskParents = [];
@@ -19191,9 +19285,9 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                 __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.task-details-wrapper').show();
 
                 if (response.status == 200) {
-                    _this10.taskDetails = response.data.data;
+                    _this12.taskDetails = response.data.data;
                 } else {
-                    _this10.errors = response.data.msg.errors;
+                    _this12.errors = response.data.msg.errors;
                 }
             });
         },
@@ -19227,27 +19321,27 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             this.updateTask();
         },
         updateTask: function updateTask() {
-            var _this11 = this;
+            var _this13 = this;
 
             var _this = this;
             this.taskUpdate._method = "PUT";
 
             Nova.request().post('/api/asana/task/update/' + this.taskUpdate.id, this.taskUpdate).then(function (response) {
-                _this11.isLoading = false;
+                _this13.isLoading = false;
 
                 setTimeout(function () {
                     _this.uiUpdateMounted();
                 }, 500);
 
                 if (response.data.status === 200) {
-                    _this11.taskUpdate = {};
+                    _this13.taskUpdate = {};
                 } else {
-                    _this11.errors = response.data.errors;
+                    _this13.errors = response.data.errors;
                 }
             });
         },
         inlineTaskUpdate: function inlineTaskUpdate(id, name, e) {
-            var _this12 = this;
+            var _this14 = this;
 
             __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.task-details-wrapper').hide();
             __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.loader-io').css('display', 'flex');
@@ -19280,25 +19374,25 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
                 if (response.data.status === 200) {
                     if (name == 'name') {
-                        _this12.taskDetails[0].data.name = e.target.value;
+                        _this14.taskDetails[0].data.name = e.target.value;
                     } else if (name == 'notes') {
-                        _this12.taskDetails[0].data.notes = e.target.value;
+                        _this14.taskDetails[0].data.notes = e.target.value;
                     } else if (name == 'due_on') {
-                        _this12.taskDetails[0].data.due_on = _this12.convert(e);
+                        _this14.taskDetails[0].data.due_on = _this14.convert(e);
                     } else if (name == 'section') {
-                        _this12.taskDetails[0].data.memberships[0].section.gid = e.target.value;
-                        _this12.taskDetails[0].data.memberships[0].section.name = e.target.options[e.target.selectedIndex].text;
-                        _this12.getProjects();
+                        _this14.taskDetails[0].data.memberships[0].section.gid = e.target.value;
+                        _this14.taskDetails[0].data.memberships[0].section.name = e.target.options[e.target.selectedIndex].text;
+                        _this14.getProjects();
                     } else if (name == 'assignee') {
-                        _this12.taskDetails[0].data.assignee = e;
+                        _this14.taskDetails[0].data.assignee = e;
                     }
                 } else {
-                    _this12.errors = response.data.errors;
+                    _this14.errors = response.data.errors;
                 }
             });
         },
         deleteTask: function deleteTask(id) {
-            var _this13 = this;
+            var _this15 = this;
 
             var THIS = this;
 
@@ -19310,10 +19404,10 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                 focusConfirm: true
             }).then(function (res) {
                 if (res.value !== undefined) {
-                    _this13.isLoading = true;
+                    _this15.isLoading = true;
 
                     Nova.request().post('/api/asana/task/destroy/' + id, { _method: 'DELETE' }).then(function (response) {
-                        _this13.isLoading = false;
+                        _this15.isLoading = false;
 
                         if (response.data.status === 200) {
                             THIS.getProjects();
@@ -19325,7 +19419,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             });
         },
         filterTasks: function filterTasks(key, val) {
-            var _this14 = this;
+            var _this16 = this;
 
             var THIS = this;
             this.isLoading = true;
@@ -19342,7 +19436,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             params = params.toString();
 
             Nova.request().get('/api/asana/task/show?' + params).then(function (response) {
-                _this14.isLoading = false;
+                _this16.isLoading = false;
 
                 setTimeout(function () {
                     THIS.uiUpdateMounted();
@@ -19433,7 +19527,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             return [date.getFullYear(), mnth, day].join("-");
         },
         createSubTask: function createSubTask(id) {
-            var _this15 = this;
+            var _this17 = this;
 
             __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.task-details-wrapper').hide();
             __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.loader-io').css('display', 'flex');
@@ -19443,10 +19537,10 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                 __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.task-details-wrapper').show();
 
                 if (response.data.status === 200) {
-                    _this15.createNewSubTask = false;
-                    _this15.taskDetails.subTasks.push(response.data.data);
+                    _this17.createNewSubTask = false;
+                    _this17.taskDetails.subTasks.push(response.data.data);
                 } else {
-                    _this15.errors = response.data.errors;
+                    _this17.errors = response.data.errors;
                 }
             });
         },
@@ -19474,7 +19568,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             }
         },
         inlineSubTaskUpdate: function inlineSubTaskUpdate(id, index, name, e) {
-            var _this16 = this;
+            var _this18 = this;
 
             __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.task-details-wrapper').hide();
             __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.loader-io').css('display', 'flex');
@@ -19507,24 +19601,24 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
                 if (response.data.status === 200) {
                     if (name == 'name') {
-                        _this16.taskDetails.subTasks[index][0].data.name = e.target.value;
+                        _this18.taskDetails.subTasks[index][0].data.name = e.target.value;
                     } else if (name == 'notes') {
-                        _this16.taskDetails.subTasks[index][0].data.notes = e.target.value;
+                        _this18.taskDetails.subTasks[index][0].data.notes = e.target.value;
                     } else if (name == 'due_on') {
-                        _this16.taskDetails.subTasks[index][0].data.due_on = _this16.convert(e);
+                        _this18.taskDetails.subTasks[index][0].data.due_on = _this18.convert(e);
                     } else if (name == 'section') {
-                        _this16.taskDetails.subTasks[index][0].data.memberships[0].section.gid = e.target.value;
-                        _this16.taskDetails.subTasks[index][0].data.memberships[0].section.name = e.target.options[e.target.selectedIndex].text;
+                        _this18.taskDetails.subTasks[index][0].data.memberships[0].section.gid = e.target.value;
+                        _this18.taskDetails.subTasks[index][0].data.memberships[0].section.name = e.target.options[e.target.selectedIndex].text;
                     } else if (name == 'assignee') {
-                        _this16.taskDetails.subTasks[index][0].data.assignee = e;
+                        _this18.taskDetails.subTasks[index][0].data.assignee = e;
                     }
                 } else {
-                    _this16.errors = response.data.errors;
+                    _this18.errors = response.data.errors;
                 }
             });
         },
         storeTaskComment: function storeTaskComment(id) {
-            var _this17 = this;
+            var _this19 = this;
 
             __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.loader-io').css('display', 'flex');
             __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.task-details-wrapper').hide();
@@ -19534,8 +19628,8 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                 __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.task-details-wrapper').show();
 
                 if (response.data.status === 200) {
-                    _this17.taskComment = '';
-                    _this17.taskDetails.comments = response.data.data;
+                    _this19.taskComment = '';
+                    _this19.taskDetails.comments = response.data.data;
                     __WEBPACK_IMPORTED_MODULE_0_sweetalert2___default.a.fire({
                         type: 'success',
                         position: 'top-end',
@@ -19545,7 +19639,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                     });
                 } else {
                     if (response.data.errors) {
-                        _this17.errors = response.data.errors;
+                        _this19.errors = response.data.errors;
                     }
 
                     __WEBPACK_IMPORTED_MODULE_0_sweetalert2___default.a.fire({
@@ -19559,7 +19653,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             });
         },
         showChildTask: function showChildTask(id, parentId, parentName) {
-            var _this18 = this;
+            var _this20 = this;
 
             this.taskParents.push({
                 id: parentId,
@@ -19574,14 +19668,14 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                 __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.task-details-wrapper').show();
 
                 if (response.status == 200) {
-                    _this18.taskDetails = response.data.data;
+                    _this20.taskDetails = response.data.data;
                 } else {
-                    _this18.errors = response.data.msg.errors;
+                    _this20.errors = response.data.msg.errors;
                 }
             });
         },
         showParentTask: function showParentTask(id, index) {
-            var _this19 = this;
+            var _this21 = this;
 
             if (this.taskParents.length == 1) {
                 this.taskParents = [];
@@ -19603,9 +19697,9 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                 __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.task-details-wrapper').show();
 
                 if (response.status == 200) {
-                    _this19.taskDetails = response.data.data;
+                    _this21.taskDetails = response.data.data;
                 } else {
-                    _this19.errors = response.data.msg.errors;
+                    _this21.errors = response.data.msg.errors;
                 }
             });
         },
@@ -19696,7 +19790,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             }, 1000);
         },
         sortTask: function sortTask() {
-            var _this20 = this;
+            var _this22 = this;
 
             var _this = this;
             this.isSort = !this.isSort;
@@ -19711,17 +19805,17 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                 this.isLoading = true;
 
                 Nova.request().get('/api/asana/task/sort?' + params).then(function (response) {
-                    _this20.isLoading = false;
+                    _this22.isLoading = false;
 
                     if (response.status == 200) {
-                        _this20.tasks = response.data.data.tasks;
-                        _this20.sectionData = response.data.data.sections;
+                        _this22.tasks = response.data.data.tasks;
+                        _this22.sectionData = response.data.data.sections;
 
                         setTimeout(function () {
                             _this.uiUpdateMounted();
                         }, 500);
                     } else {
-                        _this20.errors = response.data.msg.errors;
+                        _this22.errors = response.data.msg.errors;
                     }
                 });
             } else {
@@ -19729,7 +19823,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             }
         },
         storeNewTemplateProject: function storeNewTemplateProject() {
-            var _this21 = this;
+            var _this23 = this;
 
             this.isLoading = true;
             var formData = new FormData();
@@ -19737,30 +19831,30 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             formData.append('osusr_mlv_community_id', this.community.COMMUNITYID);
 
             Nova.request().post('/api/asana/project/duplicate', formData).then(function (response) {
-                _this21.isLoading = false;
+                _this23.isLoading = false;
 
                 if (response.data.status === 200) {
-                    _this21.getProjects();
+                    _this23.getProjects();
                 } else {
-                    _this21.errors = response.data.errors;
+                    _this23.errors = response.data.errors;
                 }
             });
         }
     },
     created: function created() {
-        var _this22 = this;
+        var _this24 = this;
 
         Nova.request().post('/nova-vendor/community-summary/community', {
             communityId: this.resourceId
         }).then(function (response) {
             console.log(response.data);
-            _this22.community = response.data[0];
-            _this22.loaded = true;
+            _this24.community = response.data[0];
+            _this24.loaded = true;
         });
         Nova.request().post('/nova-vendor/community-summary/foreclosures', {
             communityId: this.resourceId
         }).then(function (response) {
-            _this22.estForeclosures = response.data;
+            _this24.estForeclosures = response.data;
         });
         this.getLatestActivity();
         this.getPendingChangeCount();
@@ -50671,6 +50765,20 @@ var render = function() {
           ),
           _vm._v(" "),
           _c("div", { staticClass: "flex-no-shrink ml-auto mb-6" }, [
+            _c(
+              "a",
+              {
+                staticClass: "btn btn-default btn-primary",
+                staticStyle: { visibility: "hidden" },
+                attrs: {
+                  href: "https://nova.local/accessToken",
+                  id: "authAsana",
+                  dusk: "create-button"
+                }
+              },
+              [_vm._v("Authenticate with Asana")]
+            ),
+            _vm._v(" "),
             !_vm.isLoading && _vm.projectDetails == null
               ? _c(
                   "a",
@@ -52041,8 +52149,14 @@ var render = function() {
                                     "div",
                                     {
                                       key: index,
-                                      staticClass:
-                                        "collapse-parent collapse-open"
+                                      staticClass: "collapse-parent",
+                                      on: {
+                                        click: function($event) {
+                                          return _vm.getLikeDataById(
+                                            section[0].gid
+                                          )
+                                        }
+                                      }
                                     },
                                     [
                                       _c(
@@ -52091,94 +52205,167 @@ var render = function() {
                                       _vm._v(" "),
                                       _c(
                                         "div",
-                                        { staticClass: "nv-collapsedown" },
-                                        _vm._l(section["tasks"], function(
-                                          task,
-                                          i
-                                        ) {
-                                          return section["tasks"].length > 0
-                                            ? _c(
-                                                "div",
-                                                {
-                                                  key: i,
-                                                  staticClass:
-                                                    "task-list-body-section"
-                                                },
-                                                [
-                                                  _c(
-                                                    "div",
-                                                    {
-                                                      staticClass:
-                                                        "task-name-box cursor-pointer"
-                                                    },
-                                                    [
-                                                      _c(
-                                                        "div",
-                                                        {
-                                                          staticClass:
-                                                            "border-radious-icon",
-                                                          class: {
-                                                            "task-complete": task[0]
-                                                              .data.completed
-                                                              ? true
-                                                              : false
-                                                          },
-                                                          on: {
-                                                            click: function(
-                                                              $event
-                                                            ) {
-                                                              return _vm.toogleComplete(
-                                                                "taskDetailsCompleteness" +
-                                                                  task[0].data
-                                                                    .gid
-                                                              )
-                                                            }
-                                                          }
-                                                        },
-                                                        [
-                                                          _c(
-                                                            "svg",
-                                                            {
-                                                              staticClass:
-                                                                "MiniIcon",
-                                                              attrs: {
-                                                                viewBox:
-                                                                  "0 0 24 24"
-                                                              }
-                                                            },
-                                                            [
-                                                              _c("path", {
-                                                                attrs: {
-                                                                  d:
-                                                                    "M9.5,18.2c-0.4,0.4-1,0.4-1.4,0l-3.8-3.8C4,14,4,13.4,4.3,13s1-0.4,1.4,0l3.1,3.1l8.6-8.6c0.4-0.4,1-0.4,1.4,0s0.4,1,0,1.4 L9.5,18.2z"
-                                                                }
-                                                              })
-                                                            ]
-                                                          )
-                                                        ]
-                                                      ),
-                                                      _vm._v(" "),
-                                                      task[0].data.completed
-                                                        ? _c("input", {
-                                                            staticStyle: {
-                                                              display: "none"
-                                                            },
-                                                            attrs: {
-                                                              type: "checkbox",
-                                                              id:
-                                                                "taskDetailsCompleteness" +
-                                                                task[0].data
-                                                                  .gid,
-                                                              checked: ""
+                                        {
+                                          staticClass: "nv-collapsedown",
+                                          staticStyle: { display: "none" }
+                                        },
+                                        [
+                                          _c("div", { staticClass: "fa-3x" }, [
+                                            _c("i", {
+                                              staticClass:
+                                                "fa fa-spinner fa-spin",
+                                              staticStyle: { display: "none" },
+                                              attrs: {
+                                                id: "spinner" + section[0].gid
+                                              }
+                                            })
+                                          ]),
+                                          _vm._v(" "),
+                                          _vm._l(section["tasks"], function(
+                                            task,
+                                            i
+                                          ) {
+                                            return section["tasks"].length > 0
+                                              ? _c(
+                                                  "div",
+                                                  {
+                                                    key: i,
+                                                    staticClass:
+                                                      "task-list-body-section"
+                                                  },
+                                                  [
+                                                    _c(
+                                                      "div",
+                                                      {
+                                                        staticClass:
+                                                          "task-name-box cursor-pointer"
+                                                      },
+                                                      [
+                                                        _c(
+                                                          "div",
+                                                          {
+                                                            staticClass:
+                                                              "border-radious-icon",
+                                                            class: {
+                                                              "task-complete": task[0]
+                                                                .data.completed
+                                                                ? true
+                                                                : false
                                                             },
                                                             on: {
                                                               click: function(
                                                                 $event
                                                               ) {
+                                                                return _vm.toogleComplete(
+                                                                  "taskDetailsCompleteness" +
+                                                                    task[0].data
+                                                                      .gid
+                                                                )
+                                                              }
+                                                            }
+                                                          },
+                                                          [
+                                                            _c(
+                                                              "svg",
+                                                              {
+                                                                staticClass:
+                                                                  "MiniIcon",
+                                                                attrs: {
+                                                                  viewBox:
+                                                                    "0 0 24 24"
+                                                                }
+                                                              },
+                                                              [
+                                                                _c("path", {
+                                                                  attrs: {
+                                                                    d:
+                                                                      "M9.5,18.2c-0.4,0.4-1,0.4-1.4,0l-3.8-3.8C4,14,4,13.4,4.3,13s1-0.4,1.4,0l3.1,3.1l8.6-8.6c0.4-0.4,1-0.4,1.4,0s0.4,1,0,1.4 L9.5,18.2z"
+                                                                  }
+                                                                })
+                                                              ]
+                                                            )
+                                                          ]
+                                                        ),
+                                                        _vm._v(" "),
+                                                        task[0].data.completed
+                                                          ? _c("input", {
+                                                              staticStyle: {
+                                                                display: "none"
+                                                              },
+                                                              attrs: {
+                                                                type:
+                                                                  "checkbox",
+                                                                id:
+                                                                  "taskDetailsCompleteness" +
+                                                                  task[0].data
+                                                                    .gid,
+                                                                checked: ""
+                                                              },
+                                                              on: {
+                                                                click: function(
+                                                                  $event
+                                                                ) {
+                                                                  return _vm.editTask(
+                                                                    task[0].data
+                                                                      .gid,
+                                                                    "completed",
+                                                                    $event,
+                                                                    index,
+                                                                    i
+                                                                  )
+                                                                }
+                                                              }
+                                                            })
+                                                          : _c("input", {
+                                                              staticStyle: {
+                                                                display: "none"
+                                                              },
+                                                              attrs: {
+                                                                type:
+                                                                  "checkbox",
+                                                                id:
+                                                                  "taskDetailsCompleteness" +
+                                                                  task[0].data
+                                                                    .gid
+                                                              },
+                                                              on: {
+                                                                click: function(
+                                                                  $event
+                                                                ) {
+                                                                  return _vm.editTask(
+                                                                    task[0].data
+                                                                      .gid,
+                                                                    "completed",
+                                                                    $event,
+                                                                    index,
+                                                                    i
+                                                                  )
+                                                                }
+                                                              }
+                                                            }),
+                                                        _vm._v(" "),
+                                                        _c("span", [
+                                                          _c("input", {
+                                                            staticClass:
+                                                              "task-body-custom-input",
+                                                            attrs: {
+                                                              type: "text",
+                                                              placeholder:
+                                                                "Write a task name"
+                                                            },
+                                                            domProps: {
+                                                              value:
+                                                                task[0].data
+                                                                  .name
+                                                            },
+                                                            on: {
+                                                              change: function(
+                                                                $event
+                                                              ) {
                                                                 return _vm.editTask(
                                                                   task[0].data
                                                                     .gid,
-                                                                  "completed",
+                                                                  "name",
                                                                   $event,
                                                                   index,
                                                                   i
@@ -52186,443 +52373,328 @@ var render = function() {
                                                               }
                                                             }
                                                           })
-                                                        : _c("input", {
-                                                            staticStyle: {
-                                                              display: "none"
-                                                            },
-                                                            attrs: {
-                                                              type: "checkbox",
-                                                              id:
-                                                                "taskDetailsCompleteness" +
-                                                                task[0].data.gid
-                                                            },
-                                                            on: {
-                                                              click: function(
-                                                                $event
-                                                              ) {
-                                                                return _vm.editTask(
-                                                                  task[0].data
-                                                                    .gid,
-                                                                  "completed",
-                                                                  $event,
-                                                                  index,
-                                                                  i
+                                                        ]),
+                                                        _vm._v(" "),
+                                                        task[0].data.num_likes
+                                                          ? _c(
+                                                              "span",
+                                                              {
+                                                                staticClass:
+                                                                  "comment-section-name"
+                                                              },
+                                                              [
+                                                                _c(
+                                                                  "span",
+                                                                  {
+                                                                    staticClass:
+                                                                      "comment-count-like"
+                                                                  },
+                                                                  [
+                                                                    _vm._v(
+                                                                      _vm._s(
+                                                                        task[0]
+                                                                          .data
+                                                                          .num_likes
+                                                                      )
+                                                                    )
+                                                                  ]
+                                                                ),
+                                                                _vm._v(" "),
+                                                                _c(
+                                                                  "svg",
+                                                                  {
+                                                                    staticClass:
+                                                                      "comment-logo-like cursor-pointer",
+                                                                    attrs: {
+                                                                      viewBox:
+                                                                        "0 0 24 24"
+                                                                    }
+                                                                  },
+                                                                  [
+                                                                    _c("path", {
+                                                                      attrs: {
+                                                                        d:
+                                                                          "M2.7,8H5v2v10v2H2.7C1.2,22,0,20.8,0,19.4v-8.7C0,9.2,1.2,8,2.7,8z M23.1,9.2C22.4,8.4,21.5,8,20.5,8H16V5.2 C16,3.5,16.5,2,15.2,1c-0.6-0.5-1.5-0.6-2.2-0.5c-0.8,0.2-1.4,0.7-1.8,1.5L7,8v14h12.2c1.7,0,3.2-1.2,3.4-2.9l1.2-7 C24.1,11,23.8,10,23.1,9.2z"
+                                                                      }
+                                                                    })
+                                                                  ]
                                                                 )
-                                                              }
-                                                            }
-                                                          }),
-                                                      _vm._v(" "),
-                                                      _c("span", [
-                                                        _c("input", {
-                                                          staticClass:
-                                                            "task-body-custom-input",
-                                                          attrs: {
-                                                            type: "text",
-                                                            placeholder:
-                                                              "Write a task name"
-                                                          },
-                                                          domProps: {
-                                                            value:
-                                                              task[0].data.name
-                                                          },
-                                                          on: {
-                                                            change: function(
-                                                              $event
-                                                            ) {
-                                                              return _vm.editTask(
-                                                                task[0].data
-                                                                  .gid,
-                                                                "name",
-                                                                $event,
-                                                                index,
-                                                                i
-                                                              )
-                                                            }
-                                                          }
-                                                        })
-                                                      ]),
-                                                      _vm._v(" "),
-                                                      task[0].data.num_likes
-                                                        ? _c(
-                                                            "span",
-                                                            {
-                                                              staticClass:
-                                                                "comment-section-name"
-                                                            },
-                                                            [
-                                                              _c(
-                                                                "span",
-                                                                {
-                                                                  staticClass:
-                                                                    "comment-count-like"
-                                                                },
-                                                                [
-                                                                  _vm._v(
-                                                                    _vm._s(
+                                                              ]
+                                                            )
+                                                          : _vm._e(),
+                                                        _vm._v(" "),
+                                                        task["comments"] > 0
+                                                          ? _c(
+                                                              "span",
+                                                              {
+                                                                staticClass:
+                                                                  "comment-section-name",
+                                                                on: {
+                                                                  click: function(
+                                                                    $event
+                                                                  ) {
+                                                                    return _vm.showTask(
                                                                       task[0]
                                                                         .data
-                                                                        .num_likes
+                                                                        .gid
                                                                     )
-                                                                  )
-                                                                ]
-                                                              ),
-                                                              _vm._v(" "),
-                                                              _c(
-                                                                "svg",
-                                                                {
-                                                                  staticClass:
-                                                                    "comment-logo-like cursor-pointer",
-                                                                  attrs: {
-                                                                    viewBox:
-                                                                      "0 0 24 24"
                                                                   }
-                                                                },
-                                                                [
-                                                                  _c("path", {
-                                                                    attrs: {
-                                                                      d:
-                                                                        "M2.7,8H5v2v10v2H2.7C1.2,22,0,20.8,0,19.4v-8.7C0,9.2,1.2,8,2.7,8z M23.1,9.2C22.4,8.4,21.5,8,20.5,8H16V5.2 C16,3.5,16.5,2,15.2,1c-0.6-0.5-1.5-0.6-2.2-0.5c-0.8,0.2-1.4,0.7-1.8,1.5L7,8v14h12.2c1.7,0,3.2-1.2,3.4-2.9l1.2-7 C24.1,11,23.8,10,23.1,9.2z"
-                                                                    }
-                                                                  })
-                                                                ]
-                                                              )
-                                                            ]
-                                                          )
-                                                        : _vm._e(),
-                                                      _vm._v(" "),
-                                                      task["comments"] > 0
-                                                        ? _c(
-                                                            "span",
-                                                            {
-                                                              staticClass:
-                                                                "comment-section-name",
-                                                              on: {
-                                                                click: function(
-                                                                  $event
-                                                                ) {
-                                                                  return _vm.showTask(
-                                                                    task[0].data
-                                                                      .gid
-                                                                  )
                                                                 }
-                                                              }
-                                                            },
-                                                            [
-                                                              _c(
-                                                                "span",
-                                                                {
-                                                                  staticClass:
-                                                                    "comment-count"
-                                                                },
-                                                                [
-                                                                  _vm._v(
-                                                                    _vm._s(
-                                                                      task[
-                                                                        "comments"
-                                                                      ]
-                                                                    )
-                                                                  )
-                                                                ]
-                                                              ),
-                                                              _vm._v(" "),
-                                                              _c(
-                                                                "svg",
-                                                                {
-                                                                  staticClass:
-                                                                    "comment-logo cursor-pointer",
-                                                                  attrs: {
-                                                                    focusable:
-                                                                      "false",
-                                                                    viewBox:
-                                                                      "0 0 32 32",
-                                                                    height:
-                                                                      "14px",
-                                                                    width:
-                                                                      "14px"
-                                                                  }
-                                                                },
-                                                                [
-                                                                  _c("path", {
-                                                                    attrs: {
-                                                                      d:
-                                                                        "M5,31c-0.1,0-0.3,0-0.4-0.1C4.2,30.7,4,30.4,4,30v-7.1c-2.5-2.3-4-5.5-4-8.9C0,7.4,5.4,2,12,2h8c6.6,0,12,5.4,12,12 s-5.4,12-12,12h-8c-0.1,0-0.3,0-0.4,0l-5.9,4.8C5.4,30.9,5.2,31,5,31z M12,4C6.5,4,2,8.5,2,14c0,3,1.3,5.8,3.6,7.7C5.9,21.9,6,22.2,6,22.5v5.4l4.6-3.7C10.8,24,11,24,11.3,24h0.1c0.2,0,0.4,0,0.6,0h8c5.5,0,10-4.5,10-10S25.5,4,20,4 C20,4,12,4,12,4z"
-                                                                    }
-                                                                  })
-                                                                ]
-                                                              )
-                                                            ]
-                                                          )
-                                                        : _vm._e(),
-                                                      _vm._v(" "),
-                                                      task["subTasks"] > 0
-                                                        ? _c(
-                                                            "span",
-                                                            {
-                                                              staticClass:
-                                                                "comment-section-name",
-                                                              on: {
-                                                                click: function(
-                                                                  $event
-                                                                ) {
-                                                                  return _vm.showTask(
-                                                                    task[0].data
-                                                                      .gid
-                                                                  )
-                                                                }
-                                                              }
-                                                            },
-                                                            [
-                                                              _c(
-                                                                "span",
-                                                                {
-                                                                  staticClass:
-                                                                    "comment-count"
-                                                                },
-                                                                [
-                                                                  _vm._v(
-                                                                    _vm._s(
-                                                                      task[
-                                                                        "subTasks"
-                                                                      ]
-                                                                    )
-                                                                  )
-                                                                ]
-                                                              ),
-                                                              _vm._v(" "),
-                                                              _c(
-                                                                "svg",
-                                                                {
-                                                                  staticClass:
-                                                                    "comment-logo cursor-pointer",
-                                                                  attrs: {
-                                                                    focusable:
-                                                                      "false",
-                                                                    viewBox:
-                                                                      "0 0 32 32",
-                                                                    height:
-                                                                      "14px",
-                                                                    width:
-                                                                      "14px"
-                                                                  }
-                                                                },
-                                                                [
-                                                                  _c("path", {
-                                                                    attrs: {
-                                                                      d:
-                                                                        "M25,20c-2.4,0-4.4,1.7-4.9,4H11c-3.9,0-7-3.1-7-7v-5h16.1c0.5,2.3,2.5,4,4.9,4c2.8,0,5-2.2,5-5s-2.2-5-5-5c-2.4,0-4.4,1.7-4.9,4H4V3c0-0.6-0.4-1-1-1S2,2.4,2,3v14c0,5,4,9,9,9h9.1c0.5,2.3,2.5,4,4.9,4c2.8,0,5-2.2,5-5S27.8,20,25,20z M25,8c1.7,0,3,1.3,3,3s-1.3,3-3,3s-3-1.3-3-3S23.3,8,25,8z M25,28c-1.7,0-3-1.3-3-3s1.3-3,3-3s3,1.3,3,3S26.7,28,25,28z"
-                                                                    }
-                                                                  })
-                                                                ]
-                                                              )
-                                                            ]
-                                                          )
-                                                        : _vm._e(),
-                                                      _vm._v(" "),
-                                                      _vm.sideBar == 0
-                                                        ? _c(
-                                                            "div",
-                                                            {
-                                                              staticClass:
-                                                                "detail-option",
-                                                              on: {
-                                                                click: function(
-                                                                  $event
-                                                                ) {
-                                                                  return _vm.showTask(
-                                                                    task[0].data
-                                                                      .gid
-                                                                  )
-                                                                }
-                                                              }
-                                                            },
-                                                            [
-                                                              _vm._v(
-                                                                "Detail\n                                                "
-                                                              ),
-                                                              _c(
-                                                                "svg",
-                                                                {
-                                                                  staticClass:
-                                                                    "MiniIcon-right",
-                                                                  attrs: {
-                                                                    viewBox:
-                                                                      "0 0 24 24"
-                                                                  }
-                                                                },
-                                                                [
-                                                                  _c("path", {
-                                                                    attrs: {
-                                                                      d:
-                                                                        "M8.9,20.4c-0.4,0-0.7-0.1-1-0.4c-0.6-0.6-0.7-1.5-0.1-2.1l5.2-5.8L7.8,6C7.3,5.4,7.3,4.4,8,3.9C8.6,3.3,9.5,3.4,10.1,4l6.1,7.1c0.5,0.6,0.5,1.4,0,2l-6.1,6.8C9.8,20.3,9.4,20.4,8.9,20.4z"
-                                                                    }
-                                                                  })
-                                                                ]
-                                                              )
-                                                            ]
-                                                          )
-                                                        : _vm._e()
-                                                    ]
-                                                  ),
-                                                  _vm._v(" "),
-                                                  _c(
-                                                    "div",
-                                                    {
-                                                      staticClass:
-                                                        "task-assignee-box cursor-pointer nv-dropdown"
-                                                    },
-                                                    [
-                                                      _c(
-                                                        "div",
-                                                        {
-                                                          staticClass:
-                                                            "nv-dropdown-trigger"
-                                                        },
-                                                        [
-                                                          task[0].data
-                                                            .assignee == null
-                                                            ? _c(
-                                                                "div",
-                                                                {
-                                                                  staticClass:
-                                                                    "assignee-box-logo",
-                                                                  attrs: {
-                                                                    id:
-                                                                      "'assignee-logo-id' + task[0].data.gid"
-                                                                  }
-                                                                },
-                                                                [
-                                                                  _c(
-                                                                    "svg",
-                                                                    {
-                                                                      staticClass:
-                                                                        "inside-logo",
-                                                                      attrs: {
-                                                                        focusable:
-                                                                          "false",
-                                                                        viewBox:
-                                                                          "0 0 32 32"
-                                                                      }
-                                                                    },
-                                                                    [
-                                                                      _c(
-                                                                        "path",
-                                                                        {
-                                                                          attrs: {
-                                                                            d:
-                                                                              "M16,18c-4.4,0-8-3.6-8-8s3.6-8,8-8s8,3.6,8,8S20.4,18,16,18z M16,4c-3.3,0-6,2.7-6,6s2.7,6,6,6s6-2.7,6-6S19.3,4,16,4z M29,32c-0.6,0-1-0.4-1-1v-4.2c0-2.6-2.2-4.8-4.8-4.8H8.8C6.2,22,4,24.2,4,26.8V31c0,0.6-0.4,1-1,1s-1-0.4-1-1v-4.2C2,23,5,20,8.8,20h14.4c3.7,0,6.8,3,6.8,6.8V31C30,31.6,29.6,32,29,32z"
-                                                                          }
-                                                                        }
-                                                                      )
-                                                                    ]
-                                                                  )
-                                                                ]
-                                                              )
-                                                            : _vm._e(),
-                                                          _vm._v(" "),
-                                                          _c("span", [
-                                                            _c("input", {
-                                                              staticClass:
-                                                                "assignee-box-input nv-dropdown-trigger",
-                                                              attrs: {
-                                                                type: "text"
                                                               },
-                                                              on: {
-                                                                keyup: function(
-                                                                  $event
-                                                                ) {
-                                                                  return _vm.textSearch(
-                                                                    $event,
-                                                                    false
-                                                                  )
-                                                                },
-                                                                blur: function(
-                                                                  $event
-                                                                ) {
-                                                                  return _vm.clearInput(
-                                                                    $event,
-                                                                    false
-                                                                  )
-                                                                }
-                                                              }
-                                                            })
-                                                          ]),
-                                                          _vm._v(" "),
-                                                          task[0].data.assignee
-                                                            ? _c(
-                                                                "div",
-                                                                {
-                                                                  staticClass:
-                                                                    "assigned-person"
-                                                                },
-                                                                [
-                                                                  _c("div", {
+                                                              [
+                                                                _c(
+                                                                  "span",
+                                                                  {
                                                                     staticClass:
-                                                                      "img-box",
-                                                                    staticStyle: {
-                                                                      "background-image":
-                                                                        "url('https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png')"
-                                                                    }
-                                                                  }),
-                                                                  _vm._v(" "),
-                                                                  _c(
-                                                                    "div",
-                                                                    {
-                                                                      staticClass:
-                                                                        "text-1"
-                                                                    },
-                                                                    [
-                                                                      _vm._v(
-                                                                        _vm._s(
-                                                                          task[0]
-                                                                            .data
-                                                                            .assignee
-                                                                            .name
-                                                                        )
+                                                                      "comment-count"
+                                                                  },
+                                                                  [
+                                                                    _vm._v(
+                                                                      _vm._s(
+                                                                        task[
+                                                                          "comments"
+                                                                        ]
                                                                       )
-                                                                    ]
-                                                                  )
-                                                                ]
-                                                              )
-                                                            : _vm._e()
-                                                        ]
-                                                      ),
-                                                      _vm._v(" "),
-                                                      _c(
-                                                        "div",
-                                                        {
-                                                          staticClass:
-                                                            "assignee-box-dropdown nv-dropdown-menu"
-                                                        },
-                                                        _vm._l(
-                                                          _vm.users,
-                                                          function(user) {
-                                                            return _vm.users
-                                                              .length > 0
+                                                                    )
+                                                                  ]
+                                                                ),
+                                                                _vm._v(" "),
+                                                                _c(
+                                                                  "svg",
+                                                                  {
+                                                                    staticClass:
+                                                                      "comment-logo cursor-pointer",
+                                                                    attrs: {
+                                                                      focusable:
+                                                                        "false",
+                                                                      viewBox:
+                                                                        "0 0 32 32",
+                                                                      height:
+                                                                        "14px",
+                                                                      width:
+                                                                        "14px"
+                                                                    }
+                                                                  },
+                                                                  [
+                                                                    _c("path", {
+                                                                      attrs: {
+                                                                        d:
+                                                                          "M5,31c-0.1,0-0.3,0-0.4-0.1C4.2,30.7,4,30.4,4,30v-7.1c-2.5-2.3-4-5.5-4-8.9C0,7.4,5.4,2,12,2h8c6.6,0,12,5.4,12,12 s-5.4,12-12,12h-8c-0.1,0-0.3,0-0.4,0l-5.9,4.8C5.4,30.9,5.2,31,5,31z M12,4C6.5,4,2,8.5,2,14c0,3,1.3,5.8,3.6,7.7C5.9,21.9,6,22.2,6,22.5v5.4l4.6-3.7C10.8,24,11,24,11.3,24h0.1c0.2,0,0.4,0,0.6,0h8c5.5,0,10-4.5,10-10S25.5,4,20,4 C20,4,12,4,12,4z"
+                                                                      }
+                                                                    })
+                                                                  ]
+                                                                )
+                                                              ]
+                                                            )
+                                                          : _vm._e(),
+                                                        _vm._v(" "),
+                                                        task["subTasks"] > 0
+                                                          ? _c(
+                                                              "span",
+                                                              {
+                                                                staticClass:
+                                                                  "comment-section-name",
+                                                                on: {
+                                                                  click: function(
+                                                                    $event
+                                                                  ) {
+                                                                    return _vm.showTask(
+                                                                      task[0]
+                                                                        .data
+                                                                        .gid
+                                                                    )
+                                                                  }
+                                                                }
+                                                              },
+                                                              [
+                                                                _c(
+                                                                  "span",
+                                                                  {
+                                                                    staticClass:
+                                                                      "comment-count"
+                                                                  },
+                                                                  [
+                                                                    _vm._v(
+                                                                      _vm._s(
+                                                                        task[
+                                                                          "subTasks"
+                                                                        ]
+                                                                      )
+                                                                    )
+                                                                  ]
+                                                                ),
+                                                                _vm._v(" "),
+                                                                _c(
+                                                                  "svg",
+                                                                  {
+                                                                    staticClass:
+                                                                      "comment-logo cursor-pointer",
+                                                                    attrs: {
+                                                                      focusable:
+                                                                        "false",
+                                                                      viewBox:
+                                                                        "0 0 32 32",
+                                                                      height:
+                                                                        "14px",
+                                                                      width:
+                                                                        "14px"
+                                                                    }
+                                                                  },
+                                                                  [
+                                                                    _c("path", {
+                                                                      attrs: {
+                                                                        d:
+                                                                          "M25,20c-2.4,0-4.4,1.7-4.9,4H11c-3.9,0-7-3.1-7-7v-5h16.1c0.5,2.3,2.5,4,4.9,4c2.8,0,5-2.2,5-5s-2.2-5-5-5c-2.4,0-4.4,1.7-4.9,4H4V3c0-0.6-0.4-1-1-1S2,2.4,2,3v14c0,5,4,9,9,9h9.1c0.5,2.3,2.5,4,4.9,4c2.8,0,5-2.2,5-5S27.8,20,25,20z M25,8c1.7,0,3,1.3,3,3s-1.3,3-3,3s-3-1.3-3-3S23.3,8,25,8z M25,28c-1.7,0-3-1.3-3-3s1.3-3,3-3s3,1.3,3,3S26.7,28,25,28z"
+                                                                      }
+                                                                    })
+                                                                  ]
+                                                                )
+                                                              ]
+                                                            )
+                                                          : _vm._e(),
+                                                        _vm._v(" "),
+                                                        _vm.sideBar == 0
+                                                          ? _c(
+                                                              "div",
+                                                              {
+                                                                staticClass:
+                                                                  "detail-option",
+                                                                on: {
+                                                                  click: function(
+                                                                    $event
+                                                                  ) {
+                                                                    return _vm.showTask(
+                                                                      task[0]
+                                                                        .data
+                                                                        .gid
+                                                                    )
+                                                                  }
+                                                                }
+                                                              },
+                                                              [
+                                                                _vm._v(
+                                                                  "Detail\n                                                "
+                                                                ),
+                                                                _c(
+                                                                  "svg",
+                                                                  {
+                                                                    staticClass:
+                                                                      "MiniIcon-right",
+                                                                    attrs: {
+                                                                      viewBox:
+                                                                        "0 0 24 24"
+                                                                    }
+                                                                  },
+                                                                  [
+                                                                    _c("path", {
+                                                                      attrs: {
+                                                                        d:
+                                                                          "M8.9,20.4c-0.4,0-0.7-0.1-1-0.4c-0.6-0.6-0.7-1.5-0.1-2.1l5.2-5.8L7.8,6C7.3,5.4,7.3,4.4,8,3.9C8.6,3.3,9.5,3.4,10.1,4l6.1,7.1c0.5,0.6,0.5,1.4,0,2l-6.1,6.8C9.8,20.3,9.4,20.4,8.9,20.4z"
+                                                                      }
+                                                                    })
+                                                                  ]
+                                                                )
+                                                              ]
+                                                            )
+                                                          : _vm._e()
+                                                      ]
+                                                    ),
+                                                    _vm._v(" "),
+                                                    _c(
+                                                      "div",
+                                                      {
+                                                        staticClass:
+                                                          "task-assignee-box cursor-pointer nv-dropdown"
+                                                      },
+                                                      [
+                                                        _c(
+                                                          "div",
+                                                          {
+                                                            staticClass:
+                                                              "nv-dropdown-trigger"
+                                                          },
+                                                          [
+                                                            task[0].data
+                                                              .assignee == null
                                                               ? _c(
                                                                   "div",
                                                                   {
                                                                     staticClass:
-                                                                      "each-assignee",
-                                                                    on: {
-                                                                      click: function(
-                                                                        $event
-                                                                      ) {
-                                                                        return _vm.editTask(
-                                                                          task[0]
-                                                                            .data
-                                                                            .gid,
-                                                                          "assignee",
-                                                                          user,
-                                                                          index,
-                                                                          i
-                                                                        )
-                                                                      }
+                                                                      "assignee-box-logo",
+                                                                    attrs: {
+                                                                      id:
+                                                                        "'assignee-logo-id' + task[0].data.gid"
                                                                     }
+                                                                  },
+                                                                  [
+                                                                    _c(
+                                                                      "svg",
+                                                                      {
+                                                                        staticClass:
+                                                                          "inside-logo",
+                                                                        attrs: {
+                                                                          focusable:
+                                                                            "false",
+                                                                          viewBox:
+                                                                            "0 0 32 32"
+                                                                        }
+                                                                      },
+                                                                      [
+                                                                        _c(
+                                                                          "path",
+                                                                          {
+                                                                            attrs: {
+                                                                              d:
+                                                                                "M16,18c-4.4,0-8-3.6-8-8s3.6-8,8-8s8,3.6,8,8S20.4,18,16,18z M16,4c-3.3,0-6,2.7-6,6s2.7,6,6,6s6-2.7,6-6S19.3,4,16,4z M29,32c-0.6,0-1-0.4-1-1v-4.2c0-2.6-2.2-4.8-4.8-4.8H8.8C6.2,22,4,24.2,4,26.8V31c0,0.6-0.4,1-1,1s-1-0.4-1-1v-4.2C2,23,5,20,8.8,20h14.4c3.7,0,6.8,3,6.8,6.8V31C30,31.6,29.6,32,29,32z"
+                                                                            }
+                                                                          }
+                                                                        )
+                                                                      ]
+                                                                    )
+                                                                  ]
+                                                                )
+                                                              : _vm._e(),
+                                                            _vm._v(" "),
+                                                            _c("span", [
+                                                              _c("input", {
+                                                                staticClass:
+                                                                  "assignee-box-input nv-dropdown-trigger",
+                                                                attrs: {
+                                                                  type: "text"
+                                                                },
+                                                                on: {
+                                                                  keyup: function(
+                                                                    $event
+                                                                  ) {
+                                                                    return _vm.textSearch(
+                                                                      $event,
+                                                                      false
+                                                                    )
+                                                                  },
+                                                                  blur: function(
+                                                                    $event
+                                                                  ) {
+                                                                    return _vm.clearInput(
+                                                                      $event,
+                                                                      false
+                                                                    )
+                                                                  }
+                                                                }
+                                                              })
+                                                            ]),
+                                                            _vm._v(" "),
+                                                            task[0].data
+                                                              .assignee
+                                                              ? _c(
+                                                                  "div",
+                                                                  {
+                                                                    staticClass:
+                                                                      "assigned-person"
                                                                   },
                                                                   [
                                                                     _c("div", {
                                                                       staticClass:
-                                                                        "profile-img",
+                                                                        "img-box",
                                                                       staticStyle: {
                                                                         "background-image":
                                                                           "url('https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png')"
@@ -52633,12 +52705,15 @@ var render = function() {
                                                                       "div",
                                                                       {
                                                                         staticClass:
-                                                                          "name-text"
+                                                                          "text-1"
                                                                       },
                                                                       [
                                                                         _vm._v(
                                                                           _vm._s(
-                                                                            user.name
+                                                                            task[0]
+                                                                              .data
+                                                                              .assignee
+                                                                              .name
                                                                           )
                                                                         )
                                                                       ]
@@ -52646,98 +52721,166 @@ var render = function() {
                                                                   ]
                                                                 )
                                                               : _vm._e()
-                                                          }
+                                                          ]
                                                         ),
-                                                        0
-                                                      )
-                                                    ]
-                                                  ),
-                                                  _vm._v(" "),
-                                                  _c(
-                                                    "div",
-                                                    {
-                                                      staticClass:
-                                                        "task-assignee-box cursor-pointer border-right-none",
-                                                      attrs: {
-                                                        title: _vm.duedate(
-                                                          task[0].data.due_on
-                                                        )
-                                                      }
-                                                    },
-                                                    [
-                                                      _c(
-                                                        "div",
-                                                        {
-                                                          staticClass:
-                                                            "assignee-box-logo"
-                                                        },
-                                                        [
-                                                          _c(
-                                                            "svg",
-                                                            {
-                                                              staticClass:
-                                                                "inside-logo",
-                                                              attrs: {
-                                                                focusable:
-                                                                  "false",
-                                                                viewBox:
-                                                                  "0 0 32 32"
-                                                              }
-                                                            },
-                                                            [
-                                                              _c("path", {
-                                                                attrs: {
-                                                                  d:
-                                                                    "M24,2V1c0-0.6-0.4-1-1-1s-1,0.4-1,1v1H10V1c0-0.6-0.4-1-1-1S8,0.4,8,1v1C4.7,2,2,4.7,2,8v16c0,3.3,2.7,6,6,6h16c3.3,0,6-2.7,6-6V8C30,4.7,27.3,2,24,2z M8,4v1c0,0.6,0.4,1,1,1s1-0.4,1-1V4h12v1c0,0.6,0.4,1,1,1s1-0.4,1-1V4c2.2,0,4,1.8,4,4v2H4V8C4,5.8,5.8,4,8,4z M24,28H8c-2.2,0-4-1.8-4-4V12h24v12C28,26.2,26.2,28,24,28z"
-                                                                }
-                                                              })
-                                                            ]
-                                                          )
-                                                        ]
-                                                      ),
-                                                      _vm._v(" "),
-                                                      _c(
-                                                        "span",
-                                                        [
-                                                          _c("flat-pickr", {
+                                                        _vm._v(" "),
+                                                        _c(
+                                                          "div",
+                                                          {
                                                             staticClass:
-                                                              "assignee-box-input assigned-input",
-                                                            attrs: {
-                                                              value:
-                                                                task[0].data
-                                                                  .due_on,
-                                                              config: {
-                                                                altInput: true,
-                                                                altFormat:
-                                                                  "F j, Y"
-                                                              },
-                                                              name: "date"
-                                                            },
-                                                            on: {
-                                                              "on-change": function(
-                                                                $event
-                                                              ) {
-                                                                return _vm.editTask(
-                                                                  task[0].data
-                                                                    .gid,
-                                                                  "due_on",
-                                                                  $event,
-                                                                  index,
-                                                                  i
-                                                                )
-                                                              }
+                                                              "assignee-box-dropdown nv-dropdown-menu"
+                                                          },
+                                                          _vm._l(
+                                                            _vm.users,
+                                                            function(user) {
+                                                              return _vm.users
+                                                                .length > 0
+                                                                ? _c(
+                                                                    "div",
+                                                                    {
+                                                                      staticClass:
+                                                                        "each-assignee",
+                                                                      on: {
+                                                                        click: function(
+                                                                          $event
+                                                                        ) {
+                                                                          return _vm.editTask(
+                                                                            task[0]
+                                                                              .data
+                                                                              .gid,
+                                                                            "assignee",
+                                                                            user,
+                                                                            index,
+                                                                            i
+                                                                          )
+                                                                        }
+                                                                      }
+                                                                    },
+                                                                    [
+                                                                      _c(
+                                                                        "div",
+                                                                        {
+                                                                          staticClass:
+                                                                            "profile-img",
+                                                                          staticStyle: {
+                                                                            "background-image":
+                                                                              "url('https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png')"
+                                                                          }
+                                                                        }
+                                                                      ),
+                                                                      _vm._v(
+                                                                        " "
+                                                                      ),
+                                                                      _c(
+                                                                        "div",
+                                                                        {
+                                                                          staticClass:
+                                                                            "name-text"
+                                                                        },
+                                                                        [
+                                                                          _vm._v(
+                                                                            _vm._s(
+                                                                              user.name
+                                                                            )
+                                                                          )
+                                                                        ]
+                                                                      )
+                                                                    ]
+                                                                  )
+                                                                : _vm._e()
                                                             }
-                                                          })
-                                                        ],
-                                                        1
-                                                      )
-                                                    ]
-                                                  )
-                                                ]
-                                              )
-                                            : _vm._e()
-                                        }),
-                                        0
+                                                          ),
+                                                          0
+                                                        )
+                                                      ]
+                                                    ),
+                                                    _vm._v(" "),
+                                                    _c(
+                                                      "div",
+                                                      {
+                                                        staticClass:
+                                                          "task-assignee-box cursor-pointer border-right-none",
+                                                        attrs: {
+                                                          title: _vm.duedate(
+                                                            task[0].data.due_on
+                                                          )
+                                                        }
+                                                      },
+                                                      [
+                                                        _c(
+                                                          "div",
+                                                          {
+                                                            staticClass:
+                                                              "assignee-box-logo"
+                                                          },
+                                                          [
+                                                            _c(
+                                                              "svg",
+                                                              {
+                                                                staticClass:
+                                                                  "inside-logo",
+                                                                attrs: {
+                                                                  focusable:
+                                                                    "false",
+                                                                  viewBox:
+                                                                    "0 0 32 32"
+                                                                }
+                                                              },
+                                                              [
+                                                                _c("path", {
+                                                                  attrs: {
+                                                                    d:
+                                                                      "M24,2V1c0-0.6-0.4-1-1-1s-1,0.4-1,1v1H10V1c0-0.6-0.4-1-1-1S8,0.4,8,1v1C4.7,2,2,4.7,2,8v16c0,3.3,2.7,6,6,6h16c3.3,0,6-2.7,6-6V8C30,4.7,27.3,2,24,2z M8,4v1c0,0.6,0.4,1,1,1s1-0.4,1-1V4h12v1c0,0.6,0.4,1,1,1s1-0.4,1-1V4c2.2,0,4,1.8,4,4v2H4V8C4,5.8,5.8,4,8,4z M24,28H8c-2.2,0-4-1.8-4-4V12h24v12C28,26.2,26.2,28,24,28z"
+                                                                  }
+                                                                })
+                                                              ]
+                                                            )
+                                                          ]
+                                                        ),
+                                                        _vm._v(" "),
+                                                        _c(
+                                                          "span",
+                                                          [
+                                                            _c("flat-pickr", {
+                                                              staticClass:
+                                                                "assignee-box-input assigned-input",
+                                                              attrs: {
+                                                                value:
+                                                                  task[0].data
+                                                                    .due_on,
+                                                                config: {
+                                                                  altInput: true,
+                                                                  altFormat:
+                                                                    "F j, Y"
+                                                                },
+                                                                name: "date"
+                                                              },
+                                                              on: {
+                                                                "on-change": function(
+                                                                  $event
+                                                                ) {
+                                                                  return _vm.editTask(
+                                                                    task[0].data
+                                                                      .gid,
+                                                                    "due_on",
+                                                                    $event,
+                                                                    index,
+                                                                    i
+                                                                  )
+                                                                }
+                                                              }
+                                                            })
+                                                          ],
+                                                          1
+                                                        )
+                                                      ]
+                                                    )
+                                                  ]
+                                                )
+                                              : _vm._e()
+                                          })
+                                        ],
+                                        2
                                       )
                                     ]
                                   )
