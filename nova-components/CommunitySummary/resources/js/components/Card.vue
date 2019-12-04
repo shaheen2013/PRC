@@ -178,7 +178,6 @@
             <div class="w-full flex items-center">
                 <h1 class="flex-no-shrink text-90 font-normal text-2xl">Tasks/Projects</h1>
                 <div class="flex-no-shrink ml-auto mb-6">
-                    <a href="https://nova.local/accessToken" id="authAsana" class="btn btn-default btn-primary" style="visibility: hidden;" dusk="create-button">Authenticate with Asana</a>
                     <a href="javascript:void(0)" v-if="!isLoading && projectDetails == null" @click="createProject" class="btn btn-default btn-primary" dusk="create-button">Create Project</a>
                     <a href="javascript:void(0)" v-if="!isLoading && projectDetails && projects.length == 1" @click="storeNewTemplateProject" class="btn btn-default btn-primary" dusk="create-button">Create Onboarding Project</a>
                 </div>
@@ -198,8 +197,8 @@
                 <div v-if="projectDetails">
                     <div class="tabs-wrap border-b-2 border-40 w-full">
                         <div class="tabs flex flex-row overflow-x-auto">
-                            <button class="py-5 px-8 border-b-2 focus:outline-none tab" v-for="project in projects" :class="{'text-grey-black font-bold border-primary' : project.data.gid === activeProject, 'text-grey font-semibold border-40' : project.data.gid !== activeProject}" @click="getProjectDetails(project.data.gid)">
-                                {{ project.data.name }}
+                            <button class="py-5 px-8 border-b-2 focus:outline-none tab" v-for="project in projects" :class="{'text-grey-black font-bold border-primary' : project.data.gid === activeProject, 'text-grey font-semibold border-40' : project.data.gid !== activeProject}" @click="getProjectDetails(project.data.gid)" :id="project.data.gid">
+                                {{ project.data.name }} <i class="fa fa-spinner fa-spin" :id="'ps' + project.data.gid"></i>
                             </button>
                         </div>
                     </div>
@@ -1593,20 +1592,34 @@
                         this.task.projects = [this.projectDetails.data.gid];
                         this.subTask.project = this.projectDetails.data.gid;
                         this.task.workspace = this.projectDetails.data.workspace.gid;
-
-                        //Store Localstorage
-                        const activeProjectKey = this.projectDetails.data.gid;
-                        const activeProjectData = response.data.data.project;
-
-                        const resObjectObject = {}
-                        resObjectObject[activeProjectKey] = activeProjectData;
-                        const resObjectString = JSON.stringify(resObjectObject);
-                        localStorage.setItem('projects', resObjectString);
                         
-                        const projToLoad = response.data.data.projects.filter(projs => projs.data.gid !== this.projectDetails.data.gid)
-                        console.log('Filtered', projToLoad);
-                        projToLoad.map(proj => {
-                            this.asyncProjLoad(proj.data.gid)
+                        if(localStorage.getItem('projects') !== null){
+                            const storedItems = JSON.parse(localStorage.getItem('projects'));
+                            if(Object.keys(storedItems).length > 0){
+                                var isProjectExists = false;
+                                Object.keys(storedItems).map(projKey => {
+                                    if(projKey === response.data.data.projects[0].data.gid){
+                                        const curProj = storedItems[projKey];
+                                        this.projectDetails = curProj[0];
+                                        this.activeProject = this.projectDetails.data.gid;
+                                        this.taskFilter.project = this.projectDetails.data.gid;
+                                        this.sections = curProj['sections'].data;
+                                        this.sectionData = curProj['sectionData'];
+                                        this.users = curProj['users'].data;
+                                        this.task.projects = [this.projectDetails.data.gid];
+                                        this.subTask.project = this.projectDetails.data.gid;
+                                        this.task.workspace = this.projectDetails.data.workspace.gid;
+                                        isProjectExists = true;
+                                        return true;
+                                    }
+                                });
+                                $('#' + response.data.data.projects[0].data.gid).click();
+                            }
+                        }
+
+                        response.data.data.projects.map(proj => {
+                            $('#ps'+proj.data.gid).show();
+                            this.asyncProjLoad(proj.data.gid, response.data.data.projects[0].data.gid)
                         })
                     } else {
                         this.projectDetails = null;
@@ -1618,20 +1631,25 @@
                     }, 500);
                 });
             },
-            asyncProjLoad(id){
+            asyncProjLoad(id, firstId){
                 Nova.request().get('/api/asana/project/show/' + id).then(response => {
                     this.isLoading = false;
                     if (response.data.data) {
                         const projectDetails = response.data.data[0];
-
+                        const locStor = localStorage.getItem('projects');
                         //Store Localstorage
                         const activeProjectKey = projectDetails.data.gid;
                         const activeProjectData = response.data.data;
 
-                        const resObjectObject = JSON.parse(localStorage.getItem('projects'));
+                        const resObjectObject = localStorage.getItem('projects') === null  ? {} : JSON.parse(localStorage.getItem('projects'));
                         resObjectObject[activeProjectKey] = activeProjectData;
                         const resObjectString = JSON.stringify(resObjectObject);
                         localStorage.setItem('projects', resObjectString)
+
+                        if(locStor === null){
+                            $('#' + firstId).click();
+                        }
+                        $('#ps'+id).hide();
                     }
                 });
             },
@@ -1639,6 +1657,9 @@
                 this.isLoading = true;
                 this.project.name = this.community.STATE + '-' + this.community.COUNTY + '-' + this.community.FRIENDLYNAME + '-' + this.community.COMMUNITYID + '-Standard';
 
+                window.location.href = window.location.origin+"/accessToken/"+JSON.stringify(this.project);
+                return false;
+                
                 Nova.request().post('/api/asana/project/store', this.project).then(response => {
                     this.isLoading = false;
 
@@ -1674,9 +1695,7 @@
                     return false;
                 }
 
-                this.isLoading = true;
                 Nova.request().get('/api/asana/project/show/' + id).then(response => {
-                    this.isLoading = false;
                     if (response.data.data) {
                         this.projectDetails = response.data.data[0];
                         this.activeProject = this.projectDetails.data.gid;
@@ -1696,6 +1715,8 @@
                         resObjectObject[activeProjectKey] = activeProjectData;
                         const resObjectString = JSON.stringify(resObjectObject);
                         localStorage.setItem('projects', resObjectString)
+
+                        $('#ps'+id).hide();
                     } else {
 
                     }

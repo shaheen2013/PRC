@@ -18339,7 +18339,6 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 //
 //
 //
-//
 
 
 
@@ -19117,21 +19116,33 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                     _this6.subTask.project = _this6.projectDetails.data.gid;
                     _this6.task.workspace = _this6.projectDetails.data.workspace.gid;
 
-                    //Store Localstorage
-                    var activeProjectKey = _this6.projectDetails.data.gid;
-                    var activeProjectData = response.data.data.project;
+                    if (localStorage.getItem('projects') !== null) {
+                        var storedItems = JSON.parse(localStorage.getItem('projects'));
+                        if (Object.keys(storedItems).length > 0) {
+                            var isProjectExists = false;
+                            Object.keys(storedItems).map(function (projKey) {
+                                if (projKey === response.data.data.projects[0].data.gid) {
+                                    var curProj = storedItems[projKey];
+                                    _this6.projectDetails = curProj[0];
+                                    _this6.activeProject = _this6.projectDetails.data.gid;
+                                    _this6.taskFilter.project = _this6.projectDetails.data.gid;
+                                    _this6.sections = curProj['sections'].data;
+                                    _this6.sectionData = curProj['sectionData'];
+                                    _this6.users = curProj['users'].data;
+                                    _this6.task.projects = [_this6.projectDetails.data.gid];
+                                    _this6.subTask.project = _this6.projectDetails.data.gid;
+                                    _this6.task.workspace = _this6.projectDetails.data.workspace.gid;
+                                    isProjectExists = true;
+                                    return true;
+                                }
+                            });
+                            __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('#' + response.data.data.projects[0].data.gid).click();
+                        }
+                    }
 
-                    var resObjectObject = {};
-                    resObjectObject[activeProjectKey] = activeProjectData;
-                    var resObjectString = JSON.stringify(resObjectObject);
-                    localStorage.setItem('projects', resObjectString);
-
-                    var projToLoad = response.data.data.projects.filter(function (projs) {
-                        return projs.data.gid !== _this6.projectDetails.data.gid;
-                    });
-                    console.log('Filtered', projToLoad);
-                    projToLoad.map(function (proj) {
-                        _this6.asyncProjLoad(proj.data.gid);
+                    response.data.data.projects.map(function (proj) {
+                        __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('#ps' + proj.data.gid).show();
+                        _this6.asyncProjLoad(proj.data.gid, response.data.data.projects[0].data.gid);
                     });
                 } else {
                     _this6.projectDetails = null;
@@ -19143,22 +19154,27 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                 }, 500);
             });
         },
-        asyncProjLoad: function asyncProjLoad(id) {
+        asyncProjLoad: function asyncProjLoad(id, firstId) {
             var _this7 = this;
 
             Nova.request().get('/api/asana/project/show/' + id).then(function (response) {
                 _this7.isLoading = false;
                 if (response.data.data) {
                     var projectDetails = response.data.data[0];
-
+                    var locStor = localStorage.getItem('projects');
                     //Store Localstorage
                     var activeProjectKey = projectDetails.data.gid;
                     var activeProjectData = response.data.data;
 
-                    var resObjectObject = JSON.parse(localStorage.getItem('projects'));
+                    var resObjectObject = localStorage.getItem('projects') === null ? {} : JSON.parse(localStorage.getItem('projects'));
                     resObjectObject[activeProjectKey] = activeProjectData;
                     var resObjectString = JSON.stringify(resObjectObject);
                     localStorage.setItem('projects', resObjectString);
+
+                    if (locStor === null) {
+                        __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('#' + firstId).click();
+                    }
+                    __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('#ps' + id).hide();
                 }
             });
         },
@@ -19167,6 +19183,9 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
             this.isLoading = true;
             this.project.name = this.community.STATE + '-' + this.community.COUNTY + '-' + this.community.FRIENDLYNAME + '-' + this.community.COMMUNITYID + '-Standard';
+
+            window.location.href = window.location.origin + "/accessToken/" + JSON.stringify(this.project);
+            return false;
 
             Nova.request().post('/api/asana/project/store', this.project).then(function (response) {
                 _this8.isLoading = false;
@@ -19205,9 +19224,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                 return false;
             }
 
-            this.isLoading = true;
             Nova.request().get('/api/asana/project/show/' + id).then(function (response) {
-                _this9.isLoading = false;
                 if (response.data.data) {
                     _this9.projectDetails = response.data.data[0];
                     _this9.activeProject = _this9.projectDetails.data.gid;
@@ -19227,6 +19244,8 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                     resObjectObject[activeProjectKey] = activeProjectData;
                     var resObjectString = JSON.stringify(resObjectObject);
                     localStorage.setItem('projects', resObjectString);
+
+                    __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('#ps' + id).hide();
                 } else {}
 
                 setTimeout(function () {
@@ -50765,20 +50784,6 @@ var render = function() {
           ),
           _vm._v(" "),
           _c("div", { staticClass: "flex-no-shrink ml-auto mb-6" }, [
-            _c(
-              "a",
-              {
-                staticClass: "btn btn-default btn-primary",
-                staticStyle: { visibility: "hidden" },
-                attrs: {
-                  href: "https://nova.local/accessToken",
-                  id: "authAsana",
-                  dusk: "create-button"
-                }
-              },
-              [_vm._v("Authenticate with Asana")]
-            ),
-            _vm._v(" "),
             !_vm.isLoading && _vm.projectDetails == null
               ? _c(
                   "a",
@@ -50842,6 +50847,7 @@ var render = function() {
                                   "text-grey font-semibold border-40":
                                     project.data.gid !== _vm.activeProject
                                 },
+                                attrs: { id: project.data.gid },
                                 on: {
                                   click: function($event) {
                                     return _vm.getProjectDetails(
@@ -50854,8 +50860,12 @@ var render = function() {
                                 _vm._v(
                                   "\n                            " +
                                     _vm._s(project.data.name) +
-                                    "\n                        "
-                                )
+                                    " "
+                                ),
+                                _c("i", {
+                                  staticClass: "fa fa-spinner fa-spin",
+                                  attrs: { id: "ps" + project.data.gid }
+                                })
                               ]
                             )
                           }),

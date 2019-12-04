@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use App\Accesstoken;
+use App\Project;
 use Asana;
 use AsanaAuth;
 use Session;
@@ -81,8 +83,56 @@ class HomeController extends Controller
                 $token->data = json_encode(json_decode($response)->data);
                 $token->refresh_token = json_decode($response)->refresh_token;
                 $token->save();
+
+                $this->asana = new Asana([
+                    'personalAccessToken' => json_decode($response)->access_token
+                ]);
+
+                // For Project Create -Added
+                if(Session::has('createProjData')){
+                    $dataRes = Session::get('createProjData');
+                    $dataRes = json_decode($dataRes);
+                    
+                    
+                    $data = [
+                        'name' => $dataRes->name,
+                        'workspace' => $dataRes->workspace,
+                        'team' => $dataRes->team,
+                        'osusr_mlv_community_id' => $dataRes->osusr_mlv_community_id,
+                    ];
+                    $rules = array(
+                        'name' => 'required|string|max:255',
+                        'workspace' => 'required|string',
+                        'team' => 'required|string',
+                        'osusr_mlv_community_id' => 'required|integer',
+                    );
+                    
+                    $validator = Validator::make ($data, $rules);
+                    
+                    if ($validator->fails()){
+                        return response()->json(array('errors'=> $validator->getMessageBag()->toarray()));
+                    }
+                    
+                    try {
+            
+                        $project = json_decode($this->asana->createProject($data));
+            
+                        $newProject = new Project();
+                        $newProject->osusr_mlv_community_id = $dataRes->osusr_mlv_community_id;
+                        $newProject->project_id = $project->data->gid;
+                        $newProject->save();
+            
+                        $this->asana->createSection($project->data->gid, ['name' => 'Sales']);
+                        $this->asana->createSection($project->data->gid, ['name' => 'Maintenance']);
+            
+                        return redirect('/admin/resources/c-m-communities/'. $dataRes->osusr_mlv_community_id);
+                    } catch (\Exception $e) {
+                        return redirect('/admin/resources/c-m-communities');
+                    }
+                }
+                return redirect('/admin/resources/c-m-communities');
             }
-            return redirect('/admin/resources/c-m-communities/1');
+            return redirect('/admin/resources/c-m-communities');
         }
         return redirect('/admin');
     }

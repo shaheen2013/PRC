@@ -70,43 +70,7 @@ class ProjectController extends Controller
                 $secctionData = json_decode($this->asana->getProjectSections($dbProject->project_id));
                 $project['sections'] = $secctionData;
 
-                foreach ($secctionData->data as $key => $datum) {
-                    $temp = [];
-                    $tempTasks = [];
-                    $temp[] = $datum;
-
-                    $ch = curl_init();
-
-                    curl_setopt($ch, CURLOPT_URL, 'https://app.asana.com/api/1.0/sections/'. $datum->gid .'/tasks');
-                    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-                    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
-
-                    $headers = array();
-                    $headers[] = 'Accept: application/json';
-                    $headers[] = 'Authorization: Bearer '. $this->token;
-
-                    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-
-                    $result = json_decode(curl_exec($ch), 1);
-
-                    if (isset($result['data'])) {
-                        foreach ($result['data'] as $key => $task) {
-                            $tempTask = [];
-                            $tempTask[] = [];
-                        }
-                    }
-
-                    $temp['tasks'] = $tempTasks;
-                    $sections[] = $temp;                    
-
-                    if (curl_errno($ch)) {
-                        echo 'Error:' . curl_error($ch);
-                    }
-
-                    curl_close($ch);
-                }
-
-                $project['sectionData'] = $sections;
+                $project['sectionData'] = [];
 
                 return response()->json(['status' => 200, 'data' => ['project' => $project, 'projects' => $projects, 'genToken' => $this->genToken]], 200);
             } else {
@@ -204,7 +168,10 @@ class ProjectController extends Controller
         $sections = [];
         $secctionData = json_decode($this->asana->getProjectSections($id));
         $project['sections'] = $secctionData;
-
+        
+        if(!isset($secctionData->data)){
+            return response()->json(['status' => 200, 'missing' => 'Data Is Missing'], 200);
+        }
         foreach ($secctionData->data as $key => $datum) {
 
             $temp = [];
@@ -219,11 +186,14 @@ class ProjectController extends Controller
 
             $headers = array();
             $headers[] = 'Accept: application/json';
-            $headers[] = 'Authorization: Bearer '. env('ASANA_PAT');
+            $headers[] = 'Authorization: Bearer '. $this->token;
 
             curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 
             $result = json_decode(curl_exec($ch), 1);
+            if(!isset($result['data'])){
+                return response()->json(['status' => 200, 'missing' => 'Data Is Missing', 'dataCheck' => $result], 200);
+            }
             foreach ($result['data'] as $key => $task) {
                 $tempTask = [];
                 $tempTask[] = [];
@@ -256,7 +226,7 @@ class ProjectController extends Controller
 
             $headers = array();
             $headers[] = 'Accept: application/json';
-            $headers[] = 'Authorization: Bearer '. env('ASANA_PAT');
+            $headers[] = 'Authorization: Bearer '. $this->token;
 
             curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 
@@ -478,7 +448,7 @@ class ProjectController extends Controller
             $headers = array();
             $headers[] = 'Content-Type: application/json';
             $headers[] = 'Accept: application/json';
-            $headers[] = 'Authorization: Bearer ' . env('ASANA_PAT');
+            $headers[] = 'Authorization: Bearer ' . $this->token;
             curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
             curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
 
