@@ -1636,22 +1636,38 @@
                     this.isLoading = false;
                     if (response.data.data) {
                         const projectDetails = response.data.data[0];
-                        const locStor = localStorage.getItem('projects');
                         //Store Localstorage
                         const activeProjectKey = projectDetails.data.gid;
                         const activeProjectData = response.data.data;
 
                         const resObjectObject = localStorage.getItem('projects') === null  ? {} : JSON.parse(localStorage.getItem('projects'));
-                        resObjectObject[activeProjectKey] = activeProjectData;
+                        resObjectObject[activeProjectKey] = this.mergeRecursive(activeProjectData, resObjectObject[activeProjectKey]);
                         const resObjectString = JSON.stringify(resObjectObject);
                         localStorage.setItem('projects', resObjectString)
-
-                        if(locStor === null){
+                        
+                        if(Object.keys(resObjectObject).length > 0){
                             $('#' + firstId).click();
                         }
+                        
                         $('#ps'+id).hide();
                     }
                 });
+            },
+            mergeRecursive(obj1, obj2) {
+                for (var p in obj2) {
+                    try {
+                    // Property in destination object set; update its value.
+                    if ( obj2[p].constructor==Object ) {
+                        obj1[p] = MergeRecursive(obj1[p], obj2[p]);
+                    } else {
+                        obj1[p] = obj2[p];
+                    }
+                    } catch(e) {
+                    // Property in destination object not set; create it and set its value.
+                    obj1[p] = obj2[p];
+                    }
+                }
+                return obj1;
             },
             createProject() {
                 this.isLoading = true;
@@ -1727,6 +1743,7 @@
                 });
             },
             getLikeDataById(id){
+
                 var project = false;
                 const secDat = this.sectionData.map(section => {
                     if(section[0].gid == id && section.tasks.length > 0){
@@ -1736,12 +1753,34 @@
                 });
                 if(project) return false;
                 
+                var hasSectionId = false;
+                const resObjectObject = JSON.parse(localStorage.getItem('projects'));
+                resObjectObject[this.activeProject].sectionData.map(section => {
+                    if(section[0].gid == id){
+                        console.log('Section',section)
+                        this.sectionData.map((stateSection, key) => {
+                            if(stateSection[0].gid == id  && stateSection.tasks.length > 0){
+
+                                console.log('stateSection', stateSection);
+                                stateSection = section;
+                                hasSectionId = true;
+                            }
+                        })
+                    }
+                })
+                if(hasSectionId) return false;
+                
+
                 $('#spinner'+id).show();
                 Nova.request().get('/api/asana/project/showlike/' + id).then(response => {
-                    $('#spinner'+id).hide();
-                    this.sectionData.map(section => {
+                    $('#spinner' + id).hide();
+                    this.sectionData.map((section, key) => {
                         if(section[0].gid == response.data.section_id){
-                            section.tasks = response.data.data[0].tasks
+                            section.tasks = response.data.data[0].tasks;
+                            const resObjectObject = JSON.parse(localStorage.getItem('projects'));
+                            resObjectObject[this.activeProject].sectionData[key].tasks = response.data.data[0].tasks;
+                            const resObjectString = JSON.stringify(resObjectObject);
+                            localStorage.setItem('projects', resObjectString)
                         }
                     })
                 });

@@ -19161,22 +19161,38 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                 _this7.isLoading = false;
                 if (response.data.data) {
                     var projectDetails = response.data.data[0];
-                    var locStor = localStorage.getItem('projects');
                     //Store Localstorage
                     var activeProjectKey = projectDetails.data.gid;
                     var activeProjectData = response.data.data;
 
                     var resObjectObject = localStorage.getItem('projects') === null ? {} : JSON.parse(localStorage.getItem('projects'));
-                    resObjectObject[activeProjectKey] = activeProjectData;
+                    resObjectObject[activeProjectKey] = _this7.mergeRecursive(activeProjectData, resObjectObject[activeProjectKey]);
                     var resObjectString = JSON.stringify(resObjectObject);
                     localStorage.setItem('projects', resObjectString);
 
-                    if (locStor === null) {
+                    if (Object.keys(resObjectObject).length > 0) {
                         __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('#' + firstId).click();
                     }
+
                     __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('#ps' + id).hide();
                 }
             });
+        },
+        mergeRecursive: function mergeRecursive(obj1, obj2) {
+            for (var p in obj2) {
+                try {
+                    // Property in destination object set; update its value.
+                    if (obj2[p].constructor == Object) {
+                        obj1[p] = MergeRecursive(obj1[p], obj2[p]);
+                    } else {
+                        obj1[p] = obj2[p];
+                    }
+                } catch (e) {
+                    // Property in destination object not set; create it and set its value.
+                    obj1[p] = obj2[p];
+                }
+            }
+            return obj1;
         },
         createProject: function createProject() {
             var _this8 = this;
@@ -19265,12 +19281,33 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             });
             if (project) return false;
 
+            var hasSectionId = false;
+            var resObjectObject = JSON.parse(localStorage.getItem('projects'));
+            resObjectObject[this.activeProject].sectionData.map(function (section) {
+                if (section[0].gid == id) {
+                    console.log('Section', section);
+                    _this10.sectionData.map(function (stateSection, key) {
+                        if (stateSection[0].gid == id && stateSection.tasks.length > 0) {
+
+                            console.log('stateSection', stateSection);
+                            stateSection = section;
+                            hasSectionId = true;
+                        }
+                    });
+                }
+            });
+            if (hasSectionId) return false;
+
             __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('#spinner' + id).show();
             Nova.request().get('/api/asana/project/showlike/' + id).then(function (response) {
                 __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('#spinner' + id).hide();
-                _this10.sectionData.map(function (section) {
+                _this10.sectionData.map(function (section, key) {
                     if (section[0].gid == response.data.section_id) {
                         section.tasks = response.data.data[0].tasks;
+                        var _resObjectObject = JSON.parse(localStorage.getItem('projects'));
+                        _resObjectObject[_this10.activeProject].sectionData[key].tasks = response.data.data[0].tasks;
+                        var resObjectString = JSON.stringify(_resObjectObject);
+                        localStorage.setItem('projects', resObjectString);
                     }
                 });
             });
