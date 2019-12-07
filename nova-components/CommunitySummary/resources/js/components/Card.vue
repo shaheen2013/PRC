@@ -1646,7 +1646,9 @@
                         localStorage.setItem('projects', resObjectString)
                         
                         if(Object.keys(resObjectObject).length > 0){
-                            $('#' + firstId).click();
+                            if(firstId == id){
+                                $('#' + firstId).click();
+                            }
                         }
                         
                         $('#ps'+id).hide();

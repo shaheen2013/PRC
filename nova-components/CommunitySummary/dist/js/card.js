@@ -19171,7 +19171,9 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                     localStorage.setItem('projects', resObjectString);
 
                     if (Object.keys(resObjectObject).length > 0) {
-                        __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('#' + firstId).click();
+                        if (firstId == id) {
+                            __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('#' + firstId).click();
+                        }
                     }
 
                     __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('#ps' + id).hide();
