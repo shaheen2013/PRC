@@ -415,9 +415,9 @@
                                         </span>
                                     </div>
                                 </div>
-                                <div class="collapse-parent" v-if="sectionData.length > 0" v-for="(section, index) in sectionData" :key="index" @click="getLikeDataById(section[0].gid)">
+                                <div class="" v-if="sectionData.length > 0" v-for="(section, index) in sectionData" :data-v="index" :key="index" @click="getLikeDataById(section[0].gid)">
                                     <div class="section-header">
-                                        <div class="d-flex-inline cursor-pointer nv-collapse">{{ section[0].name }}
+                                        <div class="d-flex-inline cursor-pointer" :id="'nvTl' + section[0].gid">{{ section[0].name }}
                                             <svg style="enable-background:new 0 0 511.626 511.626;width: 23px;height: 23px;"
                                                  class="MiniIcon-right"
                                                  focusable="false" viewBox="0 0 32 32">
@@ -425,7 +425,8 @@
                                             </svg>
                                         </div>
                                     </div>
-                                    <div class="nv-collapsedown" style="display:none">
+                                    <p style="color:red;font-size:12;display:none;" class="noDatFnd" v-if="section['tasks'].length < 1" :id="'noData' + section[0].gid">No Task Found</p>
+                                    <div :id="'nvCl' + section[0].gid" :style="[section.open === true ? {'display': 'block'} : {'display': 'none'}]">
                                         <div class="fa-3x">
                                             <i class="fa fa-spinner fa-spin" :id="'spinner' + section[0].gid" style="display:none"></i>
                                         </div>
@@ -1689,6 +1690,7 @@
                 });
             },
             getProjectDetails(id) {
+                $('.noDatFnd').hide();
                 let _this = this;
 
                 const storedItems = JSON.parse(localStorage.getItem('projects'));
@@ -1745,9 +1747,37 @@
                 });
             },
             getLikeDataById(id){
-
+                $('#spinner' + id).hide();
+                $('#noData' + id).hide();
                 var project = false;
+                console.log('Clicked Outer');
+                if($('#nvCl' + id).is(":visible")){
+                    console.log('visible', id);
+                    $('#nvCl' + id).hide();
+                }else{
+                    console.log('not visible', id);
+                    $('#nvCl' + id).show();
+                }
+
                 const secDat = this.sectionData.map(section => {
+                    if(section[0].gid == id){
+                        console.log('Initial Open..........', section.open)
+                        if (typeof section.open == "undefined") {
+                            section.open = true;
+                        }else{
+                            section.open = !section.open
+                        }
+                        console.log('Section Stat After', section.open)
+                        const resObjectTabStatus = JSON.parse(localStorage.getItem('projects'));
+                        resObjectTabStatus[this.activeProject].sectionData.map(sectionTabData => {
+                            // console.log('4', sectionTabData);
+                            if(sectionTabData[0].gid == id){
+                                sectionTabData.open = section.open;
+                            }
+                        });
+                        const resObjectStringTabData = JSON.stringify(resObjectTabStatus);
+                        localStorage.setItem('projects', resObjectStringTabData)
+                    }
                     if(section[0].gid == id && section.tasks.length > 0){
                         project = true;
                         return;
@@ -1776,6 +1806,7 @@
                 $('#spinner'+id).show();
                 Nova.request().get('/api/asana/project/showlike/' + id).then(response => {
                     $('#spinner' + id).hide();
+                    $('#noData' + id).show();
                     this.sectionData.map((section, key) => {
                         if(section[0].gid == response.data.section_id){
                             section.tasks = response.data.data[0].tasks;
@@ -2216,10 +2247,6 @@
             },
             uiUpdateMounted: function () {
                 let _this = this;
-
-                $('.main-wrapper').on('click', '.nv-collapse', function () {
-                    $(this).closest('.collapse-parent').find('.nv-collapsedown').slideToggle();
-                });
 
                 $('.main-wrapper').on('keyup', '.drop-down-input', function () {
                     $('.nv-dropdown-under-input').removeClass('nv-open-under-input');

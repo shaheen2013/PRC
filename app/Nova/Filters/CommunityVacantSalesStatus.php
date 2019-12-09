@@ -25,48 +25,6 @@ class CommunityVacantSalesStatus extends BooleanFilter
             if ($value[1] == true) {
                 $q->where('vacant_status', '=', 1);
             }
-            if ($value[7] == true) {
-                if ($value[1] == true) {
-                    $q->orWhere('vacant_status', '=', 7)->orWhere('vacant_status', '=', 13);
-                } else {
-                    $q->where('vacant_status', '=', 7)->orWhere('vacant_status', '=', 13);
-                }
-            }
-            if ($value[11] == true) {
-                if ($value[1] == true | $value[7] == true) {
-                    $q->orWhere('vacant_status', '=', 11);
-                } else {
-                    $q->where('vacant_status', '=', 11);
-                }
-            }
-            if ($value[12] == true) {
-                if ($value[1] == true | $value[7] == true | $value[11] == true) {
-                    $q->orWhere('vacant_status', '=', 12);
-                } else {
-                    $q->where('vacant_status', '=', 12);
-                }
-            }
-            if ($value[6] == true) {
-                if ($value[1] == true | $value[7] == true | $value[11] == true | $value[12 == true]) {
-                    $q->orWhere('vacant_status', '=', 6);
-                } else {
-                    $q->where('vacant_status', '=', 6);
-                }
-            }
-            if ($value[5] == true) {
-                if ($value[1] == true | $value[7] == true | $value[11] == true | $value[12] == true | $value[6] == true) {
-                    $q->orWhere('vacant_status', '=', 5);
-                } else {
-                    $q->where('vacant_status', '=', 5);
-                }
-            }
-            if ($value[14] == true) {
-                if ($value[1] == true | $value[7] == true | $value[11] == true | $value[12] == true | $value[6] == true | $value[5 == true]) {
-                    $q->orWhere('vacant_status', '=', 14);
-                } else {
-                    $q->where('vacant_status', '=', 14);
-                }
-            }
         });
     }
 

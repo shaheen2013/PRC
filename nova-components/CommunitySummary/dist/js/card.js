@@ -18339,6 +18339,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 //
 //
 //
+//
 
 
 
@@ -19218,6 +19219,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
         getProjectDetails: function getProjectDetails(id) {
             var _this9 = this;
 
+            __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.noDatFnd').hide();
             var _this = this;
 
             var storedItems = JSON.parse(localStorage.getItem('projects'));
@@ -19274,8 +19276,37 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
         getLikeDataById: function getLikeDataById(id) {
             var _this10 = this;
 
+            __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('#spinner' + id).hide();
+            __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('#noData' + id).hide();
             var project = false;
+            console.log('Clicked Outer');
+            if (__WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('#nvCl' + id).is(":visible")) {
+                console.log('visible', id);
+                __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('#nvCl' + id).hide();
+            } else {
+                console.log('not visible', id);
+                __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('#nvCl' + id).show();
+            }
+
             var secDat = this.sectionData.map(function (section) {
+                if (section[0].gid == id) {
+                    console.log('Initial Open..........', section.open);
+                    if (typeof section.open == "undefined") {
+                        section.open = true;
+                    } else {
+                        section.open = !section.open;
+                    }
+                    console.log('Section Stat After', section.open);
+                    var resObjectTabStatus = JSON.parse(localStorage.getItem('projects'));
+                    resObjectTabStatus[_this10.activeProject].sectionData.map(function (sectionTabData) {
+                        // console.log('4', sectionTabData);
+                        if (sectionTabData[0].gid == id) {
+                            sectionTabData.open = section.open;
+                        }
+                    });
+                    var resObjectStringTabData = JSON.stringify(resObjectTabStatus);
+                    localStorage.setItem('projects', resObjectStringTabData);
+                }
                 if (section[0].gid == id && section.tasks.length > 0) {
                     project = true;
                     return;
@@ -19303,6 +19334,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('#spinner' + id).show();
             Nova.request().get('/api/asana/project/showlike/' + id).then(function (response) {
                 __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('#spinner' + id).hide();
+                __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('#noData' + id).show();
                 _this10.sectionData.map(function (section, key) {
                     if (section[0].gid == response.data.section_id) {
                         section.tasks = response.data.data[0].tasks;
@@ -19764,10 +19796,6 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
         uiUpdateMounted: function uiUpdateMounted() {
             var _this = this;
-
-            __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.main-wrapper').on('click', '.nv-collapse', function () {
-                __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()(this).closest('.collapse-parent').find('.nv-collapsedown').slideToggle();
-            });
 
             __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.main-wrapper').on('keyup', '.drop-down-input', function () {
                 __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.nv-dropdown-under-input').removeClass('nv-open-under-input');
@@ -52198,7 +52226,7 @@ var render = function() {
                                     "div",
                                     {
                                       key: index,
-                                      staticClass: "collapse-parent",
+                                      attrs: { "data-v": index },
                                       on: {
                                         click: function($event) {
                                           return _vm.getLikeDataById(
@@ -52216,7 +52244,10 @@ var render = function() {
                                             "div",
                                             {
                                               staticClass:
-                                                "d-flex-inline cursor-pointer nv-collapse"
+                                                "d-flex-inline cursor-pointer",
+                                              attrs: {
+                                                id: "nvTl" + section[0].gid
+                                              }
                                             },
                                             [
                                               _vm._v(
@@ -52252,11 +52283,33 @@ var render = function() {
                                         ]
                                       ),
                                       _vm._v(" "),
+                                      section["tasks"].length < 1
+                                        ? _c(
+                                            "p",
+                                            {
+                                              staticClass: "noDatFnd",
+                                              staticStyle: {
+                                                color: "red",
+                                                "font-size": "12",
+                                                display: "none"
+                                              },
+                                              attrs: {
+                                                id: "noData" + section[0].gid
+                                              }
+                                            },
+                                            [_vm._v("No Task Found")]
+                                          )
+                                        : _vm._e(),
+                                      _vm._v(" "),
                                       _c(
                                         "div",
                                         {
-                                          staticClass: "nv-collapsedown",
-                                          staticStyle: { display: "none" }
+                                          style: [
+                                            section.open === true
+                                              ? { display: "block" }
+                                              : { display: "none" }
+                                          ],
+                                          attrs: { id: "nvCl" + section[0].gid }
                                         },
                                         [
                                           _c("div", { staticClass: "fa-3x" }, [

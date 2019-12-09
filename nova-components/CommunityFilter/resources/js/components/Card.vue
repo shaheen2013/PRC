@@ -16,10 +16,7 @@
                          :preselect-first="false" :show-labels="false"></multiselect>
         </div>
         <div class="px-3 py-3">
-            <multiselect v-model="filterValues.rental" :options="salesStatusOptions" :multiple="true"
-                         :close-on-select="false" :clear-on-select="false" :preserve-search="true"
-                         placeholder="Rental Sales Status" label="label" track-by="id"
-                         :preselect-first="false" :show-labels="false"></multiselect>
+            Rental Partner Status: <input  type="checkbox" v-model="filterValues.rental" :value="{rental:1}" />
         </div>
         <div class="px-3 py-3">
             <multiselect v-model="filterValues.vacant" :options="salesStatusOptions" :multiple="true"
@@ -206,15 +203,27 @@
             },
             'filterValues.rental': function (val) {
                 this.clearRentalFilters();
-                for (let filter of val) {
-                    this.filters[0].value[filter.id] = true
+                if(val.length > 0){
+                    val.map(v => {
+                        if(v != 'undefined'){
+                            if(v.hasOwnProperty('rental')){
+                                this.filters[0].value[1] = true
+                            }
+                        }else{
+                            this.filters[0].value[1] = false
+                        }
+                    })
+                }else{
+                    this.filters[0].value[1] = false
                 }
+
                 this.$router.push({
                     path: '/resources/c-m-communities',
                     query: {'c-m-communities_filter': this.encodedFilter}
                 })
             },
             'filterValues.vacant': function (val) {
+                console.log(val);
                 this.clearVacantFilters();
                 for (let filter of val) {
                     this.filters[1].value[filter.id] = true
@@ -325,6 +334,7 @@
             },
             loadStates() {
                 Nova.request().get('/nova-vendor/community-filter/states').then(response => {
+                    console.log('Nova Filters--', response.data);
                     for (let state of Object.values(response.data)) {
                         this.stateOptions.push(state)
                     }
@@ -465,6 +475,7 @@
             }
         },
         created() {
+            console.log('Created');
             this.loadStates();
             this.loadSavedFilters();
         },
