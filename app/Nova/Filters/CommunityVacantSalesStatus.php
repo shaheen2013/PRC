@@ -17,13 +17,17 @@ class CommunityVacantSalesStatus extends BooleanFilter
      */
     public function apply(Request $request, $query, $value)
     {
-        if ($value[1] == false && $value[7] == false && $value[11] == false && $value[12] == false && $value[6] == false && $value[5] == false && $value[14] == false) {
+        // dd($value);
+        if(is_array($value)){
+            return $query;
+        }
+        if ($value == false) {
             return $query;
         }
 
         return $query->whereHas('rentalVacantSalesStatus', function ($q) use ($value) {
-            if ($value[1] == true) {
-                $q->where('vacant_status', '=', 1);
+            if ($value == true) {
+                $q->where('vacant_partner_status', '=', 1);
             }
         });
     }

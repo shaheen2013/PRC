@@ -16,19 +16,13 @@
                          :preselect-first="false" :show-labels="false"></multiselect>
         </div>
         <div class="px-3 py-3">
-            Rental Partner Status: <input  type="checkbox" v-model="filterValues.rental" :value="{rental:1}" />
+            Rental Partner Status: <input  type="checkbox" v-model="filterValues.rental" />
         </div>
         <div class="px-3 py-3">
-            <multiselect v-model="filterValues.vacant" :options="salesStatusOptions" :multiple="true"
-                         :close-on-select="false" :clear-on-select="false" :preserve-search="true"
-                         placeholder="Vacant Sales Status" label="label" track-by="id"
-                         :preselect-first="false" :show-labels="false"></multiselect>
+            Vacant Partner Status: <input  type="checkbox" v-model="filterValues.vacant" />
         </div>
         <div class="px-3 py-3">
-            <multiselect v-model="filterValues.foreclosure" :options="salesStatusOptions" :multiple="true"
-                         :close-on-select="false" :clear-on-select="false" :preserve-search="true"
-                         placeholder="Foreclosure Sales Status" label="label" track-by="id"
-                         :preselect-first="false" :show-labels="false"></multiselect>
+            Foreclosure Partner Status: <input  type="checkbox" v-model="filterValues.foreclosure" />
         </div>
         <div class="px-3 py-3">
             <multiselect v-model="filterValues.size" :options="sizeOptions" :multiple="true" :close-on-select="false"
@@ -89,39 +83,15 @@
                 filters: [
                     {
                         class: "App\\Nova\\Filters\\CommunityRentalSalesStatus",
-                        value: {
-                            1: false,
-                            5: false,
-                            6: false,
-                            7: false,
-                            11: false,
-                            12: false,
-                            14: false
-                        }
+                        value: false
                     },
                     {
                         class: "App\\Nova\\Filters\\CommunityVacantSalesStatus",
-                        value: {
-                            1: false,
-                            5: false,
-                            6: false,
-                            7: false,
-                            11: false,
-                            12: false,
-                            14: false
-                        }
+                        value: false
                     },
                     {
                         class: "App\\Nova\\Filters\\CommunityForeclosureSalesStatus",
-                        value: {
-                            1: false,
-                            5: false,
-                            6: false,
-                            7: false,
-                            11: false,
-                            12: false,
-                            14: false
-                        }
+                        value: false
                     },
                     {
                         class: "App\\Nova\\Filters\\CommunitySize",
@@ -151,29 +121,21 @@
                     }
                 ],
                 filterValues: {
-                    rental: [],
-                    vacant: [],
-                    foreclosure: [],
+                    rental: false,
+                    vacant: false,
+                    foreclosure: false,
                     size: [],
                     state: [],
                     county: []
                 },
                 blankFilterValues: {
-                    rental: [],
-                    vacant: [],
-                    foreclosure: [],
+                    rental:false,
+                    vacant: false,
+                    foreclosure: false,
                     size: [],
                     state: [],
                     county: []
                 },
-                salesStatusOptions: [
-                    {id: 1, label: 'No Activity'},
-                    {id: 7, label: 'Generate'},
-                    {id: 11, label: 'Guide'},
-                    {id: 12, label: 'Propose'},
-                    {id: 6, label: 'Onboard'},
-                    {id: 5, label: 'Enhance'},
-                ],
                 sizeOptions: [
                     {id: 0, label: 'X-Small'},
                     {id: 1, label: 'Small'},
@@ -203,19 +165,10 @@
             },
             'filterValues.rental': function (val) {
                 this.clearRentalFilters();
-                if(val.length > 0){
-                    val.map(v => {
-                        if(v != 'undefined'){
-                            if(v.hasOwnProperty('rental')){
-                                this.filters[0].value[1] = true
-                            }
-                        }else{
-                            this.filters[0].value[1] = false
-                        }
-                    })
-                }else{
-                    this.filters[0].value[1] = false
-                }
+                if(val)
+                    this.filters[0].value = true
+                else
+                    this.filters[0].value = false
 
                 this.$router.push({
                     path: '/resources/c-m-communities',
@@ -223,11 +176,12 @@
                 })
             },
             'filterValues.vacant': function (val) {
-                console.log(val);
                 this.clearVacantFilters();
-                for (let filter of val) {
-                    this.filters[1].value[filter.id] = true
-                }
+                if(val)
+                    this.filters[1].value = true
+                else
+                    this.filters[1].value = false
+
                 this.$router.push({
                     path: '/resources/c-m-communities',
                     query: {'c-m-communities_filter': this.encodedFilter}
@@ -235,9 +189,12 @@
             },
             'filterValues.foreclosure': function (val) {
                 this.clearForeclosureFilters();
-                for (let filter of val) {
-                    this.filters[2].value[filter.id] = true
-                }
+
+                if(val)
+                    this.filters[2].value = true
+                else
+                    this.filters[2].value = false
+
                 this.$router.push({
                     path: '/resources/c-m-communities',
                     query: {'c-m-communities_filter': this.encodedFilter}
@@ -255,8 +212,6 @@
             },
             'filterValues.state': function (val, oldval) {
                 if (!this.disableWatch) {
-                    console.log('New Val: ' + val);
-                    console.log('Old Value: ' + oldval);
                     this.filters[4].value = val ? val.id : null;
                     if (!val) {
                         this.filters[5].value = "";
@@ -311,7 +266,6 @@
                     for (let savedFilters of Object.values(response.data)) {
                         this.savedFilters.push(savedFilters)
                     }
-                    console.log(response);
                 });
             },
             toggleFilterSaveButton() {
@@ -325,7 +279,6 @@
                     Nova.request().post('/nova-vendor/community-filter/counties', {
                         communityState: state
                     }).then(response => {
-                        console.log(Object.values(response.data))
                         this.countyOptions = Object.values(response.data)
                         this.filterValues.county = {id: this.activeFilters.county, label: this.activeFilters.county};
                         this.disableWatch = false;
@@ -334,7 +287,6 @@
             },
             loadStates() {
                 Nova.request().get('/nova-vendor/community-filter/states').then(response => {
-                    console.log('Nova Filters--', response.data);
                     for (let state of Object.values(response.data)) {
                         this.stateOptions.push(state)
                     }
@@ -354,6 +306,10 @@
                 this.disableWatch = true;
 
                 if (this.filtersAreApplied) {
+                    this.filterValues.rental = this.activeFilters.rental;
+                    this.filterValues.vacant = this.activeFilters.vacant;
+                    this.filterValues.foreclosure = this.activeFilters.foreclosure;
+
                     this.$set(this.filters[0], 'value', this.activeFilters.rental);
                     this.$set(this.filters[1], 'value', this.activeFilters.vacant);
                     this.$set(this.filters[2], 'value', this.activeFilters.foreclosure);
@@ -366,21 +322,6 @@
                         this.bulkButtonClicked = true
                     }
                     this.$nextTick(() => {
-                        for (let [key, value] of Object.entries(this.activeFilters.rental)) {
-                            if (value === true) {
-                                this.addOptionToMultiSelectValue('rental', parseInt(key), 'salesStatusOptions')
-                            }
-                        }
-                        for (let [key, value] of Object.entries(this.activeFilters.vacant)) {
-                            if (value === true) {
-                                this.addOptionToMultiSelectValue('vacant', parseInt(key), 'salesStatusOptions')
-                            }
-                        }
-                        for (let [key, value] of Object.entries(this.activeFilters.foreclosure)) {
-                            if (value === true) {
-                                this.addOptionToMultiSelectValue('foreclosure', parseInt(key), 'salesStatusOptions')
-                            }
-                        }
                         for (let [key, value] of Object.entries(this.activeFilters.size)) {
                             if (value === true) {
                                 this.addOptionToMultiSelectValue('size', parseInt(key), 'sizeOptions')
@@ -403,31 +344,13 @@
                 this.disableWatch = false;
             },
             clearRentalFilters() {
-                this.filters[0].value[1] = false;
-                this.filters[0].value[5] = false;
-                this.filters[0].value[6] = false;
-                this.filters[0].value[7] = false;
-                this.filters[0].value[11] = false;
-                this.filters[0].value[12] = false;
-                this.filters[0].value[14] = false;
+                this.filters[0].value = false;
             },
             clearVacantFilters() {
-                this.filters[1].value[1] = false;
-                this.filters[1].value[5] = false;
-                this.filters[1].value[6] = false;
-                this.filters[1].value[7] = false;
-                this.filters[1].value[11] = false;
-                this.filters[1].value[12] = false;
-                this.filters[1].value[14] = false;
+                this.filters[1].value = false;
             },
             clearForeclosureFilters() {
-                this.filters[2].value[1] = false;
-                this.filters[2].value[5] = false;
-                this.filters[2].value[6] = false;
-                this.filters[2].value[7] = false;
-                this.filters[2].value[11] = false;
-                this.filters[2].value[12] = false;
-                this.filters[2].value[14] = false;
+                this.filters[2].value = false;
             },
             clearSizeFilters() {
                 this.filters[3].value[0] = false;
@@ -475,7 +398,6 @@
             }
         },
         created() {
-            console.log('Created');
             this.loadStates();
             this.loadSavedFilters();
         },

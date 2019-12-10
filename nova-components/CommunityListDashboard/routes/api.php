@@ -37,68 +37,38 @@ Route::post('/count', function (Request $request) {
 
     if ($request->get('filtersAreApplied')) {
         $query->where(function ($query) use ($foreclosureQuery, $rentalFilterUsed, $rentalFilters) {
-            foreach ($rentalFilters as $key => $value) {
-                if ($value === true) {
-                    if ($rentalFilterUsed) {
-                        $query->orWhere('s.rental_status', '=', $key);
-                        $foreclosureQuery->orWhere('s.rental_status', '=', $key);
-                        if ($key === 7) {
-                            $query->orWhere('s.rental_status', '=', 13);
-                            $foreclosureQuery->orWhere('s.rental_status', '=', 13);
-                        }
-                    } else {
-                        $query->where('s.rental_status', '=', $key);
-                        $foreclosureQuery->where('s.rental_status', '=', $key);
-                        if ($key === 7) {
-                            $query->orWhere('s.rental_status', '=', 13);
-                            $foreclosureQuery->orWhere('s.rental_status', '=', 13);
-                        }
-                        $rentalFilterUsed = true;
-                    }
+            if ($rentalFilters === true) {
+                if ($rentalFilterUsed) {
+                    $query->orWhere('s.rental_partner_status', '=', 1);
+                    $foreclosureQuery->orWhere('s.rental_partner_status', '=', 1);
+                } else {
+                    $query->where('s.rental_partner_status', '=', 1);
+                    $foreclosureQuery->where('s.rental_partner_status', '=', 1);
+                    $rentalFilterUsed = true;
                 }
             }
         });
         $query->where(function ($query) use ($foreclosureQuery, $vacantFilterUsed, $vacantFilters) {
-            foreach ($vacantFilters as $key => $value) {
-                if ($value === true) {
-                    if ($vacantFilterUsed) {
-                        $query->orWhere('s.vacant_status', '=', $key);
-                        $foreclosureQuery->orWhere('s.vacant_status', '=', $key);
-                        if ($key === 7) {
-                            $query->orWhere('s.vacant_status', '=', 13);
-                            $foreclosureQuery->orWhere('s.vacant_status', '=', 13);
-                        }
-                    } else {
-                        $query->where('s.vacant_status', '=', $key);
-                        $foreclosureQuery->where('s.vacant_status', '=', $key);
-                        if ($key === 7) {
-                            $query->orWhere('s.vacant_status', '=', 13);
-                            $foreclosureQuery->orWhere('s.vacant_status', '=', 13);
-                        }
-                        $vacantFilterUsed = true;
-                    }
+            if ($vacantFilters === true) {
+                if ($vacantFilterUsed) {
+                    $query->orWhere('s.vacant_partner_status', '=', 1);
+                    $foreclosureQuery->orWhere('s.vacant_partner_status', '=', 1);
+                } else {
+                    $query->where('s.vacant_partner_status', '=', 1);
+                    $foreclosureQuery->where('s.vacant_partner_status', '=', 1);
+                    $vacantFilterUsed = true;
                 }
             }
         });
         $query->where(function ($query) use ($foreclosureQuery, $foreclosureFilterUsed, $foreclosureFilters) {
-            foreach ($foreclosureFilters as $key => $value) {
-                if ($value === true) {
-                    if ($foreclosureFilterUsed) {
-                        $query->orWhere('c.SALESSTATUSID', '=', $key);
-                        $foreclosureQuery->orWhere('c.SALESSTATUSID', '=', $key);
-                        if ($key === 7) {
-                            $query->orWhere('c.SALESSTATUSID', '=', 13);
-                            $foreclosureQuery->orWhere('c.SALESSTATUSID', '=', 13);
-                        }
-                    } else {
-                        $query->where('c.SALESSTATUSID', '=', $key);
-                        $foreclosureQuery->where('c.SALESSTATUSID', '=', $key);
-                        if ($key === 7) {
-                            $query->orWhere('c.SALESSTATUSID', '=', 13);
-                            $foreclosureQuery->orWhere('c.SALESSTATUSID', '=', 13);
-                        }
-                        $foreclosureFilterUsed = true;
-                    }
+            if ($foreclosureFilters === true) {
+                if ($foreclosureFilterUsed) {
+                    $query->orWhere('s.foreclosure_partner_status', '=', 1);
+                    $foreclosureQuery->orWhere('s.foreclosure_partner_status', '=', 1);
+                } else {
+                    $query->where('s.foreclosure_partner_status', '=', 1);
+                    $foreclosureQuery->where('s.foreclosure_partner_status', '=', 1);
+                    $foreclosureFilterUsed = true;
                 }
             }
         });

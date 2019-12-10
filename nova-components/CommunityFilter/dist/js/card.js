@@ -693,12 +693,6 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
 //
 //
 //
-//
-//
-//
-//
-//
-//
 
 
 
@@ -722,37 +716,13 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
             bulkButtonClicked: false,
             filters: [{
                 class: "App\\Nova\\Filters\\CommunityRentalSalesStatus",
-                value: {
-                    1: false,
-                    5: false,
-                    6: false,
-                    7: false,
-                    11: false,
-                    12: false,
-                    14: false
-                }
+                value: false
             }, {
                 class: "App\\Nova\\Filters\\CommunityVacantSalesStatus",
-                value: {
-                    1: false,
-                    5: false,
-                    6: false,
-                    7: false,
-                    11: false,
-                    12: false,
-                    14: false
-                }
+                value: false
             }, {
                 class: "App\\Nova\\Filters\\CommunityForeclosureSalesStatus",
-                value: {
-                    1: false,
-                    5: false,
-                    6: false,
-                    7: false,
-                    11: false,
-                    12: false,
-                    14: false
-                }
+                value: false
             }, {
                 class: "App\\Nova\\Filters\\CommunitySize",
                 value: {
@@ -776,22 +746,21 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
                 value: ""
             }],
             filterValues: {
-                rental: [],
-                vacant: [],
-                foreclosure: [],
+                rental: false,
+                vacant: false,
+                foreclosure: false,
                 size: [],
                 state: [],
                 county: []
             },
             blankFilterValues: {
-                rental: [],
-                vacant: [],
-                foreclosure: [],
+                rental: false,
+                vacant: false,
+                foreclosure: false,
                 size: [],
                 state: [],
                 county: []
             },
-            salesStatusOptions: [{ id: 1, label: 'No Activity' }, { id: 7, label: 'Generate' }, { id: 11, label: 'Guide' }, { id: 12, label: 'Propose' }, { id: 6, label: 'Onboard' }, { id: 5, label: 'Enhance' }],
             sizeOptions: [{ id: 0, label: 'X-Small' }, { id: 1, label: 'Small' }, { id: 2, label: 'Medium' }, { id: 3, label: 'Large' }, { id: 4, label: 'X-Large' }],
             stateOptions: [],
             countyOptions: [],
@@ -814,22 +783,8 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
             });
         },
         'filterValues.rental': function filterValuesRental(val) {
-            var _this = this;
-
             this.clearRentalFilters();
-            if (val.length > 0) {
-                val.map(function (v) {
-                    if (v != 'undefined') {
-                        if (v.hasOwnProperty('rental')) {
-                            _this.filters[0].value[1] = true;
-                        }
-                    } else {
-                        _this.filters[0].value[1] = false;
-                    }
-                });
-            } else {
-                this.filters[0].value[1] = false;
-            }
+            if (val) this.filters[0].value = true;else this.filters[0].value = false;
 
             this.$router.push({
                 path: '/resources/c-m-communities',
@@ -837,8 +792,26 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
             });
         },
         'filterValues.vacant': function filterValuesVacant(val) {
-            console.log(val);
             this.clearVacantFilters();
+            if (val) this.filters[1].value = true;else this.filters[1].value = false;
+
+            this.$router.push({
+                path: '/resources/c-m-communities',
+                query: { 'c-m-communities_filter': this.encodedFilter }
+            });
+        },
+        'filterValues.foreclosure': function filterValuesForeclosure(val) {
+            this.clearForeclosureFilters();
+
+            if (val) this.filters[2].value = true;else this.filters[2].value = false;
+
+            this.$router.push({
+                path: '/resources/c-m-communities',
+                query: { 'c-m-communities_filter': this.encodedFilter }
+            });
+        },
+        'filterValues.size': function filterValuesSize(val) {
+            this.clearSizeFilters();
             var _iteratorNormalCompletion = true;
             var _didIteratorError = false;
             var _iteratorError = undefined;
@@ -847,7 +820,7 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
                 for (var _iterator = val[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
                     var filter = _step.value;
 
-                    this.filters[1].value[filter.id] = true;
+                    this.filters[3].value[filter.id] = true;
                 }
             } catch (err) {
                 _didIteratorError = true;
@@ -869,74 +842,8 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
                 query: { 'c-m-communities_filter': this.encodedFilter }
             });
         },
-        'filterValues.foreclosure': function filterValuesForeclosure(val) {
-            this.clearForeclosureFilters();
-            var _iteratorNormalCompletion2 = true;
-            var _didIteratorError2 = false;
-            var _iteratorError2 = undefined;
-
-            try {
-                for (var _iterator2 = val[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-                    var filter = _step2.value;
-
-                    this.filters[2].value[filter.id] = true;
-                }
-            } catch (err) {
-                _didIteratorError2 = true;
-                _iteratorError2 = err;
-            } finally {
-                try {
-                    if (!_iteratorNormalCompletion2 && _iterator2.return) {
-                        _iterator2.return();
-                    }
-                } finally {
-                    if (_didIteratorError2) {
-                        throw _iteratorError2;
-                    }
-                }
-            }
-
-            this.$router.push({
-                path: '/resources/c-m-communities',
-                query: { 'c-m-communities_filter': this.encodedFilter }
-            });
-        },
-        'filterValues.size': function filterValuesSize(val) {
-            this.clearSizeFilters();
-            var _iteratorNormalCompletion3 = true;
-            var _didIteratorError3 = false;
-            var _iteratorError3 = undefined;
-
-            try {
-                for (var _iterator3 = val[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
-                    var filter = _step3.value;
-
-                    this.filters[3].value[filter.id] = true;
-                }
-            } catch (err) {
-                _didIteratorError3 = true;
-                _iteratorError3 = err;
-            } finally {
-                try {
-                    if (!_iteratorNormalCompletion3 && _iterator3.return) {
-                        _iterator3.return();
-                    }
-                } finally {
-                    if (_didIteratorError3) {
-                        throw _iteratorError3;
-                    }
-                }
-            }
-
-            this.$router.push({
-                path: '/resources/c-m-communities',
-                query: { 'c-m-communities_filter': this.encodedFilter }
-            });
-        },
         'filterValues.state': function filterValuesState(val, oldval) {
             if (!this.disableWatch) {
-                console.log('New Val: ' + val);
-                console.log('Old Value: ' + oldval);
                 this.filters[4].value = val ? val.id : null;
                 if (!val) {
                     this.filters[5].value = "";
@@ -966,79 +873,77 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
             window.open('/admin/resources/c-m-communities', '_self');
         },
         saveCurrentFilter: function saveCurrentFilter() {
-            var _this2 = this;
+            var _this = this;
 
-            var _iteratorNormalCompletion4 = true;
-            var _didIteratorError4 = false;
-            var _iteratorError4 = undefined;
+            var _iteratorNormalCompletion2 = true;
+            var _didIteratorError2 = false;
+            var _iteratorError2 = undefined;
 
             try {
-                for (var _iterator4 = this.savedFilters[Symbol.iterator](), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
-                    var savedFilter = _step4.value;
+                for (var _iterator2 = this.savedFilters[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+                    var savedFilter = _step2.value;
 
                     if (this.savedFilterTitle === savedFilter.label) {
                         this.savedFilterTitle = this.savedFilterTitle + '(' + Math.floor(Math.random() * 100) + 1 + ')';
                     }
                 }
             } catch (err) {
-                _didIteratorError4 = true;
-                _iteratorError4 = err;
+                _didIteratorError2 = true;
+                _iteratorError2 = err;
             } finally {
                 try {
-                    if (!_iteratorNormalCompletion4 && _iterator4.return) {
-                        _iterator4.return();
+                    if (!_iteratorNormalCompletion2 && _iterator2.return) {
+                        _iterator2.return();
                     }
                 } finally {
-                    if (_didIteratorError4) {
-                        throw _iteratorError4;
+                    if (_didIteratorError2) {
+                        throw _iteratorError2;
                     }
                 }
             }
 
             this.$nextTick(function () {
                 Nova.request().post('/nova-vendor/community-filter/saveFilter', {
-                    filter: _this2.encodedFilter,
+                    filter: _this.encodedFilter,
                     resourceId: 1,
-                    title: _this2.savedFilterTitle
+                    title: _this.savedFilterTitle
                 }).then(function (response) {
-                    _this2.savedFilterTitle = "";
-                    _this2.filterSaveButtonClicked = false;
-                    _this2.loadSavedFilters();
-                    _this2.$toasted.show('Filter Saved!!', { type: 'success' });
+                    _this.savedFilterTitle = "";
+                    _this.filterSaveButtonClicked = false;
+                    _this.loadSavedFilters();
+                    _this.$toasted.show('Filter Saved!!', { type: 'success' });
                 });
             });
         },
         loadSavedFilters: function loadSavedFilters() {
-            var _this3 = this;
+            var _this2 = this;
 
             Nova.request().get('/nova-vendor/community-filter/savedFilters').then(function (response) {
-                _this3.savedFilters = [];
-                var _iteratorNormalCompletion5 = true;
-                var _didIteratorError5 = false;
-                var _iteratorError5 = undefined;
+                _this2.savedFilters = [];
+                var _iteratorNormalCompletion3 = true;
+                var _didIteratorError3 = false;
+                var _iteratorError3 = undefined;
 
                 try {
-                    for (var _iterator5 = Object.values(response.data)[Symbol.iterator](), _step5; !(_iteratorNormalCompletion5 = (_step5 = _iterator5.next()).done); _iteratorNormalCompletion5 = true) {
-                        var savedFilters = _step5.value;
+                    for (var _iterator3 = Object.values(response.data)[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
+                        var savedFilters = _step3.value;
 
-                        _this3.savedFilters.push(savedFilters);
+                        _this2.savedFilters.push(savedFilters);
                     }
                 } catch (err) {
-                    _didIteratorError5 = true;
-                    _iteratorError5 = err;
+                    _didIteratorError3 = true;
+                    _iteratorError3 = err;
                 } finally {
                     try {
-                        if (!_iteratorNormalCompletion5 && _iterator5.return) {
-                            _iterator5.return();
+                        if (!_iteratorNormalCompletion3 && _iterator3.return) {
+                            _iterator3.return();
                         }
                     } finally {
-                        if (_didIteratorError5) {
-                            throw _iteratorError5;
+                        if (_didIteratorError3) {
+                            throw _iteratorError3;
                         }
                     }
                 }
-
-                console.log(response);
             });
         },
         toggleFilterSaveButton: function toggleFilterSaveButton() {
@@ -1048,45 +953,43 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
             this.bulkButtonClicked = !this.bulkButtonClicked;
         },
         loadCounties: function loadCounties(state) {
-            var _this4 = this;
+            var _this3 = this;
 
             if (state) {
                 Nova.request().post('/nova-vendor/community-filter/counties', {
                     communityState: state
                 }).then(function (response) {
-                    console.log(Object.values(response.data));
-                    _this4.countyOptions = Object.values(response.data);
-                    _this4.filterValues.county = { id: _this4.activeFilters.county, label: _this4.activeFilters.county };
-                    _this4.disableWatch = false;
+                    _this3.countyOptions = Object.values(response.data);
+                    _this3.filterValues.county = { id: _this3.activeFilters.county, label: _this3.activeFilters.county };
+                    _this3.disableWatch = false;
                 });
             }
         },
         loadStates: function loadStates() {
-            var _this5 = this;
+            var _this4 = this;
 
             Nova.request().get('/nova-vendor/community-filter/states').then(function (response) {
-                console.log('Nova Filters--', response.data);
-                var _iteratorNormalCompletion6 = true;
-                var _didIteratorError6 = false;
-                var _iteratorError6 = undefined;
+                var _iteratorNormalCompletion4 = true;
+                var _didIteratorError4 = false;
+                var _iteratorError4 = undefined;
 
                 try {
-                    for (var _iterator6 = Object.values(response.data)[Symbol.iterator](), _step6; !(_iteratorNormalCompletion6 = (_step6 = _iterator6.next()).done); _iteratorNormalCompletion6 = true) {
-                        var state = _step6.value;
+                    for (var _iterator4 = Object.values(response.data)[Symbol.iterator](), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
+                        var state = _step4.value;
 
-                        _this5.stateOptions.push(state);
+                        _this4.stateOptions.push(state);
                     }
                 } catch (err) {
-                    _didIteratorError6 = true;
-                    _iteratorError6 = err;
+                    _didIteratorError4 = true;
+                    _iteratorError4 = err;
                 } finally {
                     try {
-                        if (!_iteratorNormalCompletion6 && _iterator6.return) {
-                            _iterator6.return();
+                        if (!_iteratorNormalCompletion4 && _iterator4.return) {
+                            _iterator4.return();
                         }
                     } finally {
-                        if (_didIteratorError6) {
-                            throw _iteratorError6;
+                        if (_didIteratorError4) {
+                            throw _iteratorError4;
                         }
                     }
                 }
@@ -1103,11 +1006,15 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
             }
         },
         loadFilters: function loadFilters() {
-            var _this6 = this;
+            var _this5 = this;
 
             this.disableWatch = true;
 
             if (this.filtersAreApplied) {
+                this.filterValues.rental = this.activeFilters.rental;
+                this.filterValues.vacant = this.activeFilters.vacant;
+                this.filterValues.foreclosure = this.activeFilters.foreclosure;
+
                 this.$set(this.filters[0], 'value', this.activeFilters.rental);
                 this.$set(this.filters[1], 'value', this.activeFilters.vacant);
                 this.$set(this.filters[2], 'value', this.activeFilters.foreclosure);
@@ -1120,13 +1027,13 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
                     this.bulkButtonClicked = true;
                 }
                 this.$nextTick(function () {
-                    var _iteratorNormalCompletion7 = true;
-                    var _didIteratorError7 = false;
-                    var _iteratorError7 = undefined;
+                    var _iteratorNormalCompletion5 = true;
+                    var _didIteratorError5 = false;
+                    var _iteratorError5 = undefined;
 
                     try {
-                        for (var _iterator7 = Object.entries(_this6.activeFilters.rental)[Symbol.iterator](), _step7; !(_iteratorNormalCompletion7 = (_step7 = _iterator7.next()).done); _iteratorNormalCompletion7 = true) {
-                            var _ref = _step7.value;
+                        for (var _iterator5 = Object.entries(_this5.activeFilters.size)[Symbol.iterator](), _step5; !(_iteratorNormalCompletion5 = (_step5 = _iterator5.next()).done); _iteratorNormalCompletion5 = true) {
+                            var _ref = _step5.value;
 
                             var _ref2 = _slicedToArray(_ref, 2);
 
@@ -1134,147 +1041,51 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
                             var value = _ref2[1];
 
                             if (value === true) {
-                                _this6.addOptionToMultiSelectValue('rental', parseInt(key), 'salesStatusOptions');
+                                _this5.addOptionToMultiSelectValue('size', parseInt(key), 'sizeOptions');
                             }
                         }
                     } catch (err) {
-                        _didIteratorError7 = true;
-                        _iteratorError7 = err;
+                        _didIteratorError5 = true;
+                        _iteratorError5 = err;
                     } finally {
                         try {
-                            if (!_iteratorNormalCompletion7 && _iterator7.return) {
-                                _iterator7.return();
+                            if (!_iteratorNormalCompletion5 && _iterator5.return) {
+                                _iterator5.return();
                             }
                         } finally {
-                            if (_didIteratorError7) {
-                                throw _iteratorError7;
+                            if (_didIteratorError5) {
+                                throw _iteratorError5;
                             }
                         }
                     }
 
-                    var _iteratorNormalCompletion8 = true;
-                    var _didIteratorError8 = false;
-                    var _iteratorError8 = undefined;
-
-                    try {
-                        for (var _iterator8 = Object.entries(_this6.activeFilters.vacant)[Symbol.iterator](), _step8; !(_iteratorNormalCompletion8 = (_step8 = _iterator8.next()).done); _iteratorNormalCompletion8 = true) {
-                            var _ref3 = _step8.value;
-
-                            var _ref4 = _slicedToArray(_ref3, 2);
-
-                            var _key = _ref4[0];
-                            var _value = _ref4[1];
-
-                            if (_value === true) {
-                                _this6.addOptionToMultiSelectValue('vacant', parseInt(_key), 'salesStatusOptions');
-                            }
-                        }
-                    } catch (err) {
-                        _didIteratorError8 = true;
-                        _iteratorError8 = err;
-                    } finally {
-                        try {
-                            if (!_iteratorNormalCompletion8 && _iterator8.return) {
-                                _iterator8.return();
-                            }
-                        } finally {
-                            if (_didIteratorError8) {
-                                throw _iteratorError8;
-                            }
-                        }
-                    }
-
-                    var _iteratorNormalCompletion9 = true;
-                    var _didIteratorError9 = false;
-                    var _iteratorError9 = undefined;
-
-                    try {
-                        for (var _iterator9 = Object.entries(_this6.activeFilters.foreclosure)[Symbol.iterator](), _step9; !(_iteratorNormalCompletion9 = (_step9 = _iterator9.next()).done); _iteratorNormalCompletion9 = true) {
-                            var _ref5 = _step9.value;
-
-                            var _ref6 = _slicedToArray(_ref5, 2);
-
-                            var _key2 = _ref6[0];
-                            var _value2 = _ref6[1];
-
-                            if (_value2 === true) {
-                                _this6.addOptionToMultiSelectValue('foreclosure', parseInt(_key2), 'salesStatusOptions');
-                            }
-                        }
-                    } catch (err) {
-                        _didIteratorError9 = true;
-                        _iteratorError9 = err;
-                    } finally {
-                        try {
-                            if (!_iteratorNormalCompletion9 && _iterator9.return) {
-                                _iterator9.return();
-                            }
-                        } finally {
-                            if (_didIteratorError9) {
-                                throw _iteratorError9;
-                            }
-                        }
-                    }
-
-                    var _iteratorNormalCompletion10 = true;
-                    var _didIteratorError10 = false;
-                    var _iteratorError10 = undefined;
-
-                    try {
-                        for (var _iterator10 = Object.entries(_this6.activeFilters.size)[Symbol.iterator](), _step10; !(_iteratorNormalCompletion10 = (_step10 = _iterator10.next()).done); _iteratorNormalCompletion10 = true) {
-                            var _ref7 = _step10.value;
-
-                            var _ref8 = _slicedToArray(_ref7, 2);
-
-                            var _key3 = _ref8[0];
-                            var _value3 = _ref8[1];
-
-                            if (_value3 === true) {
-                                _this6.addOptionToMultiSelectValue('size', parseInt(_key3), 'sizeOptions');
-                            }
-                        }
-                    } catch (err) {
-                        _didIteratorError10 = true;
-                        _iteratorError10 = err;
-                    } finally {
-                        try {
-                            if (!_iteratorNormalCompletion10 && _iterator10.return) {
-                                _iterator10.return();
-                            }
-                        } finally {
-                            if (_didIteratorError10) {
-                                throw _iteratorError10;
-                            }
-                        }
-                    }
-
-                    if (_this6.activeFilters.state !== "") {
-                        _this6.disableWatch = true;
+                    if (_this5.activeFilters.state !== "") {
+                        _this5.disableWatch = true;
                         Nova.request().get('/nova-vendor/community-filter/states').then(function (response) {
-                            var _iteratorNormalCompletion11 = true;
-                            var _didIteratorError11 = false;
-                            var _iteratorError11 = undefined;
+                            var _iteratorNormalCompletion6 = true;
+                            var _didIteratorError6 = false;
+                            var _iteratorError6 = undefined;
 
                             try {
-                                for (var _iterator11 = Object.values(response.data)[Symbol.iterator](), _step11; !(_iteratorNormalCompletion11 = (_step11 = _iterator11.next()).done); _iteratorNormalCompletion11 = true) {
-                                    var state = _step11.value;
+                                for (var _iterator6 = Object.values(response.data)[Symbol.iterator](), _step6; !(_iteratorNormalCompletion6 = (_step6 = _iterator6.next()).done); _iteratorNormalCompletion6 = true) {
+                                    var state = _step6.value;
 
-                                    if (state.id === _this6.activeFilters.state) {
-                                        _this6.filterValues.state.push(state);
-                                        _this6.loadCounties(state.id);
+                                    if (state.id === _this5.activeFilters.state) {
+                                        _this5.filterValues.state.push(state);
+                                        _this5.loadCounties(state.id);
                                     }
                                 }
                             } catch (err) {
-                                _didIteratorError11 = true;
-                                _iteratorError11 = err;
+                                _didIteratorError6 = true;
+                                _iteratorError6 = err;
                             } finally {
                                 try {
-                                    if (!_iteratorNormalCompletion11 && _iterator11.return) {
-                                        _iterator11.return();
+                                    if (!_iteratorNormalCompletion6 && _iterator6.return) {
+                                        _iterator6.return();
                                     }
                                 } finally {
-                                    if (_didIteratorError11) {
-                                        throw _iteratorError11;
+                                    if (_didIteratorError6) {
+                                        throw _iteratorError6;
                                     }
                                 }
                             }
@@ -1285,31 +1096,13 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
             this.disableWatch = false;
         },
         clearRentalFilters: function clearRentalFilters() {
-            this.filters[0].value[1] = false;
-            this.filters[0].value[5] = false;
-            this.filters[0].value[6] = false;
-            this.filters[0].value[7] = false;
-            this.filters[0].value[11] = false;
-            this.filters[0].value[12] = false;
-            this.filters[0].value[14] = false;
+            this.filters[0].value = false;
         },
         clearVacantFilters: function clearVacantFilters() {
-            this.filters[1].value[1] = false;
-            this.filters[1].value[5] = false;
-            this.filters[1].value[6] = false;
-            this.filters[1].value[7] = false;
-            this.filters[1].value[11] = false;
-            this.filters[1].value[12] = false;
-            this.filters[1].value[14] = false;
+            this.filters[1].value = false;
         },
         clearForeclosureFilters: function clearForeclosureFilters() {
-            this.filters[2].value[1] = false;
-            this.filters[2].value[5] = false;
-            this.filters[2].value[6] = false;
-            this.filters[2].value[7] = false;
-            this.filters[2].value[11] = false;
-            this.filters[2].value[12] = false;
-            this.filters[2].value[14] = false;
+            this.filters[2].value = false;
         },
         clearSizeFilters: function clearSizeFilters() {
             this.filters[3].value[0] = false;
@@ -1324,29 +1117,29 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
     },
     computed: {
         sameFilters: function sameFilters() {
-            var _iteratorNormalCompletion12 = true;
-            var _didIteratorError12 = false;
-            var _iteratorError12 = undefined;
+            var _iteratorNormalCompletion7 = true;
+            var _didIteratorError7 = false;
+            var _iteratorError7 = undefined;
 
             try {
-                for (var _iterator12 = this.savedFilters[Symbol.iterator](), _step12; !(_iteratorNormalCompletion12 = (_step12 = _iterator12.next()).done); _iteratorNormalCompletion12 = true) {
-                    var savedFilter = _step12.value;
+                for (var _iterator7 = this.savedFilters[Symbol.iterator](), _step7; !(_iteratorNormalCompletion7 = (_step7 = _iterator7.next()).done); _iteratorNormalCompletion7 = true) {
+                    var savedFilter = _step7.value;
 
                     if (this.encodedFilter === savedFilter.filter) {
                         return true;
                     }
                 }
             } catch (err) {
-                _didIteratorError12 = true;
-                _iteratorError12 = err;
+                _didIteratorError7 = true;
+                _iteratorError7 = err;
             } finally {
                 try {
-                    if (!_iteratorNormalCompletion12 && _iterator12.return) {
-                        _iterator12.return();
+                    if (!_iteratorNormalCompletion7 && _iterator7.return) {
+                        _iterator7.return();
                     }
                 } finally {
-                    if (_didIteratorError12) {
-                        throw _iteratorError12;
+                    if (_didIteratorError7) {
+                        throw _iteratorError7;
                     }
                 }
             }
@@ -1379,7 +1172,6 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
         }
     },
     created: function created() {
-        console.log('Created');
         this.loadStates();
         this.loadSavedFilters();
     },
@@ -3588,9 +3380,8 @@ var render = function() {
           ],
           attrs: { type: "checkbox" },
           domProps: {
-            value: { rental: 1 },
             checked: Array.isArray(_vm.filterValues.rental)
-              ? _vm._i(_vm.filterValues.rental, { rental: 1 }) > -1
+              ? _vm._i(_vm.filterValues.rental, null) > -1
               : _vm.filterValues.rental
           },
           on: {
@@ -3599,7 +3390,7 @@ var render = function() {
                 $$el = $event.target,
                 $$c = $$el.checked ? true : false
               if (Array.isArray($$a)) {
-                var $$v = { rental: 1 },
+                var $$v = null,
                   $$i = _vm._i($$a, $$v)
                 if ($$el.checked) {
                   $$i < 0 &&
@@ -3620,63 +3411,93 @@ var render = function() {
         })
       ]),
       _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "px-3 py-3" },
-        [
-          _c("multiselect", {
-            attrs: {
-              options: _vm.salesStatusOptions,
-              multiple: true,
-              "close-on-select": false,
-              "clear-on-select": false,
-              "preserve-search": true,
-              placeholder: "Vacant Sales Status",
-              label: "label",
-              "track-by": "id",
-              "preselect-first": false,
-              "show-labels": false
-            },
-            model: {
+      _c("div", { staticClass: "px-3 py-3" }, [
+        _vm._v("\n        Vacant Partner Status: "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
               value: _vm.filterValues.vacant,
-              callback: function($$v) {
-                _vm.$set(_vm.filterValues, "vacant", $$v)
-              },
               expression: "filterValues.vacant"
             }
-          })
-        ],
-        1
-      ),
+          ],
+          attrs: { type: "checkbox" },
+          domProps: {
+            checked: Array.isArray(_vm.filterValues.vacant)
+              ? _vm._i(_vm.filterValues.vacant, null) > -1
+              : _vm.filterValues.vacant
+          },
+          on: {
+            change: function($event) {
+              var $$a = _vm.filterValues.vacant,
+                $$el = $event.target,
+                $$c = $$el.checked ? true : false
+              if (Array.isArray($$a)) {
+                var $$v = null,
+                  $$i = _vm._i($$a, $$v)
+                if ($$el.checked) {
+                  $$i < 0 &&
+                    _vm.$set(_vm.filterValues, "vacant", $$a.concat([$$v]))
+                } else {
+                  $$i > -1 &&
+                    _vm.$set(
+                      _vm.filterValues,
+                      "vacant",
+                      $$a.slice(0, $$i).concat($$a.slice($$i + 1))
+                    )
+                }
+              } else {
+                _vm.$set(_vm.filterValues, "vacant", $$c)
+              }
+            }
+          }
+        })
+      ]),
       _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "px-3 py-3" },
-        [
-          _c("multiselect", {
-            attrs: {
-              options: _vm.salesStatusOptions,
-              multiple: true,
-              "close-on-select": false,
-              "clear-on-select": false,
-              "preserve-search": true,
-              placeholder: "Foreclosure Sales Status",
-              label: "label",
-              "track-by": "id",
-              "preselect-first": false,
-              "show-labels": false
-            },
-            model: {
+      _c("div", { staticClass: "px-3 py-3" }, [
+        _vm._v("\n        Foreclosure Partner Status: "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
               value: _vm.filterValues.foreclosure,
-              callback: function($$v) {
-                _vm.$set(_vm.filterValues, "foreclosure", $$v)
-              },
               expression: "filterValues.foreclosure"
             }
-          })
-        ],
-        1
-      ),
+          ],
+          attrs: { type: "checkbox" },
+          domProps: {
+            checked: Array.isArray(_vm.filterValues.foreclosure)
+              ? _vm._i(_vm.filterValues.foreclosure, null) > -1
+              : _vm.filterValues.foreclosure
+          },
+          on: {
+            change: function($event) {
+              var $$a = _vm.filterValues.foreclosure,
+                $$el = $event.target,
+                $$c = $$el.checked ? true : false
+              if (Array.isArray($$a)) {
+                var $$v = null,
+                  $$i = _vm._i($$a, $$v)
+                if ($$el.checked) {
+                  $$i < 0 &&
+                    _vm.$set(_vm.filterValues, "foreclosure", $$a.concat([$$v]))
+                } else {
+                  $$i > -1 &&
+                    _vm.$set(
+                      _vm.filterValues,
+                      "foreclosure",
+                      $$a.slice(0, $$i).concat($$a.slice($$i + 1))
+                    )
+                }
+              } else {
+                _vm.$set(_vm.filterValues, "foreclosure", $$c)
+              }
+            }
+          }
+        })
+      ]),
       _vm._v(" "),
       _c(
         "div",
