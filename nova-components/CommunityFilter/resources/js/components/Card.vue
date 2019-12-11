@@ -39,6 +39,9 @@
                          :close-on-select="true" :clear-on-select="false" :preserve-search="true" placeholder="County"
                          label="label" track-by="id" :preselect-first="false" :show-labels="false"></multiselect>
         </div>
+        <div class="px-3 py-3" style="text-align: center;"> <br />
+            <p>Or: </p><label class="switch"><input type="checkbox"  v-model="filterValues.or"><span class="slider round"></span></label>
+        </div>
         <div class="flex flex-row items-center justify-center">
             <label for="bulkId"></label>
             <transition name="fade" mode="out-in">
@@ -118,6 +121,14 @@
                     {
                         class: "Prochamps\\BulkId\\BulkId",
                         value: ""
+                    },
+                    {
+                        class: "App\\Nova\\Filters\\CommunityOrFilter",
+                        value: {
+                            rental: false,
+                            vacant: false,
+                            foreclosure: false
+                        }
                     }
                 ],
                 filterValues: {
@@ -126,7 +137,8 @@
                     foreclosure: false,
                     size: [],
                     state: [],
-                    county: []
+                    county: [],
+                    or: false,
                 },
                 blankFilterValues: {
                     rental:false,
@@ -134,7 +146,8 @@
                     foreclosure: false,
                     size: [],
                     state: [],
-                    county: []
+                    county: [],
+                    or: false,
                 },
                 sizeOptions: [
                     {id: 0, label: 'X-Small'},
@@ -163,12 +176,25 @@
                     query: {'c-m-communities_filter': this.encodedFilter}
                 })
             },
+            'filterValues.or': function (val) {
+                console.log('Logged');
+                console.log(val);
+
+                this.$router.push({
+                    path: '/resources/c-m-communities',
+                    query: {'c-m-communities_filter': this.encodedFilter}
+                })
+            },
             'filterValues.rental': function (val) {
                 this.clearRentalFilters();
-                if(val)
-                    this.filters[0].value = true
-                else
-                    this.filters[0].value = false
+                if(val){
+                    this.filters[0].value = true;
+                    this.filters[8].value['rental'] = true;
+                }
+                else{
+                    this.filters[8].value['rental'] = false;
+                    this.filters[0].value = false;
+                }
 
                 this.$router.push({
                     path: '/resources/c-m-communities',
@@ -177,10 +203,14 @@
             },
             'filterValues.vacant': function (val) {
                 this.clearVacantFilters();
-                if(val)
+                if(val){
                     this.filters[1].value = true
-                else
+                    this.filters[8].value['vacant'] = true;
+                }
+                else{
                     this.filters[1].value = false
+                    this.filters[8].value['vacant'] = false;
+                }
 
                 this.$router.push({
                     path: '/resources/c-m-communities',
@@ -190,10 +220,14 @@
             'filterValues.foreclosure': function (val) {
                 this.clearForeclosureFilters();
 
-                if(val)
+                if(val){
                     this.filters[2].value = true
-                else
+                    this.filters[8].value['foreclosure'] = true;
+                }
+                else{
                     this.filters[2].value = false
+                    this.filters[8].value['foreclosure'] = false;
+                }
 
                 this.$router.push({
                     path: '/resources/c-m-communities',
@@ -235,7 +269,7 @@
                     })
                 }
 
-            },
+            }
         },
         methods: {
             resetFilters() {
@@ -261,12 +295,16 @@
                 });
             },
             loadSavedFilters() {
+                console.log('I am Here 9');
                 Nova.request().get('/nova-vendor/community-filter/savedFilters').then(response => {
                     this.savedFilters = [];
+                    console.log('I am Here 10');
                     for (let savedFilters of Object.values(response.data)) {
                         this.savedFilters.push(savedFilters)
                     }
+                    console.log('I am Here 11');
                 });
+                console.log('I am Here 12');
             },
             toggleFilterSaveButton() {
                 this.filterSaveButtonClicked = !this.filterSaveButtonClicked;
@@ -286,11 +324,15 @@
                 }
             },
             loadStates() {
+                console.log('I am Here 3');
                 Nova.request().get('/nova-vendor/community-filter/states').then(response => {
+                    console.log('I am Here 4');
                     for (let state of Object.values(response.data)) {
                         this.stateOptions.push(state)
                     }
+                    console.log('I am Here 5');
                 });
+                console.log('I am Here 6');
             },
             addOptionToMultiSelectValue(filter, id, options) {
                 let option = this[options].find(element => {
@@ -303,6 +345,7 @@
                 }
             },
             loadFilters() {
+                console.log('I am Here');
                 this.disableWatch = true;
 
                 if (this.filtersAreApplied) {
@@ -317,6 +360,8 @@
                     this.$set(this.filters[4], 'value', this.activeFilters.state);
                     this.$set(this.filters[5], 'value', this.activeFilters.county);
                     this.$set(this.filters[7], 'value', this.activeFilters.bulkId);
+                    this.$set(this.filters[8], 'value', this.activeFilters.or);
+
                     this.bulkIdText = this.activeFilters.bulkId;
                     if (this.activeFilters.bulkId !== "") {
                         this.bulkButtonClicked = true
@@ -342,6 +387,7 @@
 
                 }
                 this.disableWatch = false;
+                console.log('I am Here 2');
             },
             clearRentalFilters() {
                 this.filters[0].value = false;

@@ -26,8 +26,6 @@ class CommunityForeclosureSalesStatus extends BooleanFilter
             return $query->whereHas('rentalVacantSalesStatus', function ($q) use ($value) {
                 if ($value == true) {
                     $q->where('foreclosure_partner_status', '=', 1);
-                    $q->orwhere('rental_partner_status', '=', 1);
-                    $q->orwhere('vacant_partner_status', '=', 1);
                 }
             });
         }
