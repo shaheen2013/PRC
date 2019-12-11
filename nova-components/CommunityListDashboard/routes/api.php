@@ -106,18 +106,18 @@ Route::post('/count', function (Request $request) {
         return response([
             'communities'  => $query->count(),
             'households'    => (int) $query->sum('u.housing_units'),
-            'rental'       => (int) $query->sum('u.est_long_term_rental'),
-            'vacant'       => (int) $query->sum('u.est_vacant_total'),
-            'foreclosure'  => (int) $foreclosureQuery->where('f.ISMOSTCURRENT', '=', 1)->sum('f.FORECLOSURESACTIVE'),
+            'rental'       => (int) $query->sum('s.rental_partner_status', '=', 1),
+            'vacant'       => (int) $query->sum('s.vacant_partner_status', '=', 1),
+            'foreclosure'  => (int) $foreclosureQuery->sum('s.foreclosure_partner_status', '=', 1),
         ]);
     } else {
         return Cache::remember('community-list-dashboard-no-filter', 10080, function () use ($query, $foreclosureQuery) {
             return response([
                 'communities'  => $query->count(),
                 'households'    => (int) $query->sum('u.housing_units'),
-                'rental'       => (int) $query->sum('u.est_long_term_rental'),
-                'vacant'       => (int) $query->sum('u.est_vacant_total'),
-                'foreclosure'  => (int) $foreclosureQuery->where('f.ISMOSTCURRENT', '=', 1)->sum('f.FORECLOSURESACTIVE'),
+                'rental'       => (int) $query->sum('s.rental_partner_status', '=', 1),
+                'vacant'       => (int) $query->sum('s.vacant_partner_status', '=', 1),
+                'foreclosure'  => (int) $foreclosureQuery->sum('s.foreclosure_partner_status', '=', 1),
             ]);
         });
     }

@@ -87,6 +87,7 @@ var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
   __webpack_require__(3)
+  __webpack_require__(21)
 }
 var normalizeComponent = __webpack_require__(8)
 /* script */
@@ -3367,137 +3368,168 @@ var render = function() {
         1
       ),
       _vm._v(" "),
-      _c("div", { staticClass: "px-3 py-3" }, [
-        _vm._v("\n        Rental Partner Status: "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.filterValues.rental,
-              expression: "filterValues.rental"
-            }
-          ],
-          attrs: { type: "checkbox" },
-          domProps: {
-            checked: Array.isArray(_vm.filterValues.rental)
-              ? _vm._i(_vm.filterValues.rental, null) > -1
-              : _vm.filterValues.rental
-          },
-          on: {
-            change: function($event) {
-              var $$a = _vm.filterValues.rental,
-                $$el = $event.target,
-                $$c = $$el.checked ? true : false
-              if (Array.isArray($$a)) {
-                var $$v = null,
-                  $$i = _vm._i($$a, $$v)
-                if ($$el.checked) {
-                  $$i < 0 &&
-                    _vm.$set(_vm.filterValues, "rental", $$a.concat([$$v]))
-                } else {
-                  $$i > -1 &&
-                    _vm.$set(
-                      _vm.filterValues,
-                      "rental",
-                      $$a.slice(0, $$i).concat($$a.slice($$i + 1))
-                    )
+      _c(
+        "div",
+        { staticClass: "px-3 py-3", staticStyle: { "text-align": "center" } },
+        [
+          _c("br"),
+          _vm._v(" "),
+          _c("p", [_vm._v("Rental Partner Status: ")]),
+          _c("label", { staticClass: "switch" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.filterValues.rental,
+                  expression: "filterValues.rental"
                 }
-              } else {
-                _vm.$set(_vm.filterValues, "rental", $$c)
+              ],
+              attrs: { type: "checkbox" },
+              domProps: {
+                checked: Array.isArray(_vm.filterValues.rental)
+                  ? _vm._i(_vm.filterValues.rental, null) > -1
+                  : _vm.filterValues.rental
+              },
+              on: {
+                change: function($event) {
+                  var $$a = _vm.filterValues.rental,
+                    $$el = $event.target,
+                    $$c = $$el.checked ? true : false
+                  if (Array.isArray($$a)) {
+                    var $$v = null,
+                      $$i = _vm._i($$a, $$v)
+                    if ($$el.checked) {
+                      $$i < 0 &&
+                        _vm.$set(_vm.filterValues, "rental", $$a.concat([$$v]))
+                    } else {
+                      $$i > -1 &&
+                        _vm.$set(
+                          _vm.filterValues,
+                          "rental",
+                          $$a.slice(0, $$i).concat($$a.slice($$i + 1))
+                        )
+                    }
+                  } else {
+                    _vm.$set(_vm.filterValues, "rental", $$c)
+                  }
+                }
               }
-            }
-          }
-        })
-      ]),
+            }),
+            _c("span", { staticClass: "slider round" })
+          ])
+        ]
+      ),
       _vm._v(" "),
-      _c("div", { staticClass: "px-3 py-3" }, [
-        _vm._v("\n        Vacant Partner Status: "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.filterValues.vacant,
-              expression: "filterValues.vacant"
-            }
-          ],
-          attrs: { type: "checkbox" },
-          domProps: {
-            checked: Array.isArray(_vm.filterValues.vacant)
-              ? _vm._i(_vm.filterValues.vacant, null) > -1
-              : _vm.filterValues.vacant
-          },
-          on: {
-            change: function($event) {
-              var $$a = _vm.filterValues.vacant,
-                $$el = $event.target,
-                $$c = $$el.checked ? true : false
-              if (Array.isArray($$a)) {
-                var $$v = null,
-                  $$i = _vm._i($$a, $$v)
-                if ($$el.checked) {
-                  $$i < 0 &&
-                    _vm.$set(_vm.filterValues, "vacant", $$a.concat([$$v]))
-                } else {
-                  $$i > -1 &&
-                    _vm.$set(
-                      _vm.filterValues,
-                      "vacant",
-                      $$a.slice(0, $$i).concat($$a.slice($$i + 1))
-                    )
+      _c(
+        "div",
+        { staticClass: "px-3 py-3", staticStyle: { "text-align": "center" } },
+        [
+          _c("br"),
+          _vm._v(" "),
+          _c("p", [_vm._v("Vacant Partner Status: ")]),
+          _c("label", { staticClass: "switch" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.filterValues.vacant,
+                  expression: "filterValues.vacant"
                 }
-              } else {
-                _vm.$set(_vm.filterValues, "vacant", $$c)
+              ],
+              attrs: { type: "checkbox" },
+              domProps: {
+                checked: Array.isArray(_vm.filterValues.vacant)
+                  ? _vm._i(_vm.filterValues.vacant, null) > -1
+                  : _vm.filterValues.vacant
+              },
+              on: {
+                change: function($event) {
+                  var $$a = _vm.filterValues.vacant,
+                    $$el = $event.target,
+                    $$c = $$el.checked ? true : false
+                  if (Array.isArray($$a)) {
+                    var $$v = null,
+                      $$i = _vm._i($$a, $$v)
+                    if ($$el.checked) {
+                      $$i < 0 &&
+                        _vm.$set(_vm.filterValues, "vacant", $$a.concat([$$v]))
+                    } else {
+                      $$i > -1 &&
+                        _vm.$set(
+                          _vm.filterValues,
+                          "vacant",
+                          $$a.slice(0, $$i).concat($$a.slice($$i + 1))
+                        )
+                    }
+                  } else {
+                    _vm.$set(_vm.filterValues, "vacant", $$c)
+                  }
+                }
               }
-            }
-          }
-        })
-      ]),
+            }),
+            _c("span", { staticClass: "slider round" })
+          ])
+        ]
+      ),
       _vm._v(" "),
-      _c("div", { staticClass: "px-3 py-3" }, [
-        _vm._v("\n        Foreclosure Partner Status: "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.filterValues.foreclosure,
-              expression: "filterValues.foreclosure"
-            }
-          ],
-          attrs: { type: "checkbox" },
-          domProps: {
-            checked: Array.isArray(_vm.filterValues.foreclosure)
-              ? _vm._i(_vm.filterValues.foreclosure, null) > -1
-              : _vm.filterValues.foreclosure
-          },
-          on: {
-            change: function($event) {
-              var $$a = _vm.filterValues.foreclosure,
-                $$el = $event.target,
-                $$c = $$el.checked ? true : false
-              if (Array.isArray($$a)) {
-                var $$v = null,
-                  $$i = _vm._i($$a, $$v)
-                if ($$el.checked) {
-                  $$i < 0 &&
-                    _vm.$set(_vm.filterValues, "foreclosure", $$a.concat([$$v]))
-                } else {
-                  $$i > -1 &&
-                    _vm.$set(
-                      _vm.filterValues,
-                      "foreclosure",
-                      $$a.slice(0, $$i).concat($$a.slice($$i + 1))
-                    )
+      _c(
+        "div",
+        { staticClass: "px-3 py-3", staticStyle: { "text-align": "center" } },
+        [
+          _c("br"),
+          _vm._v(" "),
+          _c("p", [_vm._v("Foreclosure Partner Status: ")]),
+          _c("label", { staticClass: "switch" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.filterValues.foreclosure,
+                  expression: "filterValues.foreclosure"
                 }
-              } else {
-                _vm.$set(_vm.filterValues, "foreclosure", $$c)
+              ],
+              attrs: { type: "checkbox" },
+              domProps: {
+                checked: Array.isArray(_vm.filterValues.foreclosure)
+                  ? _vm._i(_vm.filterValues.foreclosure, null) > -1
+                  : _vm.filterValues.foreclosure
+              },
+              on: {
+                change: function($event) {
+                  var $$a = _vm.filterValues.foreclosure,
+                    $$el = $event.target,
+                    $$c = $$el.checked ? true : false
+                  if (Array.isArray($$a)) {
+                    var $$v = null,
+                      $$i = _vm._i($$a, $$v)
+                    if ($$el.checked) {
+                      $$i < 0 &&
+                        _vm.$set(
+                          _vm.filterValues,
+                          "foreclosure",
+                          $$a.concat([$$v])
+                        )
+                    } else {
+                      $$i > -1 &&
+                        _vm.$set(
+                          _vm.filterValues,
+                          "foreclosure",
+                          $$a.slice(0, $$i).concat($$a.slice($$i + 1))
+                        )
+                    }
+                  } else {
+                    _vm.$set(_vm.filterValues, "foreclosure", $$c)
+                  }
+                }
               }
-            }
-          }
-        })
-      ]),
+            }),
+            _c("span", { staticClass: "slider round" })
+          ])
+        ]
+      ),
       _vm._v(" "),
       _c(
         "div",
@@ -3663,6 +3695,49 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 18 */,
+/* 19 */,
+/* 20 */,
+/* 21 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(22);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(6)("24f0adb8", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-b9bc2c0a\",\"scoped\":false,\"hasInlineConfig\":true}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=1!./Card.vue", function() {
+     var newContent = require("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-b9bc2c0a\",\"scoped\":false,\"hasInlineConfig\":true}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=1!./Card.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 22 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(5)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.switch {\n  position: relative;\n  display: inline-block;\n  width: 60px;\n  height: 26px;\n}\n.switch input { \n  opacity: 0;\n  width: 0;\n  height: 0;\n}\n.slider {\n  position: absolute;\n  cursor: pointer;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-color: #ccc;\n  -webkit-transition: .4s;\n  transition: .4s;\n}\n.slider:before {\n  position: absolute;\n  content: \"\";\n  height: 20px;\n  width: 20px;\n  left: 7px;\n  bottom: 3px;\n  background-color: white;\n  -webkit-transition: .4s;\n  transition: .4s;\n}\ninput:checked + .slider {\n  background-color: #2196F3;\n}\ninput:focus + .slider {\n  -webkit-box-shadow: 0 0 1px #2196F3;\n          box-shadow: 0 0 1px #2196F3;\n}\ninput:checked + .slider:before {\n  -webkit-transform: translateX(26px);\n  transform: translateX(26px);\n}\n\n/* Rounded sliders */\n.slider.round {\n  border-radius: 34px;\n}\n.slider.round:before {\n  border-radius: 50%;\n}\n", ""]);
+
+// exports
+
 
 /***/ })
 /******/ ]);
