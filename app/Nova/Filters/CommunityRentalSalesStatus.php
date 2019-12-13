@@ -17,14 +17,17 @@ class CommunityRentalSalesStatus extends BooleanFilter
      */
     public function apply(Request $request, $query, $value)
     {
-        if(is_array($value)){
+        if(!$value){
             return $query;
         }
-        if ($value == false) {
+        if($value['orActive']){
+            return $query;
+        }
+        if ($value['value'] == false) {
             return $query;
         } else {
             return $query->whereHas('rentalVacantSalesStatus', function ($q) use ($value) {
-                if ($value == true) {
+                if ($value['value'] == true) {
                     $q->where('rental_partner_status', '=', 1);
                 }
             });
@@ -40,13 +43,8 @@ class CommunityRentalSalesStatus extends BooleanFilter
     public function options(Request $request)
     {
         return [
-            '0 - No Activity' => 1,
-            '1 - Generate' => 7,
-            '2 - Guide' => 11,
-            '3 - Propose' => 12,
-            '4 - Onboard' => 6,
-            '5 - Enhance & Renew' => 5,
-            '6 - Upgrade' => 14,
+            0 => 'value',
+            1 => 'orActive',
         ];
     }
 }

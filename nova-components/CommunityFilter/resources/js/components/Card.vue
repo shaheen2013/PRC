@@ -40,7 +40,7 @@
                          label="label" track-by="id" :preselect-first="false" :show-labels="false"></multiselect>
         </div>
         <div class="px-3 py-3" style="text-align: center;"> <br />
-            <p>Or: </p><label class="switch"><input type="checkbox"  v-model="filterValues.or"><span class="slider round"></span></label>
+            <p>OR </p><label class="switch"><input type="checkbox"  v-model="filterValues.or"><span class="slider round"></span></label>
         </div>
         <div class="flex flex-row items-center justify-center">
             <label for="bulkId"></label>
@@ -86,15 +86,24 @@
                 filters: [
                     {
                         class: "App\\Nova\\Filters\\CommunityRentalSalesStatus",
-                        value: false
+                        value: {
+                            value: false,
+                            orActive: false
+                        }
                     },
                     {
                         class: "App\\Nova\\Filters\\CommunityVacantSalesStatus",
-                        value: false
+                        value: {
+                            value: false,
+                            orActive: false
+                        }
                     },
                     {
                         class: "App\\Nova\\Filters\\CommunityForeclosureSalesStatus",
-                        value: false
+                        value: {
+                            value: false,
+                            orActive: false
+                        }
                     },
                     {
                         class: "App\\Nova\\Filters\\CommunitySize",
@@ -177,9 +186,21 @@
                 })
             },
             'filterValues.or': function (val) {
-                console.log('Logged');
-                console.log(val);
-
+                if(val){
+                    this.filters[8].value['rental'] = this.filters[0].value.value;
+                    this.filters[8].value['vacant'] = this.filters[1].value.value;
+                    this.filters[8].value['foreclosure'] = this.filters[2].value.value;
+                    this.filters[0].value['orActive'] = true;
+                    this.filters[1].value['orActive'] = true;
+                    this.filters[2].value['orActive'] = true;
+                }else{
+                    this.filters[8].value['rental'] = false;
+                    this.filters[8].value['vacant'] = false;
+                    this.filters[8].value['foreclosure'] = false;
+                    this.filters[0].value['orActive'] = false;
+                    this.filters[1].value['orActive'] = false;
+                    this.filters[2].value['orActive'] = false;
+                }
                 this.$router.push({
                     path: '/resources/c-m-communities',
                     query: {'c-m-communities_filter': this.encodedFilter}
@@ -188,12 +209,13 @@
             'filterValues.rental': function (val) {
                 this.clearRentalFilters();
                 if(val){
-                    this.filters[0].value = true;
-                    this.filters[8].value['rental'] = true;
+                    this.filters[0].value.value = true;
+                    this.filterValues.or = false
                 }
                 else{
-                    this.filters[8].value['rental'] = false;
-                    this.filters[0].value = false;
+                    
+                    this.filters[0].value.value = false;
+                    this.filterValues.or = false
                 }
 
                 this.$router.push({
@@ -203,13 +225,14 @@
             },
             'filterValues.vacant': function (val) {
                 this.clearVacantFilters();
+                console.log(this.filters);
                 if(val){
-                    this.filters[1].value = true
-                    this.filters[8].value['vacant'] = true;
+                    this.filters[1].value.value = true;
+                    this.filterValues.or = false
                 }
                 else{
-                    this.filters[1].value = false
-                    this.filters[8].value['vacant'] = false;
+                    this.filters[1].value.value = false;
+                    this.filterValues.or = false
                 }
 
                 this.$router.push({
@@ -219,14 +242,14 @@
             },
             'filterValues.foreclosure': function (val) {
                 this.clearForeclosureFilters();
-
+                console.log(this.filters);
                 if(val){
-                    this.filters[2].value = true
-                    this.filters[8].value['foreclosure'] = true;
+                    this.filters[2].value.value = true;
+                    this.filterValues.or = false
                 }
                 else{
-                    this.filters[2].value = false
-                    this.filters[8].value['foreclosure'] = false;
+                    this.filters[2].value.value = false;
+                    this.filterValues.or = false
                 }
 
                 this.$router.push({
@@ -295,16 +318,12 @@
                 });
             },
             loadSavedFilters() {
-                console.log('I am Here 9');
                 Nova.request().get('/nova-vendor/community-filter/savedFilters').then(response => {
                     this.savedFilters = [];
-                    console.log('I am Here 10');
                     for (let savedFilters of Object.values(response.data)) {
                         this.savedFilters.push(savedFilters)
                     }
-                    console.log('I am Here 11');
                 });
-                console.log('I am Here 12');
             },
             toggleFilterSaveButton() {
                 this.filterSaveButtonClicked = !this.filterSaveButtonClicked;
@@ -324,15 +343,11 @@
                 }
             },
             loadStates() {
-                console.log('I am Here 3');
                 Nova.request().get('/nova-vendor/community-filter/states').then(response => {
-                    console.log('I am Here 4');
                     for (let state of Object.values(response.data)) {
                         this.stateOptions.push(state)
                     }
-                    console.log('I am Here 5');
                 });
-                console.log('I am Here 6');
             },
             addOptionToMultiSelectValue(filter, id, options) {
                 let option = this[options].find(element => {
@@ -345,13 +360,12 @@
                 }
             },
             loadFilters() {
-                console.log('I am Here');
                 this.disableWatch = true;
 
                 if (this.filtersAreApplied) {
-                    this.filterValues.rental = this.activeFilters.rental;
-                    this.filterValues.vacant = this.activeFilters.vacant;
-                    this.filterValues.foreclosure = this.activeFilters.foreclosure;
+                    this.filterValues.rental = this.activeFilters.rental.value;
+                    this.filterValues.vacant = this.activeFilters.vacant.value;
+                    this.filterValues.foreclosure = this.activeFilters.foreclosure.value;
 
                     this.$set(this.filters[0], 'value', this.activeFilters.rental);
                     this.$set(this.filters[1], 'value', this.activeFilters.vacant);
@@ -360,7 +374,6 @@
                     this.$set(this.filters[4], 'value', this.activeFilters.state);
                     this.$set(this.filters[5], 'value', this.activeFilters.county);
                     this.$set(this.filters[7], 'value', this.activeFilters.bulkId);
-                    this.$set(this.filters[8], 'value', this.activeFilters.or);
 
                     this.bulkIdText = this.activeFilters.bulkId;
                     if (this.activeFilters.bulkId !== "") {
@@ -387,16 +400,15 @@
 
                 }
                 this.disableWatch = false;
-                console.log('I am Here 2');
             },
             clearRentalFilters() {
-                this.filters[0].value = false;
+                this.filters[0].value.value = false;
             },
             clearVacantFilters() {
-                this.filters[1].value = false;
+                this.filters[1].value.value = false;
             },
             clearForeclosureFilters() {
-                this.filters[2].value = false;
+                this.filters[2].value.value = false;
             },
             clearSizeFilters() {
                 this.filters[3].value[0] = false;
@@ -456,63 +468,63 @@
 
 <style src="vue-multiselect/dist/vue-multiselect.min.css"></style>
 <style>
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 26px;
-}
+    .switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 26px;
+    }
 
-.switch input { 
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
+    .switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+    }
 
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
-}
+    .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+    }
 
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 20px;
-  width: 20px;
-  left: 7px;
-  bottom: 3px;
-  background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
-}
+    .slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 7px;
+    bottom: 3px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+    }
 
-input:checked + .slider {
-  background-color: #2196F3;
-}
+    input:checked + .slider {
+    background-color: #2196F3;
+    }
 
-input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
-}
+    input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+    }
 
-input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
-}
+    input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+    }
 
-/* Rounded sliders */
-.slider.round {
-  border-radius: 34px;
-}
+    /* Rounded sliders */
+    .slider.round {
+    border-radius: 34px;
+    }
 
-.slider.round:before {
-  border-radius: 50%;
-}
+    .slider.round:before {
+    border-radius: 50%;
+    }
 </style>

@@ -1,15 +1,10 @@
 <?php
-
-
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
-
-
 Route::post('/count', function (Request $request) {
     $query = DB::connection('mysql_dev')->table('osusr_mlv_community');
     $foreclosureQuery = DB::connection('mysql_dev')->table('osusr_mlv_community');
-
     $rentalFilters = collect($request->get('filters'))->get('rental');
     $vacantFilters = collect($request->get('filters'))->get('vacant');
     $foreclosureFilters = collect($request->get('filters'))->get('foreclosure');
@@ -18,18 +13,15 @@ Route::post('/count', function (Request $request) {
     $stateFilters = collect($request->get('filters'))->get('state');
     $countyFilters = collect($request->get('filters'))->get('county');
     $bulkIdFilter = collect($request->get('filters'))->get('bulkId');
-
     $query->leftJoin('cm_community_quartiles as u', 'osusr_mlv_community.COMMUNITYID', '=', 'u.community_id');
     $query->leftJoin('cm_rental_vacant_sales_statuses as s', 'osusr_mlv_community.COMMUNITYID', '=', 's.community_id');
     $query->leftJoin('osusr_tvl_crm as c', 'osusr_mlv_community.COMMUNITYID', '=', 'c.COMMUNITYID');
     //  $query->leftJoin('osusr_tvl_crm_rm as r', "osusr_mlv_community.COMMUNITYID", '=', 'r.COMMUNITYID');
-
     //  $foreclosureQuery->leftJoin('osusr_tvl_crm_rm as r', "osusr_mlv_community.COMMUNITYID", '=', 'r.COMMUNITYID');
     $foreclosureQuery->leftJoin('osusr_tvl_crm as c', 'osusr_mlv_community.COMMUNITYID', '=', 'c.COMMUNITYID');
     $foreclosureQuery->leftJoin('cm_community_quartiles as u', 'osusr_mlv_community.COMMUNITYID', '=', 'u.community_id');
     $foreclosureQuery->leftJoin('cm_rental_vacant_sales_statuses as s', 'osusr_mlv_community.COMMUNITYID', '=', 's.community_id');
     $foreclosureQuery->leftJoin('OSUSR_tvl_RTStatsSummaryHistory as f', 'osusr_mlv_community.COMMUNITYID', '=', 'f.COMMCOMMUNITYID');
-
     $rentalFilterUsed = false;
     $vacantFilterUsed = false;
     $foreclosureFilterUsed = false;
@@ -37,7 +29,7 @@ Route::post('/count', function (Request $request) {
 
     if ($request->get('filtersAreApplied')) {
         $query->where(function ($query) use ($foreclosureQuery, $rentalFilterUsed, $rentalFilters) {
-            if ($rentalFilters === true) {
+            if ($rentalFilters['value'] === true) {
                 if ($rentalFilterUsed) {
                     $query->orWhere('s.rental_partner_status', '=', 1);
                     $foreclosureQuery->orWhere('s.rental_partner_status', '=', 1);
@@ -49,7 +41,7 @@ Route::post('/count', function (Request $request) {
             }
         });
         $query->where(function ($query) use ($foreclosureQuery, $vacantFilterUsed, $vacantFilters) {
-            if ($vacantFilters === true) {
+            if ($vacantFilters['value'] === true) {
                 if ($vacantFilterUsed) {
                     $query->orWhere('s.vacant_partner_status', '=', 1);
                     $foreclosureQuery->orWhere('s.vacant_partner_status', '=', 1);
@@ -61,7 +53,7 @@ Route::post('/count', function (Request $request) {
             }
         });
         $query->where(function ($query) use ($foreclosureQuery, $foreclosureFilterUsed, $foreclosureFilters) {
-            if ($foreclosureFilters === true) {
+            if ($foreclosureFilters['value'] === true) {
                 if ($foreclosureFilterUsed) {
                     $query->orWhere('s.foreclosure_partner_status', '=', 1);
                     $foreclosureQuery->orWhere('s.foreclosure_partner_status', '=', 1);
@@ -98,7 +90,6 @@ Route::post('/count', function (Request $request) {
             $query->whereIn('osusr_mlv_community.COMMUNITYID', array_filter(preg_split('/\r\n|\r|\n/', $bulkIdFilter)));
             $foreclosureQuery->whereIn('osusr_mlv_community.COMMUNITYID', array_filter(preg_split('/\r\n|\r|\n/', $bulkIdFilter)));
         }
-
 //        if  ($rmFilter !== "") {
 //            $query->where('r.ORGANIZATIONID', '=', $rmFilter);
 //            $foreclosureQuery->where('r.ORGANIZATIONID', '=', $rmFilter);
@@ -106,20 +97,19 @@ Route::post('/count', function (Request $request) {
         return response([
             'communities'  => $query->count(),
             'households'    => (int) $query->sum('u.housing_units'),
-            'rental'       => (int) $query->sum('s.rental_partner_status', '=', 1),
-            'vacant'       => (int) $query->sum('s.vacant_partner_status', '=', 1),
-            'foreclosure'  => (int) $foreclosureQuery->sum('s.foreclosure_partner_status', '=', 1),
+            'rental'       => (int) $query->sum('u.est_long_term_rental'),
+            'vacant'       => (int) $query->sum('u.est_vacant_total'),
+            'foreclosure'  => (int) $foreclosureQuery->where('f.ISMOSTCURRENT', '=', 1)->sum('f.FORECLOSURESACTIVE'),
         ]);
     } else {
         return Cache::remember('community-list-dashboard-no-filter', 10080, function () use ($query, $foreclosureQuery) {
             return response([
                 'communities'  => $query->count(),
                 'households'    => (int) $query->sum('u.housing_units'),
-                'rental'       => (int) $query->sum('s.rental_partner_status', '=', 1),
-                'vacant'       => (int) $query->sum('s.vacant_partner_status', '=', 1),
-                'foreclosure'  => (int) $foreclosureQuery->sum('s.foreclosure_partner_status', '=', 1),
+                'rental'       => (int) $query->sum('u.est_long_term_rental'),
+                'vacant'       => (int) $query->sum('u.est_vacant_total'),
+                'foreclosure'  => (int) $foreclosureQuery->where('f.ISMOSTCURRENT', '=', 1)->sum('f.FORECLOSURESACTIVE'),
             ]);
         });
     }
 });
-

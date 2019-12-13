@@ -17,17 +17,24 @@ class CommunityOrFilter extends BooleanFilter
      */
     public function apply(Request $request, $query, $value)
     {
-        return $query;
-        return $query->whereHas('rentalVacantSalesStatus', function ($q) use ($value) {
-            if ($value['rental'] === true) {
-                $q->orwhere('rental_partner_status', '=', 1);
-            }
-            if($value['vacant'] === true){
-                $q->orwhere('vacant_partner_status', '=', 1);
-            }
-            if($value['foreclosure'] === true){
-                $q->where('foreclosure_partner_status', '=', 1);
-            }
+        if(!$value){
+            return $query;
+        }
+        if($value['rental'] === false && $value['vacant'] === false && $value['foreclosure'] === false){
+            return $query;
+        }
+        return $query->whereHas('rentalVacantSalesStatus', function ($qq) use ($value) {
+            $qq->where(function($q) use($value){
+                if ($value['rental'] === true) {
+                    $q->orwhere('rental_partner_status', '=', 1);
+                }
+                if($value['vacant'] === true){
+                    $q->orwhere('vacant_partner_status', '=', 1);
+                }
+                if($value['foreclosure'] === true){
+                    $q->orwhere('foreclosure_partner_status', '=', 1);
+                }
+            });
         });
     }
 

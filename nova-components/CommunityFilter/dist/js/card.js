@@ -549,7 +549,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.switch {\n  position: relative;\n  display: inline-block;\n  width: 60px;\n  height: 26px;\n}\n.switch input { \n  opacity: 0;\n  width: 0;\n  height: 0;\n}\n.slider {\n  position: absolute;\n  cursor: pointer;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-color: #ccc;\n  -webkit-transition: .4s;\n  transition: .4s;\n}\n.slider:before {\n  position: absolute;\n  content: \"\";\n  height: 20px;\n  width: 20px;\n  left: 7px;\n  bottom: 3px;\n  background-color: white;\n  -webkit-transition: .4s;\n  transition: .4s;\n}\ninput:checked + .slider {\n  background-color: #2196F3;\n}\ninput:focus + .slider {\n  -webkit-box-shadow: 0 0 1px #2196F3;\n          box-shadow: 0 0 1px #2196F3;\n}\ninput:checked + .slider:before {\n  -webkit-transform: translateX(26px);\n  transform: translateX(26px);\n}\n\n/* Rounded sliders */\n.slider.round {\n  border-radius: 34px;\n}\n.slider.round:before {\n  border-radius: 50%;\n}\n", ""]);
+exports.push([module.i, "\n.switch {\nposition: relative;\ndisplay: inline-block;\nwidth: 60px;\nheight: 26px;\n}\n.switch input { \nopacity: 0;\nwidth: 0;\nheight: 0;\n}\n.slider {\nposition: absolute;\ncursor: pointer;\ntop: 0;\nleft: 0;\nright: 0;\nbottom: 0;\nbackground-color: #ccc;\n-webkit-transition: .4s;\ntransition: .4s;\n}\n.slider:before {\nposition: absolute;\ncontent: \"\";\nheight: 20px;\nwidth: 20px;\nleft: 7px;\nbottom: 3px;\nbackground-color: white;\n-webkit-transition: .4s;\ntransition: .4s;\n}\ninput:checked + .slider {\nbackground-color: #2196F3;\n}\ninput:focus + .slider {\n-webkit-box-shadow: 0 0 1px #2196F3;\n        box-shadow: 0 0 1px #2196F3;\n}\ninput:checked + .slider:before {\n-webkit-transform: translateX(26px);\ntransform: translateX(26px);\n}\n\n/* Rounded sliders */\n.slider.round {\nborder-radius: 34px;\n}\n.slider.round:before {\nborder-radius: 50%;\n}\n", ""]);
 
 // exports
 
@@ -760,13 +760,22 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
             bulkButtonClicked: false,
             filters: [{
                 class: "App\\Nova\\Filters\\CommunityRentalSalesStatus",
-                value: false
+                value: {
+                    value: false,
+                    orActive: false
+                }
             }, {
                 class: "App\\Nova\\Filters\\CommunityVacantSalesStatus",
-                value: false
+                value: {
+                    value: false,
+                    orActive: false
+                }
             }, {
                 class: "App\\Nova\\Filters\\CommunityForeclosureSalesStatus",
-                value: false
+                value: {
+                    value: false,
+                    orActive: false
+                }
             }, {
                 class: "App\\Nova\\Filters\\CommunitySize",
                 value: {
@@ -836,9 +845,21 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
             });
         },
         'filterValues.or': function filterValuesOr(val) {
-            console.log('Logged');
-            console.log(val);
-
+            if (val) {
+                this.filters[8].value['rental'] = this.filters[0].value.value;
+                this.filters[8].value['vacant'] = this.filters[1].value.value;
+                this.filters[8].value['foreclosure'] = this.filters[2].value.value;
+                this.filters[0].value['orActive'] = true;
+                this.filters[1].value['orActive'] = true;
+                this.filters[2].value['orActive'] = true;
+            } else {
+                this.filters[8].value['rental'] = false;
+                this.filters[8].value['vacant'] = false;
+                this.filters[8].value['foreclosure'] = false;
+                this.filters[0].value['orActive'] = false;
+                this.filters[1].value['orActive'] = false;
+                this.filters[2].value['orActive'] = false;
+            }
             this.$router.push({
                 path: '/resources/c-m-communities',
                 query: { 'c-m-communities_filter': this.encodedFilter }
@@ -847,11 +868,12 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
         'filterValues.rental': function filterValuesRental(val) {
             this.clearRentalFilters();
             if (val) {
-                this.filters[0].value = true;
-                this.filters[8].value['rental'] = true;
+                this.filters[0].value.value = true;
+                this.filterValues.or = false;
             } else {
-                this.filters[8].value['rental'] = false;
-                this.filters[0].value = false;
+
+                this.filters[0].value.value = false;
+                this.filterValues.or = false;
             }
 
             this.$router.push({
@@ -861,12 +883,13 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
         },
         'filterValues.vacant': function filterValuesVacant(val) {
             this.clearVacantFilters();
+            console.log(this.filters);
             if (val) {
-                this.filters[1].value = true;
-                this.filters[8].value['vacant'] = true;
+                this.filters[1].value.value = true;
+                this.filterValues.or = false;
             } else {
-                this.filters[1].value = false;
-                this.filters[8].value['vacant'] = false;
+                this.filters[1].value.value = false;
+                this.filterValues.or = false;
             }
 
             this.$router.push({
@@ -876,13 +899,13 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
         },
         'filterValues.foreclosure': function filterValuesForeclosure(val) {
             this.clearForeclosureFilters();
-
+            console.log(this.filters);
             if (val) {
-                this.filters[2].value = true;
-                this.filters[8].value['foreclosure'] = true;
+                this.filters[2].value.value = true;
+                this.filterValues.or = false;
             } else {
-                this.filters[2].value = false;
-                this.filters[8].value['foreclosure'] = false;
+                this.filters[2].value.value = false;
+                this.filterValues.or = false;
             }
 
             this.$router.push({
@@ -998,10 +1021,8 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
         loadSavedFilters: function loadSavedFilters() {
             var _this2 = this;
 
-            console.log('I am Here 9');
             Nova.request().get('/nova-vendor/community-filter/savedFilters').then(function (response) {
                 _this2.savedFilters = [];
-                console.log('I am Here 10');
                 var _iteratorNormalCompletion3 = true;
                 var _didIteratorError3 = false;
                 var _iteratorError3 = undefined;
@@ -1026,10 +1047,7 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
                         }
                     }
                 }
-
-                console.log('I am Here 11');
             });
-            console.log('I am Here 12');
         },
         toggleFilterSaveButton: function toggleFilterSaveButton() {
             this.filterSaveButtonClicked = !this.filterSaveButtonClicked;
@@ -1053,9 +1071,7 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
         loadStates: function loadStates() {
             var _this4 = this;
 
-            console.log('I am Here 3');
             Nova.request().get('/nova-vendor/community-filter/states').then(function (response) {
-                console.log('I am Here 4');
                 var _iteratorNormalCompletion4 = true;
                 var _didIteratorError4 = false;
                 var _iteratorError4 = undefined;
@@ -1080,10 +1096,7 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
                         }
                     }
                 }
-
-                console.log('I am Here 5');
             });
-            console.log('I am Here 6');
         },
         addOptionToMultiSelectValue: function addOptionToMultiSelectValue(filter, id, options) {
             var option = this[options].find(function (element) {
@@ -1098,13 +1111,12 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
         loadFilters: function loadFilters() {
             var _this5 = this;
 
-            console.log('I am Here');
             this.disableWatch = true;
 
             if (this.filtersAreApplied) {
-                this.filterValues.rental = this.activeFilters.rental;
-                this.filterValues.vacant = this.activeFilters.vacant;
-                this.filterValues.foreclosure = this.activeFilters.foreclosure;
+                this.filterValues.rental = this.activeFilters.rental.value;
+                this.filterValues.vacant = this.activeFilters.vacant.value;
+                this.filterValues.foreclosure = this.activeFilters.foreclosure.value;
 
                 this.$set(this.filters[0], 'value', this.activeFilters.rental);
                 this.$set(this.filters[1], 'value', this.activeFilters.vacant);
@@ -1113,7 +1125,6 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
                 this.$set(this.filters[4], 'value', this.activeFilters.state);
                 this.$set(this.filters[5], 'value', this.activeFilters.county);
                 this.$set(this.filters[7], 'value', this.activeFilters.bulkId);
-                this.$set(this.filters[8], 'value', this.activeFilters.or);
 
                 this.bulkIdText = this.activeFilters.bulkId;
                 if (this.activeFilters.bulkId !== "") {
@@ -1187,16 +1198,15 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
                 });
             }
             this.disableWatch = false;
-            console.log('I am Here 2');
         },
         clearRentalFilters: function clearRentalFilters() {
-            this.filters[0].value = false;
+            this.filters[0].value.value = false;
         },
         clearVacantFilters: function clearVacantFilters() {
-            this.filters[1].value = false;
+            this.filters[1].value.value = false;
         },
         clearForeclosureFilters: function clearForeclosureFilters() {
-            this.filters[2].value = false;
+            this.filters[2].value.value = false;
         },
         clearSizeFilters: function clearSizeFilters() {
             this.filters[3].value[0] = false;
@@ -3719,7 +3729,7 @@ var render = function() {
         [
           _c("br"),
           _vm._v(" "),
-          _c("p", [_vm._v("Or: ")]),
+          _c("p", [_vm._v("OR ")]),
           _c("label", { staticClass: "switch" }, [
             _c("input", {
               directives: [
