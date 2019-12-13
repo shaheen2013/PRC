@@ -59,14 +59,19 @@ a:hover, a:focus {
   padding: 20px;
   border-radius: 5px;
   box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.25); }
-
+.customSummary{
+  padding: 0px;
+  border-radius: 0px;
+}
 .summary header {
   position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap; }
-
+.customHeader{
+  border-bottom: 2px solid #bbbbbb;
+}
 .wrapLogoCommunity {
   position: relative;
   display: flex;
@@ -90,6 +95,13 @@ a:hover, a:focus {
   align-items: flex-end;
   flex-wrap: wrap;
   flex: 1; }
+.infoProgramsCustom {
+  width: 100%;
+  margin: 50px;
+  border-top: 2px solid;
+  border-bottom: 2px solid;
+  padding-bottom: 20px;
+}
 
 .wrap-expires {
   margin-top: 10px;
@@ -103,24 +115,46 @@ a:hover, a:focus {
   vertical-align: middle;
   font-size: 32px;
   align-items: center;
-  line-height: 1; }
+  line-height: 1;
+  margin-left: 120px;
+  padding: 8px 0px;
+  color: #0a4c9e;
+}
 
 .subheadline {
   font-size: 20px; }
 
 .wrap-programs {
-  display: flex; }
-
+  display: flex;
+  justify-content: center;
+  padding: 30px;
+}
+.infoCustomText{
+  margin-top: -15px;
+  font-size: 25px;
+  background-color: white;
+  display: inline-block;
+  padding: 5px 10px;
+}
 .programs {
   display: flex;
   align-items: center;
   margin-left: 50px;
   flex-wrap: wrap; }
+.programsCustom {
+  align-items: center;
+  margin-left: 25px;
+  flex-wrap: wrap;
+  padding-right: 25px;
+}
+.customBorder{
+  border-right: 2px solid #f1f1f1;
+}
 
 .round-info {
   position: relative;
-  width: 55px;
-  height: 55px;
+  width: 100px;
+  height: 100px;
   margin-left: 10px;
   border-radius: 100%;
   display: flex;
@@ -132,8 +166,8 @@ a:hover, a:focus {
 
 .round-info-green {
   position: relative;
-  width: 55px;
-  height: 55px;
+  width: 100px;
+  height: 100px;
   margin-left: 10px;
   border-radius: 100%;
   display: flex;
@@ -143,10 +177,34 @@ a:hover, a:focus {
   font-weight: bold;
   color: whitesmoke; }
 
+.custHeadTop{
+  display: flex;
+}
+.customHeadLeft{
+  display: flex;
+  position: relative;
+  align-items: center;
+  flex: 1;
+  min-width: 350px;
+}
+.customHeadRight{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 5px 10px;
+}
+.customHeadRightArrow{
+  padding: 5px 10px;
+}
 .logoCommunity {
-  max-height: 160px;
-  margin-left: 20px; }
+  max-width: 100px;
+}
 
+.logoCommunity {
+  position: absolute;
+  top: -35px;
+  left: 10px;
+}
 .icon-blue-lock {
   position: absolute;
   background-position: -4px -4px;

@@ -17461,7 +17461,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, ".expired {\n  color: red;\n}\n\n.sprite {\n  background-image: url(\"https://s3.amazonaws.com/communitymanagement/spriteCM.svg\");\n  background-repeat: no-repeat; }\n\n.notAffectSize {\n  -webkit-box-sizing: border-box;\n  -moz-box-sizing: border-box;\n  box-sizing: border-box; }\n\n.all-transition {\n  -webkit-transition: -webkit-all 200ms ease-in-out;\n  -moz-transition: -moz-all 200ms ease-in-out;\n  transition: all 200ms ease-in-out; }\n\n\n.text-note {\n  color: #a6a6a6;\n  font-size: 10px; }\n\n.dividers {\n  color: #B0BEC5;\n  font-size: 13px;\n  text-transform: uppercase; }\n\na {\n  color: #55a3de;\n  text-decoration: none;\n  outline: 0; }\na:hover, a:focus {\n  color: #aad1ef; }\n\n.gold-n0 {\n  background-color: #f7f7f7; }\n\n.gold-n1 {\n  background-color: #ffffd9; }\n\n.gold-n2 {\n  background-color: #fff9c4; }\n\n.gold-n3 {\n  background-color: #fff59d; }\n\n.gold-n4 {\n  background-color: lightgreen; }\n\n.gold-n5 {\n  background-color: green; }\n\n.gold-n6 {\n  background-color: #ffd740; }\n\n.summary {\n  background-color: #fff;\n  padding: 20px;\n  border-radius: 5px;\n  box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.25); }\n\n.summary header {\n  position: relative;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  flex-wrap: wrap; }\n\n.wrapLogoCommunity {\n  position: relative;\n  display: flex;\n  align-items: center;\n  background-color: #fff;\n  z-index: 2; }\n\n.infoAddress {\n  display: flex;\n  position: relative;\n  align-items: center;\n  flex: 1;\n  min-width: 350px; }\n  @media only screen and (max-width: 480px) {\n    .infoAddress {\n      flex-wrap: wrap; } }\n\n.infoPrograms {\n  display: flex;\n  flex-direction: column;\n  align-items: flex-end;\n  flex-wrap: wrap;\n  flex: 1; }\n\n.wrap-expires {\n  margin-top: 10px;\n  background-color: white;\n  position: relative;\n  padding: 0px 0 0 20px;\n  z-index: 1; }\n\n.headline {\n  display: inline-block;\n  vertical-align: middle;\n  font-size: 32px;\n  align-items: center;\n  line-height: 1; }\n\n.subheadline {\n  font-size: 20px; }\n\n.wrap-programs {\n  display: flex; }\n\n.programs {\n  display: flex;\n  align-items: center;\n  margin-left: 50px;\n  flex-wrap: wrap; }\n\n.round-info {\n  position: relative;\n  width: 55px;\n  height: 55px;\n  margin-left: 10px;\n  border-radius: 100%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 24px;\n  font-weight: bold;\n  color: #47515b; }\n\n.round-info-green {\n  position: relative;\n  width: 55px;\n  height: 55px;\n  margin-left: 10px;\n  border-radius: 100%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 24px;\n  font-weight: bold;\n  color: whitesmoke; }\n\n.logoCommunity {\n  max-height: 160px;\n  margin-left: 20px; }\n\n.icon-blue-lock {\n  position: absolute;\n  background-position: -4px -4px;\n  width: 50px;\n  height: 50px; }\n\n.icon-alert-red {\n  background-position: -104px -16px;\n  width: 38px;\n  height: 38px;\n  display: inline-block;\n  vertical-align: middle; }\n\n.icon-alert-yellow {\n  background-position: -144px -16px;\n  width: 38px;\n  height: 38px;\n  display: inline-block;\n  vertical-align: middle; }\n\n.icon-alert-green {\n  background-position: -58px -16px;\n  width: 38px;\n  height: 38px;\n  display: inline-block;\n  vertical-align: middle; }\n\n.checkOk {\n  position: absolute;\n  top: -8px;\n  right: -18px;\n  background-position: -58px -16px;\n  width: 38px;\n  height: 38px; }\n\n.expires {\n  font-weight: bold;\n  color: #4f7c2f; }\n\n.communityDetail {\n  display: grid;\n  grid-template-columns: 1fr 350px;\n  grid-gap: 20px; }\n  @media only screen and (max-width: 480px) {\n    .communityDetail {\n      grid-template-columns: 1fr; } }\n  @media only screen and (min-width: 481px) and (max-width: 1023px) {\n    .communityDetail {\n      grid-template-columns: 1fr; } }\n\n.wrap-detailsBox {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));\n  grid-auto-rows: 150px;\n  grid-gap: 20px; }\n\n.detailBox.links {\n  grid-column: span 2;\n  grid-row: 2; }\n\n.wrap-links {\n  display: flex;\n  flex-direction: column; }\n\n.label-square {\n  display: flex;\n  align-items: center;\n  font-size: 14px;\n  color: #616f7f;\n  font-weight: bold; }\n\n.label-square i {\n  margin-right: 5px; }\n\n.boxInfo {\n  display: flex;\n  justify-content: center;\n  height: 320px; }\n\n.wrap-boxInfo {\n  position: relative;\n  width: 300px;\n  display: flex;\n  flex-direction: column;\n  text-align: center; }\n\n.boxHead {\n  margin: 0 auto;\n  box-sizing: border-box;\n  padding: 0 20px 3px;\n  font-size: 24px;\n  font-weight: bold;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  z-index: 1;\n  background-color: #fff; }\n\n.boxContent {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  flex: 1;\n  flex-direction: column;\n  border-radius: 5px;\n  background-color: #eef1f4; }\n\n.itemBox {\n  width: 100%;\n  box-sizing: border-box;\n  padding: 15px 40px; }\n\n.label-boxInfo {\n  font-size: 14px;\n  color: #3a3a3c; }\n\n.textBox {\n  padding: 10px;\n  border-radius: 4px;\n  border: 1px solid #3a3a3c;\n  font-size: 16px;\n  font-weight: bold;\n  margin-top: 5px;\n  background-color: #fff; }\n\n.itemBox > div {\n  margin-bottom: 15px; }\n\n.itemBox > div:last-child {\n  margin-bottom: 0; }\n\n.wrap-boxInfo .line {\n  border: 1px solid #3a3a3c;\n  position: absolute;\n  width: 100%;\n  top: 18px; }\n\n.communityDetail .detailBox {\n  border-right: 1px solid #616f7f; }\n\n.wrap-detailsBox > .detailBox:last-child {\n  border-right: none; }\n\n.detailBox {\n  display: flex;\n  align-items: center; }\n\n.group-links {\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between; }\n\n.wrap-detailBox {\n  flex: 1; }\n\n.wrap-detailBox > div {\n  margin-bottom: 20px; }\n\n.wrap-detailBox > div:last-child {\n  margin-bottom: 0; }\n\n.textLinks {\n  display: flex;\n  align-items: center;\n  font-weight: bold;\n  color: #55a3de; }\n\n.textLinks > i {\n  margin-left: 10px;\n  color: #152531; }", ""]);
+exports.push([module.i, ".expired {\n  color: red;\n}\n\n.sprite {\n  background-image: url(\"https://s3.amazonaws.com/communitymanagement/spriteCM.svg\");\n  background-repeat: no-repeat; }\n\n.notAffectSize {\n  -webkit-box-sizing: border-box;\n  -moz-box-sizing: border-box;\n  box-sizing: border-box; }\n\n.all-transition {\n  -webkit-transition: -webkit-all 200ms ease-in-out;\n  -moz-transition: -moz-all 200ms ease-in-out;\n  transition: all 200ms ease-in-out; }\n\n\n.text-note {\n  color: #a6a6a6;\n  font-size: 10px; }\n\n.dividers {\n  color: #B0BEC5;\n  font-size: 13px;\n  text-transform: uppercase; }\n\na {\n  color: #55a3de;\n  text-decoration: none;\n  outline: 0; }\na:hover, a:focus {\n  color: #aad1ef; }\n\n.gold-n0 {\n  background-color: #f7f7f7; }\n\n.gold-n1 {\n  background-color: #ffffd9; }\n\n.gold-n2 {\n  background-color: #fff9c4; }\n\n.gold-n3 {\n  background-color: #fff59d; }\n\n.gold-n4 {\n  background-color: lightgreen; }\n\n.gold-n5 {\n  background-color: green; }\n\n.gold-n6 {\n  background-color: #ffd740; }\n\n.summary {\n  background-color: #fff;\n  padding: 20px;\n  border-radius: 5px;\n  box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.25); }\n.customSummary{\n  padding: 0px;\n  border-radius: 0px;\n}\n.summary header {\n  position: relative;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  flex-wrap: wrap; }\n.customHeader{\n  border-bottom: 2px solid #bbbbbb;\n}\n.wrapLogoCommunity {\n  position: relative;\n  display: flex;\n  align-items: center;\n  background-color: #fff;\n  z-index: 2; }\n\n.infoAddress {\n  display: flex;\n  position: relative;\n  align-items: center;\n  flex: 1;\n  min-width: 350px; }\n  @media only screen and (max-width: 480px) {\n    .infoAddress {\n      flex-wrap: wrap; } }\n\n.infoPrograms {\n  display: flex;\n  flex-direction: column;\n  align-items: flex-end;\n  flex-wrap: wrap;\n  flex: 1; }\n.infoProgramsCustom {\n  width: 100%;\n  margin: 50px;\n  border-top: 2px solid;\n  border-bottom: 2px solid;\n  padding-bottom: 20px;\n}\n\n.wrap-expires {\n  margin-top: 10px;\n  background-color: white;\n  position: relative;\n  padding: 0px 0 0 20px;\n  z-index: 1; }\n\n.headline {\n  display: inline-block;\n  vertical-align: middle;\n  font-size: 32px;\n  align-items: center;\n  line-height: 1;\n  margin-left: 120px;\n  padding: 8px 0px;\n  color: #0a4c9e;\n}\n\n.subheadline {\n  font-size: 20px; }\n\n.wrap-programs {\n  display: flex;\n  justify-content: center;\n  padding: 30px;\n}\n.infoCustomText{\n  margin-top: -15px;\n  font-size: 25px;\n  background-color: white;\n  display: inline-block;\n  padding: 5px 10px;\n}\n.programs {\n  display: flex;\n  align-items: center;\n  margin-left: 50px;\n  flex-wrap: wrap; }\n.programsCustom {\n  align-items: center;\n  margin-left: 25px;\n  flex-wrap: wrap;\n  padding-right: 25px;\n}\n.customBorder{\n  border-right: 2px solid #f1f1f1;\n}\n\n.round-info {\n  position: relative;\n  width: 100px;\n  height: 100px;\n  margin-left: 10px;\n  border-radius: 100%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 24px;\n  font-weight: bold;\n  color: #47515b; }\n\n.round-info-green {\n  position: relative;\n  width: 100px;\n  height: 100px;\n  margin-left: 10px;\n  border-radius: 100%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 24px;\n  font-weight: bold;\n  color: whitesmoke; }\n\n.custHeadTop{\n  display: flex;\n}\n.customHeadLeft{\n  display: flex;\n  position: relative;\n  align-items: center;\n  flex: 1;\n  min-width: 350px;\n}\n.customHeadRight{\n  display: flex;\n  flex-direction: column;\n  align-items: flex-end;\n  padding: 5px 10px;\n}\n.customHeadRightArrow{\n  padding: 5px 10px;\n}\n.logoCommunity {\n  max-width: 100px;\n}\n\n.logoCommunity {\n  position: absolute;\n  top: -35px;\n  left: 10px;\n}\n.icon-blue-lock {\n  position: absolute;\n  background-position: -4px -4px;\n  width: 50px;\n  height: 50px; }\n\n.icon-alert-red {\n  background-position: -104px -16px;\n  width: 38px;\n  height: 38px;\n  display: inline-block;\n  vertical-align: middle; }\n\n.icon-alert-yellow {\n  background-position: -144px -16px;\n  width: 38px;\n  height: 38px;\n  display: inline-block;\n  vertical-align: middle; }\n\n.icon-alert-green {\n  background-position: -58px -16px;\n  width: 38px;\n  height: 38px;\n  display: inline-block;\n  vertical-align: middle; }\n\n.checkOk {\n  position: absolute;\n  top: -8px;\n  right: -18px;\n  background-position: -58px -16px;\n  width: 38px;\n  height: 38px; }\n\n.expires {\n  font-weight: bold;\n  color: #4f7c2f; }\n\n.communityDetail {\n  display: grid;\n  grid-template-columns: 1fr 350px;\n  grid-gap: 20px; }\n  @media only screen and (max-width: 480px) {\n    .communityDetail {\n      grid-template-columns: 1fr; } }\n  @media only screen and (min-width: 481px) and (max-width: 1023px) {\n    .communityDetail {\n      grid-template-columns: 1fr; } }\n\n.wrap-detailsBox {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));\n  grid-auto-rows: 150px;\n  grid-gap: 20px; }\n\n.detailBox.links {\n  grid-column: span 2;\n  grid-row: 2; }\n\n.wrap-links {\n  display: flex;\n  flex-direction: column; }\n\n.label-square {\n  display: flex;\n  align-items: center;\n  font-size: 14px;\n  color: #616f7f;\n  font-weight: bold; }\n\n.label-square i {\n  margin-right: 5px; }\n\n.boxInfo {\n  display: flex;\n  justify-content: center;\n  height: 320px; }\n\n.wrap-boxInfo {\n  position: relative;\n  width: 300px;\n  display: flex;\n  flex-direction: column;\n  text-align: center; }\n\n.boxHead {\n  margin: 0 auto;\n  box-sizing: border-box;\n  padding: 0 20px 3px;\n  font-size: 24px;\n  font-weight: bold;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  z-index: 1;\n  background-color: #fff; }\n\n.boxContent {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  flex: 1;\n  flex-direction: column;\n  border-radius: 5px;\n  background-color: #eef1f4; }\n\n.itemBox {\n  width: 100%;\n  box-sizing: border-box;\n  padding: 15px 40px; }\n\n.label-boxInfo {\n  font-size: 14px;\n  color: #3a3a3c; }\n\n.textBox {\n  padding: 10px;\n  border-radius: 4px;\n  border: 1px solid #3a3a3c;\n  font-size: 16px;\n  font-weight: bold;\n  margin-top: 5px;\n  background-color: #fff; }\n\n.itemBox > div {\n  margin-bottom: 15px; }\n\n.itemBox > div:last-child {\n  margin-bottom: 0; }\n\n.wrap-boxInfo .line {\n  border: 1px solid #3a3a3c;\n  position: absolute;\n  width: 100%;\n  top: 18px; }\n\n.communityDetail .detailBox {\n  border-right: 1px solid #616f7f; }\n\n.wrap-detailsBox > .detailBox:last-child {\n  border-right: none; }\n\n.detailBox {\n  display: flex;\n  align-items: center; }\n\n.group-links {\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between; }\n\n.wrap-detailBox {\n  flex: 1; }\n\n.wrap-detailBox > div {\n  margin-bottom: 20px; }\n\n.wrap-detailBox > div:last-child {\n  margin-bottom: 0; }\n\n.textLinks {\n  display: flex;\n  align-items: center;\n  font-weight: bold;\n  color: #55a3de; }\n\n.textLinks > i {\n  margin-left: 10px;\n  color: #152531; }", ""]);
 
 // exports
 
@@ -17531,6 +17531,53 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_vue_moments_ago__ = __webpack_require__(158);
 function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -18463,6 +18510,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
     computed: {
         communityName: function communityName() {
             if (this.community) {
+                console.log('this.community', this.community);
                 return this.community.misc_configuration ? this.community.misc_configuration.custom_friendly_name ? this.community.misc_configuration.custom_friendly_name : this.community.FRIENDLYNAME : this.community.FRIENDLYNAME;
             } else {
                 return "";
@@ -50365,7 +50413,10 @@ var render = function() {
     [
       _c(
         "loading-card",
-        { staticClass: "summary", attrs: { loading: !_vm.loaded } },
+        {
+          staticClass: "summary customSummary",
+          attrs: { loading: !_vm.loaded }
+        },
         [
           _c("link", {
             attrs: {
@@ -50382,261 +50433,211 @@ var render = function() {
             }
           }),
           _vm._v(" "),
-          _c("header", [
-            _c("div", { staticClass: "infoAddress" }, [
-              _c("div", { staticClass: "wrapLogoCommunity" }, [
-                _vm.specialOversight
-                  ? _c("div", {
-                      directives: [
-                        {
-                          name: "tooltip",
-                          rawName: "v-tooltip",
-                          value: _vm.specialOversightNotes,
-                          expression: "specialOversightNotes"
-                        }
-                      ],
-                      staticClass: "icon-blue-lock sprite"
-                    })
-                  : _vm._e(),
-                _vm._v(" "),
-                (this.community
-                ? this.community.community_logo
-                : null)
-                  ? _c("img", {
-                      staticClass: "logoCommunity",
-                      attrs: { src: _vm.logoUrl, alt: "Logo of Community" }
-                    })
-                  : _vm._e(),
-                _vm._v(" "),
-                (this.community
-                ? !this.community.community_logo
-                : null)
-                  ? _c("div", { staticClass: "blank-image" })
-                  : _vm._e()
-              ]),
-              _vm._v(" "),
-              _c("div", [
-                _c("div", { staticClass: "wrap-headline" }, [
-                  _c("h1", { staticClass: "headline" }, [
-                    _vm._v(_vm._s(this.communityName))
-                  ]),
-                  _vm._v(" "),
-                  _c("span", {
-                    directives: [
-                      {
-                        name: "tooltip",
-                        rawName: "v-tooltip",
-                        value: _vm.relationshipStatusNotes,
-                        expression: "relationshipStatusNotes"
-                      }
-                    ],
-                    class: _vm.relationshipStatusClass
-                  })
-                ]),
-                _vm._v(" "),
-                _c("h2", { staticClass: "subheadline" }, [
-                  _c(
-                    "a",
-                    { attrs: { href: _vm.countyFilterUrl, target: "_blank" } },
-                    [
-                      _vm._v(
-                        _vm._s(this.community ? this.community.COUNTY : "") +
-                          " County"
-                      )
-                    ]
-                  ),
-                  _vm._v(" (" + _vm._s(this.resourceId) + ")")
-                ])
-              ])
-            ]),
+          _c("div", { staticClass: "customHeader" }, [
+            (this.community
+            ? this.community.community_logo
+            : null)
+              ? _c("img", {
+                  staticClass: "logoCommunity",
+                  attrs: { src: _vm.logoUrl, alt: "Logo of Community" }
+                })
+              : _vm._e(),
             _vm._v(" "),
-            _c("div", { staticClass: "infoPrograms" }, [
-              _c("div", { staticClass: "wrap-programs" }, [
-                _c("div", { staticClass: "programs" }, [
-                  _c("h3", { staticClass: "text-center" }, [
-                    _vm._v("Rental"),
-                    _c("br"),
-                    _c("span", { staticClass: "text-xs text-80" }, [
-                      _vm._v(
-                        _vm._s(
-                          this.community
-                            ? this.community.housing_data
-                              ? parseInt(
-                                  this.community.housing_data
-                                    .est_long_term_rental
-                                ).toLocaleString()
-                              : 0
-                            : 0
-                        )
-                      )
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", {
-                    class: this.rentalPartner
-                      ? "round-info-green gold-n5"
-                      : "round-info gold-n0",
-                    domProps: { innerHTML: _vm._s(_vm.rentalBadgeContent) }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "programs" }, [
-                  _c("h3", { staticClass: "text-center" }, [
-                    _vm._v("Vacant"),
-                    _c("br"),
-                    _c("span", { staticClass: "text-xs text-80" }, [
-                      _vm._v(
-                        _vm._s(
-                          this.community
-                            ? this.community.housing_data
-                              ? parseInt(
-                                  this.community.housing_data.est_vacant_total
-                                ).toLocaleString()
-                              : 0
-                            : 0
-                        )
-                      )
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", {
-                    class: this.vacantPartner
-                      ? "round-info-green gold-n5"
-                      : "round-info gold-n0",
-                    domProps: { innerHTML: _vm._s(_vm.vacantBadgeContent) }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "programs" }, [
-                  _c("h3", { staticClass: "text-center" }, [
-                    _vm._v("Foreclosure"),
-                    _c("br"),
-                    _c("span", { staticClass: "text-xs text-80" }, [
-                      _vm._v(
-                        _vm._s(parseInt(_vm.estForeclosures).toLocaleString())
-                      )
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", {
-                    class: this.foreclosurePartner
-                      ? "round-info-green gold-n5"
-                      : "round-info gold-n0",
-                    domProps: { innerHTML: _vm._s(_vm.foreclosureBadgeContent) }
-                  })
+            (this.community
+            ? !this.community.community_logo
+            : null)
+              ? _c("div", { staticClass: "blank-image" })
+              : _vm._e(),
+            _vm._v(" "),
+            _c("div", { staticClass: "custHeadTop" }, [
+              _c("div", { staticClass: "customHeadLeft" }, [
+                _c("h1", { staticClass: "headline" }, [
+                  _vm._v(_vm._s(this.communityName) + " "),
+                  _c(
+                    "strong",
+                    {
+                      staticStyle: {
+                        "font-size": "13px",
+                        color: "#9c9b9b",
+                        "padding-left": "11px"
+                      }
+                    },
+                    [_vm._v("ID: " + _vm._s(this.community.COMMUNITYID) + " ")]
+                  )
                 ])
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "box-expires" }, [
-                _c("p", { staticClass: "wrap-expires" }, [
-                  _vm._v("Contract"),
-                  _c("span", {
-                    domProps: { innerHTML: _vm._s(_vm.contractExpiration) }
-                  })
-                ])
+              _c("div", { staticClass: "customHeadRight" }, [
+                _c(
+                  "h5",
+                  {
+                    staticClass: "headline",
+                    staticStyle: { "font-size": "25px" }
+                  },
+                  [
+                    _vm._v("X-Large | 374K Housing Units "),
+                    _c("span", [
+                      _c("i", {
+                        staticClass:
+                          "fa-xs fas fa-sort-down customHeadRightArrow"
+                      })
+                    ])
+                  ]
+                )
               ])
             ])
           ]),
           _vm._v(" "),
-          _c("section", { staticClass: "mt-11" }, [
-            _c("div", { staticClass: "communityDetail" }, [
-              _c("div", { staticClass: "wrap-detailsBox" }, [
-                _c("div", { staticClass: "detailBox" }, [
-                  _c("div", { staticClass: "wrap-detailBox" }, [
-                    _c("div", [
-                      _c("div", { staticClass: "label-square" }, [
-                        _c("i", { staticClass: "fa-xs fas fa-square" }),
+          _c("header", [
+            _c(
+              "div",
+              {
+                staticClass: "infoProgramsCustom",
+                staticStyle: { "text-align": "center" }
+              },
+              [
+                _c("h4", { staticClass: "infoCustomText" }, [
+                  _vm._v("AT-RISK PROPERTY REGISTRATION")
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "wrap-programs" }, [
+                  _c("div", { staticClass: "programsCustom customBorder" }, [
+                    _c("h3", { staticClass: "text-center" }, [
+                      _vm._v("Foreclosure"),
+                      _c("br"),
+                      _c("span", { staticClass: "text-xs text-80" }, [
                         _vm._v(
-                          "\n                                    Community Size\n                                "
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "textDetail" }, [
-                        _vm._v(
-                          _vm._s(_vm.size) +
-                            " | " +
-                            _vm._s(
-                              this.community
-                                ? this.community.housing_data
-                                  ? this.community.housing_data.housing_units
-                                  : ""
-                                : ""
-                            ) +
-                            " Housing Units\n                                "
+                          _vm._s(parseInt(_vm.estForeclosures).toLocaleString())
                         )
                       ])
                     ]),
                     _vm._v(" "),
-                    _c("div", [
-                      _c("div", { staticClass: "label-square" }, [
-                        _c("i", { staticClass: "fa-xs fas fa-square" }),
+                    _c("div", {
+                      class: this.foreclosurePartner
+                        ? "round-info-green gold-n5"
+                        : "round-info gold-n0",
+                      domProps: {
+                        innerHTML: _vm._s(_vm.foreclosureBadgeContent)
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "programsCustom customBorder" }, [
+                    _c("h3", { staticClass: "text-center" }, [
+                      _vm._v("Vacant"),
+                      _c("br"),
+                      _c("span", { staticClass: "text-xs text-80" }, [
                         _vm._v(
-                          "\n                                    Strong Mayor\n                                "
+                          _vm._s(
+                            this.community
+                              ? this.community.housing_data
+                                ? parseInt(
+                                    this.community.housing_data.est_vacant_total
+                                  ).toLocaleString()
+                                : 0
+                              : 0
+                          )
                         )
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "textDetail" }, [
-                        _vm._v(_vm._s(_vm.strongMayor))
                       ])
                     ]),
                     _vm._v(" "),
-                    _c("div", [
-                      _c("div", { staticClass: "label-square" }, [
-                        _c("i", { staticClass: "fa-xs fas fa-square" }),
+                    _c("div", {
+                      class: this.vacantPartner
+                        ? "round-info-green gold-n5"
+                        : "round-info gold-n0",
+                      domProps: { innerHTML: _vm._s(_vm.vacantBadgeContent) }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "programsCustom customBorder" }, [
+                    _c("h3", [
+                      _vm._v("RT Rental"),
+                      _c("br"),
+                      _c("span", { staticClass: "text-xs text-80" }, [
                         _vm._v(
-                          "\n                                    Branding Configurations\n                                "
+                          _vm._s(
+                            this.community
+                              ? this.community.housing_data
+                                ? parseInt(
+                                    this.community.housing_data
+                                      .est_long_term_rental
+                                  ).toLocaleString()
+                                : 0
+                              : 0
+                          )
                         )
-                      ]),
-                      _vm._v(" "),
-                      _vm.rentalPartner ||
-                      _vm.vacantPartner ||
-                      _vm.foreclosurePartner
-                        ? _c("div", {
-                            staticClass: "table w-full",
-                            domProps: {
-                              innerHTML: _vm._s(_vm.brandingConfigTooltip)
-                            }
-                          })
-                        : _c("div", [_vm._v("N/A")])
-                    ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", {
+                      class: this.rentalPartner
+                        ? "round-info-green gold-n5"
+                        : "round-info gold-n0",
+                      domProps: { innerHTML: _vm._s(_vm.rentalBadgeContent) }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "programsCustom" }, [
+                    _c("h3", [
+                      _vm._v("ST Rental"),
+                      _c("br"),
+                      _c("span", { staticClass: "text-xs text-80" }, [
+                        _vm._v(
+                          _vm._s(
+                            this.community
+                              ? this.community.housing_data
+                                ? parseInt(
+                                    this.community.housing_data
+                                      .est_long_term_rental
+                                  ).toLocaleString()
+                                : 0
+                              : 0
+                          )
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", {
+                      class: this.rentalPartner
+                        ? "round-info-green gold-n5"
+                        : "round-info gold-n0",
+                      domProps: { innerHTML: _vm._s(_vm.rentalBadgeContent) }
+                    })
                   ])
                 ]),
                 _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "detailBox", staticStyle: { border: "none" } },
-                  [
+                _c("h4", { staticClass: "infoCustomText" }, [
+                  _vm._v("Contract: Foreclosure - "),
+                  _c("span", { staticStyle: { color: "red" } }, [
+                    _vm._v("Expire 2 month ago")
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "box-expires" }, [
+                  _c("p", { staticClass: "wrap-expires" }, [
+                    _vm._v("Contract"),
+                    _c("span", {
+                      domProps: { innerHTML: _vm._s(_vm.contractExpiration) }
+                    })
+                  ])
+                ])
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _c(
+            "section",
+            { staticClass: "mt-11", staticStyle: { padding: "0px 24px" } },
+            [
+              _c("div", { staticClass: "communityDetail" }, [
+                _c("div", { staticClass: "wrap-detailsBox" }, [
+                  _c("div", { staticClass: "detailBox" }, [
                     _c("div", { staticClass: "wrap-detailBox" }, [
                       _c("div", [
                         _c("div", { staticClass: "label-square" }, [
                           _c("i", { staticClass: "fa-xs fas fa-square" }),
                           _vm._v(
-                            "\n                                    Community Exclusion\n                                "
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "textDetail" }, [
-                          _vm._v(_vm._s(_vm.communityExclusion))
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("div", [
-                        _c("div", { staticClass: "label-square" }, [
-                          _c("i", { staticClass: "fa-xs fas fa-square" }),
-                          _vm._v(
-                            "\n                                    Relationship Manager\n                                "
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "textDetail" }, [
-                          _vm._v(
-                            _vm._s(
-                              this.community
-                                ? this.community.relationship_managers[0]
-                                  ? this.community.relationship_managers[0].name
-                                  : "No RMs Assigned"
-                                : "No RMs Assigned"
-                            ) + "\n                                "
+                            "\n                                    City of Jacksonville\n                                "
                           )
                         ])
                       ]),
@@ -50645,197 +50646,420 @@ var render = function() {
                         _c("div", { staticClass: "label-square" }, [
                           _c("i", { staticClass: "fa-xs fas fa-square" }),
                           _vm._v(
-                            "\n                                    Last Update\n                                "
+                            "\n                                    Duval County\n                                "
                           )
-                        ]),
-                        _vm._v(" "),
-                        _c("div", {
-                          staticClass: "textDetail",
-                          domProps: { innerHTML: _vm._s(this.lastUpdated) }
-                        }),
-                        _vm._v(" "),
-                        _c("br"),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          {
-                            staticStyle: {
-                              "margin-top": "-6px",
-                              "margin-left": "-8px"
-                            }
-                          },
-                          [
-                            _c(
-                              "span",
-                              {
-                                staticClass:
-                                  "pending-changes cursor-pointer rounded-full px-3 py-1 font-semibold",
-                                staticStyle: { background: "#ffd740" },
-                                attrs: { id: "pending-changes" },
-                                domProps: {
-                                  innerHTML: _vm._s(this.pendingChanges)
-                                },
-                                on: { click: _vm.navigateToChanges }
-                              },
-                              [_vm._v('"')]
-                            ),
-                            _vm._v(
-                              "\n                                    Pending Change" +
-                                _vm._s(this.pendingChanges === 1 ? "" : "s") +
-                                "\n                                "
-                            )
-                          ]
-                        )
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", [
+                        _c("div", { staticClass: "label-square" }, [
+                          _c("i", { staticClass: "fa-xs fas fa-square" }),
+                          _vm._v(
+                            "\n                                    Florida\n                                "
+                          )
+                        ])
                       ])
                     ])
-                  ]
-                ),
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "detailBox",
+                      staticStyle: { border: "none" }
+                    },
+                    [
+                      _c("div", { staticClass: "wrap-detailBox" }, [
+                        _c("div", [
+                          _c(
+                            "div",
+                            {
+                              staticClass: "label-square",
+                              staticStyle: { "font-size": "20px" }
+                            },
+                            [_vm._v("Relationship Manager")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass: "textDetail",
+                              staticStyle: {
+                                "font-size": "16px",
+                                "font-weight": "600",
+                                color: "#615e5e"
+                              }
+                            },
+                            [_vm._v("Southers Stretegy - Jacksonville")]
+                          )
+                        ])
+                      ])
+                    ]
+                  )
+                ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "detailBox links" }, [
-                  _c("div", { staticClass: "wrap-detailBox" }, [
-                    _c("div", { staticClass: "wrap-links" }, [
-                      _c("div", { staticClass: "label-square" }, [
-                        _c("i", { staticClass: "fa-xs fas fa-square" }),
-                        _vm._v(
-                          "\n                                    Community Links\n                                "
-                        )
+                _c("div", { staticClass: "boxInfo" }, [
+                  _c("div", { staticClass: "wrap-boxInfo" }, [
+                    _c(
+                      "span",
+                      {
+                        staticStyle: {
+                          "background-color": "#1a4b9e",
+                          color: "white",
+                          padding: "12px 0px"
+                        }
+                      },
+                      [_vm._v("Pending Changes: 0")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "p",
+                      {
+                        staticStyle: {
+                          color: "rgb(60, 59, 59)",
+                          padding: "12px 0px",
+                          "text-align": "right",
+                          "font-weight": "700",
+                          "font-size": "20px"
+                        }
+                      },
+                      [_vm._v("Last Update")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "p",
+                      {
+                        staticStyle: {
+                          "text-align": "right",
+                          "font-weight": "600"
+                        }
+                      },
+                      [_vm._v("Chati Shitlett")]
+                    ),
+                    _vm._v(" "),
+                    _c("p", { staticStyle: { "text-align": "right" } }, [
+                      _vm._v("Deleted a person 7 days ago")
+                    ])
+                  ])
+                ])
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "section",
+            { staticClass: "mt-11", staticStyle: { padding: "0px 24px" } },
+            [
+              _c("div", { staticClass: "communityDetail" }, [
+                _c("div", { staticClass: "wrap-detailsBox" }, [
+                  _c("div", { staticClass: "detailBox" }, [
+                    _c("div", { staticClass: "wrap-detailBox" }, [
+                      _c("div", [
+                        _c("div", { staticClass: "label-square" }, [
+                          _c("i", { staticClass: "fa-xs fas fa-square" }),
+                          _vm._v(
+                            "\n                                    Community Size\n                                "
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "textDetail" }, [
+                          _vm._v(
+                            _vm._s(_vm.size) +
+                              " | " +
+                              _vm._s(
+                                this.community
+                                  ? this.community.housing_data
+                                    ? this.community.housing_data.housing_units
+                                    : ""
+                                  : ""
+                              ) +
+                              " Housing Units\n                                "
+                          )
+                        ])
                       ]),
                       _vm._v(" "),
-                      _c("div", { staticClass: "group-links" }, [
-                        _c(
-                          "div",
-                          {
-                            staticClass: "textLinks pointer",
-                            on: { click: _vm.viewCore }
-                          },
-                          [
-                            _vm._v(
-                              "CORE\n                                        "
-                            ),
-                            _c("i", { staticClass: "fa-xs fas fa-plus-square" })
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          {
-                            staticClass: "textLinks pointer",
-                            on: { click: _vm.displayLink }
-                          },
-                          [
-                            _vm._v(
-                              "SHARE\n                                        "
-                            ),
-                            _c("i", { staticClass: "fa-xs fas fa-plus-square" })
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          {
-                            staticClass: "textLinks pointer",
-                            on: { click: _vm.viewSharepoint }
-                          },
-                          [
-                            _vm._v(
-                              "SHAREPOINT\n                                        "
-                            ),
-                            _c("i", { staticClass: "fa-xs fas fa-plus-square" })
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          {
-                            staticClass: "textLinks pointer",
-                            on: { click: _vm.viewRPLanding }
-                          },
-                          [
-                            _vm._v(
-                              "RP LANDING\n                                        "
-                            ),
-                            _c("i", { staticClass: "fa-xs fas fa-plus-square" })
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "textLinks pointer" }, [
+                      _c("div", [
+                        _c("div", { staticClass: "label-square" }, [
+                          _c("i", { staticClass: "fa-xs fas fa-square" }),
                           _vm._v(
-                            "GOV ADMIN\n                                        "
+                            "\n                                    Strong Mayor\n                                "
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "textDetail" }, [
+                          _vm._v(_vm._s(_vm.strongMayor))
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", [
+                        _c("div", { staticClass: "label-square" }, [
+                          _c("i", { staticClass: "fa-xs fas fa-square" }),
+                          _vm._v(
+                            "\n                                    Branding Configurations\n                                "
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _vm.rentalPartner ||
+                        _vm.vacantPartner ||
+                        _vm.foreclosurePartner
+                          ? _c("div", {
+                              staticClass: "table w-full",
+                              domProps: {
+                                innerHTML: _vm._s(_vm.brandingConfigTooltip)
+                              }
+                            })
+                          : _c("div", [_vm._v("N/A")])
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "detailBox",
+                      staticStyle: { border: "none" }
+                    },
+                    [
+                      _c("div", { staticClass: "wrap-detailBox" }, [
+                        _c("div", [
+                          _c("div", { staticClass: "label-square" }, [
+                            _c("i", { staticClass: "fa-xs fas fa-square" }),
+                            _vm._v(
+                              "\n                                    Community Exclusion\n                                "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "textDetail" }, [
+                            _vm._v(_vm._s(_vm.communityExclusion))
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", [
+                          _c("div", { staticClass: "label-square" }, [
+                            _c("i", { staticClass: "fa-xs fas fa-square" }),
+                            _vm._v(
+                              "\n                                    Relationship Manager\n                                "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "textDetail" }, [
+                            _vm._v(
+                              _vm._s(
+                                this.community
+                                  ? this.community.relationship_managers[0]
+                                    ? this.community.relationship_managers[0]
+                                        .name
+                                    : "No RMs Assigned"
+                                  : "No RMs Assigned"
+                              ) + "\n                                "
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", [
+                          _c("div", { staticClass: "label-square" }, [
+                            _c("i", { staticClass: "fa-xs fas fa-square" }),
+                            _vm._v(
+                              "\n                                    Last Update\n                                "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("div", {
+                            staticClass: "textDetail",
+                            domProps: { innerHTML: _vm._s(this.lastUpdated) }
+                          }),
+                          _vm._v(" "),
+                          _c("br"),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticStyle: {
+                                "margin-top": "-6px",
+                                "margin-left": "-8px"
+                              }
+                            },
+                            [
+                              _c(
+                                "span",
+                                {
+                                  staticClass:
+                                    "pending-changes cursor-pointer rounded-full px-3 py-1 font-semibold",
+                                  staticStyle: { background: "#ffd740" },
+                                  attrs: { id: "pending-changes" },
+                                  domProps: {
+                                    innerHTML: _vm._s(this.pendingChanges)
+                                  },
+                                  on: { click: _vm.navigateToChanges }
+                                },
+                                [_vm._v('"')]
+                              ),
+                              _vm._v(
+                                "\n                                    Pending Change" +
+                                  _vm._s(this.pendingChanges === 1 ? "" : "s") +
+                                  "\n                                "
+                              )
+                            ]
+                          )
+                        ])
+                      ])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "detailBox links" }, [
+                    _c("div", { staticClass: "wrap-detailBox" }, [
+                      _c("div", { staticClass: "wrap-links" }, [
+                        _c("div", { staticClass: "label-square" }, [
+                          _c("i", { staticClass: "fa-xs fas fa-square" }),
+                          _vm._v(
+                            "\n                                    Community Links\n                                "
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "group-links" }, [
+                          _c(
+                            "div",
+                            {
+                              staticClass: "textLinks pointer",
+                              on: { click: _vm.viewCore }
+                            },
+                            [
+                              _vm._v(
+                                "CORE\n                                        "
+                              ),
+                              _c("i", {
+                                staticClass: "fa-xs fas fa-plus-square"
+                              })
+                            ]
                           ),
-                          _c("i", { staticClass: "fa-xs fas fa-plus-square" })
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass: "textLinks pointer",
+                              on: { click: _vm.displayLink }
+                            },
+                            [
+                              _vm._v(
+                                "SHARE\n                                        "
+                              ),
+                              _c("i", {
+                                staticClass: "fa-xs fas fa-plus-square"
+                              })
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass: "textLinks pointer",
+                              on: { click: _vm.viewSharepoint }
+                            },
+                            [
+                              _vm._v(
+                                "SHAREPOINT\n                                        "
+                              ),
+                              _c("i", {
+                                staticClass: "fa-xs fas fa-plus-square"
+                              })
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass: "textLinks pointer",
+                              on: { click: _vm.viewRPLanding }
+                            },
+                            [
+                              _vm._v(
+                                "RP LANDING\n                                        "
+                              ),
+                              _c("i", {
+                                staticClass: "fa-xs fas fa-plus-square"
+                              })
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "textLinks pointer" }, [
+                            _vm._v(
+                              "GOV ADMIN\n                                        "
+                            ),
+                            _c("i", { staticClass: "fa-xs fas fa-plus-square" })
+                          ])
                         ])
                       ])
                     ])
                   ])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "boxInfo" }, [
-                _c("div", { staticClass: "wrap-boxInfo" }, [
-                  _c("div", { staticClass: "line" }),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "boxHead" },
-                    [
-                      _c(
-                        "router-link",
-                        { attrs: { to: { path: _vm.stateLink } } },
-                        [
-                          _vm._v(
-                            "\n                                " +
-                              _vm._s(
-                                this.community
-                                  ? this.community.state
-                                    ? this.community.state.name
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "boxInfo" }, [
+                  _c("div", { staticClass: "wrap-boxInfo" }, [
+                    _c("div", { staticClass: "line" }),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "boxHead" },
+                      [
+                        _c(
+                          "router-link",
+                          { attrs: { to: { path: _vm.stateLink } } },
+                          [
+                            _vm._v(
+                              "\n                                " +
+                                _vm._s(
+                                  this.community
+                                    ? this.community.state
+                                      ? this.community.state.name
+                                      : ""
                                     : ""
-                                  : ""
-                              ) +
-                              "\n                            "
-                          )
-                        ]
-                      )
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "boxContent" }, [
-                    _c("div", { staticClass: "itemBox" }, [
-                      _c("div", [
-                        _c("div", { staticClass: "label-boxInfo" }, [
-                          _vm._v("Governance:")
+                                ) +
+                                "\n                            "
+                            )
+                          ]
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "boxContent" }, [
+                      _c("div", { staticClass: "itemBox" }, [
+                        _c("div", [
+                          _c("div", { staticClass: "label-boxInfo" }, [
+                            _vm._v("Governance:")
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "textBox" }, [
+                            _vm._v(_vm._s(_vm.governance))
+                          ])
                         ]),
                         _vm._v(" "),
-                        _c("div", { staticClass: "textBox" }, [
-                          _vm._v(_vm._s(_vm.governance))
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("div", [
-                        _c("div", { staticClass: "label-boxInfo" }, [
-                          _vm._v("FC Process:")
+                        _c("div", [
+                          _c("div", { staticClass: "label-boxInfo" }, [
+                            _vm._v("FC Process:")
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "textBox" }, [
+                            _vm._v(_vm._s(_vm.fcProcess))
+                          ])
                         ]),
                         _vm._v(" "),
-                        _c("div", { staticClass: "textBox" }, [
-                          _vm._v(_vm._s(_vm.fcProcess))
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("div", [
-                        _c("div", { staticClass: "label-boxInfo" }, [
-                          _vm._v("Exclude/Concern:")
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "textBox" }, [
-                          _vm._v(_vm._s(_vm.stateExcluded))
+                        _c("div", [
+                          _c("div", { staticClass: "label-boxInfo" }, [
+                            _vm._v("Exclude/Concern:")
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "textBox" }, [
+                            _vm._v(_vm._s(_vm.stateExcluded))
+                          ])
                         ])
                       ])
                     ])
                   ])
                 ])
               ])
-            ])
-          ])
+            ]
+          )
         ]
       ),
       _vm._v(" "),

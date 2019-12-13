@@ -1,54 +1,101 @@
 <template>
     <div class="mt-12">
-        <loading-card :loading="!loaded" class="summary">
+        <loading-card :loading="!loaded" class="summary customSummary">
             <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i" rel="stylesheet">
             <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
-            <header>
-                <div class="infoAddress">
-                    <div class="wrapLogoCommunity">
-                        <div v-if="specialOversight" class="icon-blue-lock sprite"
-                             v-tooltip="specialOversightNotes"></div>
-                        <img v-if="this.community ? this.community.community_logo : null" :src="logoUrl"
-                             class="logoCommunity" alt="Logo of Community">
-                        <div v-if="this.community ? !this.community.community_logo : null" class="blank-image"></div>
-                    </div>
-                    <div>
-                        <div class="wrap-headline">
-                            <h1 class="headline">{{this.communityName}}</h1>
-                            <span :class="relationshipStatusClass" v-tooltip="relationshipStatusNotes"></span>
 
-                        </div>
-                        <h2 class="subheadline"><a :href="countyFilterUrl" target="_blank">{{this.community ?
-                            this.community.COUNTY : ''}} County</a> ({{this.resourceId}})</h2>
+            
+            <div class="customHeader">
+                <img v-if="this.community ? this.community.community_logo : null" :src="logoUrl" class="logoCommunity" alt="Logo of Community">
+                <div v-if="this.community ? !this.community.community_logo : null" class="blank-image"></div>
+
+                <div class="custHeadTop">
+                    <div class="customHeadLeft">
+                        <h1 class="headline">{{this.communityName}} <strong style="font-size: 13px;color: #9c9b9b;padding-left: 11px;">ID: {{this.community.COMMUNITYID}} </strong> </h1>
                     </div>
+                    <div class="customHeadRight">
+                        <h5 class="headline" style="font-size: 25px;">X-Large | 374K Housing Units <span><i class="fa-xs fas fa-sort-down customHeadRightArrow"></i></span></h5>
+                    </div>                    
                 </div>
-                <div class="infoPrograms">
+            </div>
+            <header>
+                <div class="infoProgramsCustom" style="text-align:center">
+                    <h4 class="infoCustomText">AT-RISK PROPERTY REGISTRATION</h4>
                     <div class="wrap-programs">
-                        <div class="programs">
-                            <h3 class="text-center">Rental<br><span class="text-xs text-80">{{this.community ? (this.community.housing_data ? parseInt(this.community.housing_data.est_long_term_rental).toLocaleString() : 0) : 0}}</span>
-                            </h3>
-                            <div v-html="rentalBadgeContent"
-                                 :class="this.rentalPartner ? 'round-info-green gold-n5' : 'round-info gold-n0'"></div>
-                        </div>
-                        <div class="programs">
-                            <h3 class="text-center">Vacant<br><span class="text-xs text-80">{{this.community ? (this.community.housing_data ? parseInt(this.community.housing_data.est_vacant_total).toLocaleString() : 0) : 0}}</span>
-                            </h3>
-                            <div v-html="vacantBadgeContent"
-                                 :class="this.vacantPartner ? 'round-info-green gold-n5' : 'round-info gold-n0'"></div>
-                        </div>
-                        <div class="programs">
+                        <div class="programsCustom customBorder">
                             <h3 class="text-center">Foreclosure<br><span class="text-xs text-80">{{parseInt(estForeclosures).toLocaleString()}}</span>
                             </h3>
                             <div v-html="foreclosureBadgeContent"
                                  :class="this.foreclosurePartner ? 'round-info-green gold-n5' : 'round-info gold-n0'"></div>
                         </div>
+                        <div class="programsCustom customBorder">
+                            <h3 class="text-center">Vacant<br><span class="text-xs text-80">{{this.community ? (this.community.housing_data ? parseInt(this.community.housing_data.est_vacant_total).toLocaleString() : 0) : 0}}</span>
+                            </h3>
+                            <div v-html="vacantBadgeContent"
+                                 :class="this.vacantPartner ? 'round-info-green gold-n5' : 'round-info gold-n0'"></div>
+                        </div>
+                        <div class="programsCustom customBorder">
+                            <h3 >RT Rental<br><span class="text-xs text-80">{{this.community ? (this.community.housing_data ? parseInt(this.community.housing_data.est_long_term_rental).toLocaleString() : 0) : 0}}</span></h3>
+                            <div v-html="rentalBadgeContent"
+                                 :class="this.rentalPartner ? 'round-info-green gold-n5' : 'round-info gold-n0'"></div>
+                        </div>
+                        <div class="programsCustom">
+                            <h3 >ST Rental<br><span class="text-xs text-80">{{this.community ? (this.community.housing_data ? parseInt(this.community.housing_data.est_long_term_rental).toLocaleString() : 0) : 0}}</span></h3>
+                            <div v-html="rentalBadgeContent"
+                                 :class="this.rentalPartner ? 'round-info-green gold-n5' : 'round-info gold-n0'"></div>
+                        </div>
                     </div>
+                    <h4 class="infoCustomText">Contract: Foreclosure - <span style="color:red">Expire 2 month ago</span></h4>
                     <div class="box-expires">
                         <p class="wrap-expires">Contract<span v-html="contractExpiration"></span></p>
                     </div>
                 </div>
             </header>
-            <section class="mt-11">
+            <section class="mt-11" style="padding: 0px 24px;">
+                <div class="communityDetail">
+                    <div class="wrap-detailsBox">
+                        <div class="detailBox">
+                            <div class="wrap-detailBox">
+                                <div>
+                                    <div class="label-square">
+                                        <i class="fa-xs fas fa-square"></i>
+                                        City of Jacksonville
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="label-square">
+                                        <i class="fa-xs fas fa-square"></i>
+                                        Duval County
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="label-square">
+                                        <i class="fa-xs fas fa-square"></i>
+                                        Florida
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="detailBox" style="border: none">
+                            <div class="wrap-detailBox">
+                                <div>
+                                    <div class="label-square" style="font-size: 20px;">Relationship Manager</div>
+                                    <div class="textDetail" style="font-size: 16px;font-weight: 600;color: #615e5e;">Southers Stretegy - Jacksonville</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="boxInfo">
+                        <div class="wrap-boxInfo">
+                            <span style="background-color: #1a4b9e;color: white;padding: 12px 0px;">Pending Changes: 0</span>
+                            <p style="color: rgb(60, 59, 59);padding: 12px 0px;text-align: right;font-weight: 700;font-size: 20px;">Last Update</p>
+                            <p style="text-align: right;font-weight: 600;">Chati Shitlett</p>
+                            <p style="text-align: right">Deleted a person 7 days ago</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="mt-11" style="padding: 0px 24px;">
                 <div class="communityDetail">
                     <div class="wrap-detailsBox">
                         <div class="detailBox">
@@ -933,6 +980,7 @@
         computed: {
             communityName() {
                 if (this.community) {
+                    console.log('this.community',this.community)
                     return this.community.misc_configuration ? (this.community.misc_configuration.custom_friendly_name ? this.community.misc_configuration.custom_friendly_name : this.community.FRIENDLYNAME) : this.community.FRIENDLYNAME;
                 } else {
                     return "";
