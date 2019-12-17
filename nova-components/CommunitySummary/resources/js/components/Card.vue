@@ -14,64 +14,90 @@
                         <h1 class="headline">{{this.communityName}} <strong style="font-size: 13px;color: #9c9b9b;padding-left: 11px;">ID: {{this.community.COMMUNITYID}} </strong> </h1>
                     </div>
                     <div class="customHeadRight">
-                        <h5 class="headline" style="font-size: 25px;">X-Large | 374K Housing Units <span><i class="fa-xs fas fa-sort-down customHeadRightArrow"></i></span></h5>
+                        <h5 class="headline" style="font-size: 25px;color: #9c9b9b;">{{size}} | {{this.community ? (this.community.housing_data ?
+                                        this.community.housing_data.housing_units : '') : ''}} Housing Units
+                            <span><div class="fa-xs fas fa-sort-down rotate customHeadRightArrow" @click="csInfoToggleClick()" style="cursor:pointer;color:#0a4c9e"></div></span>
+                        </h5>
                     </div>                    
                 </div>
             </div>
-            <header>
-                <div class="infoProgramsCustom" style="text-align:center">
-                    <h4 class="infoCustomText">AT-RISK PROPERTY REGISTRATION</h4>
-                    <div class="wrap-programs">
-                        <div class="programsCustom customBorder">
-                            <h3 class="text-center">Foreclosure<br><span class="text-xs text-80">{{parseInt(estForeclosures).toLocaleString()}}</span>
-                            </h3>
-                            <div v-html="foreclosureBadgeContent"
-                                 :class="this.foreclosurePartner ? 'round-info-green gold-n5' : 'round-info gold-n0'"></div>
+            <section class="mt-11" id="csInfoToggle" style="padding: 0px 24px;">
+                <header>
+                    <div class="infoProgramsCustom" style="text-align:center">
+                        <h4 class="infoCustomText">AT-RISK PROPERTY REGISTRATION</h4>
+                        <div class="wrap-programs">
+                            <div class="programsCustom customBorder">
+                                <h3 class="text-center">Foreclosure<br><span class="text-xs text-80">{{parseInt(estForeclosures).toLocaleString()}}</span>
+                                </h3>
+                                <div v-html="foreclosureBadgeContent"
+                                    :class="this.foreclosurePartner ? 'round-info-green gold-n5' : 'round-info gold-n0'"></div>
+                            </div>
+                            <div class="programsCustom customBorder">
+                                <h3 class="text-center">Vacant<br><span class="text-xs text-80">{{this.community ? (this.community.housing_data ? parseInt(this.community.housing_data.est_vacant_total).toLocaleString() : 0) : 0}}</span>
+                                </h3>
+                                <div v-html="vacantBadgeContent"
+                                    :class="this.vacantPartner ? 'round-info-green gold-n5' : 'round-info gold-n0'"></div>
+                            </div>
+                            <div class="programsCustom customBorder">
+                                <h3 >RT Rental<br><span class="text-xs text-80">{{this.community ? (this.community.housing_data ? parseInt(this.community.housing_data.est_long_term_rental).toLocaleString() : 0) : 0}}</span></h3>
+                                <div v-html="rentalBadgeContent"
+                                    :class="this.rentalPartner ? 'round-info-green gold-n5' : 'round-info gold-n0'"></div>
+                            </div>
+                            <div class="programsCustom">
+                                <h3 >ST Rental<br><span class="text-xs text-80">{{this.community ? (this.community.housing_data ? parseInt(this.community.housing_data.est_long_term_rental).toLocaleString() : 0) : 0}}</span></h3>
+                                <div v-html="rentalBadgeContent"
+                                    :class="this.rentalPartner ? 'round-info-green gold-n5' : 'round-info gold-n0'"></div>
+                            </div>
                         </div>
-                        <div class="programsCustom customBorder">
-                            <h3 class="text-center">Vacant<br><span class="text-xs text-80">{{this.community ? (this.community.housing_data ? parseInt(this.community.housing_data.est_vacant_total).toLocaleString() : 0) : 0}}</span>
-                            </h3>
-                            <div v-html="vacantBadgeContent"
-                                 :class="this.vacantPartner ? 'round-info-green gold-n5' : 'round-info gold-n0'"></div>
-                        </div>
-                        <div class="programsCustom customBorder">
-                            <h3 >RT Rental<br><span class="text-xs text-80">{{this.community ? (this.community.housing_data ? parseInt(this.community.housing_data.est_long_term_rental).toLocaleString() : 0) : 0}}</span></h3>
-                            <div v-html="rentalBadgeContent"
-                                 :class="this.rentalPartner ? 'round-info-green gold-n5' : 'round-info gold-n0'"></div>
-                        </div>
-                        <div class="programsCustom">
-                            <h3 >ST Rental<br><span class="text-xs text-80">{{this.community ? (this.community.housing_data ? parseInt(this.community.housing_data.est_long_term_rental).toLocaleString() : 0) : 0}}</span></h3>
-                            <div v-html="rentalBadgeContent"
-                                 :class="this.rentalPartner ? 'round-info-green gold-n5' : 'round-info gold-n0'"></div>
-                        </div>
+                        <h4 class="infoCustomText">Contract<span v-html="contractExpiration"></span></h4>
                     </div>
-                    <h4 class="infoCustomText">Contract: Foreclosure - <span style="color:red">Expire 2 month ago</span></h4>
-                    <div class="box-expires">
-                        <p class="wrap-expires">Contract<span v-html="contractExpiration"></span></p>
-                    </div>
-                </div>
-            </header>
-            <section class="mt-11" style="padding: 0px 24px;">
-                <div class="communityDetail">
+                </header>
+                <div class="communityDetail" style="margin-top:20px">
                     <div class="wrap-detailsBox">
-                        <div class="detailBox">
+                        <div class="">
                             <div class="wrap-detailBox">
                                 <div>
-                                    <div class="label-square">
-                                        <i class="fa-xs fas fa-square"></i>
-                                        City of Jacksonville
+                                    <div class="label-square hoverUnderLine" @click="communityOpen('co')">
+                                        <h4><i class="fa-xs fas fa-square"></i>City of Jacksonville</h4>
+                                    </div>
+                                    <div class="openInfo cmOpenInfo" id="coInfo" style="display:none">
+                                        <h4 @click="viewCore" class="hoverUnderLine"><i class="fa-xs fas fa-square"></i> CORE</h4>
+                                        <br>
+                                        <h4 @click="viewSharepoint" class="hoverUnderLine"><i class="fa-xs fas fa-square"></i> Sharepoint </h4>
+                                        <br>
+                                        <h4 @click="displayLink" class="hoverUnderLine"><i class="fa-xs fas fa-square"></i> RP Landing</h4>
+                                        <br>
+                                        <h4 class="hoverUnderLine"><i class="fa-xs fas fa-square"></i> GOV Admin</h4>
                                     </div>
                                 </div>
                                 <div>
-                                    <div class="label-square">
-                                        <i class="fa-xs fas fa-square"></i>
-                                        Duval County
+                                    <div class="label-square hoverUnderLine" @click="communityOpen('ty')">
+                                        <h4><i class="fa-xs fas fa-square"></i>Duval County</h4>
+                                    </div>
+                                    <div class="openInfo cmOpenInfo" id="tyInfo" style="display:none">
+                                        <h4 @click="viewCore" class="hoverUnderLine"><i class="fa-xs fas fa-square"></i> County  County Clerk</h4>
+                                        <br>
+                                        <h4 @click="viewSharepoint" class="hoverUnderLine"><i class="fa-xs fas fa-square"></i> Property Appraiser </h4>
+                                        <br>
+                                        <h4 @click="displayLink" class="hoverUnderLine"><i class="fa-xs fas fa-square"></i> Tax Accessor</h4>
+                                        <br>
+                                        <h4 class="hoverUnderLine"><i class="fa-xs fas fa-square"></i> Court Docket</h4>
+                                        <br>
+                                        <h4 class="hoverUnderLine"><i class="fa-xs fas fa-square"></i> Link to filter community list by county </h4>
                                     </div>
                                 </div>
                                 <div>
-                                    <div class="label-square">
-                                        <i class="fa-xs fas fa-square"></i>
-                                        Florida
+                                    <div class="label-square hoverUnderLine" @click="communityOpen('fl')">
+                                        <h4><i class="fa-xs fas fa-square"></i>Florida</h4>
+                                    </div>
+                                    <div class="openInfo cmOpenInfo" id="flInfo" style="display:none">
+                                        <h4 @click="viewCore" class="hoverUnderLine"><i class="fa-xs fas fa-square"></i> Governance </h4>
+                                        <br>
+                                        <h4 @click="viewSharepoint" class="hoverUnderLine"><i class="fa-xs fas fa-square"></i> Foreclosure Process </h4>
+                                        <br>
+                                        <h4 @click="displayLink" class="hoverUnderLine"><i class="fa-xs fas fa-square"></i> Exclude </h4>
+                                        <br>
+                                        <h4 class="hoverUnderLine"><i class="fa-xs fas fa-square"></i> Link to filter community list by state</h4>
                                     </div>
                                 </div>
                             </div>
@@ -80,141 +106,21 @@
                             <div class="wrap-detailBox">
                                 <div>
                                     <div class="label-square" style="font-size: 20px;">Relationship Manager</div>
-                                    <div class="textDetail" style="font-size: 16px;font-weight: 600;color: #615e5e;">Southers Stretegy - Jacksonville</div>
+                                    <div class="textDetail" style="font-size: 16px;font-weight: 600;color: #615e5e;">{{this.community ? (this.community.relationship_managers[0] ? this.community.relationship_managers[0].name : 'No RMs Assigned') : 'No RMs Assigned'}}</div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="boxInfo">
                         <div class="wrap-boxInfo">
-                            <span style="background-color: #1a4b9e;color: white;padding: 12px 0px;">Pending Changes: 0</span>
-                            <p style="color: rgb(60, 59, 59);padding: 12px 0px;text-align: right;font-weight: 700;font-size: 20px;">Last Update</p>
-                            <p style="text-align: right;font-weight: 600;">Chati Shitlett</p>
-                            <p style="text-align: right">Deleted a person 7 days ago</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section class="mt-11" style="padding: 0px 24px;">
-                <div class="communityDetail">
-                    <div class="wrap-detailsBox">
-                        <div class="detailBox">
-                            <div class="wrap-detailBox">
-                                <div>
-                                    <div class="label-square">
-                                        <i class="fa-xs fas fa-square"></i>
-                                        Community Size
-                                    </div>
-                                    <div class="textDetail">{{size}} | {{this.community ? (this.community.housing_data ?
-                                        this.community.housing_data.housing_units : '') : ''}} Housing Units
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="label-square">
-                                        <i class="fa-xs fas fa-square"></i>
-                                        Strong Mayor
-                                    </div>
-                                    <div class="textDetail">{{strongMayor}}</div>
-                                </div>
-                                <div>
-                                    <div class="label-square">
-                                        <i class="fa-xs fas fa-square"></i>
-                                        Branding Configurations
-                                    </div>
-                                    <div v-if="rentalPartner || vacantPartner || foreclosurePartner"
-                                         class="table w-full" v-html="brandingConfigTooltip"></div>
-                                    <div v-else>N/A</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="detailBox" style="border: none">
-                            <div class="wrap-detailBox">
-                                <div>
-                                    <div class="label-square">
-                                        <i class="fa-xs fas fa-square"></i>
-                                        Community Exclusion
-                                    </div>
-                                    <div class="textDetail">{{communityExclusion}}</div>
-                                </div>
-                                <div>
-                                    <div class="label-square">
-                                        <i class="fa-xs fas fa-square"></i>
-                                        Relationship Manager
-                                    </div>
-                                    <div class="textDetail">{{this.community ? (this.community.relationship_managers[0] ? this.community.relationship_managers[0].name : 'No RMs Assigned') : 'No RMs Assigned'}}
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="label-square">
-                                        <i class="fa-xs fas fa-square"></i>
-                                        Last Update
-                                    </div>
-                                    <div class="textDetail" v-html="this.lastUpdated"></div>
-                                    <br>
-                                    <div style="margin-top: -6px; margin-left: -8px"><span id="pending-changes"
+                            <span style="background-color: #1a4b9e;color: white;padding: 12px 0px;">Pending Change{{this.pendingChanges === 1 ? "" : "s"}}: <span id="pending-changes"
                                                                                            v-html="this.pendingChanges"
                                                                                            @click="navigateToChanges"
                                                                                            style="background: #ffd740"
-                                                                                           class="pending-changes cursor-pointer rounded-full px-3 py-1 font-semibold">"</span>
-                                        Pending Change{{this.pendingChanges === 1 ? "" : "s"}}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="detailBox links">
-                            <div class="wrap-detailBox">
-                                <div class="wrap-links">
-                                    <div class="label-square">
-                                        <i class="fa-xs fas fa-square"></i>
-                                        Community Links
-                                    </div>
-                                    <div class="group-links">
-                                        <div @click="viewCore" class="textLinks pointer">CORE
-                                            <i class="fa-xs fas fa-plus-square"></i>
-                                        </div>
-                                        <div @click="displayLink" class="textLinks pointer">SHARE
-                                            <i class="fa-xs fas fa-plus-square"></i>
-                                        </div>
-                                        <div @click="viewSharepoint" class="textLinks pointer">SHAREPOINT
-                                            <i class="fa-xs fas fa-plus-square"></i>
-                                        </div>
-                                        <div @click="viewRPLanding" class="textLinks pointer">RP LANDING
-                                            <i class="fa-xs fas fa-plus-square"></i>
-                                        </div>
-                                        <div class="textLinks pointer">GOV ADMIN
-                                            <i class="fa-xs fas fa-plus-square"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="boxInfo">
-                        <div class="wrap-boxInfo">
-                            <div class="line"></div>
-                            <div class="boxHead">
-                                <router-link :to="{ path: stateLink }"
-                                >
-                                    {{this.community ? (this.community.state ? this.community.state.name : '') : ''}}
-                                </router-link>
-                            </div>
-                            <div class="boxContent">
-                                <div class="itemBox">
-                                    <div>
-                                        <div class="label-boxInfo">Governance:</div>
-                                        <div class="textBox">{{governance}}</div>
-                                    </div>
-                                    <div>
-                                        <div class="label-boxInfo">FC Process:</div>
-                                        <div class="textBox">{{fcProcess}}</div>
-                                    </div>
-                                    <div>
-                                        <div class="label-boxInfo">Exclude/Concern:</div>
-                                        <div class="textBox">{{stateExcluded}}</div>
-                                    </div>
-                                </div>
-
-                            </div>
+                                                                                           class="pending-changes cursor-pointer rounded-full px-3 py-1 font-semibold">"</span></span>
+                            <p style="color: rgb(60, 59, 59);padding: 12px 0px;text-align: right;font-weight: 700;font-size: 20px;">Last Update</p>
+                            <p style="text-align: right;font-weight: 600;">{{ this.latestActivity.user ? this.latestActivity.user.name : null }}</p>
+                            <p style="text-align: right" v-html="this.lastUpdated"></p>
                         </div>
                     </div>
                 </div>
@@ -1509,6 +1415,19 @@
             }
         },
         methods: {
+            communityOpen(idn) {
+                if($('#'+idn+'Info').is(':visible')) {
+                    $('.openInfo').hide();
+                    $('#'+idn+'Info').hide();
+                }else{
+                    $('.openInfo').hide();
+                    $('#'+idn+'Info').show();
+                }
+            },
+            csInfoToggleClick() {
+                $('#csInfoToggle').slideToggle();
+                $('.customHeadRightArrow').toggleClass("down") ;
+            },
             navigateToChanges() {
                 window.scrollTo(0, document.body.scrollHeight);
                 document.querySelector("#nova > div > div.content > div.px-view.py-view.mx-auto > div > div.relative > div:nth-child(5) > div > div > div.tabs-wrap.border-b-2.border-40.w-full > div > button:nth-child(6)").click()
@@ -2477,8 +2396,32 @@
     .pointer {
         cursor: pointer;
     }
-
     .ph{
         padding: 20px 10px;
+    }
+
+    .rotate{
+        -moz-transition: all .3s linear;
+        -webkit-transition: all .3s linear;
+        transition: all .3s linear;
+    }
+    .rotate.down{
+        -moz-transform:rotate(180deg);
+        -webkit-transform:rotate(180deg);
+        transform:rotate(180deg);
+    }
+    .hoverUnderLine{
+        font-size:20px;
+        transition: all .5s;
+    }
+    .hoverUnderLine:hover{
+        text-decoration: underline;
+        color: #0a4c9e;
+        cursor: pointer;
+    }
+    .cmOpenInfo{
+        position:relative;
+        color: #616f7f;
+        padding: 10px 20px 5px;
     }
 </style>

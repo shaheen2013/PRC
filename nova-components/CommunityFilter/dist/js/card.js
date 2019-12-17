@@ -733,10 +733,6 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
 //
 //
 //
-//
-//
-//
-//
 
 
 
@@ -812,7 +808,8 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
                 size: [],
                 state: [],
                 county: [],
-                or: false
+                or: false,
+                partnerStat: []
             },
             blankFilterValues: {
                 rental: false,
@@ -821,9 +818,11 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
                 size: [],
                 state: [],
                 county: [],
-                or: false
+                or: false,
+                partnerStat: []
             },
             sizeOptions: [{ id: 0, label: 'X-Small' }, { id: 1, label: 'Small' }, { id: 2, label: 'Medium' }, { id: 3, label: 'Large' }, { id: 4, label: 'X-Large' }],
+            partnerStatOptions: [{ id: 2, label: 'Foreclosure' }, { id: 1, label: 'Vacant' }, { id: 3, label: 'RT Rental:' }, { id: 4, label: 'ST Rental:' }],
             stateOptions: [],
             countyOptions: [],
             disableWatch: false,
@@ -859,6 +858,47 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
                 this.filters[0].value['orActive'] = false;
                 this.filters[1].value['orActive'] = false;
                 this.filters[2].value['orActive'] = false;
+            }
+            this.$router.push({
+                path: '/resources/c-m-communities',
+                query: { 'c-m-communities_filter': this.encodedFilter }
+            });
+        },
+        'filterValues.partnerStat': function filterValuesPartnerStat(val) {
+            var _this = this;
+
+            console.log(val);
+            if (Object.keys(val)) {
+                val.map(function (v) {
+                    if (v.id == 2) {
+                        _this.filters[2].value.value = true;
+                        _this.filterValues.or = false;
+                    } else {
+                        _this.filters[2].value.value = false;
+                        _this.filterValues.or = false;
+                    }
+                    if (v.id == 1) {
+                        _this.filters[1].value.value = true;
+                        _this.filterValues.or = false;
+                    } else {
+                        _this.filters[1].value.value = false;
+                        _this.filterValues.or = false;
+                    }
+                    if (v.id == 3) {
+                        _this.filters[0].value.value = true;
+                        _this.filterValues.or = false;
+                    } else {
+                        _this.filters[0].value.value = false;
+                        _this.filterValues.or = false;
+                    }
+                    if (v.id == 4) {
+                        _this.filters[0].value.value = true;
+                        _this.filterValues.or = false;
+                    } else {
+                        _this.filters[0].value.value = false;
+                        _this.filterValues.or = false;
+                    }
+                });
             }
             this.$router.push({
                 path: '/resources/c-m-communities',
@@ -976,7 +1016,7 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
             window.open('/admin/resources/c-m-communities', '_self');
         },
         saveCurrentFilter: function saveCurrentFilter() {
-            var _this = this;
+            var _this2 = this;
 
             var _iteratorNormalCompletion2 = true;
             var _didIteratorError2 = false;
@@ -1007,22 +1047,22 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
 
             this.$nextTick(function () {
                 Nova.request().post('/nova-vendor/community-filter/saveFilter', {
-                    filter: _this.encodedFilter,
+                    filter: _this2.encodedFilter,
                     resourceId: 1,
-                    title: _this.savedFilterTitle
+                    title: _this2.savedFilterTitle
                 }).then(function (response) {
-                    _this.savedFilterTitle = "";
-                    _this.filterSaveButtonClicked = false;
-                    _this.loadSavedFilters();
-                    _this.$toasted.show('Filter Saved!!', { type: 'success' });
+                    _this2.savedFilterTitle = "";
+                    _this2.filterSaveButtonClicked = false;
+                    _this2.loadSavedFilters();
+                    _this2.$toasted.show('Filter Saved!!', { type: 'success' });
                 });
             });
         },
         loadSavedFilters: function loadSavedFilters() {
-            var _this2 = this;
+            var _this3 = this;
 
             Nova.request().get('/nova-vendor/community-filter/savedFilters').then(function (response) {
-                _this2.savedFilters = [];
+                _this3.savedFilters = [];
                 var _iteratorNormalCompletion3 = true;
                 var _didIteratorError3 = false;
                 var _iteratorError3 = undefined;
@@ -1031,7 +1071,7 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
                     for (var _iterator3 = Object.values(response.data)[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
                         var savedFilters = _step3.value;
 
-                        _this2.savedFilters.push(savedFilters);
+                        _this3.savedFilters.push(savedFilters);
                     }
                 } catch (err) {
                     _didIteratorError3 = true;
@@ -1056,20 +1096,20 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
             this.bulkButtonClicked = !this.bulkButtonClicked;
         },
         loadCounties: function loadCounties(state) {
-            var _this3 = this;
+            var _this4 = this;
 
             if (state) {
                 Nova.request().post('/nova-vendor/community-filter/counties', {
                     communityState: state
                 }).then(function (response) {
-                    _this3.countyOptions = Object.values(response.data);
-                    _this3.filterValues.county = { id: _this3.activeFilters.county, label: _this3.activeFilters.county };
-                    _this3.disableWatch = false;
+                    _this4.countyOptions = Object.values(response.data);
+                    _this4.filterValues.county = { id: _this4.activeFilters.county, label: _this4.activeFilters.county };
+                    _this4.disableWatch = false;
                 });
             }
         },
         loadStates: function loadStates() {
-            var _this4 = this;
+            var _this5 = this;
 
             Nova.request().get('/nova-vendor/community-filter/states').then(function (response) {
                 var _iteratorNormalCompletion4 = true;
@@ -1080,7 +1120,7 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
                     for (var _iterator4 = Object.values(response.data)[Symbol.iterator](), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
                         var state = _step4.value;
 
-                        _this4.stateOptions.push(state);
+                        _this5.stateOptions.push(state);
                     }
                 } catch (err) {
                     _didIteratorError4 = true;
@@ -1109,7 +1149,7 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
             }
         },
         loadFilters: function loadFilters() {
-            var _this5 = this;
+            var _this6 = this;
 
             this.disableWatch = true;
 
@@ -1136,7 +1176,7 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
                     var _iteratorError5 = undefined;
 
                     try {
-                        for (var _iterator5 = Object.entries(_this5.activeFilters.size)[Symbol.iterator](), _step5; !(_iteratorNormalCompletion5 = (_step5 = _iterator5.next()).done); _iteratorNormalCompletion5 = true) {
+                        for (var _iterator5 = Object.entries(_this6.activeFilters.size)[Symbol.iterator](), _step5; !(_iteratorNormalCompletion5 = (_step5 = _iterator5.next()).done); _iteratorNormalCompletion5 = true) {
                             var _ref = _step5.value;
 
                             var _ref2 = _slicedToArray(_ref, 2);
@@ -1145,7 +1185,7 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
                             var value = _ref2[1];
 
                             if (value === true) {
-                                _this5.addOptionToMultiSelectValue('size', parseInt(key), 'sizeOptions');
+                                _this6.addOptionToMultiSelectValue('size', parseInt(key), 'sizeOptions');
                             }
                         }
                     } catch (err) {
@@ -1163,8 +1203,8 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
                         }
                     }
 
-                    if (_this5.activeFilters.state !== "") {
-                        _this5.disableWatch = true;
+                    if (_this6.activeFilters.state !== "") {
+                        _this6.disableWatch = true;
                         Nova.request().get('/nova-vendor/community-filter/states').then(function (response) {
                             var _iteratorNormalCompletion6 = true;
                             var _didIteratorError6 = false;
@@ -1174,9 +1214,9 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
                                 for (var _iterator6 = Object.values(response.data)[Symbol.iterator](), _step6; !(_iteratorNormalCompletion6 = (_step6 = _iterator6.next()).done); _iteratorNormalCompletion6 = true) {
                                     var state = _step6.value;
 
-                                    if (state.id === _this5.activeFilters.state) {
-                                        _this5.filterValues.state.push(state);
-                                        _this5.loadCounties(state.id);
+                                    if (state.id === _this6.activeFilters.state) {
+                                        _this6.filterValues.state.push(state);
+                                        _this6.loadCounties(state.id);
                                     }
                                 }
                             } catch (err) {
@@ -3473,165 +3513,31 @@ var render = function() {
       _vm._v(" "),
       _c(
         "div",
-        { staticClass: "px-3 py-3", staticStyle: { "text-align": "center" } },
+        { staticClass: "px-3 py-3" },
         [
-          _c("br"),
-          _vm._v(" "),
-          _c("p", [_vm._v("Rental Partner Status: ")]),
-          _c("label", { staticClass: "switch" }, [
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.filterValues.rental,
-                  expression: "filterValues.rental"
-                }
-              ],
-              attrs: { type: "checkbox" },
-              domProps: {
-                checked: Array.isArray(_vm.filterValues.rental)
-                  ? _vm._i(_vm.filterValues.rental, null) > -1
-                  : _vm.filterValues.rental
+          _c("multiselect", {
+            attrs: {
+              options: _vm.partnerStatOptions,
+              multiple: true,
+              "close-on-select": false,
+              "clear-on-select": false,
+              "preserve-search": true,
+              placeholder: "Partner Status",
+              label: "label",
+              "track-by": "id",
+              "preselect-first": false,
+              "show-labels": false
+            },
+            model: {
+              value: _vm.filterValues.partnerStat,
+              callback: function($$v) {
+                _vm.$set(_vm.filterValues, "partnerStat", $$v)
               },
-              on: {
-                change: function($event) {
-                  var $$a = _vm.filterValues.rental,
-                    $$el = $event.target,
-                    $$c = $$el.checked ? true : false
-                  if (Array.isArray($$a)) {
-                    var $$v = null,
-                      $$i = _vm._i($$a, $$v)
-                    if ($$el.checked) {
-                      $$i < 0 &&
-                        _vm.$set(_vm.filterValues, "rental", $$a.concat([$$v]))
-                    } else {
-                      $$i > -1 &&
-                        _vm.$set(
-                          _vm.filterValues,
-                          "rental",
-                          $$a.slice(0, $$i).concat($$a.slice($$i + 1))
-                        )
-                    }
-                  } else {
-                    _vm.$set(_vm.filterValues, "rental", $$c)
-                  }
-                }
-              }
-            }),
-            _c("span", { staticClass: "slider round" })
-          ])
-        ]
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "px-3 py-3", staticStyle: { "text-align": "center" } },
-        [
-          _c("br"),
-          _vm._v(" "),
-          _c("p", [_vm._v("Vacant Partner Status: ")]),
-          _c("label", { staticClass: "switch" }, [
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.filterValues.vacant,
-                  expression: "filterValues.vacant"
-                }
-              ],
-              attrs: { type: "checkbox" },
-              domProps: {
-                checked: Array.isArray(_vm.filterValues.vacant)
-                  ? _vm._i(_vm.filterValues.vacant, null) > -1
-                  : _vm.filterValues.vacant
-              },
-              on: {
-                change: function($event) {
-                  var $$a = _vm.filterValues.vacant,
-                    $$el = $event.target,
-                    $$c = $$el.checked ? true : false
-                  if (Array.isArray($$a)) {
-                    var $$v = null,
-                      $$i = _vm._i($$a, $$v)
-                    if ($$el.checked) {
-                      $$i < 0 &&
-                        _vm.$set(_vm.filterValues, "vacant", $$a.concat([$$v]))
-                    } else {
-                      $$i > -1 &&
-                        _vm.$set(
-                          _vm.filterValues,
-                          "vacant",
-                          $$a.slice(0, $$i).concat($$a.slice($$i + 1))
-                        )
-                    }
-                  } else {
-                    _vm.$set(_vm.filterValues, "vacant", $$c)
-                  }
-                }
-              }
-            }),
-            _c("span", { staticClass: "slider round" })
-          ])
-        ]
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "px-3 py-3", staticStyle: { "text-align": "center" } },
-        [
-          _c("br"),
-          _vm._v(" "),
-          _c("p", [_vm._v("Foreclosure Partner Status: ")]),
-          _c("label", { staticClass: "switch" }, [
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.filterValues.foreclosure,
-                  expression: "filterValues.foreclosure"
-                }
-              ],
-              attrs: { type: "checkbox" },
-              domProps: {
-                checked: Array.isArray(_vm.filterValues.foreclosure)
-                  ? _vm._i(_vm.filterValues.foreclosure, null) > -1
-                  : _vm.filterValues.foreclosure
-              },
-              on: {
-                change: function($event) {
-                  var $$a = _vm.filterValues.foreclosure,
-                    $$el = $event.target,
-                    $$c = $$el.checked ? true : false
-                  if (Array.isArray($$a)) {
-                    var $$v = null,
-                      $$i = _vm._i($$a, $$v)
-                    if ($$el.checked) {
-                      $$i < 0 &&
-                        _vm.$set(
-                          _vm.filterValues,
-                          "foreclosure",
-                          $$a.concat([$$v])
-                        )
-                    } else {
-                      $$i > -1 &&
-                        _vm.$set(
-                          _vm.filterValues,
-                          "foreclosure",
-                          $$a.slice(0, $$i).concat($$a.slice($$i + 1))
-                        )
-                    }
-                  } else {
-                    _vm.$set(_vm.filterValues, "foreclosure", $$c)
-                  }
-                }
-              }
-            }),
-            _c("span", { staticClass: "slider round" })
-          ])
-        ]
+              expression: "filterValues.partnerStat"
+            }
+          })
+        ],
+        1
       ),
       _vm._v(" "),
       _c(

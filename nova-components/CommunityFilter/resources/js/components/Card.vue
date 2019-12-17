@@ -15,14 +15,10 @@
                          placeholder="Saved Filters" label="label" track-by="id"
                          :preselect-first="false" :show-labels="false"></multiselect>
         </div>
-        <div class="px-3 py-3" style="text-align: center;"> <br />
-            <p>Rental Partner Status: </p><label class="switch"><input type="checkbox"  v-model="filterValues.rental"><span class="slider round"></span></label>
-        </div>
-        <div class="px-3 py-3" style="text-align: center;"> <br />
-            <p>Vacant Partner Status: </p><label class="switch"><input type="checkbox"  v-model="filterValues.vacant"><span class="slider round"></span></label>
-        </div>
-        <div class="px-3 py-3" style="text-align: center;"> <br />
-            <p>Foreclosure Partner Status: </p><label class="switch"><input type="checkbox"  v-model="filterValues.foreclosure"><span class="slider round"></span></label>
+        <div class="px-3 py-3">
+            <multiselect v-model="filterValues.partnerStat" :options="partnerStatOptions" :multiple="true" :close-on-select="false"
+                         :clear-on-select="false" :preserve-search="true" placeholder="Partner Status" label="label"
+                         track-by="id" :preselect-first="false" :show-labels="false"></multiselect>
         </div>
         <div class="px-3 py-3">
             <multiselect v-model="filterValues.size" :options="sizeOptions" :multiple="true" :close-on-select="false"
@@ -148,6 +144,7 @@
                     state: [],
                     county: [],
                     or: false,
+                    partnerStat: [],
                 },
                 blankFilterValues: {
                     rental:false,
@@ -157,6 +154,7 @@
                     state: [],
                     county: [],
                     or: false,
+                    partnerStat: [],
                 },
                 sizeOptions: [
                     {id: 0, label: 'X-Small'},
@@ -164,6 +162,12 @@
                     {id: 2, label: 'Medium'},
                     {id: 3, label: 'Large'},
                     {id: 4, label: 'X-Large'},
+                ],
+                partnerStatOptions: [
+                    {id: 2, label: 'Foreclosure'},
+                    {id: 1, label: 'Vacant'},
+                    {id: 3, label: 'RT Rental:'},
+                    {id: 4, label: 'ST Rental:'},
                 ],
                 stateOptions: [],
                 countyOptions: [],
@@ -200,6 +204,48 @@
                     this.filters[0].value['orActive'] = false;
                     this.filters[1].value['orActive'] = false;
                     this.filters[2].value['orActive'] = false;
+                }
+                this.$router.push({
+                    path: '/resources/c-m-communities',
+                    query: {'c-m-communities_filter': this.encodedFilter}
+                })
+            },
+            'filterValues.partnerStat': function (val) {
+                console.log(val);
+                if(Object.keys(val)){
+                    val.map(v => {
+                        if(v.id == 2){
+                            this.filters[2].value.value = true;
+                            this.filterValues.or = false
+                        }else{
+                            this.filters[2].value.value = false;
+                            this.filterValues.or = false
+                        }
+                        if(v.id == 1){
+                            this.filters[1].value.value = true;
+                            this.filterValues.or = false
+                        }else{
+                            this.filters[1].value.value = false;
+                            this.filterValues.or = false
+                        }
+                        if(v.id == 3){
+                            this.filters[0].value.value = true;
+                            this.filterValues.or = false
+                            
+                        }else{
+                            this.filters[0].value.value = false;
+                            this.filterValues.or = false
+                        }
+                        if(v.id == 4){
+                            this.filters[0].value.value = true;
+                            this.filterValues.or = false
+                            
+                        }else{
+                            this.filters[0].value.value = false;
+                            this.filterValues.or = false
+                        }
+                    })
+
                 }
                 this.$router.push({
                     path: '/resources/c-m-communities',
