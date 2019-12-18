@@ -204,6 +204,10 @@ class CMCommunity extends Resource
                         return $name;
                     }
                 }),
+                
+            Text::make('State', 'STATE')->onlyOnIndex()->resolveUsing(function ($state) {
+                return $state;
+            })->sortable()->onlyOnIndex(),
 
             EllipsisTextarea::make('RM', 'ORDER')->resolveUsing(function () {
                 return data_get($this->relationshipManagers->get('0'), 'name', '');

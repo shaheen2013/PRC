@@ -783,7 +783,10 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
                 }
             }, {
                 class: "App\\Nova\\Filters\\CommunityState",
-                value: ""
+                value: {
+                    value: "",
+                    orActive: false
+                }
             }, {
                 class: "App\\Nova\\Filters\\CommunityCounty",
                 value: ""
@@ -851,6 +854,14 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
                 this.filters[0].value['orActive'] = true;
                 this.filters[1].value['orActive'] = true;
                 this.filters[2].value['orActive'] = true;
+
+                console.log('this.filters[5].value', this.filters[4].value);
+                console.log('this.filters[5].value.value', this.filters[4].value.value);
+                if (this.filters[4].value['value'] != '') {
+                    console.log('this.filters[5].value.value Innnnnnnnn', this.filters[4].value.value);
+                    this.filters[4].value['value'] = this.filters[4].value.value;
+                    this.filters[4].value['orActive'] = true;
+                }
             } else {
                 this.filters[8].value['rental'] = false;
                 this.filters[8].value['vacant'] = false;
@@ -858,6 +869,10 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
                 this.filters[0].value['orActive'] = false;
                 this.filters[1].value['orActive'] = false;
                 this.filters[2].value['orActive'] = false;
+                if (this.filters[5].value['value'] != '') {
+                    this.filters[4].value['value'] = "";
+                    this.filters[4].value['orActive'] = false;
+                }
             }
             this.$router.push({
                 path: '/resources/c-m-communities',
@@ -865,41 +880,43 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
             });
         },
         'filterValues.partnerStat': function filterValuesPartnerStat(val) {
-            var _this = this;
-
-            console.log(val);
+            console.log('partnerStat', val);
             if (Object.keys(val)) {
-                val.map(function (v) {
-                    if (v.id == 2) {
-                        _this.filters[2].value.value = true;
-                        _this.filterValues.or = false;
-                    } else {
-                        _this.filters[2].value.value = false;
-                        _this.filterValues.or = false;
-                    }
-                    if (v.id == 1) {
-                        _this.filters[1].value.value = true;
-                        _this.filterValues.or = false;
-                    } else {
-                        _this.filters[1].value.value = false;
-                        _this.filterValues.or = false;
-                    }
-                    if (v.id == 3) {
-                        _this.filters[0].value.value = true;
-                        _this.filterValues.or = false;
-                    } else {
-                        _this.filters[0].value.value = false;
-                        _this.filterValues.or = false;
-                    }
-                    if (v.id == 4) {
-                        _this.filters[0].value.value = true;
-                        _this.filterValues.or = false;
-                    } else {
-                        _this.filters[0].value.value = false;
-                        _this.filterValues.or = false;
-                    }
+                var selIds = val.map(function (arr) {
+                    return arr.id;
                 });
+                console.log(selIds);
+                if (selIds.includes(2)) {
+                    this.filters[2].value.value = true;
+                    this.filterValues.or = false;
+                } else {
+                    this.filters[2].value.value = false;
+                    this.filterValues.or = false;
+                }
+                if (selIds.includes(1)) {
+                    this.filters[1].value.value = true;
+                    this.filterValues.or = false;
+                } else {
+                    this.filters[1].value.value = false;
+                    this.filterValues.or = false;
+                }
+                if (selIds.includes(3)) {
+                    this.filters[0].value.value = true;
+                    this.filterValues.or = false;
+                } else {
+                    this.filters[0].value.value = false;
+                    this.filterValues.or = false;
+                }
+                // if(selIds.includes(4)){
+                //     this.filters[0].value.value = true;
+                //     this.filterValues.or = false
+                // }
+                // else{
+                //     this.filters[0].value.value = false;
+                //     this.filterValues.or = false
+                // }
             }
+            console.log('Community Filter', this.filters);
             this.$router.push({
                 path: '/resources/c-m-communities',
                 query: { 'c-m-communities_filter': this.encodedFilter }
@@ -911,7 +928,6 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
                 this.filters[0].value.value = true;
                 this.filterValues.or = false;
             } else {
-
                 this.filters[0].value.value = false;
                 this.filterValues.or = false;
             }
@@ -923,7 +939,6 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
         },
         'filterValues.vacant': function filterValuesVacant(val) {
             this.clearVacantFilters();
-            console.log(this.filters);
             if (val) {
                 this.filters[1].value.value = true;
                 this.filterValues.or = false;
@@ -939,7 +954,6 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
         },
         'filterValues.foreclosure': function filterValuesForeclosure(val) {
             this.clearForeclosureFilters();
-            console.log(this.filters);
             if (val) {
                 this.filters[2].value.value = true;
                 this.filterValues.or = false;
@@ -955,6 +969,8 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
         },
         'filterValues.size': function filterValuesSize(val) {
             this.clearSizeFilters();
+            console.log('size val', val);
+            console.log('this.filters[3]', this.filters);
             var _iteratorNormalCompletion = true;
             var _didIteratorError = false;
             var _iteratorError = undefined;
@@ -980,30 +996,36 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
                 }
             }
 
+            this.filterValues.or = false;
             this.$router.push({
                 path: '/resources/c-m-communities',
                 query: { 'c-m-communities_filter': this.encodedFilter }
             });
         },
         'filterValues.state': function filterValuesState(val, oldval) {
+            console.log('state val', val);
+            console.log('state oldval', oldval);
             if (!this.disableWatch) {
-                this.filters[4].value = val ? val.id : null;
+
+                this.filters[4].value.value = val ? val.id : null;
                 if (!val) {
-                    this.filters[5].value = "";
+                    this.filters[5].value.value = "";
                     this.countyOptions = [];
                 }
+                this.filterValues.or = false;
                 this.$router.push({
                     path: '/resources/c-m-communities',
                     query: { 'c-m-communities_filter': this.encodedFilter }
                 });
             }
+            this.filterValues.or = false;
 
             this.loadCounties(val ? val.id : null);
         },
         'filterValues.county': function filterValuesCounty(val) {
             if (!this.disableWatch) {
-                console.log(val);
                 this.filters[5].value = val ? val.id : null;
+                this.filterValues.or = false;
                 this.$router.push({
                     path: '/resources/c-m-communities',
                     query: { 'c-m-communities_filter': this.encodedFilter }
@@ -1016,7 +1038,7 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
             window.open('/admin/resources/c-m-communities', '_self');
         },
         saveCurrentFilter: function saveCurrentFilter() {
-            var _this2 = this;
+            var _this = this;
 
             var _iteratorNormalCompletion2 = true;
             var _didIteratorError2 = false;
@@ -1047,22 +1069,22 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
 
             this.$nextTick(function () {
                 Nova.request().post('/nova-vendor/community-filter/saveFilter', {
-                    filter: _this2.encodedFilter,
+                    filter: _this.encodedFilter,
                     resourceId: 1,
-                    title: _this2.savedFilterTitle
+                    title: _this.savedFilterTitle
                 }).then(function (response) {
-                    _this2.savedFilterTitle = "";
-                    _this2.filterSaveButtonClicked = false;
-                    _this2.loadSavedFilters();
-                    _this2.$toasted.show('Filter Saved!!', { type: 'success' });
+                    _this.savedFilterTitle = "";
+                    _this.filterSaveButtonClicked = false;
+                    _this.loadSavedFilters();
+                    _this.$toasted.show('Filter Saved!!', { type: 'success' });
                 });
             });
         },
         loadSavedFilters: function loadSavedFilters() {
-            var _this3 = this;
+            var _this2 = this;
 
             Nova.request().get('/nova-vendor/community-filter/savedFilters').then(function (response) {
-                _this3.savedFilters = [];
+                _this2.savedFilters = [];
                 var _iteratorNormalCompletion3 = true;
                 var _didIteratorError3 = false;
                 var _iteratorError3 = undefined;
@@ -1071,7 +1093,7 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
                     for (var _iterator3 = Object.values(response.data)[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
                         var savedFilters = _step3.value;
 
-                        _this3.savedFilters.push(savedFilters);
+                        _this2.savedFilters.push(savedFilters);
                     }
                 } catch (err) {
                     _didIteratorError3 = true;
@@ -1096,20 +1118,20 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
             this.bulkButtonClicked = !this.bulkButtonClicked;
         },
         loadCounties: function loadCounties(state) {
-            var _this4 = this;
+            var _this3 = this;
 
             if (state) {
                 Nova.request().post('/nova-vendor/community-filter/counties', {
                     communityState: state
                 }).then(function (response) {
-                    _this4.countyOptions = Object.values(response.data);
-                    _this4.filterValues.county = { id: _this4.activeFilters.county, label: _this4.activeFilters.county };
-                    _this4.disableWatch = false;
+                    _this3.countyOptions = Object.values(response.data);
+                    _this3.filterValues.county = { id: _this3.activeFilters.county, label: _this3.activeFilters.county };
+                    _this3.disableWatch = false;
                 });
             }
         },
         loadStates: function loadStates() {
-            var _this5 = this;
+            var _this4 = this;
 
             Nova.request().get('/nova-vendor/community-filter/states').then(function (response) {
                 var _iteratorNormalCompletion4 = true;
@@ -1120,7 +1142,7 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
                     for (var _iterator4 = Object.values(response.data)[Symbol.iterator](), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
                         var state = _step4.value;
 
-                        _this5.stateOptions.push(state);
+                        _this4.stateOptions.push(state);
                     }
                 } catch (err) {
                     _didIteratorError4 = true;
@@ -1149,7 +1171,7 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
             }
         },
         loadFilters: function loadFilters() {
-            var _this6 = this;
+            var _this5 = this;
 
             this.disableWatch = true;
 
@@ -1157,6 +1179,7 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
                 this.filterValues.rental = this.activeFilters.rental.value;
                 this.filterValues.vacant = this.activeFilters.vacant.value;
                 this.filterValues.foreclosure = this.activeFilters.foreclosure.value;
+                this.filterValues.state = this.activeFilters.state.value;
 
                 this.$set(this.filters[0], 'value', this.activeFilters.rental);
                 this.$set(this.filters[1], 'value', this.activeFilters.vacant);
@@ -1176,7 +1199,7 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
                     var _iteratorError5 = undefined;
 
                     try {
-                        for (var _iterator5 = Object.entries(_this6.activeFilters.size)[Symbol.iterator](), _step5; !(_iteratorNormalCompletion5 = (_step5 = _iterator5.next()).done); _iteratorNormalCompletion5 = true) {
+                        for (var _iterator5 = Object.entries(_this5.activeFilters.size)[Symbol.iterator](), _step5; !(_iteratorNormalCompletion5 = (_step5 = _iterator5.next()).done); _iteratorNormalCompletion5 = true) {
                             var _ref = _step5.value;
 
                             var _ref2 = _slicedToArray(_ref, 2);
@@ -1185,7 +1208,7 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
                             var value = _ref2[1];
 
                             if (value === true) {
-                                _this6.addOptionToMultiSelectValue('size', parseInt(key), 'sizeOptions');
+                                _this5.addOptionToMultiSelectValue('size', parseInt(key), 'sizeOptions');
                             }
                         }
                     } catch (err) {
@@ -1203,8 +1226,8 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
                         }
                     }
 
-                    if (_this6.activeFilters.state !== "") {
-                        _this6.disableWatch = true;
+                    if (_this5.activeFilters.state !== "") {
+                        _this5.disableWatch = true;
                         Nova.request().get('/nova-vendor/community-filter/states').then(function (response) {
                             var _iteratorNormalCompletion6 = true;
                             var _didIteratorError6 = false;
@@ -1214,9 +1237,9 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
                                 for (var _iterator6 = Object.values(response.data)[Symbol.iterator](), _step6; !(_iteratorNormalCompletion6 = (_step6 = _iterator6.next()).done); _iteratorNormalCompletion6 = true) {
                                     var state = _step6.value;
 
-                                    if (state.id === _this6.activeFilters.state) {
-                                        _this6.filterValues.state.push(state);
-                                        _this6.loadCounties(state.id);
+                                    if (state.id === _this5.activeFilters.state) {
+                                        _this5.filterValues.state.push(state);
+                                        _this5.loadCounties(state.id);
                                     }
                                 }
                             } catch (err) {

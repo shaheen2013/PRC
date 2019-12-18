@@ -113,7 +113,10 @@
                     },
                     {
                         class: "App\\Nova\\Filters\\CommunityState",
-                        value: ""
+                        value: {
+                            value: "",
+                            orActive: false
+                        }
                     },
                     {
                         class: "App\\Nova\\Filters\\CommunityCounty",
@@ -197,6 +200,14 @@
                     this.filters[0].value['orActive'] = true;
                     this.filters[1].value['orActive'] = true;
                     this.filters[2].value['orActive'] = true;
+
+                console.log('this.filters[5].value', this.filters[4].value);
+                console.log('this.filters[5].value.value', this.filters[4].value.value);
+                    if(this.filters[4].value['value'] != ''){
+                        console.log('this.filters[5].value.value Innnnnnnnn', this.filters[4].value.value);
+                        this.filters[4].value['value'] = this.filters[4].value.value;
+                        this.filters[4].value['orActive'] = true;
+                    }
                 }else{
                     this.filters[8].value['rental'] = false;
                     this.filters[8].value['vacant'] = false;
@@ -204,6 +215,10 @@
                     this.filters[0].value['orActive'] = false;
                     this.filters[1].value['orActive'] = false;
                     this.filters[2].value['orActive'] = false;
+                    if(this.filters[5].value['value'] != ''){
+                        this.filters[4].value['value'] = "";
+                        this.filters[4].value['orActive'] = false;
+                    }
                 }
                 this.$router.push({
                     path: '/resources/c-m-communities',
@@ -211,42 +226,42 @@
                 })
             },
             'filterValues.partnerStat': function (val) {
-                console.log(val);
+                console.log('partnerStat', val);
                 if(Object.keys(val)){
-                    val.map(v => {
-                        if(v.id == 2){
-                            this.filters[2].value.value = true;
-                            this.filterValues.or = false
-                        }else{
-                            this.filters[2].value.value = false;
-                            this.filterValues.or = false
-                        }
-                        if(v.id == 1){
-                            this.filters[1].value.value = true;
-                            this.filterValues.or = false
-                        }else{
-                            this.filters[1].value.value = false;
-                            this.filterValues.or = false
-                        }
-                        if(v.id == 3){
-                            this.filters[0].value.value = true;
-                            this.filterValues.or = false
-                            
-                        }else{
-                            this.filters[0].value.value = false;
-                            this.filterValues.or = false
-                        }
-                        if(v.id == 4){
-                            this.filters[0].value.value = true;
-                            this.filterValues.or = false
-                            
-                        }else{
-                            this.filters[0].value.value = false;
-                            this.filterValues.or = false
-                        }
-                    })
+                    const selIds = val.map(arr => arr.id);
+                    console.log(selIds);
+                    if (selIds.includes(2)) {
+                        this.filters[2].value.value = true;
+                        this.filterValues.or = false;
+                    } else {
+                        this.filters[2].value.value = false;
+                        this.filterValues.or = false;
+                    }
+                    if (selIds.includes(1)) {
+                        this.filters[1].value.value = true;
+                        this.filterValues.or = false;
+                    } else {
+                        this.filters[1].value.value = false;
+                        this.filterValues.or = false;
+                    }
+                    if (selIds.includes(3)) {
+                        this.filters[0].value.value = true;
+                        this.filterValues.or = false;
+                    } else {
+                        this.filters[0].value.value = false;
+                        this.filterValues.or = false;
+                    }
+                    // if(selIds.includes(4)){
+                    //     this.filters[0].value.value = true;
+                    //     this.filterValues.or = false
+                    // }
+                    // else{
+                    //     this.filters[0].value.value = false;
+                    //     this.filterValues.or = false
+                    // }
 
                 }
+                console.log('Community Filter',this.filters);
                 this.$router.push({
                     path: '/resources/c-m-communities',
                     query: {'c-m-communities_filter': this.encodedFilter}
@@ -259,7 +274,6 @@
                     this.filterValues.or = false
                 }
                 else{
-                    
                     this.filters[0].value.value = false;
                     this.filterValues.or = false
                 }
@@ -271,7 +285,6 @@
             },
             'filterValues.vacant': function (val) {
                 this.clearVacantFilters();
-                console.log(this.filters);
                 if(val){
                     this.filters[1].value.value = true;
                     this.filterValues.or = false
@@ -288,7 +301,6 @@
             },
             'filterValues.foreclosure': function (val) {
                 this.clearForeclosureFilters();
-                console.log(this.filters);
                 if(val){
                     this.filters[2].value.value = true;
                     this.filterValues.or = false
@@ -305,33 +317,41 @@
             },
             'filterValues.size': function (val) {
                 this.clearSizeFilters();
+                console.log('size val', val);
+                console.log('this.filters[3]', this.filters);
                 for (let filter of val) {
                     this.filters[3].value[filter.id] = true
                 }
+                this.filterValues.or = false;
                 this.$router.push({
                     path: '/resources/c-m-communities',
                     query: {'c-m-communities_filter': this.encodedFilter}
                 })
             },
             'filterValues.state': function (val, oldval) {
+                console.log('state val', val);
+                console.log('state oldval', oldval);
                 if (!this.disableWatch) {
-                    this.filters[4].value = val ? val.id : null;
+
+                    this.filters[4].value.value = val ? val.id : null;
                     if (!val) {
-                        this.filters[5].value = "";
+                        this.filters[5].value.value = "";
                         this.countyOptions = [];
                     }
+                    this.filterValues.or = false;
                     this.$router.push({
                         path: '/resources/c-m-communities',
                         query: {'c-m-communities_filter': this.encodedFilter}
                     })
                 }
+                this.filterValues.or = false;
 
                 this.loadCounties(val ? val.id : null);
             },
             'filterValues.county': function (val) {
                 if (!this.disableWatch) {
-                    console.log(val);
                     this.filters[5].value = val ? val.id : null;
+                    this.filterValues.or = false;
                     this.$router.push({
                         path: '/resources/c-m-communities',
                         query: {'c-m-communities_filter': this.encodedFilter}
@@ -412,6 +432,7 @@
                     this.filterValues.rental = this.activeFilters.rental.value;
                     this.filterValues.vacant = this.activeFilters.vacant.value;
                     this.filterValues.foreclosure = this.activeFilters.foreclosure.value;
+                    this.filterValues.state = this.activeFilters.state.value;
 
                     this.$set(this.filters[0], 'value', this.activeFilters.rental);
                     this.$set(this.filters[1], 'value', this.activeFilters.vacant);

@@ -78,9 +78,12 @@ Route::post('/count', function (Request $request) {
                 }
             }
         });
-        if ($stateFilters) {
-            $query->where('STATE', '=', $stateFilters);
-            $foreclosureQuery->where('STATE', '=', $stateFilters);
+        if($stateFilters){
+            if ($stateFilters['value']) {
+                dd($stateFilters);
+                $query->where('STATE', '=', $stateFilters['value']);
+                $foreclosureQuery->where('STATE', '=', $stateFilters['value']);
+            }
         }
         if ($countyFilters) {
             $query->where('COUNTY', '=', $countyFilters);

@@ -25,7 +25,17 @@ class CommunityState extends Filter
      */
     public function apply(Request $request, $query, $value)
     {
-        return $query->where('STATE', '=', $value);
+        if(!$value){
+            return $query;
+        }
+        if($value['value'] == ''){
+            return $query;
+        }
+        if($value['orActive']){
+            return $query->orwhere('STATE', '=', $value['value']);
+        }else{
+            return $query->where('STATE', '=', $value['value']);
+        }
     }
 
     /**

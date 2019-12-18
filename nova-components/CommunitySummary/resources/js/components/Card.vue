@@ -44,9 +44,9 @@
                                     :class="this.rentalPartner ? 'round-info-green gold-n5' : 'round-info gold-n0'"></div>
                             </div>
                             <div class="programsCustom">
-                                <h3 >ST Rental<br><span class="text-xs text-80">{{this.community ? (this.community.housing_data ? parseInt(this.community.housing_data.est_long_term_rental).toLocaleString() : 0) : 0}}</span></h3>
-                                <div v-html="rentalBadgeContent"
-                                    :class="this.rentalPartner ? 'round-info-green gold-n5' : 'round-info gold-n0'"></div>
+                                <h3 >ST Rental<br><span class="text-xs text-80">0.00</span></h3>
+                                <div 
+                                    :class="this.rentalPartner ? 'round-info gold-n0' : 'round-info gold-n0'"></div>
                             </div>
                         </div>
                         <h4 class="infoCustomText">Contract<span v-html="contractExpiration"></span></h4>
@@ -75,11 +75,11 @@
                                         <h4><i class="fa-xs fas fa-square"></i>Duval County</h4>
                                     </div>
                                     <div class="openInfo cmOpenInfo" id="tyInfo" style="display:none">
-                                        <h4 @click="viewCore" class="hoverUnderLine"><i class="fa-xs fas fa-square"></i> County  County Clerk</h4>
+                                        <h4 class="hoverUnderLine"><i class="fa-xs fas fa-square"></i> County  County Clerk</h4>
                                         <br>
-                                        <h4 @click="viewSharepoint" class="hoverUnderLine"><i class="fa-xs fas fa-square"></i> Property Appraiser </h4>
+                                        <h4 class="hoverUnderLine"><i class="fa-xs fas fa-square"></i> Property Appraiser </h4>
                                         <br>
-                                        <h4 @click="displayLink" class="hoverUnderLine"><i class="fa-xs fas fa-square"></i> Tax Accessor</h4>
+                                        <h4 class="hoverUnderLine"><i class="fa-xs fas fa-square"></i> Tax Accessor</h4>
                                         <br>
                                         <h4 class="hoverUnderLine"><i class="fa-xs fas fa-square"></i> Court Docket</h4>
                                         <br>
@@ -91,11 +91,11 @@
                                         <h4><i class="fa-xs fas fa-square"></i>Florida</h4>
                                     </div>
                                     <div class="openInfo cmOpenInfo" id="flInfo" style="display:none">
-                                        <h4 @click="viewCore" class="hoverUnderLine"><i class="fa-xs fas fa-square"></i> Governance </h4>
+                                        <h4 class="hoverUnderLine"><i class="fa-xs fas fa-square"></i> Governance </h4>
                                         <br>
-                                        <h4 @click="viewSharepoint" class="hoverUnderLine"><i class="fa-xs fas fa-square"></i> Foreclosure Process </h4>
+                                        <h4 class="hoverUnderLine"><i class="fa-xs fas fa-square"></i> Foreclosure Process </h4>
                                         <br>
-                                        <h4 @click="displayLink" class="hoverUnderLine"><i class="fa-xs fas fa-square"></i> Exclude </h4>
+                                        <h4 class="hoverUnderLine"><i class="fa-xs fas fa-square"></i> Exclude </h4>
                                         <br>
                                         <h4 class="hoverUnderLine"><i class="fa-xs fas fa-square"></i> Link to filter community list by state</h4>
                                     </div>
@@ -1417,11 +1417,11 @@
         methods: {
             communityOpen(idn) {
                 if($('#'+idn+'Info').is(':visible')) {
-                    $('.openInfo').hide();
-                    $('#'+idn+'Info').hide();
+                    $('.openInfo').slideUp('fast');
+                    $('#'+idn+'Info').slideUp('fast');
                 }else{
-                    $('.openInfo').hide();
-                    $('#'+idn+'Info').show();
+                    $('.openInfo').slideUp('fast');
+                    $('#'+idn+'Info').slideDown('fast');
                 }
             },
             csInfoToggleClick() {
