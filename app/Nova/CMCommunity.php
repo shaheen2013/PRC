@@ -204,10 +204,11 @@ class CMCommunity extends Resource
                         return $name;
                     }
                 }),
-                
-            Text::make('State', 'STATE')->onlyOnIndex()->resolveUsing(function ($state) {
-                return $state;
-            })->sortable()->onlyOnIndex(),
+            
+            Text::make('PU', 'salesCycles')->onlyOnIndex()->resolveUsing(function ($salesCycles, $model) {
+                $cycles = $model->salesCycles()->where('community_id', $this->COMMUNITYID)->get();
+                return $cycles->count();
+            }),
 
             EllipsisTextarea::make('RM', 'ORDER')->resolveUsing(function () {
                 return data_get($this->relationshipManagers->get('0'), 'name', '');

@@ -20,6 +20,9 @@
                          :clear-on-select="false" :preserve-search="true" placeholder="Partner Status" label="label"
                          track-by="id" :preselect-first="false" :show-labels="false"></multiselect>
         </div>
+        <div class="px-3 py-3" style="text-align: center;"> <br />
+            <p>Programm Updates: </p><label class="switch"><input type="checkbox"><span class="slider round"></span></label>
+        </div>
         <div class="px-3 py-3">
             <multiselect v-model="filterValues.size" :options="sizeOptions" :multiple="true" :close-on-select="false"
                          :clear-on-select="false" :preserve-search="true" placeholder="Community Size" label="label"

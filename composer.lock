@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "895725205706d9d2550480e8ed0258c6",
+    "content-hash": "1eb8f2a434f5c7b9214d72a6e616d101",
     "packages": [
         {
             "name": "ajimix/asana-api-php-class",
@@ -505,6 +505,55 @@
                 "symmetric key cryptography"
             ],
             "time": "2018-07-24T23:27:56+00:00"
+        },
+        {
+            "name": "digital-creative/clickable-table-row",
+            "version": "v0.1.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dcasia/clickable-table-row.git",
+                "reference": "e4cebdcb6765552f722eda23cbb1e5b825a1d360"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dcasia/clickable-table-row/zipball/e4cebdcb6765552f722eda23cbb1e5b825a1d360",
+                "reference": "e4cebdcb6765552f722eda23cbb1e5b825a1d360",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "DigitalCreative\\ClickableTableRow\\ToolServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "DigitalCreative\\ClickableTableRow\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Rafael Milewski"
+                }
+            ],
+            "description": "Makes every Nova table resource rows clickable",
+            "keywords": [
+                "clickable",
+                "laravel",
+                "nova",
+                "row",
+                "table"
+            ],
+            "time": "2019-11-22T04:05:18+00:00"
         },
         {
             "name": "dillingham/nova-ajax-select",

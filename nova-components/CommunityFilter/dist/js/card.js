@@ -733,6 +733,9 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
 //
 //
 //
+//
+//
+//
 
 
 
@@ -3561,6 +3564,20 @@ var render = function() {
           })
         ],
         1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "px-3 py-3", staticStyle: { "text-align": "center" } },
+        [
+          _c("br"),
+          _vm._v(" "),
+          _c("p", [_vm._v("Programm Updates: ")]),
+          _c("label", { staticClass: "switch" }, [
+            _c("input", { attrs: { type: "checkbox" } }),
+            _c("span", { staticClass: "slider round" })
+          ])
+        ]
       ),
       _vm._v(" "),
       _c(

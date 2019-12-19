@@ -22,6 +22,9 @@
                 </div>
             </div>
             <section class="mt-11" id="csInfoToggle" style="padding: 0px 24px;">
+                <div class="communityWarning">
+                    <i class="fa-xs fas fa-exclamation-triangle exclamation-triangle" style="margin-right:10px;font-size: 30px;"></i> Some issue or alert message can go here.
+                </div>                
                 <header>
                     <div class="infoProgramsCustom" style="text-align:center">
                         <h4 class="infoCustomText">AT-RISK PROPERTY REGISTRATION</h4>

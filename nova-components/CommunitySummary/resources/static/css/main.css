@@ -375,3 +375,10 @@ a:hover, a:focus {
 .textLinks > i {
   margin-left: 10px;
   color: #152531; }
+
+  .communityWarning{
+    background-color: #fff061;
+    color: #22292f;
+    padding: 12px 25px;
+    font-size: 23px;
+  }
