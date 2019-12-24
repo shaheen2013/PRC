@@ -17447,7 +17447,7 @@ exports.i(__webpack_require__(138), "");
 exports.i(__webpack_require__(139), "");
 
 // module
-exports.push([module.i, "\n.expired[data-v-b9bc2c0a] {\n    color: red;\n}\n.checkOkr[data-v-b9bc2c0a] {\n    position: absolute;\n    top: -8px;\n    right: -20px;\n    background-position: -58px -16px;\n    width: 38px;\n    height: 38px;\n}\n.checkOkv[data-v-b9bc2c0a] {\n    position: absolute;\n    top: -8px;\n    right: -20px;\n    background-position: -58px -16px;\n    width: 38px;\n    height: 38px;\n}\n.blank-image[data-v-b9bc2c0a] {\n    padding-right: 90px;\n}\n.pointer[data-v-b9bc2c0a] {\n    cursor: pointer;\n}\n.ph[data-v-b9bc2c0a]{\n    padding: 20px 10px;\n}\n.rotate[data-v-b9bc2c0a]{\n    -webkit-transition: all .3s linear;\n    transition: all .3s linear;\n}\n.rotate.down[data-v-b9bc2c0a]{\n    -webkit-transform:rotate(180deg);\n    transform:rotate(180deg);\n}\n.hoverUnderLine[data-v-b9bc2c0a]{\n    font-size:20px;\n    -webkit-transition: all .5s;\n    transition: all .5s;\n}\n.hoverUnderLine[data-v-b9bc2c0a]:hover{\n    text-decoration: underline;\n    color: #0a4c9e;\n    cursor: pointer;\n}\n.cmOpenInfo[data-v-b9bc2c0a]{\n    position:relative;\n    color: #616f7f;\n    padding: 10px 20px 5px;\n}\n", ""]);
+exports.push([module.i, "\n.expired[data-v-b9bc2c0a] {\n    color: red;\n}\n.checkOkr[data-v-b9bc2c0a] {\n    position: absolute;\n    top: -8px;\n    right: -20px;\n    background-position: -58px -16px;\n    width: 38px;\n    height: 38px;\n}\n.checkOkv[data-v-b9bc2c0a] {\n    position: absolute;\n    top: -8px;\n    right: -20px;\n    background-position: -58px -16px;\n    width: 38px;\n    height: 38px;\n}\n.blank-image[data-v-b9bc2c0a] {\n    padding-right: 90px;\n}\n.pointer[data-v-b9bc2c0a] {\n    cursor: pointer;\n}\n.ph[data-v-b9bc2c0a]{\n    padding: 20px 10px;\n}\n.rotate[data-v-b9bc2c0a]{\n    -webkit-transition: all .3s linear;\n    transition: all .3s linear;\n}\n.rotate.down[data-v-b9bc2c0a]{\n    -webkit-transform:rotate(180deg);\n    transform:rotate(180deg);\n}\n.hoverUnderLine[data-v-b9bc2c0a]{\n    font-size:16px;\n    -webkit-transition: all .5s;\n    transition: all .5s;\n}\n.hoverUnderLine[data-v-b9bc2c0a]:hover{\n    text-decoration: underline;\n    color: #0a4c9e;\n    cursor: pointer;\n}\n.cmOpenInfo[data-v-b9bc2c0a]{\n    position: relative;\n    color: #616f7f;\n    padding: 5px 20px 5px;\n}\n.cmOpenInfo > span[data-v-b9bc2c0a]{\n    font-size:14px;\n    -webkit-transition: all .5s;\n    transition: all .5s;\n}\n.cmOpenInfo > span[data-v-b9bc2c0a]:hover{\n    text-decoration: underline;\n    color: #0a4c9e;\n    cursor: pointer;\n}\n", ""]);
 
 // exports
 
@@ -17461,7 +17461,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, ".expired {\n  color: red;\n}\n\n.sprite {\n  background-image: url(\"https://s3.amazonaws.com/communitymanagement/spriteCM.svg\");\n  background-repeat: no-repeat; }\n\n.notAffectSize {\n  -webkit-box-sizing: border-box;\n  -moz-box-sizing: border-box;\n  box-sizing: border-box; }\n\n.all-transition {\n  -webkit-transition: -webkit-all 200ms ease-in-out;\n  -moz-transition: -moz-all 200ms ease-in-out;\n  transition: all 200ms ease-in-out; }\n\n\n.text-note {\n  color: #a6a6a6;\n  font-size: 10px; }\n\n.dividers {\n  color: #B0BEC5;\n  font-size: 13px;\n  text-transform: uppercase; }\n\na {\n  color: #55a3de;\n  text-decoration: none;\n  outline: 0; }\na:hover, a:focus {\n  color: #aad1ef; }\n\n.gold-n0 {\n  background-color: #f7f7f7; }\n\n.gold-n1 {\n  background-color: #ffffd9; }\n\n.gold-n2 {\n  background-color: #fff9c4; }\n\n.gold-n3 {\n  background-color: #fff59d; }\n\n.gold-n4 {\n  background-color: lightgreen; }\n\n.gold-n5 {\n  background-color: green; }\n\n.gold-n6 {\n  background-color: #ffd740; }\n\n.summary {\n  background-color: #fff;\n  padding: 20px;\n  border-radius: 5px;\n  box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.25); }\n.customSummary{\n  padding: 0px;\n  border-radius: 0px;\n}\n.summary header {\n  position: relative;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  flex-wrap: wrap; }\n.customHeader{\n  border-bottom: 2px solid #bbbbbb;\n}\n.wrapLogoCommunity {\n  position: relative;\n  display: flex;\n  align-items: center;\n  background-color: #fff;\n  z-index: 2; }\n\n.infoAddress {\n  display: flex;\n  position: relative;\n  align-items: center;\n  flex: 1;\n  min-width: 350px; }\n  @media only screen and (max-width: 480px) {\n    .infoAddress {\n      flex-wrap: wrap; } }\n\n.infoPrograms {\n  display: flex;\n  flex-direction: column;\n  align-items: flex-end;\n  flex-wrap: wrap;\n  flex: 1; }\n.infoProgramsCustom {\n  width: 100%;\n  margin: 50px;\n  border-top: 2px solid;\n  border-bottom: 2px solid;\n  padding-bottom: 20px;\n}\n\n.wrap-expires {\n  margin-top: 10px;\n  background-color: white;\n  position: relative;\n  padding: 0px 0 0 20px;\n  z-index: 1; }\n\n.headline {\n  display: inline-block;\n  vertical-align: middle;\n  font-size: 32px;\n  align-items: center;\n  line-height: 1;\n  margin-left: 120px;\n  padding: 8px 0px;\n  color: #0a4c9e;\n}\n\n.subheadline {\n  font-size: 20px; }\n\n.wrap-programs {\n  display: flex;\n  justify-content: center;\n  padding: 30px;\n}\n.infoCustomText{\n  margin-top: -15px;\n  font-size: 25px;\n  background-color: white;\n  display: inline-block;\n  padding: 5px 10px;\n}\n.programs {\n  display: flex;\n  align-items: center;\n  margin-left: 50px;\n  flex-wrap: wrap; }\n.programsCustom {\n  align-items: center;\n  margin-left: 25px;\n  flex-wrap: wrap;\n  padding-right: 25px;\n}\n.customBorder{\n  border-right: 2px solid #f1f1f1;\n}\n\n.round-info {\n  position: relative;\n  width: 100px;\n  height: 100px;\n  margin-left: 10px;\n  border-radius: 100%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 24px;\n  font-weight: bold;\n  color: #47515b; }\n\n.round-info-green {\n  position: relative;\n  width: 100px;\n  height: 100px;\n  margin-left: 10px;\n  border-radius: 100%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 24px;\n  font-weight: bold;\n  color: whitesmoke; }\n\n.custHeadTop{\n  display: flex;\n}\n.customHeadLeft{\n  display: flex;\n  position: relative;\n  align-items: center;\n  flex: 1;\n  min-width: 350px;\n}\n.customHeadRight{\n  display: flex;\n  flex-direction: column;\n  align-items: flex-end;\n  padding: 5px 10px;\n}\n.customHeadRightArrow{\n  padding: 5px 10px;\n}\n.logoCommunity {\n  max-width: 100px;\n}\n\n.logoCommunity {\n  position: absolute;\n  top: -35px;\n  left: 10px;\n}\n.icon-blue-lock {\n  position: absolute;\n  background-position: -4px -4px;\n  width: 50px;\n  height: 50px; }\n\n.icon-alert-red {\n  background-position: -104px -16px;\n  width: 38px;\n  height: 38px;\n  display: inline-block;\n  vertical-align: middle; }\n\n.icon-alert-yellow {\n  background-position: -144px -16px;\n  width: 38px;\n  height: 38px;\n  display: inline-block;\n  vertical-align: middle; }\n\n.icon-alert-green {\n  background-position: -58px -16px;\n  width: 38px;\n  height: 38px;\n  display: inline-block;\n  vertical-align: middle; }\n\n.checkOk {\n  position: absolute;\n  top: -8px;\n  right: -18px;\n  background-position: -58px -16px;\n  width: 38px;\n  height: 38px; }\n\n.expires {\n  font-weight: bold;\n  color: #4f7c2f; }\n\n.communityDetail {\n  display: grid;\n  grid-template-columns: 1fr 350px;\n  grid-gap: 20px; }\n  @media only screen and (max-width: 480px) {\n    .communityDetail {\n      grid-template-columns: 1fr; } }\n  @media only screen and (min-width: 481px) and (max-width: 1023px) {\n    .communityDetail {\n      grid-template-columns: 1fr; } }\n\n.wrap-detailsBox {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));\n  grid-auto-rows: 150px;\n  grid-gap: 20px; }\n\n.detailBox.links {\n  grid-column: span 2;\n  grid-row: 2; }\n\n.wrap-links {\n  display: flex;\n  flex-direction: column; }\n\n.label-square {\n  display: flex;\n  align-items: center;\n  font-size: 14px;\n  color: #616f7f;\n  font-weight: bold; }\n\n.label-square i {\n  margin-right: 5px; }\n\n.boxInfo {\n  display: flex;\n  justify-content: center;\n  height: 320px; }\n\n.wrap-boxInfo {\n  position: relative;\n  width: 300px;\n  display: flex;\n  flex-direction: column;\n  text-align: center; }\n\n.boxHead {\n  margin: 0 auto;\n  box-sizing: border-box;\n  padding: 0 20px 3px;\n  font-size: 24px;\n  font-weight: bold;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  z-index: 1;\n  background-color: #fff; }\n\n.boxContent {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  flex: 1;\n  flex-direction: column;\n  border-radius: 5px;\n  background-color: #eef1f4; }\n\n.itemBox {\n  width: 100%;\n  box-sizing: border-box;\n  padding: 15px 40px; }\n\n.label-boxInfo {\n  font-size: 14px;\n  color: #3a3a3c; }\n\n.textBox {\n  padding: 10px;\n  border-radius: 4px;\n  border: 1px solid #3a3a3c;\n  font-size: 16px;\n  font-weight: bold;\n  margin-top: 5px;\n  background-color: #fff; }\n\n.itemBox > div {\n  margin-bottom: 15px; }\n\n.itemBox > div:last-child {\n  margin-bottom: 0; }\n\n.wrap-boxInfo .line {\n  border: 1px solid #3a3a3c;\n  position: absolute;\n  width: 100%;\n  top: 18px; }\n\n.communityDetail .detailBox {\n  border-right: 1px solid #616f7f; }\n\n.wrap-detailsBox > .detailBox:last-child {\n  border-right: none; }\n\n.detailBox {\n  display: flex;\n  align-items: center; }\n\n.group-links {\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between; }\n\n.wrap-detailBox {\n  flex: 1; }\n\n.wrap-detailBox > div {\n  margin-bottom: 20px; }\n\n.wrap-detailBox > div:last-child {\n  margin-bottom: 0; }\n\n.textLinks {\n  display: flex;\n  align-items: center;\n  font-weight: bold;\n  color: #55a3de; }\n\n.textLinks > i {\n  margin-left: 10px;\n  color: #152531; }\n\n  .communityWarning{\n    background-color: #fff061;\n    color: #22292f;\n    padding: 12px 25px;\n    font-size: 23px;\n  }", ""]);
+exports.push([module.i, ".expired {\n  color: red;\n}\n\n.sprite {\n  background-image: url(\"https://s3.amazonaws.com/communitymanagement/spriteCM.svg\");\n  background-repeat: no-repeat; }\n\n.notAffectSize {\n  -webkit-box-sizing: border-box;\n  -moz-box-sizing: border-box;\n  box-sizing: border-box; }\n\n.all-transition {\n  -webkit-transition: -webkit-all 200ms ease-in-out;\n  -moz-transition: -moz-all 200ms ease-in-out;\n  transition: all 200ms ease-in-out; }\n\n\n.text-note {\n  color: #a6a6a6;\n  font-size: 10px; }\n\n.dividers {\n  color: #B0BEC5;\n  font-size: 13px;\n  text-transform: uppercase; }\n\na {\n  color: #55a3de;\n  text-decoration: none;\n  outline: 0; }\na:hover, a:focus {\n  color: #aad1ef; }\n\n.gold-n0 {\n  background-color: #f7f7f7; }\n\n.gold-n1 {\n  background-color: #ffffd9; }\n\n.gold-n2 {\n  background-color: #fff9c4; }\n\n.gold-n3 {\n  background-color: #fff59d; }\n\n.gold-n4 {\n  background-color: lightgreen; }\n\n.gold-n5 {\n  background-color: green; }\n\n.gold-n6 {\n  background-color: #ffd740; }\n\n.summary {\n  background-color: #fff;\n  padding: 20px;\n  border-radius: 5px;\n  box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.25); }\n.customSummary{\n  padding: 0px;\n  border-radius: 0px;\n}\n.summary header {\n  position: relative;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  flex-wrap: wrap; }\n.customHeader{\n  border-bottom: 2px solid #bbbbbb;\n}\n.wrapLogoCommunity {\n  position: relative;\n  display: flex;\n  align-items: center;\n  background-color: #fff;\n  z-index: 2; }\n\n.infoAddress {\n  display: flex;\n  position: relative;\n  align-items: center;\n  flex: 1;\n  min-width: 350px; }\n  @media only screen and (max-width: 480px) {\n    .infoAddress {\n      flex-wrap: wrap; } }\n\n.infoPrograms {\n  display: flex;\n  flex-direction: column;\n  align-items: flex-end;\n  flex-wrap: wrap;\n  flex: 1; }\n.infoProgramsCustom {\n  width: 100%;\n  margin: 50px;\n  border-top: 2px solid;\n  border-bottom: 2px solid;\n  padding-bottom: 20px;\n}\n\n.wrap-expires {\n  margin-top: 10px;\n  background-color: white;\n  position: relative;\n  padding: 0px 0 0 20px;\n  z-index: 1; }\n\n.headline {\n  display: inline-block;\n  vertical-align: middle;\n  font-size: 32px;\n  align-items: center;\n  line-height: 1;\n  margin-left: 120px;\n  padding: 8px 0px;\n  color: #0a4c9e;\n}\n\n.subheadline {\n  font-size: 20px; }\n\n.wrap-programs {\n  display: flex;\n  justify-content: center;\n  padding: 30px;\n}\n.infoCustomText{\n  margin-top: -15px;\n  font-size: 25px;\n  background-color: white;\n  display: inline-block;\n  padding: 5px 10px;\n}\n.programs {\n  display: flex;\n  align-items: center;\n  margin-left: 50px;\n  flex-wrap: wrap; }\n.programsCustom {\n  align-items: center;\n  margin-left: 25px;\n  flex-wrap: wrap;\n  padding-right: 25px;\n}\n.customBorder{\n  border-right: 2px solid #f1f1f1;\n}\n\n.round-info {\n  position: relative;\n  width: 100px;\n  height: 100px;\n  margin-left: 10px;\n  border-radius: 100%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 24px;\n  font-weight: bold;\n  color: #47515b; }\n\n.round-info-green {\n  position: relative;\n  width: 100px;\n  height: 100px;\n  margin-left: 10px;\n  border-radius: 100%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 24px;\n  font-weight: bold;\n  color: whitesmoke; }\n\n.custHeadTop{\n  display: flex;\n}\n.customHeadLeft{\n  display: flex;\n  position: relative;\n  align-items: center;\n  flex: 1;\n  min-width: 350px;\n}\n.customHeadRight{\n  display: flex;\n  flex-direction: column;\n  align-items: flex-end;\n  padding: 5px 10px;\n}\n.customHeadRightArrow{\n  padding: 5px 10px;\n}\n.logoCommunity {\n  max-width: 100px;\n}\n\n.logoCommunity {\n  position: absolute;\n  top: -35px;\n  left: 10px;\n}\n.icon-blue-lock {\n  position: absolute;\n  background-position: -4px -4px;\n  width: 50px;\n  height: 50px; }\n\n.icon-alert-red {\n  background-position: -104px -16px;\n  width: 38px;\n  height: 38px;\n  display: inline-block;\n  vertical-align: middle; }\n\n.icon-alert-yellow {\n  background-position: -144px -16px;\n  width: 38px;\n  height: 38px;\n  display: inline-block;\n  vertical-align: middle; }\n\n.icon-alert-green {\n  background-position: -58px -16px;\n  width: 38px;\n  height: 38px;\n  display: inline-block;\n  vertical-align: middle; }\n\n.checkOk {\n  position: absolute;\n  top: -8px;\n  right: -18px;\n  background-position: -58px -16px;\n  width: 38px;\n  height: 38px; }\n\n.expires {\n  font-weight: bold;\n  color: #4f7c2f; }\n\n.communityDetail {\n  display: grid;\n  grid-template-columns: 1fr 350px;\n  grid-gap: 20px; }\n  @media only screen and (max-width: 480px) {\n    .communityDetail {\n      grid-template-columns: 1fr; } }\n  @media only screen and (min-width: 481px) and (max-width: 1023px) {\n    .communityDetail {\n      grid-template-columns: 1fr; } }\n\n.wrap-detailsBox {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));\n  grid-auto-rows: 150px;\n  grid-gap: 20px; }\n\n.detailBox.links {\n  grid-column: span 2;\n  grid-row: 2; }\n\n.wrap-links {\n  display: flex;\n  flex-direction: column; }\n\n.label-square {\n  display: flex;\n  align-items: center;\n  font-size: 14px;\n  color: #616f7f;\n  font-weight: bold; }\n\n.label-square i {\n  margin-right: 5px; }\n\n.boxInfo {\n  display: flex;\n  justify-content: center;\n  height: 190px; \n}\n\n.wrap-boxInfo {\n  position: relative;\n  width: 300px;\n  display: flex;\n  flex-direction: column;\n  text-align: center; }\n\n.boxHead {\n  margin: 0 auto;\n  box-sizing: border-box;\n  padding: 0 20px 3px;\n  font-size: 24px;\n  font-weight: bold;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  z-index: 1;\n  background-color: #fff; }\n\n.boxContent {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  flex: 1;\n  flex-direction: column;\n  border-radius: 5px;\n  background-color: #eef1f4; }\n\n.itemBox {\n  width: 100%;\n  box-sizing: border-box;\n  padding: 15px 40px; }\n\n.label-boxInfo {\n  font-size: 14px;\n  color: #3a3a3c; }\n\n.textBox {\n  padding: 10px;\n  border-radius: 4px;\n  border: 1px solid #3a3a3c;\n  font-size: 16px;\n  font-weight: bold;\n  margin-top: 5px;\n  background-color: #fff; }\n\n.itemBox > div {\n  margin-bottom: 15px; }\n\n.itemBox > div:last-child {\n  margin-bottom: 0; }\n\n.wrap-boxInfo .line {\n  border: 1px solid #3a3a3c;\n  position: absolute;\n  width: 100%;\n  top: 18px; }\n\n.communityDetail .detailBox {\n  border-right: 1px solid #616f7f; }\n\n.wrap-detailsBox > .detailBox:last-child {\n  border-right: none; }\n\n.detailBox {\n  display: flex;\n  align-items: center; }\n\n.group-links {\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between; }\n\n.wrap-detailBox {\n  flex: 1; }\n\n.wrap-detailBox > div {\n  margin-bottom: 5px; \n}\n\n.wrap-detailBox > div:last-child {\n  margin-bottom: 0; }\n\n.textLinks {\n  display: flex;\n  align-items: center;\n  font-weight: bold;\n  color: #55a3de; }\n\n.textLinks > i {\n  margin-left: 10px;\n  color: #152531; }\n\n  .communityWarning{\n    background-color: #fff061;\n    color: #22292f;\n    padding: 12px 25px;\n    font-size: 23px;\n  }", ""]);
 
 // exports
 
@@ -17531,6 +17531,30 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_vue_moments_ago__ = __webpack_require__(158);
 function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -50585,7 +50609,7 @@ var render = function() {
                 "div",
                 {
                   staticClass: "communityDetail",
-                  staticStyle: { "margin-top": "20px" }
+                  staticStyle: { "margin-top": "20px", padding: "0px 50px" }
                 },
                 [
                   _c("div", { staticClass: "wrap-detailsBox" }, [
@@ -50618,28 +50642,16 @@ var render = function() {
                               attrs: { id: "coInfo" }
                             },
                             [
-                              _c(
-                                "h4",
-                                {
-                                  staticClass: "hoverUnderLine",
-                                  on: { click: _vm.viewCore }
-                                },
-                                [
-                                  _c("i", {
-                                    staticClass: "fa-xs fas fa-square"
-                                  }),
-                                  _vm._v(" CORE")
-                                ]
-                              ),
+                              _c("span", { on: { click: _vm.viewCore } }, [
+                                _c("i", { staticClass: "fa-xs fas fa-square" }),
+                                _vm._v(" CORE")
+                              ]),
                               _vm._v(" "),
                               _c("br"),
                               _vm._v(" "),
                               _c(
-                                "h4",
-                                {
-                                  staticClass: "hoverUnderLine",
-                                  on: { click: _vm.viewSharepoint }
-                                },
+                                "span",
+                                { on: { click: _vm.viewSharepoint } },
                                 [
                                   _c("i", {
                                     staticClass: "fa-xs fas fa-square"
@@ -50650,23 +50662,14 @@ var render = function() {
                               _vm._v(" "),
                               _c("br"),
                               _vm._v(" "),
-                              _c(
-                                "h4",
-                                {
-                                  staticClass: "hoverUnderLine",
-                                  on: { click: _vm.displayLink }
-                                },
-                                [
-                                  _c("i", {
-                                    staticClass: "fa-xs fas fa-square"
-                                  }),
-                                  _vm._v(" RP Landing")
-                                ]
-                              ),
+                              _c("span", { on: { click: _vm.displayLink } }, [
+                                _c("i", { staticClass: "fa-xs fas fa-square" }),
+                                _vm._v(" RP Landing")
+                              ]),
                               _vm._v(" "),
                               _c("br"),
                               _vm._v(" "),
-                              _c("h4", { staticClass: "hoverUnderLine" }, [
+                              _c("span", [
                                 _c("i", { staticClass: "fa-xs fas fa-square" }),
                                 _vm._v(" GOV Admin")
                               ])
@@ -50701,35 +50704,43 @@ var render = function() {
                               attrs: { id: "tyInfo" }
                             },
                             [
-                              _c("h4", { staticClass: "hoverUnderLine" }, [
+                              _c("span", [
                                 _c("i", { staticClass: "fa-xs fas fa-square" }),
-                                _vm._v(" County  County Clerk")
+                                _vm._v(
+                                  " \n                                        County County Clerk\n                                    "
+                                )
                               ]),
                               _vm._v(" "),
                               _c("br"),
                               _vm._v(" "),
-                              _c("h4", { staticClass: "hoverUnderLine" }, [
+                              _c("span", [
                                 _c("i", { staticClass: "fa-xs fas fa-square" }),
-                                _vm._v(" Property Appraiser ")
+                                _vm._v(
+                                  " \n                                        Property Appraiser \n                                    "
+                                )
                               ]),
                               _vm._v(" "),
                               _c("br"),
                               _vm._v(" "),
-                              _c("h4", { staticClass: "hoverUnderLine" }, [
+                              _c("span", [
                                 _c("i", { staticClass: "fa-xs fas fa-square" }),
-                                _vm._v(" Tax Accessor")
+                                _vm._v(
+                                  " \n                                        Tax Accessor\n                                    "
+                                )
                               ]),
                               _vm._v(" "),
                               _c("br"),
                               _vm._v(" "),
-                              _c("h4", { staticClass: "hoverUnderLine" }, [
+                              _c("span", [
                                 _c("i", { staticClass: "fa-xs fas fa-square" }),
-                                _vm._v(" Court Docket")
+                                _vm._v(
+                                  " \n                                        Court Docket\n                                    "
+                                )
                               ]),
                               _vm._v(" "),
                               _c("br"),
                               _vm._v(" "),
-                              _c("h4", { staticClass: "hoverUnderLine" }, [
+                              _c("span", [
                                 _c("i", { staticClass: "fa-xs fas fa-square" }),
                                 _vm._v(
                                   " Link to filter community list by county "
@@ -50766,31 +50777,37 @@ var render = function() {
                               attrs: { id: "flInfo" }
                             },
                             [
-                              _c("h4", { staticClass: "hoverUnderLine" }, [
-                                _c("i", { staticClass: "fa-xs fas fa-square" }),
-                                _vm._v(" Governance ")
-                              ]),
-                              _vm._v(" "),
-                              _c("br"),
-                              _vm._v(" "),
-                              _c("h4", { staticClass: "hoverUnderLine" }, [
-                                _c("i", { staticClass: "fa-xs fas fa-square" }),
-                                _vm._v(" Foreclosure Process ")
-                              ]),
-                              _vm._v(" "),
-                              _c("br"),
-                              _vm._v(" "),
-                              _c("h4", { staticClass: "hoverUnderLine" }, [
-                                _c("i", { staticClass: "fa-xs fas fa-square" }),
-                                _vm._v(" Exclude ")
-                              ]),
-                              _vm._v(" "),
-                              _c("br"),
-                              _vm._v(" "),
-                              _c("h4", { staticClass: "hoverUnderLine" }, [
+                              _c("span", [
                                 _c("i", { staticClass: "fa-xs fas fa-square" }),
                                 _vm._v(
-                                  " Link to filter community list by state"
+                                  " \n                                        Governance \n                                    "
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("br"),
+                              _vm._v(" "),
+                              _c("span", [
+                                _c("i", { staticClass: "fa-xs fas fa-square" }),
+                                _vm._v(
+                                  " \n                                        Foreclosure Process \n                                    "
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("br"),
+                              _vm._v(" "),
+                              _c("span", [
+                                _c("i", { staticClass: "fa-xs fas fa-square" }),
+                                _vm._v(
+                                  " \n                                        Exclude \n                                    "
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("br"),
+                              _vm._v(" "),
+                              _c("span", [
+                                _c("i", { staticClass: "fa-xs fas fa-square" }),
+                                _vm._v(
+                                  " \n                                        Link to filter community list by state\n                                    "
                                 )
                               ])
                             ]

@@ -38,8 +38,12 @@
                          :close-on-select="true" :clear-on-select="false" :preserve-search="true" placeholder="County"
                          label="label" track-by="id" :preselect-first="false" :show-labels="false"></multiselect>
         </div>
-        <div class="px-3 py-3" style="text-align: center;"> <br />
-            <p>OR </p><label class="switch"><input type="checkbox"  v-model="filterValues.or"><span class="slider round"></span></label>
+        <div class="px-3 py-3" style="text-align: center;">
+            <label class="switch">
+                <input type="checkbox" v-model="filterValues.or">
+                <span class="slider round"><span class="switchText switchTextR">And</span>
+                <span class="switchText switchTextL" style="display:none">Or</span></span>
+            </label>
         </div>
         <div class="flex flex-row items-center justify-center">
             <label for="bulkId"></label>
@@ -63,6 +67,7 @@
 
 <script>
     import Multiselect from 'vue-multiselect'
+    import $ from '../../../../CommunitySummary/resources/static/js/jquery-2.2.4.min';
 
     export default {
         props: {
@@ -197,6 +202,9 @@
             },
             'filterValues.or': function (val) {
                 if(val){
+                    $('.switchTextL').show('slow');
+                    $('.switchTextR').hide('fast');
+
                     this.filters[8].value['rental'] = this.filters[0].value.value;
                     this.filters[8].value['vacant'] = this.filters[1].value.value;
                     this.filters[8].value['foreclosure'] = this.filters[2].value.value;
@@ -204,14 +212,17 @@
                     this.filters[1].value['orActive'] = true;
                     this.filters[2].value['orActive'] = true;
 
-                console.log('this.filters[5].value', this.filters[4].value);
-                console.log('this.filters[5].value.value', this.filters[4].value.value);
+                    console.log('this.filters[5].value', this.filters[4].value);
+                    console.log('this.filters[5].value.value', this.filters[4].value.value);
                     if(this.filters[4].value['value'] != ''){
                         console.log('this.filters[5].value.value Innnnnnnnn', this.filters[4].value.value);
                         this.filters[4].value['value'] = this.filters[4].value.value;
                         this.filters[4].value['orActive'] = true;
                     }
                 }else{
+                    $('.switchTextL').hide('fast');
+                    $('.switchTextR').show('slow');
+
                     this.filters[8].value['rental'] = false;
                     this.filters[8].value['vacant'] = false;
                     this.filters[8].value['foreclosure'] = false;
@@ -596,5 +607,19 @@
 
     .slider.round:before {
     border-radius: 50%;
+    }
+    .switchText{
+        position: absolute;
+        top: 5px;
+        font-weight: 700;
+        font-size: 13px;
+        color: #007509;
+    }
+    .switchTextL{
+        left: 5px;
+        color: white;
+    }
+    .switchTextR{
+        right: 4px;
     }
 </style>

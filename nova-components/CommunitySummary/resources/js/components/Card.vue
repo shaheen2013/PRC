@@ -55,7 +55,7 @@
                         <h4 class="infoCustomText">Contract<span v-html="contractExpiration"></span></h4>
                     </div>
                 </header>
-                <div class="communityDetail" style="margin-top:20px">
+                <div class="communityDetail" style="margin-top:20px;padding: 0px 50px;">
                     <div class="wrap-detailsBox">
                         <div class="">
                             <div class="wrap-detailBox">
@@ -64,13 +64,13 @@
                                         <h4><i class="fa-xs fas fa-square"></i>City of Jacksonville</h4>
                                     </div>
                                     <div class="openInfo cmOpenInfo" id="coInfo" style="display:none">
-                                        <h4 @click="viewCore" class="hoverUnderLine"><i class="fa-xs fas fa-square"></i> CORE</h4>
+                                        <span @click="viewCore"><i class="fa-xs fas fa-square"></i> CORE</span>
                                         <br>
-                                        <h4 @click="viewSharepoint" class="hoverUnderLine"><i class="fa-xs fas fa-square"></i> Sharepoint </h4>
+                                        <span @click="viewSharepoint"><i class="fa-xs fas fa-square"></i> Sharepoint </span>
                                         <br>
-                                        <h4 @click="displayLink" class="hoverUnderLine"><i class="fa-xs fas fa-square"></i> RP Landing</h4>
+                                        <span @click="displayLink"><i class="fa-xs fas fa-square"></i> RP Landing</span>
                                         <br>
-                                        <h4 class="hoverUnderLine"><i class="fa-xs fas fa-square"></i> GOV Admin</h4>
+                                        <span><i class="fa-xs fas fa-square"></i> GOV Admin</span>
                                     </div>
                                 </div>
                                 <div>
@@ -78,15 +78,27 @@
                                         <h4><i class="fa-xs fas fa-square"></i>Duval County</h4>
                                     </div>
                                     <div class="openInfo cmOpenInfo" id="tyInfo" style="display:none">
-                                        <h4 class="hoverUnderLine"><i class="fa-xs fas fa-square"></i> County  County Clerk</h4>
+                                        <span >
+                                            <i class="fa-xs fas fa-square"></i> 
+                                            County County Clerk
+                                        </span>
                                         <br>
-                                        <h4 class="hoverUnderLine"><i class="fa-xs fas fa-square"></i> Property Appraiser </h4>
+                                        <span>
+                                            <i class="fa-xs fas fa-square"></i> 
+                                            Property Appraiser 
+                                        </span>
                                         <br>
-                                        <h4 class="hoverUnderLine"><i class="fa-xs fas fa-square"></i> Tax Accessor</h4>
+                                        <span>
+                                            <i class="fa-xs fas fa-square"></i> 
+                                            Tax Accessor
+                                        </span>
                                         <br>
-                                        <h4 class="hoverUnderLine"><i class="fa-xs fas fa-square"></i> Court Docket</h4>
+                                        <span>
+                                            <i class="fa-xs fas fa-square"></i> 
+                                            Court Docket
+                                        </span>
                                         <br>
-                                        <h4 class="hoverUnderLine"><i class="fa-xs fas fa-square"></i> Link to filter community list by county </h4>
+                                        <span><i class="fa-xs fas fa-square"></i> Link to filter community list by county </span>
                                     </div>
                                 </div>
                                 <div>
@@ -94,13 +106,25 @@
                                         <h4><i class="fa-xs fas fa-square"></i>Florida</h4>
                                     </div>
                                     <div class="openInfo cmOpenInfo" id="flInfo" style="display:none">
-                                        <h4 class="hoverUnderLine"><i class="fa-xs fas fa-square"></i> Governance </h4>
+                                        <span>
+                                            <i class="fa-xs fas fa-square"></i> 
+                                            Governance 
+                                        </span>
                                         <br>
-                                        <h4 class="hoverUnderLine"><i class="fa-xs fas fa-square"></i> Foreclosure Process </h4>
+                                        <span>
+                                            <i class="fa-xs fas fa-square"></i> 
+                                            Foreclosure Process 
+                                        </span>
                                         <br>
-                                        <h4 class="hoverUnderLine"><i class="fa-xs fas fa-square"></i> Exclude </h4>
+                                        <span>
+                                            <i class="fa-xs fas fa-square"></i> 
+                                            Exclude 
+                                        </span>
                                         <br>
-                                        <h4 class="hoverUnderLine"><i class="fa-xs fas fa-square"></i> Link to filter community list by state</h4>
+                                        <span>
+                                            <i class="fa-xs fas fa-square"></i> 
+                                            Link to filter community list by state
+                                        </span>
                                     </div>
                                 </div>
                             </div>
@@ -2414,7 +2438,7 @@
         transform:rotate(180deg);
     }
     .hoverUnderLine{
-        font-size:20px;
+        font-size:16px;
         transition: all .5s;
     }
     .hoverUnderLine:hover{
@@ -2423,8 +2447,17 @@
         cursor: pointer;
     }
     .cmOpenInfo{
-        position:relative;
+        position: relative;
         color: #616f7f;
-        padding: 10px 20px 5px;
+        padding: 5px 20px 5px;
+    }
+    .cmOpenInfo > span{
+        font-size:14px;
+        transition: all .5s;
+    }
+    .cmOpenInfo > span:hover{
+        text-decoration: underline;
+        color: #0a4c9e;
+        cursor: pointer;
     }
 </style>

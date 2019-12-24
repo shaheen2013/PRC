@@ -282,7 +282,8 @@ a:hover, a:focus {
 .boxInfo {
   display: flex;
   justify-content: center;
-  height: 320px; }
+  height: 190px; 
+}
 
 .wrap-boxInfo {
   position: relative;
@@ -361,7 +362,8 @@ a:hover, a:focus {
   flex: 1; }
 
 .wrap-detailBox > div {
-  margin-bottom: 20px; }
+  margin-bottom: 5px; 
+}
 
 .wrap-detailBox > div:last-child {
   margin-bottom: 0; }
