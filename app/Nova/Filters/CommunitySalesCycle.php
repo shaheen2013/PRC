@@ -24,7 +24,10 @@ class CommunitySalesCycle extends Filter
      */
     public function apply(Request $request, $query, $value)
     {
-        return $query;
+        if($value == 0){
+            return $query;
+        }
+        return $query->where('COMMUNITYID', '=', $value);
     }
 
     /**
@@ -35,6 +38,12 @@ class CommunitySalesCycle extends Filter
      */
     public function options(Request $request)
     {
-        return [];
+        return [
+            'X-Large' => 4,
+            'Large' => 3,
+            'Medium' => 2,
+            'Small' => 1,
+            'X-Small' => 0,
+        ];
     }
 }

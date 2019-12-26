@@ -378,7 +378,7 @@ function applyToTag (styleElement, obj) {
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(3);
-module.exports = __webpack_require__(19);
+module.exports = __webpack_require__(22);
 
 
 /***/ }),
@@ -403,7 +403,7 @@ var normalizeComponent = __webpack_require__(10)
 /* script */
 var __vue_script__ = __webpack_require__(11)
 /* template */
-var __vue_template__ = __webpack_require__(18)
+var __vue_template__ = __webpack_require__(21)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -549,7 +549,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.switch {\nposition: relative;\ndisplay: inline-block;\nwidth: 60px;\nheight: 26px;\n}\n.switch input { \nopacity: 0;\nwidth: 0;\nheight: 0;\n}\n.slider {\nposition: absolute;\ncursor: pointer;\ntop: 0;\nleft: 0;\nright: 0;\nbottom: 0;\nbackground-color: #ccc;\n-webkit-transition: .4s;\ntransition: .4s;\n}\n.slider:before {\nposition: absolute;\ncontent: \"\";\nheight: 20px;\nwidth: 20px;\nleft: 7px;\nbottom: 3px;\nbackground-color: white;\n-webkit-transition: .4s;\ntransition: .4s;\n}\ninput:checked + .slider {\nbackground-color: #2196F3;\n}\ninput:focus + .slider {\n-webkit-box-shadow: 0 0 1px #2196F3;\n        box-shadow: 0 0 1px #2196F3;\n}\ninput:checked + .slider:before {\n-webkit-transform: translateX(26px);\ntransform: translateX(26px);\n}\n\n/* Rounded sliders */\n.slider.round {\nborder-radius: 34px;\n}\n.slider.round:before {\nborder-radius: 50%;\n}\n.switchText{\n    position: absolute;\n    top: 5px;\n    font-weight: 700;\n    font-size: 13px;\n    color: #007509;\n}\n.switchTextL{\n    left: 5px;\n    color: white;\n}\n.switchTextR{\n    right: 4px;\n}\n", ""]);
+exports.push([module.i, "\n.switch {\nposition: relative;\ndisplay: inline-block;\nwidth: 60px;\nheight: 26px;\n}\n.switch input { \nopacity: 0;\nwidth: 0;\nheight: 0;\n}\n.slider {\nposition: absolute;\ncursor: pointer;\ntop: 0;\nleft: 0;\nright: 0;\nbottom: 0;\nbackground-color: #ccc;\n-webkit-transition: .4s;\ntransition: .4s;\n}\n.slider:before {\nposition: absolute;\ncontent: \"\";\nheight: 18px;\nwidth: 18px;\nleft: 7px;\nbottom: 4px;\nbackground-color: white;\n-webkit-transition: .4s;\ntransition: .4s;\n}\ninput:checked + .slider {\nbackground-color: #2196F3;\n}\ninput:focus + .slider {\n-webkit-box-shadow: 0 0 1px #2196F3;\n        box-shadow: 0 0 1px #2196F3;\n}\ninput:checked + .slider:before {\n-webkit-transform: translateX(26px);\ntransform: translateX(26px);\n}\n\n/* Rounded sliders */\n.slider.round {\nborder-radius: 34px;\n}\n.slider.round:before {\n    border-radius: 50%;\n}\n.switchText{\n    position: absolute;\n    top: 6px;\n    font-weight: 700;\n    font-size: 13px;\n    color: #007509;\n}\n.switchTextL{\n    left: 5px;\n    color: white;\n}\n.switchTextR{\n    right: 4px;\n}\n", ""]);
 
 // exports
 
@@ -671,10 +671,12 @@ module.exports = function normalizeComponent (
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* WEBPACK VAR INJECTION */(function(Buffer) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_multiselect__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_multiselect___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_multiselect__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__CommunitySummary_resources_static_js_jquery_2_2_4_min__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__CommunitySummary_resources_static_js_jquery_2_2_4_min__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__CommunitySummary_resources_static_js_jquery_2_2_4_min___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__CommunitySummary_resources_static_js_jquery_2_2_4_min__);
 var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
 
+//
+//
 //
 //
 //
@@ -813,6 +815,9 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
                     vacant: false,
                     foreclosure: false
                 }
+            }, {
+                class: "App\\Nova\\Filters\\CommunitySalesCycle",
+                value: 0
             }],
             filterValues: {
                 rental: false,
@@ -822,7 +827,8 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
                 state: [],
                 county: [],
                 or: false,
-                partnerStat: []
+                partnerStat: [],
+                salesCycle: []
             },
             blankFilterValues: {
                 rental: false,
@@ -832,10 +838,12 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
                 state: [],
                 county: [],
                 or: false,
-                partnerStat: []
+                partnerStat: [],
+                salesCycle: []
             },
             sizeOptions: [{ id: 0, label: 'X-Small' }, { id: 1, label: 'Small' }, { id: 2, label: 'Medium' }, { id: 3, label: 'Large' }, { id: 4, label: 'X-Large' }],
             partnerStatOptions: [{ id: 2, label: 'Foreclosure' }, { id: 1, label: 'Vacant' }, { id: 3, label: 'RT Rental:' }, { id: 4, label: 'ST Rental:' }],
+            salesCycleOptions: [],
             stateOptions: [],
             countyOptions: [],
             disableWatch: false,
@@ -856,8 +864,22 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
                 query: { 'c-m-communities_filter': this.encodedFilter }
             });
         },
+        'filterValues.salesCycle': function filterValuesSalesCycle(val) {
+            console.log('filterValues.salesCycle', val);
+            if (val) {
+                this.filters[9].value = val.id;
+            } else {
+                this.filters[9].value = 0;
+            }
+
+            this.$router.push({
+                path: '/resources/c-m-communities',
+                query: { 'c-m-communities_filter': this.encodedFilter }
+            });
+        },
         'filterValues.or': function filterValuesOr(val) {
             if (val) {
+                console.log('Here If');
                 __WEBPACK_IMPORTED_MODULE_1__CommunitySummary_resources_static_js_jquery_2_2_4_min___default()('.switchTextL').show('slow');
                 __WEBPACK_IMPORTED_MODULE_1__CommunitySummary_resources_static_js_jquery_2_2_4_min___default()('.switchTextR').hide('fast');
 
@@ -868,14 +890,12 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
                 this.filters[1].value['orActive'] = true;
                 this.filters[2].value['orActive'] = true;
 
-                console.log('this.filters[5].value', this.filters[4].value);
-                console.log('this.filters[5].value.value', this.filters[4].value.value);
                 if (this.filters[4].value['value'] != '') {
-                    console.log('this.filters[5].value.value Innnnnnnnn', this.filters[4].value.value);
                     this.filters[4].value['value'] = this.filters[4].value.value;
                     this.filters[4].value['orActive'] = true;
                 }
             } else {
+                console.log('Here else');
                 __WEBPACK_IMPORTED_MODULE_1__CommunitySummary_resources_static_js_jquery_2_2_4_min___default()('.switchTextL').hide('fast');
                 __WEBPACK_IMPORTED_MODULE_1__CommunitySummary_resources_static_js_jquery_2_2_4_min___default()('.switchTextR').show('slow');
 
@@ -895,33 +915,64 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
                 query: { 'c-m-communities_filter': this.encodedFilter }
             });
         },
-        'filterValues.partnerStat': function filterValuesPartnerStat(val) {
-            console.log('partnerStat', val);
+        'filterValues.partnerStat': function filterValuesPartnerStat(val, old) {
             if (Object.keys(val)) {
                 var selIds = val.map(function (arr) {
                     return arr.id;
                 });
-                console.log(selIds);
                 if (selIds.includes(2)) {
                     this.filters[2].value.value = true;
-                    this.filterValues.or = false;
+                    this.filterValues.or = true;
+
+                    this.filters[8].value['rental'] = this.filters[0].value.value;
+                    this.filters[8].value['vacant'] = this.filters[1].value.value;
+                    this.filters[8].value['foreclosure'] = this.filters[2].value.value;
+
+                    this.filters[0].value['orActive'] = true;
+                    this.filters[1].value['orActive'] = true;
+                    this.filters[2].value['orActive'] = true;
                 } else {
                     this.filters[2].value.value = false;
-                    this.filterValues.or = false;
+                    this.filterValues.or = true;
+
+                    this.filters[8].value['foreclosure'] = false;
+                    this.filters[2].value['orActive'] = true;
                 }
                 if (selIds.includes(1)) {
                     this.filters[1].value.value = true;
-                    this.filterValues.or = false;
+                    this.filterValues.or = true;
+
+                    this.filters[8].value['rental'] = this.filters[0].value.value;
+                    this.filters[8].value['vacant'] = this.filters[1].value.value;
+                    this.filters[8].value['foreclosure'] = this.filters[2].value.value;
+
+                    this.filters[0].value['orActive'] = true;
+                    this.filters[1].value['orActive'] = true;
+                    this.filters[2].value['orActive'] = true;
                 } else {
                     this.filters[1].value.value = false;
-                    this.filterValues.or = false;
+                    this.filterValues.or = true;
+
+                    this.filters[8].value['vacant'] = false;
+                    this.filters[1].value['orActive'] = true;
                 }
                 if (selIds.includes(3)) {
                     this.filters[0].value.value = true;
-                    this.filterValues.or = false;
+                    this.filterValues.or = true;
+
+                    this.filters[8].value['rental'] = this.filters[0].value.value;
+                    this.filters[8].value['vacant'] = this.filters[1].value.value;
+                    this.filters[8].value['foreclosure'] = this.filters[2].value.value;
+
+                    this.filters[0].value['orActive'] = true;
+                    this.filters[1].value['orActive'] = true;
+                    this.filters[2].value['orActive'] = true;
                 } else {
                     this.filters[0].value.value = false;
-                    this.filterValues.or = false;
+                    this.filterValues.or = true;
+
+                    this.filters[8].value['rental'] = false;
+                    this.filters[0].value['orActive'] = true;
                 }
                 // if(selIds.includes(4)){
                 //     this.filters[0].value.value = true;
@@ -932,7 +983,6 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
                 //     this.filterValues.or = false
                 // }
             }
-            console.log('Community Filter', this.filters);
             this.$router.push({
                 path: '/resources/c-m-communities',
                 query: { 'c-m-communities_filter': this.encodedFilter }
@@ -985,8 +1035,6 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
         },
         'filterValues.size': function filterValuesSize(val) {
             this.clearSizeFilters();
-            console.log('size val', val);
-            console.log('this.filters[3]', this.filters);
             var _iteratorNormalCompletion = true;
             var _didIteratorError = false;
             var _iteratorError = undefined;
@@ -1012,36 +1060,36 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
                 }
             }
 
-            this.filterValues.or = false;
             this.$router.push({
                 path: '/resources/c-m-communities',
                 query: { 'c-m-communities_filter': this.encodedFilter }
             });
         },
         'filterValues.state': function filterValuesState(val, oldval) {
-            console.log('state val', val);
-            console.log('state oldval', oldval);
             if (!this.disableWatch) {
 
-                this.filters[4].value.value = val ? val.id : null;
+                this.filters[4].value['value'] = val ? val.id : null;
+                this.filters[4].value['orActive'] = true;
+                this.filterValues.or = true;
                 if (!val) {
                     this.filters[5].value.value = "";
                     this.countyOptions = [];
+
+                    this.filters[4].value['value'] = '';
+                    this.filters[4].value['orActive'] = false;
+                    this.filterValues.or = false;
                 }
-                this.filterValues.or = false;
                 this.$router.push({
                     path: '/resources/c-m-communities',
                     query: { 'c-m-communities_filter': this.encodedFilter }
                 });
             }
-            this.filterValues.or = false;
 
             this.loadCounties(val ? val.id : null);
         },
         'filterValues.county': function filterValuesCounty(val) {
             if (!this.disableWatch) {
                 this.filters[5].value = val ? val.id : null;
-                this.filterValues.or = false;
                 this.$router.push({
                     path: '/resources/c-m-communities',
                     query: { 'c-m-communities_filter': this.encodedFilter }
@@ -1146,8 +1194,18 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
                 });
             }
         },
-        loadStates: function loadStates() {
+        loadSalesCycle: function loadSalesCycle() {
             var _this4 = this;
+
+            Nova.request().post('/nova-vendor/community-filter/salesCycle').then(function (response) {
+                console.log('salesCycle Response', response);
+                console.log('this.activeFilters', _this4.activeFilters);
+                console.log('response.data', Object.values(response.data));
+                _this4.salesCycleOptions = Object.values(response.data);
+            });
+        },
+        loadStates: function loadStates() {
+            var _this5 = this;
 
             Nova.request().get('/nova-vendor/community-filter/states').then(function (response) {
                 var _iteratorNormalCompletion4 = true;
@@ -1158,7 +1216,7 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
                     for (var _iterator4 = Object.values(response.data)[Symbol.iterator](), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
                         var state = _step4.value;
 
-                        _this4.stateOptions.push(state);
+                        _this5.stateOptions.push(state);
                     }
                 } catch (err) {
                     _didIteratorError4 = true;
@@ -1187,10 +1245,10 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
             }
         },
         loadFilters: function loadFilters() {
-            var _this5 = this;
+            var _this6 = this;
 
             this.disableWatch = true;
-
+            console.log('loadFilters Id', this.activeFilters);
             if (this.filtersAreApplied) {
                 this.filterValues.rental = this.activeFilters.rental.value;
                 this.filterValues.vacant = this.activeFilters.vacant.value;
@@ -1215,7 +1273,7 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
                     var _iteratorError5 = undefined;
 
                     try {
-                        for (var _iterator5 = Object.entries(_this5.activeFilters.size)[Symbol.iterator](), _step5; !(_iteratorNormalCompletion5 = (_step5 = _iterator5.next()).done); _iteratorNormalCompletion5 = true) {
+                        for (var _iterator5 = Object.entries(_this6.activeFilters.size)[Symbol.iterator](), _step5; !(_iteratorNormalCompletion5 = (_step5 = _iterator5.next()).done); _iteratorNormalCompletion5 = true) {
                             var _ref = _step5.value;
 
                             var _ref2 = _slicedToArray(_ref, 2);
@@ -1224,7 +1282,7 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
                             var value = _ref2[1];
 
                             if (value === true) {
-                                _this5.addOptionToMultiSelectValue('size', parseInt(key), 'sizeOptions');
+                                _this6.addOptionToMultiSelectValue('size', parseInt(key), 'sizeOptions');
                             }
                         }
                     } catch (err) {
@@ -1242,8 +1300,8 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
                         }
                     }
 
-                    if (_this5.activeFilters.state !== "") {
-                        _this5.disableWatch = true;
+                    if (_this6.activeFilters.state !== "") {
+                        _this6.disableWatch = true;
                         Nova.request().get('/nova-vendor/community-filter/states').then(function (response) {
                             var _iteratorNormalCompletion6 = true;
                             var _didIteratorError6 = false;
@@ -1253,9 +1311,9 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
                                 for (var _iterator6 = Object.values(response.data)[Symbol.iterator](), _step6; !(_iteratorNormalCompletion6 = (_step6 = _iterator6.next()).done); _iteratorNormalCompletion6 = true) {
                                     var state = _step6.value;
 
-                                    if (state.id === _this5.activeFilters.state) {
-                                        _this5.filterValues.state.push(state);
-                                        _this5.loadCounties(state.id);
+                                    if (state.id === _this6.activeFilters.state) {
+                                        _this6.filterValues.state.push(state);
+                                        _this6.loadCounties(state.id);
                                     }
                                 }
                             } catch (err) {
@@ -1338,7 +1396,8 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
                 rm: this.$store.getters[this.resourceName + '/getFilter']('App\\Nova\\Filters\\RelationshipManager').currentValue,
                 state: this.$store.getters[this.resourceName + '/getFilter']('App\\Nova\\Filters\\CommunityState').currentValue,
                 county: this.$store.getters[this.resourceName + '/getFilter']('App\\Nova\\Filters\\CommunityCounty').currentValue,
-                bulkId: this.$store.getters[this.resourceName + '/getFilter']('Prochamps\\BulkId\\BulkId').currentValue
+                bulkId: this.$store.getters[this.resourceName + '/getFilter']('Prochamps\\BulkId\\BulkId').currentValue,
+                SalesCycle: this.$store.getters[this.resourceName + '/getFilter']('App\\Nova\\Filters\\CommunitySalesCycle').currentValue
             };
         },
         filtersAreApplied: function filtersAreApplied() {
@@ -1360,6 +1419,7 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
     },
     mounted: function mounted() {
         this.loadFilters();
+        this.loadSalesCycle();
     }
 });
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(12).Buffer))
@@ -3456,377 +3516,6 @@ module.exports = Array.isArray || function (arr) {
 
 /***/ }),
 /* 18 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "card",
-    { staticClass: "flex flex-row items-center justify-center" },
-    [
-      _c("div", { staticClass: "px-3 py-3" }, [
-        _vm.filtersAreApplied &&
-        !_vm.filterSaveButtonClicked &&
-        !_vm.sameFilters
-          ? _c(
-              "button",
-              {
-                staticClass: "btn bg-30 hover:bg-40 rounded p-3",
-                on: { click: _vm.toggleFilterSaveButton }
-              },
-              [_vm._v("\n            Save\n        ")]
-            )
-          : _vm.filtersAreApplied &&
-            !_vm.sameFilters &&
-            _vm.filterSaveButtonClicked
-          ? _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.savedFilterTitle,
-                  expression: "savedFilterTitle"
-                }
-              ],
-              staticClass:
-                "border border-40 rounded w-full py-2 px-3 text-gray-700",
-              attrs: {
-                id: "filterName",
-                type: "text",
-                placeholder: "Name of Filter",
-                autofocus: ""
-              },
-              domProps: { value: _vm.savedFilterTitle },
-              on: {
-                "~keyup": function($event) {
-                  if (
-                    !$event.type.indexOf("key") &&
-                    _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
-                  ) {
-                    return null
-                  }
-                  return _vm.saveCurrentFilter($event)
-                },
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.savedFilterTitle = $event.target.value
-                }
-              }
-            })
-          : _vm._e()
-      ]),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "px-3 py-3" },
-        [
-          _c("multiselect", {
-            attrs: {
-              options: _vm.savedFilters,
-              multiple: false,
-              search: false,
-              "close-on-select": true,
-              "clear-on-select": true,
-              "preserve-search": false,
-              placeholder: "Saved Filters",
-              label: "label",
-              "track-by": "id",
-              "preselect-first": false,
-              "show-labels": false
-            },
-            model: {
-              value: _vm.chosenSavedFilter,
-              callback: function($$v) {
-                _vm.chosenSavedFilter = $$v
-              },
-              expression: "chosenSavedFilter"
-            }
-          })
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "px-3 py-3" },
-        [
-          _c("multiselect", {
-            attrs: {
-              options: _vm.partnerStatOptions,
-              multiple: true,
-              "close-on-select": false,
-              "clear-on-select": false,
-              "preserve-search": true,
-              placeholder: "Partner Status",
-              label: "label",
-              "track-by": "id",
-              "preselect-first": false,
-              "show-labels": false
-            },
-            model: {
-              value: _vm.filterValues.partnerStat,
-              callback: function($$v) {
-                _vm.$set(_vm.filterValues, "partnerStat", $$v)
-              },
-              expression: "filterValues.partnerStat"
-            }
-          })
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "px-3 py-3", staticStyle: { "text-align": "center" } },
-        [
-          _c("br"),
-          _vm._v(" "),
-          _c("p", [_vm._v("Programm Updates: ")]),
-          _c("label", { staticClass: "switch" }, [
-            _c("input", { attrs: { type: "checkbox" } }),
-            _c("span", { staticClass: "slider round" })
-          ])
-        ]
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "px-3 py-3" },
-        [
-          _c("multiselect", {
-            attrs: {
-              options: _vm.sizeOptions,
-              multiple: true,
-              "close-on-select": false,
-              "clear-on-select": false,
-              "preserve-search": true,
-              placeholder: "Community Size",
-              label: "label",
-              "track-by": "id",
-              "preselect-first": false,
-              "show-labels": false
-            },
-            model: {
-              value: _vm.filterValues.size,
-              callback: function($$v) {
-                _vm.$set(_vm.filterValues, "size", $$v)
-              },
-              expression: "filterValues.size"
-            }
-          })
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _vm.stateOptions !== []
-        ? _c(
-            "div",
-            { staticClass: "px-3 py-3" },
-            [
-              _c("multiselect", {
-                attrs: {
-                  options: _vm.stateOptions,
-                  multiple: false,
-                  "close-on-select": true,
-                  "clear-on-select": false,
-                  "preserve-search": true,
-                  placeholder: "State",
-                  label: "label",
-                  "track-by": "id",
-                  "preselect-first": false,
-                  "show-labels": false
-                },
-                model: {
-                  value: _vm.filterValues.state,
-                  callback: function($$v) {
-                    _vm.$set(_vm.filterValues, "state", $$v)
-                  },
-                  expression: "filterValues.state"
-                }
-              })
-            ],
-            1
-          )
-        : _vm._e(),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "px-3 py-3" },
-        [
-          _c("multiselect", {
-            attrs: {
-              options: _vm.countyOptions,
-              multiple: false,
-              "close-on-select": true,
-              "clear-on-select": false,
-              "preserve-search": true,
-              placeholder: "County",
-              label: "label",
-              "track-by": "id",
-              "preselect-first": false,
-              "show-labels": false
-            },
-            model: {
-              value: _vm.filterValues.county,
-              callback: function($$v) {
-                _vm.$set(_vm.filterValues, "county", $$v)
-              },
-              expression: "filterValues.county"
-            }
-          })
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "px-3 py-3", staticStyle: { "text-align": "center" } },
-        [
-          _c("label", { staticClass: "switch" }, [
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.filterValues.or,
-                  expression: "filterValues.or"
-                }
-              ],
-              attrs: { type: "checkbox" },
-              domProps: {
-                checked: Array.isArray(_vm.filterValues.or)
-                  ? _vm._i(_vm.filterValues.or, null) > -1
-                  : _vm.filterValues.or
-              },
-              on: {
-                change: function($event) {
-                  var $$a = _vm.filterValues.or,
-                    $$el = $event.target,
-                    $$c = $$el.checked ? true : false
-                  if (Array.isArray($$a)) {
-                    var $$v = null,
-                      $$i = _vm._i($$a, $$v)
-                    if ($$el.checked) {
-                      $$i < 0 &&
-                        _vm.$set(_vm.filterValues, "or", $$a.concat([$$v]))
-                    } else {
-                      $$i > -1 &&
-                        _vm.$set(
-                          _vm.filterValues,
-                          "or",
-                          $$a.slice(0, $$i).concat($$a.slice($$i + 1))
-                        )
-                    }
-                  } else {
-                    _vm.$set(_vm.filterValues, "or", $$c)
-                  }
-                }
-              }
-            }),
-            _vm._v(" "),
-            _c("span", { staticClass: "slider round" }, [
-              _c("span", { staticClass: "switchText switchTextR" }, [
-                _vm._v("And")
-              ]),
-              _vm._v(" "),
-              _c(
-                "span",
-                {
-                  staticClass: "switchText switchTextL",
-                  staticStyle: { display: "none" }
-                },
-                [_vm._v("Or")]
-              )
-            ])
-          ])
-        ]
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "flex flex-row items-center justify-center" },
-        [
-          _c("label", { attrs: { for: "bulkId" } }),
-          _vm._v(" "),
-          _c("transition", { attrs: { name: "fade", mode: "out-in" } }, [
-            !_vm.bulkButtonClicked
-              ? _c(
-                  "button",
-                  {
-                    staticClass: "btn bg-30 hover:bg-40 rounded p-3",
-                    on: { click: _vm.toggleBulkIdButton }
-                  },
-                  [_vm._v("\n                Bulk Id\n            ")]
-                )
-              : _c("textarea", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model.lazy",
-                      value: _vm.bulkIdText,
-                      expression: "bulkIdText",
-                      modifiers: { lazy: true }
-                    }
-                  ],
-                  staticClass: "border border-40",
-                  attrs: {
-                    name: "bulkIdFilter",
-                    id: "bulkId",
-                    cols: "8",
-                    rows: "2"
-                  },
-                  domProps: { value: _vm.bulkIdText },
-                  on: {
-                    change: function($event) {
-                      _vm.bulkIdText = $event.target.value
-                    }
-                  }
-                })
-          ])
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c("div", { staticClass: "px-3 py-3" }, [
-        _vm.filtersAreApplied
-          ? _c(
-              "button",
-              {
-                staticClass: "btn bg-30 hover:bg-40 rounded p-3",
-                on: { click: _vm.resetFilters }
-              },
-              [_vm._v("\n            Reset\n        ")]
-            )
-          : _vm._e()
-      ])
-    ]
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-b9bc2c0a", module.exports)
-  }
-}
-
-/***/ }),
-/* 19 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 20 */,
-/* 21 */,
-/* 22 */,
-/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(module) {var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
@@ -6040,7 +5729,7 @@ if (false) {
       return 1 === arguments.length ? this.off(a, "**") : this.off(b, a || "**", c);
     }, size: function size() {
       return this.length;
-    } }), n.fn.andSelf = n.fn.addBack, "function" == "function" && __webpack_require__(25) && !(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = (function () {
+    } }), n.fn.andSelf = n.fn.addBack, "function" == "function" && __webpack_require__(20) && !(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = (function () {
     return n;
   }).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));var Nb = a.jQuery,
@@ -6048,10 +5737,10 @@ if (false) {
     return a.$ === n && (a.$ = Ob), b && a.jQuery === n && (a.jQuery = Nb), n;
   }, b || (a.jQuery = a.$ = n), n;
 });
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(24)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(19)(module)))
 
 /***/ }),
-/* 24 */
+/* 19 */
 /***/ (function(module, exports) {
 
 module.exports = function(module) {
@@ -6079,13 +5768,396 @@ module.exports = function(module) {
 
 
 /***/ }),
-/* 25 */
+/* 20 */
 /***/ (function(module, exports) {
 
 /* WEBPACK VAR INJECTION */(function(__webpack_amd_options__) {/* globals __webpack_amd_options__ */
 module.exports = __webpack_amd_options__;
 
 /* WEBPACK VAR INJECTION */}.call(exports, {}))
+
+/***/ }),
+/* 21 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "card",
+    { staticClass: "flex flex-row items-center justify-center" },
+    [
+      _c("div", { staticClass: "px-3 py-3" }, [
+        _vm.filtersAreApplied &&
+        !_vm.filterSaveButtonClicked &&
+        !_vm.sameFilters
+          ? _c(
+              "button",
+              {
+                staticClass: "btn bg-30 hover:bg-40 rounded p-3",
+                on: { click: _vm.toggleFilterSaveButton }
+              },
+              [_vm._v("\n            Save\n        ")]
+            )
+          : _vm.filtersAreApplied &&
+            !_vm.sameFilters &&
+            _vm.filterSaveButtonClicked
+          ? _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.savedFilterTitle,
+                  expression: "savedFilterTitle"
+                }
+              ],
+              staticClass:
+                "border border-40 rounded w-full py-2 px-3 text-gray-700",
+              attrs: {
+                id: "filterName",
+                type: "text",
+                placeholder: "Name of Filter",
+                autofocus: ""
+              },
+              domProps: { value: _vm.savedFilterTitle },
+              on: {
+                "~keyup": function($event) {
+                  if (
+                    !$event.type.indexOf("key") &&
+                    _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
+                  ) {
+                    return null
+                  }
+                  return _vm.saveCurrentFilter($event)
+                },
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.savedFilterTitle = $event.target.value
+                }
+              }
+            })
+          : _vm._e()
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "px-3 py-3" },
+        [
+          _c("multiselect", {
+            attrs: {
+              options: _vm.savedFilters,
+              multiple: false,
+              search: false,
+              "close-on-select": true,
+              "clear-on-select": true,
+              "preserve-search": false,
+              placeholder: "Saved Filters",
+              label: "label",
+              "track-by": "id",
+              "preselect-first": false,
+              "show-labels": false
+            },
+            model: {
+              value: _vm.chosenSavedFilter,
+              callback: function($$v) {
+                _vm.chosenSavedFilter = $$v
+              },
+              expression: "chosenSavedFilter"
+            }
+          })
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "px-3 py-3" },
+        [
+          _c("multiselect", {
+            attrs: {
+              options: _vm.partnerStatOptions,
+              multiple: true,
+              "close-on-select": false,
+              "clear-on-select": false,
+              "preserve-search": true,
+              placeholder: "Partner Status",
+              label: "label",
+              "track-by": "id",
+              "preselect-first": false,
+              "show-labels": false
+            },
+            model: {
+              value: _vm.filterValues.partnerStat,
+              callback: function($$v) {
+                _vm.$set(_vm.filterValues, "partnerStat", $$v)
+              },
+              expression: "filterValues.partnerStat"
+            }
+          })
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "px-3 py-3", staticStyle: { "text-align": "center" } },
+        [
+          _c("multiselect", {
+            attrs: {
+              options: _vm.salesCycleOptions,
+              multiple: false,
+              "close-on-select": true,
+              "clear-on-select": false,
+              "preserve-search": true,
+              placeholder: "Programm Updates",
+              label: "label",
+              "track-by": "id",
+              "preselect-first": false,
+              "show-labels": false
+            },
+            model: {
+              value: _vm.filterValues.salesCycle,
+              callback: function($$v) {
+                _vm.$set(_vm.filterValues, "salesCycle", $$v)
+              },
+              expression: "filterValues.salesCycle"
+            }
+          })
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "px-3 py-3" },
+        [
+          _c("multiselect", {
+            attrs: {
+              options: _vm.sizeOptions,
+              multiple: true,
+              "close-on-select": false,
+              "clear-on-select": false,
+              "preserve-search": true,
+              placeholder: "Community Size",
+              label: "label",
+              "track-by": "id",
+              "preselect-first": false,
+              "show-labels": false
+            },
+            model: {
+              value: _vm.filterValues.size,
+              callback: function($$v) {
+                _vm.$set(_vm.filterValues, "size", $$v)
+              },
+              expression: "filterValues.size"
+            }
+          })
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _vm.stateOptions !== []
+        ? _c(
+            "div",
+            { staticClass: "px-3 py-3" },
+            [
+              _c("multiselect", {
+                attrs: {
+                  options: _vm.stateOptions,
+                  multiple: false,
+                  "close-on-select": true,
+                  "clear-on-select": false,
+                  "preserve-search": true,
+                  placeholder: "State",
+                  label: "label",
+                  "track-by": "id",
+                  "preselect-first": false,
+                  "show-labels": false
+                },
+                model: {
+                  value: _vm.filterValues.state,
+                  callback: function($$v) {
+                    _vm.$set(_vm.filterValues, "state", $$v)
+                  },
+                  expression: "filterValues.state"
+                }
+              })
+            ],
+            1
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "px-3 py-3" },
+        [
+          _c("multiselect", {
+            attrs: {
+              options: _vm.countyOptions,
+              multiple: false,
+              "close-on-select": true,
+              "clear-on-select": false,
+              "preserve-search": true,
+              placeholder: "County",
+              label: "label",
+              "track-by": "id",
+              "preselect-first": false,
+              "show-labels": false
+            },
+            model: {
+              value: _vm.filterValues.county,
+              callback: function($$v) {
+                _vm.$set(_vm.filterValues, "county", $$v)
+              },
+              expression: "filterValues.county"
+            }
+          })
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "px-3 py-3", staticStyle: { "text-align": "center" } },
+        [
+          _c("label", { staticClass: "switch" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.filterValues.or,
+                  expression: "filterValues.or"
+                }
+              ],
+              attrs: { type: "checkbox" },
+              domProps: {
+                checked: Array.isArray(_vm.filterValues.or)
+                  ? _vm._i(_vm.filterValues.or, null) > -1
+                  : _vm.filterValues.or
+              },
+              on: {
+                change: function($event) {
+                  var $$a = _vm.filterValues.or,
+                    $$el = $event.target,
+                    $$c = $$el.checked ? true : false
+                  if (Array.isArray($$a)) {
+                    var $$v = null,
+                      $$i = _vm._i($$a, $$v)
+                    if ($$el.checked) {
+                      $$i < 0 &&
+                        _vm.$set(_vm.filterValues, "or", $$a.concat([$$v]))
+                    } else {
+                      $$i > -1 &&
+                        _vm.$set(
+                          _vm.filterValues,
+                          "or",
+                          $$a.slice(0, $$i).concat($$a.slice($$i + 1))
+                        )
+                    }
+                  } else {
+                    _vm.$set(_vm.filterValues, "or", $$c)
+                  }
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c("span", { staticClass: "slider round" }, [
+              _c("span", { staticClass: "switchText switchTextR" }, [
+                _vm._v("And")
+              ]),
+              _vm._v(" "),
+              _c(
+                "span",
+                {
+                  staticClass: "switchText switchTextL",
+                  staticStyle: { display: "none" }
+                },
+                [_vm._v("Or")]
+              )
+            ])
+          ])
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "flex flex-row items-center justify-center" },
+        [
+          _c("label", { attrs: { for: "bulkId" } }),
+          _vm._v(" "),
+          _c("transition", { attrs: { name: "fade", mode: "out-in" } }, [
+            !_vm.bulkButtonClicked
+              ? _c(
+                  "button",
+                  {
+                    staticClass: "btn bg-30 hover:bg-40 rounded p-3",
+                    on: { click: _vm.toggleBulkIdButton }
+                  },
+                  [_vm._v("\n                Bulk Id\n            ")]
+                )
+              : _c("textarea", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model.lazy",
+                      value: _vm.bulkIdText,
+                      expression: "bulkIdText",
+                      modifiers: { lazy: true }
+                    }
+                  ],
+                  staticClass: "border border-40",
+                  attrs: {
+                    name: "bulkIdFilter",
+                    id: "bulkId",
+                    cols: "8",
+                    rows: "2"
+                  },
+                  domProps: { value: _vm.bulkIdText },
+                  on: {
+                    change: function($event) {
+                      _vm.bulkIdText = $event.target.value
+                    }
+                  }
+                })
+          ])
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "px-3 py-3" }, [
+        _vm.filtersAreApplied
+          ? _c(
+              "button",
+              {
+                staticClass: "btn bg-30 hover:bg-40 rounded p-3",
+                on: { click: _vm.resetFilters }
+              },
+              [_vm._v("\n            Reset\n        ")]
+            )
+          : _vm._e()
+      ])
+    ]
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-b9bc2c0a", module.exports)
+  }
+}
+
+/***/ }),
+/* 22 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);

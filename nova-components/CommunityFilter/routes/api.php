@@ -2,6 +2,7 @@
 
 use App\Models\State;
 use App\Models\CMCommunity;
+use App\Models\SalesCycle;
 use App\Models\SavedFilter;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -53,4 +54,15 @@ Route::post('/counties', function (Request $request) {
             'label' => $item['COUNTY'],
         ];
         })->forget(0);
+});
+
+Route::post('/salesCycle', function (Request $request) {
+    $cycles = SalesCycle::groupBy('community_id')->select('community_id', DB::raw('count(*) as total'))->get();
+    $cmIds = $cycles->pluck('community_id')->toArray();
+    return CMCommunity::wherein('COMMUNITYID', $cmIds)->select('COMMUNITYID','FRIENDLYNAME')->get()->map(function ($item) {
+        return [
+        'id' => $item['COMMUNITYID'],
+        'label' => $item['FRIENDLYNAME'],
+    ];
+    });
 });

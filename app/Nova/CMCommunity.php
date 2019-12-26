@@ -779,6 +779,7 @@ class CMCommunity extends Resource
             new Filters\CommunityCounty(),
             new Filters\RelationshipManager(),
             new Filters\CommunityOrFilter(),
+            new Filters\CommunitySalesCycle(),
             new BulkId(),
         ];
     }

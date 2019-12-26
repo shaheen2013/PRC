@@ -28,38 +28,36 @@ Route::post('/count', function (Request $request) {
     $sizeFilterUsed = false;
 
     if ($request->get('filtersAreApplied')) {
-        $query->where(function ($query) use ($foreclosureQuery, $rentalFilterUsed, $rentalFilters) {
+        $query->where(function ($query) use ($foreclosureQuery, $rentalFilterUsed, $rentalFilters, $vacantFilterUsed, $vacantFilters, $foreclosureFilterUsed, $foreclosureFilters) {
             if ($rentalFilters['value'] === true) {
                 if ($rentalFilterUsed) {
                     $query->orWhere('s.rental_partner_status', '=', 1);
                     $foreclosureQuery->orWhere('s.rental_partner_status', '=', 1);
                 } else {
-                    $query->where('s.rental_partner_status', '=', 1);
-                    $foreclosureQuery->where('s.rental_partner_status', '=', 1);
+                    $query->orWhere('s.rental_partner_status', '=', 1);
+                    $foreclosureQuery->orWhere('s.rental_partner_status', '=', 1);
                     $rentalFilterUsed = true;
                 }
             }
-        });
-        $query->where(function ($query) use ($foreclosureQuery, $vacantFilterUsed, $vacantFilters) {
+
             if ($vacantFilters['value'] === true) {
                 if ($vacantFilterUsed) {
                     $query->orWhere('s.vacant_partner_status', '=', 1);
                     $foreclosureQuery->orWhere('s.vacant_partner_status', '=', 1);
                 } else {
-                    $query->where('s.vacant_partner_status', '=', 1);
-                    $foreclosureQuery->where('s.vacant_partner_status', '=', 1);
+                    $query->orWhere('s.vacant_partner_status', '=', 1);
+                    $foreclosureQuery->orWhere('s.vacant_partner_status', '=', 1);
                     $vacantFilterUsed = true;
                 }
             }
-        });
-        $query->where(function ($query) use ($foreclosureQuery, $foreclosureFilterUsed, $foreclosureFilters) {
+
             if ($foreclosureFilters['value'] === true) {
                 if ($foreclosureFilterUsed) {
                     $query->orWhere('s.foreclosure_partner_status', '=', 1);
                     $foreclosureQuery->orWhere('s.foreclosure_partner_status', '=', 1);
                 } else {
-                    $query->where('s.foreclosure_partner_status', '=', 1);
-                    $foreclosureQuery->where('s.foreclosure_partner_status', '=', 1);
+                    $query->orWhere('s.foreclosure_partner_status', '=', 1);
+                    $foreclosureQuery->orWhere('s.foreclosure_partner_status', '=', 1);
                     $foreclosureFilterUsed = true;
                 }
             }
@@ -80,9 +78,8 @@ Route::post('/count', function (Request $request) {
         });
         if($stateFilters){
             if ($stateFilters['value']) {
-                dd($stateFilters);
-                $query->where('STATE', '=', $stateFilters['value']);
-                $foreclosureQuery->where('STATE', '=', $stateFilters['value']);
+                $query->orwhere('STATE', '=', $stateFilters['value']);
+                $foreclosureQuery->orwhere('STATE', '=', $stateFilters['value']);
             }
         }
         if ($countyFilters) {

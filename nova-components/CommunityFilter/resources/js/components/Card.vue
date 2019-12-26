@@ -20,8 +20,10 @@
                          :clear-on-select="false" :preserve-search="true" placeholder="Partner Status" label="label"
                          track-by="id" :preselect-first="false" :show-labels="false"></multiselect>
         </div>
-        <div class="px-3 py-3" style="text-align: center;"> <br />
-            <p>Programm Updates: </p><label class="switch"><input type="checkbox"><span class="slider round"></span></label>
+        <div class="px-3 py-3" style="text-align: center;">
+            <multiselect v-model="filterValues.salesCycle" :options="salesCycleOptions" :multiple="false" :close-on-select="true"
+                         :clear-on-select="false" :preserve-search="true" placeholder="Programm Updates" label="label"
+                         track-by="id" :preselect-first="false" :show-labels="false"></multiselect>
         </div>
         <div class="px-3 py-3">
             <multiselect v-model="filterValues.size" :options="sizeOptions" :multiple="true" :close-on-select="false"
@@ -145,6 +147,10 @@
                             vacant: false,
                             foreclosure: false
                         }
+                    },
+                    {
+                        class: "App\\Nova\\Filters\\CommunitySalesCycle",
+                        value: 0
                     }
                 ],
                 filterValues: {
@@ -156,6 +162,7 @@
                     county: [],
                     or: false,
                     partnerStat: [],
+                    salesCycle: [],
                 },
                 blankFilterValues: {
                     rental:false,
@@ -166,6 +173,7 @@
                     county: [],
                     or: false,
                     partnerStat: [],
+                    salesCycle: [],
                 },
                 sizeOptions: [
                     {id: 0, label: 'X-Small'},
@@ -180,6 +188,7 @@
                     {id: 3, label: 'RT Rental:'},
                     {id: 4, label: 'ST Rental:'},
                 ],
+                salesCycleOptions: [],
                 stateOptions: [],
                 countyOptions: [],
                 disableWatch: false,
@@ -200,8 +209,22 @@
                     query: {'c-m-communities_filter': this.encodedFilter}
                 })
             },
+            'filterValues.salesCycle': function(val) {
+                console.log('filterValues.salesCycle',val);
+                if(val){
+                    this.filters[9].value = val.id;
+                }else{
+                    this.filters[9].value = 0;
+                }
+
+                this.$router.push({
+                    path: '/resources/c-m-communities',
+                    query: {'c-m-communities_filter': this.encodedFilter}
+                })
+            },
             'filterValues.or': function (val) {
                 if(val){
+                    console.log('Here If');
                     $('.switchTextL').show('slow');
                     $('.switchTextR').hide('fast');
 
@@ -212,14 +235,12 @@
                     this.filters[1].value['orActive'] = true;
                     this.filters[2].value['orActive'] = true;
 
-                    console.log('this.filters[5].value', this.filters[4].value);
-                    console.log('this.filters[5].value.value', this.filters[4].value.value);
                     if(this.filters[4].value['value'] != ''){
-                        console.log('this.filters[5].value.value Innnnnnnnn', this.filters[4].value.value);
                         this.filters[4].value['value'] = this.filters[4].value.value;
                         this.filters[4].value['orActive'] = true;
                     }
                 }else{
+                    console.log('Here else');
                     $('.switchTextL').hide('fast');
                     $('.switchTextR').show('slow');
 
@@ -239,31 +260,62 @@
                     query: {'c-m-communities_filter': this.encodedFilter}
                 })
             },
-            'filterValues.partnerStat': function (val) {
-                console.log('partnerStat', val);
+            'filterValues.partnerStat': function (val, old) {
                 if(Object.keys(val)){
                     const selIds = val.map(arr => arr.id);
-                    console.log(selIds);
                     if (selIds.includes(2)) {
                         this.filters[2].value.value = true;
-                        this.filterValues.or = false;
+                        this.filterValues.or = true;
+                        
+                        this.filters[8].value['rental'] = this.filters[0].value.value;
+                        this.filters[8].value['vacant'] = this.filters[1].value.value;
+                        this.filters[8].value['foreclosure'] = this.filters[2].value.value;
+
+                        this.filters[0].value['orActive'] = true;
+                        this.filters[1].value['orActive'] = true;
+                        this.filters[2].value['orActive'] = true;
                     } else {
                         this.filters[2].value.value = false;
-                        this.filterValues.or = false;
+                        this.filterValues.or = true;
+
+                        this.filters[8].value['foreclosure'] = false;
+                        this.filters[2].value['orActive'] = true;
                     }
                     if (selIds.includes(1)) {
                         this.filters[1].value.value = true;
-                        this.filterValues.or = false;
+                        this.filterValues.or = true;
+
+                        this.filters[8].value['rental'] = this.filters[0].value.value;
+                        this.filters[8].value['vacant'] = this.filters[1].value.value;
+                        this.filters[8].value['foreclosure'] = this.filters[2].value.value;
+
+                        this.filters[0].value['orActive'] = true;
+                        this.filters[1].value['orActive'] = true;
+                        this.filters[2].value['orActive'] = true;
                     } else {
                         this.filters[1].value.value = false;
-                        this.filterValues.or = false;
+                        this.filterValues.or = true;
+
+                        this.filters[8].value['vacant'] = false;
+                        this.filters[1].value['orActive'] = true;
                     }
                     if (selIds.includes(3)) {
                         this.filters[0].value.value = true;
-                        this.filterValues.or = false;
+                        this.filterValues.or = true;
+
+                        this.filters[8].value['rental'] = this.filters[0].value.value;
+                        this.filters[8].value['vacant'] = this.filters[1].value.value;
+                        this.filters[8].value['foreclosure'] = this.filters[2].value.value;
+
+                        this.filters[0].value['orActive'] = true;
+                        this.filters[1].value['orActive'] = true;
+                        this.filters[2].value['orActive'] = true;
                     } else {
                         this.filters[0].value.value = false;
-                        this.filterValues.or = false;
+                        this.filterValues.or = true;
+
+                        this.filters[8].value['rental'] = false;
+                        this.filters[0].value['orActive'] = true;
                     }
                     // if(selIds.includes(4)){
                     //     this.filters[0].value.value = true;
@@ -275,7 +327,6 @@
                     // }
 
                 }
-                console.log('Community Filter',this.filters);
                 this.$router.push({
                     path: '/resources/c-m-communities',
                     query: {'c-m-communities_filter': this.encodedFilter}
@@ -331,41 +382,39 @@
             },
             'filterValues.size': function (val) {
                 this.clearSizeFilters();
-                console.log('size val', val);
-                console.log('this.filters[3]', this.filters);
                 for (let filter of val) {
                     this.filters[3].value[filter.id] = true
                 }
-                this.filterValues.or = false;
                 this.$router.push({
                     path: '/resources/c-m-communities',
                     query: {'c-m-communities_filter': this.encodedFilter}
                 })
             },
             'filterValues.state': function (val, oldval) {
-                console.log('state val', val);
-                console.log('state oldval', oldval);
                 if (!this.disableWatch) {
 
-                    this.filters[4].value.value = val ? val.id : null;
+                    this.filters[4].value['value'] = val ? val.id : null;
+                    this.filters[4].value['orActive'] = true;
+                    this.filterValues.or = true;
                     if (!val) {
                         this.filters[5].value.value = "";
                         this.countyOptions = [];
+
+                        this.filters[4].value['value'] = '';
+                        this.filters[4].value['orActive'] = false;
+                        this.filterValues.or = false;
                     }
-                    this.filterValues.or = false;
                     this.$router.push({
                         path: '/resources/c-m-communities',
                         query: {'c-m-communities_filter': this.encodedFilter}
                     })
                 }
-                this.filterValues.or = false;
 
                 this.loadCounties(val ? val.id : null);
             },
             'filterValues.county': function (val) {
                 if (!this.disableWatch) {
                     this.filters[5].value = val ? val.id : null;
-                    this.filterValues.or = false;
                     this.$router.push({
                         path: '/resources/c-m-communities',
                         query: {'c-m-communities_filter': this.encodedFilter}
@@ -422,6 +471,14 @@
                     });
                 }
             },
+            loadSalesCycle() {
+                Nova.request().post('/nova-vendor/community-filter/salesCycle').then(response => {
+                    console.log('salesCycle Response', response);
+                    console.log('this.activeFilters', this.activeFilters);
+                    console.log('response.data', Object.values(response.data));
+                    this.salesCycleOptions = Object.values(response.data);
+                });
+            },
             loadStates() {
                 Nova.request().get('/nova-vendor/community-filter/states').then(response => {
                     for (let state of Object.values(response.data)) {
@@ -441,7 +498,7 @@
             },
             loadFilters() {
                 this.disableWatch = true;
-
+                console.log('loadFilters Id', this.activeFilters);
                 if (this.filtersAreApplied) {
                     this.filterValues.rental = this.activeFilters.rental.value;
                     this.filterValues.vacant = this.activeFilters.vacant.value;
@@ -520,7 +577,8 @@
                     rm: (this.$store.getters[`${this.resourceName}/getFilter`]('App\\Nova\\Filters\\RelationshipManager')).currentValue,
                     state: (this.$store.getters[`${this.resourceName}/getFilter`]('App\\Nova\\Filters\\CommunityState')).currentValue,
                     county: (this.$store.getters[`${this.resourceName}/getFilter`]('App\\Nova\\Filters\\CommunityCounty')).currentValue,
-                    bulkId: (this.$store.getters[`${this.resourceName}/getFilter`]('Prochamps\\BulkId\\BulkId')).currentValue
+                    bulkId: (this.$store.getters[`${this.resourceName}/getFilter`]('Prochamps\\BulkId\\BulkId')).currentValue,
+                    SalesCycle: (this.$store.getters[`${this.resourceName}/getFilter`]('App\\Nova\\Filters\\CommunitySalesCycle')).currentValue,
                 };
             },
             filtersAreApplied() {
@@ -542,6 +600,7 @@
         },
         mounted() {
             this.loadFilters();
+            this.loadSalesCycle();
         },
 
     }
@@ -577,10 +636,10 @@
     .slider:before {
     position: absolute;
     content: "";
-    height: 20px;
-    width: 20px;
+    height: 18px;
+    width: 18px;
     left: 7px;
-    bottom: 3px;
+    bottom: 4px;
     background-color: white;
     -webkit-transition: .4s;
     transition: .4s;
@@ -606,11 +665,11 @@
     }
 
     .slider.round:before {
-    border-radius: 50%;
+        border-radius: 50%;
     }
     .switchText{
         position: absolute;
-        top: 5px;
+        top: 6px;
         font-weight: 700;
         font-size: 13px;
         color: #007509;
