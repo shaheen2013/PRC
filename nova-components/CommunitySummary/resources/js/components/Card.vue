@@ -280,7 +280,7 @@
                                                 <path d="M9.5,18.2c-0.4,0.4-1,0.4-1.4,0l-3.8-3.8C4,14,4,13.4,4.3,13s1-0.4,1.4,0l3.1,3.1l8.6-8.6c0.4-0.4,1-0.4,1.4,0s0.4,1,0,1.4 L9.5,18.2z"></path>
                                             </svg>
                                         </div>
-                                        <span><input type="text" v-model="task.name" class="task-body-custom-input"></span>
+                                        <span><input type="text" v-model="task.name" id="createTaskOnSubmit" class="task-body-custom-input"></span>
                                         <div @click="storeTask" class="detail-option">Create
                                             <svg class="MiniIcon-right" viewBox="0 0 24 24">
                                                 <path d="M8.9,20.4c-0.4,0-0.7-0.1-1-0.4c-0.6-0.6-0.7-1.5-0.1-2.1l5.2-5.8L7.8,6C7.3,5.4,7.3,4.4,8,3.9C8.6,3.3,9.5,3.4,10.1,4l6.1,7.1c0.5,0.6,0.5,1.4,0,2l-6.1,6.8C9.8,20.3,9.4,20.4,8.9,20.4z"></path>
@@ -1815,9 +1815,12 @@
             storeTask() {
                 this.isLoading = true;
 
+                console.log(this.task);
+
                 Nova.request().post('/api/asana/task/store', this.task).then(response => {
                     this.isLoading = false;
                     this.createNewTask = false;
+                    console.log(response.data);
 
                     if (response.data.status === 200) {
                         this.getProjects();
@@ -2383,10 +2386,40 @@
             });
             this.getLatestActivity();
             this.getPendingChangeCount();
+
+            $("#createTaskOnSubmit").keydown(function (e) {
+                alert('Not')
+                if (e.keyCode == 13) {
+                    console.log("put function call here");
+                    submitchat();
+                    e.preventDefault();
+                }
+            });
+            function submitchat(){
+                alert('Entered')
+            }
+            $("#createTaskOnSubmit").click(function () {
+                alert('Not')
+            });
         },
         mounted() {
             this.getProjects();
+
         }
+    }
+    $("#createTaskOnSubmit").click(function () {
+        alert('Not')
+    });
+    $("#createTaskOnSubmit").keydown(function (e) {
+        alert('Not')
+        if (e.keyCode == 13) {
+            console.log("put function call here");
+            submitchat();
+            e.preventDefault();
+        }
+    });
+    function submitchat(){
+        alert('Entered')
     }
 </script>
 

@@ -728,7 +728,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 rm: this.$store.getters[this.resourceName + '/getFilter']('App\\Nova\\Filters\\RelationshipManager').currentValue,
                 state: this.$store.getters[this.resourceName + '/getFilter']('App\\Nova\\Filters\\CommunityState').currentValue,
                 county: this.$store.getters[this.resourceName + '/getFilter']('App\\Nova\\Filters\\CommunityCounty').currentValue,
-                bulkId: this.$store.getters[this.resourceName + '/getFilter']('Prochamps\\BulkId\\BulkId').currentValue
+                bulkId: this.$store.getters[this.resourceName + '/getFilter']('Prochamps\\BulkId\\BulkId').currentValue,
+                SalesCycle: (this.$store.getters[`${this.resourceName}/getFilter`]('App\\Nova\\Filters\\CommunitySalesCycle')).currentValue,
             };
         },
         filtersAreApplied: function filtersAreApplied() {

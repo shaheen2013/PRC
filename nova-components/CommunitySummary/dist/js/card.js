@@ -19345,9 +19345,12 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
             this.isLoading = true;
 
+            console.log(this.task);
+
             Nova.request().post('/api/asana/task/store', this.task).then(function (response) {
                 _this11.isLoading = false;
                 _this11.createNewTask = false;
+                console.log(response.data);
 
                 if (response.data.status === 200) {
                     _this11.getProjects();
@@ -19938,11 +19941,40 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
         });
         this.getLatestActivity();
         this.getPendingChangeCount();
+
+        __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()("#createTaskOnSubmit").keydown(function (e) {
+            alert('Not');
+            if (e.keyCode == 13) {
+                console.log("put function call here");
+                submitchat();
+                e.preventDefault();
+            }
+        });
+        function submitchat() {
+            alert('Entered');
+        }
+        __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()("#createTaskOnSubmit").click(function () {
+            alert('Not');
+        });
     },
     mounted: function mounted() {
         this.getProjects();
     }
 });
+__WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()("#createTaskOnSubmit").click(function () {
+    alert('Not');
+});
+__WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()("#createTaskOnSubmit").keydown(function (e) {
+    alert('Not');
+    if (e.keyCode == 13) {
+        console.log("put function call here");
+        submitchat();
+        e.preventDefault();
+    }
+});
+function submitchat() {
+    alert('Entered');
+}
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(142).Buffer))
 
 /***/ }),
@@ -51531,7 +51563,10 @@ var render = function() {
                                             }
                                           ],
                                           staticClass: "task-body-custom-input",
-                                          attrs: { type: "text" },
+                                          attrs: {
+                                            type: "text",
+                                            id: "createTaskOnSubmit"
+                                          },
                                           domProps: { value: _vm.task.name },
                                           on: {
                                             input: function($event) {

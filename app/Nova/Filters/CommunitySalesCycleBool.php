@@ -3,17 +3,10 @@
 namespace App\Nova\Filters;
 
 use Illuminate\Http\Request;
-use Laravel\Nova\Filters\Filter;
+use Laravel\Nova\Filters\BooleanFilter;
 
-class CommunitySalesCycle extends Filter
+class CommunitySalesCycleBool extends BooleanFilter
 {
-    /**
-     * The filter's component.
-     *
-     * @var string
-     */
-    public $component = 'select-filter';
-
     /**
      * Apply the filter to the given query.
      *
@@ -38,7 +31,7 @@ class CommunitySalesCycle extends Filter
                     $q->where('sales_stage', '=', 13);
                 }
                 if ($value[6] == true) {
-                    $q->where('sales_stage', '=', 6);
+                    $q->where('quartile', '=', 6);
                 }
                 $query;
             });

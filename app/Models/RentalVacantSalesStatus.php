@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use Approval\Traits\RequiresApproval;
+use Approval\Traits\ApprovesChanges;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Activitylog\Contracts\Activity;
 use Spatie\Activitylog\Traits\LogsActivity;
@@ -30,7 +30,7 @@ use Spatie\Activitylog\Traits\LogsActivity;
  */
 class RentalVacantSalesStatus extends Model
 {
-    use LogsActivity;
+    use ApprovesChanges, LogsActivity;
 
     protected $connection = 'mysql_dev';
 

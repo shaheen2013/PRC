@@ -150,7 +150,12 @@
                     },
                     {
                         class: "App\\Nova\\Filters\\CommunitySalesCycle",
-                        value: 0
+                        value: {
+                            11: false,
+                            12: false,
+                            13: false,
+                            6: false
+                        }
                     }
                 ],
                 filterValues: {
@@ -188,7 +193,12 @@
                     {id: 3, label: 'RT Rental:'},
                     {id: 4, label: 'ST Rental:'},
                 ],
-                salesCycleOptions: [],
+                salesCycleOptions: [
+                    {id: 13, label: 'Generate'},
+                    {id: 11, label: 'Guide'},
+                    {id: 12, label: 'Propose'},
+                    {id: 6, label: 'Onboard'},
+                ],
                 stateOptions: [],
                 countyOptions: [],
                 disableWatch: false,
@@ -210,11 +220,26 @@
                 })
             },
             'filterValues.salesCycle': function(val) {
-                console.log('filterValues.salesCycle',val);
-                if(val){
-                    this.filters[9].value = val.id;
+                console.log('filterValues.salesCycle', val);
+                if(val.id == 11){
+                    this.filters[9].value[11] = true;
                 }else{
-                    this.filters[9].value = 0;
+                    this.filters[9].value[11] = false;
+                }
+                if(val.id == 12){
+                    this.filters[9].value[12] = true;
+                }else{
+                    this.filters[9].value[12] = false;
+                }
+                if(val.id == 13){
+                    this.filters[9].value[13] = true;
+                }else{
+                    this.filters[9].value[13] = false;
+                }
+                if(val.id == 6){
+                    this.filters[9].value[6] = true;
+                }else{
+                    this.filters[9].value[6] = false;
                 }
 
                 this.$router.push({
@@ -391,13 +416,14 @@
                 })
             },
             'filterValues.state': function (val, oldval) {
+                console.log('From filterValues.state', this.filters);
                 if (!this.disableWatch) {
 
                     this.filters[4].value['value'] = val ? val.id : null;
                     this.filters[4].value['orActive'] = true;
                     this.filterValues.or = true;
                     if (!val) {
-                        this.filters[5].value.value = "";
+                        this.filters[4].value['value'] = "";
                         this.countyOptions = [];
 
                         this.filters[4].value['value'] = '';
@@ -472,12 +498,9 @@
                 }
             },
             loadSalesCycle() {
-                Nova.request().post('/nova-vendor/community-filter/salesCycle').then(response => {
-                    console.log('salesCycle Response', response);
-                    console.log('this.activeFilters', this.activeFilters);
-                    console.log('response.data', Object.values(response.data));
-                    this.salesCycleOptions = Object.values(response.data);
-                });
+                // Nova.request().post('/nova-vendor/community-filter/salesCycle').then(response => {
+                //     this.salesCycleOptions = Object.values(response.data);
+                // });
             },
             loadStates() {
                 Nova.request().get('/nova-vendor/community-filter/states').then(response => {
@@ -498,7 +521,6 @@
             },
             loadFilters() {
                 this.disableWatch = true;
-                console.log('loadFilters Id', this.activeFilters);
                 if (this.filtersAreApplied) {
                     this.filterValues.rental = this.activeFilters.rental.value;
                     this.filterValues.vacant = this.activeFilters.vacant.value;
@@ -512,6 +534,7 @@
                     this.$set(this.filters[4], 'value', this.activeFilters.state);
                     this.$set(this.filters[5], 'value', this.activeFilters.county);
                     this.$set(this.filters[7], 'value', this.activeFilters.bulkId);
+                    this.$set(this.filters[9], 'value', this.activeFilters.SalesCycle);
 
                     this.bulkIdText = this.activeFilters.bulkId;
                     if (this.activeFilters.bulkId !== "") {
@@ -569,6 +592,8 @@
                 return false;
             },
             activeFilters() {
+                console.log('activeFilters CommunityRentalSalesStatus', (this.$store.getters[`${this.resourceName}/getFilter`]('App\\Nova\\Filters\\CommunityRentalSalesStatus')).currentValue);
+                console.log('activeFilters CommunitySalesCycle', (this.$store.getters[`${this.resourceName}/getFilter`]('App\\Nova\\Filters\\CommunitySalesCycle')).currentValue);
                 return {
                     rental: (this.$store.getters[`${this.resourceName}/getFilter`]('App\\Nova\\Filters\\CommunityRentalSalesStatus')).currentValue,
                     vacant: (this.$store.getters[`${this.resourceName}/getFilter`]('App\\Nova\\Filters\\CommunityVacantSalesStatus')).currentValue,
@@ -600,7 +625,7 @@
         },
         mounted() {
             this.loadFilters();
-            this.loadSalesCycle();
+            // this.loadSalesCycle();
         },
 
     }

@@ -13,15 +13,18 @@ Route::post('/count', function (Request $request) {
     $stateFilters = collect($request->get('filters'))->get('state');
     $countyFilters = collect($request->get('filters'))->get('county');
     $bulkIdFilter = collect($request->get('filters'))->get('bulkId');
+    $SalesCycle = collect($request->get('filters'))->get('SalesCycle');
     $query->leftJoin('cm_community_quartiles as u', 'osusr_mlv_community.COMMUNITYID', '=', 'u.community_id');
     $query->leftJoin('cm_rental_vacant_sales_statuses as s', 'osusr_mlv_community.COMMUNITYID', '=', 's.community_id');
     $query->leftJoin('osusr_tvl_crm as c', 'osusr_mlv_community.COMMUNITYID', '=', 'c.COMMUNITYID');
+    $query->leftJoin('cm_sales_cycles as y', 'osusr_mlv_community.COMMUNITYID', '=', 'y.community_id');
     //  $query->leftJoin('osusr_tvl_crm_rm as r', "osusr_mlv_community.COMMUNITYID", '=', 'r.COMMUNITYID');
     //  $foreclosureQuery->leftJoin('osusr_tvl_crm_rm as r', "osusr_mlv_community.COMMUNITYID", '=', 'r.COMMUNITYID');
     $foreclosureQuery->leftJoin('osusr_tvl_crm as c', 'osusr_mlv_community.COMMUNITYID', '=', 'c.COMMUNITYID');
     $foreclosureQuery->leftJoin('cm_community_quartiles as u', 'osusr_mlv_community.COMMUNITYID', '=', 'u.community_id');
     $foreclosureQuery->leftJoin('cm_rental_vacant_sales_statuses as s', 'osusr_mlv_community.COMMUNITYID', '=', 's.community_id');
     $foreclosureQuery->leftJoin('OSUSR_tvl_RTStatsSummaryHistory as f', 'osusr_mlv_community.COMMUNITYID', '=', 'f.COMMCOMMUNITYID');
+    $foreclosureQuery->leftJoin('cm_sales_cycles as y', 'osusr_mlv_community.COMMUNITYID', '=', 'y.community_id');
     $rentalFilterUsed = false;
     $vacantFilterUsed = false;
     $foreclosureFilterUsed = false;
@@ -80,6 +83,24 @@ Route::post('/count', function (Request $request) {
             if ($stateFilters['value']) {
                 $query->orwhere('STATE', '=', $stateFilters['value']);
                 $foreclosureQuery->orwhere('STATE', '=', $stateFilters['value']);
+            }
+        }
+        if($SalesCycle){
+            if ($SalesCycle[11] == true) {
+                $query->where('y.sales_stage', '=', 11);
+                $foreclosureQuery->where('y.sales_stage', '=', 11);
+            }
+            if ($SalesCycle[12] == true) {
+                $query->where('y.sales_stage', '=', 12);
+                $foreclosureQuery->where('y.sales_stage', '=', 12);
+            }
+            if ($SalesCycle[13] == true) {
+                $query->where('y.sales_stage', '=', 13);
+                $foreclosureQuery->where('y.sales_stage', '=', 13);
+            }
+            if ($SalesCycle[6] == true) {
+                $query->where('y.sales_stage', '=', 6);
+                $foreclosureQuery->where('y.sales_stage', '=', 6);
             }
         }
         if ($countyFilters) {

@@ -165,7 +165,8 @@ return [
         /*
          * Package Service Providers...
          */
-
+        
+        Approval\ApprovalServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -177,6 +178,7 @@ return [
         App\Providers\NovaServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Custom\AzureAd\ServiceProvider::class,
+
 
     ],
 

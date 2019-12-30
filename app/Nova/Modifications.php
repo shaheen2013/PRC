@@ -49,7 +49,7 @@ class Modifications extends Resource
      */
     public static function relatableQuery(NovaRequest $request, $query)
     {
-        return $query->where('active', 1);
+        return $query->where('active', 0);
     }
 
     /**
@@ -68,7 +68,7 @@ class Modifications extends Resource
 
     public static $perPageViaRelationship = 10;
 
-    public static $globallySearchable = false;
+    public static $globallySearchable = true;
 
     public static $group = 'Change Management';
 

@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use Laravel\Scout\Searchable;
-use Approval\Traits\RequiresApproval;
+use Approval\Traits\ApprovesChanges;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Activitylog\Traits\LogsActivity;
 
@@ -140,7 +140,7 @@ use Spatie\Activitylog\Traits\LogsActivity;
  */
 class CMCommunity extends Model
 {
-    use LogsActivity, Searchable;
+    use ApprovesChanges, LogsActivity, Searchable;
 
     public static $perPageViaRelationship = 25;
 
