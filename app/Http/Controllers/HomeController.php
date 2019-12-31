@@ -41,9 +41,9 @@ class HomeController extends Controller
             }
             $data = [
                 'grant_type'    => $type,
-                'client_id'     => env('ASANA_CLIENT_ID'),
-                'client_secret' => env('ASANA_CLIENT_SECRET'),
-                'redirect_uri'  => env('ASANA_REDIRECT_URL'),
+                'client_id'     => '1151360720602219',
+                'client_secret' => '2806cc5908cf4fc63acaa27840062588',
+                'redirect_uri'  => 'https://nova.local',
                 'code'          => $_GET['code']
             ];
             if(isset($_GET['refresh'])){
@@ -51,7 +51,6 @@ class HomeController extends Controller
             }
             
             $curl = curl_init();
-            
             curl_setopt_array($curl, array(
                 CURLOPT_URL => "https://app.asana.com/-/oauth_token",
                 CURLOPT_RETURNTRANSFER => true,

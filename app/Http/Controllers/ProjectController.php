@@ -267,9 +267,9 @@ class ProjectController extends Controller
         if($isValid){
             $data = [
                 'grant_type'    => 'refresh_token',
-                'client_id'     => env('ASANA_CLIENT_ID'),
-                'client_secret' => env('ASANA_CLIENT_SECRET'),
-                'redirect_uri'  => env('ASANA_REDIRECT_URL'),
+                'client_id'     => '1151360720602219',
+                'client_secret' => '2806cc5908cf4fc63acaa27840062588',
+                'redirect_uri'  => 'https://nova.local',
                 'code'          => $token->code,
                 'refresh_token' => $token->refresh_token
             ];

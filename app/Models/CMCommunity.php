@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use Laravel\Scout\Searchable;
-use Approval\Traits\ApprovesChanges;
+use Approval\Traits\RequiresApproval;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Activitylog\Traits\LogsActivity;
 
@@ -140,7 +140,7 @@ use Spatie\Activitylog\Traits\LogsActivity;
  */
 class CMCommunity extends Model
 {
-    use ApprovesChanges, LogsActivity, Searchable;
+    use RequiresApproval, LogsActivity, Searchable;
 
     public static $perPageViaRelationship = 25;
 
@@ -169,6 +169,12 @@ class CMCommunity extends Model
     protected static $submitEmptyLogs = false;
 
     protected static $ignoreChangedAttributes = ['updated_at'];
+
+    protected $approversRequired = 1;
+    protected $disapproversRequired = 1;
+    protected $updateWhenApproved = true;
+    protected $deleteWhenDisapproved = false;
+    protected $deleteWhenApproved = true;
 
     protected function requiresApprovalWhen(array $modifications) : bool
     {

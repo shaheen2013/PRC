@@ -54,7 +54,7 @@ use Spatie\Activitylog\Traits\LogsActivity;
  */
 class CommunityConfiguration extends Model
 {
-    use LogsActivity;
+    use LogsActivity, RequiresApproval;
 
 //    protected $casts = [
 //        'strong_mayor' => 'boolean',

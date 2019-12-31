@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Laravel\Scout\Searchable;
+use Approval\Traits\RequiresApproval;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Activitylog\Contracts\Activity;
 use Spatie\Activitylog\Traits\LogsActivity;
@@ -100,6 +101,7 @@ class Contact extends Model
 //    use Actionable;
     use Searchable;
     use LogsActivity;
+    use RequiresApproval;
 
     protected $connection = 'mysql_dev';
 
@@ -114,6 +116,22 @@ class Contact extends Model
     protected static $logOnlyDirty = true;
 
     protected static $submitEmptyLogs = false;
+
+
+    protected $approversRequired = 1;
+    protected $disapproversRequired = 1;
+    protected $updateWhenApproved = true;
+    protected $deleteWhenDisapproved = false;
+    protected $deleteWhenApproved = true;
+
+    protected function requiresApprovalWhen(array $modifications) : bool
+    {
+        // Handle some logic that determines if this change requires approval
+        //
+        // Return true if the model requires approval, return false if it
+        // should update immediately without approval.
+        return true;
+    }
 
     public function allOptionsByCommunity($id)
     {

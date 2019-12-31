@@ -11,7 +11,7 @@ use Spatie\Activitylog\Traits\LogsActivity;
 
 class SalesCycle extends Model
 {
-    use LogsActivity;
+    use LogsActivity, RequiresApproval;
 
     protected $connection = 'mysql_dev';
 
@@ -43,6 +43,13 @@ class SalesCycle extends Model
     protected static $logOnlyDirty = true;
 
     protected static $submitEmptyLogs = false;
+
+
+    protected $approversRequired = 1;
+    protected $disapproversRequired = 1;
+    protected $updateWhenApproved = true;
+    protected $deleteWhenDisapproved = false;
+    protected $deleteWhenApproved = true;
 
     protected static function boot()
     {

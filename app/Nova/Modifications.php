@@ -22,8 +22,13 @@ use App\Models\CommunitySalesConfiguration;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Saumini\EllipsisTextarea\EllipsisTextarea;
 
+use Approval\Traits\ApprovesChanges;
+use Illuminate\Database\Eloquent\Model;
+
 class Modifications extends Resource
 {
+
+    use ApprovesChanges;
     /**
      * The model the resource corresponds to.
      *
@@ -37,6 +42,10 @@ class Modifications extends Resource
      * @var string
      */
     public static $title = 'id';
+
+    protected $approversRequired = 1;
+    protected $disapproversRequired = 1;
+    protected $updateWhenApproved = true;
 
     /**
      * Build a "relatable" query for the given resource.
@@ -143,7 +152,7 @@ class Modifications extends Resource
                 }
             }),
             Button::make('Approve', 'approve-modification')
-
+                ->reload()
                 ->confirm('Are you sure you would like to approve the change?')
                 ->style('success-outline')
                 ->visible($this->active == true),
@@ -158,17 +167,17 @@ class Modifications extends Resource
 
     public static function authorizedToCreate(Request $request)
     {
-        return false;
+        return true;
     }
 
     public function authorizedToUpdate(Request $request)
     {
-        return false;
+        return true;
     }
 
     public function authorizedToDelete(Request $request)
     {
-        return false;
+        return true;
     }
 
     public static function searchable()
