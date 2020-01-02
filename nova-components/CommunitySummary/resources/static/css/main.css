@@ -56,9 +56,35 @@ a:hover, a:focus {
 
 .summary {
   background-color: #fff;
+  padding: 5px;
+  box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.25);
+  margin-top: 7px;
+}
+.times-circle{
+  margin-right: 10px;
+  font-size: 25px !important;
+  cursor: pointer;
+  border-radius: 50%;
+  color: red;
+  transition: all .5s;
+}
+.tabCustom{
+  background-color: #9c9b9b;
+  padding: 8px;
+  cursor: pointer;
+  border: 2px solid #908f8f;
+}
+.tabCustomClicked{
+  background-color: white;
+  border-bottom: unset;
+}
+.tabContent{
+  display: none;
   padding: 20px;
-  border-radius: 5px;
-  box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.25); }
+}
+.times-circle:hover{
+  box-shadow: 0px 0px 15px red;
+}
 .customSummary{
   padding: 0px;
   border-radius: 0px;
@@ -95,13 +121,6 @@ a:hover, a:focus {
   align-items: flex-end;
   flex-wrap: wrap;
   flex: 1; }
-.infoProgramsCustom {
-  width: 100%;
-  margin: 50px;
-  border-top: 2px solid;
-  border-bottom: 2px solid;
-  padding-bottom: 20px;
-}
 
 .wrap-expires {
   margin-top: 10px;
@@ -130,11 +149,9 @@ a:hover, a:focus {
   padding: 30px;
 }
 .infoCustomText{
-  margin-top: -15px;
-  font-size: 25px;
+  font-size: 19px;
   background-color: white;
-  display: inline-block;
-  padding: 5px 10px;
+  margin: -14px auto 12px;
 }
 .programs {
   display: flex;
@@ -143,9 +160,9 @@ a:hover, a:focus {
   flex-wrap: wrap; }
 .programsCustom {
   align-items: center;
-  margin-left: 25px;
+  margin-left: -5px;
   flex-wrap: wrap;
-  padding-right: 25px;
+  padding-right: 5px;
 }
 .customBorder{
   border-right: 2px solid #f1f1f1;
@@ -153,8 +170,8 @@ a:hover, a:focus {
 
 .round-info {
   position: relative;
-  width: 100px;
-  height: 100px;
+  width: 50px;
+  height: 50px;
   margin-left: 10px;
   border-radius: 100%;
   display: flex;
@@ -166,8 +183,8 @@ a:hover, a:focus {
 
 .round-info-green {
   position: relative;
-  width: 100px;
-  height: 100px;
+  width: 50px;
+  height: 50px;
   margin-left: 10px;
   border-radius: 100%;
   display: flex;
@@ -191,7 +208,6 @@ a:hover, a:focus {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  padding: 5px 10px;
 }
 .customHeadRightArrow{
   padding: 5px 10px;
@@ -202,7 +218,6 @@ a:hover, a:focus {
 
 .logoCommunity {
   position: absolute;
-  top: -35px;
   left: 10px;
 }
 .icon-blue-lock {
@@ -362,7 +377,8 @@ a:hover, a:focus {
   flex: 1; }
 
 .wrap-detailBox > div {
-  margin-bottom: 5px; 
+  margin-bottom: 5px;
+  margin-bottom: 15px;
 }
 
 .wrap-detailBox > div:last-child {
@@ -383,4 +399,5 @@ a:hover, a:focus {
     color: #22292f;
     padding: 12px 25px;
     font-size: 23px;
+    margin: 10px 0px;
   }

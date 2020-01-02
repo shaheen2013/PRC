@@ -1,158 +1,220 @@
 <template>
     <div class="mt-12">
-        <loading-card :loading="!loaded" class="summary customSummary">
+        <div :loading="!loaded" class="customSummary">
             <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i" rel="stylesheet">
             <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
 
-            
-            <div class="customHeader">
-                <img v-if="this.community ? this.community.community_logo : null" :src="logoUrl" class="logoCommunity" alt="Logo of Community">
-                <div v-if="this.community ? !this.community.community_logo : null" class="blank-image"></div>
-
+            <h5 style="font-size: 15px;color: rgb(156, 155, 155);width: 100%;text-align: right;">{{size}} | {{this.community ? (this.community.housing_data ?
+                            this.community.housing_data.housing_units : '') : ''}} Housing Units
+                <span><div class="fa-xs fas fa-sort-down rotate customHeadRightArrow" @click="csInfoToggleClick()" style="cursor:pointer;color:#0a4c9e"></div></span>
+            </h5>
+            <div class="summary customHeader">
                 <div class="custHeadTop">
                     <div class="customHeadLeft">
-                        <h1 class="headline">{{this.communityName}} <strong style="font-size: 13px;color: #9c9b9b;padding-left: 11px;">ID: {{this.community.COMMUNITYID}} </strong> </h1>
+                        <img v-if="this.community ? this.community.community_logo : null" :src="logoUrl" class="logoCommunity" alt="Logo of Community">
+                        <div v-if="this.community ? !this.community.community_logo : null" class="blank-image"></div>
+                        <h1 class="headline">{{this.communityName}}</h1><br>
+                        <h4><strong style="font-size: 13px;color: #9c9b9b;padding-left: 11px;"><span> RM | Not Assigned</span> <span> ID: {{this.community.COMMUNITYID}}</span> </strong></h4>
                     </div>
-                    <div class="customHeadRight">
-                        <h5 class="headline" style="font-size: 25px;color: #9c9b9b;">{{size}} | {{this.community ? (this.community.housing_data ?
-                                        this.community.housing_data.housing_units : '') : ''}} Housing Units
-                            <span><div class="fa-xs fas fa-sort-down rotate customHeadRightArrow" @click="csInfoToggleClick()" style="cursor:pointer;color:#0a4c9e"></div></span>
-                        </h5>
-                    </div>                    
-                </div>
-            </div>
-            <section class="mt-11" id="csInfoToggle" style="padding: 0px 24px;">
-                <div class="communityWarning">
-                    <i class="fa-xs fas fa-exclamation-triangle exclamation-triangle" style="margin-right:10px;font-size: 30px;"></i> Some issue or alert message can go here.
-                </div>                
-                <header>
-                    <div class="infoProgramsCustom" style="text-align:center">
-                        <h4 class="infoCustomText">AT-RISK PROPERTY REGISTRATION</h4>
+                    <div class="customHeadRight" style="text-align:center">
                         <div class="wrap-programs">
                             <div class="programsCustom customBorder">
-                                <h3 class="text-center">Foreclosure<br><span class="text-xs text-80">{{parseInt(estForeclosures).toLocaleString()}}</span>
+                                <h3 class="text-center">FCL<br>
+                                    <!-- <span class="text-xs text-80">{{parseInt(estForeclosures).toLocaleString()}}</span> -->
                                 </h3>
                                 <div v-html="foreclosureBadgeContent"
                                     :class="this.foreclosurePartner ? 'round-info-green gold-n5' : 'round-info gold-n0'"></div>
                             </div>
                             <div class="programsCustom customBorder">
-                                <h3 class="text-center">Vacant<br><span class="text-xs text-80">{{this.community ? (this.community.housing_data ? parseInt(this.community.housing_data.est_vacant_total).toLocaleString() : 0) : 0}}</span>
+                                <h3 class="text-center">VPO<br>
+                                    <!-- <span class="text-xs text-80">{{this.community ? (this.community.housing_data ? parseInt(this.community.housing_data.est_vacant_total).toLocaleString() : 0) : 0}}</span> -->
                                 </h3>
                                 <div v-html="vacantBadgeContent"
                                     :class="this.vacantPartner ? 'round-info-green gold-n5' : 'round-info gold-n0'"></div>
                             </div>
                             <div class="programsCustom customBorder">
-                                <h3 >RT Rental<br><span class="text-xs text-80">{{this.community ? (this.community.housing_data ? parseInt(this.community.housing_data.est_long_term_rental).toLocaleString() : 0) : 0}}</span></h3>
+                                <h3 >LTR<br>
+                                    <!-- <span class="text-xs text-80">{{this.community ? (this.community.housing_data ? parseInt(this.community.housing_data.est_long_term_rental).toLocaleString() : 0) : 0}}</span> -->
+                                </h3>
                                 <div v-html="rentalBadgeContent"
                                     :class="this.rentalPartner ? 'round-info-green gold-n5' : 'round-info gold-n0'"></div>
                             </div>
                             <div class="programsCustom">
-                                <h3 >ST Rental<br><span class="text-xs text-80">0.00</span></h3>
+                                <h3 >STR<br>
+                                    <!-- <span class="text-xs text-80">0.00</span> -->
+                                </h3>
                                 <div 
                                     :class="this.rentalPartner ? 'round-info gold-n0' : 'round-info gold-n0'"></div>
                             </div>
                         </div>
-                        <h4 class="infoCustomText">Contract<span v-html="contractExpiration"></span></h4>
+                        <h4 class="infoCustomText" style="color: #9c9b9b;">Contract<span v-html="contractExpiration"></span></h4>
+                    </div>                    
+                </div>
+            </div>
+            <div class="communityWarning" style="display: flex">
+                <div style="width:100%">
+                    <i class="fa-xs fas fa-exclamation-triangle exclamation-triangle" style="margin-right:10px;font-size: 30px;"></i> Some issue or alert message can go here.
+                </div>
+                <div style="width:30px">
+                    <i class="fa-xs fas fa-times-circle times-circle" @click="closeAlertMessage()"></i>
+                </div>
+            </div>
+            <section class="" id="csInfoToggle">
+                <div class="tabsContainer" style="display: flex;margin-top:20px">
+                    <div class="tabs" style="width:100%">
+                        <span class="tabCustom tabCustomClicked" id="salesTab" @click="openTabContent('salesTabContent', 'salesTab')">Sales</span>
+                        <span class="tabCustom" id="serviceTab" @click="openTabContent('serviceTabContent', 'serviceTab')">Service</span>
+                        <span class="tabCustom" id="legalTab" @click="openTabContent('legalTabContent', 'legalTab')">Legal</span>
+                        <span class="tabCustom" id="contactTab" @click="openTabContent('contactTabContent', 'contactTab')">Contact</span>
                     </div>
-                </header>
-                <div class="communityDetail" style="margin-top:20px;padding: 0px 50px;">
-                    <div class="wrap-detailsBox">
-                        <div class="">
-                            <div class="wrap-detailBox">
-                                <div>
-                                    <div class="label-square hoverUnderLine" @click="communityOpen('co')">
-                                        <h4><i class="fa-xs fas fa-square"></i>City of Jacksonville</h4>
-                                    </div>
-                                    <div class="openInfo cmOpenInfo" id="coInfo" style="display:none">
-                                        <span @click="viewCore"><i class="fa-xs fas fa-square"></i> CORE</span>
-                                        <br>
-                                        <span @click="viewSharepoint"><i class="fa-xs fas fa-square"></i> Sharepoint </span>
-                                        <br>
-                                        <span @click="displayLink"><i class="fa-xs fas fa-square"></i> RP Landing</span>
-                                        <br>
-                                        <span><i class="fa-xs fas fa-square"></i> GOV Admin</span>
-                                    </div>
+                    <div class="tabs" style="width:190px">
+                        <span class="tabCustom" id="tasksTab" @click="openTabContent('tasksTabContent', 'tasksTab')">Tasks</span>
+                        <span class="tabCustom" id="actionTab" @click="openTabContent('actionTabContent', 'actionTab')">Action</span>
+                    </div>
+                </div>
+                <div class="summary" style="padding: 30px 20px;box-shadow:unset;border: 2px solid #908f8f;min-height: 150px;">
+                    <div class="tabContent" id="salesTabContent" style="display:block">
+                        rew ysertyw r
+                    </div>
+                    <div class="tabContent" id="serviceTabContent" style="max-width: 1000px;margin: 0px auto;">
+                        <div class="wrap-detailBox">
+                            <div>
+                                <div class="label-square hoverUnderLine" @click="communityOpen('co')" style="position: relative;">
+                                    <div class="fa-xs fas fa-sort-down rotate customHeadRightArrow" style="position: absolute;top: 0px;right: 0px;"></div>
+                                    <h4><i class="fa-xs fas fa-square" style="padding-right: 10px;"></i>Key Metrick</h4>
                                 </div>
-                                <div>
-                                    <div class="label-square hoverUnderLine" @click="communityOpen('ty')">
-                                        <h4><i class="fa-xs fas fa-square"></i>Duval County</h4>
-                                    </div>
-                                    <div class="openInfo cmOpenInfo" id="tyInfo" style="display:none">
-                                        <span >
-                                            <i class="fa-xs fas fa-square"></i> 
-                                            County County Clerk
-                                        </span>
-                                        <br>
-                                        <span>
-                                            <i class="fa-xs fas fa-square"></i> 
-                                            Property Appraiser 
-                                        </span>
-                                        <br>
-                                        <span>
-                                            <i class="fa-xs fas fa-square"></i> 
-                                            Tax Accessor
-                                        </span>
-                                        <br>
-                                        <span>
-                                            <i class="fa-xs fas fa-square"></i> 
-                                            Court Docket
-                                        </span>
-                                        <br>
-                                        <span><i class="fa-xs fas fa-square"></i> Link to filter community list by county </span>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="label-square hoverUnderLine" @click="communityOpen('fl')">
-                                        <h4><i class="fa-xs fas fa-square"></i>Florida</h4>
-                                    </div>
-                                    <div class="openInfo cmOpenInfo" id="flInfo" style="display:none">
-                                        <span>
-                                            <i class="fa-xs fas fa-square"></i> 
-                                            Governance 
-                                        </span>
-                                        <br>
-                                        <span>
-                                            <i class="fa-xs fas fa-square"></i> 
-                                            Foreclosure Process 
-                                        </span>
-                                        <br>
-                                        <span>
-                                            <i class="fa-xs fas fa-square"></i> 
-                                            Exclude 
-                                        </span>
-                                        <br>
-                                        <span>
-                                            <i class="fa-xs fas fa-square"></i> 
-                                            Link to filter community list by state
-                                        </span>
-                                    </div>
+                                <div class="openInfo cmOpenInfo" id="coInfo" style="display:none">
+                                    <span>Some Content</span>
                                 </div>
                             </div>
-                        </div>
-                        <div class="detailBox" style="border: none">
-                            <div class="wrap-detailBox">
-                                <div>
-                                    <div class="label-square" style="font-size: 20px;">Relationship Manager</div>
-                                    <div class="textDetail" style="font-size: 16px;font-weight: 600;color: #615e5e;">{{this.community ? (this.community.relationship_managers[0] ? this.community.relationship_managers[0].name : 'No RMs Assigned') : 'No RMs Assigned'}}</div>
+                            <div>
+                                <div class="label-square hoverUnderLine" @click="communityOpen('ty')" style="position: relative;">
+                                    <div class="fa-xs fas fa-sort-down rotate customHeadRightArrow" style="position: absolute;top: 0px;right: 0px;"></div>
+                                    <h4><i class="fa-xs fas fa-square"></i>Remitance</h4>
+                                </div>
+                                <div class="openInfo cmOpenInfo" id="tyInfo" style="display:none">
+                                    <span>Some Content</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="label-square hoverUnderLine" @click="communityOpen('fl')" style="position: relative;">
+                                    <div class="fa-xs fas fa-sort-down rotate customHeadRightArrow" style="position: absolute;top: 0px;right: 0px;"></div>
+                                    <h4><i class="fa-xs fas fa-square"></i>Branding</h4>
+                                </div>
+                                <div class="openInfo cmOpenInfo" id="flInfo" style="display:none">
+                                    <span>Some Content</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="label-square hoverUnderLine" @click="communityOpen('tl')" style="position: relative;">
+                                    <div class="fa-xs fas fa-sort-down rotate customHeadRightArrow" style="position: absolute;top: 0px;right: 0px;"></div>
+                                    <h4><i class="fa-xs fas fa-square"></i>Miscellaneous</h4>
+                                </div>
+                                <div class="openInfo cmOpenInfo" id="tlInfo" style="display:none">
+                                    <span>Some Content</span>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="boxInfo">
-                        <div class="wrap-boxInfo">
-                            <span style="background-color: #1a4b9e;color: white;padding: 12px 0px;">Pending Change{{this.pendingChanges === 1 ? "" : "s"}}: <span id="pending-changes"
-                                                                                           v-html="this.pendingChanges"
-                                                                                           @click="navigateToChanges"
-                                                                                           style="background: #ffd740"
-                                                                                           class="pending-changes cursor-pointer rounded-full px-3 py-1 font-semibold">"</span></span>
-                            <p style="color: rgb(60, 59, 59);padding: 12px 0px;text-align: right;font-weight: 700;font-size: 20px;">Last Update</p>
-                            <p style="text-align: right;font-weight: 600;">{{ this.latestActivity.user ? this.latestActivity.user.name : null }}</p>
-                            <p style="text-align: right" v-html="this.lastUpdated"></p>
+                    <div class="tabContent" id="legalTabContent" style="max-width: 1000px;margin: 0px auto;">
+                        <div class="wrap-detailBox">
+                            <div>
+                                <div class="label-square hoverUnderLine" @click="communityOpen('co')" style="position: relative;">
+                                    <div class="fa-xs fas fa-sort-down rotate customHeadRightArrow" style="position: absolute;top: 0px;right: 0px;"></div>
+                                    <h4><i class="fa-xs fas fa-square" style="padding-right: 10px;"></i>Contracts</h4>
+                                </div>
+                                <div class="openInfo cmOpenInfo" id="coInfo" style="display:none">
+                                    <span>Some Content</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="label-square hoverUnderLine" @click="communityOpen('ty')" style="position: relative;">
+                                    <div class="fa-xs fas fa-sort-down rotate customHeadRightArrow" style="position: absolute;top: 0px;right: 0px;"></div>
+                                    <h4><i class="fa-xs fas fa-square"></i>Ordinance History</h4>
+                                </div>
+                                <div class="openInfo cmOpenInfo" id="tyInfo" style="display:none">
+                                    <span>Some Content</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="label-square hoverUnderLine" @click="communityOpen('fl')" style="position: relative;">
+                                    <div class="fa-xs fas fa-sort-down rotate customHeadRightArrow" style="position: absolute;top: 0px;right: 0px;"></div>
+                                    <h4><i class="fa-xs fas fa-square"></i>Key Policy</h4>
+                                </div>
+                                <div class="openInfo cmOpenInfo" id="flInfo" style="display:none">
+                                    <span>Some Content</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tabContent" id="contactTabContent" style="max-width: 1000px;margin: 0px auto;">
+                        <div class="wrap-detailBox">
+                            <div>
+                                <div class="label-square hoverUnderLine" @click="communityOpen('co')" style="position: relative;">
+                                    <div class="fa-xs fas fa-sort-down rotate customHeadRightArrow" style="position: absolute;top: 0px;right: 0px;"></div>
+                                    <h4><i class="fa-xs fas fa-square" style="padding-right: 10px;"></i>Interactions</h4>
+                                </div>
+                                <div class="openInfo cmOpenInfo" id="coInfo" style="display:none">
+                                    <span>Some Content</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="label-square hoverUnderLine" @click="communityOpen('ty')" style="position: relative;">
+                                    <div class="fa-xs fas fa-sort-down rotate customHeadRightArrow" style="position: absolute;top: 0px;right: 0px;"></div>
+                                    <h4><i class="fa-xs fas fa-square"></i>People</h4>
+                                </div>
+                                <div class="openInfo cmOpenInfo" id="tyInfo" style="display:none">
+                                    <span>Some Content</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="label-square hoverUnderLine" @click="communityOpen('fl')" style="position: relative;">
+                                    <div class="fa-xs fas fa-sort-down rotate customHeadRightArrow" style="position: absolute;top: 0px;right: 0px;"></div>
+                                    <h4><i class="fa-xs fas fa-square"></i>Key Roles</h4>
+                                </div>
+                                <div class="openInfo cmOpenInfo" id="flInfo" style="display:none">
+                                    <span>Some Content</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tabContent" id="tasksTabContent">
+                        saf asd sda
+                    </div>
+                    <div class="tabContent" id="actionTabContent" style="max-width: 1000px;margin: 0px auto;">
+                        <div class="wrap-detailBox">
+                            <div>
+                                <div class="label-square hoverUnderLine" @click="communityOpen('co')" style="position: relative;">
+                                    <div class="fa-xs fas fa-sort-down rotate customHeadRightArrow" style="position: absolute;top: 0px;right: 0px;"></div>
+                                    <h4><i class="fa-xs fas fa-square" style="padding-right: 10px;"></i>Community Status</h4>
+                                </div>
+                                <div class="openInfo cmOpenInfo" id="coInfo" style="display:none">
+                                    <span>Some Content</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="label-square hoverUnderLine" @click="communityOpen('ty')" style="position: relative;">
+                                    <div class="fa-xs fas fa-sort-down rotate customHeadRightArrow" style="position: absolute;top: 0px;right: 0px;"></div>
+                                    <h4><i class="fa-xs fas fa-square"></i>Change Requests</h4>
+                                </div>
+                                <div class="openInfo cmOpenInfo" id="tyInfo" style="display:none">
+                                    <span>Some Content</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="label-square hoverUnderLine" @click="communityOpen('fl')" style="position: relative;">
+                                    <div class="fa-xs fas fa-sort-down rotate customHeadRightArrow" style="position: absolute;top: 0px;right: 0px;"></div>
+                                    <h4><i class="fa-xs fas fa-square"></i>Activity Log</h4>
+                                </div>
+                                <div class="openInfo cmOpenInfo" id="flInfo" style="display:none">
+                                    <span>Some Content</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </section>
-        </loading-card>
+        </div>
         <br><br>
         <div class="flex mb-4">
             <div class="w-full flex items-center">
@@ -1455,6 +1517,15 @@
                 $('#csInfoToggle').slideToggle();
                 $('.customHeadRightArrow').toggleClass("down") ;
             },
+            closeAlertMessage(){
+                $('.communityWarning').hide();
+            },
+            openTabContent(content, tab){
+                $('.tabContent').hide();
+                $('.tabCustom').removeClass('tabCustomClicked');
+                $(`#${content}`).show();
+                $(`#${tab}`).addClass('tabCustomClicked');
+            },
             navigateToChanges() {
                 window.scrollTo(0, document.body.scrollHeight);
                 document.querySelector("#nova > div > div.content > div.px-view.py-view.mx-auto > div > div.relative > div:nth-child(5) > div > div > div.tabs-wrap.border-b-2.border-40.w-full > div > button:nth-child(6)").click()
@@ -2471,11 +2542,13 @@
         transform:rotate(180deg);
     }
     .hoverUnderLine{
-        font-size:16px;
+        font-size: 24px;
+        -webkit-transition: all .5s;
         transition: all .5s;
+        border-bottom: 1px solid;
+        padding: 10px;
     }
     .hoverUnderLine:hover{
-        text-decoration: underline;
         color: #0a4c9e;
         cursor: pointer;
     }
@@ -2485,7 +2558,7 @@
         padding: 5px 20px 5px;
     }
     .cmOpenInfo > span{
-        font-size:14px;
+        font-size:18px;
         transition: all .5s;
     }
     .cmOpenInfo > span:hover{

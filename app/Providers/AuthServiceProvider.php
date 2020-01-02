@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Models\User;
 use App\Models\Contact;
 use App\Models\CMCommunity;
+use App\Project;
 use App\Models\Interaction;
 use App\Models\Organization;
 use Laravel\Passport\Passport;
@@ -29,6 +30,7 @@ class AuthServiceProvider extends ServiceProvider
         Organization::class => \App\Policies\OrganizationPolicy::class,
         User::class => \App\Policies\UserPolicy::class,
         Role::class => \App\Policies\RolePolicy::class,
+        Project::class => \App\Policies\ProjectPolicy::class,
     ];
 
     /**

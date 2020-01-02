@@ -55,6 +55,14 @@
         {
             "type": "path",
             "url": "./nova-components/NovaClickableRow"
+        },
+        {
+            "type": "path",
+            "url": "./nova-components/ProjectDetails"
+        },
+        {
+            "type": "path",
+            "url": "./nova-components/AsanaProject"
         }
     ],
     "require": {
@@ -111,7 +119,9 @@
         "prochamps/communitysharelink": "*",
         "saumini/ellipsis-textarea": "^1.0",
         "silvanite/novatoolpermissions": "^1.0",
-        "stephenlake/laravel-approval": "^1.1"
+        "stephenlake/laravel-approval": "^1.1",
+        "asana/project-details": "*",
+        "asana/asana-project": "*"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.6",

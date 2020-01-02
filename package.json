@@ -26,7 +26,11 @@
         "build-bulk-id": "cd nova-components/BulkId && npm run dev",
         "build-bulk-id-prod": "cd nova-components/BulkId && npm run prod",
         "build-nova-clickable-row": "cd nova-components/NovaClickableRow && npm run dev",
-        "build-nova-clickable-row-prod": "cd nova-components/NovaClickableRow && npm run prod"
+        "build-nova-clickable-row-prod": "cd nova-components/NovaClickableRow && npm run prod",
+        "build-project-details": "cd nova-components/ProjectDetails && npm run dev",
+        "build-project-details-prod": "cd nova-components/ProjectDetails && npm run prod",
+        "build-asana-project": "cd nova-components/AsanaProject && npm run dev",
+        "build-asana-project-prod": "cd nova-components/AsanaProject && npm run prod"
     },
     "devDependencies": {
         "axios": "^0.18.1",
