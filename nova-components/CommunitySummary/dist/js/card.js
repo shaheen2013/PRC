@@ -18382,6 +18382,145 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -50766,7 +50905,7 @@ var render = function() {
                         }
                       }
                     },
-                    [_vm._v("Action")]
+                    [_vm._v("Admin")]
                   )
                 ]
               )
@@ -50793,20 +50932,6 @@ var render = function() {
                   attrs: { id: "salesTabContent" }
                 },
                 [
-                  _vm._v(
-                    "\n                    rew ysertyw r\n                "
-                  )
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: "tabContent",
-                  staticStyle: { "max-width": "1000px", margin: "0px auto" },
-                  attrs: { id: "serviceTabContent" }
-                },
-                [
                   _c("div", { staticClass: "wrap-detailBox" }, [
                     _c("div", [
                       _c(
@@ -50816,7 +50941,7 @@ var render = function() {
                           staticStyle: { position: "relative" },
                           on: {
                             click: function($event) {
-                              return _vm.communityOpen("co")
+                              return _vm.communityOpen("coka")
                             }
                           }
                         },
@@ -50846,7 +50971,7 @@ var render = function() {
                           staticStyle: { position: "relative" },
                           on: {
                             click: function($event) {
-                              return _vm.communityOpen("ty")
+                              return _vm.communityOpen("tyks")
                             }
                           }
                         },
@@ -50876,7 +51001,7 @@ var render = function() {
                           staticStyle: { position: "relative" },
                           on: {
                             click: function($event) {
-                              return _vm.communityOpen("fl")
+                              return _vm.communityOpen("flkr")
                             }
                           }
                         },
@@ -50906,7 +51031,7 @@ var render = function() {
                           staticStyle: { position: "relative" },
                           on: {
                             click: function($event) {
-                              return _vm.communityOpen("tl")
+                              return _vm.communityOpen("tlks")
                             }
                           }
                         },
@@ -50936,7 +51061,7 @@ var render = function() {
                 {
                   staticClass: "tabContent",
                   staticStyle: { "max-width": "1000px", margin: "0px auto" },
-                  attrs: { id: "legalTabContent" }
+                  attrs: { id: "serviceTabContent" }
                 },
                 [
                   _c("div", { staticClass: "wrap-detailBox" }, [
@@ -50948,7 +51073,7 @@ var render = function() {
                           staticStyle: { position: "relative" },
                           on: {
                             click: function($event) {
-                              return _vm.communityOpen("co")
+                              return _vm.communityOpen("cok")
                             }
                           }
                         },
@@ -50978,7 +51103,7 @@ var render = function() {
                           staticStyle: { position: "relative" },
                           on: {
                             click: function($event) {
-                              return _vm.communityOpen("ty")
+                              return _vm.communityOpen("tyk")
                             }
                           }
                         },
@@ -51008,7 +51133,7 @@ var render = function() {
                           staticStyle: { position: "relative" },
                           on: {
                             click: function($event) {
-                              return _vm.communityOpen("fl")
+                              return _vm.communityOpen("flk")
                             }
                           }
                         },
@@ -51028,20 +51153,8 @@ var render = function() {
                       ),
                       _vm._v(" "),
                       _vm._m(18)
-                    ])
-                  ])
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: "tabContent",
-                  staticStyle: { "max-width": "1000px", margin: "0px auto" },
-                  attrs: { id: "contactTabContent" }
-                },
-                [
-                  _c("div", { staticClass: "wrap-detailBox" }, [
+                    ]),
+                    _vm._v(" "),
                     _c("div", [
                       _c(
                         "div",
@@ -51050,7 +51163,7 @@ var render = function() {
                           staticStyle: { position: "relative" },
                           on: {
                             click: function($event) {
-                              return _vm.communityOpen("co")
+                              return _vm.communityOpen("tlk")
                             }
                           }
                         },
@@ -51070,8 +51183,20 @@ var render = function() {
                       ),
                       _vm._v(" "),
                       _vm._m(20)
-                    ]),
-                    _vm._v(" "),
+                    ])
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "tabContent",
+                  staticStyle: { "max-width": "1000px", margin: "0px auto" },
+                  attrs: { id: "legalTabContent" }
+                },
+                [
+                  _c("div", { staticClass: "wrap-detailBox" }, [
                     _c("div", [
                       _c(
                         "div",
@@ -51080,7 +51205,7 @@ var render = function() {
                           staticStyle: { position: "relative" },
                           on: {
                             click: function($event) {
-                              return _vm.communityOpen("ty")
+                              return _vm.communityOpen("coc")
                             }
                           }
                         },
@@ -51110,7 +51235,7 @@ var render = function() {
                           staticStyle: { position: "relative" },
                           on: {
                             click: function($event) {
-                              return _vm.communityOpen("fl")
+                              return _vm.communityOpen("tyc")
                             }
                           }
                         },
@@ -51130,26 +51255,8 @@ var render = function() {
                       ),
                       _vm._v(" "),
                       _vm._m(24)
-                    ])
-                  ])
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "tabContent", attrs: { id: "tasksTabContent" } },
-                [_vm._v("\n                    saf asd sda\n                ")]
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: "tabContent",
-                  staticStyle: { "max-width": "1000px", margin: "0px auto" },
-                  attrs: { id: "actionTabContent" }
-                },
-                [
-                  _c("div", { staticClass: "wrap-detailBox" }, [
+                    ]),
+                    _vm._v(" "),
                     _c("div", [
                       _c(
                         "div",
@@ -51158,7 +51265,7 @@ var render = function() {
                           staticStyle: { position: "relative" },
                           on: {
                             click: function($event) {
-                              return _vm.communityOpen("co")
+                              return _vm.communityOpen("flc")
                             }
                           }
                         },
@@ -51178,8 +51285,20 @@ var render = function() {
                       ),
                       _vm._v(" "),
                       _vm._m(26)
-                    ]),
-                    _vm._v(" "),
+                    ])
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "tabContent",
+                  staticStyle: { "max-width": "1000px", margin: "0px auto" },
+                  attrs: { id: "contactTabContent" }
+                },
+                [
+                  _c("div", { staticClass: "wrap-detailBox" }, [
                     _c("div", [
                       _c(
                         "div",
@@ -51188,7 +51307,7 @@ var render = function() {
                           staticStyle: { position: "relative" },
                           on: {
                             click: function($event) {
-                              return _vm.communityOpen("ty")
+                              return _vm.communityOpen("coi")
                             }
                           }
                         },
@@ -51218,7 +51337,7 @@ var render = function() {
                           staticStyle: { position: "relative" },
                           on: {
                             click: function($event) {
-                              return _vm.communityOpen("fl")
+                              return _vm.communityOpen("tyi")
                             }
                           }
                         },
@@ -51238,6 +51357,144 @@ var render = function() {
                       ),
                       _vm._v(" "),
                       _vm._m(30)
+                    ]),
+                    _vm._v(" "),
+                    _c("div", [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "label-square hoverUnderLine",
+                          staticStyle: { position: "relative" },
+                          on: {
+                            click: function($event) {
+                              return _vm.communityOpen("fli")
+                            }
+                          }
+                        },
+                        [
+                          _c("div", {
+                            staticClass:
+                              "fa-xs fas fa-sort-down rotate customHeadRightArrow",
+                            staticStyle: {
+                              position: "absolute",
+                              top: "0px",
+                              right: "0px"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _vm._m(31)
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _vm._m(32)
+                    ])
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "tabContent", attrs: { id: "tasksTabContent" } },
+                [_vm._v("\n                    saf asd sda\n                ")]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "tabContent",
+                  staticStyle: { "max-width": "1000px", margin: "0px auto" },
+                  attrs: { id: "actionTabContent" }
+                },
+                [
+                  _c("div", { staticClass: "wrap-detailBox" }, [
+                    _c("div", [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "label-square hoverUnderLine",
+                          staticStyle: { position: "relative" },
+                          on: {
+                            click: function($event) {
+                              return _vm.communityOpen("com")
+                            }
+                          }
+                        },
+                        [
+                          _c("div", {
+                            staticClass:
+                              "fa-xs fas fa-sort-down rotate customHeadRightArrow",
+                            staticStyle: {
+                              position: "absolute",
+                              top: "0px",
+                              right: "0px"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _vm._m(33)
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _vm._m(34)
+                    ]),
+                    _vm._v(" "),
+                    _c("div", [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "label-square hoverUnderLine",
+                          staticStyle: { position: "relative" },
+                          on: {
+                            click: function($event) {
+                              return _vm.communityOpen("tym")
+                            }
+                          }
+                        },
+                        [
+                          _c("div", {
+                            staticClass:
+                              "fa-xs fas fa-sort-down rotate customHeadRightArrow",
+                            staticStyle: {
+                              position: "absolute",
+                              top: "0px",
+                              right: "0px"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _vm._m(35)
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _vm._m(36)
+                    ]),
+                    _vm._v(" "),
+                    _c("div", [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "label-square hoverUnderLine",
+                          staticStyle: { position: "relative" },
+                          on: {
+                            click: function($event) {
+                              return _vm.communityOpen("flm")
+                            }
+                          }
+                        },
+                        [
+                          _c("div", {
+                            staticClass:
+                              "fa-xs fas fa-sort-down rotate customHeadRightArrow",
+                            staticStyle: {
+                              position: "absolute",
+                              top: "0px",
+                              right: "0px"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _vm._m(37)
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _vm._m(38)
                     ])
                   ])
                 ]
@@ -51289,7 +51546,7 @@ var render = function() {
     _vm._v(" "),
     _c("div", { staticClass: "relationship-tabs-panel card" }, [
       _vm.isLoading
-        ? _c("div", { staticClass: "loader-io" }, [_vm._m(31)])
+        ? _c("div", { staticClass: "loader-io" }, [_vm._m(39)])
         : _vm._e()
     ]),
     _vm._v(" "),
@@ -53354,7 +53611,7 @@ var render = function() {
                           attrs: { id: "task-detail" }
                         },
                         [
-                          _vm._m(32),
+                          _vm._m(40),
                           _vm._v(" "),
                           _vm.taskDetails
                             ? _c(
@@ -55114,7 +55371,7 @@ var render = function() {
                                                     staticClass: "comment-bar"
                                                   },
                                                   [
-                                                    _vm._m(33, true),
+                                                    _vm._m(41, true),
                                                     _vm._v(" "),
                                                     _c(
                                                       "div",
@@ -55268,7 +55525,7 @@ var render = function() {
                                                     staticClass: "history-bar"
                                                   },
                                                   [
-                                                    _vm._m(34),
+                                                    _vm._m(42),
                                                     _vm._v(" "),
                                                     _c(
                                                       "div",
@@ -55388,7 +55645,7 @@ var render = function() {
                                       staticClass: "head-text-section bg-light"
                                     },
                                     [
-                                      _vm._m(35),
+                                      _vm._m(43),
                                       _vm._v(" "),
                                       _c("textarea", {
                                         directives: [
@@ -55490,6 +55747,692 @@ var staticRenderFns = [
         staticClass: "fa-xs fas fa-square",
         staticStyle: { "padding-right": "10px" }
       }),
+      _vm._v("AT-Risk Property Analysis")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "openInfo cmOpenInfo",
+        staticStyle: { display: "none" },
+        attrs: { id: "cokaInfo" }
+      },
+      [
+        _c("div", { staticClass: "atRiskHeader" }, [
+          _c("span", [_vm._v("Estimated Annual Registration")]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticStyle: { position: "absolute", top: "0px", right: "0px" } },
+            [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-default btn-primary",
+                  attrs: { type: "button" }
+                },
+                [_vm._v("Map")]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-default btn-primary",
+                  attrs: { type: "button" }
+                },
+                [_vm._v("Print")]
+              )
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "cardHolder",
+              staticStyle: {
+                width: "100%",
+                "padding-top": "30px",
+                overflow: "hidden"
+              }
+            },
+            [
+              _c(
+                "div",
+                {
+                  staticClass: "card",
+                  staticStyle: {
+                    width: "24%",
+                    float: "left",
+                    border: "1px solid",
+                    "border-radius": "unset",
+                    "min-height": "220px",
+                    margin: "0px 3px"
+                  }
+                },
+                [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "cardCustomHeader",
+                      staticStyle: {
+                        padding: "10px 0px",
+                        "background-color": "#22292f",
+                        color: "white"
+                      }
+                    },
+                    [
+                      _c(
+                        "h4",
+                        {
+                          staticStyle: { width: "56%", display: "inline-block" }
+                        },
+                        [_vm._v("Short Term Rental")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "h4",
+                        {
+                          staticStyle: {
+                            width: "40%",
+                            display: "inline-block",
+                            "text-align": "right"
+                          }
+                        },
+                        [_vm._v("STR")]
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "h4",
+                    {
+                      staticStyle: {
+                        margin: "10px 0px",
+                        width: "100%",
+                        "text-align": "center",
+                        "border-bottom": "2px solid",
+                        padding: "10px"
+                      }
+                    },
+                    [_vm._v("1200")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "cardCustomHeader",
+                      staticStyle: { padding: "10px 10px" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticStyle: { width: "56%", display: "inline-block" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                                                    Listing Estimate \n                                                "
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticStyle: {
+                            width: "40%",
+                            display: "inline-block",
+                            "text-align": "right"
+                          }
+                        },
+                        [
+                          _c("input", {
+                            staticStyle: { width: "70%", border: "1px solid" },
+                            attrs: { type: "text" }
+                          })
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticStyle: { width: "56%" } }, [
+                        _c("small", [
+                          _vm._v(
+                            "(Based on Regional Average of 2% of households)"
+                          )
+                        ])
+                      ])
+                    ]
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "card",
+                  staticStyle: {
+                    width: "24%",
+                    float: "left",
+                    border: "1px solid",
+                    "border-radius": "unset",
+                    "min-height": "220px",
+                    margin: "0px 3px"
+                  }
+                },
+                [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "cardCustomHeader",
+                      staticStyle: {
+                        padding: "10px 0px",
+                        "background-color": "#22292f",
+                        color: "white"
+                      }
+                    },
+                    [
+                      _c(
+                        "h4",
+                        {
+                          staticStyle: { width: "56%", display: "inline-block" }
+                        },
+                        [_vm._v("Long Term Rental")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "h4",
+                        {
+                          staticStyle: {
+                            width: "40%",
+                            display: "inline-block",
+                            "text-align": "right"
+                          }
+                        },
+                        [_vm._v("STR")]
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "h4",
+                    {
+                      staticStyle: {
+                        margin: "10px 0px",
+                        width: "100%",
+                        "text-align": "center",
+                        "border-bottom": "2px solid",
+                        padding: "10px"
+                      }
+                    },
+                    [_vm._v("3500")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "cardCustomHeader",
+                      staticStyle: { padding: "10px 10px" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticStyle: { width: "56%", display: "inline-block" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                                                    Census Estimate\n                                                "
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticStyle: {
+                            width: "40%",
+                            display: "inline-block",
+                            "text-align": "right"
+                          }
+                        },
+                        [
+                          _c("input", {
+                            staticStyle: { width: "70%", border: "1px solid" },
+                            attrs: { type: "text" }
+                          })
+                        ]
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "cardCustomHeader",
+                      staticStyle: { padding: "10px 10px" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticStyle: { width: "56%", display: "inline-block" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                                                    Currently NOO\n                                                    "
+                          ),
+                          _c("br"),
+                          _vm._v(
+                            " (Not Owner Occupied)\n                                                "
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticStyle: {
+                            width: "40%",
+                            display: "inline-block",
+                            "text-align": "right"
+                          }
+                        },
+                        [
+                          _c("input", {
+                            staticStyle: { width: "70%", border: "1px solid" },
+                            attrs: { type: "text" }
+                          })
+                        ]
+                      )
+                    ]
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "card",
+                  staticStyle: {
+                    width: "24%",
+                    float: "left",
+                    border: "1px solid",
+                    "border-radius": "unset",
+                    "min-height": "220px",
+                    margin: "0px 3px"
+                  }
+                },
+                [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "cardCustomHeader",
+                      staticStyle: {
+                        padding: "10px 0px",
+                        "background-color": "#22292f",
+                        color: "white"
+                      }
+                    },
+                    [
+                      _c(
+                        "h4",
+                        {
+                          staticStyle: { width: "56%", display: "inline-block" }
+                        },
+                        [_vm._v("Foreclosure")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "h4",
+                        {
+                          staticStyle: {
+                            width: "40%",
+                            display: "inline-block",
+                            "text-align": "right"
+                          }
+                        },
+                        [_vm._v("STR")]
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "h4",
+                    {
+                      staticStyle: {
+                        margin: "10px 0px",
+                        width: "100%",
+                        "text-align": "center",
+                        "border-bottom": "2px solid",
+                        padding: "10px"
+                      }
+                    },
+                    [_vm._v("550")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "cardCustomHeader",
+                      staticStyle: { padding: "10px 10px" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticStyle: { width: "56%", display: "inline-block" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                                                    Currently Active\n                                                "
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticStyle: {
+                            width: "40%",
+                            display: "inline-block",
+                            "text-align": "right"
+                          }
+                        },
+                        [
+                          _c("input", {
+                            staticStyle: { width: "70%", border: "1px solid" },
+                            attrs: { type: "text" }
+                          })
+                        ]
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "cardCustomHeader",
+                      staticStyle: { padding: "10px 10px" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticStyle: { width: "56%", display: "inline-block" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                                                    New Foreclosure Status\n                                                    "
+                          ),
+                          _c("br"),
+                          _vm._v(
+                            "\n                                                    (Last 12 Month)\n                                                "
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticStyle: {
+                            width: "40%",
+                            display: "inline-block",
+                            "text-align": "right"
+                          }
+                        },
+                        [
+                          _c("input", {
+                            staticStyle: { width: "70%", border: "1px solid" },
+                            attrs: { type: "text" }
+                          })
+                        ]
+                      )
+                    ]
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "card",
+                  staticStyle: {
+                    width: "24%",
+                    float: "left",
+                    border: "1px solid",
+                    "border-radius": "unset",
+                    "min-height": "220px",
+                    margin: "0px 3px"
+                  }
+                },
+                [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "cardCustomHeader",
+                      staticStyle: {
+                        padding: "10px 0px",
+                        "background-color": "#22292f",
+                        color: "white"
+                      }
+                    },
+                    [
+                      _c(
+                        "h4",
+                        {
+                          staticStyle: { width: "56%", display: "inline-block" }
+                        },
+                        [_vm._v("Vacant Private Owner")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "h4",
+                        {
+                          staticStyle: {
+                            width: "40%",
+                            display: "inline-block",
+                            "text-align": "right"
+                          }
+                        },
+                        [_vm._v("STR")]
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "h4",
+                    {
+                      staticStyle: {
+                        margin: "10px 0px",
+                        width: "100%",
+                        "text-align": "center",
+                        "border-bottom": "2px solid",
+                        padding: "10px"
+                      }
+                    },
+                    [_vm._v("2300")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "cardCustomHeader",
+                      staticStyle: { padding: "10px 10px" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticStyle: { width: "56%", display: "inline-block" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                                                    Census Estimate\n                                                "
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticStyle: {
+                            width: "40%",
+                            display: "inline-block",
+                            "text-align": "right"
+                          }
+                        },
+                        [
+                          _c("input", {
+                            staticStyle: { width: "70%", border: "1px solid" },
+                            attrs: { type: "text" }
+                          })
+                        ]
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "cardCustomHeader",
+                      staticStyle: { padding: "10px 10px" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticStyle: { width: "56%", display: "inline-block" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                                                    USPS Vacant\n                                                "
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticStyle: {
+                            width: "40%",
+                            display: "inline-block",
+                            "text-align": "right"
+                          }
+                        },
+                        [
+                          _c("input", {
+                            staticStyle: { width: "70%", border: "1px solid" },
+                            attrs: { type: "text" }
+                          })
+                        ]
+                      )
+                    ]
+                  )
+                ]
+              )
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "h4",
+            {
+              staticStyle: {
+                width: "100%",
+                "text-align": "center",
+                "padding-top": "15px"
+              }
+            },
+            [
+              _vm._v(
+                "\n                                            *The estimated annual registration are bsed on best practice orinance nd colaborative enforcement and ##% compliance.\n                                        "
+              )
+            ]
+          )
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("h4", [
+      _c("i", { staticClass: "fa-xs fas fa-square" }),
+      _vm._v("Sales Cycle")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "openInfo cmOpenInfo",
+        staticStyle: { display: "none" },
+        attrs: { id: "tyksInfo" }
+      },
+      [_c("span", [_vm._v("Some Content")])]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("h4", [
+      _c("i", { staticClass: "fa-xs fas fa-square" }),
+      _vm._v("Relationship Manager")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "openInfo cmOpenInfo",
+        staticStyle: { display: "none" },
+        attrs: { id: "flkrInfo" }
+      },
+      [_c("span", [_vm._v("Some Content")])]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("h4", [
+      _c("i", { staticClass: "fa-xs fas fa-square" }),
+      _vm._v("Sales Configuration")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "openInfo cmOpenInfo",
+        staticStyle: { display: "none" },
+        attrs: { id: "tlksInfo" }
+      },
+      [_c("span", [_vm._v("Some Content")])]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("h4", [
+      _c("i", {
+        staticClass: "fa-xs fas fa-square",
+        staticStyle: { "padding-right": "10px" }
+      }),
       _vm._v("Key Metrick")
     ])
   },
@@ -55502,7 +56445,7 @@ var staticRenderFns = [
       {
         staticClass: "openInfo cmOpenInfo",
         staticStyle: { display: "none" },
-        attrs: { id: "coInfo" }
+        attrs: { id: "cokInfo" }
       },
       [_c("span", [_vm._v("Some Content")])]
     )
@@ -55525,7 +56468,7 @@ var staticRenderFns = [
       {
         staticClass: "openInfo cmOpenInfo",
         staticStyle: { display: "none" },
-        attrs: { id: "tyInfo" }
+        attrs: { id: "tykInfo" }
       },
       [_c("span", [_vm._v("Some Content")])]
     )
@@ -55548,7 +56491,7 @@ var staticRenderFns = [
       {
         staticClass: "openInfo cmOpenInfo",
         staticStyle: { display: "none" },
-        attrs: { id: "flInfo" }
+        attrs: { id: "flkInfo" }
       },
       [_c("span", [_vm._v("Some Content")])]
     )
@@ -55571,7 +56514,7 @@ var staticRenderFns = [
       {
         staticClass: "openInfo cmOpenInfo",
         staticStyle: { display: "none" },
-        attrs: { id: "tlInfo" }
+        attrs: { id: "tlkInfo" }
       },
       [_c("span", [_vm._v("Some Content")])]
     )
@@ -55597,7 +56540,7 @@ var staticRenderFns = [
       {
         staticClass: "openInfo cmOpenInfo",
         staticStyle: { display: "none" },
-        attrs: { id: "coInfo" }
+        attrs: { id: "cocInfo" }
       },
       [_c("span", [_vm._v("Some Content")])]
     )
@@ -55620,7 +56563,7 @@ var staticRenderFns = [
       {
         staticClass: "openInfo cmOpenInfo",
         staticStyle: { display: "none" },
-        attrs: { id: "tyInfo" }
+        attrs: { id: "tycInfo" }
       },
       [_c("span", [_vm._v("Some Content")])]
     )
@@ -55643,7 +56586,7 @@ var staticRenderFns = [
       {
         staticClass: "openInfo cmOpenInfo",
         staticStyle: { display: "none" },
-        attrs: { id: "flInfo" }
+        attrs: { id: "flcInfo" }
       },
       [_c("span", [_vm._v("Some Content")])]
     )
@@ -55669,7 +56612,7 @@ var staticRenderFns = [
       {
         staticClass: "openInfo cmOpenInfo",
         staticStyle: { display: "none" },
-        attrs: { id: "coInfo" }
+        attrs: { id: "coiInfo" }
       },
       [_c("span", [_vm._v("Some Content")])]
     )
@@ -55692,7 +56635,7 @@ var staticRenderFns = [
       {
         staticClass: "openInfo cmOpenInfo",
         staticStyle: { display: "none" },
-        attrs: { id: "tyInfo" }
+        attrs: { id: "tyiInfo" }
       },
       [_c("span", [_vm._v("Some Content")])]
     )
@@ -55715,7 +56658,7 @@ var staticRenderFns = [
       {
         staticClass: "openInfo cmOpenInfo",
         staticStyle: { display: "none" },
-        attrs: { id: "flInfo" }
+        attrs: { id: "fliInfo" }
       },
       [_c("span", [_vm._v("Some Content")])]
     )
@@ -55741,7 +56684,7 @@ var staticRenderFns = [
       {
         staticClass: "openInfo cmOpenInfo",
         staticStyle: { display: "none" },
-        attrs: { id: "coInfo" }
+        attrs: { id: "comInfo" }
       },
       [_c("span", [_vm._v("Some Content")])]
     )
@@ -55764,7 +56707,7 @@ var staticRenderFns = [
       {
         staticClass: "openInfo cmOpenInfo",
         staticStyle: { display: "none" },
-        attrs: { id: "tyInfo" }
+        attrs: { id: "tymInfo" }
       },
       [_c("span", [_vm._v("Some Content")])]
     )
@@ -55787,7 +56730,7 @@ var staticRenderFns = [
       {
         staticClass: "openInfo cmOpenInfo",
         staticStyle: { display: "none" },
-        attrs: { id: "flInfo" }
+        attrs: { id: "flmInfo" }
       },
       [_c("span", [_vm._v("Some Content")])]
     )

@@ -69,48 +69,187 @@
                     </div>
                     <div class="tabs" style="width:190px">
                         <span class="tabCustom" id="tasksTab" @click="openTabContent('tasksTabContent', 'tasksTab')">Tasks</span>
-                        <span class="tabCustom" id="actionTab" @click="openTabContent('actionTabContent', 'actionTab')">Action</span>
+                        <span class="tabCustom" id="actionTab" @click="openTabContent('actionTabContent', 'actionTab')">Admin</span>
                     </div>
                 </div>
                 <div class="summary" style="padding: 30px 20px;box-shadow:unset;border: 2px solid #908f8f;min-height: 150px;">
                     <div class="tabContent" id="salesTabContent" style="display:block">
-                        rew ysertyw r
+                        <div class="wrap-detailBox">
+                            <div>
+                                <div class="label-square hoverUnderLine" @click="communityOpen('coka')" style="position: relative;">
+                                    <div class="fa-xs fas fa-sort-down rotate customHeadRightArrow" style="position: absolute;top: 0px;right: 0px;"></div>
+                                    <h4><i class="fa-xs fas fa-square" style="padding-right: 10px;"></i>AT-Risk Property Analysis</h4>
+                                </div>
+                                <div class="openInfo cmOpenInfo" id="cokaInfo" style="display:none">
+                                    <div class="atRiskHeader">
+                                        <span>Estimated Annual Registration</span>
+                                        <div style="position: absolute;top: 0px;right: 0px;">
+                                            <button type="button" class="btn btn-default btn-primary">Map</button>
+                                            <button type="button" class="btn btn-default btn-primary">Print</button>
+                                        </div>
+                                        <div class="cardHolder" style="width:100%;padding-top:30px;overflow: hidden;">
+                                            <div class="card" style="width:24%;float:left;border: 1px solid;border-radius:unset;min-height: 220px;margin: 0px 3px;">
+                                                <div class="cardCustomHeader" style="padding: 10px 0px;background-color: #22292f;color: white;">
+                                                    <h4 style="width:56%;display: inline-block;">Short Term Rental</h4>
+                                                    <h4 style="width:40%;display: inline-block;text-align: right;">STR</h4>
+                                                </div>
+                                                <h4 style="margin: 10px 0px;width:100%;text-align:center;border-bottom: 2px solid;padding: 10px;">1200</h4>
+
+                                                <div class="cardCustomHeader" style="padding: 10px 10px;">
+                                                    <div style="width:56%;display: inline-block;">
+                                                        Listing Estimate 
+                                                    </div>
+                                                    <div style="width:40%;display: inline-block;text-align: right;">
+                                                        <input type="text" style="width:70%; border:1px solid">
+                                                    </div>
+                                                    <div style="width:56%;">
+                                                        <small>(Based on Regional Average of 2% of households)</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card" style="width:24%;float:left;;border: 1px solid;border-radius:unset;min-height: 220px;margin: 0px 3px;">
+                                                <div class="cardCustomHeader" style="padding: 10px 0px;background-color: #22292f;color: white;">
+                                                    <h4 style="width:56%;display: inline-block;">Long Term Rental</h4>
+                                                    <h4 style="width:40%;display: inline-block;text-align: right;">STR</h4>
+                                                </div>
+                                                <h4 style="margin: 10px 0px;width:100%;text-align:center;border-bottom: 2px solid;padding: 10px;">3500</h4>
+                                                <div class="cardCustomHeader" style="padding: 10px 10px;">
+                                                    <div style="width:56%;display: inline-block;">
+                                                        Census Estimate
+                                                    </div>
+                                                    <div style="width:40%;display: inline-block;text-align: right;">
+                                                        <input type="text" style="width:70%; border:1px solid">
+                                                    </div>
+                                                </div>
+                                                <div class="cardCustomHeader" style="padding: 10px 10px;">
+                                                    <div style="width:56%;display: inline-block;">
+                                                        Currently NOO
+                                                        <br> (Not Owner Occupied)
+                                                    </div>
+                                                    <div style="width:40%;display: inline-block;text-align: right;">
+                                                        <input type="text" style="width:70%; border:1px solid">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card" style="width:24%;float:left;;border: 1px solid;border-radius: unset;min-height: 220px;margin: 0px 3px;">
+                                                <div class="cardCustomHeader" style="padding: 10px 0px;background-color: #22292f;color: white;">
+                                                    <h4 style="width:56%;display: inline-block;">Foreclosure</h4>
+                                                    <h4 style="width:40%;display: inline-block;text-align: right;">STR</h4>
+                                                </div>
+                                                <h4 style="margin: 10px 0px;width:100%;text-align:center;border-bottom: 2px solid;padding: 10px;">550</h4>
+                                                <div class="cardCustomHeader" style="padding: 10px 10px;">
+                                                    <div style="width:56%;display: inline-block;">
+                                                        Currently Active
+                                                    </div>
+                                                    <div style="width:40%;display: inline-block;text-align: right;">
+                                                        <input type="text" style="width:70%; border:1px solid">
+                                                    </div>
+                                                </div>
+                                                <div class="cardCustomHeader" style="padding: 10px 10px;">
+                                                    <div style="width:56%;display: inline-block;">
+                                                        New Foreclosure Status
+                                                        <br>
+                                                        (Last 12 Month)
+                                                    </div>
+                                                    <div style="width:40%;display: inline-block;text-align: right;">
+                                                        <input type="text" style="width:70%; border:1px solid">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card" style="width:24%;float:left;;border: 1px solid;border-radius:unset;min-height: 220px;margin: 0px 3px;">
+                                                <div class="cardCustomHeader" style="padding: 10px 0px;background-color: #22292f;color: white;">
+                                                    <h4 style="width:56%;display: inline-block;">Vacant Private Owner</h4>
+                                                    <h4 style="width:40%;display: inline-block;text-align: right;">STR</h4>
+                                                </div>
+                                                <h4 style="margin: 10px 0px;width:100%;text-align:center;border-bottom: 2px solid;padding: 10px;">2300</h4>
+                                                <div class="cardCustomHeader" style="padding: 10px 10px;">
+                                                    <div style="width:56%;display: inline-block;">
+                                                        Census Estimate
+                                                    </div>
+                                                    <div style="width:40%;display: inline-block;text-align: right;">
+                                                        <input type="text" style="width:70%; border:1px solid">
+                                                    </div>
+                                                </div>
+                                                <div class="cardCustomHeader" style="padding: 10px 10px;">
+                                                    <div style="width:56%;display: inline-block;">
+                                                        USPS Vacant
+                                                    </div>
+                                                    <div style="width:40%;display: inline-block;text-align: right;">
+                                                        <input type="text" style="width:70%; border:1px solid">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                            <h4 style="width:100%;text-align: center;padding-top: 15px;">
+                                                *The estimated annual registration are bsed on best practice orinance nd colaborative enforcement and ##% compliance.
+                                            </h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="label-square hoverUnderLine" @click="communityOpen('tyks')" style="position: relative;">
+                                    <div class="fa-xs fas fa-sort-down rotate customHeadRightArrow" style="position: absolute;top: 0px;right: 0px;"></div>
+                                    <h4><i class="fa-xs fas fa-square"></i>Sales Cycle</h4>
+                                </div>
+                                <div class="openInfo cmOpenInfo" id="tyksInfo" style="display:none">
+                                    <span>Some Content</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="label-square hoverUnderLine" @click="communityOpen('flkr')" style="position: relative;">
+                                    <div class="fa-xs fas fa-sort-down rotate customHeadRightArrow" style="position: absolute;top: 0px;right: 0px;"></div>
+                                    <h4><i class="fa-xs fas fa-square"></i>Relationship Manager</h4>
+                                </div>
+                                <div class="openInfo cmOpenInfo" id="flkrInfo" style="display:none">
+                                    <span>Some Content</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="label-square hoverUnderLine" @click="communityOpen('tlks')" style="position: relative;">
+                                    <div class="fa-xs fas fa-sort-down rotate customHeadRightArrow" style="position: absolute;top: 0px;right: 0px;"></div>
+                                    <h4><i class="fa-xs fas fa-square"></i>Sales Configuration</h4>
+                                </div>
+                                <div class="openInfo cmOpenInfo" id="tlksInfo" style="display:none">
+                                    <span>Some Content</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="tabContent" id="serviceTabContent" style="max-width: 1000px;margin: 0px auto;">
                         <div class="wrap-detailBox">
                             <div>
-                                <div class="label-square hoverUnderLine" @click="communityOpen('co')" style="position: relative;">
+                                <div class="label-square hoverUnderLine" @click="communityOpen('cok')" style="position: relative;">
                                     <div class="fa-xs fas fa-sort-down rotate customHeadRightArrow" style="position: absolute;top: 0px;right: 0px;"></div>
                                     <h4><i class="fa-xs fas fa-square" style="padding-right: 10px;"></i>Key Metrick</h4>
                                 </div>
-                                <div class="openInfo cmOpenInfo" id="coInfo" style="display:none">
+                                <div class="openInfo cmOpenInfo" id="cokInfo" style="display:none">
                                     <span>Some Content</span>
                                 </div>
                             </div>
                             <div>
-                                <div class="label-square hoverUnderLine" @click="communityOpen('ty')" style="position: relative;">
+                                <div class="label-square hoverUnderLine" @click="communityOpen('tyk')" style="position: relative;">
                                     <div class="fa-xs fas fa-sort-down rotate customHeadRightArrow" style="position: absolute;top: 0px;right: 0px;"></div>
                                     <h4><i class="fa-xs fas fa-square"></i>Remitance</h4>
                                 </div>
-                                <div class="openInfo cmOpenInfo" id="tyInfo" style="display:none">
+                                <div class="openInfo cmOpenInfo" id="tykInfo" style="display:none">
                                     <span>Some Content</span>
                                 </div>
                             </div>
                             <div>
-                                <div class="label-square hoverUnderLine" @click="communityOpen('fl')" style="position: relative;">
+                                <div class="label-square hoverUnderLine" @click="communityOpen('flk')" style="position: relative;">
                                     <div class="fa-xs fas fa-sort-down rotate customHeadRightArrow" style="position: absolute;top: 0px;right: 0px;"></div>
                                     <h4><i class="fa-xs fas fa-square"></i>Branding</h4>
                                 </div>
-                                <div class="openInfo cmOpenInfo" id="flInfo" style="display:none">
+                                <div class="openInfo cmOpenInfo" id="flkInfo" style="display:none">
                                     <span>Some Content</span>
                                 </div>
                             </div>
                             <div>
-                                <div class="label-square hoverUnderLine" @click="communityOpen('tl')" style="position: relative;">
+                                <div class="label-square hoverUnderLine" @click="communityOpen('tlk')" style="position: relative;">
                                     <div class="fa-xs fas fa-sort-down rotate customHeadRightArrow" style="position: absolute;top: 0px;right: 0px;"></div>
                                     <h4><i class="fa-xs fas fa-square"></i>Miscellaneous</h4>
                                 </div>
-                                <div class="openInfo cmOpenInfo" id="tlInfo" style="display:none">
+                                <div class="openInfo cmOpenInfo" id="tlkInfo" style="display:none">
                                     <span>Some Content</span>
                                 </div>
                             </div>
@@ -119,29 +258,29 @@
                     <div class="tabContent" id="legalTabContent" style="max-width: 1000px;margin: 0px auto;">
                         <div class="wrap-detailBox">
                             <div>
-                                <div class="label-square hoverUnderLine" @click="communityOpen('co')" style="position: relative;">
+                                <div class="label-square hoverUnderLine" @click="communityOpen('coc')" style="position: relative;">
                                     <div class="fa-xs fas fa-sort-down rotate customHeadRightArrow" style="position: absolute;top: 0px;right: 0px;"></div>
                                     <h4><i class="fa-xs fas fa-square" style="padding-right: 10px;"></i>Contracts</h4>
                                 </div>
-                                <div class="openInfo cmOpenInfo" id="coInfo" style="display:none">
+                                <div class="openInfo cmOpenInfo" id="cocInfo" style="display:none">
                                     <span>Some Content</span>
                                 </div>
                             </div>
                             <div>
-                                <div class="label-square hoverUnderLine" @click="communityOpen('ty')" style="position: relative;">
+                                <div class="label-square hoverUnderLine" @click="communityOpen('tyc')" style="position: relative;">
                                     <div class="fa-xs fas fa-sort-down rotate customHeadRightArrow" style="position: absolute;top: 0px;right: 0px;"></div>
                                     <h4><i class="fa-xs fas fa-square"></i>Ordinance History</h4>
                                 </div>
-                                <div class="openInfo cmOpenInfo" id="tyInfo" style="display:none">
+                                <div class="openInfo cmOpenInfo" id="tycInfo" style="display:none">
                                     <span>Some Content</span>
                                 </div>
                             </div>
                             <div>
-                                <div class="label-square hoverUnderLine" @click="communityOpen('fl')" style="position: relative;">
+                                <div class="label-square hoverUnderLine" @click="communityOpen('flc')" style="position: relative;">
                                     <div class="fa-xs fas fa-sort-down rotate customHeadRightArrow" style="position: absolute;top: 0px;right: 0px;"></div>
                                     <h4><i class="fa-xs fas fa-square"></i>Key Policy</h4>
                                 </div>
-                                <div class="openInfo cmOpenInfo" id="flInfo" style="display:none">
+                                <div class="openInfo cmOpenInfo" id="flcInfo" style="display:none">
                                     <span>Some Content</span>
                                 </div>
                             </div>
@@ -150,29 +289,29 @@
                     <div class="tabContent" id="contactTabContent" style="max-width: 1000px;margin: 0px auto;">
                         <div class="wrap-detailBox">
                             <div>
-                                <div class="label-square hoverUnderLine" @click="communityOpen('co')" style="position: relative;">
+                                <div class="label-square hoverUnderLine" @click="communityOpen('coi')" style="position: relative;">
                                     <div class="fa-xs fas fa-sort-down rotate customHeadRightArrow" style="position: absolute;top: 0px;right: 0px;"></div>
                                     <h4><i class="fa-xs fas fa-square" style="padding-right: 10px;"></i>Interactions</h4>
                                 </div>
-                                <div class="openInfo cmOpenInfo" id="coInfo" style="display:none">
+                                <div class="openInfo cmOpenInfo" id="coiInfo" style="display:none">
                                     <span>Some Content</span>
                                 </div>
                             </div>
                             <div>
-                                <div class="label-square hoverUnderLine" @click="communityOpen('ty')" style="position: relative;">
+                                <div class="label-square hoverUnderLine" @click="communityOpen('tyi')" style="position: relative;">
                                     <div class="fa-xs fas fa-sort-down rotate customHeadRightArrow" style="position: absolute;top: 0px;right: 0px;"></div>
                                     <h4><i class="fa-xs fas fa-square"></i>People</h4>
                                 </div>
-                                <div class="openInfo cmOpenInfo" id="tyInfo" style="display:none">
+                                <div class="openInfo cmOpenInfo" id="tyiInfo" style="display:none">
                                     <span>Some Content</span>
                                 </div>
                             </div>
                             <div>
-                                <div class="label-square hoverUnderLine" @click="communityOpen('fl')" style="position: relative;">
+                                <div class="label-square hoverUnderLine" @click="communityOpen('fli')" style="position: relative;">
                                     <div class="fa-xs fas fa-sort-down rotate customHeadRightArrow" style="position: absolute;top: 0px;right: 0px;"></div>
                                     <h4><i class="fa-xs fas fa-square"></i>Key Roles</h4>
                                 </div>
-                                <div class="openInfo cmOpenInfo" id="flInfo" style="display:none">
+                                <div class="openInfo cmOpenInfo" id="fliInfo" style="display:none">
                                     <span>Some Content</span>
                                 </div>
                             </div>
@@ -184,29 +323,29 @@
                     <div class="tabContent" id="actionTabContent" style="max-width: 1000px;margin: 0px auto;">
                         <div class="wrap-detailBox">
                             <div>
-                                <div class="label-square hoverUnderLine" @click="communityOpen('co')" style="position: relative;">
+                                <div class="label-square hoverUnderLine" @click="communityOpen('com')" style="position: relative;">
                                     <div class="fa-xs fas fa-sort-down rotate customHeadRightArrow" style="position: absolute;top: 0px;right: 0px;"></div>
                                     <h4><i class="fa-xs fas fa-square" style="padding-right: 10px;"></i>Community Status</h4>
                                 </div>
-                                <div class="openInfo cmOpenInfo" id="coInfo" style="display:none">
+                                <div class="openInfo cmOpenInfo" id="comInfo" style="display:none">
                                     <span>Some Content</span>
                                 </div>
                             </div>
                             <div>
-                                <div class="label-square hoverUnderLine" @click="communityOpen('ty')" style="position: relative;">
+                                <div class="label-square hoverUnderLine" @click="communityOpen('tym')" style="position: relative;">
                                     <div class="fa-xs fas fa-sort-down rotate customHeadRightArrow" style="position: absolute;top: 0px;right: 0px;"></div>
                                     <h4><i class="fa-xs fas fa-square"></i>Change Requests</h4>
                                 </div>
-                                <div class="openInfo cmOpenInfo" id="tyInfo" style="display:none">
+                                <div class="openInfo cmOpenInfo" id="tymInfo" style="display:none">
                                     <span>Some Content</span>
                                 </div>
                             </div>
                             <div>
-                                <div class="label-square hoverUnderLine" @click="communityOpen('fl')" style="position: relative;">
+                                <div class="label-square hoverUnderLine" @click="communityOpen('flm')" style="position: relative;">
                                     <div class="fa-xs fas fa-sort-down rotate customHeadRightArrow" style="position: absolute;top: 0px;right: 0px;"></div>
                                     <h4><i class="fa-xs fas fa-square"></i>Activity Log</h4>
                                 </div>
-                                <div class="openInfo cmOpenInfo" id="flInfo" style="display:none">
+                                <div class="openInfo cmOpenInfo" id="flmInfo" style="display:none">
                                     <span>Some Content</span>
                                 </div>
                             </div>

@@ -17,14 +17,14 @@ Route::post('/count', function (Request $request) {
     $query->leftJoin('cm_community_quartiles as u', 'osusr_mlv_community.COMMUNITYID', '=', 'u.community_id');
     $query->leftJoin('cm_rental_vacant_sales_statuses as s', 'osusr_mlv_community.COMMUNITYID', '=', 's.community_id');
     $query->leftJoin('osusr_tvl_crm as c', 'osusr_mlv_community.COMMUNITYID', '=', 'c.COMMUNITYID');
-    $query->leftJoin('cm_sales_cycles as y', 'osusr_mlv_community.COMMUNITYID', '=', 'y.community_id');
+    
     //  $query->leftJoin('osusr_tvl_crm_rm as r', "osusr_mlv_community.COMMUNITYID", '=', 'r.COMMUNITYID');
     //  $foreclosureQuery->leftJoin('osusr_tvl_crm_rm as r', "osusr_mlv_community.COMMUNITYID", '=', 'r.COMMUNITYID');
     $foreclosureQuery->leftJoin('osusr_tvl_crm as c', 'osusr_mlv_community.COMMUNITYID', '=', 'c.COMMUNITYID');
     $foreclosureQuery->leftJoin('cm_community_quartiles as u', 'osusr_mlv_community.COMMUNITYID', '=', 'u.community_id');
     $foreclosureQuery->leftJoin('cm_rental_vacant_sales_statuses as s', 'osusr_mlv_community.COMMUNITYID', '=', 's.community_id');
     $foreclosureQuery->leftJoin('OSUSR_tvl_RTStatsSummaryHistory as f', 'osusr_mlv_community.COMMUNITYID', '=', 'f.COMMCOMMUNITYID');
-    $foreclosureQuery->leftJoin('cm_sales_cycles as y', 'osusr_mlv_community.COMMUNITYID', '=', 'y.community_id');
+    
     $rentalFilterUsed = false;
     $vacantFilterUsed = false;
     $foreclosureFilterUsed = false;
@@ -86,6 +86,9 @@ Route::post('/count', function (Request $request) {
             }
         }
         if($SalesCycle){
+            $query->leftJoin('cm_sales_cycles as y', 'osusr_mlv_community.COMMUNITYID', '=', 'y.community_id');
+            $foreclosureQuery->leftJoin('cm_sales_cycles as y', 'osusr_mlv_community.COMMUNITYID', '=', 'y.community_id');
+
             if ($SalesCycle[11] == true) {
                 $query->where('y.sales_stage', '=', 11);
                 $foreclosureQuery->where('y.sales_stage', '=', 11);

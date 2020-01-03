@@ -28,8 +28,8 @@ Route::get('/loadCommunity/{id}', function (Request $request, $id) {
             'header'  => "Authorization: bearer " . $response->access_token
         )
     ));
-    $socialprofiles = file_get_contents('https://app.asana.com/api/1.0/projects/'.$project->project_id, false, $context);
-    return $socialprofiles;
+    $asanaProj = file_get_contents('https://app.asana.com/api/1.0/projects/'.$project->project_id, false, $context);
+    return ['project' => json_decode($asanaProj), 'projLocal' => $project];
 
 });
 Route::post('/deleteCommunity', function (Request $request) {

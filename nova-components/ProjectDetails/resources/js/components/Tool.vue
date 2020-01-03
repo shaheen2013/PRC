@@ -1,16 +1,24 @@
 <template>
     <div>
         <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+        <h5 style="font-size: 15px;color: rgb(156, 155, 155);width: 100%;text-align: right;">
+            <button v-if="!deleteProj" @click="deleteProject()" class="btn btn-default btn-danger">Delete Project</button>
+            <i  v-if="deleteProj" class="fa fa-spinner fa-spin" style="font-size:30px"></i>
+        </h5>
         <div id="projectInfo">
             <div v-if="project.loading">
                 <i class="fa fa-spinner fa-spin" style="font-size:30px"></i>
             </div>
             <div v-if="!project.loading">
-                <h2>Project Name: {{project.data.name}}</h2>
-                <strong>ID #{{project.data.gid}}</strong>
+                <h2 style="color: #0a4c9e">Project Name: {{project.data.name}}</h2>
+                <strong style="color:#9c9b9b; padding:5px 0px">ID #{{project.data.gid}}</strong>
                 <br>
-                <button v-if="!deleteProj" @click="deleteProject()" class="btn btn-default btn-danger">Delete Project</button>
-                <i  v-if="deleteProj" class="fa fa-spinner fa-spin" style="font-size:30px"></i>
+                <strong style="color:#9c9b9b">Created At #{{((project.local.created_at).split(' '))[0]}}</strong>
+                <br>
+                <br>
+                <br>
+                <h2 style="color: #22292f">Project Owner: {{project.data.owner.name}}</h2>
+                <strong style="color:#9c9b9b; padding:5px 0px">Owner ID #{{project.data.owner.gid}}</strong>
             </div>
         </div>
     </div>
@@ -23,7 +31,8 @@ export default {
             return {
                 project: {
                     loading: true,
-                    data:{}
+                    data:{},
+                    local: {}
                 },
                 deleteProj: false
             }
@@ -36,7 +45,9 @@ export default {
             Nova.request().get(`/nova-vendor/project-details/loadCommunity/${this.resourceId}`).then(response => {
                 console.log(response);
                 this.project.loading = false;
-                this.project.data = response.data.data;
+                this.project.data = response.data.project.data;
+                this.project.local = response.data.projLocal;
+                console.log(response.data.projLocal)
             });
         },
         deleteProject(){
@@ -53,3 +64,8 @@ export default {
     },
 }
 </script>
+<style scoped>
+    .projectInfo {
+        color: red;
+    }
+</style>
