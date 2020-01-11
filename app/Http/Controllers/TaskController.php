@@ -18,7 +18,7 @@ class TaskController extends Controller
     {
         // $this->middleware('auth');
         $this->asana = new Asana([
-            'personalAccessToken' => env('ASANA_PAT')
+            'personalAccessToken' => '0/a4ced7855c8c64636be659aec5a9b041'
         ]);
     }
 

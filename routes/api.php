@@ -19,6 +19,13 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::group(['prefix' => 'asana'], function () {
+    Route::group(['prefix' => 'tab',], function () {
+        Route::get('/', 'TabController@index');
+        Route::get('/users', 'TabController@users');
+        Route::get('/sections/{id}', 'TabController@getSections');
+        Route::get('/tasks/{id}', 'TabController@getTasks');
+        Route::post('/tasks/store', 'TabController@storeTasks');
+    });
     Route::group(['prefix' => 'project',], function () {
         Route::get('/', 'ProjectController@index')->name('projectIndex');
         Route::get('/create', 'ProjectController@create');

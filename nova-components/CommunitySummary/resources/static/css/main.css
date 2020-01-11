@@ -129,14 +129,14 @@ a:hover, a:focus {
   padding: 0px 0 0 20px;
   z-index: 1; }
 
-.headline {
-  display: inline-block;
-  vertical-align: middle;
-  font-size: 32px;
-  align-items: center;
-  line-height: 1;
+.titleHeadings{
   margin-left: 120px;
-  padding: 8px 0px;
+}
+
+.headline {
+  font-size: 32px;
+  line-height: 1;
+  padding: 5px 0px;
   color: #0a4c9e;
 }
 
@@ -167,7 +167,69 @@ a:hover, a:focus {
 .customBorder{
   border-right: 2px solid #f1f1f1;
 }
+.countyCityCardHeading{
+  width: 100%; 
+   text-align: center; 
+   border-bottom: 1px solid #000; 
+   line-height: 0.1em;
+   margin: 10px 0 20px;
+}
+.countyCityCardHeading span { 
+  background:#fff; 
+  padding:0 10px; 
+}
+.tabSection{
+  margin-top: 39px;
+}
+.cardCustom{
+  width:24%;
+  float:left;
+  border: 1px solid;
+  border-radius:unset;
+  margin: 0px 3px;
+}
+.cardCustomH{
+  min-height: 220px;
+}
+.cardCustomHeader{
+  padding: 10px 5px 2px;
+  height: 40px;
+}
+.cardCustomBody{
+  padding: 10px 10px;
+  background-color: #d4d2d2;
+  min-height: 200px;
+  margin: 0px 12px 8px;
+  min-height: 310px;
+  display: none;
+}
 
+.cardCustomHeaderArrow{
+  cursor: pointer;
+  color: rgb(10, 76, 158);
+  width: 100%;
+  text-align: right;
+  font-size: 25px !important;
+  margin-top: -6px;
+}
+.cardBodyList{
+  text-align: center;
+  margin: 15px 0px;
+}
+.cardBodyListBtn{
+  background-color: white;
+  width: 70%;
+  margin: 5px;
+}
+.cardBodyListText{
+  color: #848181;
+  font-weight: 600;
+}
+.cardBodyBottomText{
+  text-align: right;
+  font-weight: 600;
+  text-decoration: underline;
+}
 .round-info {
   position: relative;
   width: 50px;
@@ -208,9 +270,6 @@ a:hover, a:focus {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-}
-.customHeadRightArrow{
-  padding: 5px 10px;
 }
 .logoCommunity {
   max-width: 100px;
@@ -399,5 +458,68 @@ a:hover, a:focus {
     color: #22292f;
     padding: 12px 25px;
     font-size: 23px;
-    margin: 10px 0px;
+    margin-top: 30px;
   }
+.cardHolder{
+  width: 100%;
+  margin: 25px 10px;
+  overflow: hidden;
+}
+
+/* Task Tab */
+.taskTabTabs{
+  display: flex;
+}
+.taskTabClicked{
+  display: inline-block;
+  background-color: white;
+  color: #47515b !important;
+  border-top: 2px solid;
+  border-left: 10px solid;
+}
+.taskTabContent{
+  display:none;
+}
+.taskTabContent:nth-child(1){
+  display:block
+}
+.tabContentTasks{
+  background-color: #47515b;
+}
+.taskTabContentContainer{
+  padding-left: 10px;
+}
+.taskSections{
+  background-color: bisque;
+}
+.taskSectionsTasks{
+  display: flex;
+  width: 100%;
+  background-color: white;
+  padding: 8px 14px;
+  margin-left: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  border-top: 1px solid #e8ecee;
+}
+.taskTabCustom{
+  display: inline-block;
+  padding: 10px;
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
+  padding-left: 21px;
+  cursor: pointer;
+}
+.tabTaskSecTitle{
+  padding: 15px;
+  background-color: white;
+  font-size: 25px;
+  font-weight: 700;
+}
+.asanaInputDesign{
+  width:80%;
+}
+.asanaInputDesign:focus{
+  border: 0px solid #f1f1f1 !important;
+}

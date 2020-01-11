@@ -232,7 +232,6 @@ class ProjectController extends Controller
 
             $result = json_decode(curl_exec($ch), 1);
             foreach ($result['data'] as $key => $task) {
-               if($key > 1) break;
 
                 $tempTask = [];
                 $tempTask[] = json_decode($this->asana->getTask($task['gid']), 1);
