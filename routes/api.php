@@ -25,6 +25,7 @@ Route::group(['prefix' => 'asana'], function () {
         Route::get('/sections/{id}', 'TabController@getSections');
         Route::get('/tasks/{id}', 'TabController@getTasks');
         Route::post('/tasks/store', 'TabController@storeTasks');
+        Route::post('/tasks/update/{id}', 'TabController@updateTask');
     });
     Route::group(['prefix' => 'project',], function () {
         Route::get('/', 'ProjectController@index')->name('projectIndex');

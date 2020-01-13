@@ -496,7 +496,7 @@ a:hover, a:focus {
   display: flex;
   width: 100%;
   background-color: white;
-  padding: 8px 14px;
+  padding: 0px 0px;
   margin-left: 10px;
   font-size: 15px;
   font-weight: 700;

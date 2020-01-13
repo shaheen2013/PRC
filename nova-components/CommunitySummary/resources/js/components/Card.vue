@@ -517,16 +517,16 @@
                                         </div>
                                         <div class="nv-collapsedown" :id="`task-${section.gid}`">
                                             <div class="task-list-body taskSectionsTasks" v-for="tasks in section.tasks" :key="tasks.details.gid">
-                                                <div class="task-name-box cursor-pointer">
-                                                    <div @click="isTaskComplete == 1 ? isTaskComplete = 0 : isTaskComplete = 1"
-                                                        class="border-radious-icon" :class="{'task-complete': isTaskComplete == 1 ? true : false}">
+                                                <div class="task-name-box cursor-pointer" :id="`name-${tasks.details.gid}`" style="padding: 5px 15px;">
+                                                    <div @click="tasks.completed = !tasks.completed; asanaEditTask(tasks, 'completed', $event)"
+                                                        class="border-radious-icon" :class="{'task-complete': tasks.completed}">
                                                         <svg class="MiniIcon"
                                                             viewBox="0 0 24 24">
                                                             <path d="M9.5,18.2c-0.4,0.4-1,0.4-1.4,0l-3.8-3.8C4,14,4,13.4,4.3,13s1-0.4,1.4,0l3.1,3.1l8.6-8.6c0.4-0.4,1-0.4,1.4,0s0.4,1,0,1.4 L9.5,18.2z"></path>
                                                         </svg>
                                                     </div>
 
-                                                    <span><input type="text" class="task-body-custom-input" :value="tasks.details.name"></span>
+                                                    <span><input type="text" class="task-body-custom-input"  @change="asanaEditTask(tasks, 'name', $event)" :value="tasks.details.name"></span>
                                                     <!-- <span class="comment-section-name">
                                                         <span class="comment-count-like">12</span>
                                                         <svg class="comment-logo-like cursor-pointer" viewBox="0 0 24 24"><path
@@ -551,7 +551,7 @@
                                                         </svg>
                                                     </div>
                                                 </div>
-                                                <div class="task-assignee-box cursor-pointer nv-dropdown" @click="hideLogo()">
+                                                <div class="task-assignee-box cursor-pointer nv-dropdown">
                                                     <div class="nv-dropdown-trigger">
                                                         <div class="assignee-box-logo">
                                                             <svg class="inside-logo" focusable="false" viewBox="0 0 32 32">
@@ -560,38 +560,36 @@
                                                         </div>
                                                         <span><input type="text" class="assignee-box-input assigned-input"></span>
 
-                                                        <div class="assigned-person">
+                                                        <div class="assigned-person" style="padding: 1px !important;">
                                                             <div class="img-box"
-                                                                style="background-image: url('https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png')"></div>
-                                                            <div class="text-1">{{tasks.assignee ? tasks.assignee.name : ''}}</div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="assignee-box-dropdown nv-dropdown-menu">
-                                                        <div class="each-assignee">
-                                                            <div class="profile-img"
-                                                                style="background-image: url('https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png')"></div>
-                                                            <div class="name-text">Shadin Rana</div>
-                                                        </div>
-                                                        <div class="each-assignee">
-                                                            <div class="profile-img"
-                                                                style="background-image: url('https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png')"></div>
-                                                            <div class="name-text">Shadin Rana</div>
-                                                        </div>
-                                                        <div class="each-assignee">
-                                                            <div class="profile-img"
-                                                                style="background-image: url('https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png')"></div>
-                                                            <div class="name-text">Shadin Rana</div>
+                                                                style="background-image: url('https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png');width: 35px;"></div>
+                                                            <div class="text-1">
+                                                                <select class="_custom-select" v-model="tasks.assignee.gid" @change="asanaEditTask(tasks, 'assignee', $event)">
+                                                                    <option value="null">Assign User</option>
+                                                                    <option v-for="usr in asanaUsers" :key="usr.gid" :value="usr.gid">{{ usr.name }}</option>
+                                                                </select>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="task-date-box cursor-pointer border-right-none">
+                                                <div class="task-assignee-box cursor-pointer border-right-none">
                                                     <div class="assignee-box-logo">
                                                         <svg class="inside-logo" focusable="false" viewBox="0 0 32 32">
                                                             <path d="M24,2V1c0-0.6-0.4-1-1-1s-1,0.4-1,1v1H10V1c0-0.6-0.4-1-1-1S8,0.4,8,1v1C4.7,2,2,4.7,2,8v16c0,3.3,2.7,6,6,6h16c3.3,0,6-2.7,6-6V8C30,4.7,27.3,2,24,2z M8,4v1c0,0.6,0.4,1,1,1s1-0.4,1-1V4h12v1c0,0.6,0.4,1,1,1s1-0.4,1-1V4c2.2,0,4,1.8,4,4v2H4V8C4,5.8,5.8,4,8,4z M24,28H8c-2.2,0-4-1.8-4-4V12h24v12C28,26.2,26.2,28,24,28z"></path>
                                                         </svg>
                                                     </div>
-                                                    <input type="text" class="main-wrapper-date-input" :value="tasks.duedate">
+                                                    <span>
+                                                        <flat-pickr
+                                                            v-model="tasks.duedate"
+                                                            :config="{altInput: true, altFormat: 'F j, Y'}"
+                                                            @on-change="asanaEditTask(tasks, 'dueOn', $event)"
+                                                            class="assignee-box-input assigned-input form-control input active"
+                                                            name="date" style="">
+                                                            <a class="input-button" title="toggle" data-toggle>
+        <i class="icon-calendar"></i>
+    </a>
+                                                        </flat-pickr>
+                                                    </span>
                                                 </div>
                                             </div>
                                         </div>
@@ -1692,7 +1690,8 @@
                     notes: '',
                     section: '',
                     projects: [],
-                }
+                },
+                asanaUsers:[]
             }
         },
         computed: {
@@ -2330,7 +2329,7 @@
             },
             getUsers(){
                 Nova.request().get('/api/asana/tab/users').then(response => {
-                    console.log('All Users', response);
+                    this.asanaUsers = response.data.data;
                 });
             },
             asanaTaskCreateOnSubmit(asan){
@@ -2381,6 +2380,61 @@
                     });
                 }
                 
+            },
+            asanaEditTask(task, prop, e) {
+                console.log('Function Task', task)
+
+                const taskUp = {
+                    gid: task.details.gid
+                }
+                if(prop == 'completed'){
+                    $(`#name-${task.details.gid}`).addClass('taskNameBoxAnim');
+                    taskUp.completed = task.completed;
+                }
+                if(prop == 'name'){
+                    $(`#name-${task.details.gid}`).addClass('taskNameBoxAnim');
+                    taskUp.name = e.target.value
+                }
+                if(prop == 'assignee'){
+                    taskUp.assignee = e.target.value
+                }
+                if(prop == 'dueOn'){
+                    console.log('Sent Task Object', e)
+                    taskUp.due_on = this.convert(e);
+                }
+                console.log('Sent Task Object', taskUp)
+                this.asanaUpdateTask(taskUp);
+            },
+            asanaUpdateTask(task) {
+                Nova.request().post('/api/asana/tab/tasks/update/' + task.gid, task).then(response => {
+                    if (response.data.status === 200) {
+                        console.log("aaaaaaaaaa task", task.gid)
+                        const loadedTask = task.gid;
+                        $(`#name-${loadedTask}`).addClass('taskNameBoxAnim');
+                        console.log(response);
+                        const project = response.data.data.data.projects[0].gid;
+                        const addedSection = response.data.data.data.memberships[0].section.gid;
+
+                        const asanaLocalProjsNewTask = JSON.parse(localStorage.getItem('asanaProjects'));
+                        asanaLocalProjsNewTask[project].sections.map(sec => {
+                            if(sec.gid == addedSection){
+                                sec.tasks.map(task => {
+                                    if(task.details.gid == response.data.data.data.gid){
+                                        task.completed = response.data.data.data.completed;
+                                        task.details.name = response.data.data.data.name;
+                                        task.assignee = response.data.data.data.assignee;
+                                        task.duedate = response.data.data.data.due_on
+                                    }
+                                })
+                            }
+                        });
+                        const asanaLocalStoreNewTask = JSON.stringify(asanaLocalProjsNewTask);
+                        localStorage.setItem('asanaProjects', asanaLocalStoreNewTask);
+                        this.localAsana();
+                    } else {
+                        this.errors = response.data.errors;
+                    }
+                });
             },
             // Up
             navigateToChanges() {
@@ -2823,6 +2877,7 @@
             updateTask() {
                 let _this = this;
                 this.taskUpdate._method = "PUT";
+                console.log(this.taskUpdate);
 
                 Nova.request().post('/api/asana/task/update/' + this.taskUpdate.id, this.taskUpdate).then(response => {
                     this.isLoading = false;
@@ -3419,5 +3474,22 @@
         text-decoration: underline;
         color: #0a4c9e;
         cursor: pointer;
+    }
+    .taskNameBoxAnim {
+      animation: colorchange 2s infinite;
+      -webkit-animation: colorchange 2s infinite; 
+    }
+    @keyframes colorchange
+    {
+      0%   {background: bisque;}
+      50%  {background: yellow;}
+      100% {background: bisque;}
+    }
+
+    @-webkit-keyframes colorchange /* Safari and Chrome - necessary duplicate */
+    {
+      0%   {background: bisque;}
+      50%  {background: yellow;}
+      100% {background: bisque;}
     }
 </style>

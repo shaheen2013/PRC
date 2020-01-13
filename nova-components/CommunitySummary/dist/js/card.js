@@ -17447,7 +17447,7 @@ exports.i(__webpack_require__(138), "");
 exports.i(__webpack_require__(139), "");
 
 // module
-exports.push([module.i, "\n.expired[data-v-b9bc2c0a] {\n    color: red;\n}\n.checkOkr[data-v-b9bc2c0a] {\n    position: absolute;\n    top: -8px;\n    right: -20px;\n    background-position: -58px -16px;\n    width: 38px;\n    height: 38px;\n}\n.checkOkv[data-v-b9bc2c0a] {\n    position: absolute;\n    top: -8px;\n    right: -20px;\n    background-position: -58px -16px;\n    width: 38px;\n    height: 38px;\n}\n.blank-image[data-v-b9bc2c0a] {\n    padding-right: 90px;\n}\n.pointer[data-v-b9bc2c0a] {\n    cursor: pointer;\n}\n.ph[data-v-b9bc2c0a]{\n    padding: 20px 10px;\n}\n.rotate[data-v-b9bc2c0a]{\n    -webkit-transition: all .3s linear;\n    transition: all .3s linear;\n}\n.rotate.down[data-v-b9bc2c0a]{\n    -webkit-transform:rotate(180deg);\n    transform:rotate(180deg);\n}\n.hoverUnderLine[data-v-b9bc2c0a]{\n    font-size: 24px;\n    -webkit-transition: all .5s;\n    transition: all .5s;\n    border-bottom: 1px solid;\n    padding: 10px;\n}\n.hoverUnderLine[data-v-b9bc2c0a]:hover{\n    color: #0a4c9e;\n    cursor: pointer;\n}\n.cmOpenInfo[data-v-b9bc2c0a]{\n    position: relative;\n    color: #616f7f;\n    padding: 5px 20px 5px;\n}\n.cmOpenInfo > span[data-v-b9bc2c0a]{\n    font-size:18px;\n    -webkit-transition: all .5s;\n    transition: all .5s;\n}\n.cmOpenInfo > span[data-v-b9bc2c0a]:hover{\n    text-decoration: underline;\n    color: #0a4c9e;\n    cursor: pointer;\n}\n", ""]);
+exports.push([module.i, "\n.expired[data-v-b9bc2c0a] {\n    color: red;\n}\n.checkOkr[data-v-b9bc2c0a] {\n    position: absolute;\n    top: -8px;\n    right: -20px;\n    background-position: -58px -16px;\n    width: 38px;\n    height: 38px;\n}\n.checkOkv[data-v-b9bc2c0a] {\n    position: absolute;\n    top: -8px;\n    right: -20px;\n    background-position: -58px -16px;\n    width: 38px;\n    height: 38px;\n}\n.blank-image[data-v-b9bc2c0a] {\n    padding-right: 90px;\n}\n.pointer[data-v-b9bc2c0a] {\n    cursor: pointer;\n}\n.ph[data-v-b9bc2c0a]{\n    padding: 20px 10px;\n}\n.rotate[data-v-b9bc2c0a]{\n    -webkit-transition: all .3s linear;\n    transition: all .3s linear;\n}\n.rotate.down[data-v-b9bc2c0a]{\n    -webkit-transform:rotate(180deg);\n    transform:rotate(180deg);\n}\n.hoverUnderLine[data-v-b9bc2c0a]{\n    font-size: 24px;\n    -webkit-transition: all .5s;\n    transition: all .5s;\n    border-bottom: 1px solid;\n    padding: 10px;\n}\n.hoverUnderLine[data-v-b9bc2c0a]:hover{\n    color: #0a4c9e;\n    cursor: pointer;\n}\n.cmOpenInfo[data-v-b9bc2c0a]{\n    position: relative;\n    color: #616f7f;\n    padding: 5px 20px 5px;\n}\n.cmOpenInfo > span[data-v-b9bc2c0a]{\n    font-size:18px;\n    -webkit-transition: all .5s;\n    transition: all .5s;\n}\n.cmOpenInfo > span[data-v-b9bc2c0a]:hover{\n    text-decoration: underline;\n    color: #0a4c9e;\n    cursor: pointer;\n}\n.taskNameBoxAnim[data-v-b9bc2c0a] {\n  animation: colorchange-data-v-b9bc2c0a 2s infinite;\n  -webkit-animation: colorchange-data-v-b9bc2c0a 2s infinite;\n}\n@keyframes colorchange-data-v-b9bc2c0a\n{\n0%   {background: bisque;\n}\n50%  {background: yellow;\n}\n100% {background: bisque;\n}\n}\n@-webkit-keyframes colorchange-data-v-b9bc2c0a /* Safari and Chrome - necessary duplicate */\n{\n0%   {background: bisque;\n}\n50%  {background: yellow;\n}\n100% {background: bisque;\n}\n}\n", ""]);
 
 // exports
 
@@ -17461,7 +17461,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, ".expired {\n  color: red;\n}\n\n.sprite {\n  background-image: url(\"https://s3.amazonaws.com/communitymanagement/spriteCM.svg\");\n  background-repeat: no-repeat; }\n\n.notAffectSize {\n  -webkit-box-sizing: border-box;\n  -moz-box-sizing: border-box;\n  box-sizing: border-box; }\n\n.all-transition {\n  -webkit-transition: -webkit-all 200ms ease-in-out;\n  -moz-transition: -moz-all 200ms ease-in-out;\n  transition: all 200ms ease-in-out; }\n\n\n.text-note {\n  color: #a6a6a6;\n  font-size: 10px; }\n\n.dividers {\n  color: #B0BEC5;\n  font-size: 13px;\n  text-transform: uppercase; }\n\na {\n  color: #55a3de;\n  text-decoration: none;\n  outline: 0; }\na:hover, a:focus {\n  color: #aad1ef; }\n\n.gold-n0 {\n  background-color: #f7f7f7; }\n\n.gold-n1 {\n  background-color: #ffffd9; }\n\n.gold-n2 {\n  background-color: #fff9c4; }\n\n.gold-n3 {\n  background-color: #fff59d; }\n\n.gold-n4 {\n  background-color: lightgreen; }\n\n.gold-n5 {\n  background-color: green; }\n\n.gold-n6 {\n  background-color: #ffd740; }\n\n.summary {\n  background-color: #fff;\n  padding: 5px;\n  box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.25);\n  margin-top: 7px;\n}\n.times-circle{\n  margin-right: 10px;\n  font-size: 25px !important;\n  cursor: pointer;\n  border-radius: 50%;\n  color: red;\n  transition: all .5s;\n}\n.tabCustom{\n  background-color: #9c9b9b;\n  padding: 8px;\n  cursor: pointer;\n  border: 2px solid #908f8f;\n}\n.tabCustomClicked{\n  background-color: white;\n  border-bottom: unset;\n}\n.tabContent{\n  display: none;\n  padding: 20px;\n}\n.times-circle:hover{\n  box-shadow: 0px 0px 15px red;\n}\n.customSummary{\n  padding: 0px;\n  border-radius: 0px;\n}\n.summary header {\n  position: relative;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  flex-wrap: wrap; }\n.customHeader{\n  border-bottom: 2px solid #bbbbbb;\n}\n.wrapLogoCommunity {\n  position: relative;\n  display: flex;\n  align-items: center;\n  background-color: #fff;\n  z-index: 2; }\n\n.infoAddress {\n  display: flex;\n  position: relative;\n  align-items: center;\n  flex: 1;\n  min-width: 350px; }\n  @media only screen and (max-width: 480px) {\n    .infoAddress {\n      flex-wrap: wrap; } }\n\n.infoPrograms {\n  display: flex;\n  flex-direction: column;\n  align-items: flex-end;\n  flex-wrap: wrap;\n  flex: 1; }\n\n.wrap-expires {\n  margin-top: 10px;\n  background-color: white;\n  position: relative;\n  padding: 0px 0 0 20px;\n  z-index: 1; }\n\n.titleHeadings{\n  margin-left: 120px;\n}\n\n.headline {\n  font-size: 32px;\n  line-height: 1;\n  padding: 5px 0px;\n  color: #0a4c9e;\n}\n\n.subheadline {\n  font-size: 20px; }\n\n.wrap-programs {\n  display: flex;\n  justify-content: center;\n  padding: 30px;\n}\n.infoCustomText{\n  font-size: 19px;\n  background-color: white;\n  margin: -14px auto 12px;\n}\n.programs {\n  display: flex;\n  align-items: center;\n  margin-left: 50px;\n  flex-wrap: wrap; }\n.programsCustom {\n  align-items: center;\n  margin-left: -5px;\n  flex-wrap: wrap;\n  padding-right: 5px;\n}\n.customBorder{\n  border-right: 2px solid #f1f1f1;\n}\n.countyCityCardHeading{\n  width: 100%; \n   text-align: center; \n   border-bottom: 1px solid #000; \n   line-height: 0.1em;\n   margin: 10px 0 20px;\n}\n.countyCityCardHeading span { \n  background:#fff; \n  padding:0 10px; \n}\n.tabSection{\n  margin-top: 39px;\n}\n.cardCustom{\n  width:24%;\n  float:left;\n  border: 1px solid;\n  border-radius:unset;\n  margin: 0px 3px;\n}\n.cardCustomH{\n  min-height: 220px;\n}\n.cardCustomHeader{\n  padding: 10px 5px 2px;\n  height: 40px;\n}\n.cardCustomBody{\n  padding: 10px 10px;\n  background-color: #d4d2d2;\n  min-height: 200px;\n  margin: 0px 12px 8px;\n  min-height: 310px;\n  display: none;\n}\n\n.cardCustomHeaderArrow{\n  cursor: pointer;\n  color: rgb(10, 76, 158);\n  width: 100%;\n  text-align: right;\n  font-size: 25px !important;\n  margin-top: -6px;\n}\n.cardBodyList{\n  text-align: center;\n  margin: 15px 0px;\n}\n.cardBodyListBtn{\n  background-color: white;\n  width: 70%;\n  margin: 5px;\n}\n.cardBodyListText{\n  color: #848181;\n  font-weight: 600;\n}\n.cardBodyBottomText{\n  text-align: right;\n  font-weight: 600;\n  text-decoration: underline;\n}\n.round-info {\n  position: relative;\n  width: 50px;\n  height: 50px;\n  margin-left: 10px;\n  border-radius: 100%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 24px;\n  font-weight: bold;\n  color: #47515b; }\n\n.round-info-green {\n  position: relative;\n  width: 50px;\n  height: 50px;\n  margin-left: 10px;\n  border-radius: 100%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 24px;\n  font-weight: bold;\n  color: whitesmoke; }\n\n.custHeadTop{\n  display: flex;\n}\n.customHeadLeft{\n  display: flex;\n  position: relative;\n  align-items: center;\n  flex: 1;\n  min-width: 350px;\n}\n.customHeadRight{\n  display: flex;\n  flex-direction: column;\n  align-items: flex-end;\n}\n.logoCommunity {\n  max-width: 100px;\n}\n\n.logoCommunity {\n  position: absolute;\n  left: 10px;\n}\n.icon-blue-lock {\n  position: absolute;\n  background-position: -4px -4px;\n  width: 50px;\n  height: 50px; }\n\n.icon-alert-red {\n  background-position: -104px -16px;\n  width: 38px;\n  height: 38px;\n  display: inline-block;\n  vertical-align: middle; }\n\n.icon-alert-yellow {\n  background-position: -144px -16px;\n  width: 38px;\n  height: 38px;\n  display: inline-block;\n  vertical-align: middle; }\n\n.icon-alert-green {\n  background-position: -58px -16px;\n  width: 38px;\n  height: 38px;\n  display: inline-block;\n  vertical-align: middle; }\n\n.checkOk {\n  position: absolute;\n  top: -8px;\n  right: -18px;\n  background-position: -58px -16px;\n  width: 38px;\n  height: 38px; }\n\n.expires {\n  font-weight: bold;\n  color: #4f7c2f; }\n\n.communityDetail {\n  display: grid;\n  grid-template-columns: 1fr 350px;\n  grid-gap: 20px; }\n  @media only screen and (max-width: 480px) {\n    .communityDetail {\n      grid-template-columns: 1fr; } }\n  @media only screen and (min-width: 481px) and (max-width: 1023px) {\n    .communityDetail {\n      grid-template-columns: 1fr; } }\n\n.wrap-detailsBox {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));\n  grid-auto-rows: 150px;\n  grid-gap: 20px; }\n\n.detailBox.links {\n  grid-column: span 2;\n  grid-row: 2; }\n\n.wrap-links {\n  display: flex;\n  flex-direction: column; }\n\n.label-square {\n  display: flex;\n  align-items: center;\n  font-size: 14px;\n  color: #616f7f;\n  font-weight: bold; }\n\n.label-square i {\n  margin-right: 5px; }\n\n.boxInfo {\n  display: flex;\n  justify-content: center;\n  height: 190px; \n}\n\n.wrap-boxInfo {\n  position: relative;\n  width: 300px;\n  display: flex;\n  flex-direction: column;\n  text-align: center; }\n\n.boxHead {\n  margin: 0 auto;\n  box-sizing: border-box;\n  padding: 0 20px 3px;\n  font-size: 24px;\n  font-weight: bold;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  z-index: 1;\n  background-color: #fff; }\n\n.boxContent {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  flex: 1;\n  flex-direction: column;\n  border-radius: 5px;\n  background-color: #eef1f4; }\n\n.itemBox {\n  width: 100%;\n  box-sizing: border-box;\n  padding: 15px 40px; }\n\n.label-boxInfo {\n  font-size: 14px;\n  color: #3a3a3c; }\n\n.textBox {\n  padding: 10px;\n  border-radius: 4px;\n  border: 1px solid #3a3a3c;\n  font-size: 16px;\n  font-weight: bold;\n  margin-top: 5px;\n  background-color: #fff; }\n\n.itemBox > div {\n  margin-bottom: 15px; }\n\n.itemBox > div:last-child {\n  margin-bottom: 0; }\n\n.wrap-boxInfo .line {\n  border: 1px solid #3a3a3c;\n  position: absolute;\n  width: 100%;\n  top: 18px; }\n\n.communityDetail .detailBox {\n  border-right: 1px solid #616f7f; }\n\n.wrap-detailsBox > .detailBox:last-child {\n  border-right: none; }\n\n.detailBox {\n  display: flex;\n  align-items: center; }\n\n.group-links {\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between; }\n\n.wrap-detailBox {\n  flex: 1; }\n\n.wrap-detailBox > div {\n  margin-bottom: 5px;\n  margin-bottom: 15px;\n}\n\n.wrap-detailBox > div:last-child {\n  margin-bottom: 0; }\n\n.textLinks {\n  display: flex;\n  align-items: center;\n  font-weight: bold;\n  color: #55a3de; }\n\n.textLinks > i {\n  margin-left: 10px;\n  color: #152531; }\n\n  .communityWarning{\n    background-color: #fff061;\n    color: #22292f;\n    padding: 12px 25px;\n    font-size: 23px;\n    margin-top: 30px;\n  }\n.cardHolder{\n  width: 100%;\n  margin: 25px 10px;\n  overflow: hidden;\n}\n\n/* Task Tab */\n.taskTabTabs{\n  display: flex;\n}\n.taskTabClicked{\n  display: inline-block;\n  background-color: white;\n  color: #47515b !important;\n  border-top: 2px solid;\n  border-left: 10px solid;\n}\n.taskTabContent{\n  display:none;\n}\n.taskTabContent:nth-child(1){\n  display:block\n}\n.tabContentTasks{\n  background-color: #47515b;\n}\n.taskTabContentContainer{\n  padding-left: 10px;\n}\n.taskSections{\n  background-color: bisque;\n}\n.taskSectionsTasks{\n  display: flex;\n  width: 100%;\n  background-color: white;\n  padding: 8px 14px;\n  margin-left: 10px;\n  font-size: 15px;\n  font-weight: 700;\n  border-top: 1px solid #e8ecee;\n}\n.taskTabCustom{\n  display: inline-block;\n  padding: 10px;\n  color: white;\n  font-size: 20px;\n  font-weight: 600;\n  padding-left: 21px;\n  cursor: pointer;\n}\n.tabTaskSecTitle{\n  padding: 15px;\n  background-color: white;\n  font-size: 25px;\n  font-weight: 700;\n}\n.asanaInputDesign{\n  width:80%;\n}\n.asanaInputDesign:focus{\n  border: 0px solid #f1f1f1 !important;\n}", ""]);
+exports.push([module.i, ".expired {\n  color: red;\n}\n\n.sprite {\n  background-image: url(\"https://s3.amazonaws.com/communitymanagement/spriteCM.svg\");\n  background-repeat: no-repeat; }\n\n.notAffectSize {\n  -webkit-box-sizing: border-box;\n  -moz-box-sizing: border-box;\n  box-sizing: border-box; }\n\n.all-transition {\n  -webkit-transition: -webkit-all 200ms ease-in-out;\n  -moz-transition: -moz-all 200ms ease-in-out;\n  transition: all 200ms ease-in-out; }\n\n\n.text-note {\n  color: #a6a6a6;\n  font-size: 10px; }\n\n.dividers {\n  color: #B0BEC5;\n  font-size: 13px;\n  text-transform: uppercase; }\n\na {\n  color: #55a3de;\n  text-decoration: none;\n  outline: 0; }\na:hover, a:focus {\n  color: #aad1ef; }\n\n.gold-n0 {\n  background-color: #f7f7f7; }\n\n.gold-n1 {\n  background-color: #ffffd9; }\n\n.gold-n2 {\n  background-color: #fff9c4; }\n\n.gold-n3 {\n  background-color: #fff59d; }\n\n.gold-n4 {\n  background-color: lightgreen; }\n\n.gold-n5 {\n  background-color: green; }\n\n.gold-n6 {\n  background-color: #ffd740; }\n\n.summary {\n  background-color: #fff;\n  padding: 5px;\n  box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.25);\n  margin-top: 7px;\n}\n.times-circle{\n  margin-right: 10px;\n  font-size: 25px !important;\n  cursor: pointer;\n  border-radius: 50%;\n  color: red;\n  transition: all .5s;\n}\n.tabCustom{\n  background-color: #9c9b9b;\n  padding: 8px;\n  cursor: pointer;\n  border: 2px solid #908f8f;\n}\n.tabCustomClicked{\n  background-color: white;\n  border-bottom: unset;\n}\n.tabContent{\n  display: none;\n  padding: 20px;\n}\n.times-circle:hover{\n  box-shadow: 0px 0px 15px red;\n}\n.customSummary{\n  padding: 0px;\n  border-radius: 0px;\n}\n.summary header {\n  position: relative;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  flex-wrap: wrap; }\n.customHeader{\n  border-bottom: 2px solid #bbbbbb;\n}\n.wrapLogoCommunity {\n  position: relative;\n  display: flex;\n  align-items: center;\n  background-color: #fff;\n  z-index: 2; }\n\n.infoAddress {\n  display: flex;\n  position: relative;\n  align-items: center;\n  flex: 1;\n  min-width: 350px; }\n  @media only screen and (max-width: 480px) {\n    .infoAddress {\n      flex-wrap: wrap; } }\n\n.infoPrograms {\n  display: flex;\n  flex-direction: column;\n  align-items: flex-end;\n  flex-wrap: wrap;\n  flex: 1; }\n\n.wrap-expires {\n  margin-top: 10px;\n  background-color: white;\n  position: relative;\n  padding: 0px 0 0 20px;\n  z-index: 1; }\n\n.titleHeadings{\n  margin-left: 120px;\n}\n\n.headline {\n  font-size: 32px;\n  line-height: 1;\n  padding: 5px 0px;\n  color: #0a4c9e;\n}\n\n.subheadline {\n  font-size: 20px; }\n\n.wrap-programs {\n  display: flex;\n  justify-content: center;\n  padding: 30px;\n}\n.infoCustomText{\n  font-size: 19px;\n  background-color: white;\n  margin: -14px auto 12px;\n}\n.programs {\n  display: flex;\n  align-items: center;\n  margin-left: 50px;\n  flex-wrap: wrap; }\n.programsCustom {\n  align-items: center;\n  margin-left: -5px;\n  flex-wrap: wrap;\n  padding-right: 5px;\n}\n.customBorder{\n  border-right: 2px solid #f1f1f1;\n}\n.countyCityCardHeading{\n  width: 100%; \n   text-align: center; \n   border-bottom: 1px solid #000; \n   line-height: 0.1em;\n   margin: 10px 0 20px;\n}\n.countyCityCardHeading span { \n  background:#fff; \n  padding:0 10px; \n}\n.tabSection{\n  margin-top: 39px;\n}\n.cardCustom{\n  width:24%;\n  float:left;\n  border: 1px solid;\n  border-radius:unset;\n  margin: 0px 3px;\n}\n.cardCustomH{\n  min-height: 220px;\n}\n.cardCustomHeader{\n  padding: 10px 5px 2px;\n  height: 40px;\n}\n.cardCustomBody{\n  padding: 10px 10px;\n  background-color: #d4d2d2;\n  min-height: 200px;\n  margin: 0px 12px 8px;\n  min-height: 310px;\n  display: none;\n}\n\n.cardCustomHeaderArrow{\n  cursor: pointer;\n  color: rgb(10, 76, 158);\n  width: 100%;\n  text-align: right;\n  font-size: 25px !important;\n  margin-top: -6px;\n}\n.cardBodyList{\n  text-align: center;\n  margin: 15px 0px;\n}\n.cardBodyListBtn{\n  background-color: white;\n  width: 70%;\n  margin: 5px;\n}\n.cardBodyListText{\n  color: #848181;\n  font-weight: 600;\n}\n.cardBodyBottomText{\n  text-align: right;\n  font-weight: 600;\n  text-decoration: underline;\n}\n.round-info {\n  position: relative;\n  width: 50px;\n  height: 50px;\n  margin-left: 10px;\n  border-radius: 100%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 24px;\n  font-weight: bold;\n  color: #47515b; }\n\n.round-info-green {\n  position: relative;\n  width: 50px;\n  height: 50px;\n  margin-left: 10px;\n  border-radius: 100%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 24px;\n  font-weight: bold;\n  color: whitesmoke; }\n\n.custHeadTop{\n  display: flex;\n}\n.customHeadLeft{\n  display: flex;\n  position: relative;\n  align-items: center;\n  flex: 1;\n  min-width: 350px;\n}\n.customHeadRight{\n  display: flex;\n  flex-direction: column;\n  align-items: flex-end;\n}\n.logoCommunity {\n  max-width: 100px;\n}\n\n.logoCommunity {\n  position: absolute;\n  left: 10px;\n}\n.icon-blue-lock {\n  position: absolute;\n  background-position: -4px -4px;\n  width: 50px;\n  height: 50px; }\n\n.icon-alert-red {\n  background-position: -104px -16px;\n  width: 38px;\n  height: 38px;\n  display: inline-block;\n  vertical-align: middle; }\n\n.icon-alert-yellow {\n  background-position: -144px -16px;\n  width: 38px;\n  height: 38px;\n  display: inline-block;\n  vertical-align: middle; }\n\n.icon-alert-green {\n  background-position: -58px -16px;\n  width: 38px;\n  height: 38px;\n  display: inline-block;\n  vertical-align: middle; }\n\n.checkOk {\n  position: absolute;\n  top: -8px;\n  right: -18px;\n  background-position: -58px -16px;\n  width: 38px;\n  height: 38px; }\n\n.expires {\n  font-weight: bold;\n  color: #4f7c2f; }\n\n.communityDetail {\n  display: grid;\n  grid-template-columns: 1fr 350px;\n  grid-gap: 20px; }\n  @media only screen and (max-width: 480px) {\n    .communityDetail {\n      grid-template-columns: 1fr; } }\n  @media only screen and (min-width: 481px) and (max-width: 1023px) {\n    .communityDetail {\n      grid-template-columns: 1fr; } }\n\n.wrap-detailsBox {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));\n  grid-auto-rows: 150px;\n  grid-gap: 20px; }\n\n.detailBox.links {\n  grid-column: span 2;\n  grid-row: 2; }\n\n.wrap-links {\n  display: flex;\n  flex-direction: column; }\n\n.label-square {\n  display: flex;\n  align-items: center;\n  font-size: 14px;\n  color: #616f7f;\n  font-weight: bold; }\n\n.label-square i {\n  margin-right: 5px; }\n\n.boxInfo {\n  display: flex;\n  justify-content: center;\n  height: 190px; \n}\n\n.wrap-boxInfo {\n  position: relative;\n  width: 300px;\n  display: flex;\n  flex-direction: column;\n  text-align: center; }\n\n.boxHead {\n  margin: 0 auto;\n  box-sizing: border-box;\n  padding: 0 20px 3px;\n  font-size: 24px;\n  font-weight: bold;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  z-index: 1;\n  background-color: #fff; }\n\n.boxContent {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  flex: 1;\n  flex-direction: column;\n  border-radius: 5px;\n  background-color: #eef1f4; }\n\n.itemBox {\n  width: 100%;\n  box-sizing: border-box;\n  padding: 15px 40px; }\n\n.label-boxInfo {\n  font-size: 14px;\n  color: #3a3a3c; }\n\n.textBox {\n  padding: 10px;\n  border-radius: 4px;\n  border: 1px solid #3a3a3c;\n  font-size: 16px;\n  font-weight: bold;\n  margin-top: 5px;\n  background-color: #fff; }\n\n.itemBox > div {\n  margin-bottom: 15px; }\n\n.itemBox > div:last-child {\n  margin-bottom: 0; }\n\n.wrap-boxInfo .line {\n  border: 1px solid #3a3a3c;\n  position: absolute;\n  width: 100%;\n  top: 18px; }\n\n.communityDetail .detailBox {\n  border-right: 1px solid #616f7f; }\n\n.wrap-detailsBox > .detailBox:last-child {\n  border-right: none; }\n\n.detailBox {\n  display: flex;\n  align-items: center; }\n\n.group-links {\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between; }\n\n.wrap-detailBox {\n  flex: 1; }\n\n.wrap-detailBox > div {\n  margin-bottom: 5px;\n  margin-bottom: 15px;\n}\n\n.wrap-detailBox > div:last-child {\n  margin-bottom: 0; }\n\n.textLinks {\n  display: flex;\n  align-items: center;\n  font-weight: bold;\n  color: #55a3de; }\n\n.textLinks > i {\n  margin-left: 10px;\n  color: #152531; }\n\n  .communityWarning{\n    background-color: #fff061;\n    color: #22292f;\n    padding: 12px 25px;\n    font-size: 23px;\n    margin-top: 30px;\n  }\n.cardHolder{\n  width: 100%;\n  margin: 25px 10px;\n  overflow: hidden;\n}\n\n/* Task Tab */\n.taskTabTabs{\n  display: flex;\n}\n.taskTabClicked{\n  display: inline-block;\n  background-color: white;\n  color: #47515b !important;\n  border-top: 2px solid;\n  border-left: 10px solid;\n}\n.taskTabContent{\n  display:none;\n}\n.taskTabContent:nth-child(1){\n  display:block\n}\n.tabContentTasks{\n  background-color: #47515b;\n}\n.taskTabContentContainer{\n  padding-left: 10px;\n}\n.taskSections{\n  background-color: bisque;\n}\n.taskSectionsTasks{\n  display: flex;\n  width: 100%;\n  background-color: white;\n  padding: 0px 0px;\n  margin-left: 10px;\n  font-size: 15px;\n  font-weight: 700;\n  border-top: 1px solid #e8ecee;\n}\n.taskTabCustom{\n  display: inline-block;\n  padding: 10px;\n  color: white;\n  font-size: 20px;\n  font-weight: 600;\n  padding-left: 21px;\n  cursor: pointer;\n}\n.tabTaskSecTitle{\n  padding: 15px;\n  background-color: white;\n  font-size: 25px;\n  font-weight: 700;\n}\n.asanaInputDesign{\n  width:80%;\n}\n.asanaInputDesign:focus{\n  border: 0px solid #f1f1f1 !important;\n}", ""]);
 
 // exports
 
@@ -17531,8 +17531,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_vue_moments_ago__ = __webpack_require__(158);
 function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
-//
-//
 //
 //
 //
@@ -19222,7 +19220,8 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                 notes: '',
                 section: '',
                 projects: []
-            }
+            },
+            asanaUsers: []
         };
     },
     computed: {
@@ -19862,8 +19861,10 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             }
         },
         getUsers: function getUsers() {
+            var _this7 = this;
+
             Nova.request().get('/api/asana/tab/users').then(function (response) {
-                console.log('All Users', response);
+                _this7.asanaUsers = response.data.data;
             });
         },
         asanaTaskCreateOnSubmit: function asanaTaskCreateOnSubmit(asan) {
@@ -19875,7 +19876,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             });
         },
         asanaStoreTask: function asanaStoreTask(asan) {
-            var _this7 = this;
+            var _this8 = this;
 
             this.asanaTaskCreate.projects = [asan.gid];
             this.asanaTaskCreate.workspace = asan.workspace_id;
@@ -19887,7 +19888,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                 Nova.request().post('/api/asana/tab/tasks/store', this.asanaTaskCreate).then(function (response) {
                     __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.newTaskButton').removeClass('fa-spin');
                     if (response.data.status === 200) {
-                        _this7.asanaTaskCreate.name = '';
+                        _this8.asanaTaskCreate.name = '';
                         var addedSection = response.data.data.data.memberships[0].section.gid;
                         var asanaLocalProjsNewTask = JSON.parse(localStorage.getItem('asanaProjects'));
                         var taskObj = {
@@ -19909,12 +19910,69 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                         });
                         var asanaLocalStoreNewTask = JSON.stringify(asanaLocalProjsNewTask);
                         localStorage.setItem('asanaProjects', asanaLocalStoreNewTask);
-                        _this7.localAsana();
+                        _this8.localAsana();
                     } else {
-                        _this7.errors = response.data.errors;
+                        _this8.errors = response.data.errors;
                     }
                 });
             }
+        },
+        asanaEditTask: function asanaEditTask(task, prop, e) {
+            console.log('Function Task', task);
+
+            var taskUp = {
+                gid: task.details.gid
+            };
+            if (prop == 'completed') {
+                __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('#name-' + task.details.gid).addClass('taskNameBoxAnim');
+                taskUp.completed = task.completed;
+            }
+            if (prop == 'name') {
+                __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('#name-' + task.details.gid).addClass('taskNameBoxAnim');
+                taskUp.name = e.target.value;
+            }
+            if (prop == 'assignee') {
+                taskUp.assignee = e.target.value;
+            }
+            if (prop == 'dueOn') {
+                console.log('Sent Task Object', e);
+                taskUp.due_on = this.convert(e);
+            }
+            console.log('Sent Task Object', taskUp);
+            this.asanaUpdateTask(taskUp);
+        },
+        asanaUpdateTask: function asanaUpdateTask(task) {
+            var _this9 = this;
+
+            Nova.request().post('/api/asana/tab/tasks/update/' + task.gid, task).then(function (response) {
+                if (response.data.status === 200) {
+                    console.log("aaaaaaaaaa task", task.gid);
+                    var loadedTask = task.gid;
+                    __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('#name-' + loadedTask).addClass('taskNameBoxAnim');
+                    console.log(response);
+                    var project = response.data.data.data.projects[0].gid;
+                    var addedSection = response.data.data.data.memberships[0].section.gid;
+
+                    var asanaLocalProjsNewTask = JSON.parse(localStorage.getItem('asanaProjects'));
+                    asanaLocalProjsNewTask[project].sections.map(function (sec) {
+                        if (sec.gid == addedSection) {
+                            sec.tasks.map(function (task) {
+                                if (task.details.gid == response.data.data.data.gid) {
+                                    task.completed = response.data.data.data.completed;
+                                    task.details.name = response.data.data.data.name;
+                                    task.assignee = response.data.data.data.assignee;
+                                    task.duedate = response.data.data.data.due_on;
+                                }
+                            });
+                        }
+                    });
+                    var asanaLocalStoreNewTask = JSON.stringify(asanaLocalProjsNewTask);
+                    localStorage.setItem('asanaProjects', asanaLocalStoreNewTask);
+                    _this9.localAsana();
+                } else {
+                    _this9.errors = response.data.errors;
+                }
+            });
         },
 
         // Up
@@ -19923,20 +19981,20 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             document.querySelector("#nova > div > div.content > div.px-view.py-view.mx-auto > div > div.relative > div:nth-child(5) > div > div > div.tabs-wrap.border-b-2.border-40.w-full > div > button:nth-child(6)").click();
         },
         getPendingChangeCount: function getPendingChangeCount() {
-            var _this8 = this;
+            var _this10 = this;
 
             Nova.request().post('/nova-vendor/community-summary/pendingChanges', {
                 communityId: this.resourceId
             }).then(function (response) {
-                _this8.pendingChanges = response.data;
+                _this10.pendingChanges = response.data;
             });
         },
         closestFromNow: function closestFromNow(times) {
-            var _this9 = this;
+            var _this11 = this;
 
             var m = new Map(times.map(function (x) {
                 var date = new Date(x.expiration_date);
-                if (!_this9.isBeforeNow(date)) date = _this9.generateKey(date);else date = undefined;
+                if (!_this11.isBeforeNow(date)) date = _this11.generateKey(date);else date = undefined;
                 return [date, x];
             }));
             m.delete(undefined);
@@ -20015,38 +20073,38 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             }
         },
         getLatestActivity: function getLatestActivity() {
-            var _this10 = this;
+            var _this12 = this;
 
             Nova.request().post('/nova-vendor/community-summary/latestActivity', {
                 communityId: this.resourceId
             }).then(function (response) {
                 console.log(response.data);
-                _this10.latestActivity = response.data;
+                _this12.latestActivity = response.data;
             });
         },
         getProjects: function getProjects() {
-            var _this11 = this;
+            var _this13 = this;
 
             var _this = this;
             this.isLoading = true;
             this.project.name = null;
             Nova.request().get('/api/asana/project?osusr_mlv_community_id=' + this.resourceId).then(function (response) {
-                _this11.isLoading = false;
+                _this13.isLoading = false;
 
                 if (response.data.data) {
                     if (response.data.data.genToken === true) {
                         __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('#authAsana').css('visibility', 'visible');
                     }
-                    _this11.projectDetails = response.data.data.project[0];
-                    _this11.projects = response.data.data.projects;
-                    _this11.activeProject = _this11.projectDetails.data.gid;
-                    _this11.taskFilter.project = _this11.projectDetails.data.gid;
-                    _this11.sections = response.data.data.project['sections'].data;
-                    _this11.sectionData = response.data.data.project['sectionData'];
-                    _this11.users = response.data.data.project['users'].data;
-                    _this11.task.projects = [_this11.projectDetails.data.gid];
-                    _this11.subTask.project = _this11.projectDetails.data.gid;
-                    _this11.task.workspace = _this11.projectDetails.data.workspace.gid;
+                    _this13.projectDetails = response.data.data.project[0];
+                    _this13.projects = response.data.data.projects;
+                    _this13.activeProject = _this13.projectDetails.data.gid;
+                    _this13.taskFilter.project = _this13.projectDetails.data.gid;
+                    _this13.sections = response.data.data.project['sections'].data;
+                    _this13.sectionData = response.data.data.project['sectionData'];
+                    _this13.users = response.data.data.project['users'].data;
+                    _this13.task.projects = [_this13.projectDetails.data.gid];
+                    _this13.subTask.project = _this13.projectDetails.data.gid;
+                    _this13.task.workspace = _this13.projectDetails.data.workspace.gid;
 
                     if (localStorage.getItem('projects') !== null) {
                         var storedItems = JSON.parse(localStorage.getItem('projects'));
@@ -20055,15 +20113,15 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                             Object.keys(storedItems).map(function (projKey) {
                                 if (projKey === response.data.data.projects[0].data.gid) {
                                     var curProj = storedItems[projKey];
-                                    _this11.projectDetails = curProj[0];
-                                    _this11.activeProject = _this11.projectDetails.data.gid;
-                                    _this11.taskFilter.project = _this11.projectDetails.data.gid;
-                                    _this11.sections = curProj['sections'].data;
-                                    _this11.sectionData = curProj['sectionData'];
-                                    _this11.users = curProj['users'].data;
-                                    _this11.task.projects = [_this11.projectDetails.data.gid];
-                                    _this11.subTask.project = _this11.projectDetails.data.gid;
-                                    _this11.task.workspace = _this11.projectDetails.data.workspace.gid;
+                                    _this13.projectDetails = curProj[0];
+                                    _this13.activeProject = _this13.projectDetails.data.gid;
+                                    _this13.taskFilter.project = _this13.projectDetails.data.gid;
+                                    _this13.sections = curProj['sections'].data;
+                                    _this13.sectionData = curProj['sectionData'];
+                                    _this13.users = curProj['users'].data;
+                                    _this13.task.projects = [_this13.projectDetails.data.gid];
+                                    _this13.subTask.project = _this13.projectDetails.data.gid;
+                                    _this13.task.workspace = _this13.projectDetails.data.workspace.gid;
                                     isProjectExists = true;
                                     return true;
                                 }
@@ -20074,11 +20132,11 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
                     response.data.data.projects.map(function (proj) {
                         // $('#ps'+proj.data.gid).show();
-                        _this11.asyncProjLoad(proj.data.gid, response.data.data.projects[0].data.gid);
+                        _this13.asyncProjLoad(proj.data.gid, response.data.data.projects[0].data.gid);
                     });
                 } else {
-                    _this11.projectDetails = null;
-                    _this11.projects = [];
+                    _this13.projectDetails = null;
+                    _this13.projects = [];
                 }
 
                 setTimeout(function () {
@@ -20087,10 +20145,10 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             });
         },
         asyncProjLoad: function asyncProjLoad(id, firstId) {
-            var _this12 = this;
+            var _this14 = this;
 
             Nova.request().get('/api/asana/project/show/' + id).then(function (response) {
-                _this12.isLoading = false;
+                _this14.isLoading = false;
                 if (response.data.data) {
                     var projectDetails = response.data.data[0];
                     //Store Localstorage
@@ -20098,7 +20156,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                     var activeProjectData = response.data.data;
 
                     var resObjectObject = localStorage.getItem('projects') === null ? {} : JSON.parse(localStorage.getItem('projects'));
-                    resObjectObject[activeProjectKey] = _this12.mergeRecursive(activeProjectData, resObjectObject[activeProjectKey]);
+                    resObjectObject[activeProjectKey] = _this14.mergeRecursive(activeProjectData, resObjectObject[activeProjectKey]);
                     var resObjectString = JSON.stringify(resObjectObject);
                     localStorage.setItem('projects', resObjectString);
 
@@ -20129,7 +20187,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             return obj1;
         },
         createProject: function createProject() {
-            var _this13 = this;
+            var _this15 = this;
 
             this.isLoading = true;
             this.project.name = this.community.STATE + '-' + this.community.COUNTY + '-' + this.community.FRIENDLYNAME + '-' + this.community.COMMUNITYID + '-Standard';
@@ -20138,17 +20196,17 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             return false;
 
             Nova.request().post('/api/asana/project/store', this.project).then(function (response) {
-                _this13.isLoading = false;
+                _this15.isLoading = false;
 
                 if (response.data.status === 200) {
-                    _this13.getProjects();
+                    _this15.getProjects();
                 } else {
-                    _this13.errors = response.data.errors;
+                    _this15.errors = response.data.errors;
                 }
             });
         },
         getProjectDetails: function getProjectDetails(id) {
-            var _this14 = this;
+            var _this16 = this;
 
             __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.noDatFnd').hide();
             var _this = this;
@@ -20159,15 +20217,15 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             Object.keys(storedItems).map(function (projKey) {
                 if (projKey === id) {
                     var curProj = storedItems[projKey];
-                    _this14.projectDetails = curProj[0];
-                    _this14.activeProject = _this14.projectDetails.data.gid;
-                    _this14.taskFilter.project = _this14.projectDetails.data.gid;
-                    _this14.sections = curProj['sections'].data;
-                    _this14.sectionData = curProj['sectionData'];
-                    _this14.users = curProj['users'].data;
-                    _this14.task.projects = [_this14.projectDetails.data.gid];
-                    _this14.subTask.project = _this14.projectDetails.data.gid;
-                    _this14.task.workspace = _this14.projectDetails.data.workspace.gid;
+                    _this16.projectDetails = curProj[0];
+                    _this16.activeProject = _this16.projectDetails.data.gid;
+                    _this16.taskFilter.project = _this16.projectDetails.data.gid;
+                    _this16.sections = curProj['sections'].data;
+                    _this16.sectionData = curProj['sectionData'];
+                    _this16.users = curProj['users'].data;
+                    _this16.task.projects = [_this16.projectDetails.data.gid];
+                    _this16.subTask.project = _this16.projectDetails.data.gid;
+                    _this16.task.workspace = _this16.projectDetails.data.workspace.gid;
                     isProjectExists = true;
                     return true;
                 }
@@ -20180,18 +20238,18 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
             Nova.request().get('/api/asana/project/show/' + id).then(function (response) {
                 if (response.data.data) {
-                    _this14.projectDetails = response.data.data[0];
-                    _this14.activeProject = _this14.projectDetails.data.gid;
-                    _this14.taskFilter.project = _this14.projectDetails.data.gid;
-                    _this14.sections = response.data.data['sections'].data;
-                    _this14.sectionData = response.data.data['sectionData'];
-                    _this14.users = response.data.data['users'].data;
-                    _this14.task.projects = [_this14.projectDetails.data.gid];
-                    _this14.subTask.project = _this14.projectDetails.data.gid;
-                    _this14.task.workspace = _this14.projectDetails.data.workspace.gid;
+                    _this16.projectDetails = response.data.data[0];
+                    _this16.activeProject = _this16.projectDetails.data.gid;
+                    _this16.taskFilter.project = _this16.projectDetails.data.gid;
+                    _this16.sections = response.data.data['sections'].data;
+                    _this16.sectionData = response.data.data['sectionData'];
+                    _this16.users = response.data.data['users'].data;
+                    _this16.task.projects = [_this16.projectDetails.data.gid];
+                    _this16.subTask.project = _this16.projectDetails.data.gid;
+                    _this16.task.workspace = _this16.projectDetails.data.workspace.gid;
 
                     //Store Localstorage
-                    var activeProjectKey = _this14.projectDetails.data.gid;
+                    var activeProjectKey = _this16.projectDetails.data.gid;
                     var activeProjectData = response.data.data;
 
                     var resObjectObject = JSON.parse(localStorage.getItem('projects'));
@@ -20208,7 +20266,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             });
         },
         getLikeDataById: function getLikeDataById(id) {
-            var _this15 = this;
+            var _this17 = this;
 
             __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('#spinner' + id).hide();
             __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('#noData' + id).hide();
@@ -20232,7 +20290,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                     }
                     console.log('Section Stat After', section.open);
                     var resObjectTabStatus = JSON.parse(localStorage.getItem('projects'));
-                    resObjectTabStatus[_this15.activeProject].sectionData.map(function (sectionTabData) {
+                    resObjectTabStatus[_this17.activeProject].sectionData.map(function (sectionTabData) {
                         // console.log('4', sectionTabData);
                         if (sectionTabData[0].gid == id) {
                             sectionTabData.open = section.open;
@@ -20253,7 +20311,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             resObjectObject[this.activeProject].sectionData.map(function (section) {
                 if (section[0].gid == id) {
                     console.log('Section', section);
-                    _this15.sectionData.map(function (stateSection, key) {
+                    _this17.sectionData.map(function (stateSection, key) {
                         if (stateSection[0].gid == id && stateSection.tasks.length > 0) {
 
                             console.log('stateSection', stateSection);
@@ -20269,11 +20327,11 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             Nova.request().get('/api/asana/project/showlike/' + id).then(function (response) {
                 __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('#spinner' + id).hide();
                 __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('#noData' + id).show();
-                _this15.sectionData.map(function (section, key) {
+                _this17.sectionData.map(function (section, key) {
                     if (section[0].gid == response.data.section_id) {
                         section.tasks = response.data.data[0].tasks;
                         var _resObjectObject = JSON.parse(localStorage.getItem('projects'));
-                        _resObjectObject[_this15.activeProject].sectionData[key].tasks = response.data.data[0].tasks;
+                        _resObjectObject[_this17.activeProject].sectionData[key].tasks = response.data.data[0].tasks;
                         var resObjectString = JSON.stringify(_resObjectObject);
                         localStorage.setItem('projects', resObjectString);
                     }
@@ -20281,21 +20339,21 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             });
         },
         storeTask: function storeTask() {
-            var _this16 = this;
+            var _this18 = this;
 
             this.isLoading = true;
 
             console.log(this.task);
 
             Nova.request().post('/api/asana/task/store', this.task).then(function (response) {
-                _this16.isLoading = false;
-                _this16.createNewTask = false;
+                _this18.isLoading = false;
+                _this18.createNewTask = false;
                 console.log(response.data);
 
                 if (response.data.status === 200) {
-                    _this16.getProjects();
+                    _this18.getProjects();
                 } else {
-                    _this16.errors = response.data.errors;
+                    _this18.errors = response.data.errors;
                 }
             });
         },
@@ -20312,7 +20370,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             });
         },
         showTask: function showTask(id) {
-            var _this17 = this;
+            var _this19 = this;
 
             this.sideBar = 1;
             this.taskParents = [];
@@ -20324,9 +20382,9 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                 __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.task-details-wrapper').show();
 
                 if (response.status == 200) {
-                    _this17.taskDetails = response.data.data;
+                    _this19.taskDetails = response.data.data;
                 } else {
-                    _this17.errors = response.data.msg.errors;
+                    _this19.errors = response.data.msg.errors;
                 }
             });
         },
@@ -20360,27 +20418,28 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             this.updateTask();
         },
         updateTask: function updateTask() {
-            var _this18 = this;
+            var _this20 = this;
 
             var _this = this;
             this.taskUpdate._method = "PUT";
+            console.log(this.taskUpdate);
 
             Nova.request().post('/api/asana/task/update/' + this.taskUpdate.id, this.taskUpdate).then(function (response) {
-                _this18.isLoading = false;
+                _this20.isLoading = false;
 
                 setTimeout(function () {
                     _this.uiUpdateMounted();
                 }, 500);
 
                 if (response.data.status === 200) {
-                    _this18.taskUpdate = {};
+                    _this20.taskUpdate = {};
                 } else {
-                    _this18.errors = response.data.errors;
+                    _this20.errors = response.data.errors;
                 }
             });
         },
         inlineTaskUpdate: function inlineTaskUpdate(id, name, e) {
-            var _this19 = this;
+            var _this21 = this;
 
             __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.task-details-wrapper').hide();
             __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.loader-io').css('display', 'flex');
@@ -20413,25 +20472,25 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
                 if (response.data.status === 200) {
                     if (name == 'name') {
-                        _this19.taskDetails[0].data.name = e.target.value;
+                        _this21.taskDetails[0].data.name = e.target.value;
                     } else if (name == 'notes') {
-                        _this19.taskDetails[0].data.notes = e.target.value;
+                        _this21.taskDetails[0].data.notes = e.target.value;
                     } else if (name == 'due_on') {
-                        _this19.taskDetails[0].data.due_on = _this19.convert(e);
+                        _this21.taskDetails[0].data.due_on = _this21.convert(e);
                     } else if (name == 'section') {
-                        _this19.taskDetails[0].data.memberships[0].section.gid = e.target.value;
-                        _this19.taskDetails[0].data.memberships[0].section.name = e.target.options[e.target.selectedIndex].text;
-                        _this19.getProjects();
+                        _this21.taskDetails[0].data.memberships[0].section.gid = e.target.value;
+                        _this21.taskDetails[0].data.memberships[0].section.name = e.target.options[e.target.selectedIndex].text;
+                        _this21.getProjects();
                     } else if (name == 'assignee') {
-                        _this19.taskDetails[0].data.assignee = e;
+                        _this21.taskDetails[0].data.assignee = e;
                     }
                 } else {
-                    _this19.errors = response.data.errors;
+                    _this21.errors = response.data.errors;
                 }
             });
         },
         deleteTask: function deleteTask(id) {
-            var _this20 = this;
+            var _this22 = this;
 
             var THIS = this;
 
@@ -20443,10 +20502,10 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                 focusConfirm: true
             }).then(function (res) {
                 if (res.value !== undefined) {
-                    _this20.isLoading = true;
+                    _this22.isLoading = true;
 
                     Nova.request().post('/api/asana/task/destroy/' + id, { _method: 'DELETE' }).then(function (response) {
-                        _this20.isLoading = false;
+                        _this22.isLoading = false;
 
                         if (response.data.status === 200) {
                             THIS.getProjects();
@@ -20458,7 +20517,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             });
         },
         filterTasks: function filterTasks(key, val) {
-            var _this21 = this;
+            var _this23 = this;
 
             var THIS = this;
             this.isLoading = true;
@@ -20475,7 +20534,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             params = params.toString();
 
             Nova.request().get('/api/asana/task/show?' + params).then(function (response) {
-                _this21.isLoading = false;
+                _this23.isLoading = false;
 
                 setTimeout(function () {
                     THIS.uiUpdateMounted();
@@ -20566,7 +20625,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             return [date.getFullYear(), mnth, day].join("-");
         },
         createSubTask: function createSubTask(id) {
-            var _this22 = this;
+            var _this24 = this;
 
             __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.task-details-wrapper').hide();
             __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.loader-io').css('display', 'flex');
@@ -20576,10 +20635,10 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                 __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.task-details-wrapper').show();
 
                 if (response.data.status === 200) {
-                    _this22.createNewSubTask = false;
-                    _this22.taskDetails.subTasks.push(response.data.data);
+                    _this24.createNewSubTask = false;
+                    _this24.taskDetails.subTasks.push(response.data.data);
                 } else {
-                    _this22.errors = response.data.errors;
+                    _this24.errors = response.data.errors;
                 }
             });
         },
@@ -20607,7 +20666,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             }
         },
         inlineSubTaskUpdate: function inlineSubTaskUpdate(id, index, name, e) {
-            var _this23 = this;
+            var _this25 = this;
 
             __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.task-details-wrapper').hide();
             __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.loader-io').css('display', 'flex');
@@ -20640,24 +20699,24 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
                 if (response.data.status === 200) {
                     if (name == 'name') {
-                        _this23.taskDetails.subTasks[index][0].data.name = e.target.value;
+                        _this25.taskDetails.subTasks[index][0].data.name = e.target.value;
                     } else if (name == 'notes') {
-                        _this23.taskDetails.subTasks[index][0].data.notes = e.target.value;
+                        _this25.taskDetails.subTasks[index][0].data.notes = e.target.value;
                     } else if (name == 'due_on') {
-                        _this23.taskDetails.subTasks[index][0].data.due_on = _this23.convert(e);
+                        _this25.taskDetails.subTasks[index][0].data.due_on = _this25.convert(e);
                     } else if (name == 'section') {
-                        _this23.taskDetails.subTasks[index][0].data.memberships[0].section.gid = e.target.value;
-                        _this23.taskDetails.subTasks[index][0].data.memberships[0].section.name = e.target.options[e.target.selectedIndex].text;
+                        _this25.taskDetails.subTasks[index][0].data.memberships[0].section.gid = e.target.value;
+                        _this25.taskDetails.subTasks[index][0].data.memberships[0].section.name = e.target.options[e.target.selectedIndex].text;
                     } else if (name == 'assignee') {
-                        _this23.taskDetails.subTasks[index][0].data.assignee = e;
+                        _this25.taskDetails.subTasks[index][0].data.assignee = e;
                     }
                 } else {
-                    _this23.errors = response.data.errors;
+                    _this25.errors = response.data.errors;
                 }
             });
         },
         storeTaskComment: function storeTaskComment(id) {
-            var _this24 = this;
+            var _this26 = this;
 
             __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.loader-io').css('display', 'flex');
             __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.task-details-wrapper').hide();
@@ -20667,8 +20726,8 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                 __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.task-details-wrapper').show();
 
                 if (response.data.status === 200) {
-                    _this24.taskComment = '';
-                    _this24.taskDetails.comments = response.data.data;
+                    _this26.taskComment = '';
+                    _this26.taskDetails.comments = response.data.data;
                     __WEBPACK_IMPORTED_MODULE_0_sweetalert2___default.a.fire({
                         type: 'success',
                         position: 'top-end',
@@ -20678,7 +20737,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                     });
                 } else {
                     if (response.data.errors) {
-                        _this24.errors = response.data.errors;
+                        _this26.errors = response.data.errors;
                     }
 
                     __WEBPACK_IMPORTED_MODULE_0_sweetalert2___default.a.fire({
@@ -20692,7 +20751,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             });
         },
         showChildTask: function showChildTask(id, parentId, parentName) {
-            var _this25 = this;
+            var _this27 = this;
 
             this.taskParents.push({
                 id: parentId,
@@ -20707,14 +20766,14 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                 __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.task-details-wrapper').show();
 
                 if (response.status == 200) {
-                    _this25.taskDetails = response.data.data;
+                    _this27.taskDetails = response.data.data;
                 } else {
-                    _this25.errors = response.data.msg.errors;
+                    _this27.errors = response.data.msg.errors;
                 }
             });
         },
         showParentTask: function showParentTask(id, index) {
-            var _this26 = this;
+            var _this28 = this;
 
             if (this.taskParents.length == 1) {
                 this.taskParents = [];
@@ -20736,9 +20795,9 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                 __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.task-details-wrapper').show();
 
                 if (response.status == 200) {
-                    _this26.taskDetails = response.data.data;
+                    _this28.taskDetails = response.data.data;
                 } else {
-                    _this26.errors = response.data.msg.errors;
+                    _this28.errors = response.data.msg.errors;
                 }
             });
         },
@@ -20825,7 +20884,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             }, 1000);
         },
         sortTask: function sortTask() {
-            var _this27 = this;
+            var _this29 = this;
 
             var _this = this;
             this.isSort = !this.isSort;
@@ -20840,17 +20899,17 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                 this.isLoading = true;
 
                 Nova.request().get('/api/asana/task/sort?' + params).then(function (response) {
-                    _this27.isLoading = false;
+                    _this29.isLoading = false;
 
                     if (response.status == 200) {
-                        _this27.tasks = response.data.data.tasks;
-                        _this27.sectionData = response.data.data.sections;
+                        _this29.tasks = response.data.data.tasks;
+                        _this29.sectionData = response.data.data.sections;
 
                         setTimeout(function () {
                             _this.uiUpdateMounted();
                         }, 500);
                     } else {
-                        _this27.errors = response.data.msg.errors;
+                        _this29.errors = response.data.msg.errors;
                     }
                 });
             } else {
@@ -20858,7 +20917,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             }
         },
         storeNewTemplateProject: function storeNewTemplateProject() {
-            var _this28 = this;
+            var _this30 = this;
 
             this.isLoading = true;
             var formData = new FormData();
@@ -20866,30 +20925,30 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             formData.append('osusr_mlv_community_id', this.community.COMMUNITYID);
 
             Nova.request().post('/api/asana/project/duplicate', formData).then(function (response) {
-                _this28.isLoading = false;
+                _this30.isLoading = false;
 
                 if (response.data.status === 200) {
-                    _this28.getProjects();
+                    _this30.getProjects();
                 } else {
-                    _this28.errors = response.data.errors;
+                    _this30.errors = response.data.errors;
                 }
             });
         }
     },
     created: function created() {
-        var _this29 = this;
+        var _this31 = this;
 
         Nova.request().post('/nova-vendor/community-summary/community', {
             communityId: this.resourceId
         }).then(function (response) {
             console.log(response.data);
-            _this29.community = response.data[0];
-            _this29.loaded = true;
+            _this31.community = response.data[0];
+            _this31.loaded = true;
         });
         Nova.request().post('/nova-vendor/community-summary/foreclosures', {
             communityId: this.resourceId
         }).then(function (response) {
-            _this29.estForeclosures = response.data;
+            _this31.estForeclosures = response.data;
         });
         this.getLatestActivity();
         this.getPendingChangeCount();
@@ -52719,7 +52778,15 @@ var render = function() {
                                                   "div",
                                                   {
                                                     staticClass:
-                                                      "task-name-box cursor-pointer"
+                                                      "task-name-box cursor-pointer",
+                                                    staticStyle: {
+                                                      padding: "5px 15px"
+                                                    },
+                                                    attrs: {
+                                                      id:
+                                                        "name-" +
+                                                        tasks.details.gid
+                                                    }
                                                   },
                                                   [
                                                     _c(
@@ -52729,19 +52796,18 @@ var render = function() {
                                                           "border-radious-icon",
                                                         class: {
                                                           "task-complete":
-                                                            _vm.isTaskComplete ==
-                                                            1
-                                                              ? true
-                                                              : false
+                                                            tasks.completed
                                                         },
                                                         on: {
                                                           click: function(
                                                             $event
                                                           ) {
-                                                            _vm.isTaskComplete ==
-                                                            1
-                                                              ? (_vm.isTaskComplete = 0)
-                                                              : (_vm.isTaskComplete = 1)
+                                                            tasks.completed = !tasks.completed
+                                                            _vm.asanaEditTask(
+                                                              tasks,
+                                                              "completed",
+                                                              $event
+                                                            )
                                                           }
                                                         }
                                                       },
@@ -52776,6 +52842,17 @@ var render = function() {
                                                         domProps: {
                                                           value:
                                                             tasks.details.name
+                                                        },
+                                                        on: {
+                                                          change: function(
+                                                            $event
+                                                          ) {
+                                                            return _vm.asanaEditTask(
+                                                              tasks,
+                                                              "name",
+                                                              $event
+                                                            )
+                                                          }
                                                         }
                                                       })
                                                     ]),
@@ -52926,12 +53003,7 @@ var render = function() {
                                                   "div",
                                                   {
                                                     staticClass:
-                                                      "task-assignee-box cursor-pointer nv-dropdown",
-                                                    on: {
-                                                      click: function($event) {
-                                                        return _vm.hideLogo()
-                                                      }
-                                                    }
+                                                      "task-assignee-box cursor-pointer nv-dropdown"
                                                   },
                                                   [
                                                     _c(
@@ -52978,7 +53050,11 @@ var render = function() {
                                                           "div",
                                                           {
                                                             staticClass:
-                                                              "assigned-person"
+                                                              "assigned-person",
+                                                            staticStyle: {
+                                                              padding:
+                                                                "1px !important"
+                                                            }
                                                           },
                                                           [
                                                             _c("div", {
@@ -52986,7 +53062,8 @@ var render = function() {
                                                                 "img-box",
                                                               staticStyle: {
                                                                 "background-image":
-                                                                  "url('https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png')"
+                                                                  "url('https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png')",
+                                                                width: "35px"
                                                               }
                                                             }),
                                                             _vm._v(" "),
@@ -52997,23 +53074,125 @@ var render = function() {
                                                                   "text-1"
                                                               },
                                                               [
-                                                                _vm._v(
-                                                                  _vm._s(
-                                                                    tasks.assignee
-                                                                      ? tasks
-                                                                          .assignee
-                                                                          .name
-                                                                      : ""
-                                                                  )
+                                                                _c(
+                                                                  "select",
+                                                                  {
+                                                                    directives: [
+                                                                      {
+                                                                        name:
+                                                                          "model",
+                                                                        rawName:
+                                                                          "v-model",
+                                                                        value:
+                                                                          tasks
+                                                                            .assignee
+                                                                            .gid,
+                                                                        expression:
+                                                                          "tasks.assignee.gid"
+                                                                      }
+                                                                    ],
+                                                                    staticClass:
+                                                                      "_custom-select",
+                                                                    on: {
+                                                                      change: [
+                                                                        function(
+                                                                          $event
+                                                                        ) {
+                                                                          var $$selectedVal = Array.prototype.filter
+                                                                            .call(
+                                                                              $event
+                                                                                .target
+                                                                                .options,
+                                                                              function(
+                                                                                o
+                                                                              ) {
+                                                                                return o.selected
+                                                                              }
+                                                                            )
+                                                                            .map(
+                                                                              function(
+                                                                                o
+                                                                              ) {
+                                                                                var val =
+                                                                                  "_value" in
+                                                                                  o
+                                                                                    ? o._value
+                                                                                    : o.value
+                                                                                return val
+                                                                              }
+                                                                            )
+                                                                          _vm.$set(
+                                                                            tasks.assignee,
+                                                                            "gid",
+                                                                            $event
+                                                                              .target
+                                                                              .multiple
+                                                                              ? $$selectedVal
+                                                                              : $$selectedVal[0]
+                                                                          )
+                                                                        },
+                                                                        function(
+                                                                          $event
+                                                                        ) {
+                                                                          return _vm.asanaEditTask(
+                                                                            tasks,
+                                                                            "assignee",
+                                                                            $event
+                                                                          )
+                                                                        }
+                                                                      ]
+                                                                    }
+                                                                  },
+                                                                  [
+                                                                    _c(
+                                                                      "option",
+                                                                      {
+                                                                        attrs: {
+                                                                          value:
+                                                                            "null"
+                                                                        }
+                                                                      },
+                                                                      [
+                                                                        _vm._v(
+                                                                          "Assign User"
+                                                                        )
+                                                                      ]
+                                                                    ),
+                                                                    _vm._v(" "),
+                                                                    _vm._l(
+                                                                      _vm.asanaUsers,
+                                                                      function(
+                                                                        usr
+                                                                      ) {
+                                                                        return _c(
+                                                                          "option",
+                                                                          {
+                                                                            key:
+                                                                              usr.gid,
+                                                                            domProps: {
+                                                                              value:
+                                                                                usr.gid
+                                                                            }
+                                                                          },
+                                                                          [
+                                                                            _vm._v(
+                                                                              _vm._s(
+                                                                                usr.name
+                                                                              )
+                                                                            )
+                                                                          ]
+                                                                        )
+                                                                      }
+                                                                    )
+                                                                  ],
+                                                                  2
                                                                 )
                                                               ]
                                                             )
                                                           ]
                                                         )
                                                       ]
-                                                    ),
-                                                    _vm._v(" "),
-                                                    _vm._m(44, true)
+                                                    )
                                                   ]
                                                 ),
                                                 _vm._v(" "),
@@ -53021,7 +53200,7 @@ var render = function() {
                                                   "div",
                                                   {
                                                     staticClass:
-                                                      "task-date-box cursor-pointer border-right-none"
+                                                      "task-assignee-box cursor-pointer border-right-none"
                                                   },
                                                   [
                                                     _c(
@@ -53055,14 +53234,74 @@ var render = function() {
                                                       ]
                                                     ),
                                                     _vm._v(" "),
-                                                    _c("input", {
-                                                      staticClass:
-                                                        "main-wrapper-date-input",
-                                                      attrs: { type: "text" },
-                                                      domProps: {
-                                                        value: tasks.duedate
-                                                      }
-                                                    })
+                                                    _c(
+                                                      "span",
+                                                      [
+                                                        _c(
+                                                          "flat-pickr",
+                                                          {
+                                                            staticClass:
+                                                              "assignee-box-input assigned-input form-control input active",
+                                                            attrs: {
+                                                              config: {
+                                                                altInput: true,
+                                                                altFormat:
+                                                                  "F j, Y"
+                                                              },
+                                                              name: "date"
+                                                            },
+                                                            on: {
+                                                              "on-change": function(
+                                                                $event
+                                                              ) {
+                                                                return _vm.asanaEditTask(
+                                                                  tasks,
+                                                                  "dueOn",
+                                                                  $event
+                                                                )
+                                                              }
+                                                            },
+                                                            model: {
+                                                              value:
+                                                                tasks.duedate,
+                                                              callback: function(
+                                                                $$v
+                                                              ) {
+                                                                _vm.$set(
+                                                                  tasks,
+                                                                  "duedate",
+                                                                  $$v
+                                                                )
+                                                              },
+                                                              expression:
+                                                                "tasks.duedate"
+                                                            }
+                                                          },
+                                                          [
+                                                            _c(
+                                                              "a",
+                                                              {
+                                                                staticClass:
+                                                                  "input-button",
+                                                                attrs: {
+                                                                  title:
+                                                                    "toggle",
+                                                                  "data-toggle":
+                                                                    ""
+                                                                }
+                                                              },
+                                                              [
+                                                                _c("i", {
+                                                                  staticClass:
+                                                                    "icon-calendar"
+                                                                })
+                                                              ]
+                                                            )
+                                                          ]
+                                                        )
+                                                      ],
+                                                      1
+                                                    )
                                                   ]
                                                 )
                                               ]
@@ -53088,7 +53327,7 @@ var render = function() {
                             attrs: { id: "task-detail" }
                           },
                           [
-                            _vm._m(45),
+                            _vm._m(44),
                             _vm._v(" "),
                             _vm.taskDetails
                               ? _c(
@@ -54901,7 +55140,7 @@ var render = function() {
                                                       staticClass: "comment-bar"
                                                     },
                                                     [
-                                                      _vm._m(46, true),
+                                                      _vm._m(45, true),
                                                       _vm._v(" "),
                                                       _c(
                                                         "div",
@@ -55057,7 +55296,7 @@ var render = function() {
                                                       staticClass: "history-bar"
                                                     },
                                                     [
-                                                      _vm._m(47),
+                                                      _vm._m(46),
                                                       _vm._v(" "),
                                                       _c(
                                                         "div",
@@ -55180,7 +55419,7 @@ var render = function() {
                                           "head-text-section bg-light"
                                       },
                                       [
-                                        _vm._m(48),
+                                        _vm._m(47),
                                         _vm._v(" "),
                                         _c("textarea", {
                                           directives: [
@@ -55259,11 +55498,11 @@ var render = function() {
                               }
                             }),
                             _vm._v(" "),
-                            _vm._m(49)
+                            _vm._m(48)
                           ]
                         ),
                         _vm._v(" "),
-                        _vm._m(50)
+                        _vm._m(49)
                       ]),
                       _vm._v(" "),
                       _c("div", [
@@ -55289,11 +55528,11 @@ var render = function() {
                               }
                             }),
                             _vm._v(" "),
-                            _vm._m(51)
+                            _vm._m(50)
                           ]
                         ),
                         _vm._v(" "),
-                        _vm._m(52)
+                        _vm._m(51)
                       ]),
                       _vm._v(" "),
                       _c("div", [
@@ -55319,11 +55558,11 @@ var render = function() {
                               }
                             }),
                             _vm._v(" "),
-                            _vm._m(53)
+                            _vm._m(52)
                           ]
                         ),
                         _vm._v(" "),
-                        _vm._m(54)
+                        _vm._m(53)
                       ])
                     ])
                   ]
@@ -55376,7 +55615,7 @@ var render = function() {
     _vm._v(" "),
     _c("div", { staticClass: "relationship-tabs-panel card" }, [
       _vm.isLoading
-        ? _c("div", { staticClass: "loader-io" }, [_vm._m(55)])
+        ? _c("div", { staticClass: "loader-io" }, [_vm._m(54)])
         : _vm._e()
     ]),
     _vm._v(" "),
@@ -57443,7 +57682,7 @@ var render = function() {
                           attrs: { id: "task-detail" }
                         },
                         [
-                          _vm._m(56),
+                          _vm._m(55),
                           _vm._v(" "),
                           _vm.taskDetails
                             ? _c(
@@ -59203,7 +59442,7 @@ var render = function() {
                                                     staticClass: "comment-bar"
                                                   },
                                                   [
-                                                    _vm._m(57, true),
+                                                    _vm._m(56, true),
                                                     _vm._v(" "),
                                                     _c(
                                                       "div",
@@ -59357,7 +59596,7 @@ var render = function() {
                                                     staticClass: "history-bar"
                                                   },
                                                   [
-                                                    _vm._m(58),
+                                                    _vm._m(57),
                                                     _vm._v(" "),
                                                     _c(
                                                       "div",
@@ -59477,7 +59716,7 @@ var render = function() {
                                       staticClass: "head-text-section bg-light"
                                     },
                                     [
-                                      _vm._m(59),
+                                      _vm._m(58),
                                       _vm._v(" "),
                                       _c("textarea", {
                                         directives: [
@@ -60612,52 +60851,6 @@ var staticRenderFns = [
         attrs: { type: "text" }
       })
     ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "assignee-box-dropdown nv-dropdown-menu" },
-      [
-        _c("div", { staticClass: "each-assignee" }, [
-          _c("div", {
-            staticClass: "profile-img",
-            staticStyle: {
-              "background-image":
-                "url('https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png')"
-            }
-          }),
-          _vm._v(" "),
-          _c("div", { staticClass: "name-text" }, [_vm._v("Shadin Rana")])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "each-assignee" }, [
-          _c("div", {
-            staticClass: "profile-img",
-            staticStyle: {
-              "background-image":
-                "url('https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png')"
-            }
-          }),
-          _vm._v(" "),
-          _c("div", { staticClass: "name-text" }, [_vm._v("Shadin Rana")])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "each-assignee" }, [
-          _c("div", {
-            staticClass: "profile-img",
-            staticStyle: {
-              "background-image":
-                "url('https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png')"
-            }
-          }),
-          _vm._v(" "),
-          _c("div", { staticClass: "name-text" }, [_vm._v("Shadin Rana")])
-        ])
-      ]
-    )
   },
   function() {
     var _vm = this

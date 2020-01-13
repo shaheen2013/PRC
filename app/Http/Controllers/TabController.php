@@ -83,7 +83,7 @@ class TabController extends Controller
                 $taskArr['subTasks'] = count($subTasks->data);
                 $taskArr['comments'] = count($comments->data);
                 $taskArr['completed'] = $tempTask['data']['completed'];
-                $taskArr['assignee'] = $tempTask['data']['assignee'];
+                $taskArr['assignee'] = $tempTask['data']['assignee'] ? $tempTask['data']['assignee'] : ['gid' => null, 'name' => null, 'resource_type' => "user"];
                 $taskArr['duedate'] = $tempTask['data']['due_on'];
             }
             $tasks[] = $taskArr;
@@ -147,6 +147,35 @@ class TabController extends Controller
                 curl_close($ch);
             }
 
+            return response()->json(['status' => 200, 'data' => $task], 200);
+        } catch (\Exception $e) {
+            return response()->json(['status' => 500, 'msg' => $e->getMessage()], 200);
+        }
+    }
+    public function updateTask(Request $request, $id)
+    {
+        $rules = array(
+            'name' => 'nullable|string|max:255',
+            'assignee' => 'nullable|string|max:255',
+            'due_on' => 'nullable|date',
+            'notes' => 'nullable|string',
+            'section' => 'nullable|string',
+            'completed' => 'nullable|boolean',
+        );
+        $validator = Validator::make ( $request->all(), $rules);
+        if ($validator->fails()){
+            return response()->json(array('errors'=> $validator->getMessageBag()->toarray()));
+        }
+        // Update a task.
+        try {
+            $data = $request->all();
+
+            foreach ($data as $key => $item) {
+                if ($key == '_method' || $key == 'section' || $key == 'id') {
+                    unset($data[$key]);
+                }
+            }
+            $task = json_decode($this->asana->updateTask($id, $data), 1);
             return response()->json(['status' => 200, 'data' => $task], 200);
         } catch (\Exception $e) {
             return response()->json(['status' => 500, 'msg' => $e->getMessage()], 200);
