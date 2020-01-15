@@ -23,5 +23,5 @@ Route::get('/connect/oauth/asana/secure/{id}', 'AsanaController@index')->name('o
 
 Route::get('/accessToken/{data}', function($data){
     Session::put('createProjData', $data);
-    return redirect("https://app.asana.com/-/oauth_authorize?client_id=".env('ASANA_CLIENT_ID')."&redirect_uri=".env('ASANA_REDIRECT_URL')."&response_type=code&state=thisIsARandomString&scope=default");
+    return redirect("https://app.asana.com/-/oauth_authorize?client_id=1151360720602219&redirect_uri=https://nova.local&response_type=code&state=thisIsARandomString&scope=default");
 });

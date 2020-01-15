@@ -393,13 +393,20 @@
                         </div>
                     </div>
                     <div class="tabContent tabContentTasks" id="tasksTabContent" style="display:block;padding:0px">
+                        <div class="w-full flex items-center" style="padding: 10px;">
+                            <h1 class="flex-no-shrink text-90 font-normal text-2xl"></h1>
+                            <div class="flex-no-shrink ml-auto">
+                                <a href="javascript:void(0)" v-if="asana.length == 0" @click="createProject" class="btn btn-default btn-primary" dusk="create-button" style="border-radius: 0px;">Create Project</a>
+                                <a href="javascript:void(0)" v-if="asana.length > 0 && asana.length < 2" @click="storeNewTemplateProject" class="btn btn-default btn-primary" dusk="create-button" style="border-radius: 0px;">Create Onboarding Project</a>
+                            </div>
+                        </div>
                         <div class="tabs taskTabTabs" style="width:100%">
                             <div  v-for="(asan, index) in asana" :key="asan.gid" v-bind:class="[(index == 0) ? 'taskTabClicked' : '', 'taskTabCustom']" :id="'blC'+asan.gid" @click="openTaskTabContent('tab'+asan.gid, 'blC'+asan.gid)">
                                 {{asan.name}}
                             </div>
                         </div>
                         <div class="taskTabContentContainer main-wrapper">
-                            <div v-for="asan in asana" :key="asan.gid" class="taskTabContent" :id="`tab${asan.gid}`">
+                            <div v-for="asan in asana" :key="asan.gid" class="taskTabContent" :id="`tab${asan.gid}`" style="min-height: 600px;background-color: white;">
                                 <div class="add-task-section-wrapper">
                                     <div class="section-left">
                                         <div class="_btn _btn-default" @click="asanaNewTask()">
@@ -490,7 +497,7 @@
                                             <div class="border-radious-icon" style="visibility: hidden;">
                                                 
                                             </div>
-                                            <span style="width: 90%;"><input type="text" v-model="asanaTaskCreate.name" :class="`task-body-custom-input asanaInputDesign asanaTaskOnSubmit${asan.gid}`" v-on:keyup.enter="asanaStoreTask(asan)" placeholder="Write a Task Name"></span>
+                                            <span style="width: 90%;"><input type="text" v-model="asanaTaskCreate.name" :class="`task-body-custom-input asanaInputDesign asanaTaskOnSubmit${asan.gid}`" id="asanaNewTaskCreateInput" v-on:keyup.enter="asanaStoreTask(asan)" placeholder="Write a Task Name"></span>
                                             <div  @click="asanaStoreTask(asan)" class="detail-option">Create
                                                 <svg class="MiniIcon-right" viewBox="0 0 24 24">
                                                     <path d="M8.9,20.4c-0.4,0-0.7-0.1-1-0.4c-0.6-0.6-0.7-1.5-0.1-2.1l5.2-5.8L7.8,6C7.3,5.4,7.3,4.4,8,3.9C8.6,3.3,9.5,3.4,10.1,4l6.1,7.1c0.5,0.6,0.5,1.4,0,2l-6.1,6.8C9.8,20.3,9.4,20.4,8.9,20.4z"></path>
@@ -517,42 +524,45 @@
                                         </div>
                                         <div class="nv-collapsedown" :id="`task-${section.gid}`">
                                             <div class="task-list-body taskSectionsTasks" v-for="tasks in section.tasks" :key="tasks.details.gid">
-                                                <div class="task-name-box cursor-pointer" :id="`name-${tasks.details.gid}`" style="padding: 5px 15px;">
-                                                    <div @click="tasks.completed = !tasks.completed; asanaEditTask(tasks, 'completed', $event)"
-                                                        class="border-radious-icon" :class="{'task-complete': tasks.completed}">
-                                                        <svg class="MiniIcon"
-                                                            viewBox="0 0 24 24">
-                                                            <path d="M9.5,18.2c-0.4,0.4-1,0.4-1.4,0l-3.8-3.8C4,14,4,13.4,4.3,13s1-0.4,1.4,0l3.1,3.1l8.6-8.6c0.4-0.4,1-0.4,1.4,0s0.4,1,0,1.4 L9.5,18.2z"></path>
-                                                        </svg>
-                                                    </div>
-
-                                                    <span><input type="text" class="task-body-custom-input"  @change="asanaEditTask(tasks, 'name', $event)" :value="tasks.details.name"></span>
-                                                    <!-- <span class="comment-section-name">
-                                                        <span class="comment-count-like">12</span>
-                                                        <svg class="comment-logo-like cursor-pointer" viewBox="0 0 24 24"><path
-                                                                d="M2.7,8H5v2v10v2H2.7C1.2,22,0,20.8,0,19.4v-8.7C0,9.2,1.2,8,2.7,8z M23.1,9.2C22.4,8.4,21.5,8,20.5,8H16V5.2 C16,3.5,16.5,2,15.2,1c-0.6-0.5-1.5-0.6-2.2-0.5c-0.8,0.2-1.4,0.7-1.8,1.5L7,8v14h12.2c1.7,0,3.2-1.2,3.4-2.9l1.2-7 C24.1,11,23.8,10,23.1,9.2z"></path></svg>
-                                                    </span> -->
-                                                    <span class="comment-section-name">
-                                                        <span class="comment-count">{{tasks.comments}}</span>
-                                                        <svg class=" comment-logo cursor-pointer" focusable="false"
-                                                            viewBox="0 0 32 32" height="14px" width="14px">
-                                                            <path d="M5,31c-0.1,0-0.3,0-0.4-0.1C4.2,30.7,4,30.4,4,30v-7.1c-2.5-2.3-4-5.5-4-8.9C0,7.4,5.4,2,12,2h8c6.6,0,12,5.4,12,12 s-5.4,12-12,12h-8c-0.1,0-0.3,0-0.4,0l-5.9,4.8C5.4,30.9,5.2,31,5,31z M12,4C6.5,4,2,8.5,2,14c0,3,1.3,5.8,3.6,7.7C5.9,21.9,6,22.2,6,22.5v5.4l4.6-3.7C10.8,24,11,24,11.3,24h0.1c0.2,0,0.4,0,0.6,0h8c5.5,0,10-4.5,10-10S25.5,4,20,4 C20,4,12,4,12,4z"></path>
-                                                        </svg>
-                                                    </span>
-                                                    <span class="comment-section-name"><span class="comment-count">{{tasks.subTasks}}</span>
-                                                        <svg class="comment-logo cursor-pointer" focusable="false" viewBox="0 0 32 32" height="14px"
-                                                            width="14px">
-                                                            <path d="M25,20c-2.4,0-4.4,1.7-4.9,4H11c-3.9,0-7-3.1-7-7v-5h16.1c0.5,2.3,2.5,4,4.9,4c2.8,0,5-2.2,5-5s-2.2-5-5-5c-2.4,0-4.4,1.7-4.9,4H4V3c0-0.6-0.4-1-1-1S2,2.4,2,3v14c0,5,4,9,9,9h9.1c0.5,2.3,2.5,4,4.9,4c2.8,0,5-2.2,5-5S27.8,20,25,20z M25,8c1.7,0,3,1.3,3,3s-1.3,3-3,3s-3-1.3-3-3S23.3,8,25,8z M25,28c-1.7,0-3-1.3-3-3s1.3-3,3-3s3,1.3,3,3S26.7,28,25,28z"></path>
-                                                        </svg>
-                                                    </span>
-                                                    <div v-if="sideBar == 0" @click="showTask(tasks.details.gid)" class="detail-option">Detail
-                                                        <svg class="MiniIcon-right" viewBox="0 0 24 24">
-                                                            <path d="M8.9,20.4c-0.4,0-0.7-0.1-1-0.4c-0.6-0.6-0.7-1.5-0.1-2.1l5.2-5.8L7.8,6C7.3,5.4,7.3,4.4,8,3.9C8.6,3.3,9.5,3.4,10.1,4l6.1,7.1c0.5,0.6,0.5,1.4,0,2l-6.1,6.8C9.8,20.3,9.4,20.4,8.9,20.4z"></path>
-                                                        </svg>
+                                                <div class="task-name-box cursor-pointer" style="padding: 0px 0px;">
+                                                    <div class="backgroundLoading" :id="`nameB-${tasks.details.gid}`" style="display:none"></div>
+                                                    <div class="mainContent task-name-box cursor-pointer"  :id="`nameC-${tasks.details.gid}`" style="padding: 5px 15px;width: 100%;border-right: 0px solid">
+                                                        <div @click="tasks.completed = !tasks.completed; asanaEditTask(tasks, 'completed', $event)"
+                                                            class="border-radious-icon" :class="{'task-complete': tasks.completed}">
+                                                            <svg class="MiniIcon"
+                                                                viewBox="0 0 24 24">
+                                                                <path d="M9.5,18.2c-0.4,0.4-1,0.4-1.4,0l-3.8-3.8C4,14,4,13.4,4.3,13s1-0.4,1.4,0l3.1,3.1l8.6-8.6c0.4-0.4,1-0.4,1.4,0s0.4,1,0,1.4 L9.5,18.2z"></path>
+                                                            </svg>
+                                                        </div>
+                                                        <span><input type="text" class="task-body-custom-input asanaInputDesign"  @change="asanaEditTask(tasks, 'name', $event)" :value="tasks.details.name"></span>
+                                                        <!-- <span class="comment-section-name">
+                                                            <span class="comment-count-like">12</span>
+                                                            <svg class="comment-logo-like cursor-pointer" viewBox="0 0 24 24"><path
+                                                                    d="M2.7,8H5v2v10v2H2.7C1.2,22,0,20.8,0,19.4v-8.7C0,9.2,1.2,8,2.7,8z M23.1,9.2C22.4,8.4,21.5,8,20.5,8H16V5.2 C16,3.5,16.5,2,15.2,1c-0.6-0.5-1.5-0.6-2.2-0.5c-0.8,0.2-1.4,0.7-1.8,1.5L7,8v14h12.2c1.7,0,3.2-1.2,3.4-2.9l1.2-7 C24.1,11,23.8,10,23.1,9.2z"></path></svg>
+                                                        </span> -->
+                                                        <span class="comment-section-name">
+                                                            <span class="comment-count">{{tasks.comments}}</span>
+                                                            <svg class=" comment-logo cursor-pointer" focusable="false"
+                                                                viewBox="0 0 32 32" height="14px" width="14px">
+                                                                <path d="M5,31c-0.1,0-0.3,0-0.4-0.1C4.2,30.7,4,30.4,4,30v-7.1c-2.5-2.3-4-5.5-4-8.9C0,7.4,5.4,2,12,2h8c6.6,0,12,5.4,12,12 s-5.4,12-12,12h-8c-0.1,0-0.3,0-0.4,0l-5.9,4.8C5.4,30.9,5.2,31,5,31z M12,4C6.5,4,2,8.5,2,14c0,3,1.3,5.8,3.6,7.7C5.9,21.9,6,22.2,6,22.5v5.4l4.6-3.7C10.8,24,11,24,11.3,24h0.1c0.2,0,0.4,0,0.6,0h8c5.5,0,10-4.5,10-10S25.5,4,20,4 C20,4,12,4,12,4z"></path>
+                                                            </svg>
+                                                        </span>
+                                                        <span class="comment-section-name"><span class="comment-count">{{tasks.subTasks}}</span>
+                                                            <svg class="comment-logo cursor-pointer" focusable="false" viewBox="0 0 32 32" height="14px"
+                                                                width="14px">
+                                                                <path d="M25,20c-2.4,0-4.4,1.7-4.9,4H11c-3.9,0-7-3.1-7-7v-5h16.1c0.5,2.3,2.5,4,4.9,4c2.8,0,5-2.2,5-5s-2.2-5-5-5c-2.4,0-4.4,1.7-4.9,4H4V3c0-0.6-0.4-1-1-1S2,2.4,2,3v14c0,5,4,9,9,9h9.1c0.5,2.3,2.5,4,4.9,4c2.8,0,5-2.2,5-5S27.8,20,25,20z M25,8c1.7,0,3,1.3,3,3s-1.3,3-3,3s-3-1.3-3-3S23.3,8,25,8z M25,28c-1.7,0-3-1.3-3-3s1.3-3,3-3s3,1.3,3,3S26.7,28,25,28z"></path>
+                                                            </svg>
+                                                        </span>
+                                                        <div v-if="sideBar == 0" @click="showTask(tasks.details.gid)" class="detail-option">Detail
+                                                            <svg class="MiniIcon-right" viewBox="0 0 24 24">
+                                                                <path d="M8.9,20.4c-0.4,0-0.7-0.1-1-0.4c-0.6-0.6-0.7-1.5-0.1-2.1l5.2-5.8L7.8,6C7.3,5.4,7.3,4.4,8,3.9C8.6,3.3,9.5,3.4,10.1,4l6.1,7.1c0.5,0.6,0.5,1.4,0,2l-6.1,6.8C9.8,20.3,9.4,20.4,8.9,20.4z"></path>
+                                                            </svg>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                                <div class="task-assignee-box cursor-pointer nv-dropdown">
-                                                    <div class="nv-dropdown-trigger">
+                                                <div class="task-assignee-box cursor-pointer nv-dropdown taskNameBoxAnim">
+                                                    <div class="backgroundLoading" :id="`assigneeB-${tasks.details.gid}`" style="display:none"></div>
+                                                    <div class="nv-dropdown-trigger" :id="`assigneeC-${tasks.details.gid}`">
                                                         <div class="assignee-box-logo">
                                                             <svg class="inside-logo" focusable="false" viewBox="0 0 32 32">
                                                                 <path d="M16,18c-4.4,0-8-3.6-8-8s3.6-8,8-8s8,3.6,8,8S20.4,18,16,18z M16,4c-3.3,0-6,2.7-6,6s2.7,6,6,6s6-2.7,6-6S19.3,4,16,4z M29,32c-0.6,0-1-0.4-1-1v-4.2c0-2.6-2.2-4.8-4.8-4.8H8.8C6.2,22,4,24.2,4,26.8V31c0,0.6-0.4,1-1,1s-1-0.4-1-1v-4.2C2,23,5,20,8.8,20h14.4c3.7,0,6.8,3,6.8,6.8V31C30,31.6,29.6,32,29,32z"></path>
@@ -564,7 +574,7 @@
                                                             <div class="img-box"
                                                                 style="background-image: url('https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png');width: 35px;"></div>
                                                             <div class="text-1">
-                                                                <select class="_custom-select" v-model="tasks.assignee.gid" @change="asanaEditTask(tasks, 'assignee', $event)">
+                                                                <select class="_custom-select asanaAssigneeSelect" v-model="tasks.assignee.gid" @change="asanaEditTask(tasks, 'assignee', $event)">
                                                                     <option value="null">Assign User</option>
                                                                     <option v-for="usr in asanaUsers" :key="usr.gid" :value="usr.gid">{{ usr.name }}</option>
                                                                 </select>
@@ -572,22 +582,16 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="task-assignee-box cursor-pointer border-right-none">
-                                                    <div class="assignee-box-logo">
-                                                        <svg class="inside-logo" focusable="false" viewBox="0 0 32 32">
-                                                            <path d="M24,2V1c0-0.6-0.4-1-1-1s-1,0.4-1,1v1H10V1c0-0.6-0.4-1-1-1S8,0.4,8,1v1C4.7,2,2,4.7,2,8v16c0,3.3,2.7,6,6,6h16c3.3,0,6-2.7,6-6V8C30,4.7,27.3,2,24,2z M8,4v1c0,0.6,0.4,1,1,1s1-0.4,1-1V4h12v1c0,0.6,0.4,1,1,1s1-0.4,1-1V4c2.2,0,4,1.8,4,4v2H4V8C4,5.8,5.8,4,8,4z M24,28H8c-2.2,0-4-1.8-4-4V12h24v12C28,26.2,26.2,28,24,28z"></path>
-                                                        </svg>
-                                                    </div>
+                                                <div class="task-assignee-box cursor-pointer border-right-none taskNameBoxAnim" :id="`dueOn-${tasks.details.gid}`">
+                                                    <div class="backgroundLoading" :id="`dueOnB-${tasks.details.gid}`" style="display:none"></div>
                                                     <span>
                                                         <flat-pickr
                                                             v-model="tasks.duedate"
                                                             :config="{altInput: true, altFormat: 'F j, Y'}"
                                                             @on-change="asanaEditTask(tasks, 'dueOn', $event)"
                                                             class="assignee-box-input assigned-input form-control input active"
-                                                            name="date" style="">
-                                                            <a class="input-button" title="toggle" data-toggle>
-        <i class="icon-calendar"></i>
-    </a>
+                                                            :id="`dueOnC-${tasks.details.gid}`"
+                                                            name="date">
                                                         </flat-pickr>
                                                     </span>
                                                 </div>
@@ -613,8 +617,8 @@
                                                 </svg>
                                                 <span v-if="taskDetails[0].data.completed" onclick="document.getElementById('taskDetailsCompleteness').click()">Completed</span>
                                                 <span v-else="" onclick="document.getElementById('taskDetailsCompleteness').click()">Mark As Complete</span>
-                                                <input type="checkbox" v-if="taskDetails[0].data.completed" @click="inlineTaskUpdate(taskDetails[0].data.gid, 'completed', $event)" id="taskDetailsCompleteness" style="display:none;" checked>
-                                                <input type="checkbox" v-else="" @click="inlineTaskUpdate(taskDetails[0].data.gid, 'completed', $event)" id="taskDetailsCompleteness" style="display:none;">
+                                                <input type="checkbox" v-if="taskDetails[0].data.completed" @click="inlineTaskUpdate(taskDetails[0].data.memberships[0].section.gid, taskDetails[0].data.gid, 'completed', $event)" id="taskDetailsCompleteness" style="display:none;" checked>
+                                                <input type="checkbox" v-else="" @click="inlineTaskUpdate(taskDetails[0].data.memberships[0].section.gid, taskDetails[0].data.gid, 'completed', $event)" id="taskDetailsCompleteness" style="display:none;">
                                             </div>
                                         </div>
                                         <div class="section-right _text-right">
@@ -659,7 +663,7 @@
                                         </div>
                                     </div>
                                     <div class="head-text-section padding-head-text-10">
-                                        <input type="text" class="input-big" placeholder="Write a task name" :value="taskDetails[0].data.name" @change="inlineTaskUpdate(taskDetails[0].data.gid, 'name', $event)">
+                                        <input type="text" class="input-big" placeholder="Write a task name" :value="taskDetails[0].data.name" @change="inlineTaskUpdate(taskDetails[0].data.memberships[0].section.gid, taskDetails[0].data.gid, 'name', $event)">
                                     </div>
                                     <div class="head-text-section border-bottom-task-list">
                                         <div class="radious-square-input cursor-pointer nv-dropdown">
@@ -669,15 +673,15 @@
                                                 </svg>
                                             </div>
 
-                                            <input type="text" placeholder="Assignee" class="input-design" @keyup="textSearch($event, false)" @blur="clearInput($event, false)">
+                                            <input type="text" placeholder="Assignee" class="input-design" @keyup="textSearch($event, false)" @click="openUserDiv" @blur="clearInput($event, false)">
 
                                             <div class="assigned-person" v-if="taskDetails[0].data.assignee">
                                                 <div class="img-box" style="background-image: url('https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png')"></div>
                                                 <div class="text-1">{{ taskDetails[0].data.assignee.name }}</div>
                                             </div>
 
-                                            <div class="assignee-box-dropdown nv-dropdown-menu">
-                                                <div class="each-assignee" v-if="users.length > 0" v-for="user in users" @click="inlineTaskUpdate(taskDetails[0].data.gid, 'assignee', user)">
+                                            <div class="assignee-box-dropdown nv-dropdown-menu" id="openUserDiv">
+                                                <div class="each-assignee" v-if="users.length > 0" v-for="user in asanaUsers" @click="inlineTaskUpdate(taskDetails[0].data.memberships[0].section.gid, taskDetails[0].data.gid, 'assignee', user)">
                                                     <div class="profile-img"
                                                         style="background-image: url('https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png')"></div>
                                                     <div class="name-text">{{ user.name }}</div>
@@ -693,7 +697,7 @@
                                             <flat-pickr
                                                 :value="taskDetails[0].data.due_on"
                                                 :config="{altInput: true, altFormat: 'F j, Y'}"
-                                                @on-change="inlineTaskUpdate(taskDetails[0].data.gid, 'due_on', $event)"
+                                                @on-change="inlineTaskUpdate(taskDetails[0].data.memberships[0].section.gid, taskDetails[0].data.gid, 'due_on', $event)"
                                                 class="input-design"
                                                 :class="{'width-big': taskDetails[0].data.due_on ? true : false}"
                                                 placeholder="Due date"
@@ -707,7 +711,7 @@
                                                 <path d="M31,8H1C0.4,8,0,7.6,0,7s0.4-1,1-1h30c0.6,0,1,0.4,1,1S31.6,8,31,8z M23,14H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,14,23,14z M27,20H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h26c0.6,0,1,0.4,1,1S27.6,20,27,20z M19,26H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h18c0.6,0,1,0.4,1,1S19.6,26,19,26z"></path>
                                             </svg>
                                         </div>
-                                        <textarea name="" class="custom-text-area" cols="30" rows="5" placeholder="Description" :value="taskDetails[0].data.notes" @change="inlineTaskUpdate(taskDetails[0].data.gid, 'notes', $event)"></textarea>
+                                        <textarea name="" class="custom-text-area" cols="30" rows="5" placeholder="Description" :value="taskDetails[0].data.notes" @change="inlineTaskUpdate(taskDetails[0].data.memberships[0].section.gid, taskDetails[0].data.gid, 'notes', $event)"></textarea>
                                     </div>
                                     <div class="head-text-section _position-relative border-bottom-task-list">
                                         <div class="_input-logo">
@@ -717,7 +721,7 @@
                                         </div>
                                         <div class="project-name-label">{{ projectDetails.data.name }}</div>
                                         <div class="project-select-box">
-                                            <select @change="inlineTaskUpdate(taskDetails[0].data.gid, 'section', $event)" class="cursor-pointer">
+                                            <select @change="inlineTaskUpdate(taskDetails[0].data.memberships[0].section.gid, taskDetails[0].data.gid, 'section', $event)" class="cursor-pointer">
                                                 <option v-for="section in sections" :value="section.gid" v-if="taskDetails[0].data.memberships.length > 0 && taskDetails[0].data.memberships[0].section.gid == section.gid" selected>{{ section.name }}</option>
                                                 <option :value="section.gid" v-else="">{{ section.name }}</option>
                                             </select>
@@ -2264,7 +2268,11 @@
             },
             asanaNewTask(){
                 $('.asanaNewTaskCreate').toggle();
-                $('.asanaInputDesign').focus();
+                $('#asanaNewTaskCreateInput').focus();
+            },
+            openUserDiv(){
+                console.log('show')
+                $('#openUserDiv').show();
             },
             getTaskTabContent(){
                 const asanaLocalProjs = localStorage.getItem('asanaProjects') === null  ? {} : JSON.parse(localStorage.getItem('asanaProjects'));
@@ -2341,6 +2349,7 @@
                 });
             },
             asanaStoreTask(asan) {
+                $('.asanaNewTaskCreate').toggle();
                 this.asanaTaskCreate.projects = [asan.gid];
                 this.asanaTaskCreate.workspace = asan.workspace_id;
                 if(this.asanaTaskCreate.name == ''){
@@ -2363,7 +2372,7 @@
                                 subTasks: 0,
                                 comments: 0,
                                 completed: response.data.data.data.completed,
-                                assignee: response.data.data.data.assignee,
+                                assignee: response.data.data.data.assignee ? response.data.data.data.assignee : {gid: null, name: null,resource_type: 'user'},
                                 duedate:  response.data.data.data.due_on
                             }
                             asanaLocalProjsNewTask[asan.gid].sections.map(sec => {
@@ -2382,35 +2391,50 @@
                 
             },
             asanaEditTask(task, prop, e) {
-                console.log('Function Task', task)
-
                 const taskUp = {
                     gid: task.details.gid
                 }
                 if(prop == 'completed'){
-                    $(`#name-${task.details.gid}`).addClass('taskNameBoxAnim');
+                    $(`#nameB-${task.details.gid}`).show();
+                    $(`#nameC-${task.details.gid}`).hide();
                     taskUp.completed = task.completed;
                 }
                 if(prop == 'name'){
-                    $(`#name-${task.details.gid}`).addClass('taskNameBoxAnim');
-                    taskUp.name = e.target.value
+                    $(`#nameB-${task.details.gid}`).show();
+                    $(`#nameC-${task.details.gid}`).hide();
+                    taskUp.name = e.target.value;
                 }
                 if(prop == 'assignee'){
-                    taskUp.assignee = e.target.value
+                    $(`#assigneeB-${task.details.gid}`).show();
+                    $(`#assigneeC-${task.details.gid}`).hide();
+                    taskUp.assignee = e.target.value;
                 }
                 if(prop == 'dueOn'){
-                    console.log('Sent Task Object', e)
+                    $(`#dueOnB-${task.details.gid}`).show();
+                    $(`#dueOnC-${task.details.gid}`).hide();
                     taskUp.due_on = this.convert(e);
                 }
-                console.log('Sent Task Object', taskUp)
-                this.asanaUpdateTask(taskUp);
+                this.asanaUpdateTask(taskUp, prop);
             },
-            asanaUpdateTask(task) {
+            asanaUpdateTask(task, prop) {
                 Nova.request().post('/api/asana/tab/tasks/update/' + task.gid, task).then(response => {
                     if (response.data.status === 200) {
-                        console.log("aaaaaaaaaa task", task.gid)
-                        const loadedTask = task.gid;
-                        $(`#name-${loadedTask}`).addClass('taskNameBoxAnim');
+                        if(prop == 'completed'){
+                            $(`#nameB-${task.gid}`).hide();
+                            $(`#nameC-${task.gid}`).show();
+                        }
+                        if(prop == 'name'){
+                            $(`#nameB-${task.gid}`).hide();
+                            $(`#nameC-${task.gid}`).show();
+                        }
+                        if(prop == 'assignee'){
+                            $(`#assigneeB-${task.gid}`).hide();
+                            $(`#assigneeC-${task.gid}`).show();
+                        }
+                        if(prop == 'dueOn'){
+                            $(`#dueOnB-${task.gid}`).hide();
+                            $(`#dueOnC-${task.gid}`).show();
+                        }
                         console.log(response);
                         const project = response.data.data.data.projects[0].gid;
                         const addedSection = response.data.data.data.memberships[0].section.gid;
@@ -2422,8 +2446,8 @@
                                     if(task.details.gid == response.data.data.data.gid){
                                         task.completed = response.data.data.data.completed;
                                         task.details.name = response.data.data.data.name;
-                                        task.assignee = response.data.data.data.assignee;
-                                        task.duedate = response.data.data.data.due_on
+                                        task.assignee = response.data.data.data.assignee ? response.data.data.data.assignee : {gid: null, name: null,resource_type: 'user'};
+                                        task.duedate = response.data.data.data.due_on;
                                     }
                                 })
                             }
@@ -2840,6 +2864,19 @@
 
                     if (response.status == 200) {
                         this.taskDetails = response.data.data;
+                        console.log(this.taskDetails[0]);
+                        const project = response.data.data[0].data.projects[0].gid;
+                        console.log('project', project);
+                        let asanaSections = {}
+                        this.asana.map(as => {
+                            if(as.gid == project){
+                                as.sections.map((sec, i) => {
+                                    asanaSections[sec.gid] = sec.name
+                                    console.log('sec.name', sec.name);
+                                })
+                            }
+                        })
+                        console.log('asanaSections', asanaSections);
                     } else {
                         this.errors = response.data.msg.errors;
                     }
@@ -2893,9 +2930,12 @@
                     }
                 });
             },
-            inlineTaskUpdate(id, name, e) {
+            inlineTaskUpdate(section = null, id, name, e) {
+                console.log('section', section);
+                console.log('name', name);
                 $('.task-details-wrapper').hide();
                 $('.loader-io').css('display', 'flex');
+                $('#openUserDiv').hide();
 
                 let formData = new FormData();
                 formData.append('_method', 'PUT');
@@ -2908,7 +2948,7 @@
                         formData.append(name, false);
                         this.taskDetails[0].data.completed = false;
                     }
-                } else if (name == 'due_on') {
+                }  else if (name == 'due_on') {
                     formData.append(name, this.convert(e));
                 }  else if (name == 'assignee') {
                     formData.append(name, e.gid);
@@ -2919,7 +2959,9 @@
                     formData.append(name, e.target.value);
                 }
 
+
                 Nova.request().post('/api/asana/task/update/' + id, formData).then(response => {
+                    console.log('Response', response);
                     $('.loader-io').hide();
                     $('.task-details-wrapper').show();
 
@@ -2937,6 +2979,41 @@
                         }  else if (name == 'assignee') {
                             this.taskDetails[0].data.assignee = e;
                         }
+                        const project = response.data.data.data.projects[0].gid;
+                        const addedSection = response.data.data.data.memberships[0].section.gid;
+
+
+                        const asanaLocalProjsNewTask = JSON.parse(localStorage.getItem('asanaProjects'));
+                        asanaLocalProjsNewTask[project].sections.map(sec => {
+                            if (name == 'section') {
+                                if(sec.gid == section){
+                                    sec.tasks.map((task, i) => {
+                                        if(task.details.gid == id){
+                                            asanaLocalProjsNewTask[project].sections.map(sa => {
+                                                if(sa.gid == addedSection){
+                                                    sa.tasks.unshift(sec.tasks[i])
+                                                }
+                                            })
+                                            sec.tasks.splice(i, 1);
+                                        }
+                                    })
+                                }
+                            }else{
+                                if(sec.gid == addedSection){
+                                    sec.tasks.map(task => {
+                                        if(task.details.gid == response.data.data.data.gid){
+                                            task.completed = response.data.data.data.completed;
+                                            task.details.name = response.data.data.data.name;
+                                            task.assignee = response.data.data.data.assignee ? response.data.data.data.assignee : {gid: null, name: null,resource_type: 'user'};
+                                            task.duedate = response.data.data.data.due_on;
+                                        }
+                                    })
+                                }
+                            }
+                        });
+                        const asanaLocalStoreNewTask = JSON.stringify(asanaLocalProjsNewTask);
+                        localStorage.setItem('asanaProjects', asanaLocalStoreNewTask);
+                        this.localAsana();
                     } else {
                         this.errors = response.data.errors;
                     }
@@ -3360,11 +3437,11 @@
                 formData.append('name', this.community.STATE + '-' + this.community.COUNTY + '-' + this.community.FRIENDLYNAME + '-' + this.community.COMMUNITYID + '-Onboarding');
                 formData.append('osusr_mlv_community_id', this.community.COMMUNITYID);
 
-                Nova.request().post('/api/asana/project/duplicate', formData).then(response => {
+                Nova.request().post('/api/asana/tab/duplicate', formData).then(response => {
                     this.isLoading = false;
-
                     if (response.data.status === 200) {
                         this.getProjects();
+                        this.getTaskTabContent();
                     } else {
                         this.errors = response.data.errors;
                     }
@@ -3474,22 +3551,5 @@
         text-decoration: underline;
         color: #0a4c9e;
         cursor: pointer;
-    }
-    .taskNameBoxAnim {
-      animation: colorchange 2s infinite;
-      -webkit-animation: colorchange 2s infinite; 
-    }
-    @keyframes colorchange
-    {
-      0%   {background: bisque;}
-      50%  {background: yellow;}
-      100% {background: bisque;}
-    }
-
-    @-webkit-keyframes colorchange /* Safari and Chrome - necessary duplicate */
-    {
-      0%   {background: bisque;}
-      50%  {background: yellow;}
-      100% {background: bisque;}
     }
 </style>

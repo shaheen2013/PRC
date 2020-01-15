@@ -6,20 +6,25 @@ use Asana;
 use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use App\Project;
+use App\Accesstoken;
+use App\Asanahelper;
 
 class TaskController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
+    private $asana;
+    private $token;
+
     public function __construct()
     {
-        // $this->middleware('auth');
-        $this->asana = new Asana([
-            'personalAccessToken' => '0/a4ced7855c8c64636be659aec5a9b041'
-        ]);
+        $asana = new Asanahelper();
+        $response = json_decode($asana->accessToken('1151360720602219'));
+        if($response->access_token){
+            $this->asana = new Asana(['personalAccessToken' => $response->access_token]);
+            $this->token = $response->access_token;
+        }else{
+            $this->asana = false;
+        }
     }
 
     /**
@@ -119,7 +124,7 @@ class TaskController extends Controller
                 $headers = array();
                 $headers[] = 'Content-Type: application/json';
                 $headers[] = 'Accept: application/json';
-                $headers[] = 'Authorization: Bearer ' . env('ASANA_PAT');
+                $headers[] = 'Authorization: Bearer ' . $this->token;
                 curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 
                 $result = curl_exec($ch);
@@ -180,7 +185,7 @@ class TaskController extends Controller
 
                 $headers = array();
                 $headers[] = 'Accept: application/json';
-                $headers[] = 'Authorization: Bearer '. env('ASANA_PAT');
+                $headers[] = 'Authorization: Bearer '. $this->token;
 
                 curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 
@@ -421,11 +426,12 @@ class TaskController extends Controller
                 $headers = array();
                 $headers[] = 'Content-Type: application/json';
                 $headers[] = 'Accept: application/json';
-                $headers[] = 'Authorization: Bearer ' . env('ASANA_PAT');
+                $headers[] = 'Authorization: Bearer ' . $this->token;
 
                 curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 
                 $result = curl_exec($ch);
+                $task = json_decode($this->asana->getTask($id), 1);
 
                 if (curl_errno($ch)) {
                     echo 'Error:' . curl_error($ch);
@@ -672,7 +678,7 @@ class TaskController extends Controller
 
                 $headers = array();
                 $headers[] = 'Accept: application/json';
-                $headers[] = 'Authorization: Bearer '. env('ASANA_PAT');
+                $headers[] = 'Authorization: Bearer '. $this->token;
 
                 curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 

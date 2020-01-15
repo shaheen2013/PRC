@@ -17447,7 +17447,7 @@ exports.i(__webpack_require__(138), "");
 exports.i(__webpack_require__(139), "");
 
 // module
-exports.push([module.i, "\n.expired[data-v-b9bc2c0a] {\n    color: red;\n}\n.checkOkr[data-v-b9bc2c0a] {\n    position: absolute;\n    top: -8px;\n    right: -20px;\n    background-position: -58px -16px;\n    width: 38px;\n    height: 38px;\n}\n.checkOkv[data-v-b9bc2c0a] {\n    position: absolute;\n    top: -8px;\n    right: -20px;\n    background-position: -58px -16px;\n    width: 38px;\n    height: 38px;\n}\n.blank-image[data-v-b9bc2c0a] {\n    padding-right: 90px;\n}\n.pointer[data-v-b9bc2c0a] {\n    cursor: pointer;\n}\n.ph[data-v-b9bc2c0a]{\n    padding: 20px 10px;\n}\n.rotate[data-v-b9bc2c0a]{\n    -webkit-transition: all .3s linear;\n    transition: all .3s linear;\n}\n.rotate.down[data-v-b9bc2c0a]{\n    -webkit-transform:rotate(180deg);\n    transform:rotate(180deg);\n}\n.hoverUnderLine[data-v-b9bc2c0a]{\n    font-size: 24px;\n    -webkit-transition: all .5s;\n    transition: all .5s;\n    border-bottom: 1px solid;\n    padding: 10px;\n}\n.hoverUnderLine[data-v-b9bc2c0a]:hover{\n    color: #0a4c9e;\n    cursor: pointer;\n}\n.cmOpenInfo[data-v-b9bc2c0a]{\n    position: relative;\n    color: #616f7f;\n    padding: 5px 20px 5px;\n}\n.cmOpenInfo > span[data-v-b9bc2c0a]{\n    font-size:18px;\n    -webkit-transition: all .5s;\n    transition: all .5s;\n}\n.cmOpenInfo > span[data-v-b9bc2c0a]:hover{\n    text-decoration: underline;\n    color: #0a4c9e;\n    cursor: pointer;\n}\n.taskNameBoxAnim[data-v-b9bc2c0a] {\n  animation: colorchange-data-v-b9bc2c0a 2s infinite;\n  -webkit-animation: colorchange-data-v-b9bc2c0a 2s infinite;\n}\n@keyframes colorchange-data-v-b9bc2c0a\n{\n0%   {background: bisque;\n}\n50%  {background: yellow;\n}\n100% {background: bisque;\n}\n}\n@-webkit-keyframes colorchange-data-v-b9bc2c0a /* Safari and Chrome - necessary duplicate */\n{\n0%   {background: bisque;\n}\n50%  {background: yellow;\n}\n100% {background: bisque;\n}\n}\n", ""]);
+exports.push([module.i, "\n.expired[data-v-b9bc2c0a] {\n    color: red;\n}\n.checkOkr[data-v-b9bc2c0a] {\n    position: absolute;\n    top: -8px;\n    right: -20px;\n    background-position: -58px -16px;\n    width: 38px;\n    height: 38px;\n}\n.checkOkv[data-v-b9bc2c0a] {\n    position: absolute;\n    top: -8px;\n    right: -20px;\n    background-position: -58px -16px;\n    width: 38px;\n    height: 38px;\n}\n.blank-image[data-v-b9bc2c0a] {\n    padding-right: 90px;\n}\n.pointer[data-v-b9bc2c0a] {\n    cursor: pointer;\n}\n.ph[data-v-b9bc2c0a]{\n    padding: 20px 10px;\n}\n.rotate[data-v-b9bc2c0a]{\n    -webkit-transition: all .3s linear;\n    transition: all .3s linear;\n}\n.rotate.down[data-v-b9bc2c0a]{\n    -webkit-transform:rotate(180deg);\n    transform:rotate(180deg);\n}\n.hoverUnderLine[data-v-b9bc2c0a]{\n    font-size: 24px;\n    -webkit-transition: all .5s;\n    transition: all .5s;\n    border-bottom: 1px solid;\n    padding: 10px;\n}\n.hoverUnderLine[data-v-b9bc2c0a]:hover{\n    color: #0a4c9e;\n    cursor: pointer;\n}\n.cmOpenInfo[data-v-b9bc2c0a]{\n    position: relative;\n    color: #616f7f;\n    padding: 5px 20px 5px;\n}\n.cmOpenInfo > span[data-v-b9bc2c0a]{\n    font-size:18px;\n    -webkit-transition: all .5s;\n    transition: all .5s;\n}\n.cmOpenInfo > span[data-v-b9bc2c0a]:hover{\n    text-decoration: underline;\n    color: #0a4c9e;\n    cursor: pointer;\n}\n", ""]);
 
 // exports
 
@@ -17461,7 +17461,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, ".expired {\n  color: red;\n}\n\n.sprite {\n  background-image: url(\"https://s3.amazonaws.com/communitymanagement/spriteCM.svg\");\n  background-repeat: no-repeat; }\n\n.notAffectSize {\n  -webkit-box-sizing: border-box;\n  -moz-box-sizing: border-box;\n  box-sizing: border-box; }\n\n.all-transition {\n  -webkit-transition: -webkit-all 200ms ease-in-out;\n  -moz-transition: -moz-all 200ms ease-in-out;\n  transition: all 200ms ease-in-out; }\n\n\n.text-note {\n  color: #a6a6a6;\n  font-size: 10px; }\n\n.dividers {\n  color: #B0BEC5;\n  font-size: 13px;\n  text-transform: uppercase; }\n\na {\n  color: #55a3de;\n  text-decoration: none;\n  outline: 0; }\na:hover, a:focus {\n  color: #aad1ef; }\n\n.gold-n0 {\n  background-color: #f7f7f7; }\n\n.gold-n1 {\n  background-color: #ffffd9; }\n\n.gold-n2 {\n  background-color: #fff9c4; }\n\n.gold-n3 {\n  background-color: #fff59d; }\n\n.gold-n4 {\n  background-color: lightgreen; }\n\n.gold-n5 {\n  background-color: green; }\n\n.gold-n6 {\n  background-color: #ffd740; }\n\n.summary {\n  background-color: #fff;\n  padding: 5px;\n  box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.25);\n  margin-top: 7px;\n}\n.times-circle{\n  margin-right: 10px;\n  font-size: 25px !important;\n  cursor: pointer;\n  border-radius: 50%;\n  color: red;\n  transition: all .5s;\n}\n.tabCustom{\n  background-color: #9c9b9b;\n  padding: 8px;\n  cursor: pointer;\n  border: 2px solid #908f8f;\n}\n.tabCustomClicked{\n  background-color: white;\n  border-bottom: unset;\n}\n.tabContent{\n  display: none;\n  padding: 20px;\n}\n.times-circle:hover{\n  box-shadow: 0px 0px 15px red;\n}\n.customSummary{\n  padding: 0px;\n  border-radius: 0px;\n}\n.summary header {\n  position: relative;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  flex-wrap: wrap; }\n.customHeader{\n  border-bottom: 2px solid #bbbbbb;\n}\n.wrapLogoCommunity {\n  position: relative;\n  display: flex;\n  align-items: center;\n  background-color: #fff;\n  z-index: 2; }\n\n.infoAddress {\n  display: flex;\n  position: relative;\n  align-items: center;\n  flex: 1;\n  min-width: 350px; }\n  @media only screen and (max-width: 480px) {\n    .infoAddress {\n      flex-wrap: wrap; } }\n\n.infoPrograms {\n  display: flex;\n  flex-direction: column;\n  align-items: flex-end;\n  flex-wrap: wrap;\n  flex: 1; }\n\n.wrap-expires {\n  margin-top: 10px;\n  background-color: white;\n  position: relative;\n  padding: 0px 0 0 20px;\n  z-index: 1; }\n\n.titleHeadings{\n  margin-left: 120px;\n}\n\n.headline {\n  font-size: 32px;\n  line-height: 1;\n  padding: 5px 0px;\n  color: #0a4c9e;\n}\n\n.subheadline {\n  font-size: 20px; }\n\n.wrap-programs {\n  display: flex;\n  justify-content: center;\n  padding: 30px;\n}\n.infoCustomText{\n  font-size: 19px;\n  background-color: white;\n  margin: -14px auto 12px;\n}\n.programs {\n  display: flex;\n  align-items: center;\n  margin-left: 50px;\n  flex-wrap: wrap; }\n.programsCustom {\n  align-items: center;\n  margin-left: -5px;\n  flex-wrap: wrap;\n  padding-right: 5px;\n}\n.customBorder{\n  border-right: 2px solid #f1f1f1;\n}\n.countyCityCardHeading{\n  width: 100%; \n   text-align: center; \n   border-bottom: 1px solid #000; \n   line-height: 0.1em;\n   margin: 10px 0 20px;\n}\n.countyCityCardHeading span { \n  background:#fff; \n  padding:0 10px; \n}\n.tabSection{\n  margin-top: 39px;\n}\n.cardCustom{\n  width:24%;\n  float:left;\n  border: 1px solid;\n  border-radius:unset;\n  margin: 0px 3px;\n}\n.cardCustomH{\n  min-height: 220px;\n}\n.cardCustomHeader{\n  padding: 10px 5px 2px;\n  height: 40px;\n}\n.cardCustomBody{\n  padding: 10px 10px;\n  background-color: #d4d2d2;\n  min-height: 200px;\n  margin: 0px 12px 8px;\n  min-height: 310px;\n  display: none;\n}\n\n.cardCustomHeaderArrow{\n  cursor: pointer;\n  color: rgb(10, 76, 158);\n  width: 100%;\n  text-align: right;\n  font-size: 25px !important;\n  margin-top: -6px;\n}\n.cardBodyList{\n  text-align: center;\n  margin: 15px 0px;\n}\n.cardBodyListBtn{\n  background-color: white;\n  width: 70%;\n  margin: 5px;\n}\n.cardBodyListText{\n  color: #848181;\n  font-weight: 600;\n}\n.cardBodyBottomText{\n  text-align: right;\n  font-weight: 600;\n  text-decoration: underline;\n}\n.round-info {\n  position: relative;\n  width: 50px;\n  height: 50px;\n  margin-left: 10px;\n  border-radius: 100%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 24px;\n  font-weight: bold;\n  color: #47515b; }\n\n.round-info-green {\n  position: relative;\n  width: 50px;\n  height: 50px;\n  margin-left: 10px;\n  border-radius: 100%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 24px;\n  font-weight: bold;\n  color: whitesmoke; }\n\n.custHeadTop{\n  display: flex;\n}\n.customHeadLeft{\n  display: flex;\n  position: relative;\n  align-items: center;\n  flex: 1;\n  min-width: 350px;\n}\n.customHeadRight{\n  display: flex;\n  flex-direction: column;\n  align-items: flex-end;\n}\n.logoCommunity {\n  max-width: 100px;\n}\n\n.logoCommunity {\n  position: absolute;\n  left: 10px;\n}\n.icon-blue-lock {\n  position: absolute;\n  background-position: -4px -4px;\n  width: 50px;\n  height: 50px; }\n\n.icon-alert-red {\n  background-position: -104px -16px;\n  width: 38px;\n  height: 38px;\n  display: inline-block;\n  vertical-align: middle; }\n\n.icon-alert-yellow {\n  background-position: -144px -16px;\n  width: 38px;\n  height: 38px;\n  display: inline-block;\n  vertical-align: middle; }\n\n.icon-alert-green {\n  background-position: -58px -16px;\n  width: 38px;\n  height: 38px;\n  display: inline-block;\n  vertical-align: middle; }\n\n.checkOk {\n  position: absolute;\n  top: -8px;\n  right: -18px;\n  background-position: -58px -16px;\n  width: 38px;\n  height: 38px; }\n\n.expires {\n  font-weight: bold;\n  color: #4f7c2f; }\n\n.communityDetail {\n  display: grid;\n  grid-template-columns: 1fr 350px;\n  grid-gap: 20px; }\n  @media only screen and (max-width: 480px) {\n    .communityDetail {\n      grid-template-columns: 1fr; } }\n  @media only screen and (min-width: 481px) and (max-width: 1023px) {\n    .communityDetail {\n      grid-template-columns: 1fr; } }\n\n.wrap-detailsBox {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));\n  grid-auto-rows: 150px;\n  grid-gap: 20px; }\n\n.detailBox.links {\n  grid-column: span 2;\n  grid-row: 2; }\n\n.wrap-links {\n  display: flex;\n  flex-direction: column; }\n\n.label-square {\n  display: flex;\n  align-items: center;\n  font-size: 14px;\n  color: #616f7f;\n  font-weight: bold; }\n\n.label-square i {\n  margin-right: 5px; }\n\n.boxInfo {\n  display: flex;\n  justify-content: center;\n  height: 190px; \n}\n\n.wrap-boxInfo {\n  position: relative;\n  width: 300px;\n  display: flex;\n  flex-direction: column;\n  text-align: center; }\n\n.boxHead {\n  margin: 0 auto;\n  box-sizing: border-box;\n  padding: 0 20px 3px;\n  font-size: 24px;\n  font-weight: bold;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  z-index: 1;\n  background-color: #fff; }\n\n.boxContent {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  flex: 1;\n  flex-direction: column;\n  border-radius: 5px;\n  background-color: #eef1f4; }\n\n.itemBox {\n  width: 100%;\n  box-sizing: border-box;\n  padding: 15px 40px; }\n\n.label-boxInfo {\n  font-size: 14px;\n  color: #3a3a3c; }\n\n.textBox {\n  padding: 10px;\n  border-radius: 4px;\n  border: 1px solid #3a3a3c;\n  font-size: 16px;\n  font-weight: bold;\n  margin-top: 5px;\n  background-color: #fff; }\n\n.itemBox > div {\n  margin-bottom: 15px; }\n\n.itemBox > div:last-child {\n  margin-bottom: 0; }\n\n.wrap-boxInfo .line {\n  border: 1px solid #3a3a3c;\n  position: absolute;\n  width: 100%;\n  top: 18px; }\n\n.communityDetail .detailBox {\n  border-right: 1px solid #616f7f; }\n\n.wrap-detailsBox > .detailBox:last-child {\n  border-right: none; }\n\n.detailBox {\n  display: flex;\n  align-items: center; }\n\n.group-links {\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between; }\n\n.wrap-detailBox {\n  flex: 1; }\n\n.wrap-detailBox > div {\n  margin-bottom: 5px;\n  margin-bottom: 15px;\n}\n\n.wrap-detailBox > div:last-child {\n  margin-bottom: 0; }\n\n.textLinks {\n  display: flex;\n  align-items: center;\n  font-weight: bold;\n  color: #55a3de; }\n\n.textLinks > i {\n  margin-left: 10px;\n  color: #152531; }\n\n  .communityWarning{\n    background-color: #fff061;\n    color: #22292f;\n    padding: 12px 25px;\n    font-size: 23px;\n    margin-top: 30px;\n  }\n.cardHolder{\n  width: 100%;\n  margin: 25px 10px;\n  overflow: hidden;\n}\n\n/* Task Tab */\n.taskTabTabs{\n  display: flex;\n}\n.taskTabClicked{\n  display: inline-block;\n  background-color: white;\n  color: #47515b !important;\n  border-top: 2px solid;\n  border-left: 10px solid;\n}\n.taskTabContent{\n  display:none;\n}\n.taskTabContent:nth-child(1){\n  display:block\n}\n.tabContentTasks{\n  background-color: #47515b;\n}\n.taskTabContentContainer{\n  padding-left: 10px;\n}\n.taskSections{\n  background-color: bisque;\n}\n.taskSectionsTasks{\n  display: flex;\n  width: 100%;\n  background-color: white;\n  padding: 0px 0px;\n  margin-left: 10px;\n  font-size: 15px;\n  font-weight: 700;\n  border-top: 1px solid #e8ecee;\n}\n.taskTabCustom{\n  display: inline-block;\n  padding: 10px;\n  color: white;\n  font-size: 20px;\n  font-weight: 600;\n  padding-left: 21px;\n  cursor: pointer;\n}\n.tabTaskSecTitle{\n  padding: 15px;\n  background-color: white;\n  font-size: 25px;\n  font-weight: 700;\n}\n.asanaInputDesign{\n  width:80%;\n}\n.asanaInputDesign:focus{\n  border: 0px solid #f1f1f1 !important;\n}", ""]);
+exports.push([module.i, ".expired {\n  color: red;\n}\n\n.sprite {\n  background-image: url(\"https://s3.amazonaws.com/communitymanagement/spriteCM.svg\");\n  background-repeat: no-repeat; }\n\n.notAffectSize {\n  -webkit-box-sizing: border-box;\n  -moz-box-sizing: border-box;\n  box-sizing: border-box; }\n\n.all-transition {\n  -webkit-transition: -webkit-all 200ms ease-in-out;\n  -moz-transition: -moz-all 200ms ease-in-out;\n  transition: all 200ms ease-in-out; }\n\n\n.text-note {\n  color: #a6a6a6;\n  font-size: 10px; }\n\n.dividers {\n  color: #B0BEC5;\n  font-size: 13px;\n  text-transform: uppercase; }\n\na {\n  color: #55a3de;\n  text-decoration: none;\n  outline: 0; }\na:hover, a:focus {\n  color: #aad1ef; }\n\n.gold-n0 {\n  background-color: #f7f7f7; }\n\n.gold-n1 {\n  background-color: #ffffd9; }\n\n.gold-n2 {\n  background-color: #fff9c4; }\n\n.gold-n3 {\n  background-color: #fff59d; }\n\n.gold-n4 {\n  background-color: lightgreen; }\n\n.gold-n5 {\n  background-color: green; }\n\n.gold-n6 {\n  background-color: #ffd740; }\n\n.summary {\n  background-color: #fff;\n  padding: 5px;\n  box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.25);\n  margin-top: 7px;\n}\n.times-circle{\n  margin-right: 10px;\n  font-size: 25px !important;\n  cursor: pointer;\n  border-radius: 50%;\n  color: red;\n  transition: all .5s;\n}\n.tabCustom{\n  background-color: #9c9b9b;\n  padding: 8px;\n  cursor: pointer;\n  border: 2px solid #908f8f;\n}\n.tabCustomClicked{\n  background-color: white;\n  border-bottom: unset;\n}\n.tabContent{\n  display: none;\n  padding: 20px;\n}\n.times-circle:hover{\n  box-shadow: 0px 0px 15px red;\n}\n.customSummary{\n  padding: 0px;\n  border-radius: 0px;\n}\n.summary header {\n  position: relative;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  flex-wrap: wrap; }\n.customHeader{\n  border-bottom: 2px solid #bbbbbb;\n}\n.wrapLogoCommunity {\n  position: relative;\n  display: flex;\n  align-items: center;\n  background-color: #fff;\n  z-index: 2; }\n\n.infoAddress {\n  display: flex;\n  position: relative;\n  align-items: center;\n  flex: 1;\n  min-width: 350px; }\n  @media only screen and (max-width: 480px) {\n    .infoAddress {\n      flex-wrap: wrap; } }\n\n.infoPrograms {\n  display: flex;\n  flex-direction: column;\n  align-items: flex-end;\n  flex-wrap: wrap;\n  flex: 1; }\n\n.wrap-expires {\n  margin-top: 10px;\n  background-color: white;\n  position: relative;\n  padding: 0px 0 0 20px;\n  z-index: 1; }\n\n.titleHeadings{\n  margin-left: 120px;\n}\n\n.headline {\n  font-size: 32px;\n  line-height: 1;\n  padding: 5px 0px;\n  color: #0a4c9e;\n}\n\n.subheadline {\n  font-size: 20px; }\n\n.wrap-programs {\n  display: flex;\n  justify-content: center;\n  padding: 30px;\n}\n.infoCustomText{\n  font-size: 19px;\n  background-color: white;\n  margin: -14px auto 12px;\n}\n.programs {\n  display: flex;\n  align-items: center;\n  margin-left: 50px;\n  flex-wrap: wrap; }\n.programsCustom {\n  align-items: center;\n  margin-left: -5px;\n  flex-wrap: wrap;\n  padding-right: 5px;\n}\n.customBorder{\n  border-right: 2px solid #f1f1f1;\n}\n.countyCityCardHeading{\n  width: 100%; \n   text-align: center; \n   border-bottom: 1px solid #000; \n   line-height: 0.1em;\n   margin: 10px 0 20px;\n}\n.countyCityCardHeading span { \n  background:#fff; \n  padding:0 10px; \n}\n.tabSection{\n  margin-top: 39px;\n}\n.cardCustom{\n  width:24%;\n  float:left;\n  border: 1px solid;\n  border-radius:unset;\n  margin: 0px 3px;\n}\n.cardCustomH{\n  min-height: 220px;\n}\n.cardCustomHeader{\n  padding: 10px 5px 2px;\n  height: 40px;\n}\n.cardCustomBody{\n  padding: 10px 10px;\n  background-color: #d4d2d2;\n  min-height: 200px;\n  margin: 0px 12px 8px;\n  min-height: 310px;\n  display: none;\n}\n\n.cardCustomHeaderArrow{\n  cursor: pointer;\n  color: rgb(10, 76, 158);\n  width: 100%;\n  text-align: right;\n  font-size: 25px !important;\n  margin-top: -6px;\n}\n.cardBodyList{\n  text-align: center;\n  margin: 15px 0px;\n}\n.cardBodyListBtn{\n  background-color: white;\n  width: 70%;\n  margin: 5px;\n}\n.cardBodyListText{\n  color: #848181;\n  font-weight: 600;\n}\n.cardBodyBottomText{\n  text-align: right;\n  font-weight: 600;\n  text-decoration: underline;\n}\n.round-info {\n  position: relative;\n  width: 50px;\n  height: 50px;\n  margin-left: 10px;\n  border-radius: 100%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 24px;\n  font-weight: bold;\n  color: #47515b; }\n\n.round-info-green {\n  position: relative;\n  width: 50px;\n  height: 50px;\n  margin-left: 10px;\n  border-radius: 100%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 24px;\n  font-weight: bold;\n  color: whitesmoke; }\n\n.custHeadTop{\n  display: flex;\n}\n.customHeadLeft{\n  display: flex;\n  position: relative;\n  align-items: center;\n  flex: 1;\n  min-width: 350px;\n}\n.customHeadRight{\n  display: flex;\n  flex-direction: column;\n  align-items: flex-end;\n}\n.logoCommunity {\n  max-width: 100px;\n}\n\n.logoCommunity {\n  position: absolute;\n  left: 10px;\n}\n.icon-blue-lock {\n  position: absolute;\n  background-position: -4px -4px;\n  width: 50px;\n  height: 50px; }\n\n.icon-alert-red {\n  background-position: -104px -16px;\n  width: 38px;\n  height: 38px;\n  display: inline-block;\n  vertical-align: middle; }\n\n.icon-alert-yellow {\n  background-position: -144px -16px;\n  width: 38px;\n  height: 38px;\n  display: inline-block;\n  vertical-align: middle; }\n\n.icon-alert-green {\n  background-position: -58px -16px;\n  width: 38px;\n  height: 38px;\n  display: inline-block;\n  vertical-align: middle; }\n\n.checkOk {\n  position: absolute;\n  top: -8px;\n  right: -18px;\n  background-position: -58px -16px;\n  width: 38px;\n  height: 38px; }\n\n.expires {\n  font-weight: bold;\n  color: #4f7c2f; }\n\n.communityDetail {\n  display: grid;\n  grid-template-columns: 1fr 350px;\n  grid-gap: 20px; }\n  @media only screen and (max-width: 480px) {\n    .communityDetail {\n      grid-template-columns: 1fr; } }\n  @media only screen and (min-width: 481px) and (max-width: 1023px) {\n    .communityDetail {\n      grid-template-columns: 1fr; } }\n\n.wrap-detailsBox {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));\n  grid-auto-rows: 150px;\n  grid-gap: 20px; }\n\n.detailBox.links {\n  grid-column: span 2;\n  grid-row: 2; }\n\n.wrap-links {\n  display: flex;\n  flex-direction: column; }\n\n.label-square {\n  display: flex;\n  align-items: center;\n  font-size: 14px;\n  color: #616f7f;\n  font-weight: bold; }\n\n.label-square i {\n  margin-right: 5px; }\n\n.boxInfo {\n  display: flex;\n  justify-content: center;\n  height: 190px; \n}\n\n.wrap-boxInfo {\n  position: relative;\n  width: 300px;\n  display: flex;\n  flex-direction: column;\n  text-align: center; }\n\n.boxHead {\n  margin: 0 auto;\n  box-sizing: border-box;\n  padding: 0 20px 3px;\n  font-size: 24px;\n  font-weight: bold;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  z-index: 1;\n  background-color: #fff; }\n\n.boxContent {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  flex: 1;\n  flex-direction: column;\n  border-radius: 5px;\n  background-color: #eef1f4; }\n\n.itemBox {\n  width: 100%;\n  box-sizing: border-box;\n  padding: 15px 40px; }\n\n.label-boxInfo {\n  font-size: 14px;\n  color: #3a3a3c; }\n\n.textBox {\n  padding: 10px;\n  border-radius: 4px;\n  border: 1px solid #3a3a3c;\n  font-size: 16px;\n  font-weight: bold;\n  margin-top: 5px;\n  background-color: #fff; }\n\n.itemBox > div {\n  margin-bottom: 15px; }\n\n.itemBox > div:last-child {\n  margin-bottom: 0; }\n\n.wrap-boxInfo .line {\n  border: 1px solid #3a3a3c;\n  position: absolute;\n  width: 100%;\n  top: 18px; }\n\n.communityDetail .detailBox {\n  border-right: 1px solid #616f7f; }\n\n.wrap-detailsBox > .detailBox:last-child {\n  border-right: none; }\n\n.detailBox {\n  display: flex;\n  align-items: center; }\n\n.group-links {\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between; }\n\n.wrap-detailBox {\n  flex: 1; }\n\n.wrap-detailBox > div {\n  margin-bottom: 5px;\n  margin-bottom: 15px;\n}\n\n.wrap-detailBox > div:last-child {\n  margin-bottom: 0; }\n\n.textLinks {\n  display: flex;\n  align-items: center;\n  font-weight: bold;\n  color: #55a3de; }\n\n.textLinks > i {\n  margin-left: 10px;\n  color: #152531; }\n\n  .communityWarning{\n    background-color: #fff061;\n    color: #22292f;\n    padding: 12px 25px;\n    font-size: 23px;\n    margin-top: 30px;\n  }\n.cardHolder{\n  width: 100%;\n  margin: 25px 10px;\n  overflow: hidden;\n}\n\n/* Task Tab */\n.taskTabTabs{\n  display: flex;\n}\n.taskTabClicked{\n  display: inline-block;\n  background-color: white;\n  color: #47515b !important;\n  border-top: 2px solid;\n  border-left: 10px solid;\n}\n.taskTabContent{\n  display:none;\n}\n.taskTabContent:nth-child(1){\n  display:block\n}\n.tabContentTasks{\n  background-color: #47515b;\n}\n.taskTabContentContainer{\n  padding-left: 10px;\n}\n.taskSections{\n  background-color: bisque;\n}\n.taskSectionsTasks{\n  display: flex;\n  width: 100%;\n  background-color: white;\n  padding: 0px 0px;\n  margin-left: 10px;\n  font-size: 15px;\n  font-weight: 700;\n  border-top: 1px solid #e8ecee;\n}\n.taskTabCustom{\n  display: inline-block;\n  padding: 10px;\n  color: white;\n  font-size: 20px;\n  font-weight: 600;\n  padding-left: 21px;\n  cursor: pointer;\n}\n.tabTaskSecTitle{\n  padding: 15px;\n  background-color: white;\n  font-size: 25px;\n  font-weight: 700;\n}\n.asanaInputDesign{\n  width:80%;\n  background-color: transparent !important;\n}\n.asanaInputDesign:focus{\n  border: 0px solid #f1f1f1 !important;\n}\n.asanaAssigneeSelect{\n  font-size: 12px !important;\n  font-weight: 600 !important;\n  padding: 3px 3px !important;\n  width: 90% !important;\n  margin-top: 4px;\n}\n.backgroundLoading{\n  width: 100%;\n  height: 100%;\n  animation: colorchange 2s infinite;\n  -webkit-animation: colorchange 2s infinite; \n}\n@keyframes colorchange\n{\n  0%   {background: bisque;}\n  50%  {background: yellow;}\n  100% {background: bisque;}\n}\n\n@-webkit-keyframes colorchange /* Safari and Chrome - necessary duplicate */\n{\n  0%   {background: bisque;}\n  50%  {background: yellow;}\n  100% {background: bisque;}\n}\n.task-list-detail-wrapper{\n  height: 100% !important;\n}", ""]);
 
 // exports
 
@@ -17531,6 +17531,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_vue_moments_ago__ = __webpack_require__(158);
 function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
+//
+//
+//
+//
 //
 //
 //
@@ -19790,7 +19794,11 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
         },
         asanaNewTask: function asanaNewTask() {
             __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.asanaNewTaskCreate').toggle();
-            __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.asanaInputDesign').focus();
+            __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('#asanaNewTaskCreateInput').focus();
+        },
+        openUserDiv: function openUserDiv() {
+            console.log('show');
+            __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('#openUserDiv').show();
         },
         getTaskTabContent: function getTaskTabContent() {
             var _this3 = this;
@@ -19878,6 +19886,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
         asanaStoreTask: function asanaStoreTask(asan) {
             var _this8 = this;
 
+            __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.asanaNewTaskCreate').toggle();
             this.asanaTaskCreate.projects = [asan.gid];
             this.asanaTaskCreate.workspace = asan.workspace_id;
             if (this.asanaTaskCreate.name == '') {
@@ -19900,7 +19909,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                             subTasks: 0,
                             comments: 0,
                             completed: response.data.data.data.completed,
-                            assignee: response.data.data.data.assignee,
+                            assignee: response.data.data.data.assignee ? response.data.data.data.assignee : { gid: null, name: null, resource_type: 'user' },
                             duedate: response.data.data.data.due_on
                         };
                         asanaLocalProjsNewTask[asan.gid].sections.map(function (sec) {
@@ -19918,37 +19927,52 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             }
         },
         asanaEditTask: function asanaEditTask(task, prop, e) {
-            console.log('Function Task', task);
-
             var taskUp = {
                 gid: task.details.gid
             };
             if (prop == 'completed') {
-                __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('#name-' + task.details.gid).addClass('taskNameBoxAnim');
+                __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('#nameB-' + task.details.gid).show();
+                __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('#nameC-' + task.details.gid).hide();
                 taskUp.completed = task.completed;
             }
             if (prop == 'name') {
-                __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('#name-' + task.details.gid).addClass('taskNameBoxAnim');
+                __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('#nameB-' + task.details.gid).show();
+                __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('#nameC-' + task.details.gid).hide();
                 taskUp.name = e.target.value;
             }
             if (prop == 'assignee') {
+                __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('#assigneeB-' + task.details.gid).show();
+                __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('#assigneeC-' + task.details.gid).hide();
                 taskUp.assignee = e.target.value;
             }
             if (prop == 'dueOn') {
-                console.log('Sent Task Object', e);
+                __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('#dueOnB-' + task.details.gid).show();
+                __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('#dueOnC-' + task.details.gid).hide();
                 taskUp.due_on = this.convert(e);
             }
-            console.log('Sent Task Object', taskUp);
-            this.asanaUpdateTask(taskUp);
+            this.asanaUpdateTask(taskUp, prop);
         },
-        asanaUpdateTask: function asanaUpdateTask(task) {
+        asanaUpdateTask: function asanaUpdateTask(task, prop) {
             var _this9 = this;
 
             Nova.request().post('/api/asana/tab/tasks/update/' + task.gid, task).then(function (response) {
                 if (response.data.status === 200) {
-                    console.log("aaaaaaaaaa task", task.gid);
-                    var loadedTask = task.gid;
-                    __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('#name-' + loadedTask).addClass('taskNameBoxAnim');
+                    if (prop == 'completed') {
+                        __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('#nameB-' + task.gid).hide();
+                        __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('#nameC-' + task.gid).show();
+                    }
+                    if (prop == 'name') {
+                        __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('#nameB-' + task.gid).hide();
+                        __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('#nameC-' + task.gid).show();
+                    }
+                    if (prop == 'assignee') {
+                        __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('#assigneeB-' + task.gid).hide();
+                        __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('#assigneeC-' + task.gid).show();
+                    }
+                    if (prop == 'dueOn') {
+                        __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('#dueOnB-' + task.gid).hide();
+                        __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('#dueOnC-' + task.gid).show();
+                    }
                     console.log(response);
                     var project = response.data.data.data.projects[0].gid;
                     var addedSection = response.data.data.data.memberships[0].section.gid;
@@ -19960,7 +19984,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                                 if (task.details.gid == response.data.data.data.gid) {
                                     task.completed = response.data.data.data.completed;
                                     task.details.name = response.data.data.data.name;
-                                    task.assignee = response.data.data.data.assignee;
+                                    task.assignee = response.data.data.data.assignee ? response.data.data.data.assignee : { gid: null, name: null, resource_type: 'user' };
                                     task.duedate = response.data.data.data.due_on;
                                 }
                             });
@@ -20383,6 +20407,19 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
                 if (response.status == 200) {
                     _this19.taskDetails = response.data.data;
+                    console.log(_this19.taskDetails[0]);
+                    var project = response.data.data[0].data.projects[0].gid;
+                    console.log('project', project);
+                    var asanaSections = {};
+                    _this19.asana.map(function (as) {
+                        if (as.gid == project) {
+                            as.sections.map(function (sec, i) {
+                                asanaSections[sec.gid] = sec.name;
+                                console.log('sec.name', sec.name);
+                            });
+                        }
+                    });
+                    console.log('asanaSections', asanaSections);
                 } else {
                     _this19.errors = response.data.msg.errors;
                 }
@@ -20438,11 +20475,20 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                 }
             });
         },
-        inlineTaskUpdate: function inlineTaskUpdate(id, name, e) {
+        inlineTaskUpdate: function inlineTaskUpdate() {
+            var section = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+            var id = arguments[1];
+
             var _this21 = this;
 
+            var name = arguments[2];
+            var e = arguments[3];
+
+            console.log('section', section);
+            console.log('name', name);
             __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.task-details-wrapper').hide();
             __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.loader-io').css('display', 'flex');
+            __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('#openUserDiv').hide();
 
             var formData = new FormData();
             formData.append('_method', 'PUT');
@@ -20467,6 +20513,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             }
 
             Nova.request().post('/api/asana/task/update/' + id, formData).then(function (response) {
+                console.log('Response', response);
                 __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.loader-io').hide();
                 __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.task-details-wrapper').show();
 
@@ -20484,6 +20531,40 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                     } else if (name == 'assignee') {
                         _this21.taskDetails[0].data.assignee = e;
                     }
+                    var project = response.data.data.data.projects[0].gid;
+                    var addedSection = response.data.data.data.memberships[0].section.gid;
+
+                    var asanaLocalProjsNewTask = JSON.parse(localStorage.getItem('asanaProjects'));
+                    asanaLocalProjsNewTask[project].sections.map(function (sec) {
+                        if (name == 'section') {
+                            if (sec.gid == section) {
+                                sec.tasks.map(function (task, i) {
+                                    if (task.details.gid == id) {
+                                        asanaLocalProjsNewTask[project].sections.map(function (sa) {
+                                            if (sa.gid == addedSection) {
+                                                sa.tasks.unshift(sec.tasks[i]);
+                                            }
+                                        });
+                                        sec.tasks.splice(i, 1);
+                                    }
+                                });
+                            }
+                        } else {
+                            if (sec.gid == addedSection) {
+                                sec.tasks.map(function (task) {
+                                    if (task.details.gid == response.data.data.data.gid) {
+                                        task.completed = response.data.data.data.completed;
+                                        task.details.name = response.data.data.data.name;
+                                        task.assignee = response.data.data.data.assignee ? response.data.data.data.assignee : { gid: null, name: null, resource_type: 'user' };
+                                        task.duedate = response.data.data.data.due_on;
+                                    }
+                                });
+                            }
+                        }
+                    });
+                    var asanaLocalStoreNewTask = JSON.stringify(asanaLocalProjsNewTask);
+                    localStorage.setItem('asanaProjects', asanaLocalStoreNewTask);
+                    _this21.localAsana();
                 } else {
                     _this21.errors = response.data.errors;
                 }
@@ -20924,11 +21005,11 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             formData.append('name', this.community.STATE + '-' + this.community.COUNTY + '-' + this.community.FRIENDLYNAME + '-' + this.community.COMMUNITYID + '-Onboarding');
             formData.append('osusr_mlv_community_id', this.community.COMMUNITYID);
 
-            Nova.request().post('/api/asana/project/duplicate', formData).then(function (response) {
+            Nova.request().post('/api/asana/tab/duplicate', formData).then(function (response) {
                 _this30.isLoading = false;
-
                 if (response.data.status === 200) {
                     _this30.getProjects();
+                    _this30.getTaskTabContent();
                 } else {
                     _this30.errors = response.data.errors;
                 }
@@ -52277,6 +52358,54 @@ var render = function() {
                     _c(
                       "div",
                       {
+                        staticClass: "w-full flex items-center",
+                        staticStyle: { padding: "10px" }
+                      },
+                      [
+                        _c("h1", {
+                          staticClass:
+                            "flex-no-shrink text-90 font-normal text-2xl"
+                        }),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "flex-no-shrink ml-auto" }, [
+                          _vm.asana.length == 0
+                            ? _c(
+                                "a",
+                                {
+                                  staticClass: "btn btn-default btn-primary",
+                                  staticStyle: { "border-radius": "0px" },
+                                  attrs: {
+                                    href: "javascript:void(0)",
+                                    dusk: "create-button"
+                                  },
+                                  on: { click: _vm.createProject }
+                                },
+                                [_vm._v("Create Project")]
+                              )
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _vm.asana.length > 0 && _vm.asana.length < 2
+                            ? _c(
+                                "a",
+                                {
+                                  staticClass: "btn btn-default btn-primary",
+                                  staticStyle: { "border-radius": "0px" },
+                                  attrs: {
+                                    href: "javascript:void(0)",
+                                    dusk: "create-button"
+                                  },
+                                  on: { click: _vm.storeNewTemplateProject }
+                                },
+                                [_vm._v("Create Onboarding Project")]
+                              )
+                            : _vm._e()
+                        ])
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
                         staticClass: "tabs taskTabTabs",
                         staticStyle: { width: "100%" }
                       },
@@ -52321,6 +52450,10 @@ var render = function() {
                             {
                               key: asan.gid,
                               staticClass: "taskTabContent",
+                              staticStyle: {
+                                "min-height": "600px",
+                                "background-color": "white"
+                              },
                               attrs: { id: "tab" + asan.gid }
                             },
                             [
@@ -52596,6 +52729,7 @@ var render = function() {
                                                   asan.gid,
                                                 attrs: {
                                                   type: "text",
+                                                  id: "asanaNewTaskCreateInput",
                                                   placeholder:
                                                     "Write a Task Name"
                                                 },
@@ -52780,205 +52914,69 @@ var render = function() {
                                                     staticClass:
                                                       "task-name-box cursor-pointer",
                                                     staticStyle: {
-                                                      padding: "5px 15px"
-                                                    },
-                                                    attrs: {
-                                                      id:
-                                                        "name-" +
-                                                        tasks.details.gid
+                                                      padding: "0px 0px"
                                                     }
                                                   },
                                                   [
+                                                    _c("div", {
+                                                      staticClass:
+                                                        "backgroundLoading",
+                                                      staticStyle: {
+                                                        display: "none"
+                                                      },
+                                                      attrs: {
+                                                        id:
+                                                          "nameB-" +
+                                                          tasks.details.gid
+                                                      }
+                                                    }),
+                                                    _vm._v(" "),
                                                     _c(
                                                       "div",
                                                       {
                                                         staticClass:
-                                                          "border-radious-icon",
-                                                        class: {
-                                                          "task-complete":
-                                                            tasks.completed
+                                                          "mainContent task-name-box cursor-pointer",
+                                                        staticStyle: {
+                                                          padding: "5px 15px",
+                                                          width: "100%",
+                                                          "border-right":
+                                                            "0px solid"
                                                         },
-                                                        on: {
-                                                          click: function(
-                                                            $event
-                                                          ) {
-                                                            tasks.completed = !tasks.completed
-                                                            _vm.asanaEditTask(
-                                                              tasks,
-                                                              "completed",
-                                                              $event
-                                                            )
-                                                          }
+                                                        attrs: {
+                                                          id:
+                                                            "nameC-" +
+                                                            tasks.details.gid
                                                         }
                                                       },
                                                       [
                                                         _c(
-                                                          "svg",
-                                                          {
-                                                            staticClass:
-                                                              "MiniIcon",
-                                                            attrs: {
-                                                              viewBox:
-                                                                "0 0 24 24"
-                                                            }
-                                                          },
-                                                          [
-                                                            _c("path", {
-                                                              attrs: {
-                                                                d:
-                                                                  "M9.5,18.2c-0.4,0.4-1,0.4-1.4,0l-3.8-3.8C4,14,4,13.4,4.3,13s1-0.4,1.4,0l3.1,3.1l8.6-8.6c0.4-0.4,1-0.4,1.4,0s0.4,1,0,1.4 L9.5,18.2z"
-                                                              }
-                                                            })
-                                                          ]
-                                                        )
-                                                      ]
-                                                    ),
-                                                    _vm._v(" "),
-                                                    _c("span", [
-                                                      _c("input", {
-                                                        staticClass:
-                                                          "task-body-custom-input",
-                                                        attrs: { type: "text" },
-                                                        domProps: {
-                                                          value:
-                                                            tasks.details.name
-                                                        },
-                                                        on: {
-                                                          change: function(
-                                                            $event
-                                                          ) {
-                                                            return _vm.asanaEditTask(
-                                                              tasks,
-                                                              "name",
-                                                              $event
-                                                            )
-                                                          }
-                                                        }
-                                                      })
-                                                    ]),
-                                                    _vm._v(" "),
-                                                    _c(
-                                                      "span",
-                                                      {
-                                                        staticClass:
-                                                          "comment-section-name"
-                                                      },
-                                                      [
-                                                        _c(
-                                                          "span",
-                                                          {
-                                                            staticClass:
-                                                              "comment-count"
-                                                          },
-                                                          [
-                                                            _vm._v(
-                                                              _vm._s(
-                                                                tasks.comments
-                                                              )
-                                                            )
-                                                          ]
-                                                        ),
-                                                        _vm._v(" "),
-                                                        _c(
-                                                          "svg",
-                                                          {
-                                                            staticClass:
-                                                              " comment-logo cursor-pointer",
-                                                            attrs: {
-                                                              focusable:
-                                                                "false",
-                                                              viewBox:
-                                                                "0 0 32 32",
-                                                              height: "14px",
-                                                              width: "14px"
-                                                            }
-                                                          },
-                                                          [
-                                                            _c("path", {
-                                                              attrs: {
-                                                                d:
-                                                                  "M5,31c-0.1,0-0.3,0-0.4-0.1C4.2,30.7,4,30.4,4,30v-7.1c-2.5-2.3-4-5.5-4-8.9C0,7.4,5.4,2,12,2h8c6.6,0,12,5.4,12,12 s-5.4,12-12,12h-8c-0.1,0-0.3,0-0.4,0l-5.9,4.8C5.4,30.9,5.2,31,5,31z M12,4C6.5,4,2,8.5,2,14c0,3,1.3,5.8,3.6,7.7C5.9,21.9,6,22.2,6,22.5v5.4l4.6-3.7C10.8,24,11,24,11.3,24h0.1c0.2,0,0.4,0,0.6,0h8c5.5,0,10-4.5,10-10S25.5,4,20,4 C20,4,12,4,12,4z"
-                                                              }
-                                                            })
-                                                          ]
-                                                        )
-                                                      ]
-                                                    ),
-                                                    _vm._v(" "),
-                                                    _c(
-                                                      "span",
-                                                      {
-                                                        staticClass:
-                                                          "comment-section-name"
-                                                      },
-                                                      [
-                                                        _c(
-                                                          "span",
-                                                          {
-                                                            staticClass:
-                                                              "comment-count"
-                                                          },
-                                                          [
-                                                            _vm._v(
-                                                              _vm._s(
-                                                                tasks.subTasks
-                                                              )
-                                                            )
-                                                          ]
-                                                        ),
-                                                        _vm._v(" "),
-                                                        _c(
-                                                          "svg",
-                                                          {
-                                                            staticClass:
-                                                              "comment-logo cursor-pointer",
-                                                            attrs: {
-                                                              focusable:
-                                                                "false",
-                                                              viewBox:
-                                                                "0 0 32 32",
-                                                              height: "14px",
-                                                              width: "14px"
-                                                            }
-                                                          },
-                                                          [
-                                                            _c("path", {
-                                                              attrs: {
-                                                                d:
-                                                                  "M25,20c-2.4,0-4.4,1.7-4.9,4H11c-3.9,0-7-3.1-7-7v-5h16.1c0.5,2.3,2.5,4,4.9,4c2.8,0,5-2.2,5-5s-2.2-5-5-5c-2.4,0-4.4,1.7-4.9,4H4V3c0-0.6-0.4-1-1-1S2,2.4,2,3v14c0,5,4,9,9,9h9.1c0.5,2.3,2.5,4,4.9,4c2.8,0,5-2.2,5-5S27.8,20,25,20z M25,8c1.7,0,3,1.3,3,3s-1.3,3-3,3s-3-1.3-3-3S23.3,8,25,8z M25,28c-1.7,0-3-1.3-3-3s1.3-3,3-3s3,1.3,3,3S26.7,28,25,28z"
-                                                              }
-                                                            })
-                                                          ]
-                                                        )
-                                                      ]
-                                                    ),
-                                                    _vm._v(" "),
-                                                    _vm.sideBar == 0
-                                                      ? _c(
                                                           "div",
                                                           {
                                                             staticClass:
-                                                              "detail-option",
+                                                              "border-radious-icon",
+                                                            class: {
+                                                              "task-complete":
+                                                                tasks.completed
+                                                            },
                                                             on: {
                                                               click: function(
                                                                 $event
                                                               ) {
-                                                                return _vm.showTask(
-                                                                  tasks.details
-                                                                    .gid
+                                                                tasks.completed = !tasks.completed
+                                                                _vm.asanaEditTask(
+                                                                  tasks,
+                                                                  "completed",
+                                                                  $event
                                                                 )
                                                               }
                                                             }
                                                           },
                                                           [
-                                                            _vm._v(
-                                                              "Detail\n                                                    "
-                                                            ),
                                                             _c(
                                                               "svg",
                                                               {
                                                                 staticClass:
-                                                                  "MiniIcon-right",
+                                                                  "MiniIcon",
                                                                 attrs: {
                                                                   viewBox:
                                                                     "0 0 24 24"
@@ -52988,14 +52986,184 @@ var render = function() {
                                                                 _c("path", {
                                                                   attrs: {
                                                                     d:
-                                                                      "M8.9,20.4c-0.4,0-0.7-0.1-1-0.4c-0.6-0.6-0.7-1.5-0.1-2.1l5.2-5.8L7.8,6C7.3,5.4,7.3,4.4,8,3.9C8.6,3.3,9.5,3.4,10.1,4l6.1,7.1c0.5,0.6,0.5,1.4,0,2l-6.1,6.8C9.8,20.3,9.4,20.4,8.9,20.4z"
+                                                                      "M9.5,18.2c-0.4,0.4-1,0.4-1.4,0l-3.8-3.8C4,14,4,13.4,4.3,13s1-0.4,1.4,0l3.1,3.1l8.6-8.6c0.4-0.4,1-0.4,1.4,0s0.4,1,0,1.4 L9.5,18.2z"
                                                                   }
                                                                 })
                                                               ]
                                                             )
                                                           ]
-                                                        )
-                                                      : _vm._e()
+                                                        ),
+                                                        _vm._v(" "),
+                                                        _c("span", [
+                                                          _c("input", {
+                                                            staticClass:
+                                                              "task-body-custom-input asanaInputDesign",
+                                                            attrs: {
+                                                              type: "text"
+                                                            },
+                                                            domProps: {
+                                                              value:
+                                                                tasks.details
+                                                                  .name
+                                                            },
+                                                            on: {
+                                                              change: function(
+                                                                $event
+                                                              ) {
+                                                                return _vm.asanaEditTask(
+                                                                  tasks,
+                                                                  "name",
+                                                                  $event
+                                                                )
+                                                              }
+                                                            }
+                                                          })
+                                                        ]),
+                                                        _vm._v(" "),
+                                                        _c(
+                                                          "span",
+                                                          {
+                                                            staticClass:
+                                                              "comment-section-name"
+                                                          },
+                                                          [
+                                                            _c(
+                                                              "span",
+                                                              {
+                                                                staticClass:
+                                                                  "comment-count"
+                                                              },
+                                                              [
+                                                                _vm._v(
+                                                                  _vm._s(
+                                                                    tasks.comments
+                                                                  )
+                                                                )
+                                                              ]
+                                                            ),
+                                                            _vm._v(" "),
+                                                            _c(
+                                                              "svg",
+                                                              {
+                                                                staticClass:
+                                                                  " comment-logo cursor-pointer",
+                                                                attrs: {
+                                                                  focusable:
+                                                                    "false",
+                                                                  viewBox:
+                                                                    "0 0 32 32",
+                                                                  height:
+                                                                    "14px",
+                                                                  width: "14px"
+                                                                }
+                                                              },
+                                                              [
+                                                                _c("path", {
+                                                                  attrs: {
+                                                                    d:
+                                                                      "M5,31c-0.1,0-0.3,0-0.4-0.1C4.2,30.7,4,30.4,4,30v-7.1c-2.5-2.3-4-5.5-4-8.9C0,7.4,5.4,2,12,2h8c6.6,0,12,5.4,12,12 s-5.4,12-12,12h-8c-0.1,0-0.3,0-0.4,0l-5.9,4.8C5.4,30.9,5.2,31,5,31z M12,4C6.5,4,2,8.5,2,14c0,3,1.3,5.8,3.6,7.7C5.9,21.9,6,22.2,6,22.5v5.4l4.6-3.7C10.8,24,11,24,11.3,24h0.1c0.2,0,0.4,0,0.6,0h8c5.5,0,10-4.5,10-10S25.5,4,20,4 C20,4,12,4,12,4z"
+                                                                  }
+                                                                })
+                                                              ]
+                                                            )
+                                                          ]
+                                                        ),
+                                                        _vm._v(" "),
+                                                        _c(
+                                                          "span",
+                                                          {
+                                                            staticClass:
+                                                              "comment-section-name"
+                                                          },
+                                                          [
+                                                            _c(
+                                                              "span",
+                                                              {
+                                                                staticClass:
+                                                                  "comment-count"
+                                                              },
+                                                              [
+                                                                _vm._v(
+                                                                  _vm._s(
+                                                                    tasks.subTasks
+                                                                  )
+                                                                )
+                                                              ]
+                                                            ),
+                                                            _vm._v(" "),
+                                                            _c(
+                                                              "svg",
+                                                              {
+                                                                staticClass:
+                                                                  "comment-logo cursor-pointer",
+                                                                attrs: {
+                                                                  focusable:
+                                                                    "false",
+                                                                  viewBox:
+                                                                    "0 0 32 32",
+                                                                  height:
+                                                                    "14px",
+                                                                  width: "14px"
+                                                                }
+                                                              },
+                                                              [
+                                                                _c("path", {
+                                                                  attrs: {
+                                                                    d:
+                                                                      "M25,20c-2.4,0-4.4,1.7-4.9,4H11c-3.9,0-7-3.1-7-7v-5h16.1c0.5,2.3,2.5,4,4.9,4c2.8,0,5-2.2,5-5s-2.2-5-5-5c-2.4,0-4.4,1.7-4.9,4H4V3c0-0.6-0.4-1-1-1S2,2.4,2,3v14c0,5,4,9,9,9h9.1c0.5,2.3,2.5,4,4.9,4c2.8,0,5-2.2,5-5S27.8,20,25,20z M25,8c1.7,0,3,1.3,3,3s-1.3,3-3,3s-3-1.3-3-3S23.3,8,25,8z M25,28c-1.7,0-3-1.3-3-3s1.3-3,3-3s3,1.3,3,3S26.7,28,25,28z"
+                                                                  }
+                                                                })
+                                                              ]
+                                                            )
+                                                          ]
+                                                        ),
+                                                        _vm._v(" "),
+                                                        _vm.sideBar == 0
+                                                          ? _c(
+                                                              "div",
+                                                              {
+                                                                staticClass:
+                                                                  "detail-option",
+                                                                on: {
+                                                                  click: function(
+                                                                    $event
+                                                                  ) {
+                                                                    return _vm.showTask(
+                                                                      tasks
+                                                                        .details
+                                                                        .gid
+                                                                    )
+                                                                  }
+                                                                }
+                                                              },
+                                                              [
+                                                                _vm._v(
+                                                                  "Detail\n                                                        "
+                                                                ),
+                                                                _c(
+                                                                  "svg",
+                                                                  {
+                                                                    staticClass:
+                                                                      "MiniIcon-right",
+                                                                    attrs: {
+                                                                      viewBox:
+                                                                        "0 0 24 24"
+                                                                    }
+                                                                  },
+                                                                  [
+                                                                    _c("path", {
+                                                                      attrs: {
+                                                                        d:
+                                                                          "M8.9,20.4c-0.4,0-0.7-0.1-1-0.4c-0.6-0.6-0.7-1.5-0.1-2.1l5.2-5.8L7.8,6C7.3,5.4,7.3,4.4,8,3.9C8.6,3.3,9.5,3.4,10.1,4l6.1,7.1c0.5,0.6,0.5,1.4,0,2l-6.1,6.8C9.8,20.3,9.4,20.4,8.9,20.4z"
+                                                                      }
+                                                                    })
+                                                                  ]
+                                                                )
+                                                              ]
+                                                            )
+                                                          : _vm._e()
+                                                      ]
+                                                    )
                                                   ]
                                                 ),
                                                 _vm._v(" "),
@@ -53003,14 +53171,32 @@ var render = function() {
                                                   "div",
                                                   {
                                                     staticClass:
-                                                      "task-assignee-box cursor-pointer nv-dropdown"
+                                                      "task-assignee-box cursor-pointer nv-dropdown taskNameBoxAnim"
                                                   },
                                                   [
+                                                    _c("div", {
+                                                      staticClass:
+                                                        "backgroundLoading",
+                                                      staticStyle: {
+                                                        display: "none"
+                                                      },
+                                                      attrs: {
+                                                        id:
+                                                          "assigneeB-" +
+                                                          tasks.details.gid
+                                                      }
+                                                    }),
+                                                    _vm._v(" "),
                                                     _c(
                                                       "div",
                                                       {
                                                         staticClass:
-                                                          "nv-dropdown-trigger"
+                                                          "nv-dropdown-trigger",
+                                                        attrs: {
+                                                          id:
+                                                            "assigneeC-" +
+                                                            tasks.details.gid
+                                                        }
                                                       },
                                                       [
                                                         _c(
@@ -53092,7 +53278,7 @@ var render = function() {
                                                                       }
                                                                     ],
                                                                     staticClass:
-                                                                      "_custom-select",
+                                                                      "_custom-select asanaAssigneeSelect",
                                                                     on: {
                                                                       change: [
                                                                         function(
@@ -53200,105 +53386,71 @@ var render = function() {
                                                   "div",
                                                   {
                                                     staticClass:
-                                                      "task-assignee-box cursor-pointer border-right-none"
+                                                      "task-assignee-box cursor-pointer border-right-none taskNameBoxAnim",
+                                                    attrs: {
+                                                      id:
+                                                        "dueOn-" +
+                                                        tasks.details.gid
+                                                    }
                                                   },
                                                   [
-                                                    _c(
-                                                      "div",
-                                                      {
-                                                        staticClass:
-                                                          "assignee-box-logo"
+                                                    _c("div", {
+                                                      staticClass:
+                                                        "backgroundLoading",
+                                                      staticStyle: {
+                                                        display: "none"
                                                       },
-                                                      [
-                                                        _c(
-                                                          "svg",
-                                                          {
-                                                            staticClass:
-                                                              "inside-logo",
-                                                            attrs: {
-                                                              focusable:
-                                                                "false",
-                                                              viewBox:
-                                                                "0 0 32 32"
-                                                            }
-                                                          },
-                                                          [
-                                                            _c("path", {
-                                                              attrs: {
-                                                                d:
-                                                                  "M24,2V1c0-0.6-0.4-1-1-1s-1,0.4-1,1v1H10V1c0-0.6-0.4-1-1-1S8,0.4,8,1v1C4.7,2,2,4.7,2,8v16c0,3.3,2.7,6,6,6h16c3.3,0,6-2.7,6-6V8C30,4.7,27.3,2,24,2z M8,4v1c0,0.6,0.4,1,1,1s1-0.4,1-1V4h12v1c0,0.6,0.4,1,1,1s1-0.4,1-1V4c2.2,0,4,1.8,4,4v2H4V8C4,5.8,5.8,4,8,4z M24,28H8c-2.2,0-4-1.8-4-4V12h24v12C28,26.2,26.2,28,24,28z"
-                                                              }
-                                                            })
-                                                          ]
-                                                        )
-                                                      ]
-                                                    ),
+                                                      attrs: {
+                                                        id:
+                                                          "dueOnB-" +
+                                                          tasks.details.gid
+                                                      }
+                                                    }),
                                                     _vm._v(" "),
                                                     _c(
                                                       "span",
                                                       [
-                                                        _c(
-                                                          "flat-pickr",
-                                                          {
-                                                            staticClass:
-                                                              "assignee-box-input assigned-input form-control input active",
-                                                            attrs: {
-                                                              config: {
-                                                                altInput: true,
-                                                                altFormat:
-                                                                  "F j, Y"
-                                                              },
-                                                              name: "date"
+                                                        _c("flat-pickr", {
+                                                          staticClass:
+                                                            "assignee-box-input assigned-input form-control input active",
+                                                          attrs: {
+                                                            config: {
+                                                              altInput: true,
+                                                              altFormat:
+                                                                "F j, Y"
                                                             },
-                                                            on: {
-                                                              "on-change": function(
+                                                            id:
+                                                              "dueOnC-" +
+                                                              tasks.details.gid,
+                                                            name: "date"
+                                                          },
+                                                          on: {
+                                                            "on-change": function(
+                                                              $event
+                                                            ) {
+                                                              return _vm.asanaEditTask(
+                                                                tasks,
+                                                                "dueOn",
                                                                 $event
-                                                              ) {
-                                                                return _vm.asanaEditTask(
-                                                                  tasks,
-                                                                  "dueOn",
-                                                                  $event
-                                                                )
-                                                              }
-                                                            },
-                                                            model: {
-                                                              value:
-                                                                tasks.duedate,
-                                                              callback: function(
-                                                                $$v
-                                                              ) {
-                                                                _vm.$set(
-                                                                  tasks,
-                                                                  "duedate",
-                                                                  $$v
-                                                                )
-                                                              },
-                                                              expression:
-                                                                "tasks.duedate"
+                                                              )
                                                             }
                                                           },
-                                                          [
-                                                            _c(
-                                                              "a",
-                                                              {
-                                                                staticClass:
-                                                                  "input-button",
-                                                                attrs: {
-                                                                  title:
-                                                                    "toggle",
-                                                                  "data-toggle":
-                                                                    ""
-                                                                }
-                                                              },
-                                                              [
-                                                                _c("i", {
-                                                                  staticClass:
-                                                                    "icon-calendar"
-                                                                })
-                                                              ]
-                                                            )
-                                                          ]
-                                                        )
+                                                          model: {
+                                                            value:
+                                                              tasks.duedate,
+                                                            callback: function(
+                                                              $$v
+                                                            ) {
+                                                              _vm.$set(
+                                                                tasks,
+                                                                "duedate",
+                                                                $$v
+                                                              )
+                                                            },
+                                                            expression:
+                                                              "tasks.duedate"
+                                                          }
+                                                        })
                                                       ],
                                                       1
                                                     )
@@ -53422,6 +53574,10 @@ var render = function() {
                                                         ) {
                                                           return _vm.inlineTaskUpdate(
                                                             _vm.taskDetails[0]
+                                                              .data
+                                                              .memberships[0]
+                                                              .section.gid,
+                                                            _vm.taskDetails[0]
                                                               .data.gid,
                                                             "completed",
                                                             $event
@@ -53443,6 +53599,10 @@ var render = function() {
                                                           $event
                                                         ) {
                                                           return _vm.inlineTaskUpdate(
+                                                            _vm.taskDetails[0]
+                                                              .data
+                                                              .memberships[0]
+                                                              .section.gid,
                                                             _vm.taskDetails[0]
                                                               .data.gid,
                                                             "completed",
@@ -53780,6 +53940,8 @@ var render = function() {
                                           on: {
                                             change: function($event) {
                                               return _vm.inlineTaskUpdate(
+                                                _vm.taskDetails[0].data
+                                                  .memberships[0].section.gid,
                                                 _vm.taskDetails[0].data.gid,
                                                 "name",
                                                 $event
@@ -53842,6 +54004,7 @@ var render = function() {
                                                     false
                                                   )
                                                 },
+                                                click: _vm.openUserDiv,
                                                 blur: function($event) {
                                                   return _vm.clearInput(
                                                     $event,
@@ -53888,9 +54051,12 @@ var render = function() {
                                               "div",
                                               {
                                                 staticClass:
-                                                  "assignee-box-dropdown nv-dropdown-menu"
+                                                  "assignee-box-dropdown nv-dropdown-menu",
+                                                attrs: { id: "openUserDiv" }
                                               },
-                                              _vm._l(_vm.users, function(user) {
+                                              _vm._l(_vm.asanaUsers, function(
+                                                user
+                                              ) {
                                                 return _vm.users.length > 0
                                                   ? _c(
                                                       "div",
@@ -53902,6 +54068,10 @@ var render = function() {
                                                             $event
                                                           ) {
                                                             return _vm.inlineTaskUpdate(
+                                                              _vm.taskDetails[0]
+                                                                .data
+                                                                .memberships[0]
+                                                                .section.gid,
                                                               _vm.taskDetails[0]
                                                                 .data.gid,
                                                               "assignee",
@@ -53994,6 +54164,9 @@ var render = function() {
                                               on: {
                                                 "on-change": function($event) {
                                                   return _vm.inlineTaskUpdate(
+                                                    _vm.taskDetails[0].data
+                                                      .memberships[0].section
+                                                      .gid,
                                                     _vm.taskDetails[0].data.gid,
                                                     "due_on",
                                                     $event
@@ -54050,6 +54223,8 @@ var render = function() {
                                           on: {
                                             change: function($event) {
                                               return _vm.inlineTaskUpdate(
+                                                _vm.taskDetails[0].data
+                                                  .memberships[0].section.gid,
                                                 _vm.taskDetails[0].data.gid,
                                                 "notes",
                                                 $event
@@ -54115,6 +54290,9 @@ var render = function() {
                                                 on: {
                                                   change: function($event) {
                                                     return _vm.inlineTaskUpdate(
+                                                      _vm.taskDetails[0].data
+                                                        .memberships[0].section
+                                                        .gid,
                                                       _vm.taskDetails[0].data
                                                         .gid,
                                                       "section",

@@ -176,7 +176,94 @@ class TabController extends Controller
                 }
             }
             $task = json_decode($this->asana->updateTask($id, $data), 1);
+            if (isset($request->section) && !empty($request->section)) {
+                $param = ['data' => ['task' => $id,]];
+
+                $headers = array();
+                $headers[] = 'Content-Type: application/json';
+                $headers[] = 'Accept: application/json';
+                $headers[] = 'Authorization: Bearer ' . env('ASANA_PAT');
+                
+                $ch = curl_init();
+                curl_setopt($ch, CURLOPT_URL, 'https://app.asana.com/api/1.0/sections/' . $request->section . '/addTask');
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+                curl_setopt($ch, CURLOPT_POST, 1);
+                curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($param));
+                curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+                $result = curl_exec($ch);
+
+                if (curl_errno($ch)) {
+                    echo 'Error:' . curl_error($ch);
+                }
+                curl_close($ch);
+            }
             return response()->json(['status' => 200, 'data' => $task], 200);
+        } catch (\Exception $e) {
+            return response()->json(['status' => 500, 'msg' => $e->getMessage()], 200);
+        }
+    }
+    public function duplicate(Request $request)
+    {
+        // Validate form data
+        $rules = array(
+            'name' => 'required|string|max:255',
+            'osusr_mlv_community_id' => 'required|integer',
+        );
+
+        $validator = Validator::make ( $request->all(), $rules);
+
+        if ($validator->fails()){
+            return response()->json(array('errors'=> $validator->getMessageBag()->toarray()));
+        }
+
+        // Create a new project
+        try {
+            $data = [
+                'data' => [
+                    'name' => $request->name,
+                    "include" => array(
+                        "members",
+                        "task_notes",
+                        "task_assignee",
+                        "task_subtasks",
+                        "task_attachments",
+                        "task_dates",
+                        "task_dependencies",
+                        "task_followers",
+                        "task_tags",
+                        "task_projects"
+                    ),
+                    'schedule_dates' => [
+                        'should_skip_weekends' => true,
+                        'start_on' => date('Y-m-d'),
+                    ]
+                ]
+            ];
+            $data = json_encode($data);
+
+            $headers = array();
+            $headers[] = 'Content-Type: application/json';
+            $headers[] = 'Accept: application/json';
+            $headers[] = 'Authorization: Bearer ' . $this->token;
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_URL, 'https://app.asana.com/api/1.0/projects/1124713106776588/duplicate');
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+            curl_setopt($ch, CURLOPT_POST, 1);
+            curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+
+            $project = json_decode(curl_exec($ch));
+            if (curl_errno($ch)) {
+                echo 'Error:' . curl_error($ch);
+            }
+            curl_close($ch);
+
+            $newProject = new Project();
+            $newProject->osusr_mlv_community_id = $request->osusr_mlv_community_id;
+            $newProject->project_id = $project->data->new_project->gid;
+            $newProject->save();
+
+            return response()->json(['status' => 200, 'data' => $project], 200);
         } catch (\Exception $e) {
             return response()->json(['status' => 500, 'msg' => $e->getMessage()], 200);
         }

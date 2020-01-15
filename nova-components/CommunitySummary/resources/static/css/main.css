@@ -519,7 +519,37 @@ a:hover, a:focus {
 }
 .asanaInputDesign{
   width:80%;
+  background-color: transparent !important;
 }
 .asanaInputDesign:focus{
   border: 0px solid #f1f1f1 !important;
+}
+.asanaAssigneeSelect{
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  padding: 3px 3px !important;
+  width: 90% !important;
+  margin-top: 4px;
+}
+.backgroundLoading{
+  width: 100%;
+  height: 100%;
+  animation: colorchange 2s infinite;
+  -webkit-animation: colorchange 2s infinite; 
+}
+@keyframes colorchange
+{
+  0%   {background: bisque;}
+  50%  {background: yellow;}
+  100% {background: bisque;}
+}
+
+@-webkit-keyframes colorchange /* Safari and Chrome - necessary duplicate */
+{
+  0%   {background: bisque;}
+  50%  {background: yellow;}
+  100% {background: bisque;}
+}
+.task-list-detail-wrapper{
+  height: 100% !important;
 }
