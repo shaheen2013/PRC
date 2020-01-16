@@ -72,12 +72,12 @@ class TabController extends Controller
 
         $result = json_decode(curl_exec($ch), 1);
         $tasks = [];
+        // dd($result);
         foreach ($result['data'] as $key => $task) {
             $tempTask = json_decode($this->asana->getTask($task['gid']), 1);
-            // dd($task['gid']);
-            $taskArr = [];
-            $taskArr['details'] = $task;
-            if($tempTask['data']){
+            if ($tempTask['data']['parent'] == null) {
+                $taskArr = [];
+                $taskArr['details'] = $task;
                 $subTasks = json_decode($this->asana->getSubTasks($task['gid']));
                 $comments = json_decode($this->asana->getTaskStories($task['gid']));
                 $taskArr['subTasks'] = count($subTasks->data);
@@ -85,8 +85,8 @@ class TabController extends Controller
                 $taskArr['completed'] = $tempTask['data']['completed'];
                 $taskArr['assignee'] = $tempTask['data']['assignee'] ? $tempTask['data']['assignee'] : ['gid' => null, 'name' => null, 'resource_type' => "user"];
                 $taskArr['duedate'] = $tempTask['data']['due_on'];
+                $tasks[] = $taskArr;
             }
-            $tasks[] = $taskArr;
         }
 
         if (curl_errno($ch)) {

@@ -530,6 +530,7 @@ a:hover, a:focus {
   padding: 3px 3px !important;
   width: 90% !important;
   margin-top: 4px;
+  min-width: unset !important;
 }
 .backgroundLoading{
   width: 100%;

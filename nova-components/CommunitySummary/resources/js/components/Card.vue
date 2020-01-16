@@ -418,35 +418,30 @@
                                     </div>
                                     <div class="section-right _text-right">
                                         <div class="_btn _btn-borderless _position-relative nv-dropdown">
-                                            <svg class="MiniIcon-custom" viewBox="0 0 24 24">
-                                                <path d="M12,3c5,0,9,4,9,9s-4,9-9,9s-9-4-9-9S7,3,12,3 M12,1C5.9,1,1,5.9,1,12s4.9,11,11,11s11-4.9,11-11S18.1,1,12,1L12,1zM11.2,16.2l6-6c0.4-0.4,0.4-1,0-1.4s-1-0.4-1.4,0l-5.3,5.3l-2.3-2.3c-0.4-0.4-1-0.4-1.4,0s-0.4,1,0,1.4l3,3c0.2,0.2,0.5,0.3,0.7,0.3S11,16.4,11.2,16.2z">
-                                                </path>
-                                            </svg>
-                                            <span>Incomplete task</span>
-                                            <div class="task-head-box-dropdown nv-dropdown-menu">
-                                                <div class="each-box">
-                                                    <a href="#">All Task</a>
-                                                </div>
-                                                <div class="each-box">
-                                                    <a href="#">All Task</a>
-                                                </div>
-                                                <div class="each-box">
-                                                    <a href="#">All Task</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="_assigned-box">
-                                            <select class="_custom-select" name="">
-                                                <option value="">Assigen</option>
+                                            <select class="_custom-select"  @change="asanaFilterTask(asan.gid, 'complited', $event)">
+                                                <option value="null">All</option>
+                                                <option value="true">Complited</option>
+                                                <option value="false">Uncomplete</option>
                                             </select>
                                         </div>
                                         <div class="_assigned-box">
+                                            <select class="_custom-select" @change="asanaFilterTask(asan.gid, 'assignee', $event)">
+                                                <option value="null">All Users</option>
+                                                <option v-for="usr in asanaUsers" :key="usr.gid" :value="usr.gid">{{ usr.name }}</option>
+                                            </select>
+                                        </div>
+                                        <!-- <div class="_assigned-box">
                                             <select class="_custom-select" name="">
                                                 <option value="">Choose type</option>
                                             </select>
-                                        </div>
+                                        </div> -->
                                         <div class="_assigned-box">
-                                            <input type="text" class="_custom-select">
+                                            <select class="_custom-select" @change="asanaFilterTask(asan.gid, 'due', $event)">
+                                                <option value="null">Choose Due Date</option>
+                                                <option value="7">Due in 7 days</option>
+                                                <option value="30">Up in 30 days</option>
+                                                <option value="90">Up in 90 days</option>
+                                            </select>
                                         </div>
                                         <div class="_assigned-box">
                                             <input type="text" class="_custom-input-search" placeholder="Search">
@@ -522,8 +517,14 @@
                                                 </svg>
                                             </div>
                                         </div>
-                                        <div class="nv-collapsedown" :id="`task-${section.gid}`">
-                                            <div class="task-list-body taskSectionsTasks" v-for="tasks in section.tasks" :key="tasks.details.gid">
+                                        <div class="nv-collapsedown taskSectionHolder" :id="`task-${section.gid}`">
+                                            <div class="task-list-body taskSectionsTasks" 
+                                                v-for="tasks in section.tasks" 
+                                                :key="tasks.details.gid" 
+                                                :data-assignee="tasks.assignee.gid" 
+                                                :data-complited="tasks.completed ? 'true' : 'false'"
+                                                :data-due="tasks.duedate"
+                                            >
                                                 <div class="task-name-box cursor-pointer" style="padding: 0px 0px;">
                                                     <div class="backgroundLoading" :id="`nameB-${tasks.details.gid}`" style="display:none"></div>
                                                     <div class="mainContent task-name-box cursor-pointer"  :id="`nameC-${tasks.details.gid}`" style="padding: 5px 15px;width: 100%;border-right: 0px solid">
@@ -722,8 +723,8 @@
                                         <div class="project-name-label">{{ projectDetails.data.name }}</div>
                                         <div class="project-select-box">
                                             <select @change="inlineTaskUpdate(taskDetails[0].data.memberships[0].section.gid, taskDetails[0].data.gid, 'section', $event)" class="cursor-pointer">
-                                                <option v-for="section in sections" :value="section.gid" v-if="taskDetails[0].data.memberships.length > 0 && taskDetails[0].data.memberships[0].section.gid == section.gid" selected>{{ section.name }}</option>
-                                                <option :value="section.gid" v-else="">{{ section.name }}</option>
+                                                <option v-for="projSectn in detSections" :key="projSectn.gid" :value="projSectn.gid" v-if="projSectn.selected == true" selected>{{ projSectn.name }}</option>
+                                                <option :value="projSectn.gid" v-else="">{{ projSectn.name }}</option>
                                             </select>
                                         </div>
                                         <div class="new-task" v-if="createNewSubTask">
@@ -827,7 +828,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="section-comment" @click="showChildTask(t[0].data.gid, taskDetails[0].data.gid, taskDetails[0].data.name)">
-                                                    <span class="comment-count" v-if="t['comments']">{{ t['comments'] }}</span>
+                                                    <span class="comment-count" v-if="t.comments">{{ t.comments.data ? t.comments.data.length : 0 }}</span>
                                                     <div class="logo-2">
                                                         <svg class="_icon cursor-pointer" focusable="false"
                                                             viewBox="0 0 32 32">
@@ -1695,7 +1696,8 @@
                     section: '',
                     projects: [],
                 },
-                asanaUsers:[]
+                asanaUsers:[],
+                detSections: {}
             }
         },
         computed: {
@@ -2460,6 +2462,63 @@
                     }
                 });
             },
+            asanaFilterTask(id, block, e){
+                
+                $('.taskSectionHolder').children().show();
+
+                if(block == 'complited'){
+                    if(e.target.value != 'null'){
+                        $('.taskSectionHolder').children()
+                            .filter(function(){
+                                console.log('In', e.target.value)
+                                console.log($(this).data('complited'))
+                                return $(this).data('complited')+'' != e.target.value;
+                        }).hide();
+                    }                
+                }
+                if(block == 'assignee'){
+                    if(e.target.value != 'null'){
+                        $('.taskSectionHolder').children()
+                            .filter(function(){
+                                return $(this).data('assignee') != e.target.value;
+                        }).hide();
+                    }                
+                }
+                if(block == 'due'){
+                    if(e.target.value != 'null'){
+                        var that = this;
+                        $('.taskSectionHolder').children()
+                            .filter(function(){
+                                let diff = 0;
+                                if($(this).data('due') != null){
+                                    var dtx = new Date($(this).data('due'));
+                                    let dtxDate = dtx.getFullYear() + "/" + (dtx.getMonth() + 1) + "/" + dtx.getDate();
+                                    var dt = new Date();
+                                    let now = dt.getFullYear() + "/" + (dt.getMonth() + 1) + "/" + dt.getDate();
+
+                                    let dateA = that.parseDate(dtxDate);
+                                    console.log('dateA', dateA);
+                                    let dateB = that.parseDate(now);
+                                    console.log('dateB', dateB);
+
+                                    diff = that.datediff(dateB, dateA);
+                                    console.log('diff', diff);
+                                }
+                                    console.log("$(this).data('due')", $(this).data('due'));
+                                    console.log('diff diff', diff);
+                                    console.log('===========================================');
+                                return e.target.value >= diff;
+                        }).hide();
+                    }                
+                }
+            },
+            parseDate(str) {
+                var mdy = str.split('/');
+                return new Date(str);
+            },
+            datediff(first, second) {
+                return Math.round((second-first)/(1000*60*60*24));
+            },
             // Up
             navigateToChanges() {
                 window.scrollTo(0, document.body.scrollHeight);
@@ -2866,17 +2925,20 @@
                         this.taskDetails = response.data.data;
                         console.log(this.taskDetails[0]);
                         const project = response.data.data[0].data.projects[0].gid;
+                        const secSelId = response.data.data[0].data.memberships[0].section.gid;
                         console.log('project', project);
                         let asanaSections = {}
                         this.asana.map(as => {
                             if(as.gid == project){
                                 as.sections.map((sec, i) => {
-                                    asanaSections[sec.gid] = sec.name
+                                    const secSel = secSelId == sec.gid ? true : false;
+                                    asanaSections[sec.gid] = {gid:sec.gid, name:sec.name,selected:secSel}
                                     console.log('sec.name', sec.name);
                                 })
                             }
                         })
                         console.log('asanaSections', asanaSections);
+                        this.detSections = asanaSections;
                     } else {
                         this.errors = response.data.msg.errors;
                     }
