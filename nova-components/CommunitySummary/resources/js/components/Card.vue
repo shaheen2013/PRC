@@ -142,8 +142,8 @@
                         <span class="tabCustom" id="contactTab" @click="openTabContent('contactTabContent', 'contactTab')">Contact</span>
                     </div>
                     <div class="tabs" style="width:190px">
-                        <span class="tabCustom tabCustomClicked" id="tasksTab" @click="openTabContent('tasksTabContent', 'tasksTab')">Tasks</span>
-                        <span class="tabCustom" id="actionTab" @click="openTabContent('actionTabContent', 'actionTab')">Admin</span>
+                        <span class="tabCustom tabCustomClicked" id="tasksTab" @click="openTabContent('tasksTabContent', 'tasksTab')">Tasks <div class="taskTabNot">2</div></span>
+                        <span class="tabCustom" id="actionTab" @click="openTabContent('actionTabContent', 'actionTab')">Admin <div class="taskTabNot">2</div></span>
                     </div>
                 </div>
                 <div class="summary" style="padding: 30px 20px;box-shadow:unset;border: 2px solid #908f8f;min-height: 150px;">
@@ -298,7 +298,15 @@
                                     <h4><i class="fa-xs fas fa-square" style="padding-right: 10px;"></i>Key Metrick</h4>
                                 </div>
                                 <div class="openInfo cmOpenInfo" id="cokInfo" style="display:none">
-                                    <span>Some Content</span>
+                                    <span class="blockSpan">Active OTR's</span>
+                                    <span class="blockSpan">Ended OTR's (Balance Due)</span>
+                                    <span class="blockSpan">Monthly</span>
+                                    <div class="monthlyList px-4">
+                                        <span class="blockSpan">Payments</span>
+                                        <span class="blockSpan">Deregistrations</span>
+                                        <span class="blockSpan">Violations</span>
+                                        <span class="blockSpan">Inspections</span>
+                                    </div>
                                 </div>
                             </div>
                             <div>
@@ -409,8 +417,8 @@
                             <div v-for="asan in asana" :key="asan.gid" class="taskTabContent" :id="`tab${asan.gid}`" style="min-height: 600px;background-color: white;">
                                 <div class="add-task-section-wrapper">
                                     <div class="section-left">
-                                        <div class="_btn _btn-default" @click="asanaNewTask()">
-                                            <svg class="MiniIcon-custom newTaskButton" viewBox="0 0 24 24">
+                                        <div class="_btn _btn-default" @click="asanaNewTask()" style="font-size:20px">
+                                            <svg class="MiniIcon-custom newTaskButton" viewBox="0 0 24 24" style="width: 20px;height: 20px">
                                                 <path d="M10,10V4c0-1.1,0.9-2,2-2s2,0.9,2,2v6h6c1.1,0,2,0.9,2,2s-0.9,2-2,2h-6v6c0,1.1-0.9,2-2,2s-2-0.9-2-2v-6H4c-1.1,0-2-0.9-2-2s0.9-2,2-2H10z"></path>
                                             </svg>
                                             Add New Task 
@@ -444,7 +452,7 @@
                                             </select>
                                         </div>
                                         <div class="_assigned-box">
-                                            <input type="text" class="_custom-input-search" placeholder="Search">
+                                            <input type="text" class="_custom-input-search" placeholder="Search" @keyup="srchAsanaTask(asan.gid, $event)">
                                             <div class="search-logo">
                                                 <svg class="" focusable="false" viewBox="0 0 32 32" style="width: 14px;">
                                                     <path d="M29.707,28.293l-8.256-8.256C23.042,18.13,24,15.677,24,13c0-6.075-4.925-11-11-11S2,6.925,2,13s4.925,11,11,11c2.677,0,5.13-0.958,7.037-2.549l8.256,8.256L29.707,28.293z M4,13c0-4.963,4.037-9,9-9c4.963,0,9,4.037,9,9s-4.037,9-9,9C8.037,22,4,17.963,4,13z"></path>
@@ -517,13 +525,14 @@
                                                 </svg>
                                             </div>
                                         </div>
-                                        <div class="nv-collapsedown taskSectionHolder" :id="`task-${section.gid}`">
+                                        <div :class="`nv-collapsedown taskSectionHolder-${asan.gid}`" :id="`task-${section.gid}`">
                                             <div class="task-list-body taskSectionsTasks" 
                                                 v-for="tasks in section.tasks" 
                                                 :key="tasks.details.gid" 
                                                 :data-assignee="tasks.assignee.gid" 
                                                 :data-complited="tasks.completed ? 'true' : 'false'"
                                                 :data-due="tasks.duedate"
+                                                :data-name="tasks.details.name"
                                             >
                                                 <div class="task-name-box cursor-pointer" style="padding: 0px 0px;">
                                                     <div class="backgroundLoading" :id="`nameB-${tasks.details.gid}`" style="display:none"></div>
@@ -635,7 +644,7 @@
                                                 </svg>
                                             </div>
                                             <div class="logo-box">
-                                                <a title="Delete" @click="deleteTask(taskDetails[0].data.gid)"
+                                                <a title="Delete" @click="deleteTask(taskDetails[0].data)"
                                                 class="appearance-none cursor-pointer text-70 hover:text-danger mr-3">
                                                     <svg class="hide-box-icon" viewBox="0 0 20 20" aria-labelledby="delete" role="presentation">
                                                         <path fill-rule="nonzero" d="M6 4V2a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2h5a1 1 0 0 1 0 2h-1v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6H1a1 1 0 1 1 0-2h5zM4 6v12h12V6H4zm8-2V2H8v2h4zM8 8a1 1 0 0 1 1 1v6a1 1 0 0 1-2 0V9a1 1 0 0 1 1-1zm4 0a1 1 0 0 1 1 1v6a1 1 0 0 1-2 0V9a1 1 0 0 1 1-1z"></path>
@@ -2462,13 +2471,13 @@
                     }
                 });
             },
-            asanaFilterTask(id, block, e){
+            asanaFilterTask(proj, block, e){
                 
-                $('.taskSectionHolder').children().show();
+                $(`.taskSectionHolder-${proj}`).children().show();
 
                 if(block == 'complited'){
                     if(e.target.value != 'null'){
-                        $('.taskSectionHolder').children()
+                        $(`.taskSectionHolder-${proj}`).children()
                             .filter(function(){
                                 console.log('In', e.target.value)
                                 console.log($(this).data('complited'))
@@ -2478,7 +2487,7 @@
                 }
                 if(block == 'assignee'){
                     if(e.target.value != 'null'){
-                        $('.taskSectionHolder').children()
+                        $(`.taskSectionHolder-${proj}`).children()
                             .filter(function(){
                                 return $(this).data('assignee') != e.target.value;
                         }).hide();
@@ -2487,7 +2496,7 @@
                 if(block == 'due'){
                     if(e.target.value != 'null'){
                         var that = this;
-                        $('.taskSectionHolder').children()
+                        $(`.taskSectionHolder-${proj}`).children()
                             .filter(function(){
                                 let diff = 0;
                                 if($(this).data('due') != null){
@@ -2510,6 +2519,22 @@
                                 return e.target.value >= diff;
                         }).hide();
                     }                
+                }
+            },
+            srchAsanaTask(proj, e){
+                console.log('e ', e)
+                console.log('e.target.value', e.target.value)
+                const keyWord = e.target.value;
+                if(keyWord.length > 0){
+                    $(`.taskSectionHolder-${proj}`).children()
+                        .filter(function(){
+                            const srchStr = $(this).data('name').toLowerCase();
+                            console.log("$(this).data('name')", $(this).data('name'));
+                            console.log(srchStr.search(`/${e.target.value}/i`));
+                            return srchStr.search(e.target.value) == -1;
+                    }).hide();
+                }else{
+                    $(`.taskSectionHolder-${proj}`).children().show();
                 }
             },
             parseDate(str) {
@@ -3081,7 +3106,8 @@
                     }
                 });
             },
-            deleteTask(id) {
+            deleteTask(task) {
+                // task.gid replaced with task
                 let THIS = this;
 
                 Swal.fire({
@@ -3094,11 +3120,35 @@
                     if(res.value !== undefined){
                         this.isLoading = true;
 
-                        Nova.request().post('/api/asana/task/destroy/' + id, {_method: 'DELETE'}).then(response => {
+                        $(`#nameB-${task.gid}`).show();
+                        $(`#nameC-${task.gid}`).hide();
+                        $(`#assigneeB-${task.gid}`).show();
+                        $(`#assigneeC-${task.gid}`).hide();
+                        $(`#dueOnB-${task.gid}`).show();
+                        $(`#dueOnC-${task.gid}`).hide();
+
+                        Nova.request().post('/api/asana/task/destroy/' + task.gid, {_method: 'DELETE'}).then(response => {
                             this.isLoading = false;
 
                             if (response.data.status === 200) {
                                 THIS.getProjects();
+
+                                const project = task.projects[0].gid;
+                                const addedSection = task.memberships[0].section.gid;
+
+                                const asanaLocalProjsNewTask = JSON.parse(localStorage.getItem('asanaProjects'));
+                                asanaLocalProjsNewTask[project].sections.map(sec => {
+                                    if(sec.gid == addedSection){
+                                        sec.tasks.map((tsk, i) => {
+                                            if(tsk.details.gid == task.gid){
+                                                sec.tasks.splice(i, 1);
+                                            }
+                                        })
+                                    }
+                                });
+                                const asanaLocalStoreNewTask = JSON.stringify(asanaLocalProjsNewTask);
+                                localStorage.setItem('asanaProjects', asanaLocalStoreNewTask);
+                                this.localAsana();
                             } else {
                                 THIS.errors = response.data.errors;
                             }

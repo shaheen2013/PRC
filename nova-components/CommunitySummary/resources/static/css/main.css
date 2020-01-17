@@ -70,9 +70,10 @@ a:hover, a:focus {
 }
 .tabCustom{
   background-color: #9c9b9b;
-  padding: 8px;
+  padding: 8px 20px 8px 2px;
   cursor: pointer;
   border: 2px solid #908f8f;
+  position: relative;
 }
 .tabCustomClicked{
   background-color: white;
@@ -553,4 +554,21 @@ a:hover, a:focus {
 }
 .task-list-detail-wrapper{
   height: 100% !important;
+}
+.blockSpan{
+  display: block;
+  padding: 10px;
+}
+.taskTabNot{
+  background-color: #47515b;
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  text-align: center;
+  color: white;
+  font-weight: 700;
+  position: absolute;
+  top: 1px;
+  right: 1px;
 }

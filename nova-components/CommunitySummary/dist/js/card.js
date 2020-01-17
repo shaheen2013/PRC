@@ -17461,7 +17461,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, ".expired {\n  color: red;\n}\n\n.sprite {\n  background-image: url(\"https://s3.amazonaws.com/communitymanagement/spriteCM.svg\");\n  background-repeat: no-repeat; }\n\n.notAffectSize {\n  -webkit-box-sizing: border-box;\n  -moz-box-sizing: border-box;\n  box-sizing: border-box; }\n\n.all-transition {\n  -webkit-transition: -webkit-all 200ms ease-in-out;\n  -moz-transition: -moz-all 200ms ease-in-out;\n  transition: all 200ms ease-in-out; }\n\n\n.text-note {\n  color: #a6a6a6;\n  font-size: 10px; }\n\n.dividers {\n  color: #B0BEC5;\n  font-size: 13px;\n  text-transform: uppercase; }\n\na {\n  color: #55a3de;\n  text-decoration: none;\n  outline: 0; }\na:hover, a:focus {\n  color: #aad1ef; }\n\n.gold-n0 {\n  background-color: #f7f7f7; }\n\n.gold-n1 {\n  background-color: #ffffd9; }\n\n.gold-n2 {\n  background-color: #fff9c4; }\n\n.gold-n3 {\n  background-color: #fff59d; }\n\n.gold-n4 {\n  background-color: lightgreen; }\n\n.gold-n5 {\n  background-color: green; }\n\n.gold-n6 {\n  background-color: #ffd740; }\n\n.summary {\n  background-color: #fff;\n  padding: 5px;\n  box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.25);\n  margin-top: 7px;\n}\n.times-circle{\n  margin-right: 10px;\n  font-size: 25px !important;\n  cursor: pointer;\n  border-radius: 50%;\n  color: red;\n  transition: all .5s;\n}\n.tabCustom{\n  background-color: #9c9b9b;\n  padding: 8px;\n  cursor: pointer;\n  border: 2px solid #908f8f;\n}\n.tabCustomClicked{\n  background-color: white;\n  border-bottom: unset;\n}\n.tabContent{\n  display: none;\n  padding: 20px;\n}\n.times-circle:hover{\n  box-shadow: 0px 0px 15px red;\n}\n.customSummary{\n  padding: 0px;\n  border-radius: 0px;\n}\n.summary header {\n  position: relative;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  flex-wrap: wrap; }\n.customHeader{\n  border-bottom: 2px solid #bbbbbb;\n}\n.wrapLogoCommunity {\n  position: relative;\n  display: flex;\n  align-items: center;\n  background-color: #fff;\n  z-index: 2; }\n\n.infoAddress {\n  display: flex;\n  position: relative;\n  align-items: center;\n  flex: 1;\n  min-width: 350px; }\n  @media only screen and (max-width: 480px) {\n    .infoAddress {\n      flex-wrap: wrap; } }\n\n.infoPrograms {\n  display: flex;\n  flex-direction: column;\n  align-items: flex-end;\n  flex-wrap: wrap;\n  flex: 1; }\n\n.wrap-expires {\n  margin-top: 10px;\n  background-color: white;\n  position: relative;\n  padding: 0px 0 0 20px;\n  z-index: 1; }\n\n.titleHeadings{\n  margin-left: 120px;\n}\n\n.headline {\n  font-size: 32px;\n  line-height: 1;\n  padding: 5px 0px;\n  color: #0a4c9e;\n}\n\n.subheadline {\n  font-size: 20px; }\n\n.wrap-programs {\n  display: flex;\n  justify-content: center;\n  padding: 30px;\n}\n.infoCustomText{\n  font-size: 19px;\n  background-color: white;\n  margin: -14px auto 12px;\n}\n.programs {\n  display: flex;\n  align-items: center;\n  margin-left: 50px;\n  flex-wrap: wrap; }\n.programsCustom {\n  align-items: center;\n  margin-left: -5px;\n  flex-wrap: wrap;\n  padding-right: 5px;\n}\n.customBorder{\n  border-right: 2px solid #f1f1f1;\n}\n.countyCityCardHeading{\n  width: 100%; \n   text-align: center; \n   border-bottom: 1px solid #000; \n   line-height: 0.1em;\n   margin: 10px 0 20px;\n}\n.countyCityCardHeading span { \n  background:#fff; \n  padding:0 10px; \n}\n.tabSection{\n  margin-top: 39px;\n}\n.cardCustom{\n  width:24%;\n  float:left;\n  border: 1px solid;\n  border-radius:unset;\n  margin: 0px 3px;\n}\n.cardCustomH{\n  min-height: 220px;\n}\n.cardCustomHeader{\n  padding: 10px 5px 2px;\n  height: 40px;\n}\n.cardCustomBody{\n  padding: 10px 10px;\n  background-color: #d4d2d2;\n  min-height: 200px;\n  margin: 0px 12px 8px;\n  min-height: 310px;\n  display: none;\n}\n\n.cardCustomHeaderArrow{\n  cursor: pointer;\n  color: rgb(10, 76, 158);\n  width: 100%;\n  text-align: right;\n  font-size: 25px !important;\n  margin-top: -6px;\n}\n.cardBodyList{\n  text-align: center;\n  margin: 15px 0px;\n}\n.cardBodyListBtn{\n  background-color: white;\n  width: 70%;\n  margin: 5px;\n}\n.cardBodyListText{\n  color: #848181;\n  font-weight: 600;\n}\n.cardBodyBottomText{\n  text-align: right;\n  font-weight: 600;\n  text-decoration: underline;\n}\n.round-info {\n  position: relative;\n  width: 50px;\n  height: 50px;\n  margin-left: 10px;\n  border-radius: 100%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 24px;\n  font-weight: bold;\n  color: #47515b; }\n\n.round-info-green {\n  position: relative;\n  width: 50px;\n  height: 50px;\n  margin-left: 10px;\n  border-radius: 100%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 24px;\n  font-weight: bold;\n  color: whitesmoke; }\n\n.custHeadTop{\n  display: flex;\n}\n.customHeadLeft{\n  display: flex;\n  position: relative;\n  align-items: center;\n  flex: 1;\n  min-width: 350px;\n}\n.customHeadRight{\n  display: flex;\n  flex-direction: column;\n  align-items: flex-end;\n}\n.logoCommunity {\n  max-width: 100px;\n}\n\n.logoCommunity {\n  position: absolute;\n  left: 10px;\n}\n.icon-blue-lock {\n  position: absolute;\n  background-position: -4px -4px;\n  width: 50px;\n  height: 50px; }\n\n.icon-alert-red {\n  background-position: -104px -16px;\n  width: 38px;\n  height: 38px;\n  display: inline-block;\n  vertical-align: middle; }\n\n.icon-alert-yellow {\n  background-position: -144px -16px;\n  width: 38px;\n  height: 38px;\n  display: inline-block;\n  vertical-align: middle; }\n\n.icon-alert-green {\n  background-position: -58px -16px;\n  width: 38px;\n  height: 38px;\n  display: inline-block;\n  vertical-align: middle; }\n\n.checkOk {\n  position: absolute;\n  top: -8px;\n  right: -18px;\n  background-position: -58px -16px;\n  width: 38px;\n  height: 38px; }\n\n.expires {\n  font-weight: bold;\n  color: #4f7c2f; }\n\n.communityDetail {\n  display: grid;\n  grid-template-columns: 1fr 350px;\n  grid-gap: 20px; }\n  @media only screen and (max-width: 480px) {\n    .communityDetail {\n      grid-template-columns: 1fr; } }\n  @media only screen and (min-width: 481px) and (max-width: 1023px) {\n    .communityDetail {\n      grid-template-columns: 1fr; } }\n\n.wrap-detailsBox {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));\n  grid-auto-rows: 150px;\n  grid-gap: 20px; }\n\n.detailBox.links {\n  grid-column: span 2;\n  grid-row: 2; }\n\n.wrap-links {\n  display: flex;\n  flex-direction: column; }\n\n.label-square {\n  display: flex;\n  align-items: center;\n  font-size: 14px;\n  color: #616f7f;\n  font-weight: bold; }\n\n.label-square i {\n  margin-right: 5px; }\n\n.boxInfo {\n  display: flex;\n  justify-content: center;\n  height: 190px; \n}\n\n.wrap-boxInfo {\n  position: relative;\n  width: 300px;\n  display: flex;\n  flex-direction: column;\n  text-align: center; }\n\n.boxHead {\n  margin: 0 auto;\n  box-sizing: border-box;\n  padding: 0 20px 3px;\n  font-size: 24px;\n  font-weight: bold;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  z-index: 1;\n  background-color: #fff; }\n\n.boxContent {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  flex: 1;\n  flex-direction: column;\n  border-radius: 5px;\n  background-color: #eef1f4; }\n\n.itemBox {\n  width: 100%;\n  box-sizing: border-box;\n  padding: 15px 40px; }\n\n.label-boxInfo {\n  font-size: 14px;\n  color: #3a3a3c; }\n\n.textBox {\n  padding: 10px;\n  border-radius: 4px;\n  border: 1px solid #3a3a3c;\n  font-size: 16px;\n  font-weight: bold;\n  margin-top: 5px;\n  background-color: #fff; }\n\n.itemBox > div {\n  margin-bottom: 15px; }\n\n.itemBox > div:last-child {\n  margin-bottom: 0; }\n\n.wrap-boxInfo .line {\n  border: 1px solid #3a3a3c;\n  position: absolute;\n  width: 100%;\n  top: 18px; }\n\n.communityDetail .detailBox {\n  border-right: 1px solid #616f7f; }\n\n.wrap-detailsBox > .detailBox:last-child {\n  border-right: none; }\n\n.detailBox {\n  display: flex;\n  align-items: center; }\n\n.group-links {\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between; }\n\n.wrap-detailBox {\n  flex: 1; }\n\n.wrap-detailBox > div {\n  margin-bottom: 5px;\n  margin-bottom: 15px;\n}\n\n.wrap-detailBox > div:last-child {\n  margin-bottom: 0; }\n\n.textLinks {\n  display: flex;\n  align-items: center;\n  font-weight: bold;\n  color: #55a3de; }\n\n.textLinks > i {\n  margin-left: 10px;\n  color: #152531; }\n\n  .communityWarning{\n    background-color: #fff061;\n    color: #22292f;\n    padding: 12px 25px;\n    font-size: 23px;\n    margin-top: 30px;\n  }\n.cardHolder{\n  width: 100%;\n  margin: 25px 10px;\n  overflow: hidden;\n}\n\n/* Task Tab */\n.taskTabTabs{\n  display: flex;\n}\n.taskTabClicked{\n  display: inline-block;\n  background-color: white;\n  color: #47515b !important;\n  border-top: 2px solid;\n  border-left: 10px solid;\n}\n.taskTabContent{\n  display:none;\n}\n.taskTabContent:nth-child(1){\n  display:block\n}\n.tabContentTasks{\n  background-color: #47515b;\n}\n.taskTabContentContainer{\n  padding-left: 10px;\n}\n.taskSections{\n  background-color: bisque;\n}\n.taskSectionsTasks{\n  display: flex;\n  width: 100%;\n  background-color: white;\n  padding: 0px 0px;\n  margin-left: 10px;\n  font-size: 15px;\n  font-weight: 700;\n  border-top: 1px solid #e8ecee;\n}\n.taskTabCustom{\n  display: inline-block;\n  padding: 10px;\n  color: white;\n  font-size: 20px;\n  font-weight: 600;\n  padding-left: 21px;\n  cursor: pointer;\n}\n.tabTaskSecTitle{\n  padding: 15px;\n  background-color: white;\n  font-size: 25px;\n  font-weight: 700;\n}\n.asanaInputDesign{\n  width:80%;\n  background-color: transparent !important;\n}\n.asanaInputDesign:focus{\n  border: 0px solid #f1f1f1 !important;\n}\n.asanaAssigneeSelect{\n  font-size: 12px !important;\n  font-weight: 600 !important;\n  padding: 3px 3px !important;\n  width: 90% !important;\n  margin-top: 4px;\n  min-width: unset !important;\n}\n.backgroundLoading{\n  width: 100%;\n  height: 100%;\n  animation: colorchange 2s infinite;\n  -webkit-animation: colorchange 2s infinite; \n}\n@keyframes colorchange\n{\n  0%   {background: bisque;}\n  50%  {background: yellow;}\n  100% {background: bisque;}\n}\n\n@-webkit-keyframes colorchange /* Safari and Chrome - necessary duplicate */\n{\n  0%   {background: bisque;}\n  50%  {background: yellow;}\n  100% {background: bisque;}\n}\n.task-list-detail-wrapper{\n  height: 100% !important;\n}", ""]);
+exports.push([module.i, ".expired {\n  color: red;\n}\n\n.sprite {\n  background-image: url(\"https://s3.amazonaws.com/communitymanagement/spriteCM.svg\");\n  background-repeat: no-repeat; }\n\n.notAffectSize {\n  -webkit-box-sizing: border-box;\n  -moz-box-sizing: border-box;\n  box-sizing: border-box; }\n\n.all-transition {\n  -webkit-transition: -webkit-all 200ms ease-in-out;\n  -moz-transition: -moz-all 200ms ease-in-out;\n  transition: all 200ms ease-in-out; }\n\n\n.text-note {\n  color: #a6a6a6;\n  font-size: 10px; }\n\n.dividers {\n  color: #B0BEC5;\n  font-size: 13px;\n  text-transform: uppercase; }\n\na {\n  color: #55a3de;\n  text-decoration: none;\n  outline: 0; }\na:hover, a:focus {\n  color: #aad1ef; }\n\n.gold-n0 {\n  background-color: #f7f7f7; }\n\n.gold-n1 {\n  background-color: #ffffd9; }\n\n.gold-n2 {\n  background-color: #fff9c4; }\n\n.gold-n3 {\n  background-color: #fff59d; }\n\n.gold-n4 {\n  background-color: lightgreen; }\n\n.gold-n5 {\n  background-color: green; }\n\n.gold-n6 {\n  background-color: #ffd740; }\n\n.summary {\n  background-color: #fff;\n  padding: 5px;\n  box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.25);\n  margin-top: 7px;\n}\n.times-circle{\n  margin-right: 10px;\n  font-size: 25px !important;\n  cursor: pointer;\n  border-radius: 50%;\n  color: red;\n  transition: all .5s;\n}\n.tabCustom{\n  background-color: #9c9b9b;\n  padding: 8px 20px 8px 2px;\n  cursor: pointer;\n  border: 2px solid #908f8f;\n  position: relative;\n}\n.tabCustomClicked{\n  background-color: white;\n  border-bottom: unset;\n}\n.tabContent{\n  display: none;\n  padding: 20px;\n}\n.times-circle:hover{\n  box-shadow: 0px 0px 15px red;\n}\n.customSummary{\n  padding: 0px;\n  border-radius: 0px;\n}\n.summary header {\n  position: relative;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  flex-wrap: wrap; }\n.customHeader{\n  border-bottom: 2px solid #bbbbbb;\n}\n.wrapLogoCommunity {\n  position: relative;\n  display: flex;\n  align-items: center;\n  background-color: #fff;\n  z-index: 2; }\n\n.infoAddress {\n  display: flex;\n  position: relative;\n  align-items: center;\n  flex: 1;\n  min-width: 350px; }\n  @media only screen and (max-width: 480px) {\n    .infoAddress {\n      flex-wrap: wrap; } }\n\n.infoPrograms {\n  display: flex;\n  flex-direction: column;\n  align-items: flex-end;\n  flex-wrap: wrap;\n  flex: 1; }\n\n.wrap-expires {\n  margin-top: 10px;\n  background-color: white;\n  position: relative;\n  padding: 0px 0 0 20px;\n  z-index: 1; }\n\n.titleHeadings{\n  margin-left: 120px;\n}\n\n.headline {\n  font-size: 32px;\n  line-height: 1;\n  padding: 5px 0px;\n  color: #0a4c9e;\n}\n\n.subheadline {\n  font-size: 20px; }\n\n.wrap-programs {\n  display: flex;\n  justify-content: center;\n  padding: 30px;\n}\n.infoCustomText{\n  font-size: 19px;\n  background-color: white;\n  margin: -14px auto 12px;\n}\n.programs {\n  display: flex;\n  align-items: center;\n  margin-left: 50px;\n  flex-wrap: wrap; }\n.programsCustom {\n  align-items: center;\n  margin-left: -5px;\n  flex-wrap: wrap;\n  padding-right: 5px;\n}\n.customBorder{\n  border-right: 2px solid #f1f1f1;\n}\n.countyCityCardHeading{\n  width: 100%; \n   text-align: center; \n   border-bottom: 1px solid #000; \n   line-height: 0.1em;\n   margin: 10px 0 20px;\n}\n.countyCityCardHeading span { \n  background:#fff; \n  padding:0 10px; \n}\n.tabSection{\n  margin-top: 39px;\n}\n.cardCustom{\n  width:24%;\n  float:left;\n  border: 1px solid;\n  border-radius:unset;\n  margin: 0px 3px;\n}\n.cardCustomH{\n  min-height: 220px;\n}\n.cardCustomHeader{\n  padding: 10px 5px 2px;\n  height: 40px;\n}\n.cardCustomBody{\n  padding: 10px 10px;\n  background-color: #d4d2d2;\n  min-height: 200px;\n  margin: 0px 12px 8px;\n  min-height: 310px;\n  display: none;\n}\n\n.cardCustomHeaderArrow{\n  cursor: pointer;\n  color: rgb(10, 76, 158);\n  width: 100%;\n  text-align: right;\n  font-size: 25px !important;\n  margin-top: -6px;\n}\n.cardBodyList{\n  text-align: center;\n  margin: 15px 0px;\n}\n.cardBodyListBtn{\n  background-color: white;\n  width: 70%;\n  margin: 5px;\n}\n.cardBodyListText{\n  color: #848181;\n  font-weight: 600;\n}\n.cardBodyBottomText{\n  text-align: right;\n  font-weight: 600;\n  text-decoration: underline;\n}\n.round-info {\n  position: relative;\n  width: 50px;\n  height: 50px;\n  margin-left: 10px;\n  border-radius: 100%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 24px;\n  font-weight: bold;\n  color: #47515b; }\n\n.round-info-green {\n  position: relative;\n  width: 50px;\n  height: 50px;\n  margin-left: 10px;\n  border-radius: 100%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 24px;\n  font-weight: bold;\n  color: whitesmoke; }\n\n.custHeadTop{\n  display: flex;\n}\n.customHeadLeft{\n  display: flex;\n  position: relative;\n  align-items: center;\n  flex: 1;\n  min-width: 350px;\n}\n.customHeadRight{\n  display: flex;\n  flex-direction: column;\n  align-items: flex-end;\n}\n.logoCommunity {\n  max-width: 100px;\n}\n\n.logoCommunity {\n  position: absolute;\n  left: 10px;\n}\n.icon-blue-lock {\n  position: absolute;\n  background-position: -4px -4px;\n  width: 50px;\n  height: 50px; }\n\n.icon-alert-red {\n  background-position: -104px -16px;\n  width: 38px;\n  height: 38px;\n  display: inline-block;\n  vertical-align: middle; }\n\n.icon-alert-yellow {\n  background-position: -144px -16px;\n  width: 38px;\n  height: 38px;\n  display: inline-block;\n  vertical-align: middle; }\n\n.icon-alert-green {\n  background-position: -58px -16px;\n  width: 38px;\n  height: 38px;\n  display: inline-block;\n  vertical-align: middle; }\n\n.checkOk {\n  position: absolute;\n  top: -8px;\n  right: -18px;\n  background-position: -58px -16px;\n  width: 38px;\n  height: 38px; }\n\n.expires {\n  font-weight: bold;\n  color: #4f7c2f; }\n\n.communityDetail {\n  display: grid;\n  grid-template-columns: 1fr 350px;\n  grid-gap: 20px; }\n  @media only screen and (max-width: 480px) {\n    .communityDetail {\n      grid-template-columns: 1fr; } }\n  @media only screen and (min-width: 481px) and (max-width: 1023px) {\n    .communityDetail {\n      grid-template-columns: 1fr; } }\n\n.wrap-detailsBox {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));\n  grid-auto-rows: 150px;\n  grid-gap: 20px; }\n\n.detailBox.links {\n  grid-column: span 2;\n  grid-row: 2; }\n\n.wrap-links {\n  display: flex;\n  flex-direction: column; }\n\n.label-square {\n  display: flex;\n  align-items: center;\n  font-size: 14px;\n  color: #616f7f;\n  font-weight: bold; }\n\n.label-square i {\n  margin-right: 5px; }\n\n.boxInfo {\n  display: flex;\n  justify-content: center;\n  height: 190px; \n}\n\n.wrap-boxInfo {\n  position: relative;\n  width: 300px;\n  display: flex;\n  flex-direction: column;\n  text-align: center; }\n\n.boxHead {\n  margin: 0 auto;\n  box-sizing: border-box;\n  padding: 0 20px 3px;\n  font-size: 24px;\n  font-weight: bold;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  z-index: 1;\n  background-color: #fff; }\n\n.boxContent {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  flex: 1;\n  flex-direction: column;\n  border-radius: 5px;\n  background-color: #eef1f4; }\n\n.itemBox {\n  width: 100%;\n  box-sizing: border-box;\n  padding: 15px 40px; }\n\n.label-boxInfo {\n  font-size: 14px;\n  color: #3a3a3c; }\n\n.textBox {\n  padding: 10px;\n  border-radius: 4px;\n  border: 1px solid #3a3a3c;\n  font-size: 16px;\n  font-weight: bold;\n  margin-top: 5px;\n  background-color: #fff; }\n\n.itemBox > div {\n  margin-bottom: 15px; }\n\n.itemBox > div:last-child {\n  margin-bottom: 0; }\n\n.wrap-boxInfo .line {\n  border: 1px solid #3a3a3c;\n  position: absolute;\n  width: 100%;\n  top: 18px; }\n\n.communityDetail .detailBox {\n  border-right: 1px solid #616f7f; }\n\n.wrap-detailsBox > .detailBox:last-child {\n  border-right: none; }\n\n.detailBox {\n  display: flex;\n  align-items: center; }\n\n.group-links {\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between; }\n\n.wrap-detailBox {\n  flex: 1; }\n\n.wrap-detailBox > div {\n  margin-bottom: 5px;\n  margin-bottom: 15px;\n}\n\n.wrap-detailBox > div:last-child {\n  margin-bottom: 0; }\n\n.textLinks {\n  display: flex;\n  align-items: center;\n  font-weight: bold;\n  color: #55a3de; }\n\n.textLinks > i {\n  margin-left: 10px;\n  color: #152531; }\n\n  .communityWarning{\n    background-color: #fff061;\n    color: #22292f;\n    padding: 12px 25px;\n    font-size: 23px;\n    margin-top: 30px;\n  }\n.cardHolder{\n  width: 100%;\n  margin: 25px 10px;\n  overflow: hidden;\n}\n\n/* Task Tab */\n.taskTabTabs{\n  display: flex;\n}\n.taskTabClicked{\n  display: inline-block;\n  background-color: white;\n  color: #47515b !important;\n  border-top: 2px solid;\n  border-left: 10px solid;\n}\n.taskTabContent{\n  display:none;\n}\n.taskTabContent:nth-child(1){\n  display:block\n}\n.tabContentTasks{\n  background-color: #47515b;\n}\n.taskTabContentContainer{\n  padding-left: 10px;\n}\n.taskSections{\n  background-color: bisque;\n}\n.taskSectionsTasks{\n  display: flex;\n  width: 100%;\n  background-color: white;\n  padding: 0px 0px;\n  margin-left: 10px;\n  font-size: 15px;\n  font-weight: 700;\n  border-top: 1px solid #e8ecee;\n}\n.taskTabCustom{\n  display: inline-block;\n  padding: 10px;\n  color: white;\n  font-size: 20px;\n  font-weight: 600;\n  padding-left: 21px;\n  cursor: pointer;\n}\n.tabTaskSecTitle{\n  padding: 15px;\n  background-color: white;\n  font-size: 25px;\n  font-weight: 700;\n}\n.asanaInputDesign{\n  width:80%;\n  background-color: transparent !important;\n}\n.asanaInputDesign:focus{\n  border: 0px solid #f1f1f1 !important;\n}\n.asanaAssigneeSelect{\n  font-size: 12px !important;\n  font-weight: 600 !important;\n  padding: 3px 3px !important;\n  width: 90% !important;\n  margin-top: 4px;\n  min-width: unset !important;\n}\n.backgroundLoading{\n  width: 100%;\n  height: 100%;\n  animation: colorchange 2s infinite;\n  -webkit-animation: colorchange 2s infinite; \n}\n@keyframes colorchange\n{\n  0%   {background: bisque;}\n  50%  {background: yellow;}\n  100% {background: bisque;}\n}\n\n@-webkit-keyframes colorchange /* Safari and Chrome - necessary duplicate */\n{\n  0%   {background: bisque;}\n  50%  {background: yellow;}\n  100% {background: bisque;}\n}\n.task-list-detail-wrapper{\n  height: 100% !important;\n}\n.blockSpan{\n  display: block;\n  padding: 10px;\n}\n.taskTabNot{\n  background-color: #47515b;\n  display: inline-block;\n  width: 18px;\n  height: 18px;\n  border-radius: 50%;\n  text-align: center;\n  color: white;\n  font-weight: 700;\n  position: absolute;\n  top: 1px;\n  right: 1px;\n}", ""]);
 
 // exports
 
@@ -17531,6 +17531,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_vue_moments_ago__ = __webpack_require__(158);
 function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -20000,13 +20009,13 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                 }
             });
         },
-        asanaFilterTask: function asanaFilterTask(id, block, e) {
+        asanaFilterTask: function asanaFilterTask(proj, block, e) {
 
-            __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.taskSectionHolder').children().show();
+            __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.taskSectionHolder-' + proj).children().show();
 
             if (block == 'complited') {
                 if (e.target.value != 'null') {
-                    __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.taskSectionHolder').children().filter(function () {
+                    __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.taskSectionHolder-' + proj).children().filter(function () {
                         console.log('In', e.target.value);
                         console.log(__WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()(this).data('complited'));
                         return __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()(this).data('complited') + '' != e.target.value;
@@ -20015,7 +20024,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             }
             if (block == 'assignee') {
                 if (e.target.value != 'null') {
-                    __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.taskSectionHolder').children().filter(function () {
+                    __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.taskSectionHolder-' + proj).children().filter(function () {
                         return __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()(this).data('assignee') != e.target.value;
                     }).hide();
                 }
@@ -20023,7 +20032,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             if (block == 'due') {
                 if (e.target.value != 'null') {
                     var that = this;
-                    __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.taskSectionHolder').children().filter(function () {
+                    __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.taskSectionHolder-' + proj).children().filter(function () {
                         var diff = 0;
                         if (__WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()(this).data('due') != null) {
                             var dtx = new Date(__WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()(this).data('due'));
@@ -20045,6 +20054,21 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                         return e.target.value >= diff;
                     }).hide();
                 }
+            }
+        },
+        srchAsanaTask: function srchAsanaTask(proj, e) {
+            console.log('e ', e);
+            console.log('e.target.value', e.target.value);
+            var keyWord = e.target.value;
+            if (keyWord.length > 0) {
+                __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.taskSectionHolder-' + proj).children().filter(function () {
+                    var srchStr = __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()(this).data('name').toLowerCase();
+                    console.log("$(this).data('name')", __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()(this).data('name'));
+                    console.log(srchStr.search('/' + e.target.value + '/i'));
+                    return srchStr.search(e.target.value) == -1;
+                }).hide();
+            } else {
+                __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.taskSectionHolder-' + proj).children().show();
             }
         },
         parseDate: function parseDate(str) {
@@ -20629,9 +20653,10 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                 }
             });
         },
-        deleteTask: function deleteTask(id) {
+        deleteTask: function deleteTask(task) {
             var _this22 = this;
 
+            // task.gid replaced with task
             var THIS = this;
 
             __WEBPACK_IMPORTED_MODULE_0_sweetalert2___default.a.fire({
@@ -20644,11 +20669,35 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                 if (res.value !== undefined) {
                     _this22.isLoading = true;
 
-                    Nova.request().post('/api/asana/task/destroy/' + id, { _method: 'DELETE' }).then(function (response) {
+                    __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('#nameB-' + task.gid).show();
+                    __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('#nameC-' + task.gid).hide();
+                    __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('#assigneeB-' + task.gid).show();
+                    __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('#assigneeC-' + task.gid).hide();
+                    __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('#dueOnB-' + task.gid).show();
+                    __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('#dueOnC-' + task.gid).hide();
+
+                    Nova.request().post('/api/asana/task/destroy/' + task.gid, { _method: 'DELETE' }).then(function (response) {
                         _this22.isLoading = false;
 
                         if (response.data.status === 200) {
                             THIS.getProjects();
+
+                            var project = task.projects[0].gid;
+                            var addedSection = task.memberships[0].section.gid;
+
+                            var asanaLocalProjsNewTask = JSON.parse(localStorage.getItem('asanaProjects'));
+                            asanaLocalProjsNewTask[project].sections.map(function (sec) {
+                                if (sec.gid == addedSection) {
+                                    sec.tasks.map(function (tsk, i) {
+                                        if (tsk.details.gid == task.gid) {
+                                            sec.tasks.splice(i, 1);
+                                        }
+                                    });
+                                }
+                            });
+                            var asanaLocalStoreNewTask = JSON.stringify(asanaLocalProjsNewTask);
+                            localStorage.setItem('asanaProjects', asanaLocalStoreNewTask);
+                            _this22.localAsana();
                         } else {
                             THIS.errors = response.data.errors;
                         }
@@ -51903,7 +51952,10 @@ var render = function() {
                           }
                         }
                       },
-                      [_vm._v("Tasks")]
+                      [
+                        _vm._v("Tasks "),
+                        _c("div", { staticClass: "taskTabNot" }, [_vm._v("2")])
+                      ]
                     ),
                     _vm._v(" "),
                     _c(
@@ -51920,7 +51972,10 @@ var render = function() {
                           }
                         }
                       },
-                      [_vm._v("Admin")]
+                      [
+                        _vm._v("Admin "),
+                        _c("div", { staticClass: "taskTabNot" }, [_vm._v("2")])
+                      ]
                     )
                   ]
                 )
@@ -52525,6 +52580,7 @@ var render = function() {
                                       "div",
                                       {
                                         staticClass: "_btn _btn-default",
+                                        staticStyle: { "font-size": "20px" },
                                         on: {
                                           click: function($event) {
                                             return _vm.asanaNewTask()
@@ -52537,6 +52593,10 @@ var render = function() {
                                           {
                                             staticClass:
                                               "MiniIcon-custom newTaskButton",
+                                            staticStyle: {
+                                              width: "20px",
+                                              height: "20px"
+                                            },
                                             attrs: { viewBox: "0 0 24 24" }
                                           },
                                           [
@@ -52704,6 +52764,14 @@ var render = function() {
                                             attrs: {
                                               type: "text",
                                               placeholder: "Search"
+                                            },
+                                            on: {
+                                              keyup: function($event) {
+                                                return _vm.srchAsanaTask(
+                                                  asan.gid,
+                                                  $event
+                                                )
+                                              }
                                             }
                                           }),
                                           _vm._v(" "),
@@ -53050,8 +53118,9 @@ var render = function() {
                                         _c(
                                           "div",
                                           {
-                                            staticClass:
-                                              "nv-collapsedown taskSectionHolder",
+                                            class:
+                                              "nv-collapsedown taskSectionHolder-" +
+                                              asan.gid,
                                             attrs: { id: "task-" + section.gid }
                                           },
                                           _vm._l(section.tasks, function(
@@ -53069,7 +53138,9 @@ var render = function() {
                                                   "data-complited": tasks.completed
                                                     ? "true"
                                                     : "false",
-                                                  "data-due": tasks.duedate
+                                                  "data-due": tasks.duedate,
+                                                  "data-name":
+                                                    tasks.details.name
                                                 }
                                               },
                                               [
@@ -53884,7 +53955,7 @@ var render = function() {
                                                       click: function($event) {
                                                         return _vm.deleteTask(
                                                           _vm.taskDetails[0]
-                                                            .data.gid
+                                                            .data
                                                         )
                                                       }
                                                     }
@@ -60899,7 +60970,25 @@ var staticRenderFns = [
         staticStyle: { display: "none" },
         attrs: { id: "cokInfo" }
       },
-      [_c("span", [_vm._v("Some Content")])]
+      [
+        _c("span", { staticClass: "blockSpan" }, [_vm._v("Active OTR's")]),
+        _vm._v(" "),
+        _c("span", { staticClass: "blockSpan" }, [
+          _vm._v("Ended OTR's (Balance Due)")
+        ]),
+        _vm._v(" "),
+        _c("span", { staticClass: "blockSpan" }, [_vm._v("Monthly")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "monthlyList px-4" }, [
+          _c("span", { staticClass: "blockSpan" }, [_vm._v("Payments")]),
+          _vm._v(" "),
+          _c("span", { staticClass: "blockSpan" }, [_vm._v("Deregistrations")]),
+          _vm._v(" "),
+          _c("span", { staticClass: "blockSpan" }, [_vm._v("Violations")]),
+          _vm._v(" "),
+          _c("span", { staticClass: "blockSpan" }, [_vm._v("Inspections")])
+        ])
+      ]
     )
   },
   function() {
