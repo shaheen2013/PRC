@@ -542,14 +542,13 @@ a:hover, a:focus {
 @keyframes colorchange
 {
   0%   {background: bisque;}
-  50%  {background: yellow;}
+  50%  {background: white;}
   100% {background: bisque;}
 }
-
 @-webkit-keyframes colorchange /* Safari and Chrome - necessary duplicate */
 {
   0%   {background: bisque;}
-  50%  {background: yellow;}
+  50%  {background: white;}
   100% {background: bisque;}
 }
 .task-list-detail-wrapper{

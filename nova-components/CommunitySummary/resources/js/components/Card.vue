@@ -15,7 +15,7 @@
                         <div v-if="this.community ? !this.community.community_logo : null" class="blank-image"></div>
                         <div class="titleHeadings">
                             <h1 class="headline">{{this.communityName}}</h1><br>
-                            <h4><strong style="font-size: 13px;color: #9c9b9b;padding-left: 11px;"><span> RM | Not Assigned</span> <span> ID: {{this.community.COMMUNITYID}}</span> </strong></h4>
+                            <h4><strong style="font-size: 13px;color: #9c9b9b;padding-left: 11px;"><span> RM | Not Assigned</span> <span> ID: {{this.community? this.community.COMMUNITYID : null }}</span> </strong></h4>
                         </div>
                     </div>
                     <div class="customHeadRight" style="text-align:center">
@@ -417,7 +417,7 @@
                             <div v-for="asan in asana" :key="asan.gid" class="taskTabContent" :id="`tab${asan.gid}`" style="min-height: 600px;background-color: white;">
                                 <div class="add-task-section-wrapper">
                                     <div class="section-left">
-                                        <div class="_btn _btn-default" @click="asanaNewTask()" style="font-size:20px">
+                                        <div class="_btn _btn-default" @click="asanaNewTask(asan.gid)" style="font-size:20px">
                                             <svg class="MiniIcon-custom newTaskButton" viewBox="0 0 24 24" style="width: 20px;height: 20px">
                                                 <path d="M10,10V4c0-1.1,0.9-2,2-2s2,0.9,2,2v6h6c1.1,0,2,0.9,2,2s-0.9,2-2,2h-6v6c0,1.1-0.9,2-2,2s-2-0.9-2-2v-6H4c-1.1,0-2-0.9-2-2s0.9-2,2-2H10z"></path>
                                             </svg>
@@ -495,12 +495,12 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="task-list-body asanaNewTaskCreate" style="display:none">
+                                    <div :class="`task-list-body asanaNewTaskCreate-${asan.gid}`" style="display:none">
                                         <div class="task-name-box cursor-pointer" style="padding: 10px;border: 1px solid">
                                             <div class="border-radious-icon" style="visibility: hidden;">
                                                 
                                             </div>
-                                            <span style="width: 90%;"><input type="text" v-model="asanaTaskCreate.name" :class="`task-body-custom-input asanaInputDesign asanaTaskOnSubmit${asan.gid}`" id="asanaNewTaskCreateInput" v-on:keyup.enter="asanaStoreTask(asan)" placeholder="Write a Task Name"></span>
+                                            <span style="width: 90%;"><input type="text" v-model="asanaTaskCreate.name" :class="`task-body-custom-input asanaInputDesign asanaTaskOnSubmit${asan.gid}`" id="`asanaNewTaskCreateInput-${asan.gid}`" v-on:keyup.enter="asanaStoreTask(asan)" placeholder="Write a Task Name"></span>
                                             <div  @click="asanaStoreTask(asan)" class="detail-option">Create
                                                 <svg class="MiniIcon-right" viewBox="0 0 24 24">
                                                     <path d="M8.9,20.4c-0.4,0-0.7-0.1-1-0.4c-0.6-0.6-0.7-1.5-0.1-2.1l5.2-5.8L7.8,6C7.3,5.4,7.3,4.4,8,3.9C8.6,3.3,9.5,3.4,10.1,4l6.1,7.1c0.5,0.6,0.5,1.4,0,2l-6.1,6.8C9.8,20.3,9.4,20.4,8.9,20.4z"></path>
@@ -611,9 +611,9 @@
                                 </div>
                             </div>
                             <div class="task-list-detail-wrapper" id="task-detail" :class="{'hideMe': sideBar == 0 ? true:false}">
-                                <div class="loader-io" style="display: none">
+                                <div class="loader-io backgroundLoading" style="display: none">
                                     <div class="loadingio-spinner-eclipse-utvtio44ngo">
-                                        <div class="ldio-aebf04cd3u">
+                                        <div class="ldio-aebf04cd3u backgroundLoading">
                                             <div></div>
                                         </div>
                                     </div>
@@ -729,7 +729,7 @@
                                                 <path d="M10,13.5c0.8,0,1.5,0.7,1.5,1.5s-0.7,1.5-1.5,1.5S8.5,15.8,8.5,15S9.2,13.5,10,13.5z M23,14h-8c-0.6,0-1,0.4-1,1s0.4,1,1,1h8c0.6,0,1-0.4,1-1S23.6,14,23,14z M23,20h-8c-0.6,0-1,0.4-1,1s0.4,1,1,1h8c0.6,0,1-0.4,1-1S23.6,20,23,20z M10,19.5c0.8,0,1.5,0.7,1.5,1.5s-0.7,1.5-1.5,1.5S8.5,21.8,8.5,21S9.2,19.5,10,19.5z M24,2h-2.2c-0.4-1.2-1.5-2-2.8-2h-6c-1.3,0-2.4,0.8-2.8,2H8C4.7,2,2,4.7,2,8v18c0,3.3,2.7,6,6,6h16c3.3,0,6-2.7,6-6V8C30,4.7,27.3,2,24,2z M13,2h6c0.6,0,1,0.4,1,1v2c0,0.6-0.4,1-1,1h-6c-0.6,0-1-0.4-1-1V3C12,2.4,12.4,2,13,2z M28,26c0,2.2-1.8,4-4,4H8c-2.2,0-4-1.8-4-4V8c0-2.2,1.8-4,4-4h2v1c0,1.7,1.3,3,3,3h6c1.7,0,3-1.3,3-3V4h2c2.2,0,4,1.8,4,4V26z"></path>
                                             </svg>
                                         </div>
-                                        <div class="project-name-label">{{ projectDetails.data.name }}</div>
+                                        <div class="project-name-label">{{ taskDetails[0].data.projects[0] ? taskDetails[0].data.projects[0].name : null }}</div>
                                         <div class="project-select-box">
                                             <select @change="inlineTaskUpdate(taskDetails[0].data.memberships[0].section.gid, taskDetails[0].data.gid, 'section', $event)" class="cursor-pointer">
                                                 <option v-for="projSectn in detSections" :key="projSectn.gid" :value="projSectn.gid" v-if="projSectn.selected == true" selected>{{ projSectn.name }}</option>
@@ -745,7 +745,7 @@
                                             </div>
                                             <input type="text" class="new-task-input" v-model="subTask.name">
                                             <div class="new-task-logo">
-                                                <div class="logo-1" @click="createSubTask(taskDetails[0].data.gid)">
+                                                <div class="logo-1" @click="createSubTask(taskDetails[0].data)">
                                                     <div class="detail-option">Create
                                                         <svg viewBox="0 0 24 24" class="MiniIcon-right"><path d="M8.9,20.4c-0.4,0-0.7-0.1-1-0.4c-0.6-0.6-0.7-1.5-0.1-2.1l5.2-5.8L7.8,6C7.3,5.4,7.3,4.4,8,3.9C8.6,3.3,9.5,3.4,10.1,4l6.1,7.1c0.5,0.6,0.5,1.4,0,2l-6.1,6.8C9.8,20.3,9.4,20.4,8.9,20.4z"></path></svg>
                                                     </div>
@@ -788,7 +788,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="new-task" v-if="taskDetails.subTasks.length > 0" v-for="(t, index) in taskDetails.subTasks" :key="index">
+                                        <div class="new-task" v-if="taskDetails.subTasks.length > 0" v-for="(t, index) in taskDetails.subTasks" :key="index" style="height: 40px;">
                                             <div class="border-radious-icon" :class="{'task-complete': t[0].data.completed ? true : false}" onclick="document.getElementById('subTaskCompleteness').click()">
                                                 <svg class="MiniIcon"
                                                     viewBox="0 0 24 24">
@@ -883,18 +883,18 @@
                                                 </span>-->
                                             </div>
                                         </div>
-                                    <div class="history-bar" v-else>
-                                        <div class="profile-img">
-                                            <div class="_img" style="background-image: url('https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png')"></div>
+                                        <div class="history-bar" v-else>
+                                            <div class="profile-img">
+                                                <div class="_img" style="background-image: url('https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png')"></div>
+                                            </div>
+                                            <div class="detail-text-area">
+                                                <span><a class="lnk-text" href="javascript:void(0)">{{ comment[0].created_by.name }} </a>{{ comment[0].text }}</span>
+                                                <span class="small-text"><vue-moments-ago prefix="" suffix="ago" :date="comment[0].created_at"></vue-moments-ago></span>
+                                            </div>
+                                            <div class="detail-text-area">
+                                                <span class="small-text">{{ comment[0].created_by.name }} {{ comment[0].text }} <vue-moments-ago prefix="" suffix="ago" :date="comment[0].created_at"></vue-moments-ago></span>
+                                            </div>
                                         </div>
-                                        <div class="detail-text-area">
-                                            <span><a class="lnk-text" href="javascript:void(0)">{{ comment[0].created_by.name }} </a>{{ comment[0].text }}</span>
-                                            <span class="small-text"><vue-moments-ago prefix="" suffix="ago" :date="comment[0].created_at"></vue-moments-ago></span>
-                                        </div>
-                                        <div class="detail-text-area">
-                                            <span class="small-text">{{ comment[0].created_by.name }} {{ comment[0].text }} <vue-moments-ago prefix="" suffix="ago" :date="comment[0].created_at"></vue-moments-ago></span>
-                                        </div>
-                                    </div>
                                     </div>
                                     <div class="head-text-section bg-light">
                                         <div class="profile-img">
@@ -939,637 +939,6 @@
                     </div>
                 </div>
             </section>
-        </div>
-        <br><br>
-        <div class="flex mb-4">
-            <div class="w-full flex items-center">
-                <h1 class="flex-no-shrink text-90 font-normal text-2xl">Tasks/Projects</h1>
-                <div class="flex-no-shrink ml-auto mb-6">
-                    <a href="javascript:void(0)" v-if="!isLoading && projectDetails == null" @click="createProject" class="btn btn-default btn-primary" dusk="create-button">Create Project</a>
-                    <a href="javascript:void(0)" v-if="!isLoading && projectDetails && projects.length == 1" @click="storeNewTemplateProject" class="btn btn-default btn-primary" dusk="create-button">Create Onboarding Project</a>
-                </div>
-            </div>
-        </div>
-        <div class="relationship-tabs-panel card">
-            <div class="loader-io" v-if="isLoading">
-                <div class="loadingio-spinner-eclipse-utvtio44ngo">
-                    <div class="ldio-aebf04cd3u">
-                        <div></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div v-if="!isLoading" class="relationship-tabs-panel card">
-            <div class="w-full">
-                <div v-if="projectDetails">
-                    <div class="tabs-wrap border-b-2 border-40 w-full">
-                        <div class="tabs flex flex-row overflow-x-auto">
-                            <button class="py-5 px-8 border-b-2 focus:outline-none tab" v-for="project in projects" :class="{'text-grey-black font-bold border-primary' : project.data.gid === activeProject, 'text-grey font-semibold border-40' : project.data.gid !== activeProject}" @click="getProjectDetails(project.data.gid)" :id="project.data.gid">
-                                {{ project.data.name }} <i class="fa fa-spinner fa-spin" style="display:none" :id="'ps' + project.data.gid"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="tab-content">
-                        <div class="add-task-section-wrapper">
-                            <div class="section-left">
-                                <div class="_btn _btn-default" @click="createNewTask = true">
-                                    <svg class="MiniIcon-custom" viewBox="0 0 24 24">
-                                        <path d="M10,10V4c0-1.1,0.9-2,2-2s2,0.9,2,2v6h6c1.1,0,2,0.9,2,2s-0.9,2-2,2h-6v6c0,1.1-0.9,2-2,2s-2-0.9-2-2v-6H4c-1.1,0-2-0.9-2-2s0.9-2,2-2H10z"></path>
-                                    </svg>
-                                    Add Task
-                                </div>
-                            </div>
-                            <div class="section-right _text-right">
-                                <div class="_btn _btn-borderless nv-dropdown">
-                                    <svg class="MiniIcon-custom" viewBox="0 0 24 24">
-                                        <path d="M12,3c5,0,9,4,9,9s-4,9-9,9s-9-4-9-9S7,3,12,3 M12,1C5.9,1,1,5.9,1,12s4.9,11,11,11s11-4.9,11-11S18.1,1,12,1L12,1zM11.2,16.2l6-6c0.4-0.4,0.4-1,0-1.4s-1-0.4-1.4,0l-5.3,5.3l-2.3-2.3c-0.4-0.4-1-0.4-1.4,0s-0.4,1,0,1.4l3,3c0.2,0.2,0.5,0.3,0.7,0.3S11,16.4,11.2,16.2z">
-                                        </path>
-                                    </svg>
-                                    <span v-if="taskFilter.complete == '' || taskFilter.complete == 'all'">All Tasks</span>
-                                    <span v-if="taskFilter.complete == 'true'">Complete Tasks</span>
-                                    <span v-if="taskFilter.complete == 'false'">Incomplete Tasks</span>
-                                    <div class="task-head-box-dropdown nv-dropdown-menu">
-                                        <div class="each-box" @click="filterTasks('completed', 'all')">
-                                            <a href="javascript:void(0)">All Task</a>
-                                        </div>
-                                        <div class="each-box">
-                                            <a href="javascript:void(0)" @click="filterTasks('completed', 'false')">Incomplete tasks</a>
-                                        </div>
-                                        <div class="each-box">
-                                            <a href="javascript:void(0)" @click="filterTasks('completed', 'true')">Complete Tasks</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="_assigned-box">
-                                    <select class="_custom-select" v-model="taskFilter.assignee" @change="filterTasks">
-                                        <option value="">Assignee</option>
-                                        <option v-if="users.length > 0" v-for="user in users" :value="user.gid">{{ user.name }}</option>
-                                    </select>
-                                </div>
-                                <div class="_assigned-box">
-                                    <select class="_custom-select" v-model="taskFilter.section" @change="filterTasks">
-                                        <option value="">Choose type</option>
-                                        <option v-if="sections.length > 0" v-for="section in sections" :value="section.gid">{{ section.name }}</option>
-                                    </select>
-                                </div>
-                                <div class="_assigned-box">
-                                    <select class="_custom-select" v-model="taskFilter.due_on" @change="filterTasks">
-                                        <option value="">Choose Due Date</option>
-                                        <option value="7">Due in 7 days</option>
-                                        <option value="30">Up in 30 days</option>
-                                        <option value="90">Up in 90 days</option>
-                                    </select>
-                                </div>
-                                <div class="_assigned-box">
-                                    <input type="text" class="_custom-input-search" placeholder="Search" v-model="taskFilter.name" @change="keyTyping" @keyup="keyTyping">
-                                    <div class="search-logo">
-                                        <svg class="" focusable="false" viewBox="0 0 32 32" style="width: 14px;">
-                                            <path d="M29.707,28.293l-8.256-8.256C23.042,18.13,24,15.677,24,13c0-6.075-4.925-11-11-11S2,6.925,2,13s4.925,11,11,11c2.677,0,5.13-0.958,7.037-2.549l8.256,8.256L29.707,28.293z M4,13c0-4.963,4.037-9,9-9c4.963,0,9,4.037,9,9s-4.037,9-9,9C8.037,22,4,17.963,4,13z"></path>
-                                        </svg>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="main-wrapper">
-                            <div class="task-list-wrapper" :class="{'task-list-half': sideBar == 1 ? true:false}">
-                                <div class="task-list-header">
-                                    <div class="task-name-box">
-                                        Task name
-                                    </div>
-                                    <div class="task-assignee-box">
-                                        Assignee
-                                    </div>
-                                    <div class="task-assignee-box border-right-none cursor-pointer" @click="sortTask">
-                                        Due Date
-                                        <!--<div class="logo-1 nv-dropdown">
-                                            <svg class="svg-logo" focusable="false" viewBox="0 0 32 32">
-                                                <path d="M25.9,12.9c-0.5-0.6-1.5-0.7-2.1-0.2L16,19.1l-7.8-6.4c-0.6-0.5-1.6-0.4-2.1,0.2c-0.5,0.6-0.4,1.6,0.2,2.1l8.8,7.2  c0.2,0.2,0.6,0.3,0.9,0.3s0.7-0.1,0.9-0.3l8.8-7.2C26.3,14.5,26.4,13.5,25.9,12.9z"></path>
-                                            </svg>
-                                            <div class="task-head-box-dropdown nv-dropdown-menu">
-                                                <div class="each-box">
-                                                    <a href="javascript:void(0)">Sort by</a>
-                                                    <a href="javascript:void(0)">Remove sort</a>
-                                                </div>
-                                            </div>
-                                        </div>-->
-                                        <div class="logo-2" v-if="isSort">
-                                            <svg class="mini-icon" viewBox="0 0 24 24">
-                                                <path d="M4.7,14.1l7.6,7.6c0.4,0.4,1,0.4,1.4,0l7.6-7.6c0.4-0.4,0.4-1,0-1.4s-1-0.4-1.4,0L14,18.6V3c0-0.6-0.4-1-1-1c-0.6,0-1,0.4-1,1v15.6l-5.9-5.9c-0.2-0.2-0.5-0.3-0.7-0.3s-0.5,0.1-0.7,0.3C4.3,13.1,4.3,13.8,4.7,14.1z"></path>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="task-list-body" v-if="createNewTask">
-                                    <div class="task-name-box cursor-pointer">
-                                        <div @click="" class="border-radious-icon" :class="{'task-complete': isTaskComplete == 1 ? true : false}">
-                                            <svg class="MiniIcon"
-                                                 viewBox="0 0 24 24">
-                                                <path d="M9.5,18.2c-0.4,0.4-1,0.4-1.4,0l-3.8-3.8C4,14,4,13.4,4.3,13s1-0.4,1.4,0l3.1,3.1l8.6-8.6c0.4-0.4,1-0.4,1.4,0s0.4,1,0,1.4 L9.5,18.2z"></path>
-                                            </svg>
-                                        </div>
-                                        <span><input type="text" v-model="task.name" class="task-body-custom-input createTaskOnSubmit" @click="createTaskOnSubmit()"></span>
-                                        <div @click="storeTask" class="detail-option">Create
-                                            <svg class="MiniIcon-right" viewBox="0 0 24 24">
-                                                <path d="M8.9,20.4c-0.4,0-0.7-0.1-1-0.4c-0.6-0.6-0.7-1.5-0.1-2.1l5.2-5.8L7.8,6C7.3,5.4,7.3,4.4,8,3.9C8.6,3.3,9.5,3.4,10.1,4l6.1,7.1c0.5,0.6,0.5,1.4,0,2l-6.1,6.8C9.8,20.3,9.4,20.4,8.9,20.4z"></path>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                    <div class="task-assignee-box cursor-pointer nv-dropdown">
-                                        <div class="nv-dropdown-trigger">
-                                            <div class="assignee-box-logo">
-                                                <svg class="inside-logo" focusable="false" viewBox="0 0 32 32">
-                                                    <path d="M16,18c-4.4,0-8-3.6-8-8s3.6-8,8-8s8,3.6,8,8S20.4,18,16,18z M16,4c-3.3,0-6,2.7-6,6s2.7,6,6,6s6-2.7,6-6S19.3,4,16,4z M29,32c-0.6,0-1-0.4-1-1v-4.2c0-2.6-2.2-4.8-4.8-4.8H8.8C6.2,22,4,24.2,4,26.8V31c0,0.6-0.4,1-1,1s-1-0.4-1-1v-4.2C2,23,5,20,8.8,20h14.4c3.7,0,6.8,3,6.8,6.8V31C30,31.6,29.6,32,29,32z"></path>
-                                                </svg>
-                                            </div>
-                                            <span><input type="text" class="assignee-box-input assigned-input" @keyup="textSearch($event, false)" @blur="clearInput($event, false)"></span>
-                                        </div>
-
-                                        <div class="assignee-box-dropdown nv-dropdown-menu">
-                                            <div class="each-assignee" v-if="users.length > 0" v-for="user in users" @click="collapseDropdown(user.gid)">
-                                                <div class="profile-img" style="background-image: url('https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png')"></div>
-                                                <div class="name-text">{{ user.name }}</div>
-                                            </div>
-                                        </div>
-
-                                        <div class="assigned-person" v-if="task.assignee">
-                                            <div class="img-box"  style="background-image: url('https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png')"></div>
-                                            <div class="text-1">{{ users[users.findIndex((element) => element.gid == task.assignee)].name }}</div>
-                                        </div>
-                                    </div>
-                                    <div class="task-assignee-box cursor-pointer border-right-none">
-                                        <div class="assignee-box-logo">
-                                            <svg class="inside-logo" focusable="false" viewBox="0 0 32 32">
-                                                <path d="M24,2V1c0-0.6-0.4-1-1-1s-1,0.4-1,1v1H10V1c0-0.6-0.4-1-1-1S8,0.4,8,1v1C4.7,2,2,4.7,2,8v16c0,3.3,2.7,6,6,6h16c3.3,0,6-2.7,6-6V8C30,4.7,27.3,2,24,2z M8,4v1c0,0.6,0.4,1,1,1s1-0.4,1-1V4h12v1c0,0.6,0.4,1,1,1s1-0.4,1-1V4c2.2,0,4,1.8,4,4v2H4V8C4,5.8,5.8,4,8,4z M24,28H8c-2.2,0-4-1.8-4-4V12h24v12C28,26.2,26.2,28,24,28z"></path>
-                                            </svg>
-                                        </div>
-                                        <span>
-                                            <flat-pickr
-                                                v-model="task.due_on"
-                                                :config="{altInput: true, altFormat: 'F j, Y'}"
-                                                @on-change="task.due_on = convert($event)"
-                                                class="assignee-box-input assigned-input"
-                                                name="date">
-                                            </flat-pickr>
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="task-list-body" v-if="isSort" v-for="task in tasks">
-                                    <div class="task-name-box cursor-pointer">
-                                        <div class="border-radious-icon" :class="{'task-complete': task[0].completed ? true : false}" @click="toogleComplete('taskDetailsCompleteness' + task[0].gid)">
-                                            <svg class="MiniIcon" viewBox="0 0 24 24">
-                                                <path d="M9.5,18.2c-0.4,0.4-1,0.4-1.4,0l-3.8-3.8C4,14,4,13.4,4.3,13s1-0.4,1.4,0l3.1,3.1l8.6-8.6c0.4-0.4,1-0.4,1.4,0s0.4,1,0,1.4 L9.5,18.2z"></path>
-                                            </svg>
-                                        </div>
-                                        <input type="checkbox" v-if="task[0].completed" @click="editTask(task[0].gid, 'completed', $event, index, i)" :id="'taskDetailsCompleteness' + task[0].gid" style="display:none;" checked>
-                                        <input type="checkbox" v-else="" @click="editTask(task[0].gid, 'completed', $event, index, i)" :id="'taskDetailsCompleteness' + task[0].gid" style="display:none;">
-                                        <span><input type="text" class="task-body-custom-input" placeholder="Write a task name" :value="task[0].name" @change="editTask(task[0].gid, 'name', $event, index, i)"></span>
-                                        <span class="comment-section-name" v-if="task[0].num_likes">
-                                            <span class="comment-count-like">{{ task[0].num_likes }}</span>
-                                            <svg class="comment-logo-like cursor-pointer" viewBox="0 0 24 24"><path
-                                                d="M2.7,8H5v2v10v2H2.7C1.2,22,0,20.8,0,19.4v-8.7C0,9.2,1.2,8,2.7,8z M23.1,9.2C22.4,8.4,21.5,8,20.5,8H16V5.2 C16,3.5,16.5,2,15.2,1c-0.6-0.5-1.5-0.6-2.2-0.5c-0.8,0.2-1.4,0.7-1.8,1.5L7,8v14h12.2c1.7,0,3.2-1.2,3.4-2.9l1.2-7 C24.1,11,23.8,10,23.1,9.2z"></path></svg>
-                                        </span>
-                                        <span @click="showTask(task[0].gid)" class="comment-section-name" v-if="task['comments'] > 0"><span class="comment-count">{{ task['comments'] }}</span>
-                                            <svg class="comment-logo cursor-pointer" focusable="false" viewBox="0 0 32 32" height="14px" width="14px">
-                                        <path d="M5,31c-0.1,0-0.3,0-0.4-0.1C4.2,30.7,4,30.4,4,30v-7.1c-2.5-2.3-4-5.5-4-8.9C0,7.4,5.4,2,12,2h8c6.6,0,12,5.4,12,12 s-5.4,12-12,12h-8c-0.1,0-0.3,0-0.4,0l-5.9,4.8C5.4,30.9,5.2,31,5,31z M12,4C6.5,4,2,8.5,2,14c0,3,1.3,5.8,3.6,7.7C5.9,21.9,6,22.2,6,22.5v5.4l4.6-3.7C10.8,24,11,24,11.3,24h0.1c0.2,0,0.4,0,0.6,0h8c5.5,0,10-4.5,10-10S25.5,4,20,4 C20,4,12,4,12,4z"></path>
-                                    </svg>
-                                        </span>
-                                        <span @click="showTask(task[0].gid)" class="comment-section-name" v-if="task['subTasks'] > 0"><span class="comment-count">{{ task['subTasks'] }}</span>
-                                            <svg class="comment-logo cursor-pointer" focusable="false" viewBox="0 0 32 32" height="14px" width="14px">
-                                                <path d="M25,20c-2.4,0-4.4,1.7-4.9,4H11c-3.9,0-7-3.1-7-7v-5h16.1c0.5,2.3,2.5,4,4.9,4c2.8,0,5-2.2,5-5s-2.2-5-5-5c-2.4,0-4.4,1.7-4.9,4H4V3c0-0.6-0.4-1-1-1S2,2.4,2,3v14c0,5,4,9,9,9h9.1c0.5,2.3,2.5,4,4.9,4c2.8,0,5-2.2,5-5S27.8,20,25,20z M25,8c1.7,0,3,1.3,3,3s-1.3,3-3,3s-3-1.3-3-3S23.3,8,25,8z M25,28c-1.7,0-3-1.3-3-3s1.3-3,3-3s3,1.3,3,3S26.7,28,25,28z"></path>
-                                            </svg>
-                                        </span>
-                                        <div v-if="sideBar == 0" @click="showTask(task[0].gid)" class="detail-option">Detail
-                                            <svg class="MiniIcon-right" viewBox="0 0 24 24">
-                                                <path d="M8.9,20.4c-0.4,0-0.7-0.1-1-0.4c-0.6-0.6-0.7-1.5-0.1-2.1l5.2-5.8L7.8,6C7.3,5.4,7.3,4.4,8,3.9C8.6,3.3,9.5,3.4,10.1,4l6.1,7.1c0.5,0.6,0.5,1.4,0,2l-6.1,6.8C9.8,20.3,9.4,20.4,8.9,20.4z"></path>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                    <div class="task-assignee-box cursor-pointer nv-dropdown">
-                                        <div class="nv-dropdown-trigger">
-                                            <div id="'assignee-logo-id' + task[0].gid" class="assignee-box-logo" v-if="task[0].assignee == null">
-                                                <svg class="inside-logo" focusable="false" viewBox="0 0 32 32">
-                                                    <path d="M16,18c-4.4,0-8-3.6-8-8s3.6-8,8-8s8,3.6,8,8S20.4,18,16,18z M16,4c-3.3,0-6,2.7-6,6s2.7,6,6,6s6-2.7,6-6S19.3,4,16,4z M29,32c-0.6,0-1-0.4-1-1v-4.2c0-2.6-2.2-4.8-4.8-4.8H8.8C6.2,22,4,24.2,4,26.8V31c0,0.6-0.4,1-1,1s-1-0.4-1-1v-4.2C2,23,5,20,8.8,20h14.4c3.7,0,6.8,3,6.8,6.8V31C30,31.6,29.6,32,29,32z"></path>
-                                                </svg>
-                                            </div>
-                                            <span><input type="text" class="assignee-box-input nv-dropdown-trigger" @keyup="textSearch($event, false)" @blur="clearInput($event, false)"></span>
-
-                                            <div class="assigned-person" v-if="task[0].assignee">
-                                                <div class="img-box"  style="background-image: url('https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png')"></div>
-                                                <div class="text-1">{{ task[0].assignee.name }}</div>
-                                            </div>
-                                        </div>
-                                        <div class="assignee-box-dropdown nv-dropdown-menu">
-                                            <div class="each-assignee" v-if="users.length > 0" v-for="user in users" @click="editTask(task[0].gid, 'assignee', user, index, i)">
-                                                <div class="profile-img" style="background-image: url('https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png')"></div>
-                                                <div class="name-text">{{ user.name }}</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="task-assignee-box cursor-pointer border-right-none" :title="duedate(task[0].due_on)">
-                                        <div class="assignee-box-logo">
-                                            <svg class="inside-logo" focusable="false" viewBox="0 0 32 32">
-                                                <path d="M24,2V1c0-0.6-0.4-1-1-1s-1,0.4-1,1v1H10V1c0-0.6-0.4-1-1-1S8,0.4,8,1v1C4.7,2,2,4.7,2,8v16c0,3.3,2.7,6,6,6h16c3.3,0,6-2.7,6-6V8C30,4.7,27.3,2,24,2z M8,4v1c0,0.6,0.4,1,1,1s1-0.4,1-1V4h12v1c0,0.6,0.4,1,1,1s1-0.4,1-1V4c2.2,0,4,1.8,4,4v2H4V8C4,5.8,5.8,4,8,4z M24,28H8c-2.2,0-4-1.8-4-4V12h24v12C28,26.2,26.2,28,24,28z"></path>
-                                            </svg>
-                                        </div>
-                                        <span>
-                                            <flat-pickr
-                                                :value="task[0].due_on"
-                                                :config="{altInput: true, altFormat: 'F j, Y'}"
-                                                @on-change="editTask(task[0].gid, 'due_on', $event, index, i)"
-                                                class="assignee-box-input assigned-input"
-                                                name="date">
-                                            </flat-pickr>
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="" v-if="sectionData.length > 0" v-for="(section, index) in sectionData" :data-v="index" :key="index" @click="getLikeDataById(section[0].gid)">
-                                    <div class="section-header">
-                                        <div class="d-flex-inline cursor-pointer" :id="'nvTl' + section[0].gid">{{ section[0].name }}
-                                            <svg style="enable-background:new 0 0 511.626 511.626;width: 23px;height: 23px;"
-                                                 class="MiniIcon-right"
-                                                 focusable="false" viewBox="0 0 32 32">
-                                                <path d="M25.9,12.9c-0.5-0.6-1.5-0.7-2.1-0.2L16,19.1l-7.8-6.4c-0.6-0.5-1.6-0.4-2.1,0.2c-0.5,0.6-0.4,1.6,0.2,2.1l8.8,7.2  c0.2,0.2,0.6,0.3,0.9,0.3s0.7-0.1,0.9-0.3l8.8-7.2C26.3,14.5,26.4,13.5,25.9,12.9z"></path>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                    <p style="color:red;font-size:12;display:none;" class="noDatFnd" v-if="section['tasks'].length < 1" :id="'noData' + section[0].gid">No Task Found</p>
-                                    <div :id="'nvCl' + section[0].gid" :style="[section.open === true ? {'display': 'block'} : {'display': 'none'}]">
-                                        <div class="fa-3x">
-                                            <i class="fa fa-spinner fa-spin" :id="'spinner' + section[0].gid" style="display:none"></i>
-                                        </div>
-                                        <div class="task-list-body-section" v-if="section['tasks'].length > 0" v-for="(task, i) in section['tasks']" :key="i">
-                                            <div class="task-name-box cursor-pointer">
-                                                <div class="border-radious-icon" :class="{'task-complete': task[0].data.completed ? true : false}" @click="toogleComplete('taskDetailsCompleteness' + task[0].data.gid)">
-                                                    <svg class="MiniIcon" viewBox="0 0 24 24">
-                                                        <path d="M9.5,18.2c-0.4,0.4-1,0.4-1.4,0l-3.8-3.8C4,14,4,13.4,4.3,13s1-0.4,1.4,0l3.1,3.1l8.6-8.6c0.4-0.4,1-0.4,1.4,0s0.4,1,0,1.4 L9.5,18.2z"></path>
-                                                    </svg>
-                                                </div>
-                                                <input type="checkbox" v-if="task[0].data.completed" @click="editTask(task[0].data.gid, 'completed', $event, index, i)" :id="'taskDetailsCompleteness' + task[0].data.gid" style="display:none;" checked>
-                                                <input type="checkbox" v-else="" @click="editTask(task[0].data.gid, 'completed', $event, index, i)" :id="'taskDetailsCompleteness' + task[0].data.gid" style="display:none;">
-                                                <span><input type="text" class="task-body-custom-input" placeholder="Write a task name" :value="task[0].data.name" @change="editTask(task[0].data.gid, 'name', $event, index, i)"></span>
-                                                <span class="comment-section-name" v-if="task[0].data.num_likes">
-                                                    <span class="comment-count-like">{{ task[0].data.num_likes }}</span>
-                                                    <svg class="comment-logo-like cursor-pointer" viewBox="0 0 24 24"><path
-                                                        d="M2.7,8H5v2v10v2H2.7C1.2,22,0,20.8,0,19.4v-8.7C0,9.2,1.2,8,2.7,8z M23.1,9.2C22.4,8.4,21.5,8,20.5,8H16V5.2 C16,3.5,16.5,2,15.2,1c-0.6-0.5-1.5-0.6-2.2-0.5c-0.8,0.2-1.4,0.7-1.8,1.5L7,8v14h12.2c1.7,0,3.2-1.2,3.4-2.9l1.2-7 C24.1,11,23.8,10,23.1,9.2z"></path></svg>
-                                                </span>
-                                                <span @click="showTask(task[0].data.gid)" class="comment-section-name" v-if="task['comments'] > 0"><span class="comment-count">{{ task['comments'] }}</span>
-                                                    <svg class="comment-logo cursor-pointer" focusable="false" viewBox="0 0 32 32" height="14px" width="14px">
-                                                        <path d="M5,31c-0.1,0-0.3,0-0.4-0.1C4.2,30.7,4,30.4,4,30v-7.1c-2.5-2.3-4-5.5-4-8.9C0,7.4,5.4,2,12,2h8c6.6,0,12,5.4,12,12 s-5.4,12-12,12h-8c-0.1,0-0.3,0-0.4,0l-5.9,4.8C5.4,30.9,5.2,31,5,31z M12,4C6.5,4,2,8.5,2,14c0,3,1.3,5.8,3.6,7.7C5.9,21.9,6,22.2,6,22.5v5.4l4.6-3.7C10.8,24,11,24,11.3,24h0.1c0.2,0,0.4,0,0.6,0h8c5.5,0,10-4.5,10-10S25.5,4,20,4 C20,4,12,4,12,4z"></path>
-                                                    </svg>
-                                                </span>
-                                                <span @click="showTask(task[0].data.gid)" class="comment-section-name" v-if="task['subTasks'] > 0"><span class="comment-count">{{ task['subTasks'] }}</span>
-                                                    <svg class="comment-logo cursor-pointer" focusable="false" viewBox="0 0 32 32" height="14px" width="14px">
-                                                        <path d="M25,20c-2.4,0-4.4,1.7-4.9,4H11c-3.9,0-7-3.1-7-7v-5h16.1c0.5,2.3,2.5,4,4.9,4c2.8,0,5-2.2,5-5s-2.2-5-5-5c-2.4,0-4.4,1.7-4.9,4H4V3c0-0.6-0.4-1-1-1S2,2.4,2,3v14c0,5,4,9,9,9h9.1c0.5,2.3,2.5,4,4.9,4c2.8,0,5-2.2,5-5S27.8,20,25,20z M25,8c1.7,0,3,1.3,3,3s-1.3,3-3,3s-3-1.3-3-3S23.3,8,25,8z M25,28c-1.7,0-3-1.3-3-3s1.3-3,3-3s3,1.3,3,3S26.7,28,25,28z"></path>
-                                                    </svg>
-                                                </span>
-                                                <div v-if="sideBar == 0" @click="showTask(task[0].data.gid)" class="detail-option">Detail
-                                                    <svg class="MiniIcon-right" viewBox="0 0 24 24">
-                                                        <path d="M8.9,20.4c-0.4,0-0.7-0.1-1-0.4c-0.6-0.6-0.7-1.5-0.1-2.1l5.2-5.8L7.8,6C7.3,5.4,7.3,4.4,8,3.9C8.6,3.3,9.5,3.4,10.1,4l6.1,7.1c0.5,0.6,0.5,1.4,0,2l-6.1,6.8C9.8,20.3,9.4,20.4,8.9,20.4z"></path>
-                                                    </svg>
-                                                </div>
-                                            </div>
-                                            <div class="task-assignee-box cursor-pointer nv-dropdown">
-                                                <div class="nv-dropdown-trigger">
-                                                    <div id="'assignee-logo-id' + task[0].data.gid" class="assignee-box-logo" v-if="task[0].data.assignee == null">
-                                                        <svg class="inside-logo" focusable="false" viewBox="0 0 32 32">
-                                                            <path d="M16,18c-4.4,0-8-3.6-8-8s3.6-8,8-8s8,3.6,8,8S20.4,18,16,18z M16,4c-3.3,0-6,2.7-6,6s2.7,6,6,6s6-2.7,6-6S19.3,4,16,4z M29,32c-0.6,0-1-0.4-1-1v-4.2c0-2.6-2.2-4.8-4.8-4.8H8.8C6.2,22,4,24.2,4,26.8V31c0,0.6-0.4,1-1,1s-1-0.4-1-1v-4.2C2,23,5,20,8.8,20h14.4c3.7,0,6.8,3,6.8,6.8V31C30,31.6,29.6,32,29,32z"></path>
-                                                        </svg>
-                                                    </div>
-                                                    <span><input type="text" class="assignee-box-input nv-dropdown-trigger" @keyup="textSearch($event, false)" @blur="clearInput($event, false)"></span>
-
-                                                    <div class="assigned-person" v-if="task[0].data.assignee">
-                                                        <div class="img-box"  style="background-image: url('https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png')"></div>
-                                                        <div class="text-1">{{ task[0].data.assignee.name }}</div>
-                                                    </div>
-                                                </div>
-                                                <div class="assignee-box-dropdown nv-dropdown-menu">
-                                                    <div class="each-assignee" v-if="users.length > 0" v-for="user in users" @click="editTask(task[0].data.gid, 'assignee', user, index, i)">
-                                                        <div class="profile-img" style="background-image: url('https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png')"></div>
-                                                        <div class="name-text">{{ user.name }}</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="task-assignee-box cursor-pointer border-right-none" :title="duedate(task[0].data.due_on)">
-                                                <div class="assignee-box-logo">
-                                                    <svg class="inside-logo" focusable="false" viewBox="0 0 32 32">
-                                                        <path d="M24,2V1c0-0.6-0.4-1-1-1s-1,0.4-1,1v1H10V1c0-0.6-0.4-1-1-1S8,0.4,8,1v1C4.7,2,2,4.7,2,8v16c0,3.3,2.7,6,6,6h16c3.3,0,6-2.7,6-6V8C30,4.7,27.3,2,24,2z M8,4v1c0,0.6,0.4,1,1,1s1-0.4,1-1V4h12v1c0,0.6,0.4,1,1,1s1-0.4,1-1V4c2.2,0,4,1.8,4,4v2H4V8C4,5.8,5.8,4,8,4z M24,28H8c-2.2,0-4-1.8-4-4V12h24v12C28,26.2,26.2,28,24,28z"></path>
-                                                    </svg>
-                                                </div>
-                                                <span>
-                                                    <flat-pickr
-                                                        :value="task[0].data.due_on"
-                                                        :config="{altInput: true, altFormat: 'F j, Y'}"
-                                                        @on-change="editTask(task[0].data.gid, 'due_on', $event, index, i)"
-                                                        class="assignee-box-input assigned-input"
-                                                        name="date">
-                                                    </flat-pickr>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="task-list-detail-wrapper" id="task-detail" :class="{'hideMe': sideBar == 0 ? true:false}">
-                                <div class="loader-io" style="display: none">
-                                    <div class="loadingio-spinner-eclipse-utvtio44ngo">
-                                        <div class="ldio-aebf04cd3u">
-                                            <div></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="task-details-wrapper" v-if="taskDetails">
-                                    <div class="add-task-section-wrapper">
-                                        <div class="section-left">
-                                            <div :class="{'_btn': true, '_btn-default':true, '_btn _btn-default-active': taskDetails[0].data.completed ? true : false}">
-                                                <svg class="MiniIcon-custom" viewBox="0 0 24 24">
-                                                    <path d="M9.2,20c-0.5,0.5-1.3,0.5-1.9,0l-5.1-5.1c-0.4-0.5-0.4-1.3,0-1.9c0.4-0.5,1.3-0.5,1.9,0l4.1,4.1L19.7,5.7 c0.5-0.5,1.3-0.5,1.9,0s0.5,1.3,0,1.9L9.2,20z"></path>
-                                                </svg>
-                                                <span v-if="taskDetails[0].data.completed" onclick="document.getElementById('taskDetailsCompleteness').click()">Completed</span>
-                                                <span v-else="" onclick="document.getElementById('taskDetailsCompleteness').click()">Mark As Complete</span>
-                                                <input type="checkbox" v-if="taskDetails[0].data.completed" @click="inlineTaskUpdate(taskDetails[0].data.gid, 'completed', $event)" id="taskDetailsCompleteness" style="display:none;" checked>
-                                                <input type="checkbox" v-else="" @click="inlineTaskUpdate(taskDetails[0].data.gid, 'completed', $event)" id="taskDetailsCompleteness" style="display:none;">
-                                            </div>
-                                        </div>
-                                        <div class="section-right _text-right">
-                                            <input type="file" id="file" name="file" v-on:change="handleFileUpload(taskDetails[0].data.gid, $event)" style="display: none">
-                                            <div class="logo-box" onclick="document.getElementById('file').click()">
-                                                <svg class="hide-box-icon" focusable="false" viewBox="0 0 32 32">
-                                                    <path d="M19,32c-3.9,0-7-3.1-7-7V10c0-2.2,1.8-4,4-4s4,1.8,4,4v9c0,0.6-0.4,1-1,1s-1-0.4-1-1v-9c0-1.1-0.9-2-2-2s-2,0.9-2,2v15c0,2.8,2.2,5,5,5s5-2.2,5-5V10c0-4.4-3.6-8-8-8s-8,3.6-8,8v5c0,0.6-0.4,1-1,1s-1-0.4-1-1v-5C6,4.5,10.5,0,16,0s10,4.5,10,10v15C26,28.9,22.9,32,19,32z"></path>
-                                                </svg>
-                                            </div>
-                                            <div class="logo-box" @click="createNewSubTask = true">
-                                                <svg class="hide-box-icon" focusable="false" viewBox="0 0 32 32">
-                                                    <path d="M25,20c-2.4,0-4.4,1.7-4.9,4H11c-3.9,0-7-3.1-7-7v-5h16.1c0.5,2.3,2.5,4,4.9,4c2.8,0,5-2.2,5-5s-2.2-5-5-5c-2.4,0-4.4,1.7-4.9,4H4V3c0-0.6-0.4-1-1-1S2,2.4,2,3v14c0,5,4,9,9,9h9.1c0.5,2.3,2.5,4,4.9,4c2.8,0,5-2.2,5-5S27.8,20,25,20z M25,8c1.7,0,3,1.3,3,3s-1.3,3-3,3s-3-1.3-3-3S23.3,8,25,8z M25,28c-1.7,0-3-1.3-3-3s1.3-3,3-3s3,1.3,3,3S26.7,28,25,28z"></path>
-                                                </svg>
-                                            </div>
-                                            <div class="logo-box">
-                                                <a title="Delete" @click="deleteTask(taskDetails[0].data.gid)"
-                                                   class="appearance-none cursor-pointer text-70 hover:text-danger mr-3">
-                                                    <svg class="hide-box-icon" viewBox="0 0 20 20" aria-labelledby="delete" role="presentation">
-                                                        <path fill-rule="nonzero" d="M6 4V2a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2h5a1 1 0 0 1 0 2h-1v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6H1a1 1 0 1 1 0-2h5zM4 6v12h12V6H4zm8-2V2H8v2h4zM8 8a1 1 0 0 1 1 1v6a1 1 0 0 1-2 0V9a1 1 0 0 1 1-1zm4 0a1 1 0 0 1 1 1v6a1 1 0 0 1-2 0V9a1 1 0 0 1 1-1z"></path>
-                                                    </svg>
-                                                </a>
-                                            </div>
-                                            <div class="logo-box">
-                                                <span class="like-count" v-if="taskDetails[0].data.num_likes">{{ taskDetails[0].data.num_likes }}</span>
-                                                <svg class="hide-box-icon-primary" focusable="false" viewBox="0 0 32 32" v-if="taskDetails[0].data.num_likes">
-                                                    <path d="M5,15c-1.1,0-2,0.9-2,2v10c0,1.1,0.9,2,2,2h1.9c0.6,0,1-0.4,1-1V16c0-0.6-0.4-1-1-1H5z M26.5,13H19V7.5c0-1.6-0.7-3-2-4l0,0c-1-0.8-2.5-0.4-3,0.7l-3.3,9c-0.4,1-0.5,2-0.5,3V28c0,0.6,0.4,1,1,1h13.9c1.5,0,2.7-1.1,3-2.5l1.6-10C29.7,14.6,28.3,13,26.5,13z"></path>
-                                                </svg>
-                                                <svg class="hide-box-icon " focusable="false" viewBox="0 0 32 32" v-else="">
-                                                    <path d="M29.6,13.3c-0.8-0.9-1.9-1.4-3.1-1.4h-6.4V7.5c0-1.9-0.9-3.8-2.5-4.9C16.9,2,15.9,1.8,15,2.1c-0.9,0.2-1.7,0.8-2,1.7L8.3,13.9H5c-1.7,0-3.1,1.4-3.1,3.1v10c0,1.7,1.4,3.1,3.1,3.1h2.9H9h15.9c2,0,3.7-1.5,4-3.5l1.6-10C30.7,15.4,30.4,14.2,29.6,13.3z M5,27.9c-0.5,0-0.9-0.4-0.9-0.9V17c0-0.5,0.4-0.9,0.9-0.9h2.9v11.8C7.9,27.9,5,27.9,5,27.9z M28.4,16.3l-1.6,10c-0.1,0.9-0.9,1.6-1.9,1.6H10.1V15.2L15,4.7c0.2-0.3,0.4-0.5,0.6-0.5c0.2,0,0.5-0.1,0.8,0.2c1,0.7,1.6,1.9,1.6,3.2v6.6h8.6c0.6,0,1.1,0.2,1.5,0.7C28.3,15.2,28.5,15.7,28.4,16.3z"></path>
-                                                </svg>
-                                            </div>
-                                            <div class="logo-box" @click="sideBar == 1 ? sideBar = 0 : sideBar = 1">
-                                                <svg class="hide-box-icon" focusable="false" viewBox="0 0 32 32">
-                                                    <path d="M2,14.5h18.4l-7.4-7.4c-0.6-0.6-0.6-1.5,0-2.1c0.6-0.6,1.5-0.6,2.1,0l10,10c0.6,0.6,0.6,1.5,0,2.1l-10,10c-0.3,0.3-0.7,0.4-1.1,0.4c-0.4,0-0.8-0.1-1.1-0.4c-0.6-0.6-0.6-1.5,0-2.1l7.4-7.4H2c-0.8,0-1.5-0.7-1.5-1.5C0.5,15.3,1.2,14.5,2,14.5z M28,3.5C28,2.7,28.7,2,29.5,2S31,2.7,31,3.5v25c0,0.8-0.7,1.5-1.5,1.5S28,29.3,28,28.5V3.5z"></path>
-                                                </svg>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="head-text-section">
-                                        <div v-if="taskParents.length > 0" v-for="(parent, index) in taskParents" :key="index" title="Parent's notes and comments" @click="showParentTask(parent.id, index)">
-                                            <a href="javascript:void(0)" class="parent-task">{{ parent.name }}<svg viewBox="0 0 24 24" class="MiniIcon-right"><path d="M8.9,20.4c-0.4,0-0.7-0.1-1-0.4c-0.6-0.6-0.7-1.5-0.1-2.1l5.2-5.8L7.8,6C7.3,5.4,7.3,4.4,8,3.9C8.6,3.3,9.5,3.4,10.1,4l6.1,7.1c0.5,0.6,0.5,1.4,0,2l-6.1,6.8C9.8,20.3,9.4,20.4,8.9,20.4z"></path></svg></a>
-                                        </div>
-                                    </div>
-                                    <div class="head-text-section padding-head-text-10">
-                                        <input type="text" class="input-big" placeholder="Write a task name" :value="taskDetails[0].data.name" @change="inlineTaskUpdate(taskDetails[0].data.gid, 'name', $event)">
-                                    </div>
-                                    <div class="head-text-section border-bottom-task-list">
-                                        <div class="radious-square-input cursor-pointer nv-dropdown">
-                                            <div class="logo-border">
-                                                <svg class="input-icon-1" focusable="false" viewBox="0 0 32 32">
-                                                    <path d="M16,18c-4.4,0-8-3.6-8-8s3.6-8,8-8s8,3.6,8,8S20.4,18,16,18z M16,4c-3.3,0-6,2.7-6,6s2.7,6,6,6s6-2.7,6-6S19.3,4,16,4z M29,32c-0.6,0-1-0.4-1-1v-4.2c0-2.6-2.2-4.8-4.8-4.8H8.8C6.2,22,4,24.2,4,26.8V31c0,0.6-0.4,1-1,1s-1-0.4-1-1v-4.2C2,23,5,20,8.8,20h14.4c3.7,0,6.8,3,6.8,6.8V31C30,31.6,29.6,32,29,32z"></path>
-                                                </svg>
-                                            </div>
-
-                                            <input type="text" placeholder="Assignee" class="input-design" @keyup="textSearch($event, false)" @blur="clearInput($event, false)">
-
-                                            <div class="assigned-person" v-if="taskDetails[0].data.assignee">
-                                                <div class="img-box" style="background-image: url('https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png')"></div>
-                                                <div class="text-1">{{ taskDetails[0].data.assignee.name }}</div>
-                                            </div>
-
-                                            <div class="assignee-box-dropdown nv-dropdown-menu">
-                                                <div class="each-assignee" v-if="users.length > 0" v-for="user in users" @click="inlineTaskUpdate(taskDetails[0].data.gid, 'assignee', user)">
-                                                    <div class="profile-img"
-                                                         style="background-image: url('https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png')"></div>
-                                                    <div class="name-text">{{ user.name }}</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="radious-square-input">
-                                            <div class="logo-border">
-                                                <svg class="input-icon-2" focusable="false" viewBox="0 0 32 32">
-                                                    <path d="M24,2V1c0-0.6-0.4-1-1-1s-1,0.4-1,1v1H10V1c0-0.6-0.4-1-1-1S8,0.4,8,1v1C4.7,2,2,4.7,2,8v16c0,3.3,2.7,6,6,6h16c3.3,0,6-2.7,6-6V8C30,4.7,27.3,2,24,2z M8,4v1c0,0.6,0.4,1,1,1s1-0.4,1-1V4h12v1c0,0.6,0.4,1,1,1s1-0.4,1-1V4c2.2,0,4,1.8,4,4v2H4V8C4,5.8,5.8,4,8,4z M24,28H8c-2.2,0-4-1.8-4-4V12h24v12C28,26.2,26.2,28,24,28z"></path>
-                                                </svg>
-                                            </div>
-                                            <flat-pickr
-                                                :value="taskDetails[0].data.due_on"
-                                                :config="{altInput: true, altFormat: 'F j, Y'}"
-                                                @on-change="inlineTaskUpdate(taskDetails[0].data.gid, 'due_on', $event)"
-                                                class="input-design"
-                                                :class="{'width-big': taskDetails[0].data.due_on ? true : false}"
-                                                placeholder="Due date"
-                                                name="due_on">
-                                            </flat-pickr>
-                                        </div>
-                                    </div>
-                                    <div class="head-text-section">
-                                        <div class="text-area-logo">
-                                            <svg class="t-logo" focusable="false" viewBox="0 0 32 32">
-                                                <path d="M31,8H1C0.4,8,0,7.6,0,7s0.4-1,1-1h30c0.6,0,1,0.4,1,1S31.6,8,31,8z M23,14H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,14,23,14z M27,20H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h26c0.6,0,1,0.4,1,1S27.6,20,27,20z M19,26H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h18c0.6,0,1,0.4,1,1S19.6,26,19,26z"></path>
-                                            </svg>
-                                        </div>
-                                        <textarea name="" class="custom-text-area" cols="30" rows="5" placeholder="Description" :value="taskDetails[0].data.notes" @change="inlineTaskUpdate(taskDetails[0].data.gid, 'notes', $event)"></textarea>
-                                    </div>
-                                    <div class="head-text-section _position-relative border-bottom-task-list">
-                                        <div class="_input-logo">
-                                            <svg class="t-logo" focusable="false" viewBox="0 0 32 32">
-                                                <path d="M10,13.5c0.8,0,1.5,0.7,1.5,1.5s-0.7,1.5-1.5,1.5S8.5,15.8,8.5,15S9.2,13.5,10,13.5z M23,14h-8c-0.6,0-1,0.4-1,1s0.4,1,1,1h8c0.6,0,1-0.4,1-1S23.6,14,23,14z M23,20h-8c-0.6,0-1,0.4-1,1s0.4,1,1,1h8c0.6,0,1-0.4,1-1S23.6,20,23,20z M10,19.5c0.8,0,1.5,0.7,1.5,1.5s-0.7,1.5-1.5,1.5S8.5,21.8,8.5,21S9.2,19.5,10,19.5z M24,2h-2.2c-0.4-1.2-1.5-2-2.8-2h-6c-1.3,0-2.4,0.8-2.8,2H8C4.7,2,2,4.7,2,8v18c0,3.3,2.7,6,6,6h16c3.3,0,6-2.7,6-6V8C30,4.7,27.3,2,24,2z M13,2h6c0.6,0,1,0.4,1,1v2c0,0.6-0.4,1-1,1h-6c-0.6,0-1-0.4-1-1V3C12,2.4,12.4,2,13,2z M28,26c0,2.2-1.8,4-4,4H8c-2.2,0-4-1.8-4-4V8c0-2.2,1.8-4,4-4h2v1c0,1.7,1.3,3,3,3h6c1.7,0,3-1.3,3-3V4h2c2.2,0,4,1.8,4,4V26z"></path>
-                                            </svg>
-                                        </div>
-                                        <div class="project-name-label">{{ projectDetails.data.name }}</div>
-                                        <div class="project-select-box">
-                                            <select @change="inlineTaskUpdate(taskDetails[0].data.gid, 'section', $event)" class="cursor-pointer">
-                                                <option v-for="section in sections" :value="section.gid" v-if="taskDetails[0].data.memberships.length > 0 && taskDetails[0].data.memberships[0].section.gid == section.gid" selected>{{ section.name }}</option>
-                                                <option :value="section.gid" v-else="">{{ section.name }}</option>
-                                            </select>
-                                        </div>
-                                        <div class="new-task" v-if="createNewSubTask">
-                                            <div class="border-radious-icon">
-                                                <svg class="MiniIcon"
-                                                     viewBox="0 0 24 24">
-                                                    <path d="M9.5,18.2c-0.4,0.4-1,0.4-1.4,0l-3.8-3.8C4,14,4,13.4,4.3,13s1-0.4,1.4,0l3.1,3.1l8.6-8.6c0.4-0.4,1-0.4,1.4,0s0.4,1,0,1.4 L9.5,18.2z"></path>
-                                                </svg>
-                                            </div>
-                                            <input type="text" class="new-task-input" v-model="subTask.name">
-                                            <div class="new-task-logo">
-                                                <div class="logo-1" @click="createSubTask(taskDetails[0].data.gid)">
-                                                    <div class="detail-option">Create
-                                                        <svg viewBox="0 0 24 24" class="MiniIcon-right"><path d="M8.9,20.4c-0.4,0-0.7-0.1-1-0.4c-0.6-0.6-0.7-1.5-0.1-2.1l5.2-5.8L7.8,6C7.3,5.4,7.3,4.4,8,3.9C8.6,3.3,9.5,3.4,10.1,4l6.1,7.1c0.5,0.6,0.5,1.4,0,2l-6.1,6.8C9.8,20.3,9.4,20.4,8.9,20.4z"></path></svg>
-                                                    </div>
-                                                </div>
-                                                <div class="logo-1 nv-dropdown">
-                                                    <div class="new-task-date cursor-pointer" v-if="subTask.due_on">{{ new Date(subTask.due_on).toDateString() }}</div>
-                                                    <div class="icon-border cursor-pointer" v-else="">
-                                                        <svg class="_icon" focusable="false" viewBox="0 0 32 32">
-                                                            <path d="M24,2V1c0-0.6-0.4-1-1-1s-1,0.4-1,1v1H10V1c0-0.6-0.4-1-1-1S8,0.4,8,1v1C4.7,2,2,4.7,2,8v16c0,3.3,2.7,6,6,6h16c3.3,0,6-2.7,6-6V8C30,4.7,27.3,2,24,2z M8,4v1c0,0.6,0.4,1,1,1s1-0.4,1-1V4h12v1c0,0.6,0.4,1,1,1s1-0.4,1-1V4c2.2,0,4,1.8,4,4v2H4V8C4,5.8,5.8,4,8,4z M24,28H8c-2.2,0-4-1.8-4-4V12h24v12C28,26.2,26.2,28,24,28z"></path>
-                                                        </svg>
-                                                    </div>
-                                                    <div class="assignee-box-dropdown nv-dropdown-menu">
-                                                        <flat-pickr
-                                                            @on-change="subTask.due_on = convert($event)"
-                                                            :config="{inline: true, altInput: true, altFormat: 'F j, Y'}"
-                                                            class="date-input-uder-new-task">
-                                                        </flat-pickr>
-                                                    </div>
-                                                </div>
-                                                <div class="logo-1 cursor-pointer nv-dropdown">
-                                                    <div class="new-task-date cursor-pointer" v-if="subTask.assignee">{{ users[users.findIndex((element) => element.gid == subTask.assignee)].name }}</div>
-                                                    <div class="icon-border" v-else="">
-                                                        <svg class="_icon cursor-pointer" focusable="false" viewBox="0 0 32 32">
-                                                            <path d="M16,18c-4.4,0-8-3.6-8-8s3.6-8,8-8s8,3.6,8,8S20.4,18,16,18z M16,4c-3.3,0-6,2.7-6,6s2.7,6,6,6s6-2.7,6-6S19.3,4,16,4z M29,32c-0.6,0-1-0.4-1-1v-4.2c0-2.6-2.2-4.8-4.8-4.8H8.8C6.2,22,4,24.2,4,26.8V31c0,0.6-0.4,1-1,1s-1-0.4-1-1v-4.2C2,23,5,20,8.8,20h14.4c3.7,0,6.8,3,6.8,6.8V31C30,31.6,29.6,32,29,32z"></path>
-                                                        </svg>
-                                                    </div>
-                                                    <div class="assignee-box-dropdown no-overflow nv-dropdown-menu">
-                                                        <div class="_position-relative nv-dropdown-under-input">
-                                                            <label class="ass-label">Assignee</label>
-                                                            <br>
-                                                            <input type="text" placeholder="Name" class="drop-down-input" @keyup="textSearch($event, true)" @blur="clearInput($event, true)">
-                                                            <div class="assignee-box-dropdown-under-input nv-dropdown-menu-under-input">
-                                                                <div class="each-assignee-under-input" v-if="users.length > 0" v-for="user in users" @click="subTask.assignee = user.gid">
-                                                                    <div class="profile-img" style="background-image: url('https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png')"></div>
-                                                                    <div class="name-text">{{ user.name }}</div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="new-task" v-if="taskDetails.subTasks.length > 0" v-for="(t, index) in taskDetails.subTasks" :key="index">
-                                            <div class="border-radious-icon" :class="{'task-complete': t[0].data.completed ? true : false}" onclick="document.getElementById('subTaskCompleteness').click()">
-                                                <svg class="MiniIcon"
-                                                     viewBox="0 0 24 24">
-                                                    <path d="M9.5,18.2c-0.4,0.4-1,0.4-1.4,0l-3.8-3.8C4,14,4,13.4,4.3,13s1-0.4,1.4,0l3.1,3.1l8.6-8.6c0.4-0.4,1-0.4,1.4,0s0.4,1,0,1.4 L9.5,18.2z"></path>
-                                                </svg>
-                                            </div>
-                                            <input type="checkbox" style="display: none" v-if="t[0].data.completed" id="subTaskCompleteness" checked @click="inlineSubTaskUpdate(t[0].data.gid, index, 'completed', $event)">
-                                            <input type="checkbox" style="display: none" v-else="" id="subTaskCompleteness" @click="inlineSubTaskUpdate(t[0].data.gid, index, 'completed', $event)">
-                                            <input type="text" class="new-task-input" :value="t[0].data.name" @change="inlineSubTaskUpdate(t[0].data.gid, index, 'name', $event)">
-                                            <div class="new-task-logo">
-                                                <div class="logo-1 nv-dropdown">
-                                                    <div class="new-task-date cursor-pointer" v-if="t[0].data.due_on" :title="duedate(t[0].data.due_on)">{{ new Date(t[0].data.due_on).toDateString() }}</div>
-                                                    <div class="icon-border cursor-pointer" v-else="">
-                                                        <svg class="_icon" focusable="false" viewBox="0 0 32 32">
-                                                            <path d="M24,2V1c0-0.6-0.4-1-1-1s-1,0.4-1,1v1H10V1c0-0.6-0.4-1-1-1S8,0.4,8,1v1C4.7,2,2,4.7,2,8v16c0,3.3,2.7,6,6,6h16c3.3,0,6-2.7,6-6V8C30,4.7,27.3,2,24,2z M8,4v1c0,0.6,0.4,1,1,1s1-0.4,1-1V4h12v1c0,0.6,0.4,1,1,1s1-0.4,1-1V4c2.2,0,4,1.8,4,4v2H4V8C4,5.8,5.8,4,8,4z M24,28H8c-2.2,0-4-1.8-4-4V12h24v12C28,26.2,26.2,28,24,28z"></path>
-                                                        </svg>
-                                                    </div>
-                                                    <div class="assignee-box-dropdown nv-dropdown-menu">
-                                                        <flat-pickr
-                                                            :value="t[0].data.due_on"
-                                                            @on-change="inlineSubTaskUpdate(t[0].data.gid, index, 'due_on', $event)"
-                                                            :config="{inline: true, altInput: true, altFormat: 'F j, Y'}"
-                                                            class="date-input-uder-new-task">
-                                                        </flat-pickr>
-                                                    </div>
-                                                </div>
-                                                <div class="logo-1 cursor-pointer nv-dropdown">
-                                                    <div class="new-task-date cursor-pointer" v-if="t[0].data.assignee">{{ t[0].data.assignee.name }}</div>
-                                                    <div class="icon-border" v-else="">
-                                                        <svg class="_icon cursor-pointer" focusable="false" viewBox="0 0 32 32">
-                                                            <path d="M16,18c-4.4,0-8-3.6-8-8s3.6-8,8-8s8,3.6,8,8S20.4,18,16,18z M16,4c-3.3,0-6,2.7-6,6s2.7,6,6,6s6-2.7,6-6S19.3,4,16,4z M29,32c-0.6,0-1-0.4-1-1v-4.2c0-2.6-2.2-4.8-4.8-4.8H8.8C6.2,22,4,24.2,4,26.8V31c0,0.6-0.4,1-1,1s-1-0.4-1-1v-4.2C2,23,5,20,8.8,20h14.4c3.7,0,6.8,3,6.8,6.8V31C30,31.6,29.6,32,29,32z"></path>
-                                                        </svg>
-                                                    </div>
-                                                    <div class="assignee-box-dropdown no-overflow nv-dropdown-menu">
-                                                        <div class="_position-relative nv-dropdown-under-input">
-                                                            <label class="ass-label">Assignee</label>
-                                                            <br>
-                                                            <input type="text" placeholder="Name" class="drop-down-input" @keyup="textSearch($event, true)" @blur="clearInput($event, true)">
-                                                            <div class="assignee-box-dropdown-under-input nv-dropdown-menu-under-input">
-                                                                <div class="each-assignee-under-input" v-if="users.length > 0" v-for="user in users" @click="inlineSubTaskUpdate(t[0].data.gid, index, 'assignee', user)">
-                                                                    <div class="profile-img" style="background-image: url('https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png')"></div>
-                                                                    <div class="name-text">{{ user.name }}</div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="section-comment" @click="showChildTask(t[0].data.gid, taskDetails[0].data.gid, taskDetails[0].data.name)">
-                                                    <span class="comment-count" v-if="t['comments']">{{ t['comments'] }}</span>
-                                                    <div class="logo-2">
-                                                        <svg class="_icon cursor-pointer" focusable="false"
-                                                             viewBox="0 0 32 32">
-                                                            <path d="M5,31c-0.1,0-0.3,0-0.4-0.1C4.2,30.7,4,30.4,4,30v-7.1c-2.5-2.3-4-5.5-4-8.9C0,7.4,5.4,2,12,2h8c6.6,0,12,5.4,12,12 s-5.4,12-12,12h-8c-0.1,0-0.3,0-0.4,0l-5.9,4.8C5.4,30.9,5.2,31,5,31z M12,4C6.5,4,2,8.5,2,14c0,3,1.3,5.8,3.6,7.7C5.9,21.9,6,22.2,6,22.5v5.4l4.6-3.7C10.8,24,11,24,11.3,24h0.1c0.2,0,0.4,0,0.6,0h8c5.5,0,10-4.5,10-10S25.5,4,20,4 C20,4,12,4,12,4z"></path>
-                                                        </svg>
-                                                    </div>
-                                                    <div class="logo-2">
-                                                        <svg class="_icon cursor-pointer" focusable="false"
-                                                             viewBox="0 0 32 32">
-                                                            <path d="M23.2,16c0,0.3-0.1,0.7-0.3,0.9l-9,11c-0.5,0.6-1.5,0.7-2.1,0.2s-0.7-1.5-0.2-2.1l8.2-10L11.6,6c-0.5-0.6-0.4-1.6,0.2-2.1s1.6-0.4,2.1,0.2l9,11C23.1,15.3,23.2,15.7,23.2,16z"></path>
-                                                        </svg>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="head-text-section border-bottom-task-list" v-if="taskDetails.comments.length > 0">
-                                        <div class="comment-bar" v-for="comment in taskDetails.comments" v-if="comment[0].type == 'comment'">
-                                            <div class="profile-img">
-                                                <div class="_img" style="background-image: url('https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png')"></div>
-                                            </div>
-                                            <div class="detail-text-area">
-                                                <span><a class="lnk-text" href="javascript:void(0)">{{ comment[0].created_by.name }} </a></span>
-                                                <span class="small-text"><vue-moments-ago prefix="" suffix="ago" :date="comment[0].created_at"></vue-moments-ago></span>
-                                                <div class="comment-each">{{ comment[0].text }}</div>
-                                            </div>
-                                            <div class="like-option cursor-pointer">
-                                                <span class="like-count" v-if="comment['details']['data'].num_likes">{{ comment['details']['data'].num_likes }}</span>
-                                                <svg viewBox="0 0 24 24" class="like-button-active" v-if="comment['details']['data'].num_likes">
-                                                    <path d="M2.7,8H5v2v10v2H2.7C1.2,22,0,20.8,0,19.4v-8.7C0,9.2,1.2,8,2.7,8z M23.1,9.2C22.4,8.4,21.5,8,20.5,8H16V5.2 C16,3.5,16.5,2,15.2,1c-0.6-0.5-1.5-0.6-2.2-0.5c-0.8,0.2-1.4,0.7-1.8,1.5L7,8v14h12.2c1.7,0,3.2-1.2,3.4-2.9l1.2-7 C24.1,11,23.8,10,23.1,9.2z"></path>
-                                                </svg>
-                                                <svg focusable="false" viewBox="0 0 32 32" class="like-button" v-else>
-                                                    <path d="M29.6,13.3c-0.8-0.9-1.9-1.4-3.1-1.4h-6.4V7.5c0-1.9-0.9-3.8-2.5-4.9C16.9,2,15.9,1.8,15,2.1c-0.9,0.2-1.7,0.8-2,1.7L8.3,13.9H5c-1.7,0-3.1,1.4-3.1,3.1v10c0,1.7,1.4,3.1,3.1,3.1h2.9H9h15.9c2,0,3.7-1.5,4-3.5l1.6-10C30.7,15.4,30.4,14.2,29.6,13.3z M5,27.9c-0.5,0-0.9-0.4-0.9-0.9V17c0-0.5,0.4-0.9,0.9-0.9h2.9v11.8C7.9,27.9,5,27.9,5,27.9z M28.4,16.3l-1.6,10c-0.1,0.9-0.9,1.6-1.9,1.6H10.1V15.2L15,4.7c0.2-0.3,0.4-0.5,0.6-0.5c0.2,0,0.5-0.1,0.8,0.2c1,0.7,1.6,1.9,1.6,3.2v6.6h8.6c0.6,0,1.1,0.2,1.5,0.7C28.3,15.2,28.5,15.7,28.4,16.3z"></path>
-                                                </svg>
-                                                <!--<span class="nv-dropdown">
-                                                    <svg focusable="false" viewBox="0 0 32 32" class="" style="width: 20px; height: 18px"><path
-                                                        d="M25.9,12.9c-0.5-0.6-1.5-0.7-2.1-0.2L16,19.1l-7.8-6.4c-0.6-0.5-1.6-0.4-2.1,0.2c-0.5,0.6-0.4,1.6,0.2,2.1l8.8,7.2  c0.2,0.2,0.6,0.3,0.9,0.3s0.7-0.1,0.9-0.3l8.8-7.2C26.3,14.5,26.4,13.5,25.9,12.9z"></path></svg>
-                                                    <div class="task-head-box-dropdown nv-dropdown-menu">
-                                                        <div class="each-box"><a href="javascript:void(0)">Edit Task</a></div>
-                                                        <div class="each-box"><a href="javascript:void(0)">Delete Task</a></div>
-                                                    </div>
-                                                </span>-->
-                                            </div>
-                                        </div>
-                                       <div class="history-bar" v-else>
-                                           <div class="profile-img">
-                                               <div class="_img" style="background-image: url('https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png')"></div>
-                                           </div>
-                                           <div class="detail-text-area">
-                                               <span><a class="lnk-text" href="javascript:void(0)">{{ comment[0].created_by.name }} </a>{{ comment[0].text }}</span>
-                                               <span class="small-text"><vue-moments-ago prefix="" suffix="ago" :date="comment[0].created_at"></vue-moments-ago></span>
-                                           </div>
-                                           <div class="detail-text-area">
-                                               <span class="small-text">{{ comment[0].created_by.name }} {{ comment[0].text }} <vue-moments-ago prefix="" suffix="ago" :date="comment[0].created_at"></vue-moments-ago></span>
-                                           </div>
-                                       </div>
-                                    </div>
-                                    <div class="head-text-section bg-light">
-                                        <div class="profile-img">
-                                            <div class="_img" style="background-image: url('https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png')"></div>
-                                        </div>
-                                        <textarea @change="storeTaskComment(taskDetails[0].data.gid)" v-model="taskComment" class="custom-text-area-chat" cols="30" rows="5" placeholder="Ask a question or post an update"></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div v-if="projectDetails == null" class="card">
-                    <h2 class="ph">No projects yet</h2>
-                </div>
-            </div>
         </div>
     </div>
 </template>
@@ -1693,8 +1062,6 @@
                 createNewTask: false,
                 taskParents: [],
                 sideBar: 0,
-                isTaskComplete: 0,
-                isSort: false,
                 asana:[],
                 asanaTaskCreate:{
                     name: '',
@@ -2277,9 +1644,10 @@
                 console.log('Clicked', id);
                 $(`#${id}`).slideToggle();
             },
-            asanaNewTask(){
-                $('.asanaNewTaskCreate').toggle();
-                $('#asanaNewTaskCreateInput').focus();
+            asanaNewTask(id){
+                console.log('asanaNewTask', id)
+                $(`.asanaNewTaskCreate-${id}`).toggle();
+                $(`#asanaNewTaskCreateInput${id}`).focus();
             },
             openUserDiv(){
                 console.log('show')
@@ -2302,6 +1670,10 @@
 
                 });
                 this.getUsers();
+                const that = this;
+                setTimeout(function () {
+                        that.uiUpdateMounted()
+                    }, 500);
             },
             getAsyncSection(id){
                 Nova.request().get(`/api/asana/tab/sections/${id}`).then(response => {
@@ -2360,7 +1732,7 @@
                 });
             },
             asanaStoreTask(asan) {
-                $('.asanaNewTaskCreate').toggle();
+                $(`.asanaNewTaskCreate-${asan.gid}`).toggle();
                 this.asanaTaskCreate.projects = [asan.gid];
                 this.asanaTaskCreate.workspace = asan.workspace_id;
                 if(this.asanaTaskCreate.name == ''){
@@ -2522,16 +1894,13 @@
                 }
             },
             srchAsanaTask(proj, e){
-                console.log('e ', e)
-                console.log('e.target.value', e.target.value)
-                const keyWord = e.target.value;
+                let keyWord = e.target.value;
                 if(keyWord.length > 0){
                     $(`.taskSectionHolder-${proj}`).children()
                         .filter(function(){
-                            const srchStr = $(this).data('name').toLowerCase();
-                            console.log("$(this).data('name')", $(this).data('name'));
-                            console.log(srchStr.search(`/${e.target.value}/i`));
-                            return srchStr.search(e.target.value) == -1;
+                            const inStr = $(this).data('name').toLowerCase();
+                            const srchStr = keyWord.toLowerCase();
+                            return inStr.search(srchStr) == -1;
                     }).hide();
                 }else{
                     $(`.taskSectionHolder-${proj}`).children().show();
@@ -2656,90 +2025,6 @@
                     this.latestActivity = response.data
                 });
             },
-            getProjects() {
-                let _this = this;
-                this.isLoading = true;
-                this.project.name = null;
-                Nova.request().get('/api/asana/project?osusr_mlv_community_id=' + this.resourceId).then(response => {
-                    this.isLoading = false;
-
-                    if (response.data.data) {
-                        if(response.data.data.genToken === true){
-                            $('#authAsana').css('visibility', 'visible');
-                        }
-                        this.projectDetails = response.data.data.project[0];
-                        this.projects = response.data.data.projects;
-                        this.activeProject = this.projectDetails.data.gid;
-                        this.taskFilter.project = this.projectDetails.data.gid;
-                        this.sections = response.data.data.project['sections'].data;
-                        this.sectionData = response.data.data.project['sectionData'];
-                        this.users = response.data.data.project['users'].data;
-                        this.task.projects = [this.projectDetails.data.gid];
-                        this.subTask.project = this.projectDetails.data.gid;
-                        this.task.workspace = this.projectDetails.data.workspace.gid;
-                        
-                        if(localStorage.getItem('projects') !== null){
-                            const storedItems = JSON.parse(localStorage.getItem('projects'));
-                            if(Object.keys(storedItems).length > 0){
-                                var isProjectExists = false;
-                                Object.keys(storedItems).map(projKey => {
-                                    if(projKey === response.data.data.projects[0].data.gid){
-                                        const curProj = storedItems[projKey];
-                                        this.projectDetails = curProj[0];
-                                        this.activeProject = this.projectDetails.data.gid;
-                                        this.taskFilter.project = this.projectDetails.data.gid;
-                                        this.sections = curProj['sections'].data;
-                                        this.sectionData = curProj['sectionData'];
-                                        this.users = curProj['users'].data;
-                                        this.task.projects = [this.projectDetails.data.gid];
-                                        this.subTask.project = this.projectDetails.data.gid;
-                                        this.task.workspace = this.projectDetails.data.workspace.gid;
-                                        isProjectExists = true;
-                                        return true;
-                                    }
-                                });
-                                $('#' + response.data.data.projects[0].data.gid).click();
-                            }
-                        }
-
-                        response.data.data.projects.map(proj => {
-                            // $('#ps'+proj.data.gid).show();
-                            this.asyncProjLoad(proj.data.gid, response.data.data.projects[0].data.gid)
-                        })
-                    } else {
-                        this.projectDetails = null;
-                        this.projects = [];
-                    }
-
-                    setTimeout(function () {
-                        _this.uiUpdateMounted()
-                    }, 500);
-                });
-            },
-            asyncProjLoad(id, firstId){
-                Nova.request().get('/api/asana/project/show/' + id).then(response => {
-                    this.isLoading = false;
-                    if (response.data.data) {
-                        const projectDetails = response.data.data[0];
-                        //Store Localstorage
-                        const activeProjectKey = projectDetails.data.gid;
-                        const activeProjectData = response.data.data;
-
-                        const resObjectObject = localStorage.getItem('projects') === null  ? {} : JSON.parse(localStorage.getItem('projects'));
-                        resObjectObject[activeProjectKey] = this.mergeRecursive(activeProjectData, resObjectObject[activeProjectKey]);
-                        const resObjectString = JSON.stringify(resObjectObject);
-                        localStorage.setItem('projects', resObjectString)
-                        
-                        if(Object.keys(resObjectObject).length > 0){
-                            if(firstId == id){
-                                $('#' + firstId).click();
-                            }
-                        }
-                        
-                        $('#ps'+id).hide();
-                    }
-                });
-            },
             mergeRecursive(obj1, obj2) {
                 for (var p in obj2) {
                     try {
@@ -2767,144 +2052,10 @@
                     this.isLoading = false;
 
                     if (response.data.status === 200) {
-                        this.getProjects();
+                        
                     } else {
                         this.errors = response.data.errors;
                     }
-                });
-            },
-            getProjectDetails(id) {
-                $('.noDatFnd').hide();
-                let _this = this;
-
-
-                const storedItems = JSON.parse(localStorage.getItem('projects'));
-                var isProjectExists = false;
-
-                
-                Object.keys(storedItems).map(projKey => {
-                    if(projKey === id){
-                        const curProj = storedItems[projKey];
-                        this.projectDetails = curProj[0];
-                        this.activeProject = this.projectDetails.data.gid;
-                        this.taskFilter.project = this.projectDetails.data.gid;
-                        this.sections = curProj['sections'].data;
-                        this.sectionData = curProj['sectionData'];
-                        this.users = curProj['users'].data;
-                        this.task.projects = [this.projectDetails.data.gid];
-                        this.subTask.project = this.projectDetails.data.gid;
-                        this.task.workspace = this.projectDetails.data.workspace.gid;
-                        isProjectExists = true;
-                        return true;
-                    }
-                });
-                if(isProjectExists){
-                    return false;
-                }
-                // console.log('Test Log', storedItems);
-                // return false;
-
-                Nova.request().get('/api/asana/project/show/' + id).then(response => {
-                    if (response.data.data) {
-                        this.projectDetails = response.data.data[0];
-                        this.activeProject = this.projectDetails.data.gid;
-                        this.taskFilter.project = this.projectDetails.data.gid;
-                        this.sections = response.data.data['sections'].data;
-                        this.sectionData = response.data.data['sectionData'];
-                        this.users = response.data.data['users'].data;
-                        this.task.projects = [this.projectDetails.data.gid];
-                        this.subTask.project = this.projectDetails.data.gid;
-                        this.task.workspace = this.projectDetails.data.workspace.gid;
-
-                        //Store Localstorage
-                        const activeProjectKey = this.projectDetails.data.gid;
-                        const activeProjectData = response.data.data;
-
-                        const resObjectObject = JSON.parse(localStorage.getItem('projects'));
-                        resObjectObject[activeProjectKey] = activeProjectData;
-                        const resObjectString = JSON.stringify(resObjectObject);
-                        localStorage.setItem('projects', resObjectString)
-
-                        $('#ps'+id).hide();
-                    } else {
-
-                    }
-
-                    setTimeout(function () {
-                        _this.uiUpdateMounted()
-                    }, 500);
-                });
-            },
-            getLikeDataById(id){
-                $('#spinner' + id).hide();
-                $('#noData' + id).hide();
-                var project = false;
-                console.log('Clicked Outer');
-                if($('#nvCl' + id).is(":visible")){
-                    console.log('visible', id);
-                    $('#nvCl' + id).hide();
-                }else{
-                    console.log('not visible', id);
-                    $('#nvCl' + id).show();
-                }
-
-                const secDat = this.sectionData.map(section => {
-                    if(section[0].gid == id){
-                        console.log('Initial Open..........', section.open)
-                        if (typeof section.open == "undefined") {
-                            section.open = true;
-                        }else{
-                            section.open = !section.open
-                        }
-                        console.log('Section Stat After', section.open)
-                        const resObjectTabStatus = JSON.parse(localStorage.getItem('projects'));
-                        resObjectTabStatus[this.activeProject].sectionData.map(sectionTabData => {
-                            // console.log('4', sectionTabData);
-                            if(sectionTabData[0].gid == id){
-                                sectionTabData.open = section.open;
-                            }
-                        });
-                        const resObjectStringTabData = JSON.stringify(resObjectTabStatus);
-                        localStorage.setItem('projects', resObjectStringTabData)
-                    }
-                    if(section[0].gid == id && section.tasks.length > 0){
-                        project = true;
-                        return;
-                    }
-                });
-                if(project) return false;
-                
-                var hasSectionId = false;
-                const resObjectObject = JSON.parse(localStorage.getItem('projects'));
-                resObjectObject[this.activeProject].sectionData.map(section => {
-                    if(section[0].gid == id){
-                        console.log('Section',section)
-                        this.sectionData.map((stateSection, key) => {
-                            if(stateSection[0].gid == id  && stateSection.tasks.length > 0){
-
-                                console.log('stateSection', stateSection);
-                                stateSection = section;
-                                hasSectionId = true;
-                            }
-                        })
-                    }
-                })
-                if(hasSectionId) return false;
-                
-
-                $('#spinner'+id).show();
-                Nova.request().get('/api/asana/project/showlike/' + id).then(response => {
-                    $('#spinner' + id).hide();
-                    $('#noData' + id).show();
-                    this.sectionData.map((section, key) => {
-                        if(section[0].gid == response.data.section_id){
-                            section.tasks = response.data.data[0].tasks;
-                            const resObjectObject = JSON.parse(localStorage.getItem('projects'));
-                            resObjectObject[this.activeProject].sectionData[key].tasks = response.data.data[0].tasks;
-                            const resObjectString = JSON.stringify(resObjectObject);
-                            localStorage.setItem('projects', resObjectString)
-                        }
-                    })
                 });
             },
             storeTask() {
@@ -2918,7 +2069,7 @@
                     console.log(response.data);
 
                     if (response.data.status === 200) {
-                        this.getProjects();
+                        
                     } else {
                         this.errors = response.data.errors;
                     }
@@ -3062,7 +2213,7 @@
                         } else if (name == 'section') {
                             this.taskDetails[0].data.memberships[0].section.gid = e.target.value;
                             this.taskDetails[0].data.memberships[0].section.name = e.target.options[e.target.selectedIndex].text;
-                            this.getProjects();
+                            
                         }  else if (name == 'assignee') {
                             this.taskDetails[0].data.assignee = e;
                         }
@@ -3131,7 +2282,7 @@
                             this.isLoading = false;
 
                             if (response.data.status === 200) {
-                                THIS.getProjects();
+                                
 
                                 const project = task.projects[0].gid;
                                 const addedSection = task.memberships[0].section.gid;
@@ -3155,43 +2306,6 @@
                         });
                     }
                 });
-            },
-            filterTasks(key, val) {
-                let THIS = this;
-                this.isLoading = true;
-
-                if (key == 'completed') {
-                    this.taskFilter.complete = val;
-                } else {
-                    if (val) {
-                        this.taskFilter.due_on = val;
-                    }
-                }
-
-                let params = new URLSearchParams(THIS.taskFilter);
-                params = params.toString();
-
-                Nova.request().get('/api/asana/task/show?' + params).then(response => {
-                    this.isLoading = false;
-
-                    setTimeout(function () {
-                        THIS.uiUpdateMounted()
-                    }, 500);
-
-                    if (response.data.status === 200) {
-                        THIS.sectionData = response.data.data;
-                    } else {
-                        THIS.errors = response.data.errors;
-                    }
-                });
-            },
-            keyTyping: function(){
-                let THIS = this;
-                clearInterval(THIS.keywordTyping);
-                this.keywordTyping = setInterval(function () {
-                    clearInterval(THIS.keywordTyping);
-                    THIS.filterTasks();
-                }, 1000)
             },
             handleFileUpload(id, e){
                 $('.loader-io').css('display', 'flex');
@@ -3264,15 +2378,18 @@
                     day = ("0" + date.getDate()).slice(-2);
                 return [date.getFullYear(), mnth, day].join("-");
             },
-            createSubTask(id) {
+            createSubTask(task) {
                 $('.task-details-wrapper').hide();
                 $('.loader-io').css('display', 'flex');
+                this.subTask.project = task.projects[0].gid;
+                console.log('this.subTask', this.subTask);
 
-                Nova.request().post('/api/asana/task/' + id + '/subtasks', this.subTask).then(response => {
+                Nova.request().post('/api/asana/task/' + task.gid + '/subtasks', this.subTask).then(response => {
                     $('.loader-io').hide();
                     $('.task-details-wrapper').show();
 
                     if (response.data.status === 200) {
+                        console.log('subtasks', response);
                         this.createNewSubTask = false;
                         this.taskDetails.subTasks.push(response.data.data);
                     } else {
@@ -3361,7 +2478,9 @@
 
                     if (response.data.status === 200) {
                         this.taskComment = '';
-                        this.taskDetails.comments = response.data.data;
+                        console.log('this.taskDetails', this.taskDetails);
+                        console.log('response.data.data', response.data.data);
+                        this.taskDetails.comments = response.data.data.data;
                         Swal.fire({
                             type: 'success',
                             position: 'top-end',
@@ -3512,37 +2631,6 @@
                     }
                 }, 1000);
             },
-            sortTask() {
-                let _this = this;
-                this.isSort = !this.isSort;
-                let formData = {
-                    project: this.projectDetails.data.gid,
-                    due_on: 'due_on'
-                };
-                let params = new URLSearchParams(formData);
-                params = params.toString();
-
-                if (this.isSort) {
-                    this.isLoading = true;
-
-                    Nova.request().get('/api/asana/task/sort?' + params).then(response => {
-                        this.isLoading = false;
-
-                        if (response.status == 200) {
-                            this.tasks = response.data.data.tasks;
-                            this.sectionData = response.data.data.sections;
-
-                            setTimeout(function () {
-                                _this.uiUpdateMounted()
-                            }, 500);
-                        } else {
-                            this.errors = response.data.msg.errors;
-                        }
-                    });
-                } else {
-                    this.getProjects();
-                }
-            },
             storeNewTemplateProject() {
                 this.isLoading = true;
                 let formData = new FormData();
@@ -3552,7 +2640,7 @@
                 Nova.request().post('/api/asana/tab/duplicate', formData).then(response => {
                     this.isLoading = false;
                     if (response.data.status === 200) {
-                        this.getProjects();
+                        
                         this.getTaskTabContent();
                     } else {
                         this.errors = response.data.errors;
@@ -3582,7 +2670,6 @@
         },
         mounted() {
             this.localAsana();
-            this.getProjects();
             this.getTaskTabContent();
         }
     }
