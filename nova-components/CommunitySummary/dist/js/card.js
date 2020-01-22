@@ -18476,6 +18476,12 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 
@@ -18592,6 +18598,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             createNewTask: false,
             taskParents: [],
             sideBar: 0,
+            asanaLoading: true,
             asana: [],
             asanaTaskCreate: {
                 name: '',
@@ -19171,9 +19178,8 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('#' + id).slideToggle();
         },
         asanaNewTask: function asanaNewTask(id) {
-            console.log('asanaNewTask', id);
             __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.asanaNewTaskCreate-' + id).toggle();
-            __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('#asanaNewTaskCreateInput' + id).focus();
+            __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('#asanaNewTaskCreateInput-' + id).focus();
         },
         openUserDiv: function openUserDiv() {
             console.log('show');
@@ -19182,22 +19188,27 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
         getTaskTabContent: function getTaskTabContent() {
             var _this3 = this;
 
+            var that = this;
             var asanaLocalProjs = localStorage.getItem('asanaProjects') === null ? {} : JSON.parse(localStorage.getItem('asanaProjects'));
-
+            this.asanaLoading = true;
             Nova.request().get('/api/asana/tab?osusr_mlv_community_id=' + this.resourceId).then(function (response) {
-                response.data.data.map(function (proj) {
-                    var asanaProjKey = proj.gid;
-                    var asanaProjData = proj;
-                    asanaLocalProjs[asanaProjKey] = _this3.mergeRecursive(asanaProjData, asanaLocalProjs[asanaProjKey]);
+                __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('#copLoading').hide();
+                if (response.data.data == null) {
+                    _this3.asanaLoading = false;
+                } else {
+                    response.data.data.map(function (proj) {
+                        var asanaProjKey = proj.gid;
+                        var asanaProjData = proj;
+                        asanaLocalProjs[asanaProjKey] = _this3.mergeRecursive(asanaProjData, asanaLocalProjs[asanaProjKey]);
 
-                    _this3.getAsyncSection(proj.gid);
-                });
-                _this3.localAsana();
-                var asanaLocalStore = JSON.stringify(asanaLocalProjs);
-                localStorage.setItem('asanaProjects', asanaLocalStore);
+                        _this3.getAsyncSection(proj.gid);
+                    });
+                    _this3.localAsana();
+                    var asanaLocalStore = JSON.stringify(asanaLocalProjs);
+                    localStorage.setItem('asanaProjects', asanaLocalStore);
+                }
             });
             this.getUsers();
-            var that = this;
             setTimeout(function () {
                 that.uiUpdateMounted();
             }, 500);
@@ -19207,7 +19218,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
             Nova.request().get('/api/asana/tab/sections/' + id).then(function (response) {
                 response.data.data.data.map(function (section) {
-                    _this4.getAsyncTasks(section.gid, response.data.projectGid);
+                    _this4.getAsyncTasks(section.gid, response.data.projectGid, 0);
                 });
 
                 var asanaLocalProjsSec = JSON.parse(localStorage.getItem('asanaProjects'));
@@ -19220,8 +19231,19 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
         getAsyncTasks: function getAsyncTasks(sectionId, projectId) {
             var _this5 = this;
 
+            var flag = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 0;
+
             Nova.request().get('/api/asana/tab/tasks/' + sectionId).then(function (response) {
                 var asanaLocalProjsTask = JSON.parse(localStorage.getItem('asanaProjects'));
+                console.log('Tasks response.data.data', response.data.data.length);
+                if (response.data.data.length == 0) {
+                    if (flag < 4) {
+                        console.log('flag', flag + '-' + sectionId);
+                        setTimeout(function () {
+                            _this5.getAsyncTasks(sectionId, projectId, ++flag);
+                        }, 20000);
+                    }
+                }
                 asanaLocalProjsTask[projectId].sections.map(function (sec) {
                     if (sec.gid == sectionId) {
                         sec.tasks = response.data.data;
@@ -19275,7 +19297,6 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             if (this.asanaTaskCreate.name == '') {
                 console.log('No task Name');
             } else {
-                console.log('this.asanaTaskCreate', this.asanaTaskCreate);
                 __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.newTaskButton').addClass('fa-spin');
                 Nova.request().post('/api/asana/tab/tasks/store', this.asanaTaskCreate).then(function (response) {
                     __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.newTaskButton').removeClass('fa-spin');
@@ -19413,17 +19434,17 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                             var now = dt.getFullYear() + "/" + (dt.getMonth() + 1) + "/" + dt.getDate();
 
                             var dateA = that.parseDate(dtxDate);
-                            console.log('dateA', dateA);
                             var dateB = that.parseDate(now);
-                            console.log('dateB', dateB);
 
                             diff = that.datediff(dateB, dateA);
-                            console.log('diff', diff);
+                            console.log("$(this).data('due')", __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()(this).data('due'));
+                            console.log('e.target.value', e.target.value);
+                            console.log('Diff', diff);
+                            console.log('===========================================');
+                            return e.target.value <= diff || diff < 0;
+                        } else {
+                            return true;
                         }
-                        console.log("$(this).data('due')", __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()(this).data('due'));
-                        console.log('diff diff', diff);
-                        console.log('===========================================');
-                        return e.target.value >= diff;
                     }).hide();
                 }
             }
@@ -19574,6 +19595,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
         createProject: function createProject() {
             var _this13 = this;
 
+            __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('#cpLoading').show();
             this.isLoading = true;
             this.project.name = this.community.STATE + '-' + this.community.COUNTY + '-' + this.community.FRIENDLYNAME + '-' + this.community.COMMUNITYID + '-Standard';
 
@@ -19711,8 +19733,6 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             var name = arguments[2];
             var e = arguments[3];
 
-            console.log('section', section);
-            console.log('name', name);
             __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.task-details-wrapper').hide();
             __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('.loader-io').css('display', 'flex');
             __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('#openUserDiv').hide();
@@ -20182,6 +20202,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
         storeNewTemplateProject: function storeNewTemplateProject() {
             var _this24 = this;
 
+            __WEBPACK_IMPORTED_MODULE_1__static_js_jquery_2_2_4_min___default()('#copLoading').show();
             this.isLoading = true;
             var formData = new FormData();
             formData.append('name', this.community.STATE + '-' + this.community.COUNTY + '-' + this.community.FRIENDLYNAME + '-' + this.community.COMMUNITYID + '-Onboarding');
@@ -51560,7 +51581,7 @@ var render = function() {
                         }),
                         _vm._v(" "),
                         _c("div", { staticClass: "flex-no-shrink ml-auto" }, [
-                          _vm.asana.length == 0
+                          !_vm.asanaLoading
                             ? _c(
                                 "a",
                                 {
@@ -51572,7 +51593,11 @@ var render = function() {
                                   },
                                   on: { click: _vm.createProject }
                                 },
-                                [_vm._v("Create Project")]
+                                [
+                                  _vm._m(38),
+                                  _vm._v(" "),
+                                  _c("span", [_vm._v("Create Project")])
+                                ]
                               )
                             : _vm._e(),
                           _vm._v(" "),
@@ -51588,7 +51613,13 @@ var render = function() {
                                   },
                                   on: { click: _vm.storeNewTemplateProject }
                                 },
-                                [_vm._v("Create Onboarding Project")]
+                                [
+                                  _vm._m(39),
+                                  _vm._v(" "),
+                                  _c("span", [
+                                    _vm._v("Create Onboarding Project")
+                                  ])
+                                ]
                               )
                             : _vm._e()
                         ])
@@ -51959,7 +51990,7 @@ var render = function() {
                                                 ]
                                               ),
                                               _vm._v(" "),
-                                              _vm._m(38, true)
+                                              _vm._m(40, true)
                                             ]
                                           ),
                                           _vm._v(" "),
@@ -52033,7 +52064,8 @@ var render = function() {
                                                 attrs: {
                                                   type: "text",
                                                   id:
-                                                    "`asanaNewTaskCreateInput-${asan.gid}`",
+                                                    "asanaNewTaskCreateInput-" +
+                                                    asan.gid,
                                                   placeholder:
                                                     "Write a Task Name"
                                                 },
@@ -52546,7 +52578,7 @@ var render = function() {
                                                           ]
                                                         ),
                                                         _vm._v(" "),
-                                                        _vm._m(39, true),
+                                                        _vm._m(41, true),
                                                         _vm._v(" "),
                                                         _c(
                                                           "div",
@@ -52795,7 +52827,7 @@ var render = function() {
                             attrs: { id: "task-detail" }
                           },
                           [
-                            _vm._m(40),
+                            _vm._m(42),
                             _vm._v(" "),
                             _vm.taskDetails
                               ? _c(
@@ -54644,7 +54676,7 @@ var render = function() {
                                                       staticClass: "comment-bar"
                                                     },
                                                     [
-                                                      _vm._m(41, true),
+                                                      _vm._m(43, true),
                                                       _vm._v(" "),
                                                       _c(
                                                         "div",
@@ -54800,7 +54832,7 @@ var render = function() {
                                                       staticClass: "history-bar"
                                                     },
                                                     [
-                                                      _vm._m(42),
+                                                      _vm._m(44),
                                                       _vm._v(" "),
                                                       _c(
                                                         "div",
@@ -54923,7 +54955,7 @@ var render = function() {
                                           "head-text-section bg-light"
                                       },
                                       [
-                                        _vm._m(43),
+                                        _vm._m(45),
                                         _vm._v(" "),
                                         _c("textarea", {
                                           directives: [
@@ -55002,11 +55034,11 @@ var render = function() {
                               }
                             }),
                             _vm._v(" "),
-                            _vm._m(44)
+                            _vm._m(46)
                           ]
                         ),
                         _vm._v(" "),
-                        _vm._m(45)
+                        _vm._m(47)
                       ]),
                       _vm._v(" "),
                       _c("div", [
@@ -55032,11 +55064,11 @@ var render = function() {
                               }
                             }),
                             _vm._v(" "),
-                            _vm._m(46)
+                            _vm._m(48)
                           ]
                         ),
                         _vm._v(" "),
-                        _vm._m(47)
+                        _vm._m(49)
                       ]),
                       _vm._v(" "),
                       _c("div", [
@@ -55062,11 +55094,11 @@ var render = function() {
                               }
                             }),
                             _vm._v(" "),
-                            _vm._m(48)
+                            _vm._m(50)
                           ]
                         ),
                         _vm._v(" "),
-                        _vm._m(49)
+                        _vm._m(51)
                       ])
                     ])
                   ]
@@ -56092,6 +56124,26 @@ var staticRenderFns = [
         attrs: { id: "fliInfo" }
       },
       [_c("span", [_vm._v("Some Content")])]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "span",
+      { staticStyle: { display: "none" }, attrs: { id: "cpLoading" } },
+      [_c("i", { staticClass: "fas fa-spinner fa-spin" })]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "span",
+      { staticStyle: { display: "none" }, attrs: { id: "copLoading" } },
+      [_c("i", { staticClass: "fas fa-spinner fa-spin" })]
     )
   },
   function() {

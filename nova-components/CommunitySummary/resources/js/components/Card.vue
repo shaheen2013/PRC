@@ -404,8 +404,14 @@
                         <div class="w-full flex items-center" style="padding: 10px;">
                             <h1 class="flex-no-shrink text-90 font-normal text-2xl"></h1>
                             <div class="flex-no-shrink ml-auto">
-                                <a href="javascript:void(0)" v-if="asana.length == 0" @click="createProject" class="btn btn-default btn-primary" dusk="create-button" style="border-radius: 0px;">Create Project</a>
-                                <a href="javascript:void(0)" v-if="asana.length > 0 && asana.length < 2" @click="storeNewTemplateProject" class="btn btn-default btn-primary" dusk="create-button" style="border-radius: 0px;">Create Onboarding Project</a>
+                                <a href="javascript:void(0)" v-if="!asanaLoading" @click="createProject" class="btn btn-default btn-primary" dusk="create-button" style="border-radius: 0px;">
+                                    <span id="cpLoading" style="display:none"><i class="fas fa-spinner fa-spin"></i></span>
+                                    <span>Create Project</span>
+                                </a>
+                                <a href="javascript:void(0)" v-if="asana.length > 0 && asana.length < 2" @click="storeNewTemplateProject" class="btn btn-default btn-primary" dusk="create-button" style="border-radius: 0px;">
+                                    <span id="copLoading" style="display:none"><i class="fas fa-spinner fa-spin"></i></span>
+                                    <span>Create Onboarding Project</span>
+                                </a>
                             </div>
                         </div>
                         <div class="tabs taskTabTabs" style="width:100%">
@@ -500,7 +506,7 @@
                                             <div class="border-radious-icon" style="visibility: hidden;">
                                                 
                                             </div>
-                                            <span style="width: 90%;"><input type="text" v-model="asanaTaskCreate.name" :class="`task-body-custom-input asanaInputDesign asanaTaskOnSubmit${asan.gid}`" id="`asanaNewTaskCreateInput-${asan.gid}`" v-on:keyup.enter="asanaStoreTask(asan)" placeholder="Write a Task Name"></span>
+                                            <span style="width: 90%;"><input type="text" v-model="asanaTaskCreate.name" :class="`task-body-custom-input asanaInputDesign asanaTaskOnSubmit${asan.gid}`" :id="`asanaNewTaskCreateInput-${asan.gid}`" v-on:keyup.enter="asanaStoreTask(asan)" placeholder="Write a Task Name"></span>
                                             <div  @click="asanaStoreTask(asan)" class="detail-option">Create
                                                 <svg class="MiniIcon-right" viewBox="0 0 24 24">
                                                     <path d="M8.9,20.4c-0.4,0-0.7-0.1-1-0.4c-0.6-0.6-0.7-1.5-0.1-2.1l5.2-5.8L7.8,6C7.3,5.4,7.3,4.4,8,3.9C8.6,3.3,9.5,3.4,10.1,4l6.1,7.1c0.5,0.6,0.5,1.4,0,2l-6.1,6.8C9.8,20.3,9.4,20.4,8.9,20.4z"></path>
@@ -1062,6 +1068,7 @@
                 createNewTask: false,
                 taskParents: [],
                 sideBar: 0,
+                asanaLoading:true,
                 asana:[],
                 asanaTaskCreate:{
                     name: '',
@@ -1645,40 +1652,45 @@
                 $(`#${id}`).slideToggle();
             },
             asanaNewTask(id){
-                console.log('asanaNewTask', id)
                 $(`.asanaNewTaskCreate-${id}`).toggle();
-                $(`#asanaNewTaskCreateInput${id}`).focus();
+                $(`#asanaNewTaskCreateInput-${id}`).focus();
             },
             openUserDiv(){
                 console.log('show')
                 $('#openUserDiv').show();
             },
             getTaskTabContent(){
+                const that = this;
                 const asanaLocalProjs = localStorage.getItem('asanaProjects') === null  ? {} : JSON.parse(localStorage.getItem('asanaProjects'));
-
+                this.asanaLoading = true;
                 Nova.request().get('/api/asana/tab?osusr_mlv_community_id=' + this.resourceId).then(response => {
-                    response.data.data.map(proj =>{
-                        const asanaProjKey = proj.gid;
-                        const asanaProjData = proj;
-                        asanaLocalProjs[asanaProjKey] = this.mergeRecursive(asanaProjData, asanaLocalProjs[asanaProjKey]);
+                    $('#copLoading').hide()
+                    if(response.data.data == null){
+                        this.asanaLoading = false;
+                    }else{
+                        response.data.data.map(proj =>{
+                            const asanaProjKey = proj.gid;
+                            const asanaProjData = proj;
+                            asanaLocalProjs[asanaProjKey] = this.mergeRecursive(asanaProjData, asanaLocalProjs[asanaProjKey]);
+    
+                            this.getAsyncSection(proj.gid);
+                        });
+                        this.localAsana()
+                        const asanaLocalStore = JSON.stringify(asanaLocalProjs);
+                        localStorage.setItem('asanaProjects', asanaLocalStore);
+                    }
 
-                        this.getAsyncSection(proj.gid);
-                    });
-                    this.localAsana()
-                    const asanaLocalStore = JSON.stringify(asanaLocalProjs);
-                    localStorage.setItem('asanaProjects', asanaLocalStore);
 
                 });
                 this.getUsers();
-                const that = this;
                 setTimeout(function () {
-                        that.uiUpdateMounted()
-                    }, 500);
+                    that.uiUpdateMounted()
+                }, 500);
             },
             getAsyncSection(id){
                 Nova.request().get(`/api/asana/tab/sections/${id}`).then(response => {
                     response.data.data.data.map(section => {
-                        this.getAsyncTasks(section.gid, response.data.projectGid);
+                        this.getAsyncTasks(section.gid, response.data.projectGid, 0);
                     });
 
                     const asanaLocalProjsSec = JSON.parse(localStorage.getItem('asanaProjects'));
@@ -1688,9 +1700,18 @@
                     localStorage.setItem('asanaProjects', asanaLocalStoreSec);
                 });
             },
-            getAsyncTasks(sectionId, projectId){
+            getAsyncTasks(sectionId, projectId, flag=0){
                 Nova.request().get(`/api/asana/tab/tasks/${sectionId}`).then(response => {
                     const asanaLocalProjsTask = JSON.parse(localStorage.getItem('asanaProjects'));
+                    console.log('Tasks response.data.data', response.data.data.length)
+                    if(response.data.data.length == 0){
+                        if(flag < 4){
+                            console.log('flag', `${flag}-${sectionId}`)
+                            setTimeout(() => {
+                                this.getAsyncTasks(sectionId, projectId, ++flag);
+                            }, 20000);
+                        }
+                    }
                     asanaLocalProjsTask[projectId].sections.map(sec => {
                         if(sec.gid == sectionId){
                             sec.tasks = response.data.data;
@@ -1738,7 +1759,6 @@
                 if(this.asanaTaskCreate.name == ''){
                     console.log('No task Name');
                 }else{
-                    console.log('this.asanaTaskCreate', this.asanaTaskCreate);
                     $('.newTaskButton').addClass('fa-spin');
                     Nova.request().post('/api/asana/tab/tasks/store', this.asanaTaskCreate).then(response => {
                         $('.newTaskButton').removeClass('fa-spin');
@@ -1878,17 +1898,17 @@
                                     let now = dt.getFullYear() + "/" + (dt.getMonth() + 1) + "/" + dt.getDate();
 
                                     let dateA = that.parseDate(dtxDate);
-                                    console.log('dateA', dateA);
                                     let dateB = that.parseDate(now);
-                                    console.log('dateB', dateB);
 
                                     diff = that.datediff(dateB, dateA);
-                                    console.log('diff', diff);
-                                }
                                     console.log("$(this).data('due')", $(this).data('due'));
-                                    console.log('diff diff', diff);
+                                    console.log('e.target.value', e.target.value);
+                                    console.log('Diff', diff);
                                     console.log('===========================================');
-                                return e.target.value >= diff;
+                                    return e.target.value <= diff || diff < 0;
+                                }else{
+                                    return true;
+                                }
                         }).hide();
                     }                
                 }
@@ -2042,6 +2062,7 @@
                 return obj1;
             },
             createProject() {
+                $('#cpLoading').show()
                 this.isLoading = true;
                 this.project.name = this.community.STATE + '-' + this.community.COUNTY + '-' + this.community.FRIENDLYNAME + '-' + this.community.COMMUNITYID + '-Standard';
 
@@ -2169,8 +2190,6 @@
                 });
             },
             inlineTaskUpdate(section = null, id, name, e) {
-                console.log('section', section);
-                console.log('name', name);
                 $('.task-details-wrapper').hide();
                 $('.loader-io').css('display', 'flex');
                 $('#openUserDiv').hide();
@@ -2632,6 +2651,7 @@
                 }, 1000);
             },
             storeNewTemplateProject() {
+                $('#copLoading').show()
                 this.isLoading = true;
                 let formData = new FormData();
                 formData.append('name', this.community.STATE + '-' + this.community.COUNTY + '-' + this.community.FRIENDLYNAME + '-' + this.community.COMMUNITYID + '-Onboarding');

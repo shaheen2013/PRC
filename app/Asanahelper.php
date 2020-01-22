@@ -1,7 +1,7 @@
 <?php
 
 namespace App;
-use App\accessToken;
+use App\Accesstoken;
 
 
 class Asanahelper
