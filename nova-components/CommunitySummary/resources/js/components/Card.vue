@@ -125,9 +125,10 @@
                     </div>
                 </div>
             </div>
-            <div class="communityWarning" style="display: flex">
+            
+            <div v-if="salesConNote['isNote']" class="communityWarning" style="display: flex">
                 <div style="width:100%">
-                    <i class="fa-xs fas fa-exclamation-triangle exclamation-triangle" style="margin-right:10px;font-size: 30px;"></i> Some issue or alert message can go here.
+                    <i class="fa-xs fas fa-exclamation-triangle exclamation-triangle" style="margin-right:10px;font-size: 30px;"></i> {{salesConNote['note']}}
                 </div>
                 <div style="width:30px">
                     <i class="fa-xs fas fa-times-circle times-circle" @click="closeAlertMessage()"></i>
@@ -136,18 +137,18 @@
             <section class="tabSection" id="csInfoToggle">
                 <div class="tabsContainer" style="display: flex;margin-top:20px">
                     <div class="tabs" style="width:100%">
-                        <span class="tabCustom" id="salesTab" @click="openTabContent('salesTabContent', 'salesTab')">Sales</span>
+                        <span class="tabCustom tabCustomClicked" id="salesTab" @click="openTabContent('salesTabContent', 'salesTab')">Sales</span>
                         <span class="tabCustom" id="serviceTab" @click="openTabContent('serviceTabContent', 'serviceTab')">Service</span>
                         <span class="tabCustom" id="legalTab" @click="openTabContent('legalTabContent', 'legalTab')">Legal</span>
                         <span class="tabCustom" id="contactTab" @click="openTabContent('contactTabContent', 'contactTab')">Contact</span>
                     </div>
                     <div class="tabs" style="width:190px">
-                        <span class="tabCustom tabCustomClicked" id="tasksTab" @click="openTabContent('tasksTabContent', 'tasksTab')">Tasks <div class="taskTabNot">2</div></span>
+                        <span class="tabCustom" id="tasksTab" @click="openTabContent('tasksTabContent', 'tasksTab')">Tasks <div class="taskTabNot">2</div></span>
                         <span class="tabCustom" id="actionTab" @click="openTabContent('actionTabContent', 'actionTab')">Admin <div class="taskTabNot">2</div></span>
                     </div>
                 </div>
                 <div class="summary" style="padding: 30px 20px;box-shadow:unset;border: 2px solid #908f8f;min-height: 150px;">
-                    <div class="tabContent" id="salesTabContent">
+                    <div class="tabContent" id="salesTabContent" style="display:block;padding:0px">
                         <div class="wrap-detailBox">
                             <div>
                                 <div class="label-square hoverUnderLine" @click="communityOpen('coka')" style="position: relative;">
@@ -168,7 +169,7 @@
                                                 <h4 style="width:56%;display: inline-block;">Short Term Rental</h4>
                                                 <h4 style="width:40%;display: inline-block;text-align: right;">STR</h4>
                                             </div>
-                                            <h4 style="margin: 10px 0px;width:100%;text-align:center;border-bottom: 2px solid;padding: 10px;">1200</h4>
+                                            <h4 style="margin: 10px 0px;width:100%;text-align:center;border-bottom: 2px solid;padding: 10px;">{{community?community.housing_data? Math.round((community.housing_data.housing_units)*.02) :null:null}}</h4>
 
                                             <div class="cardCustomHeader" style="padding: 10px 10px;">
                                                 <div style="width:56%;display: inline-block;">
@@ -187,7 +188,7 @@
                                                 <h4 style="width:56%;display: inline-block;">Long Term Rental</h4>
                                                 <h4 style="width:40%;display: inline-block;text-align: right;">STR</h4>
                                             </div>
-                                            <h4 style="margin: 10px 0px;width:100%;text-align:center;border-bottom: 2px solid;padding: 10px;">3500</h4>
+                                            <h4 style="margin: 10px 0px;width:100%;text-align:center;border-bottom: 2px solid;padding: 10px;">{{community?community.housing_data? community.housing_data.est_vacant_total :null:null}}</h4>
                                             <div class="cardCustomHeader" style="padding: 10px 10px;">
                                                 <div style="width:56%;display: inline-block;">
                                                     Census Estimate
@@ -236,7 +237,7 @@
                                                 <h4 style="width:56%;display: inline-block;">Vacant Private Owner</h4>
                                                 <h4 style="width:40%;display: inline-block;text-align: right;">STR</h4>
                                             </div>
-                                            <h4 style="margin: 10px 0px;width:100%;text-align:center;border-bottom: 2px solid;padding: 10px;">2300</h4>
+                                            <h4 style="margin: 10px 0px;width:100%;text-align:center;border-bottom: 2px solid;padding: 10px;">{{community?community.housing_data? community.housing_data.est_long_term_rental :null:null}}</h4>
                                             <div class="cardCustomHeader" style="padding: 10px 10px;">
                                                 <div style="width:56%;display: inline-block;">
                                                     Census Estimate
@@ -256,7 +257,7 @@
                                         </div>
                                     </div>
                                     <h4 style="width:100%;text-align: center;padding-top: 15px;">
-                                        *The estimated annual registration are bsed on best practice ordinance and colaborative enforcement and ##% compliance.
+                                        *The estimated annual registration are bsed on best practice ordinance and colaborative enforcement and 80% compliance.
                                     </h4>
                                     
                                 </div>
@@ -400,7 +401,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="tabContent tabContentTasks" id="tasksTabContent" style="display:block;padding:0px">
+                    <div class="tabContent tabContentTasks" id="tasksTabContent" style="padding:0px">
                         <div class="w-full flex items-center" style="padding: 10px;">
                             <h1 class="flex-no-shrink text-90 font-normal text-2xl"></h1>
                             <div class="flex-no-shrink ml-auto">
@@ -1084,6 +1085,12 @@
             }
         },
         computed: {
+            salesConNote(){
+                let salesConNotea = {}
+                salesConNotea['isNote'] = this.community ? this.community.sales_configuration ? this.community.sales_configuration.special_oversight_notes? true : false : false : false;
+                salesConNotea['note'] = this.community ? this.community.sales_configuration ? this.community.sales_configuration.special_oversight_notes : false : false;
+                return salesConNotea;
+            },
             communityName() {
                 if (this.community) {
                     console.log('this.community',this.community)
@@ -2499,7 +2506,7 @@
                         this.taskComment = '';
                         console.log('this.taskDetails', this.taskDetails);
                         console.log('response.data.data', response.data.data);
-                        this.taskDetails.comments = response.data.data.data;
+                        this.taskDetails.comments = response.data.data;
                         Swal.fire({
                             type: 'success',
                             position: 'top-end',

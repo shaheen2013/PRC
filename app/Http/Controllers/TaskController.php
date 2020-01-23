@@ -608,8 +608,18 @@ class TaskController extends Controller
         try {
             json_decode($this->asana->commentOnTask($id, $request->taskComment), 1);
             $comments = json_decode($this->asana->getTaskStories($id));
+            foreach ($comments->data as $comment) {
+                $tempComment = [];
+                $tempComment[] = $comment;
 
-            return response()->json(['status' => 200, 'data' => $comments], 200);
+                if ($comment->type == 'comment') {
+                    $tempComment['details'] = json_decode($this->asana->getSingleStory($comment->gid));
+                }
+                
+                $tempComments[] = $tempComment;
+            }
+
+            return response()->json(['status' => 200, 'data' => $tempComments], 200);
         } catch (\Exception $e) {
             return response()->json(['status' => 500, 'msg' => $e->getMessage()], 200);
         }
